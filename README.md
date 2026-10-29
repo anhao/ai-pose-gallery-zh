@@ -182,11 +182,35 @@ npx wrangler pages deploy dist --project-name ai-pose-gallery-zh
 | `pose-reference-couple` | 275 | 双人缠绵（18+） |
 | `pose-reference-all` | 1439 | 全部 |
 
-每个技能含 `SKILL.md`（用法 + 姿势目录）与 `references/catalog.csv`；csv 的 `图片` 列是**相对技能根目录**的路径（`../../img/<id>.png`），直接复用本仓库 `img/`，不重复存图、不依赖外链。使用时保留仓库目录结构即可，例如在 Claude Code 中：
+每个技能含 `SKILL.md`（用法 + 姿势目录）与 `references/catalog.csv`；csv 的 `图片` 列是**相对技能根目录**的路径（`../../img/<id>.png`），直接复用本仓库 `img/`，不重复存图、不依赖外链。
+
+### 安装：手动
+
+技能通过相对路径读取仓库的 `img/`，所以要**保留整个仓库**，再把技能目录**软链**（不要复制）到 Agent 的技能目录。以 Claude Code 为例（个人技能目录 `~/.claude/skills/`，项目级为 `<项目>/.claude/skills/`）：
 
 ```bash
-ln -s "$PWD/skills/pose-reference-standard" ~/.claude/skills/pose-reference-standard
+git clone --depth 1 https://github.com/anhao/ai-pose-gallery-zh.git ~/ai-pose-gallery-zh
+mkdir -p ~/.claude/skills
+ln -s ~/ai-pose-gallery-zh/skills/pose-reference-standard ~/.claude/skills/pose-reference-standard
+# 需要全部技能：for d in ~/ai-pose-gallery-zh/skills/pose-reference-*; do ln -s "$d" ~/.claude/skills/; done
 ```
+
+重启 Claude Code 或新开会话后输入 `/skills`，能看到 `pose-reference-*` 即可。仓库移动位置后需重新建软链。
+
+只想要可单独拷贝、自带图片（WebP）的版本，可用独立技能包仓库 [jasoncai0/pose-reference-skills](https://github.com/jasoncai0/pose-reference-skills)。
+
+### 安装：让 Agent 帮你装
+
+把下面这段话发给 Claude Code（或其他能执行命令的 Agent），按需改技能名：
+
+```text
+请帮我安装姿势参考技能：把 https://github.com/anhao/ai-pose-gallery-zh 浅克隆到 ~/ai-pose-gallery-zh
+（需要完整仓库，技能会用相对路径读取仓库里的 img/），然后把 skills/pose-reference-standard
+软链到 ~/.claude/skills/pose-reference-standard（不要复制）。完成后检查
+references/catalog.csv 里每一行的「图片」路径相对技能目录都能找到文件，告诉我总行数和缺失数。
+```
+
+要装全部技能，把「skills/pose-reference-standard」改成「skills/ 下全部 pose-reference-* 目录」。
 
 ## 内容提示
 
