@@ -170,6 +170,24 @@ npx wrangler pages deploy dist --project-name ai-pose-gallery-zh
 
 `_headers` 已为 `img/`、`thumbs/` 配置一年期强缓存，图片不会重复回源。
 
+## Agent 技能（Skills）
+
+`skills/` 下提供 5 个 `SKILL.md` 格式的 Agent 技能，让 AI Agent 按姿势名 + 视角检索本仓库的白模图，作为生图 / 生视频的姿势参考：
+
+| 技能 | 图片数 | 范围 |
+| --- | ---: | --- |
+| `pose-reference-standard` | 365 | 全身单人・标准系 |
+| `pose-reference-upper` | 400 | 上半身单人 |
+| `pose-reference-sexy` | 399 | 全身单人・性感系（18+） |
+| `pose-reference-couple` | 275 | 双人缠绵（18+） |
+| `pose-reference-all` | 1439 | 全部 |
+
+每个技能含 `SKILL.md`（用法 + 姿势目录）与 `references/catalog.csv`；csv 的 `图片` 列是**相对技能根目录**的路径（`../../img/<id>.png`），直接复用本仓库 `img/`，不重复存图、不依赖外链。使用时保留仓库目录结构即可，例如在 Claude Code 中：
+
+```bash
+ln -s "$PWD/skills/pose-reference-standard" ~/.claude/skills/pose-reference-standard
+```
+
 ## 内容提示
 
 图库包含成人向姿势参考（部分分类名称涉及性行为术语），仅供艺术创作、动作参考与前端技术学习使用。请勿用于违法用途。未成年人请勿访问。
