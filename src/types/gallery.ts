@@ -1,4 +1,5 @@
 export interface PoseItem {
+  source?: 'upload'
   id: string
   体系: string
   姿势编号: string
@@ -22,6 +23,7 @@ export interface PoseGroup {
 }
 
 export interface CostumeItem {
+  source?: 'upload'
   id: string
   分类: string
   服装名称: string
@@ -34,6 +36,7 @@ export interface CostumeItem {
 }
 
 export interface PortraitItem {
+  source?: 'upload'
   id: string
   分区: string
   发长: string

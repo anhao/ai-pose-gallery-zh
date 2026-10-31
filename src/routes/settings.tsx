@@ -167,25 +167,27 @@ function SettingsPage() {
           </div>
         </Field>
 
-        <Field label="默认模型 ID">
-          <Select
-            value={pCfg.model}
-            onValueChange={(v) => updateProviderConfig(pid, { model: v })}
-          >
-            <SelectTrigger className="w-full font-mono text-xs">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              {meta.models.map((m) => (
-                <SelectItem key={m.value} value={m.value} className="font-mono text-xs">
-                  {m.label}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </Field>
+        {pid !== 'comfyui' && (
+          <Field label="默认模型 ID">
+            <Select
+              value={pCfg.model}
+              onValueChange={(v) => updateProviderConfig(pid, { model: v })}
+            >
+              <SelectTrigger className="w-full font-mono text-xs">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                {meta.models.map((m) => (
+                  <SelectItem key={m.value} value={m.value} className="font-mono text-xs">
+                    {m.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </Field>
+        )}
 
-        {pCfg.model === 'custom' && (
+        {pid !== 'comfyui' && pCfg.model === 'custom' && (
           <Field label="自定义模型 ID">
             <Input
               value={pCfg.customModel}
@@ -197,35 +199,41 @@ function SettingsPage() {
         )}
       </Section>
 
-      {/* 全局传输设置 */}
-      <Section title="全局请求选项">
-        <Field label="参考图传参方式">
-          <Select
-            value={apiConfig.imagePassMode}
-            onValueChange={(v) => updateApiConfig({ imagePassMode: v as ImagePassMode })}
-          >
-            <SelectTrigger className="w-full">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="url">传递图片 URL（免上传文件，推荐）</SelectItem>
-              <SelectItem value="base64">转 Base64 编码传输</SelectItem>
-            </SelectContent>
-          </Select>
-        </Field>
+      {pid === 'comfyui' && (
+        <p className="text-sm text-muted-foreground">模型由工作流决定。请返回合成台导入工作流，并设置人像、服装和姿势节点。</p>
+      )}
 
-        <Field label="服务端 CORS 代理 (/api/proxy)">
-          <div className="flex h-9 items-center justify-between rounded-xl border bg-background px-3">
-            <span className="text-xs text-muted-foreground">
-              {apiConfig.useProxy ? '已启用（解决跨域限制）' : '已关闭（浏览器直连）'}
-            </span>
-            <Switch
-              checked={apiConfig.useProxy}
-              onCheckedChange={(v) => updateApiConfig({ useProxy: v })}
-            />
-          </div>
-        </Field>
-      </Section>
+      {/* 全局传输设置 */}
+      {pid !== 'comfyui' && (
+        <Section title="全局请求选项">
+          <Field label="参考图传参方式">
+            <Select
+              value={apiConfig.imagePassMode}
+              onValueChange={(v) => updateApiConfig({ imagePassMode: v as ImagePassMode })}
+            >
+              <SelectTrigger className="w-full">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="url">传递图片 URL（免上传文件，推荐）</SelectItem>
+                <SelectItem value="base64">转 Base64 编码传输</SelectItem>
+              </SelectContent>
+            </Select>
+          </Field>
+
+          <Field label="服务端 CORS 代理 (/api/proxy)">
+            <div className="flex h-9 items-center justify-between rounded-xl border bg-background px-3">
+              <span className="text-xs text-muted-foreground">
+                {apiConfig.useProxy ? '已启用（解决跨域限制）' : '已关闭（浏览器直连）'}
+              </span>
+              <Switch
+                checked={apiConfig.useProxy}
+                onCheckedChange={(v) => updateApiConfig({ useProxy: v })}
+              />
+            </div>
+          </Field>
+        </Section>
+      )}
 
       <div className="flex justify-end">
         <Button size="sm" onClick={() => toast.success('配置已保存')}>

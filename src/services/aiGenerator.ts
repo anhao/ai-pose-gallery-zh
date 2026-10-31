@@ -154,19 +154,25 @@ export function buildRecipePrompt(recipe: RecipeState, stylePreset = 'realistic'
         ? recipe.portrait.标题
         : recipe.portrait.发长
     clauses.push(
-      `• 【图${idx}（人像参考）】：保持图${idx}人物的五官脸型、发色与「${hairDesc}」发型气质一致。`
+      recipe.portrait.source === 'upload'
+        ? `• 【图${idx}（人像参考）】：保持图${idx}人物的五官脸型、发色与发型一致。`
+        : `• 【图${idx}（人像参考）】：保持图${idx}人物的五官脸型、发色与「${hairDesc}」发型气质一致。`
     )
     idx++
   }
   if (recipe.costume) {
     clauses.push(
-      `• 【图${idx}（服装参考）】：穿上图${idx}中的完整服饰「${recipe.costume.服装名称}」，还原面料质感与剪裁。`
+      recipe.costume.source === 'upload'
+        ? `• 【图${idx}（服装参考）】：穿上图${idx}中的完整服饰，还原颜色、面料质感与剪裁。`
+        : `• 【图${idx}（服装参考）】：穿上图${idx}中的完整服饰「${recipe.costume.服装名称}」，还原面料质感与剪裁。`
     )
     idx++
   }
   if (recipe.pose) {
     clauses.push(
-      `• 【图${idx}（姿势参考）】：身体姿态与镜头透视遵循图${idx}「${recipe.pose.姿势名称}」【${recipe.pose.角度}】（仅参考骨架动作，忽略素体白模材质）。`
+      recipe.pose.source === 'upload'
+        ? `• 【图${idx}（姿势参考）】：身体姿态与镜头透视遵循图${idx}，仅参考姿势，不复制人物外观与服装。`
+        : `• 【图${idx}（姿势参考）】：身体姿态与镜头透视遵循图${idx}「${recipe.pose.姿势名称}」【${recipe.pose.角度}】（仅参考骨架动作，忽略素体白模材质）。`
     )
     idx++
   }
@@ -803,9 +809,8 @@ async function generateWithComfyUi(params: {
   config: ApiConfig
   baseUrl: string
   apiKey: string
-  model: string
 }): Promise<{ imageUrl: string; modelUsed: string; providerUsed: ImageProviderId }> {
-  const { recipe, prompt, config, baseUrl, apiKey, model } = params
+  const { recipe, prompt, config, baseUrl, apiKey } = params
   const cp = config.comfyuiParams
   const parsedInfo = parseComfyWorkflowNodes(cp.workflowJson)
   if (!parsedInfo.valid) {
@@ -815,23 +820,35 @@ async function generateWithComfyUi(params: {
   const workflow = JSON.parse(cp.workflowJson)
 
   // 1. 按映射槽位上传参考图并注入节点
-  const slotUploads: Array<{ nodeId: string; src: string | null; prefix: string }> = [
+  const slotUploads: Array<{ nodeId: string; src: string | null; prefix: string; label: string }> = [
     {
       nodeId: cp.portraitNodeId,
       src: recipe.portrait ? recipe.portrait.原图 || recipe.portrait.缩略图 : null,
       prefix: 'studio_portrait',
+      label: '人像',
     },
     {
       nodeId: cp.costumeNodeId,
       src: recipe.costume ? recipe.costume.预览图 || recipe.costume.原图 || recipe.costume.缩略图 : null,
       prefix: 'studio_costume',
+      label: '服装',
     },
     {
       nodeId: cp.poseNodeId,
       src: recipe.pose ? recipe.pose.原图 || recipe.pose.缩略图 : null,
       prefix: 'studio_pose',
+      label: '姿势',
     },
   ]
+
+  const invalidSlots = slotUploads.filter((slot) => slot.nodeId && slot.nodeId !== 'none' && !parsedInfo.imageNodes.some((node) => node.id === slot.nodeId))
+  if (invalidSlots.length) {
+    throw new Error(`[ComfyUI] ${invalidSlots.map((slot) => slot.label).join('、')}节点映射已失效，请重新识别或选择节点`)
+  }
+  const missingSlots = slotUploads.filter((slot) => slot.nodeId && slot.nodeId !== 'none' && !slot.src)
+  if (missingSlots.length) {
+    throw new Error(`[ComfyUI] 请先选择或上传：${missingSlots.map((slot) => slot.label).join('、')}`)
+  }
 
   for (const slot of slotUploads) {
     if (slot.nodeId && slot.nodeId !== 'none' && slot.src && workflow[slot.nodeId]?.inputs) {
@@ -930,9 +947,9 @@ async function generateWithComfyUi(params: {
       const viewUrl = `${baseUrl}/view?${qs.toString()}`
       try {
         const imgDataUrl = await srcToPngDataUrl(viewUrl)
-        return { imageUrl: imgDataUrl, modelUsed: model || 'comfyui', providerUsed: 'comfyui' }
+        return { imageUrl: imgDataUrl, modelUsed: 'ComfyUI 工作流', providerUsed: 'comfyui' }
       } catch {
-        return { imageUrl: viewUrl, modelUsed: model || 'comfyui', providerUsed: 'comfyui' }
+        return { imageUrl: viewUrl, modelUsed: 'ComfyUI 工作流', providerUsed: 'comfyui' }
       }
     }
   }
@@ -966,14 +983,14 @@ export async function generateCharacterImage(params: {
   }
 
   const model = pCfg.model === 'custom' ? pCfg.customModel.trim() : pCfg.model
-  if (!model) {
+  if (provider !== 'comfyui' && !model) {
     throw new Error('请选择或填写有效的模型名称')
   }
 
   const baseUrl = (pCfg.baseUrl.trim() || PROVIDER_META[provider].defaultBaseUrl).replace(/\/+$/, '')
 
   if (provider === 'comfyui') {
-    return generateWithComfyUi({ recipe, prompt, config, baseUrl, apiKey, model })
+    return generateWithComfyUi({ recipe, prompt, config, baseUrl, apiKey })
   }
 
   // 判断当前请求是否需要转换为本地 Base64：
