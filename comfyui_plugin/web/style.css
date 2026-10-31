@@ -1,0 +1,324 @@
+/* AI 角色三合一参考图集 ComfyUI 前端插件样式 */
+.pca-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(9, 10, 15, 0.82);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: #f3f4f6;
+}
+
+.pca-modal {
+  width: min(1280px, 96vw);
+  height: min(860px, 92vh);
+  background: #14161f;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  box-shadow: 0 24px 72px rgba(0, 0, 0, 0.65);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.pca-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 20px;
+  background: #191c28;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pca-title-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pca-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.pca-subtitle {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.pca-tabs {
+  display: flex;
+  gap: 8px;
+}
+
+.pca-tab-btn {
+  padding: 7px 14px;
+  border-radius: 9px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  color: #d1d5db;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.pca-tab-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.pca-tab-btn.active {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  border-color: rgba(139, 92, 246, 0.7);
+  color: #fff;
+}
+
+.pca-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background: #161924;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.pca-search-input {
+  flex: 1;
+  min-width: 220px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: #0f1119;
+  color: #f9fafb;
+  font-size: 13px;
+  outline: none;
+}
+
+.pca-search-input:focus {
+  border-color: #8b5cf6;
+}
+
+.pca-select {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: #0f1119;
+  color: #f3f4f6;
+  font-size: 12px;
+  outline: none;
+}
+
+.pca-btn {
+  padding: 7px 13px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  color: #f3f4f6;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.pca-btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.pca-btn-primary {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  border-color: transparent;
+  color: #ffffff;
+}
+
+.pca-btn-primary:hover {
+  filter: brightness(1.08);
+}
+
+.pca-grid-wrap {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 20px;
+}
+
+.pca-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(158px, 1fr));
+  gap: 12px;
+}
+
+.pca-card {
+  background: #1c202e;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.14s ease, border-color 0.14s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.pca-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(139, 92, 246, 0.65);
+}
+
+.pca-card.selected {
+  border: 2px solid #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.25);
+}
+
+.pca-card-img-wrap {
+  aspect-ratio: 4 / 5;
+  background: #0f1118;
+  position: relative;
+  overflow: hidden;
+}
+
+.pca-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.pca-card-id {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  padding: 2px 6px;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.68);
+  color: #e5e7eb;
+  font-size: 10px;
+  font-family: monospace;
+}
+
+.pca-card-badge {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  padding: 2px 6px;
+  border-radius: 5px;
+  background: rgba(99, 102, 241, 0.85);
+  color: #fff;
+  font-size: 10px;
+}
+
+.pca-card-meta {
+  padding: 8px 10px;
+}
+
+.pca-card-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #f3f4f6;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pca-card-sub {
+  font-size: 11px;
+  color: #9ca3af;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pca-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 20px;
+  background: #191c28;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pca-recipe-slots {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pca-slot-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  background: #11131c;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.pca-slot-pill.active {
+  border-color: #8b5cf6;
+  background: rgba(139, 92, 246, 0.14);
+}
+
+.pca-slot-pill img {
+  width: 26px;
+  height: 32px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* 节点内缩略图预览组件 */
+.pca-node-preview {
+  display: flex;
+  gap: 6px;
+  padding: 6px;
+  background: rgba(15, 17, 25, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  margin-top: 4px;
+  box-sizing: border-box;
+}
+
+.pca-node-thumb-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #181b26;
+  border-radius: 6px;
+  padding: 4px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: border-color 0.15s ease;
+}
+
+.pca-node-thumb-card:hover {
+  border-color: #8b5cf6;
+}
+
+.pca-node-thumb-card img {
+  width: 100%;
+  height: 112px;
+  object-fit: contain;
+  border-radius: 4px;
+  background: #0d0f15;
+}
+
+.pca-node-thumb-label {
+  font-size: 10px;
+  color: #d1d5db;
+  margin-top: 4px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}

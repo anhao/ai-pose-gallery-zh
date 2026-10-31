@@ -31,7 +31,8 @@
 3. **三合一 AI 角色合成工作台** —— 基于 **React 19 + Tailwind CSS 4 + TypeScript 7 + shadcn/ui + TanStack Router** 构建的响应式多页面应用（兼容 PC / 平板 / 手机）：
    - 从三大图库任意挑选 **人像 + 服装 + 姿势** 组合配方，或一键随机捏人；
    - 支持拖拽 / 剪贴板粘贴（`Cmd+V` / `Ctrl+V`） / URL 添加多张自定义附加参考图；
-   - 内置 **4 大主流 AI 图像协议直连**（Gemini、OpenAI GPT、阿里千问 Qwen、字节豆包 Seedream），支持直接传递公网图片 URL 或 Base64，生成记录通过 **IndexedDB** 本地持久化保存。
+   - 内置 **5 大 AI 图像协议直连**（Gemini、OpenAI GPT、阿里千问 Qwen、字节豆包 Seedream、**本地 ComfyUI 工作流引擎**），支持直接传递公网图片 URL、Base64 或自动上传至本地 ComfyUI，生成记录通过 **IndexedDB** 本地持久化保存。
+4. **原生 ComfyUI 自定义节点插件（`custom_nodes`）** —— 本仓库同时是一个完整的 ComfyUI 插件！直接 `git clone` 到 `ComfyUI/custom_nodes/` 即可在 ComfyUI 内使用 **姿势 / 服装 / 人像 / 三合一角色配方** 4 个自定义节点与内置的 4,345 张中文可视化选图器。
 
 ---
 
@@ -52,7 +53,15 @@
   - **OpenAI GPT Image**：`gpt-image-1.5`、`gpt-image-1`、`gpt-image-1-mini`（支持 `/v1/images/edits` JSON URL 直传 / Multipart 上传、尺寸、质量、背景透明度）
   - **阿里千问 Qwen-Image**：`qwen-image-2.0-pro`、`qwen-image-2.0`、`qwen-image-edit-max`（支持 `multimodal-generation` 多图参考输入、智能改写 `prompt_extend`、水印开关）
   - **字节豆包 Seedream**：`doubao-seedream-5-0-260128`、`doubao-seedream-4-5-251128`、`doubao-seedream-4-0-250828`（支持多图融合 `image: [...]`、2K/4K 分辨率）
+  - **本地 ComfyUI 直连**：支持一键把三合一参考拼图及单张人像/服装/姿势图自动上传至本地 ComfyUI（`/upload/image`），注入自定义 API 工作流占位符（`{{prompt}}`、`{{seed}}`、`{{width}}`、`{{height}}`、`{{composite_image}}`、`{{portrait_image}}`、`{{costume_image}}`、`{{pose_image}}`）或自动识别 `CLIPTextEncode` / `KSampler` / `LoadImage` 节点提交 `/prompt` 队列并轮询取回成品图；支持导出通用 `.api.json` 工作流模板。
 - **跨页面后台生图 & IndexedDB 历史记录**：切换页面不会中断正在进行的生图请求；生成结果自动存入浏览器 IndexedDB（避免 `localStorage` 容量限制），支持复用提示词与原图下载。
+
+### 3. ComfyUI 原生自定义节点插件（`comfyui_plugin/`）
+将本仓库克隆到 `ComfyUI/custom_nodes/ai-pose-gallery-zh` 后，ComfyUI 画布右键菜单 **「AI角色三合一参考图集」** 下自动提供 4 个节点：
+- **AI 姿势参考图 (`PoseGalleryNode`)**：输出 `姿势图 (IMAGE)`、`图片ID`、`姿势提示词`
+- **AI 服装参考图 (`CostumeGalleryNode`)**：输出 `服装图 (IMAGE)`、`图片ID`、`中文服装描述`、`英文服装Prompt`
+- **AI 人像参考图 (`PortraitGalleryNode`)**：输出 `人像图 (IMAGE)`、`图片ID`、`人像发型描述`
+- **AI 角色三合一合成配方 (`CharacterRecipeNode`)**：一个节点同时输出 `人像图`、`服装图`、`姿势图`、`三合一拼图` 以及自动组装的 `中文合成Prompt` 与 `英文合成Prompt`，并内置 **4,345 张中文可视化弹窗选图器**与节点内实时缩略图预览。
 
 ---
 
@@ -160,6 +169,34 @@ python3 scripts/verify.py
 bash scripts/build.sh
 npx wrangler pages deploy dist --project-name ai-pose-gallery-zh
 ```
+
+---
+
+## 在 ComfyUI 中使用（双模式支持）
+
+### 模式 A：作为 ComfyUI 原生插件安装（在 ComfyUI 画布内选图）
+
+无需额外依赖（复用 ComfyUI 自带的 `torch`、`numpy`、`Pillow`、`aiohttp`）：
+
+```bash
+cd /path/to/ComfyUI/custom_nodes
+git clone --depth 1 https://github.com/anhao/ai-pose-gallery-zh.git
+```
+
+重启 ComfyUI 后：
+1. 在画布空白处右键 → **新建节点** → **AI角色三合一参考图集**；
+2. 选择 **「AI 角色三合一合成配方 (3-in-1 Recipe)」** 或单个姿势 / 服装 / 人像节点；
+3. 点击节点上的 **「🎨 打开三合一选图器 (4,345张)」** 按钮（或直接点击节点上的缩略图），即可在弹窗中按分类、视角、发长筛选或中文搜索，一键填入节点并输出 `IMAGE` 张量与中英文 Prompt。
+
+### 模式 B：从 Web 合成台直连本地 ComfyUI API
+
+如果您使用线上网页端（或本地 `pnpm dev`）选图，希望直接调用本机 ComfyUI 生图：
+1. 启动本地 ComfyUI 时开启跨域参数：
+   ```bash
+   python main.py --enable-cors-header "*"
+   ```
+2. 打开本工作台 **「接口配置」** 页面 → 切换到 **「本地 ComfyUI」** → 点击「检测连接」（默认 `http://127.0.0.1:8188`）；
+3. 可直接导入您在 ComfyUI 中通过 `工作流 -> 导出 (API)` 保存的 `.json` 文件，或在 **「合成台」** 一键导出内置通用工作流模板后点击生成。
 
 ---
 

@@ -62,7 +62,7 @@ export interface RecipeState {
   extraImages?: ExtraReferenceImage[]
 }
 
-export type ImageProviderId = 'gemini' | 'gpt' | 'qwen' | 'doubao'
+export type ImageProviderId = 'gemini' | 'gpt' | 'qwen' | 'doubao' | 'comfyui'
 
 export interface ProviderEndpointConfig {
   baseUrl: string
@@ -72,6 +72,17 @@ export interface ProviderEndpointConfig {
 }
 
 export type ImagePassMode = 'url' | 'base64'
+
+export interface ComfyUiParams {
+  workflowPreset: 'qwen21_3img' | 'qwen21_2img' | 'custom'
+  workflowJson: string
+  promptNodeId: string
+  portraitNodeId: string
+  costumeNodeId: string
+  poseNodeId: string
+  stitchedNodeId: string
+  randomizeSeed: boolean
+}
 
 export interface GptParams {
   endpointMode: 'images_edits_json' | 'images_edits' | 'responses' | 'chat'
@@ -115,6 +126,7 @@ export interface ApiConfig {
   geminiParams: GeminiParams
   qwenParams: QwenParams
   doubaoParams: DoubaoParams
+  comfyuiParams: ComfyUiParams
 }
 
 export interface GenerationHistoryItem {
