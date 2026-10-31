@@ -2,7 +2,9 @@
 
 > **姿势库（1,439 张） + 服装库（1,407 套） + 人像库（1,499 位） = 4,345 条全中文参考数据 / 8,690 张本地高清图**，集成 **5 大 AI 图像协议直连工作台** 与 **原生 ComfyUI 自定义节点插件（`custom_nodes`）**。
 
-![画廊预览](docs/preview.jpg)
+![画廊总览预览](docs/preview.jpg)
+
+![AI 角色合成台预览](docs/studio.jpg)
 
 <details><summary>手机端预览</summary>
 
