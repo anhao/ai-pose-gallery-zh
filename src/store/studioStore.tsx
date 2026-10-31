@@ -15,7 +15,9 @@ import { idbGet, idbSet } from '@/lib/idbStorage'
 import {
   buildRecipePrompt,
   COMFYUI_WORKFLOW_TEMPLATES,
+  DEFAULT_COMFY_PRESET,
   generateCharacterImage,
+  type GenerationProgress,
   PROVIDER_META,
   stitchRecipeCanvas,
 } from '@/services/aiGenerator'
@@ -40,6 +42,8 @@ const CFG_KEY = 'pose_atlas_api_config_v3'
 const RECIPE_KEY = 'pose_atlas_recipe_v3'
 const HISTORY_KEY = 'pose_atlas_history_v3'
 const SAFE_MODE_KEY = 'pose_atlas_safe_mode_v1'
+
+const COMFY_CONFIG_VERSION = 2
 
 const DEFAULT_API_CONFIG: ApiConfig = {
   activeProvider: 'gemini',
@@ -107,16 +111,48 @@ const DEFAULT_API_CONFIG: ApiConfig = {
     responseFormat: 'b64_json',
   },
   comfyuiParams: {
-    workflowPreset: 'qwen21_3img',
-    workflowJson: JSON.stringify(COMFYUI_WORKFLOW_TEMPLATES.qwen21_3img.workflow, null, 2),
-    ...COMFYUI_WORKFLOW_TEMPLATES.qwen21_3img.defaults,
+    workflowPreset: DEFAULT_COMFY_PRESET,
+    workflowJson: JSON.stringify(COMFYUI_WORKFLOW_TEMPLATES[DEFAULT_COMFY_PRESET].workflow, null, 2),
+    ...COMFYUI_WORKFLOW_TEMPLATES[DEFAULT_COMFY_PRESET].defaults,
     randomizeSeed: true,
+    timeoutSec: 600,
+    configVersion: COMFY_CONFIG_VERSION,
   },
+}
+
+// v1 → v2：旧版默认的 Qwen 2.1 预设引用了本机通常不存在的模型，自动切换为 Qwen Image Edit 2509
+const LEGACY_COMFY_BASE_URLS = ['http://127.0.0.1:8188', 'http://localhost:8188']
+
+function migrateComfy(
+  provider: ApiConfig['providers']['comfyui'],
+  params: ApiConfig['comfyuiParams']
+): { provider: ApiConfig['providers']['comfyui']; params: ApiConfig['comfyuiParams'] } {
+  if ((params.configVersion ?? 1) >= COMFY_CONFIG_VERSION) return { provider, params }
+  const nextParams = { ...params, configVersion: COMFY_CONFIG_VERSION }
+  if (params.workflowPreset === 'qwen21_3img' || params.workflowPreset === 'qwen21_2img') {
+    Object.assign(nextParams, {
+      workflowPreset: DEFAULT_COMFY_PRESET,
+      workflowJson: JSON.stringify(COMFYUI_WORKFLOW_TEMPLATES[DEFAULT_COMFY_PRESET].workflow, null, 2),
+      ...COMFYUI_WORKFLOW_TEMPLATES[DEFAULT_COMFY_PRESET].defaults,
+    })
+  }
+  const nextProvider = { ...provider }
+  if (!nextProvider.baseUrl.trim() || LEGACY_COMFY_BASE_URLS.includes(nextProvider.baseUrl.trim())) {
+    nextProvider.baseUrl = PROVIDER_META.comfyui.defaultBaseUrl
+  }
+  if (!PROVIDER_META.comfyui.models.some((m) => m.value === nextProvider.model)) {
+    nextProvider.model = PROVIDER_META.comfyui.models[0].value
+  }
+  return { provider: nextProvider, params: nextParams }
 }
 
 function mergeStoredConfig(raw: unknown): ApiConfig {
   if (!raw || typeof raw !== 'object') return DEFAULT_API_CONFIG
   const obj = raw as Partial<ApiConfig>
+  const comfy = migrateComfy(
+    { ...DEFAULT_API_CONFIG.providers.comfyui, ...obj.providers?.comfyui },
+    { ...DEFAULT_API_CONFIG.comfyuiParams, configVersion: 1, ...obj.comfyuiParams }
+  )
   return {
     ...DEFAULT_API_CONFIG,
     ...obj,
@@ -125,13 +161,13 @@ function mergeStoredConfig(raw: unknown): ApiConfig {
       gpt: { ...DEFAULT_API_CONFIG.providers.gpt, ...obj.providers?.gpt },
       qwen: { ...DEFAULT_API_CONFIG.providers.qwen, ...obj.providers?.qwen },
       doubao: { ...DEFAULT_API_CONFIG.providers.doubao, ...obj.providers?.doubao },
-      comfyui: { ...DEFAULT_API_CONFIG.providers.comfyui, ...obj.providers?.comfyui },
+      comfyui: comfy.provider,
     },
     gptParams: { ...DEFAULT_API_CONFIG.gptParams, ...obj.gptParams },
     geminiParams: { ...DEFAULT_API_CONFIG.geminiParams, ...obj.geminiParams },
     qwenParams: { ...DEFAULT_API_CONFIG.qwenParams, ...obj.qwenParams },
     doubaoParams: { ...DEFAULT_API_CONFIG.doubaoParams, ...obj.doubaoParams },
-    comfyuiParams: { ...DEFAULT_API_CONFIG.comfyuiParams, ...obj.comfyuiParams },
+    comfyuiParams: comfy.params,
   }
 }
 
@@ -149,6 +185,8 @@ interface StudioContextValue {
   setPreviewUrl: (url: string) => void
   isGenerating: boolean
   generatingModel: string
+  generationProgress: GenerationProgress | null
+  generationError: string
   startGeneration: (overridePrompt?: string) => Promise<void>
   refreshStitchPreview: () => Promise<void>
   setPortrait: (item: PortraitItem | null) => void
@@ -235,6 +273,8 @@ export function StudioProvider({ children }: { children: ReactNode }) {
   })
   const [isGenerating, setIsGenerating] = useState(false)
   const [generatingModel, setGeneratingModel] = useState('')
+  const [generationProgress, setGenerationProgress] = useState<GenerationProgress | null>(null)
+  const [generationError, setGenerationError] = useState('')
   const isGeneratingRef = useRef(false)
   const idbHydratedRef = useRef(false)
 
@@ -478,12 +518,15 @@ export function StudioProvider({ children }: { children: ReactNode }) {
     isGeneratingRef.current = true
     setIsGenerating(true)
     setGeneratingModel(modelName)
+    setGenerationError('')
+    setGenerationProgress(null)
 
     try {
       const { imageUrl, modelUsed, providerUsed } = await generateCharacterImage({
         recipe: recipeSnapshot,
         prompt: finalPrompt,
         config: configSnapshot,
+        onProgress: setGenerationProgress,
       })
       setPreviewUrl(imageUrl)
       const extraCount = (recipeSnapshot.extraImages || []).length
@@ -504,10 +547,13 @@ export function StudioProvider({ children }: { children: ReactNode }) {
       })
       toast.success(`角色图生成完成 (${modelUsed})`)
     } catch (e) {
-      toast.error(e instanceof Error ? e.message : '调用失败')
+      const msg = e instanceof Error ? e.message : '调用失败'
+      setGenerationError(msg)
+      toast.error(msg.split('\n')[0])
     } finally {
       isGeneratingRef.current = false
       setIsGenerating(false)
+      setGenerationProgress(null)
     }
   }
 
@@ -526,6 +572,8 @@ export function StudioProvider({ children }: { children: ReactNode }) {
         setPreviewUrl,
         isGenerating,
         generatingModel,
+        generationProgress,
+        generationError,
         startGeneration,
         refreshStitchPreview,
         setPortrait,

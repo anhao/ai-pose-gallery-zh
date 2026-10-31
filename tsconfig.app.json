@@ -14,6 +14,7 @@
     "verbatimModuleSyntax": true,
     "moduleDetection": "force",
     "noEmit": true,
+    "resolveJsonModule": true,
     "paths": { "@/*": ["./src/*"] },
     "jsx": "react-jsx",
 

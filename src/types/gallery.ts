@@ -74,7 +74,7 @@ export interface ProviderEndpointConfig {
 export type ImagePassMode = 'url' | 'base64'
 
 export interface ComfyUiParams {
-  workflowPreset: 'qwen21_3img' | 'qwen21_2img' | 'custom'
+  workflowPreset: 'qwen2509_3img' | 'qwen2509_2img' | 'qwen21_3img' | 'qwen21_2img' | 'custom'
   workflowJson: string
   promptNodeId: string
   portraitNodeId: string
@@ -82,6 +82,10 @@ export interface ComfyUiParams {
   poseNodeId: string
   stitchedNodeId: string
   randomizeSeed: boolean
+  /** 单次生成最长等待秒数 */
+  timeoutSec: number
+  /** 配置结构版本，用于迁移旧版默认值 */
+  configVersion?: number
 }
 
 export interface GptParams {
