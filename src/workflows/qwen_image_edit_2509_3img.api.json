@@ -1,0 +1,365 @@
+{
+  "1": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "portrait_ref.png"
+    },
+    "_meta": {
+      "title": "图1：人像参考 (Portrait)"
+    }
+  },
+  "2": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "costume_ref.png"
+    },
+    "_meta": {
+      "title": "图2：服装参考 (Costume)"
+    }
+  },
+  "3": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "pose_ref.png"
+    },
+    "_meta": {
+      "title": "图3：姿势参考 (Pose)"
+    }
+  },
+  "4": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "qwen_image_edit_2509_fp8_e4m3fn.safetensors",
+      "weight_dtype": "default"
+    },
+    "_meta": {
+      "title": "加载 Qwen Image Edit 2509 模型"
+    }
+  },
+  "5": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "4",
+        0
+      ],
+      "lora_name": "Qwen-Image-Edit-2509-Lightning-4steps-V1.0-bf16.safetensors",
+      "strength_model": 1.0
+    },
+    "_meta": {
+      "title": "Lightning 4 步加速 LoRA (2509 专用)"
+    }
+  },
+  "6": {
+    "class_type": "ModelSamplingAuraFlow",
+    "inputs": {
+      "model": [
+        "5",
+        0
+      ],
+      "shift": 3.0
+    },
+    "_meta": {
+      "title": "ModelSamplingAuraFlow"
+    }
+  },
+  "7": {
+    "class_type": "CFGNorm",
+    "inputs": {
+      "model": [
+        "6",
+        0
+      ],
+      "strength": 1.0
+    },
+    "_meta": {
+      "title": "CFGNorm"
+    }
+  },
+  "8": {
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "qwen_2.5_vl_7b_fp8_scaled.safetensors",
+      "type": "qwen_image",
+      "device": "default"
+    },
+    "_meta": {
+      "title": "加载 Qwen2.5-VL 7B 文本编码器"
+    }
+  },
+  "9": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "qwen_image_vae.safetensors"
+    },
+    "_meta": {
+      "title": "加载 Qwen Image VAE"
+    }
+  },
+  "10": {
+    "class_type": "ImageScaleToTotalPixels",
+    "inputs": {
+      "image": [
+        "3",
+        0
+      ],
+      "upscale_method": "lanczos",
+      "megapixels": 1.0,
+      "resolution_steps": 16
+    },
+    "_meta": {
+      "title": "按姿势图比例确定输出尺寸 (megapixels 越小越省显存)"
+    }
+  },
+  "11": {
+    "class_type": "VAEEncode",
+    "inputs": {
+      "pixels": [
+        "10",
+        0
+      ],
+      "vae": [
+        "9",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "输出画布 Latent"
+    }
+  },
+  "12": {
+    "class_type": "TextEncodeQwenImageEditPlus",
+    "inputs": {
+      "clip": [
+        "8",
+        0
+      ],
+      "image1": [
+        "1",
+        0
+      ],
+      "image2": [
+        "2",
+        0
+      ],
+      "image3": [
+        "3",
+        0
+      ],
+      "prompt": ""
+    },
+    "_meta": {
+      "title": "正向提示词 (Positive Prompt，三图均送入视觉语言编码器)"
+    }
+  },
+  "13": {
+    "class_type": "TextEncodeQwenImageEditPlus",
+    "inputs": {
+      "clip": [
+        "8",
+        0
+      ],
+      "image1": [
+        "1",
+        0
+      ],
+      "image2": [
+        "2",
+        0
+      ],
+      "image3": [
+        "3",
+        0
+      ],
+      "prompt": ""
+    },
+    "_meta": {
+      "title": "反向提示词 (Negative Prompt，cfg=1 时不生效)"
+    }
+  },
+  "14": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "7",
+        0
+      ],
+      "positive": [
+        "25",
+        0
+      ],
+      "negative": [
+        "27",
+        0
+      ],
+      "latent_image": [
+        "11",
+        0
+      ],
+      "seed": 20261031,
+      "steps": 4,
+      "cfg": 1.0,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1.0
+    },
+    "_meta": {
+      "title": "KSampler (4 步 Lightning)"
+    }
+  },
+  "15": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "14",
+        0
+      ],
+      "vae": [
+        "9",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "VAE 解码"
+    }
+  },
+  "16": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "15",
+        0
+      ],
+      "filename_prefix": "pose_studio/result"
+    },
+    "_meta": {
+      "title": "保存生成结果"
+    }
+  },
+  "20": {
+    "class_type": "ImageScaleToTotalPixels",
+    "inputs": {
+      "image": [
+        "1",
+        0
+      ],
+      "upscale_method": "lanczos",
+      "megapixels": 1.0,
+      "resolution_steps": 16
+    },
+    "_meta": {
+      "title": "人像参考缩放"
+    }
+  },
+  "21": {
+    "class_type": "VAEEncode",
+    "inputs": {
+      "pixels": [
+        "20",
+        0
+      ],
+      "vae": [
+        "9",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "人像参考 Latent"
+    }
+  },
+  "22": {
+    "class_type": "ImageScaleToTotalPixels",
+    "inputs": {
+      "image": [
+        "2",
+        0
+      ],
+      "upscale_method": "lanczos",
+      "megapixels": 1.0,
+      "resolution_steps": 16
+    },
+    "_meta": {
+      "title": "服装参考缩放"
+    }
+  },
+  "23": {
+    "class_type": "VAEEncode",
+    "inputs": {
+      "pixels": [
+        "22",
+        0
+      ],
+      "vae": [
+        "9",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "服装参考 Latent"
+    }
+  },
+  "24": {
+    "class_type": "ReferenceLatent",
+    "inputs": {
+      "conditioning": [
+        "12",
+        0
+      ],
+      "latent": [
+        "21",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "正向：附加人像参考"
+    }
+  },
+  "25": {
+    "class_type": "ReferenceLatent",
+    "inputs": {
+      "conditioning": [
+        "24",
+        0
+      ],
+      "latent": [
+        "23",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "正向：附加服装参考"
+    }
+  },
+  "26": {
+    "class_type": "ReferenceLatent",
+    "inputs": {
+      "conditioning": [
+        "13",
+        0
+      ],
+      "latent": [
+        "21",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "反向：附加人像参考"
+    }
+  },
+  "27": {
+    "class_type": "ReferenceLatent",
+    "inputs": {
+      "conditioning": [
+        "26",
+        0
+      ],
+      "latent": [
+        "23",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "反向：附加服装参考"
+    }
+  }
+}

@@ -2,6 +2,8 @@ import { useQueryClient } from '@tanstack/react-query'
 import { createFileRoute, Link } from '@tanstack/react-router'
 import {
   ChevronDownIcon,
+  CircleAlertIcon,
+  CircleCheckIcon,
   ChevronUpIcon,
   CodeXmlIcon,
   CopyIcon,
@@ -14,6 +16,7 @@ import {
   LinkIcon,
   LoaderCircleIcon,
   PersonStandingIcon,
+  ScanSearchIcon,
   RotateCcwIcon,
   ShirtIcon,
   SlidersHorizontalIcon,
@@ -37,7 +40,11 @@ import { Textarea } from '@/components/ui/textarea'
 import {
   autoDetectComfyMappings,
   buildRecipePrompt,
+  type ComfyCheckResult,
+  type ComfyPresetId,
+  checkComfyWorkflow,
   COMFYUI_WORKFLOW_TEMPLATES,
+  detectComfyUi,
   fileToDataUrl,
   parseComfyWorkflowNodes,
   PROVIDER_META,
@@ -73,6 +80,8 @@ function StudioPage() {
     setPreviewUrl,
     isGenerating,
     generatingModel,
+    generationProgress,
+    generationError,
     startGeneration,
     setPortrait,
     setCostume,
@@ -108,6 +117,8 @@ function StudioPage() {
   const [zoomImageUrl, setZoomImageUrl] = useState<string | null>(null)
   const [showComfyJsonModal, setShowComfyJsonModal] = useState(false)
   const [isDragging, setIsDragging] = useState(false)
+  const [comfyCheck, setComfyCheck] = useState<(ComfyCheckResult & { info?: string }) | null>(null)
+  const [checkingComfy, setCheckingComfy] = useState(false)
 
   const parsedComfyNodes = useMemo(
     () => parseComfyWorkflowNodes(apiConfig.comfyuiParams.workflowJson),
@@ -115,6 +126,7 @@ function StudioPage() {
   )
 
   const handleSelectComfyPreset = (preset: ComfyUiParams['workflowPreset']) => {
+    setComfyCheck(null)
     if (preset === 'custom') {
       updateComfyUiParams({ workflowPreset: 'custom' })
       return
@@ -126,6 +138,44 @@ function StudioPage() {
       ...tpl.defaults,
     })
     toast.success(`已切换为：${tpl.label}`)
+  }
+
+  // 自动识别 ComfyUI 地址 + 检测工作流所需节点/模型是否在本机存在
+  const handleCheckComfy = async () => {
+    setCheckingComfy(true)
+    setComfyCheck(null)
+    try {
+      const cfg = apiConfig.providers.comfyui
+      const found = await detectComfyUi(cfg.baseUrl, cfg.apiKey)
+      if (!found) {
+        setComfyCheck({
+          ok: false,
+          errors: [
+            `未找到可用的 ComfyUI 服务（已尝试：${cfg.baseUrl || '默认地址'}、127.0.0.1:8000、127.0.0.1:8188）。请确认 ComfyUI 已启动，并检查跨域 (CORS) 设置。`,
+          ],
+          warnings: [],
+          fixes: [],
+        })
+        return
+      }
+      if (found.baseUrl !== cfg.baseUrl.trim().replace(/\/+$/, '')) {
+        updateProviderConfig('comfyui', { baseUrl: found.baseUrl })
+        toast.success(`已自动识别 ComfyUI 地址：${found.baseUrl}`)
+      }
+      const cp = apiConfig.comfyuiParams
+      const result = await checkComfyWorkflow(found.baseUrl, cfg.apiKey, cp.workflowJson, [
+        cp.portraitNodeId,
+        cp.costumeNodeId,
+        cp.poseNodeId,
+        cp.stitchedNodeId,
+      ])
+      if (result.fixedJson) updateComfyUiParams({ workflowJson: result.fixedJson })
+      setComfyCheck({ ...result, info: `${found.info}（${found.baseUrl}）` })
+    } catch (e) {
+      setComfyCheck({ ok: false, errors: [e instanceof Error ? e.message : '检测失败'], warnings: [], fixes: [] })
+    } finally {
+      setCheckingComfy(false)
+    }
   }
 
   const handleComfyFileUpload = async (e: ChangeEvent<HTMLInputElement>) => {
@@ -140,6 +190,7 @@ function StudioPage() {
         return
       }
       const detected = autoDetectComfyMappings(text)
+      setComfyCheck(null)
       updateComfyUiParams({
         workflowPreset: 'custom',
         workflowJson: text,
@@ -566,12 +617,11 @@ function StudioPage() {
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="qwen21_3img" className="text-xs">
-                        {COMFYUI_WORKFLOW_TEMPLATES.qwen21_3img.label}
-                      </SelectItem>
-                      <SelectItem value="qwen21_2img" className="text-xs">
-                        {COMFYUI_WORKFLOW_TEMPLATES.qwen21_2img.label}
-                      </SelectItem>
+                      {(Object.keys(COMFYUI_WORKFLOW_TEMPLATES) as ComfyPresetId[]).map((key) => (
+                        <SelectItem key={key} value={key} className="text-xs">
+                          {COMFYUI_WORKFLOW_TEMPLATES[key].label}
+                        </SelectItem>
+                      ))}
                       <SelectItem value="custom" className="text-xs">
                         自定义工作流 (已导入 JSON)
                       </SelectItem>
@@ -615,7 +665,56 @@ function StudioPage() {
                       <DownloadIcon className="size-3.5" />
                       导出 .json
                     </Button>
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      className="h-7 px-2 text-xs"
+                      onClick={handleCheckComfy}
+                      disabled={checkingComfy}
+                    >
+                      {checkingComfy ? (
+                        <LoaderCircleIcon className="size-3.5 animate-spin" />
+                      ) : (
+                        <ScanSearchIcon className="size-3.5" />
+                      )}
+                      检测本机模型
+                    </Button>
                   </div>
+                  {comfyCheck && (
+                    <div
+                      className={`space-y-1 rounded-xl border px-3 py-2 text-[11px] leading-relaxed ${
+                        comfyCheck.ok
+                          ? 'border-emerald-500/40 bg-emerald-500/8 text-emerald-700 dark:text-emerald-300'
+                          : 'border-destructive/40 bg-destructive/10 text-destructive'
+                      }`}
+                    >
+                      <div className="flex items-center gap-1.5 font-semibold">
+                        {comfyCheck.ok ? (
+                          <CircleCheckIcon className="size-3.5" />
+                        ) : (
+                          <CircleAlertIcon className="size-3.5" />
+                        )}
+                        {comfyCheck.ok ? '工作流与本机模型/节点匹配，可以生成' : '检测未通过'}
+                      </div>
+                      {comfyCheck.info && <div className="opacity-80">{comfyCheck.info}</div>}
+                      {comfyCheck.errors.map((m, i) => (
+                        <div key={`e${i}`} className="whitespace-pre-wrap break-all">
+                          • {m}
+                        </div>
+                      ))}
+                      {comfyCheck.fixes.map((m, i) => (
+                        <div key={`f${i}`} className="break-all">
+                          ✓ {m}
+                        </div>
+                      ))}
+                      {comfyCheck.warnings.map((m, i) => (
+                        <div key={`w${i}`} className="break-all opacity-80">
+                          ! {m}
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </Field>
             ) : (
@@ -1046,6 +1145,18 @@ function StudioPage() {
                         </SelectContent>
                       </Select>
                     </Field>
+                    <Field label="最长等待时间（秒）">
+                      <Input
+                        type="number"
+                        min={60}
+                        step={60}
+                        value={apiConfig.comfyuiParams.timeoutSec}
+                        onChange={(e) =>
+                          updateComfyUiParams({ timeoutSec: Math.max(60, Number(e.target.value) || 600) })
+                        }
+                        className="bg-background text-xs"
+                      />
+                    </Field>
                     <Field label="随机种子 (seed)">
                       <div className="flex h-9 items-center justify-between rounded-xl border bg-background px-3">
                         <span className="text-xs text-muted-foreground">
@@ -1174,10 +1285,36 @@ function StudioPage() {
                         {generatingModel}
                       </Badge>
                     )}
+                    {generationProgress && (
+                      <div className="w-56 space-y-1.5 pt-1">
+                        <div className="text-xs text-foreground/80">{generationProgress.message}</div>
+                        {generationProgress.percent !== undefined && (
+                          <div className="h-1.5 overflow-hidden rounded-full bg-muted">
+                            <div
+                              className="h-full rounded-full bg-primary transition-all"
+                              style={{ width: `${generationProgress.percent}%` }}
+                            />
+                          </div>
+                        )}
+                      </div>
+                    )}
                     <p className="pt-1 text-xs text-muted-foreground">
                       切换页面不会中断当前任务
                     </p>
                   </div>
+                </div>
+              ) : generationError ? (
+                <div className="flex max-w-md flex-col items-center gap-2 text-center">
+                  <CircleAlertIcon className="size-7 text-destructive" />
+                  <div className="text-sm font-semibold text-destructive">生成失败</div>
+                  <p className="whitespace-pre-wrap break-all text-left text-xs leading-relaxed text-muted-foreground">
+                    {generationError}
+                  </p>
+                  {previewUrl && (
+                    <Button variant="ghost" size="sm" onClick={() => setZoomImageUrl(previewUrl)}>
+                      查看上一张结果
+                    </Button>
+                  )}
                 </div>
               ) : previewUrl ? (
                 <img
