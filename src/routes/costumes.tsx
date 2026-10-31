@@ -320,9 +320,9 @@ function CostumesPage() {
                     </Button>
                     <div className="grid grid-cols-2 gap-2">
                       <Button variant="outline" size="sm" asChild>
-                        <a href={`/${currentItem.原图}`} download={`${currentItem.id}.png`}>
+                        <a href={`/${currentItem.原图}`} download={`${currentItem.id}.webp`}>
                           <DownloadIcon className="size-3.5" />
-                          下载原寸 PNG
+                          下载高清原图
                         </a>
                       </Button>
                       <Button variant="outline" size="sm" asChild>
