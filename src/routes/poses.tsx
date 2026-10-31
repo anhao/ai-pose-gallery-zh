@@ -13,7 +13,7 @@ import {
 } from 'lucide-react'
 import { useEffect, useMemo, useState } from 'react'
 import { toast } from 'sonner'
-import { ANGLES, posesQuery } from '@/api/gallery'
+import { ANGLES, isNsfwPose, isNsfwPoseSystem, posesQuery } from '@/api/gallery'
 import { EmptyState } from '@/components/common/EmptyState'
 import { PageHeader } from '@/components/common/PageHeader'
 import { Badge } from '@/components/ui/badge'
@@ -35,7 +35,7 @@ export const Route = createFileRoute('/poses')({
 
 function PosesPage() {
   const { data } = useSuspenseQuery(posesQuery)
-  const { recipe, togglePose } = useStudio()
+  const { recipe, togglePose, safeMode, requestUnlockNsfw } = useStudio()
 
   const [line, setLine] = useState('')
   const [category, setCategory] = useState('all')
@@ -46,16 +46,32 @@ function PosesPage() {
   const [hoverAngles, setHoverAngles] = useState<Record<string, string>>({})
   const [viewer, setViewer] = useState<{ groupIndex: number; item: PoseItem } | null>(null)
 
+  const activeLine = safeMode && line && isNsfwPoseSystem(line) ? '' : line
+
+  const baseItems = useMemo(
+    () => (safeMode ? data.items.filter((x) => !isNsfwPose(x)) : data.items),
+    [data.items, safeMode]
+  )
+  const baseGroups = useMemo(
+    () => (safeMode ? data.groups.filter((g) => !isNsfwPose(g)) : data.groups),
+    [data.groups, safeMode]
+  )
+  const visibleLines = useMemo(
+    () => (safeMode ? data.lines.filter((l) => !isNsfwPoseSystem(l)) : data.lines),
+    [data.lines, safeMode]
+  )
+  const hiddenNsfwCount = data.items.length - baseItems.length
+
   const categories = useMemo(() => {
-    const filtered = data.items.filter((x) => !line || x.体系 === line)
+    const filtered = baseItems.filter((x) => !activeLine || x.体系 === activeLine)
     return [...new Set(filtered.map((x) => x.分类).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'zh-CN'))
-  }, [data.items, line])
+  }, [baseItems, activeLine])
 
   const q = query.trim().toLowerCase()
 
   const filteredGroups = useMemo(() => {
-    return data.groups.filter((g) => {
-      if (line && g.system !== line) return false
+    return baseGroups.filter((g) => {
+      if (activeLine && g.system !== activeLine) return false
       if (category !== 'all' && g.category !== category) return false
       return g.items.some((it) => {
         if (angle && it.角度 !== angle) return false
@@ -63,17 +79,17 @@ function PosesPage() {
         return true
       })
     })
-  }, [data.groups, line, category, angle, q])
+  }, [baseGroups, activeLine, category, angle, q])
 
   const filteredSingles = useMemo(() => {
-    return data.items.filter((it) => {
-      if (line && it.体系 !== line) return false
+    return baseItems.filter((it) => {
+      if (activeLine && it.体系 !== activeLine) return false
       if (category !== 'all' && it.分类 !== category) return false
       if (angle && it.角度 !== angle) return false
       if (q && !`${it.姿势名称} ${it.id} ${it.分类} ${it.姿势编号} ${it.体系}`.toLowerCase().includes(q)) return false
       return true
     })
-  }, [data.items, line, category, angle, q])
+  }, [baseItems, activeLine, category, angle, q])
 
   const resetFilters = () => {
     setLine('')
@@ -159,13 +175,14 @@ function PosesPage() {
           }}
           className={cn(
             'shrink-0 rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors',
-            line === '' ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground hover:text-foreground'
+            activeLine === '' ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground hover:text-foreground'
           )}
         >
-          全部 ({data.items.length})
+          全部 ({baseItems.length})
         </button>
-        {data.lines.map((l) => {
+        {visibleLines.map((l) => {
           const cnt = data.items.filter((x) => x.体系 === l).length
+          const isNsfw = isNsfwPoseSystem(l)
           return (
             <button
               key={l}
@@ -177,13 +194,28 @@ function PosesPage() {
               }}
               className={cn(
                 'shrink-0 rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors',
-                line === l ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground hover:text-foreground'
+                activeLine === l ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground hover:text-foreground'
               )}
             >
-              {l} ({cnt})
+              {l} ({cnt}){isNsfw ? ' · 18+' : ''}
             </button>
           )
         })}
+        {safeMode && hiddenNsfwCount > 0 && (
+          <button
+            type="button"
+            onClick={() =>
+              requestUnlockNsfw(() => {
+                setLine('全身单人・性感系')
+                setCategory('all')
+                setShown(60)
+              })
+            }
+            className="shrink-0 rounded-full border border-dashed border-rose-500/40 bg-rose-500/5 px-3.5 py-1.5 text-sm font-medium text-rose-600 transition-colors hover:bg-rose-500/10 dark:text-rose-400"
+          >
+            🔒 解锁 18+ 性感/双人系 ({hiddenNsfwCount})
+          </button>
+        )}
       </div>
 
       {/* 搜索与筛选面板 */}

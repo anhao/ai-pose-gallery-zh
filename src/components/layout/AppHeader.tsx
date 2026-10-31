@@ -1,5 +1,5 @@
 import { Link, useMatches } from '@tanstack/react-router'
-import { DicesIcon, SparklesIcon } from 'lucide-react'
+import { DicesIcon, ShieldCheckIcon, SparklesIcon } from 'lucide-react'
 import { Fragment } from 'react'
 import { useQueryClient } from '@tanstack/react-query'
 import { costumesQuery, portraitsQuery, posesQuery } from '@/api/gallery'
@@ -18,7 +18,7 @@ import { SidebarTrigger } from '@/components/ui/sidebar'
 import { useStudio } from '@/store/studioStore'
 
 export function AppHeader() {
-  const { recipe, randomizeRecipe } = useStudio()
+  const { recipe, randomizeRecipe, safeMode, toggleSafeMode } = useStudio()
   const qc = useQueryClient()
   const crumbs = useMatches({
     select: (matches) =>
@@ -64,6 +64,21 @@ export function AppHeader() {
       </Breadcrumb>
 
       <div className="ml-auto flex items-center gap-2">
+        <Button
+          variant={safeMode ? 'outline' : 'secondary'}
+          size="sm"
+          onClick={toggleSafeMode}
+          title={safeMode ? '当前已开启安全模式（已隐藏 18+ 敏感内容），点击可解锁完整图库' : '当前已显示 18+ 完整图库，点击可切回安全模式'}
+          className={
+            safeMode
+              ? 'border-emerald-500/30 bg-emerald-500/5 text-emerald-700 hover:bg-emerald-500/10 dark:text-emerald-400'
+              : 'border-rose-500/30 bg-rose-500/10 text-rose-700 hover:bg-rose-500/20 dark:text-rose-400'
+          }
+        >
+          <ShieldCheckIcon className="size-3.5" />
+          <span className="hidden sm:inline">{safeMode ? '安全模式 (SFW)' : '18+ 完整模式'}</span>
+          <span className="sm:hidden">{safeMode ? 'SFW' : '18+'}</span>
+        </Button>
         <Button variant="outline" size="sm" onClick={handleRandom} className="hidden sm:inline-flex">
           <DicesIcon className="size-3.5" />
           随机捏人

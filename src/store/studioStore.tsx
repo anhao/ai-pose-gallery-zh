@@ -1,5 +1,16 @@
 import { createContext, type ReactNode, useContext, useEffect, useRef, useState } from 'react'
 import { toast } from 'sonner'
+import { isNsfwCostume, isNsfwPose } from '@/api/gallery'
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from '@/components/ui/alert-dialog'
 import { idbGet, idbSet } from '@/lib/idbStorage'
 import {
   buildRecipePrompt,
@@ -28,6 +39,7 @@ import type {
 const CFG_KEY = 'pose_atlas_api_config_v3'
 const RECIPE_KEY = 'pose_atlas_recipe_v3'
 const HISTORY_KEY = 'pose_atlas_history_v3'
+const SAFE_MODE_KEY = 'pose_atlas_safe_mode_v1'
 
 const DEFAULT_API_CONFIG: ApiConfig = {
   activeProvider: 'gemini',
@@ -127,6 +139,9 @@ interface StudioContextValue {
   recipe: RecipeState
   apiConfig: ApiConfig
   history: GenerationHistoryItem[]
+  safeMode: boolean
+  toggleSafeMode: () => void
+  requestUnlockNsfw: (onUnlocked?: () => void) => void
   // 全局持久化的合成台状态（切换页面不丢失、不断开请求）
   customPrompt: string | null
   setCustomPrompt: (val: string | null) => void
@@ -196,6 +211,17 @@ export function StudioProvider({ children }: { children: ReactNode }) {
     }
   })
 
+  const [safeMode, setSafeMode] = useState<boolean>(() => {
+    try {
+      const raw = localStorage.getItem(SAFE_MODE_KEY)
+      return raw === null ? true : raw !== 'false'
+    } catch {
+      return true
+    }
+  })
+  const [ageGateOpen, setAgeGateOpen] = useState(false)
+  const pendingUnlockCbRef = useRef<(() => void) | null>(null)
+
   // 提升到根部 Provider 的生成状态，路由切换不会卸载或中断
   const [customPrompt, setCustomPrompt] = useState<string | null>(null)
   const [previewUrl, setPreviewUrl] = useState<string>(() => {
@@ -255,6 +281,39 @@ export function StudioProvider({ children }: { children: ReactNode }) {
       localStorage.setItem(CFG_KEY, JSON.stringify(apiConfig))
     } catch {}
   }, [apiConfig])
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(SAFE_MODE_KEY, String(safeMode))
+    } catch {}
+  }, [safeMode])
+
+  const requestUnlockNsfw = (onUnlocked?: () => void) => {
+    if (!safeMode) {
+      onUnlocked?.()
+      return
+    }
+    pendingUnlockCbRef.current = onUnlocked || null
+    setAgeGateOpen(true)
+  }
+
+  const confirmUnlockNsfw = () => {
+    setSafeMode(false)
+    setAgeGateOpen(false)
+    toast.success('已解锁 18+ 完整图库模式')
+    const cb = pendingUnlockCbRef.current
+    pendingUnlockCbRef.current = null
+    cb?.()
+  }
+
+  const toggleSafeMode = () => {
+    if (safeMode) {
+      requestUnlockNsfw()
+    } else {
+      setSafeMode(true)
+      toast.success('已开启安全模式（已隐藏 18+ 敏感分类）')
+    }
+  }
 
   useEffect(() => {
     if (!idbHydratedRef.current && history.length === 0) return
@@ -322,17 +381,21 @@ export function StudioProvider({ children }: { children: ReactNode }) {
   }
 
   const randomizeRecipe = (pools: { portraits?: PortraitItem[]; costumes?: CostumeItem[]; poses?: PoseItem[] }) => {
+    const posePool = safeMode ? (pools.poses || []).filter((p) => !isNsfwPose(p)) : pools.poses || []
+    const costumePool = safeMode ? (pools.costumes || []).filter((c) => !isNsfwCostume(c)) : pools.costumes || []
+    const portraitPool = pools.portraits || []
+
     setRecipe((prev) => ({
       ...prev,
-      portrait: pools.portraits?.length
-        ? pools.portraits[Math.floor(Math.random() * pools.portraits.length)]
+      portrait: portraitPool.length
+        ? portraitPool[Math.floor(Math.random() * portraitPool.length)]
         : prev.portrait,
-      costume: pools.costumes?.length
-        ? pools.costumes[Math.floor(Math.random() * pools.costumes.length)]
+      costume: costumePool.length
+        ? costumePool[Math.floor(Math.random() * costumePool.length)]
         : prev.costume,
-      pose: pools.poses?.length ? pools.poses[Math.floor(Math.random() * pools.poses.length)] : prev.pose,
+      pose: posePool.length ? posePool[Math.floor(Math.random() * posePool.length)] : prev.pose,
     }))
-    toast.success('已随机抽取一套角色配方')
+    toast.success(safeMode ? '已随机抽取一套角色配方（安全模式）' : '已随机抽取一套角色配方')
   }
 
   const updateApiConfig = (patch: Partial<ApiConfig>) => {
@@ -454,6 +517,9 @@ export function StudioProvider({ children }: { children: ReactNode }) {
         recipe,
         apiConfig,
         history,
+        safeMode,
+        toggleSafeMode,
+        requestUnlockNsfw,
         customPrompt,
         setCustomPrompt,
         previewUrl,
@@ -486,6 +552,38 @@ export function StudioProvider({ children }: { children: ReactNode }) {
       }}
     >
       {children}
+
+      <AlertDialog open={ageGateOpen} onOpenChange={setAgeGateOpen}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>🔞 年龄确认与敏感内容提示</AlertDialogTitle>
+            <AlertDialogDescription className="space-y-2 text-left leading-relaxed">
+              <span className="block">
+                关闭「安全模式 (SFW)」后，图库将显示包含成人向艺术参考的分类：
+              </span>
+              <span className="block rounded-lg bg-muted p-2.5 text-xs text-foreground">
+                • <strong>动作姿势库</strong>：全身单人・性感系（399 张）、双人缠绵（275 张）
+                <br />• <strong>服装穿搭库</strong>：内衣・睡衣（199 套）、性感穿搭（140 套）
+              </span>
+              <span className="block">
+                以上内容为 3D 素体白模与穿搭参考，仅供绘画创作、动作设计与 AI 生图参考使用。请确认您已年满 18 周岁。
+              </span>
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel
+              onClick={() => {
+                pendingUnlockCbRef.current = null
+              }}
+            >
+              保持安全模式
+            </AlertDialogCancel>
+            <AlertDialogAction onClick={confirmUnlockNsfw}>
+              我已年满 18 岁，显示完整图库
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </StudioContext.Provider>
   )
 }
