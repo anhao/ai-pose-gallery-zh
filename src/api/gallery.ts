@@ -3,8 +3,40 @@ import type { CostumeItem, PortraitItem, PoseGroup, PoseItem } from '@/types/gal
 
 export const ANGLES = ['正面', '俯视', '仰视', '侧面', '斜侧'] as const
 
+export const PREFERRED_POSE_LINE_ORDER = [
+  '全身单人・标准系',
+  '上半身单人',
+  '全身单人・性感系',
+  '双人缠绵',
+] as const
+
+export const NSFW_POSE_SYSTEMS = new Set(['全身单人・性感系', '双人缠绵'])
+export const NSFW_COSTUME_CATEGORIES = new Set(['内衣・睡衣', '性感穿搭'])
+
+export function isNsfwPoseSystem(system: string): boolean {
+  return NSFW_POSE_SYSTEMS.has(system)
+}
+
+export function isNsfwPose(item: PoseItem | PoseGroup): boolean {
+  const sys = '体系' in item ? item.体系 : item.system
+  return NSFW_POSE_SYSTEMS.has(sys)
+}
+
+export function isNsfwCostumeCategory(category: string): boolean {
+  return NSFW_COSTUME_CATEGORIES.has(category)
+}
+
+export function isNsfwCostume(item: CostumeItem): boolean {
+  return NSFW_COSTUME_CATEGORIES.has(item.分类)
+}
+
 export function buildPoseGroups(items: PoseItem[]): { items: PoseItem[]; groups: PoseGroup[]; lines: string[] } {
-  const lines = [...new Set(items.map((x) => x.体系))]
+  const rawLines = [...new Set(items.map((x) => x.体系))]
+  const lines = rawLines.sort((a, b) => {
+    const ia = PREFERRED_POSE_LINE_ORDER.indexOf(a as (typeof PREFERRED_POSE_LINE_ORDER)[number])
+    const ib = PREFERRED_POSE_LINE_ORDER.indexOf(b as (typeof PREFERRED_POSE_LINE_ORDER)[number])
+    return (ia === -1 ? 99 : ia) - (ib === -1 ? 99 : ib)
+  })
   const groupMap = new Map<string, PoseGroup>()
   const groups: PoseGroup[] = []
 

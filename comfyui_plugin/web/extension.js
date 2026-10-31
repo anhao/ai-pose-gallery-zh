@@ -102,12 +102,22 @@ function setWidgetValue(node, name, value) {
   app.graph.setDirtyCanvas(true, true);
 }
 
+const NSFW_POSE_SYSTEMS = new Set(["全身单人・性感系", "双人缠绵"]);
+const NSFW_COSTUME_CATEGORIES = new Set(["内衣・睡衣", "性感穿搭"]);
+
+function isItemNsfw(lib, item) {
+  if (lib === "pose") return NSFW_POSE_SYSTEMS.has(item["体系"]);
+  if (lib === "costume") return NSFW_COSTUME_CATEGORIES.has(item["分类"]);
+  return false;
+}
+
 class PoseAtlasModal {
   constructor() {
     this.backdrop = null;
     this.activeLib = "pose";
     this.targetNode = null;
     this.mode = "single"; // "single" | "recipe"
+    this.safeMode = true;
     this.searchQuery = "";
     this.primaryFilter = "";
     this.secondaryFilter = "";
@@ -178,6 +188,7 @@ class PoseAtlasModal {
           <input class="pca-search-input" id="pca-search" type="text" placeholder="搜索中文标题、动作、服装、发型、编号 (如: 坐姿 / 水手服 / 双马尾 / SPR-0001)..." />
           <select class="pca-select" id="pca-filter-primary"></select>
           <select class="pca-select" id="pca-filter-secondary"></select>
+          <button class="pca-btn" id="pca-sfw-btn">${this.safeMode ? "🛡️ 安全模式 (SFW)" : "🔞 18+ 完整模式"}</button>
           <button class="pca-btn" id="pca-random-btn">🎲 随机抽一张</button>
           <button class="pca-btn" id="pca-reset-btn">重置筛选</button>
         </div>
@@ -225,6 +236,22 @@ class PoseAtlasModal {
         this.page = 1;
         this.renderGrid();
       });
+
+    const sfwBtn = backdrop.querySelector("#pca-sfw-btn");
+    sfwBtn.addEventListener("click", () => {
+      if (this.safeMode) {
+        if (!window.confirm("是否关闭安全模式并显示 18+ 敏感参考分类（性感姿势、双人缠绵、内衣穿搭）？请确认您已年满 18 周岁。")) {
+          return;
+        }
+        this.safeMode = false;
+      } else {
+        this.safeMode = true;
+      }
+      sfwBtn.textContent = this.safeMode ? "🛡️ 安全模式 (SFW)" : "🔞 18+ 完整模式";
+      this.page = 1;
+      this.populateFilters();
+      this.renderGrid();
+    });
 
     backdrop
       .querySelector("#pca-random-btn")
@@ -292,7 +319,10 @@ class PoseAtlasModal {
   }
 
   populateFilters() {
-    const items = catalogueCache[this.activeLib] || [];
+    const rawItems = catalogueCache[this.activeLib] || [];
+    const items = this.safeMode
+      ? rawItems.filter((it) => !isItemNsfw(this.activeLib, it))
+      : rawItems;
     const cfg = LIBRARIES[this.activeLib];
 
     const primarySet = new Set();
@@ -331,7 +361,10 @@ class PoseAtlasModal {
   }
 
   getFilteredItems() {
-    const items = catalogueCache[this.activeLib] || [];
+    const rawItems = catalogueCache[this.activeLib] || [];
+    const items = this.safeMode
+      ? rawItems.filter((it) => !isItemNsfw(this.activeLib, it))
+      : rawItems;
     const cfg = LIBRARIES[this.activeLib];
     const q = this.searchQuery;
 

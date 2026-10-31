@@ -13,7 +13,7 @@ import {
 } from 'lucide-react'
 import { useEffect, useMemo, useState } from 'react'
 import { toast } from 'sonner'
-import { costumesQuery } from '@/api/gallery'
+import { costumesQuery, isNsfwCostume, isNsfwCostumeCategory } from '@/api/gallery'
 import { EmptyState } from '@/components/common/EmptyState'
 import { PageHeader } from '@/components/common/PageHeader'
 import { Badge } from '@/components/ui/badge'
@@ -34,7 +34,7 @@ export const Route = createFileRoute('/costumes')({
 
 function CostumesPage() {
   const { data: costumes } = useSuspenseQuery(costumesQuery)
-  const { recipe, toggleCostume } = useStudio()
+  const { recipe, toggleCostume, safeMode, requestUnlockNsfw } = useStudio()
 
   const [category, setCategory] = useState('')
   const [tag, setTag] = useState('all')
@@ -42,23 +42,34 @@ function CostumesPage() {
   const [shown, setShown] = useState(60)
   const [viewerIndex, setViewerIndex] = useState<number | null>(null)
 
-  const categories = useMemo(() => [...new Set(costumes.map((x) => x.分类))], [costumes])
+  const activeCategory = safeMode && category && isNsfwCostumeCategory(category) ? '' : category
+
+  const baseCostumes = useMemo(
+    () => (safeMode ? costumes.filter((x) => !isNsfwCostume(x)) : costumes),
+    [costumes, safeMode]
+  )
+  const hiddenNsfwCount = costumes.length - baseCostumes.length
+
+  const categories = useMemo(
+    () => [...new Set(baseCostumes.map((x) => x.分类))],
+    [baseCostumes]
+  )
 
   const allTags = useMemo(() => {
-    const subset = costumes.filter((x) => !category || x.分类 === category)
+    const subset = baseCostumes.filter((x) => !activeCategory || x.分类 === activeCategory)
     return [...new Set(subset.flatMap((x) => x.标签 || []))]
-  }, [costumes, category])
+  }, [baseCostumes, activeCategory])
 
   const q = query.trim().toLowerCase()
 
   const filtered = useMemo(() => {
-    return costumes.filter((item) => {
-      if (category && item.分类 !== category) return false
+    return baseCostumes.filter((item) => {
+      if (activeCategory && item.分类 !== activeCategory) return false
       if (tag !== 'all' && !(item.标签 || []).includes(tag)) return false
       if (q && !item.检索.toLowerCase().includes(q)) return false
       return true
     })
-  }, [costumes, category, tag, q])
+  }, [baseCostumes, activeCategory, tag, q])
 
   const currentItem = viewerIndex !== null ? filtered[viewerIndex] : null
 
@@ -90,13 +101,14 @@ function CostumesPage() {
           }}
           className={cn(
             'shrink-0 rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors',
-            category === '' ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground hover:text-foreground'
+            activeCategory === '' ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground hover:text-foreground'
           )}
         >
-          全部穿搭 ({costumes.length})
+          全部穿搭 ({baseCostumes.length})
         </button>
         {categories.map((c) => {
           const cnt = costumes.filter((x) => x.分类 === c).length
+          const isNsfw = isNsfwCostumeCategory(c)
           return (
             <button
               key={c}
@@ -108,13 +120,28 @@ function CostumesPage() {
               }}
               className={cn(
                 'shrink-0 rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors',
-                category === c ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground hover:text-foreground'
+                activeCategory === c ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground hover:text-foreground'
               )}
             >
-              {c} ({cnt})
+              {c} ({cnt}){isNsfw ? ' · 18+' : ''}
             </button>
           )
         })}
+        {safeMode && hiddenNsfwCount > 0 && (
+          <button
+            type="button"
+            onClick={() =>
+              requestUnlockNsfw(() => {
+                setCategory('性感穿搭')
+                setTag('all')
+                setShown(60)
+              })
+            }
+            className="shrink-0 rounded-full border border-dashed border-rose-500/40 bg-rose-500/5 px-3.5 py-1.5 text-sm font-medium text-rose-600 transition-colors hover:bg-rose-500/10 dark:text-rose-400"
+          >
+            🔒 解锁 18+ 内衣/性感穿搭 ({hiddenNsfwCount})
+          </button>
+        )}
       </div>
 
       {/* 搜索与单品筛选栏 */}
