@@ -3,6 +3,7 @@ import { Link, useLocation } from '@tanstack/react-router'
 import { CopyIcon, DicesIcon, LoaderCircleIcon, PersonStandingIcon, ShirtIcon, SparklesIcon, Trash2Icon, UserRoundIcon, XIcon } from 'lucide-react'
 import { toast } from 'sonner'
 import { costumesQuery, portraitsQuery, posesQuery } from '@/api/gallery'
+import { referenceImageUrl } from '@/lib/recipeImages'
 import { Button } from '@/components/ui/button'
 import { buildRecipePrompt } from '@/services/aiGenerator'
 import { useStudio } from '@/store/studioStore'
@@ -47,7 +48,7 @@ export function RecipeDock() {
             {recipe.portrait ? (
               <>
                 <img
-                  src={`/${recipe.portrait.缩略图}`}
+                  src={referenceImageUrl(recipe.portrait.缩略图)}
                   alt={recipe.portrait.标题}
                   className="h-8 w-7 shrink-0 rounded-md object-cover sm:h-10 sm:w-8"
                 />
@@ -77,7 +78,7 @@ export function RecipeDock() {
             {recipe.costume ? (
               <>
                 <img
-                  src={`/${recipe.costume.缩略图}`}
+                  src={referenceImageUrl(recipe.costume.缩略图)}
                   alt={recipe.costume.服装名称}
                   className="h-8 w-7 shrink-0 rounded-md object-cover sm:h-10 sm:w-8"
                 />
@@ -107,7 +108,7 @@ export function RecipeDock() {
             {recipe.pose ? (
               <>
                 <img
-                  src={`/${recipe.pose.缩略图}`}
+                  src={referenceImageUrl(recipe.pose.缩略图)}
                   alt={recipe.pose.姿势名称}
                   className="h-8 w-7 shrink-0 rounded-md object-cover sm:h-10 sm:w-8"
                 />

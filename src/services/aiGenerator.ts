@@ -158,13 +158,19 @@ export function buildRecipePrompt(recipe: RecipeState, stylePreset = 'realistic'
       recipe.portrait.发型名称 && recipe.portrait.发型名称 !== '标准基础款'
         ? recipe.portrait.标题
         : recipe.portrait.发长
-    clauses.push(`• 人物：图${idx}中的人物，保持其脸型、五官、发型（${hairDesc}）和发色一致。`)
+    clauses.push(
+      recipe.portrait.source === 'upload'
+        ? `• 人物：图${idx}中的人物，保持其脸型、五官、发型和发色一致。`
+        : `• 人物：图${idx}中的人物，保持其脸型、五官、发型（${hairDesc}）和发色一致。`
+    )
     idx++
   }
   if (recipe.costume) {
     costumeIdx = idx
     clauses.push(
-      `• 服装：让人物穿上图${idx}中展示的整套服装和配饰（参考名称：${recipe.costume.服装名称}），每件单品的颜色、款式、面料与配饰都以图${idx}为准，名称仅作辅助说明。`
+      recipe.costume.source === 'upload'
+        ? `• 服装：让人物穿上图${idx}中展示的整套服装和配饰，每件单品的颜色、款式、面料与配饰都以图${idx}为准。`
+        : `• 服装：让人物穿上图${idx}中展示的整套服装和配饰（参考名称：${recipe.costume.服装名称}），每件单品的颜色、款式、面料与配饰都以图${idx}为准，名称仅作辅助说明。`
     )
     idx++
   }
@@ -174,7 +180,9 @@ export function buildRecipePrompt(recipe: RecipeState, stylePreset = 'realistic'
       ? `最终画面中的人物是真人，皮肤真实自然${wear}`
       : `人物的肤色与质感按风格要求呈现${wear}`
     clauses.push(
-      `• 姿势：按照图${idx}中人体模型的动作和镜头角度摆姿势（${recipe.pose.姿势名称}，${recipe.pose.角度}）；图${idx}只是动作示意，${body}。`
+      recipe.pose.source === 'upload'
+        ? `• 姿势：按照图${idx}中的人物动作和镜头角度摆姿势；仅参考姿势与构图，不复制图${idx}人物的外观与服装，${body}。`
+        : `• 姿势：按照图${idx}中人体模型的动作和镜头角度摆姿势（${recipe.pose.姿势名称}，${recipe.pose.角度}）；图${idx}只是动作示意，${body}。`
     )
     idx++
   }
@@ -1064,13 +1072,17 @@ async function generateWithComfyUi(params: {
   config: ApiConfig
   baseUrl: string
   apiKey: string
-  model: string
+  model?: string
   onProgress?: (p: GenerationProgress) => void
 }): Promise<{ imageUrl: string; modelUsed: string; providerUsed: ImageProviderId }> {
   const { recipe, prompt, config, baseUrl, apiKey, model } = params
   const report = params.onProgress ?? (() => {})
   const cp = config.comfyuiParams
   const timeoutSec = Math.max(60, cp.timeoutSec || 600)
+  const parsedInfo = parseComfyWorkflowNodes(cp.workflowJson)
+  if (!parsedInfo.valid) {
+    throw new Error(`[ComfyUI] ${parsedInfo.error || '工作流 JSON 无效'}`)
+  }
 
   // 0. 预检：服务在线 + 节点/模型与本机匹配
   report({ stage: 'check', message: '正在检查 ComfyUI 服务与模型…' })
@@ -1107,6 +1119,15 @@ async function generateWithComfyUi(params: {
       label: '姿势',
     },
   ]
+
+  const invalidSlots = slotUploads.filter((slot) => slot.nodeId && slot.nodeId !== 'none' && !parsedInfo.imageNodes.some((node) => node.id === slot.nodeId))
+  if (invalidSlots.length) {
+    throw new Error(`[ComfyUI] ${invalidSlots.map((slot) => slot.label).join('、')}节点映射已失效，请重新识别或选择节点`)
+  }
+  const missingSlots = slotUploads.filter((slot) => slot.nodeId && slot.nodeId !== 'none' && !slot.src)
+  if (missingSlots.length) {
+    throw new Error(`[ComfyUI] 请先选择或上传：${missingSlots.map((slot) => slot.label).join('、')}`)
+  }
 
   for (const slot of slotUploads) {
     if (!slot.nodeId || slot.nodeId === 'none' || !workflow[slot.nodeId]?.inputs) continue
@@ -1245,7 +1266,7 @@ async function generateWithComfyUi(params: {
       if (!blob.size || !blob.type.startsWith('image/')) {
         throw new Error('[ComfyUI] 返回的生成结果不是有效图片')
       }
-      return { imageUrl: await blobToDataUrl(blob), modelUsed: model || 'comfyui', providerUsed: 'comfyui' }
+      return { imageUrl: await blobToDataUrl(blob), modelUsed: model || 'ComfyUI 工作流', providerUsed: 'comfyui' }
     }
   } finally {
     ws?.close()
@@ -1298,7 +1319,7 @@ export async function generateCharacterImage(params: {
   }
 
   const model = pCfg.model === 'custom' ? pCfg.customModel.trim() : pCfg.model
-  if (!model) {
+  if (provider !== 'comfyui' && !model) {
     throw new Error('请选择或填写有效的模型名称')
   }
 

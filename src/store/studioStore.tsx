@@ -12,6 +12,7 @@ import {
   AlertDialogTitle,
 } from '@/components/ui/alert-dialog'
 import { idbGet, idbSet } from '@/lib/idbStorage'
+import { recipeBackup } from '@/lib/recipeImages'
 import {
   buildRecipePrompt,
   COMFYUI_WORKFLOW_TEMPLATES,
@@ -276,7 +277,7 @@ export function StudioProvider({ children }: { children: ReactNode }) {
   const [generationProgress, setGenerationProgress] = useState<GenerationProgress | null>(null)
   const [generationError, setGenerationError] = useState('')
   const isGeneratingRef = useRef(false)
-  const idbHydratedRef = useRef(false)
+  const [idbHydrated, setIdbHydrated] = useState(false)
 
   // 从 IndexedDB 异步恢复大容量历史记录与含附图的配方
   useEffect(() => {
@@ -298,7 +299,7 @@ export function StudioProvider({ children }: { children: ReactNode }) {
         setHistory(savedHistory)
         setPreviewUrl((prev) => prev || savedHistory[0]?.imageUrl || '')
       }
-      idbHydratedRef.current = true
+      setIdbHydrated(true)
     })
     return () => {
       active = false
@@ -306,15 +307,16 @@ export function StudioProvider({ children }: { children: ReactNode }) {
   }, [])
 
   useEffect(() => {
+    if (!idbHydrated) return
     void idbSet(RECIPE_KEY, recipe)
     try {
-      // localStorage 仅保存轻量槽位备份，不存体积较大的 extraImages Base64
+      // 上传图片和附图完整保存在 IndexedDB，轻量备份不包含它们。
       localStorage.setItem(
         RECIPE_KEY,
-        JSON.stringify({ ...recipe, extraImages: [] })
+        JSON.stringify(recipeBackup(recipe))
       )
     } catch {}
-  }, [recipe])
+  }, [recipe, idbHydrated])
 
   useEffect(() => {
     try {
@@ -356,9 +358,9 @@ export function StudioProvider({ children }: { children: ReactNode }) {
   }
 
   useEffect(() => {
-    if (!idbHydratedRef.current && history.length === 0) return
+    if (!idbHydrated) return
     void idbSet(HISTORY_KEY, history.slice(0, 30))
-  }, [history])
+  }, [history, idbHydrated])
 
   const setPortrait = (portrait: PortraitItem | null) => setRecipe((r) => ({ ...r, portrait }))
   const setCostume = (costume: CostumeItem | null) => setRecipe((r) => ({ ...r, costume }))
@@ -511,7 +513,9 @@ export function StudioProvider({ children }: { children: ReactNode }) {
     const recipeSnapshot = recipe
     const configSnapshot = apiConfig
     const pCfg = configSnapshot.providers[configSnapshot.activeProvider]
-    const modelName = pCfg.model === 'custom' ? pCfg.customModel || 'custom' : pCfg.model
+    const modelName = configSnapshot.activeProvider === 'comfyui'
+      ? 'ComfyUI 工作流'
+      : pCfg.model === 'custom' ? pCfg.customModel || 'custom' : pCfg.model
     const finalPrompt =
       overridePrompt ?? customPrompt ?? buildRecipePrompt(recipeSnapshot, configSnapshot.stylePreset)
 
@@ -532,8 +536,8 @@ export function StudioProvider({ children }: { children: ReactNode }) {
       const extraCount = (recipeSnapshot.extraImages || []).length
       const summary = [
         recipeSnapshot.portrait?.发型名称,
-        recipeSnapshot.costume?.分类,
-        recipeSnapshot.pose ? `${recipeSnapshot.pose.姿势名称}(${recipeSnapshot.pose.角度})` : null,
+        recipeSnapshot.costume?.source === 'upload' ? recipeSnapshot.costume.服装名称 : recipeSnapshot.costume?.分类,
+        recipeSnapshot.pose ? `${recipeSnapshot.pose.姿势名称}${recipeSnapshot.pose.角度 ? `(${recipeSnapshot.pose.角度})` : ''}` : null,
         extraCount ? `+${extraCount}附图` : null,
       ]
         .filter(Boolean)
