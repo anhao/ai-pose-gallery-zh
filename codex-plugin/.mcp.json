@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "ai_pose_gallery": {
+      "command": "python3",
+      "args": [
+        "${PLUGIN_ROOT}/pose_gallery.py"
+      ],
+      "cwd": "${PLUGIN_ROOT}"
+    }
+  }
+}
