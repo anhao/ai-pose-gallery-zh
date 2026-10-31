@@ -145,7 +145,7 @@ git clone --depth 1 https://github.com/anhao/ai-pose-gallery-zh.git
 │   ├── apply_translation.py# 生成三库 *-zh.json 纯中文数据与检索索引
 │   ├── verify.py           # 校验本地图片完整性（存在性 / 大小 / 文件头）
 │   └── build.sh            # 构建 Cloudflare 发布目录 dist/
-├── skills/                 # Claude Code / Agent 姿势检索技能包
+├── skills/                 # Claude Code / Agent 姿势・服装・人像检索技能包
 └── README.md
 ```
 
@@ -219,7 +219,7 @@ npx wrangler deploy
 
 ## Agent 技能（Skills）
 
-`skills/` 下提供 5 个 `SKILL.md` 格式的 Agent 技能，让 AI Agent 按姿势名 + 视角检索本仓库的白模图，作为生图 / 生视频的姿势参考：
+`skills/` 下提供 8 个 `SKILL.md` 格式的 Agent 技能，让 AI Agent 直接检索本仓库三大图库，作为生图 / 生视频的姿势、服装、人像参考。每个技能的 `references/catalog.csv` 用**相对路径**（`../../img/…`）指向本仓库 `img/`，不重复存图：
 
 | 技能 | 图片数 | 范围 |
 | --- | ---: | --- |
@@ -228,12 +228,17 @@ npx wrangler deploy
 | `pose-reference-sexy` | 399 | 全身单人・性感系（18+） |
 | `pose-reference-couple` | 275 | 双人缠绵（18+） |
 | `pose-reference-all` | 1,439 | 全部姿势 |
+| `costume-reference` | 1,068 | 服装：春夏秋冬・派对礼服・泳装度假（按单品 / 颜色 / 英文关键词检索） |
+| `costume-reference-sexy` | 339 | 服装：内衣睡衣・性感穿搭（18+） |
+| `portrait-reference` | 1,499 | 人像：正脸参考・造型氛围，按发长 / 51 种发型检索 |
 
 ```bash
 git clone --depth 1 https://github.com/anhao/ai-pose-gallery-zh.git ~/ai-pose-gallery-zh
 mkdir -p ~/.claude/skills
-for d in ~/ai-pose-gallery-zh/skills/pose-reference-*; do ln -s "$d" ~/.claude/skills/; done
+for d in ~/ai-pose-gallery-zh/skills/*-reference*; do ln -s "$d" ~/.claude/skills/; done
 ```
+
+技能靠相对路径读取 `img/`，请**软链**而不是复制，并保留整个仓库。三个技能可组合使用：人像定脸和发型 + 服装定穿搭 + 姿势定动作。
 
 ---
 
