@@ -1,6 +1,6 @@
-# AI Pose Gallery · 中文版
+# AI 角色参考与合成工作台 · 中文版（3合1）
 
-> 288 组 / 1439 张 AI 人体姿势参考图，日文数据完整汉化，附可直接部署的响应式静态画廊。
+> **姿势库（1,439 张） + 服装库（1,440 套） + 人像库（1,466 位） = 4,345 条中文参考数据 / 10,097 张本地高清图**，集成多协议 AI 角色合成台。
 
 ![画廊预览](docs/preview.jpg)
 
@@ -11,7 +11,11 @@
 </details>
 
 **在线演示：** <https://ai-pose-gallery.anhao.app/>
-**原始站点：** <https://ai-pose-gallery.pages.dev/>
+**原始站点：**
+- 姿势库：<https://ai-pose-gallery.pages.dev/>
+- 服装库：<https://ai-costume-gallery.pages.dev/>
+- 人像库：<https://ai-portrait-gallery.pages.dev/>
+
 **原作者：** ギア（@giaaibusi）
 **中文版维护：** Anhao · [X @anhao_ai](https://x.com/anhao_ai)
 **GitHub：** <https://github.com/anhao/ai-pose-gallery-zh>
@@ -20,155 +24,144 @@
 
 ## 这是什么
 
-原站是一套面向 AI 绘画 / 3D / 摄影参考的姿势图库，元数据全部为日文，且不提供批量素材下载。本仓库做了三件事：
+原站是ギア（@giaaibusi）发布的三大 AI 绘画参考图库（姿势、服装、人像），元数据全部为日文，且分散在三个独立站点。本仓库（v2.0）完成了**三站合一与工作台升级**：
 
-1. **全量镜像** —— 1439 条记录对应的 1439 张缩略图（JPG 300×400）与 1439 张原图（PNG 900×1200）全部落地，共 2878 个文件 / 659.5 MB。
-2. **完整汉化** —— 日文字段逐条译为中文，覆盖 4 个体系、26 个分类、288 个姿势名、5 个视角，零遗漏。
-3. **可用的前端** —— 零依赖响应式画廊，完整实现原站的分类筛选、多角度切换、分组浏览、灯箱导航与原图下载，并针对手机重新设计布局。
+1. **三库全量镜像（10,097 张图）** —— 完整拉取姿势库（2,878 张）、服装库（2,880 张）、人像库（4,339 张，含全身图）的全部缩略图与高清原图，支持纯离线/静态托管。
+2. **100% 完整汉化（1,280 条词条）** —— 日文体系、分类、姿势名称、服装款式、色系、人像主题、发型、发色、表情、饰品等全部逐条译为地道中文，零日文残留。
+3. **三合一 AI 角色合成工作台** —— 基于 **React 19 + Tailwind CSS 4 + TypeScript 7 + shadcn/ui + TanStack Router** 构建的响应式多页面应用（兼容 PC / 平板 / 手机）：
+   - 从三大图库任意挑选 **人像 + 服装 + 姿势** 组合配方，或一键随机捏人；
+   - 支持拖拽 / 剪贴板粘贴（`Cmd+V` / `Ctrl+V`） / URL 添加多张自定义附加参考图；
+   - 内置 **4 大主流 AI 图像协议直连**（Gemini、OpenAI GPT、阿里千问 Qwen、字节豆包 Seedream），支持直接传递公网图片 URL 或 Base64，生成记录通过 **IndexedDB** 本地持久化保存。
 
-## 页面功能
+---
 
-- 4 个体系页签，显示各体系的图片数与姿势组数
-- 姿势名、编号、ID、分类关键词搜索，支持 `/` 快速聚焦
-- 动作分类、5 种视角组合筛选，可一键重置
-- **按姿势分组 / 逐张浏览**双模式，分组卡片带多角度缩略图
-- 悬停或点击缩略图切换主图角度，点击卡片打开灯箱
-- 灯箱先显示缩略图、再加载 900×1200 原图，支持直接下载 PNG、复制 ID、新窗口打开
-- `← / →` 切换角度，`↑ / ↓` 切换姿势，`Esc` 关闭；手机支持左右滑动
-- PC 多列网格、手机双列网格，移动端筛选面板可展开/收起
-- 使用指南与注意事项弹窗，页脚标注图片来源与维护者链接
+## 核心功能
 
-## SEO 与分享
+### 1. 三大参考图库（姿势 / 服装 / 人像）
+- **姿势参考库（`/poses`）**：4 大体系、26 个动作分类、288 组姿势、5 种视角（正面 / 斜侧 / 侧面 / 俯视 / 仰视），支持**按姿势分组 / 逐张浏览**双模式及卡片内多角度切换。
+- **服装参考库（`/costumes`）**：4 大体系（标准 / 性感 / 绅士 / 梦幻）、40 种款式分类、12 种色系筛选。
+- **人像参考库（`/portraits`）**：3 大体系、12 种主题、发型 / 发色 / 眼睛颜色 / 表情多维筛选，灯箱支持**半身肖像 / 全身立绘**一键切换。
+- **统一交互体验**：关键词实时检索、灯箱高清原图预览与 PNG 下载、一键「加入合成配方」。
 
-页面内置了完整的 SEO 与社交分享配置：
+### 2. AI 角色合成台（`/studio`）
+- **3+N 参考图组合**：3 个核心槽位（人像 / 服装 / 姿势）+ 任意张自定义附加参考图（点击上传、拖拽文件、剪贴板粘贴、填写图片 URL）。
+- **参考拼图预览与导出**：弹窗查看三合一高清参考拼图（`1800×1200` Canvas 合成），支持一键下载拼图 PNG。
+- **12 种画风预设 & 自动提示词**：内置「无预设（跟随参考图）」、日系赛璐璐、厚涂插画、写实摄影、水彩、国风、3D 渲染等 12 种画风，根据已选素材自动组装中英双语结构化 Prompt。
+- **多协议 AI 生图与高级参数**：
+  - **Google Gemini**：`gemini-3.1-flash-image-preview`、`gemini-3-pro-image-preview`、`gemini-2.5-flash-image`（支持宽高比 `aspectRatio`、分辨率 `1K/2K/4K`）
+  - **OpenAI GPT Image**：`gpt-image-1.5`、`gpt-image-1`、`gpt-image-1-mini`（支持 `/v1/images/edits` JSON URL 直传 / Multipart 上传、尺寸、质量、背景透明度）
+  - **阿里千问 Qwen-Image**：`qwen-image-2.0-pro`、`qwen-image-2.0`、`qwen-image-edit-max`（支持 `multimodal-generation` 多图参考输入、智能改写 `prompt_extend`、水印开关）
+  - **字节豆包 Seedream**：`doubao-seedream-5-0-260128`、`doubao-seedream-4-5-251128`、`doubao-seedream-4-0-250828`（支持多图融合 `image: [...]`、2K/4K 分辨率）
+- **跨页面后台生图 & IndexedDB 历史记录**：切换页面不会中断正在进行的生图请求；生成结果自动存入浏览器 IndexedDB（避免 `localStorage` 容量限制），支持复用提示词与原图下载。
 
-- 关键词化标题：`AI 姿势参考库｜288 组人体姿势 · 1439 张多角度参考图`
-- 独立 description、keywords、author 与 `max-image-preview:large`
-- `canonical` 指向正式域名，避免自定义域名与 pages.dev 域名重复收录
-- Open Graph / Twitter Card 使用 1200×630 的 `og-cover.jpg`
-- JSON-LD 结构化数据：`WebSite` + `ImageGallery`，声明语言、简介与页面主图
-- `robots.txt` 放行全站并声明 sitemap，`sitemap.xml` 指向首页
-- 语义结构：单一 H1、分区 H2、卡片 H3；缩略图 `alt` 含姿势名与视角，图片懒加载
-
-仓库中的绝对地址统一指向 `https://ai-pose-gallery.anhao.app/`。Fork 后如使用其他域名，需同步替换 `index.html` 的 canonical、`og:*`、`twitter:*`、JSON-LD，以及 `robots.txt`、`sitemap.xml` 中的地址。
+---
 
 ## 数据规模
 
-| 体系 | 条数 |
-| --- | ---: |
-| 全身单人・标准系 | 365 |
-| 全身单人・性感系 | 399 |
-| 上半身单人 | 400 |
-| 双人缠绵 | 275 |
-| **合计** | **1439** |
+| 图库 | 体系划分 | 记录数 | 本地图片文件数 |
+| --- | --- | ---: | ---: |
+| **姿势库（Pose）** | 全身标准 (365) · 全身性感 (399) · 上半身 (400) · 双人缠绵 (275) | 1,439 | 2,878 张（缩略图 + 原图） |
+| **服装库（Costume）** | 标准系 (400) · 性感系 (400) · 绅士系 (400) · 梦幻系 (240) | 1,440 | 2,880 张（缩略图 + 原图） |
+| **人像库（Portrait）** | 标准系 (810) · 梦幻系 (416) · 绅士系 (240) | 1,466 | 4,339 张（缩略图 + 肖像原图 + 全身原图） |
+| **合计** | **11 个体系** | **4,345** | **10,097 张** |
 
-每条记录对应 5 个视角中的若干个：正面 / 斜侧 / 侧面 / 俯视 / 仰视。
+---
 
-## 目录结构
+## 技术栈与目录结构
 
-```
+- **前端框架**：React 19.3 + TypeScript 7.0 + Vite 8 (Rolldown)
+- **路由与状态**：TanStack Router + TanStack Query + IndexedDB 本地存储
+- **样式与组件**：Tailwind CSS 4.3 + shadcn/ui (Radix UI) + Lucide Icons
+- **代码质量**：Oxlint + Oxfmt
+
+```text
 .
-├── index.html              # 单页画廊（零依赖，直接打开即可）
-├── robots.txt              # 搜索引擎抓取规则
-├── sitemap.xml             # 站点地图
-├── og-cover.jpg            # 1200×630 社交分享封面
+├── src/
+│   ├── components/         # 通用组件、AppLayout 响应式导航、GalleryLightbox 灯箱、RecipeDock
+│   ├── routes/             # 页面路由：概览(index)、姿势(poses)、服装(costumes)、人像(portraits)、合成台(studio)、配置(settings)、指南(guide)
+│   ├── services/           # AI 多协议图像生成客户端 (aiGenerator.ts) 与 Canvas 拼图合成 (canvasComposer.ts)
+│   ├── store/              # 全局配方、生图状态与 IndexedDB 历史管理 (studioStore.tsx)
+│   ├── lib/                # 数据加载器 (dataLoader.ts) 与 IndexedDB 工具 (idbStorage.ts)
+│   └── types/              # 三库数据结构与 4 大 AI 协议类型定义 (gallery.ts)
 ├── data/
-│   ├── pose.json           # 原始日文数据（1439 条，未改动）
-│   ├── pose-zh.json        # 中文数据（前端实际读取，含检索字段）
-│   ├── meta.json           # 原始体系分类
-│   ├── meta-zh.json        # 中文体系分类
-│   └── translations.csv    # 日⇄中对照表（323 条，便于校对）
-├── thumbs/                 # 缩略图 1439 张 JPG 300×400（22 MB）
-├── img/                    # 原图 1439 张 PNG 900×1200（637 MB）
+│   ├── pose.json / pose-zh.json                 # 姿势库日文原始数据 & 中文数据（1,439 条）
+│   ├── costume.json / costume-zh.json           # 服装库日文原始数据 & 中文数据（1,440 条）
+│   ├── portrait.json / portrait-zh.json         # 人像库日文原始数据 & 中文数据（1,466 条）
+│   ├── *-meta-zh.json                           # 三库中文体系分类元数据
+│   └── translations.csv                         # 日⇄中对照表（1,280 条）
+├── thumbs/                 # 缩略图目录（姿势根目录 + costume/ + portrait/）
+├── img/                    # 高清原图目录（姿势根目录 + costume/ + portrait/ + portrait/fullbody/）
 ├── scripts/
-│   ├── download.py         # 并发下载器（48 线程 / 断点续传 / 自动重试）
-│   ├── i18n.py             # 日译中词典（唯一值去重后的 323 条译文）
-│   ├── apply_translation.py# 回填译文，生成中文数据
-│   ├── verify.py           # 校验文件完整性（存在性 / 大小 / 图片头）
-│   └── build.sh            # 生成 Cloudflare Pages 发布目录 dist/
-├── docs/                   # README 页面预览图
-├── _headers                # Cloudflare Pages 缓存策略
-├── LICENSE
+│   ├── download.py         # 三站并发下载器（断点续传 / 自动重试）
+│   ├── i18n.py             # 日译中词典（1,280 条唯一译文）
+│   ├── apply_translation.py# 生成三库 *-zh.json 中文数据与检索索引
+│   ├── verify.py           # 校验 10,097 张图片完整性（存在性 / 大小 / 文件头）
+│   └── build.sh            # 构建 Cloudflare Pages 发布目录 dist/
+├── skills/                 # Claude Code / Agent 姿势检索技能包
 └── README.md
 ```
 
-## 数据结构
+---
 
-`data/pose-zh.json` 字段说明：
+## 本地开发与构建
 
-| 字段 | 原日文字段 | 示例 | 说明 |
-| --- | --- | --- | --- |
-| `id` | — | `full_sexy_P001_front` | 唯一标识 |
-| `体系` | `系統` | 全身单人・性感系 | 4 大类 |
-| `姿势编号` | `ポーズ番号` | `P001` | 80 组编号 |
-| `分类` | `分類` | 站姿 | 26 类动作 |
-| `姿势名称` | `ポーズ名` | S形站姿・胯部侧顶 | 288 种描述 |
-| `角度` | `アングル` | 正面 | 5 种视角 |
-| `缩略图` | `サムネ` | `thumbs/…jpg` | 相对路径 |
-| `原图` | `原寸` | `img/…png` | 相对路径 |
-| `检索` | — | 拼接串 | 供前端模糊搜索 |
-
-原始日文数据 `data/pose.json` 保持原样，字段名与站点接口一致，便于对照或回灌。
-
-## 本地预览
-
-画廊通过 `fetch` 读取 JSON，需要 HTTP 环境（直接双击 `index.html` 会被 CORS 拦截）：
+需要 **Node.js 20+** 与 **pnpm**：
 
 ```bash
-python3 -m http.server 8000
-# 打开 http://127.0.0.1:8000
+# 1. 安装依赖
+pnpm install
+
+# 2. 启动本地开发服务器（默认 http://localhost:5173）
+pnpm dev
+
+# 3. 类型检查 + 生产构建 + 代码规范检查
+pnpm build && pnpm lint
 ```
 
-页面支持体系/分类/视角组合筛选、关键词搜索、分组与逐张浏览、多角度缩略图、懒加载、灯箱原图下载、键盘与触屏导航。
-
-## 脚本用法
+### 数据与图片维护脚本（Python 3）
 
 ```bash
-# 重新拉取全部图片（已存在的文件自动跳过，可反复执行）
+# 拉取/补全三站全部 10,097 张图片（已存在的文件自动跳过，支持断点续传）
 python3 scripts/download.py
-WORKERS=64 python3 scripts/download.py   # 调整并发
+WORKERS=64 python3 scripts/download.py   # 调整并发线程数
 
-# 修改 scripts/i18n.py 中的译文后，重新生成中文数据
+# 修改 scripts/i18n.py 词典后，重新生成三库中文 JSON
 python3 scripts/apply_translation.py
 
-# 校验 2878 个文件是否完整
+# 校验全部图片文件是否完整
 python3 scripts/verify.py
 ```
 
+---
+
 ## 部署到 Cloudflare Pages
 
-仓库为纯静态站点，无框架、无依赖。
+本项目构建后为纯静态 SPA（所有 AI 接口请求均由浏览器端直连或通过您配置的 CORS 代理发出，无需后端服务器）。
 
-**方式一：GitHub 自动部署（推荐）**
+### 方式一：GitHub 自动部署（推荐）
 
 1. 登录 Cloudflare Dashboard → **Workers & Pages** → **Create** → **Pages** → **Connect to Git**
 2. 选择本仓库 → 生产分支 `main`
-3. 构建设置照抄：
+3. 构建设置：
 
    | 字段 | 值 |
    | --- | --- |
-   | Framework preset | `None` |
+   | Framework preset | `None`（或 `Vite`） |
    | Build command | `bash scripts/build.sh` |
    | Build output directory | `dist` |
 
-4. **Save and Deploy**，约 2–5 分钟得到 `https://<project>.pages.dev`
-5. 之后每次 `git push` 自动重新发布
+4. `scripts/build.sh` 会自动执行 `pnpm build`，并将 `data/`、`thumbs/`、`img/`、`_headers` 及 SPA 路由回退规则 `_redirects`（`/* /index.html 200`）打包至 `dist/`。
 
-> ⚠️ **不要**把 Build output directory 直接填 `/`。仓库根目录含 `.git`（数百 MB），
-> Cloudflare 会把它当静态资源扫描，pack 文件超过 25 MiB 单文件限制会导致构建失败。
-> `scripts/build.sh` 只拷贝 `index.html`、`_headers`、`data/`、`thumbs/`、`img/` 到 `dist/`。
-> 若确实想用根目录，仓库已附 `.assetsignore` 兜底排除非站点文件。
+> **注意**：Cloudflare Pages 免费版单次部署文件上限为 20,000 个文件，单文件上限 25 MiB。本仓库共约 10,120 个文件、单文件最大 < 2 MB，完全符合限制。
 
-> 站点限制：单文件 ≤ 25 MiB、每次部署 ≤ 20,000 个文件。本仓库最大文件 917 KB、共 2883 个文件，均在限制内。
-
-**方式二：命令行直传**
+### 方式二：Wrangler 命令行直传
 
 ```bash
 bash scripts/build.sh
 npx wrangler pages deploy dist --project-name ai-pose-gallery-zh
 ```
 
-`_headers` 已为 `img/`、`thumbs/` 配置一年期强缓存，图片不会重复回源。
+---
 
 ## Agent 技能（Skills）
 
@@ -180,45 +173,18 @@ npx wrangler pages deploy dist --project-name ai-pose-gallery-zh
 | `pose-reference-upper` | 400 | 上半身单人 |
 | `pose-reference-sexy` | 399 | 全身单人・性感系（18+） |
 | `pose-reference-couple` | 275 | 双人缠绵（18+） |
-| `pose-reference-all` | 1439 | 全部 |
-
-每个技能含 `SKILL.md`（用法 + 姿势目录）与 `references/catalog.csv`；csv 的 `图片` 列是**相对技能根目录**的路径（`../../img/<id>.png`），直接复用本仓库 `img/`，不重复存图、不依赖外链。
-
-### 安装：手动
-
-技能通过相对路径读取仓库的 `img/`，所以要**保留整个仓库**，再把技能目录**软链**（不要复制）到 Agent 的技能目录。以 Claude Code 为例（个人技能目录 `~/.claude/skills/`，项目级为 `<项目>/.claude/skills/`）：
+| `pose-reference-all` | 1,439 | 全部姿势 |
 
 ```bash
 git clone --depth 1 https://github.com/anhao/ai-pose-gallery-zh.git ~/ai-pose-gallery-zh
 mkdir -p ~/.claude/skills
-ln -s ~/ai-pose-gallery-zh/skills/pose-reference-standard ~/.claude/skills/pose-reference-standard
-# 需要全部技能：for d in ~/ai-pose-gallery-zh/skills/pose-reference-*; do ln -s "$d" ~/.claude/skills/; done
+for d in ~/ai-pose-gallery-zh/skills/pose-reference-*; do ln -s "$d" ~/.claude/skills/; done
 ```
 
-重启 Claude Code 或新开会话后输入 `/skills`，能看到 `pose-reference-*` 即可。仓库移动位置后需重新建软链。
+---
 
-只想要可单独拷贝、自带图片（WebP）的版本，可用独立技能包仓库 [jasoncai0/pose-reference-skills](https://github.com/jasoncai0/pose-reference-skills)。
+## 内容提示与版权致谢
 
-### 安装：让 Agent 帮你装
-
-把下面这段话发给 Claude Code（或其他能执行命令的 Agent），按需改技能名：
-
-```text
-请帮我安装姿势参考技能：把 https://github.com/anhao/ai-pose-gallery-zh 浅克隆到 ~/ai-pose-gallery-zh
-（需要完整仓库，技能会用相对路径读取仓库里的 img/），然后把 skills/pose-reference-standard
-软链到 ~/.claude/skills/pose-reference-standard（不要复制）。完成后检查
-references/catalog.csv 里每一行的「图片」路径相对技能目录都能找到文件，告诉我总行数和缺失数。
-```
-
-要装全部技能，把「skills/pose-reference-standard」改成「skills/ 下全部 pose-reference-* 目录」。
-
-## 内容提示
-
-图库包含成人向姿势参考（部分分类名称涉及性行为术语），仅供艺术创作、动作参考与前端技术学习使用。请勿用于违法用途。未成年人请勿访问。
-
-## 版权与致谢
-
-- **图片与原始数据的著作权归原作者ギア所有**，来源地址见页首
-- 本仓库仅为个人学习、汉化与静态站点实践存档，**不对图片主张任何权利**，也不构成对原作品的商业使用授权
-- 若原作者认为本仓库侵犯其权益，请通过 Issue 联系，将立即删除相关内容
-- `scripts/` 与 `index.html` 的代码以 MIT 协议开源（见 [LICENSE](LICENSE)），该协议**不覆盖** `img/`、`thumbs/` 与 `data/` 中的图片和原始数据
+- **内容提示**：图库包含部分成人向姿势与性感服装参考，仅供艺术创作、动作设计参考与前端技术学习使用，未成年人请勿访问。
+- **版权归属**：所有姿势、服装、人像图片与原始数据的著作权归原作者 **ギア（@giaaibusi）** 所有。本仓库仅为汉化学习与前端工程实践存档，不对图片主张任何权利。
+- **开源协议**：前端应用代码（`src/`）与数据处理脚本（`scripts/`）以 [MIT 协议](LICENSE) 开源；该协议**不覆盖** `img/`、`thumbs/` 与 `data/` 中的图片及原始数据。

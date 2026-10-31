@@ -21,6 +21,10 @@ verify_failed.txt
 .vscode/
 node_modules/
 .wrangler/
+.tanstack/
 
-# 构建产物
+# 构建产物与原始 PNG 备份（不上传 Git）
 dist/
+backups/
+img/costume/*.png
+img/portrait/*.png
