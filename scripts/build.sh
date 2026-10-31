@@ -1,15 +1,25 @@
 #!/usr/bin/env bash
-# 构建 Cloudflare Pages 需要的发布目录 dist/。
-# 只拷贝站点运行时真正用到的文件，排除 .git（内含 660 MB 打包对象，
-# 会被 Pages 当作静态资源扫描并因超过 25 MiB 单文件限制而报错）。
+# 构建 Cloudflare Pages 需要的发布目录 dist/（React + Vite + 静态图片数据）。
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
 
-rm -rf dist
-mkdir -p dist
+if [ ! -d "node_modules" ]; then
+  if command -v pnpm >/dev/null 2>&1; then
+    pnpm install --frozen-lockfile
+  else
+    npm install
+  fi
+fi
 
-cp -R index.html _headers robots.txt sitemap.xml og-cover.jpg data thumbs img dist/
+if command -v pnpm >/dev/null 2>&1; then
+  pnpm build
+else
+  npm run build
+fi
+
+cp -R _headers robots.txt sitemap.xml og-cover.jpg data thumbs img dist/
+printf "/* /index.html 200\n" > dist/_redirects
 
 echo "dist ready:"
 du -sh dist

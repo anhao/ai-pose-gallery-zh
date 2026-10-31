@@ -335,3 +335,292 @@ POSE = {
     "騎乗位風・膝を開き前に手をついて腰を落とす": "骑乘风・开膝双手前撑・沉胯",
     "髪を耳にかけるしぐさ": "将发丝挽至耳后",
 }
+
+# ==============================================================================
+# 2. COSTUME (服装穿搭) 词典与短语翻译
+# ==============================================================================
+
+COSTUME_CATEGORY = {
+    "春": "春季穿搭",
+    "夏": "夏季穿搭",
+    "秋": "秋季穿搭",
+    "冬": "冬季穿搭",
+    "ランジェリー": "内衣・睡衣",
+    "パーティ": "派对・礼服",
+    "水着": "泳装・度假",
+    "セクシー": "性感穿搭",
+}
+
+COSTUME_COLORS = {
+    "beige": "米色",
+    "black": "黑色",
+    "blue": "蓝色",
+    "brown": "棕色",
+    "burgundy": "酒红色",
+    "cream": "奶油色",
+    "gold": "金色",
+    "green": "绿色",
+    "grey": "灰色",
+    "ivory": "象牙白",
+    "khaki": "卡其色",
+    "lavender": "薰衣草紫",
+    "mint": "薄荷绿",
+    "navy": "藏青色",
+    "olive": "橄榄绿",
+    "orange": "橙色",
+    "pink": "粉色",
+    "purple": "紫色",
+    "red": "红色",
+    "silver": "银色",
+    "white": "白色",
+    "yellow": "黄色",
+}
+
+COSTUME_MODIFIERS = {
+    "chiffon": "雪纺",
+    "corduroy": "灯芯绒",
+    "denim": "牛仔",
+    "floral": "碎花",
+    "frill": "荷叶边",
+    "fur": "毛绒",
+    "knit": "针织",
+    "lace": "蕾丝",
+    "leather": "皮质",
+    "maxi": "长款",
+    "mesh": "网纱",
+    "midi": "中长",
+    "mini": "迷你",
+    "pleated": "百褶",
+    "polka-dot": "波点",
+    "satin": "缎面",
+    "suede": "麂皮",
+    "tulle": "薄纱",
+    "turtleneck": "高领",
+    "velvet": "丝绒",
+    "wool": "羊毛",
+}
+
+COSTUME_NOUNS = {
+    "apron": "围裙",
+    "bag": "包",
+    "beanie": "针织冷帽",
+    "belt": "腰带",
+    "beret": "贝雷帽",
+    "blouse": "女衫",
+    "boots": "靴子",
+    "bra": "文胸",
+    "briefs": "内裤",
+    "camisole": "吊带衫",
+    "cardigan": "开衫",
+    "choker": "颈链",
+    "coat": "大衣",
+    "corset": "束腰胸衣",
+    "dress": "连衣裙",
+    "gloves": "手套",
+    "hat": "礼帽",
+    "headband": "发箍",
+    "heels": "高跟鞋",
+    "hoodie": "连帽卫衣",
+    "jacket": "夹克",
+    "jeans": "牛仔裤",
+    "loafers": "乐福鞋",
+    "muffler": "围巾",
+    "necklace": "项链",
+    "pants": "长裤",
+    "pumps": "浅口单鞋",
+    "ribbon": "蝴蝶结",
+    "robe": "罩衫",
+    "sandals": "凉鞋",
+    "scarf": "丝巾",
+    "shirt": "衬衫",
+    "shorts": "短裤",
+    "skirt": "半身裙",
+    "sneakers": "运动鞋",
+    "socks": "短袜",
+    "stockings": "长筒丝袜",
+    "sunglasses": "墨镜",
+    "sweater": "毛衣",
+    "swimsuit": "泳衣",
+    "tights": "连裤袜",
+    "tote": "托特包",
+    "vest": "马甲",
+}
+
+COSTUME_WORD_ALL = {**COSTUME_COLORS, **COSTUME_MODIFIERS, **COSTUME_NOUNS}
+
+
+def translate_costume_keywords(kw: str) -> tuple[str, list[str]]:
+    """将服装英文关键词串解析为（自然中文服装名, 独立中文词条列表）。"""
+    tokens = kw.split()
+    merged = []
+    i = 0
+    while i < len(tokens):
+        t = tokens[i]
+        nxt = tokens[i + 1] if i + 1 < len(tokens) else None
+        nxt2 = tokens[i + 2] if i + 2 < len(tokens) else None
+        if t in ("olive", "mint") and nxt == "green":
+            merged.append(t)
+            i += 2
+        elif t == "bra" and nxt == "briefs":
+            merged.append("bra_briefs")
+            i += 2
+        elif t == "shirt" and nxt == "dress":
+            merged.append("shirt_dress")
+            i += 2
+        elif t == "shirt" and nxt == "jacket":
+            merged.append("shirt_jacket")
+            i += 2
+        elif t == "skirt" and nxt == "shorts":
+            merged.append("skirt_shorts")
+            i += 2
+        elif t == "ribbon" and nxt in (
+            "chiffon", "shirt", "blouse", "camisole", "dress", "knit", "cardigan", "sweater", "skirt"
+        ):
+            merged.append("ribbon_mod")
+            i += 1
+        elif t == "camisole" and nxt in ("dress", "mini", "midi", "maxi"):
+            merged.append("camisole_mod")
+            i += 1
+        elif t == "corset" and nxt in ("dress", "mini", "midi", "maxi", "skirt"):
+            merged.append("corset_mod")
+            i += 1
+        elif (
+            t == "knit"
+            and nxt not in ("dress", "cardigan", "sweater", "vest", "beanie", "skirt", "shorts", "pants", "camisole", "turtleneck")
+            and not (nxt in ("mini", "midi", "maxi") and nxt2 == "dress")
+        ):
+            merged.append("knit_top")
+            i += 1
+        elif (
+            t == "turtleneck"
+            and nxt not in ("dress", "sweater", "knit")
+            and not (nxt in ("mini", "midi", "maxi") and nxt2 == "dress")
+        ):
+            merged.append("turtleneck_top")
+            i += 1
+        else:
+            merged.append(t)
+            i += 1
+
+    ext_mods = dict(COSTUME_MODIFIERS, ribbon_mod="蝴蝶结", camisole_mod="吊带", corset_mod="束腰")
+    ext_nouns = dict(
+        COSTUME_NOUNS,
+        bra_briefs="内衣套装",
+        shirt_dress="衬衫裙",
+        shirt_jacket="衬衫夹克",
+        skirt_shorts="裙裤",
+        knit_top="针织衫",
+        turtleneck_top="高领衫",
+    )
+
+    phrases = []
+    buf = []
+    for t in merged:
+        if t in ext_nouns:
+            phrases.append("".join(buf) + ext_nouns[t])
+            buf = []
+        elif t in COSTUME_COLORS:
+            if any(x in ext_mods.values() for x in buf):
+                s = "".join(buf)
+                if s.endswith(("蕾丝", "荷叶边", "薄纱", "网纱", "缎面")):
+                    s += "饰边"
+                phrases.append(s)
+                buf = [COSTUME_COLORS[t]]
+            else:
+                buf.append(COSTUME_COLORS[t])
+        elif t in ext_mods:
+            buf.append(ext_mods[t])
+        else:
+            raise ValueError(f"Unknown costume token: {t}")
+    if buf:
+        s = "".join(buf)
+        if s in ("金色", "银色"):
+            s += "饰品"
+        elif s.endswith("迷你"):
+            s += "包"
+        elif s.endswith(("蕾丝", "荷叶边", "薄纱", "网纱", "缎面")):
+            s += "配饰"
+        elif s in COSTUME_COLORS.values():
+            s += "配饰"
+        phrases.append(s)
+
+    word_tags = []
+    for w in tokens:
+        zh = COSTUME_WORD_ALL[w]
+        if zh not in word_tags:
+            word_tags.append(zh)
+    return "・".join(phrases), word_tags
+
+
+# ==============================================================================
+# 3. PORTRAIT (人像颜值・发型) 词典
+# ==============================================================================
+
+PORTRAIT_SECTION = {
+    "face": "正脸参考",
+    "styling": "造型氛围",
+}
+
+PORTRAIT_HAIR = {
+    "ショート": "短发",
+    "ミディアム": "中发",
+    "セミロング": "中长发",
+    "ロング": "长发",
+    "未分類": "未分类",
+    "総合": "综合",
+}
+
+PORTRAIT_STYLE = {
+    "": "标准基础款",
+    "2wayバングのワンカールミディアムボブ": "两用刘海・单卷中发波波头",
+    "2wayバングの韓国レイヤー": "两用刘海・韩式层次发",
+    "くびれショート（襟足長め・シースルーバング）": "收腰感短发（长发尾・空气刘海）",
+    "くびれセミロング（透明感カラー）": "S型收腰中长发（透明感发色）",
+    "くびれボブ（インナーカラー）": "收腰感波波头（内层挑染）",
+    "くるくるハードパーマミディアム": "蓬松密集卷烫中发",
+    "たっぷりレイヤー（ラベンダーグレージュ）": "高层次剪裁（薰衣草灰米色）",
+    "ぱっつん前髪のミディアムストレート": "齐刘海直发中发",
+    "ウェットヘアの前髪長めショートボブ": "湿发感长刘海短波波头",
+    "ショートウルフ（ミニウルフ）": "短款狼尾头（迷你狼尾）",
+    "シースルーぱっつん前髪のシャギーレイヤー": "空气齐刘海・碎发层次剪",
+    "スパイラルパーマショートボブ（黒髪）": "螺旋卷烫短波波头（黑发）",
+    "スパイラルパーマ韓国風セミロング": "螺旋卷烫韩式中长发",
+    "セミロングウルフ（チェリーレッド）": "中长狼尾头（樱桃红）",
+    "セミロングストレート（前髪あり・暗髪）": "顺直中长发（有刘海・深发色）",
+    "セミロングニュアンスパーマ": "自然微卷中长发",
+    "セミロング顔まわりレイヤー（ミルクティーベージュ）": "修颜层次中长发（奶茶米色）",
+    "セミロング黒髪ツヤレイヤー": "黑亮光泽层次中长发",
+    "ハイトーンミルクティーグレージュミディアム": "浅亮奶茶灰米色中发",
+    "ハイトーンミルクティーショートボブ": "浅亮奶茶色短波波头",
+    "ハイライト入り丸みショート": "挑染圆润感短发",
+    "ハイレイヤー×裾カラー（ブロンド）": "高层次剪×发尾染（金发）",
+    "ハッシュカット（グレージュ）": "韩式轻羽剪 Hush Cut（灰米色）",
+    "ハッシュカット（韓国ヘア）": "韩式轻羽剪 Hush Cut",
+    "バタフライカット（ヘーゼルカラー）": "蝴蝶剪层次发（榛果色）",
+    "バタフライカット（ミントベージュ・シースルーバング）": "蝴蝶剪层次发（薄荷米色・空气刘海）",
+    "バーガンディのシースルーレイヤー": "酒红色轻透层次发",
+    "マッシュショート（前髪長め）": "蘑菇头短发（长刘海）",
+    "ミディアムウルフパーマ": "中长狼尾卷发",
+    "ミディアムニュアンスパーマ（コテ巻き風）": "自然微卷中发（电棒卷风）",
+    "ミディアムレイヤー内巻きワンカール（まろベージュ）": "内扣单卷层次中发（柔和米色）",
+    "ミニボブパーマ（くせ毛風）": "自然微卷迷你波波头",
+    "ミニボブ（オン眉ぱっつん前髪）": "眉上齐刘海迷你波波头",
+    "レイヤーショートボブ（顔まわりレイヤー）": "修颜层次短波波头",
+    "ロブレイヤー（ミントベージュ）": "层次感长波波头 Lob（薄荷米色）",
+    "ロングウルフ（クラゲヘア）": "长款狼尾头（水母头）",
+    "ワンカールレイヤーと後れ毛（ショコラブラウン）": "单卷层次与碎发修饰（巧克力棕）",
+    "丸みショートボブ（シースルーバング・ダークブラウン）": "圆润短波波头（空气刘海・深棕色）",
+    "内巻きワンカールボブ（ラベンダーアッシュ）": "内扣单卷波波头（薰衣草灰）",
+    "切りっぱなしストレートボブ（前髪なし）": "一刀切直发波波头（无刘海）",
+    "切りっぱなし外ハネミディアムボブ": "一刀切外翘中长波波头",
+    "前下がりひし形ショートボブ（黒髪）": "前长后短菱形短波波头（黑发）",
+    "前下がりミディアムボブ（マロンベージュ）": "前长后短中波波头（栗子米色）",
+    "外ハネボブ（暗髪）": "外翘波波头（深发色）",
+    "斜めバングのエアリーカール": "斜刘海空气感卷发",
+    "耳掛けハンサムショート（前髪なし）": "挽耳帅气短发（无刘海）",
+    "艶さらストレートミディアムボブ（前髪なし）": "柔顺光泽直发中波波头（无刘海）",
+    "重めミディアムレイヤー（バレイヤージュ）": "厚重感层次中发（法式手刷染）",
+    "鎖骨丈ミディアムレイヤーボブ（アッシュグレージュ）": "锁骨长层次波波头（烟灰米色）",
+    "韓国風タッセルボブ（サイドバング）": "韩式流苏一刀切波波头（八字侧刘海）",
+}
+

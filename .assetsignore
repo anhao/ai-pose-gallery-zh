@@ -5,9 +5,13 @@
 .gitignore
 .workbuddy
 dist
+backups
 docs
 node_modules
 scripts
+src
+functions
+skills
 README.md
 LICENSE
 download_failed.txt
