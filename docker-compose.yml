@@ -1,0 +1,16 @@
+services:
+  web:
+    build: .
+    ports:
+      - "${PORT:-8080}:80"
+    volumes:
+      - ./data:/usr/share/nginx/html/data:ro
+      - ./thumbs:/usr/share/nginx/html/thumbs:ro
+      - ./img:/usr/share/nginx/html/img:ro
+    depends_on:
+      - proxy
+    restart: unless-stopped
+
+  proxy:
+    build: ./deploy/proxy
+    restart: unless-stopped
