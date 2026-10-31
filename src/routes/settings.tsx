@@ -6,6 +6,7 @@ import {
   EyeIcon,
   EyeOffIcon,
   RotateCcwIcon,
+  ScanSearchIcon,
   SparklesIcon,
 } from 'lucide-react'
 import { useState } from 'react'
@@ -16,7 +17,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Switch } from '@/components/ui/switch'
-import { PROVIDER_META, testComfyConnection } from '@/services/aiGenerator'
+import { detectComfyUi, PROVIDER_META, testComfyConnection } from '@/services/aiGenerator'
 import { useStudio } from '@/store/studioStore'
 import type { ImagePassMode, ImageProviderId } from '@/types/gallery'
 
@@ -41,8 +42,25 @@ function SettingsPage() {
     try {
       const info = await testComfyConnection(pCfg.baseUrl, pCfg.apiKey)
       toast.success(`连接成功：${info}`)
-    } catch {
-      toast.error('连接失败，请确认 ComfyUI 已启动且添加了 --enable-cors-header *')
+    } catch (e) {
+      toast.error(e instanceof Error ? e.message : '连接失败', { duration: 10000 })
+    } finally {
+      setTestingComfy(false)
+    }
+  }
+
+  const handleDetectComfy = async () => {
+    setTestingComfy(true)
+    try {
+      const found = await detectComfyUi(pCfg.baseUrl, pCfg.apiKey)
+      if (!found) {
+        toast.error('未找到可用的 ComfyUI（已尝试当前地址、127.0.0.1:8000、127.0.0.1:8188），请确认已启动并检查跨域设置', {
+          duration: 10000,
+        })
+        return
+      }
+      updateProviderConfig('comfyui', { baseUrl: found.baseUrl })
+      toast.success(`已识别：${found.info}（${found.baseUrl}）`)
     } finally {
       setTestingComfy(false)
     }
@@ -100,10 +118,16 @@ function SettingsPage() {
         actions={
           <div className="flex items-center gap-1.5">
             {pid === 'comfyui' && (
-              <Button variant="outline" size="sm" onClick={handleTestComfy} disabled={testingComfy}>
-                <ActivityIcon className="size-3.5" />
-                {testingComfy ? '检测中…' : '测试连接'}
-              </Button>
+              <>
+                <Button variant="outline" size="sm" onClick={handleDetectComfy} disabled={testingComfy}>
+                  <ScanSearchIcon className="size-3.5" />
+                  自动识别
+                </Button>
+                <Button variant="outline" size="sm" onClick={handleTestComfy} disabled={testingComfy}>
+                  <ActivityIcon className="size-3.5" />
+                  {testingComfy ? '检测中…' : '测试连接'}
+                </Button>
+              </>
             )}
             <Button variant="ghost" size="sm" asChild>
               <a href={meta.docUrl} target="_blank" rel="noreferrer">
@@ -132,12 +156,12 @@ function SettingsPage() {
           label={pid === 'comfyui' ? 'ComfyUI 地址 (Base URL)' : 'Base URL'}
           hint={
             pid === 'comfyui'
-              ? '启动 ComfyUI 需加参数 --enable-cors-header *（秋叶整合包勾选「允许跨域」）'
+              ? `本地运行本站时填 /comfy（同源代理，无需改跨域设置）；直连时 ComfyUI 需加启动参数 --enable-cors-header "${typeof window !== 'undefined' ? window.location.origin : '*'}"。Desktop 版默认端口 8000，便携版 8188`
               : undefined
           }
         >
           <Input
-            type="url"
+            type={pid === 'comfyui' ? 'text' : 'url'}
             value={pCfg.baseUrl}
             onChange={(e) => updateProviderConfig(pid, { baseUrl: e.target.value })}
             placeholder={meta.defaultBaseUrl}
