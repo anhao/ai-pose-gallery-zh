@@ -42,7 +42,7 @@ export const navGroups: NavGroup[] = [
     label: '配置与说明',
     items: [
       { title: 'API 接口配置', to: '/settings', icon: KeyRoundIcon },
-      { title: '使用指南与版权', to: '/guide', icon: BookOpenIcon },
+      { title: '使用说明与免责声明', to: '/guide', icon: BookOpenIcon },
     ],
   },
 ]

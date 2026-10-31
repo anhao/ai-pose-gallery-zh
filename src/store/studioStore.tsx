@@ -608,17 +608,20 @@ export function StudioProvider({ children }: { children: ReactNode }) {
       <AlertDialog open={ageGateOpen} onOpenChange={setAgeGateOpen}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>🔞 年龄确认与敏感内容提示</AlertDialogTitle>
+            <AlertDialogTitle>🔞 年龄确认与免责声明（NSFW 18+）</AlertDialogTitle>
             <AlertDialogDescription className="space-y-2 text-left leading-relaxed">
               <span className="block">
-                关闭「安全模式 (SFW)」后，图库将显示包含成人向艺术参考的分类：
+                关闭「安全模式 (SFW)」后，图库将显示包含成人向艺术参考的敏感分类：
               </span>
               <span className="block rounded-lg bg-muted p-2.5 text-xs text-foreground">
                 • <strong>动作姿势库</strong>：全身单人・性感系（399 张）、双人缠绵（275 张）
                 <br />• <strong>服装穿搭库</strong>：内衣・睡衣（199 套）、性感穿搭（140 套）
               </span>
-              <span className="block">
-                以上内容为 3D 素体白模与穿搭参考，仅供绘画创作、动作设计与 AI 生图参考使用。请确认您已年满 18 周岁。
+              <span className="block text-xs">
+                <strong>免责声明</strong>：
+                <br />1. <strong>年龄限制</strong>：未满 18 周岁的未成年人严禁关闭安全模式或浏览上述敏感分类。
+                <br />2. <strong>来源说明</strong>：图鉴素材源自原作者 ギア（@giaaibusi）公开分享，仅供个人学习交流，严禁商业倒卖。
+                <br />3. <strong>合法使用</strong>：本工具与素材<strong>仅供 AI 绘画学习与合法艺术创作使用，严禁用于任何违法违规、色情传播或侵害他人肖像权（如未经授权的真人换脸）等用途</strong>，使用者须自行承担一切法律责任。
               </span>
             </AlertDialogDescription>
           </AlertDialogHeader>
@@ -631,7 +634,7 @@ export function StudioProvider({ children }: { children: ReactNode }) {
               保持安全模式
             </AlertDialogCancel>
             <AlertDialogAction onClick={confirmUnlockNsfw}>
-              我已年满 18 岁，显示完整图库
+              我已年满 18 岁并同意免责声明
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>

@@ -187,6 +187,25 @@ function DashboardPage() {
           })}
         </div>
       </section>
+
+      {/* 底部免责声明提示条 */}
+      <footer className="rounded-[18px] border border-border/60 bg-muted/50 px-4 py-3 text-xs leading-relaxed text-muted-foreground">
+        <strong className="text-foreground">⚠️ 免责声明：</strong>
+        本站姿势与服饰参考图源自 X 创作者{' '}
+        <a
+          href="https://x.com/giaaibusi"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline hover:text-foreground"
+        >
+          ギア (@giaaibusi)
+        </a>{' '}
+        公开分享，版权归原作者所有，严禁商业倒卖。默认已开启「安全模式 (SFW)」隐藏 18+ 敏感分类，未满 18 周岁请勿关闭。本工具与素材
+        <strong className="text-foreground">仅供个人学习与合法艺术创作使用，严禁用于任何违法违规或侵害他人肖像权用途</strong>。{' '}
+        <Link to="/guide" className="font-medium text-primary underline">
+          查看完整免责声明 →
+        </Link>
+      </footer>
     </>
   )
 }
