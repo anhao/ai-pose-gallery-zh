@@ -345,11 +345,9 @@ function PortraitsPage() {
                     <dl className="grid grid-cols-[72px_1fr] gap-y-1.5 text-xs">
                       <dt className="text-muted-foreground">发型款式</dt>
                       <dd className="font-medium">{currentItem.发型名称}</dd>
-                      <dt className="text-muted-foreground">日文原名</dt>
-                      <dd className="text-muted-foreground">{currentItem.原发型 || '标准款'}</dd>
                       <dt className="text-muted-foreground">原图尺寸</dt>
                       <dd className="font-medium">
-                        {currentItem.宽} × {currentItem.高} PNG ({(currentItem.字节数 / 1048576).toFixed(1)} MB)
+                        {currentItem.宽} × {currentItem.高}
                       </dd>
                       <dt className="text-muted-foreground">授权协议</dt>
                       <dd className="font-medium text-emerald-600 dark:text-emerald-400">CC0 1.0 公共领域（可商用）</dd>
@@ -363,9 +361,9 @@ function PortraitsPage() {
                     </Button>
                     <div className="grid grid-cols-2 gap-2">
                       <Button variant="outline" size="sm" asChild>
-                        <a href={`/${currentItem.原图}`} download={`${currentItem.id}.png`}>
+                        <a href={`/${currentItem.原图}`} download={`${currentItem.id}.webp`}>
                           <DownloadIcon className="size-3.5" />
-                          下载原寸 PNG
+                          下载高清原图
                         </a>
                       </Button>
                       <Button variant="outline" size="sm" asChild>

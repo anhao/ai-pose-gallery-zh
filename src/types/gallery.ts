@@ -24,7 +24,6 @@ export interface PoseGroup {
 export interface CostumeItem {
   id: string
   分类: string
-  原分类: string
   服装名称: string
   标签: string[]
   关键词: string
@@ -37,11 +36,8 @@ export interface CostumeItem {
 export interface PortraitItem {
   id: string
   分区: string
-  原分区: string
   发长: string
-  原发长: string
   发型名称: string
-  原发型: string
   标题: string
   宽: number
   高: number

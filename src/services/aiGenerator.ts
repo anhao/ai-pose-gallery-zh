@@ -136,14 +136,18 @@ export function buildRecipePrompt(recipe: RecipeState, stylePreset = 'realistic'
   let idx = 1
 
   if (recipe.portrait) {
+    const hairDesc =
+      recipe.portrait.发型名称 && recipe.portrait.发型名称 !== '标准基础款'
+        ? recipe.portrait.标题
+        : recipe.portrait.发长
     clauses.push(
-      `• 【图${idx}（人像参考）】：保持图${idx}人物五官脸型与气质一致，发型为「${recipe.portrait.标题}」（${recipe.portrait.原发型 || recipe.portrait.原发长}）。`
+      `• 【图${idx}（人像参考）】：保持图${idx}人物的五官脸型、发色与「${hairDesc}」发型气质一致。`
     )
     idx++
   }
   if (recipe.costume) {
     clauses.push(
-      `• 【图${idx}（服装参考）】：穿上图${idx}中的完整服饰「${recipe.costume.服装名称}」（${recipe.costume.关键词}），还原面料质感与剪裁。`
+      `• 【图${idx}（服装参考）】：穿上图${idx}中的完整服饰「${recipe.costume.服装名称}」，还原面料质感与剪裁。`
     )
     idx++
   }

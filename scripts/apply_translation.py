@@ -87,7 +87,6 @@ if os.path.exists(costume_path):
         costume_out.append({
             "id": cid,
             "分类": cat_zh,
-            "原分类": x["カテゴリ"],
             "服装名称": name_zh,
             "标签": tags_zh,
             "关键词": x["キーワード"],
@@ -137,17 +136,19 @@ if os.path.exists(portrait_path):
         hair_zh = i18n.PORTRAIT_HAIR[x["hair"]]
         raw_style = x.get("style", "")
         style_zh = i18n.PORTRAIT_STYLE[raw_style]
-        title_zh = f"{hair_zh}・{style_zh}" if raw_style else f"{hair_zh}・标准款"
+        if not raw_style:
+            title_zh = f"{hair_zh}・标准款"
+        elif hair_zh in style_zh:
+            title_zh = style_zh
+        else:
+            title_zh = f"{hair_zh}・{style_zh}"
         thumb_rel = f"thumbs/portrait/{pid}.webp"
         full_rel = f"img/portrait/{pid}.webp"
         portrait_out.append({
             "id": pid,
             "分区": sec_zh,
-            "原分区": x["section"],
             "发长": hair_zh,
-            "原发长": x["hair"],
             "发型名称": style_zh,
-            "原发型": raw_style,
             "标题": title_zh,
             "宽": x["w"],
             "高": x["h"],
@@ -156,7 +157,7 @@ if os.path.exists(portrait_path):
             "热门": pid in rank_set,
             "缩略图": thumb_rel,
             "原图": full_rel,
-            "检索": f"{pid} {sec_zh} {hair_zh} {style_zh} {raw_style}",
+            "检索": f"{pid} {sec_zh} {hair_zh} {style_zh}",
         })
 
     with open(os.path.join(DATA, "portrait-zh.json"), "w", encoding="utf-8") as f:
