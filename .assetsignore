@@ -12,6 +12,8 @@ scripts
 src
 functions
 skills
+__init__.py
+comfyui_plugin
 README.md
 LICENSE
 download_failed.txt
