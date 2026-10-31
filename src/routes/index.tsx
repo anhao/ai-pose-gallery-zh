@@ -49,7 +49,7 @@ function DashboardPage() {
           title="总参考图"
           value={totalImages.toLocaleString('zh-CN')}
           icon={<LayersIcon />}
-          desc="10,097 本地文件"
+          desc="8,690 本地高清图"
         />
         <StatCard
           title="动作姿势 (Pose)"
