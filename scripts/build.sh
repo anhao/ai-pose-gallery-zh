@@ -19,7 +19,6 @@ else
 fi
 
 cp -R _headers robots.txt sitemap.xml og-cover.jpg data thumbs img dist/
-printf "/* /index.html 200\n" > dist/_redirects
 
 echo "dist ready:"
 du -sh dist
