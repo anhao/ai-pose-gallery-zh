@@ -76,6 +76,19 @@ export const PROVIDER_META: Record<
       { value: 'custom', label: '自定义模型 ID / Endpoint' },
     ],
   },
+  comfyui: {
+    id: 'comfyui',
+    name: '本地 ComfyUI',
+    shortName: 'ComfyUI',
+    defaultBaseUrl: 'http://127.0.0.1:8188',
+    docUrl: 'https://docs.comfy.org/essentials/comfyui_server',
+    models: [
+      { value: 'qwen_image_2.1', label: 'qwen_image_2.1' },
+      { value: 'flux_redux_controlnet', label: 'flux_redux_controlnet' },
+      { value: 'sdxl_ipadapter_openpose', label: 'sdxl_ipadapter_openpose' },
+      { value: 'custom', label: '自定义工作流' },
+    ],
+  },
 }
 
 export const STYLE_PRESETS: Record<string, { label: string; prompt: string }> = {
@@ -404,6 +417,529 @@ function extractUniversalImage(json: any): string | null {
   return null
 }
 
+// ============================================================================
+// 本地 ComfyUI API 工作流模板与节点解析工具
+// ============================================================================
+
+export const COMFYUI_WORKFLOW_TEMPLATES: Record<
+  'qwen21_3img' | 'qwen21_2img',
+  {
+    label: string
+    workflow: Record<string, any>
+    defaults: {
+      promptNodeId: string
+      portraitNodeId: string
+      costumeNodeId: string
+      poseNodeId: string
+      stitchedNodeId: string
+    }
+  }
+> = {
+  qwen21_3img: {
+    label: 'Qwen-Image 2.1 三图合成（人像+服装+姿势）',
+    defaults: {
+      promptNodeId: '9',
+      portraitNodeId: '1',
+      costumeNodeId: '2',
+      poseNodeId: '3',
+      stitchedNodeId: 'none',
+    },
+    workflow: {
+      '1': {
+        inputs: { image: 'portrait_ref.png' },
+        class_type: 'LoadImage',
+        _meta: { title: '图1：人像参考 (Portrait)' },
+      },
+      '2': {
+        inputs: { image: 'costume_ref.png' },
+        class_type: 'LoadImage',
+        _meta: { title: '图2：服装参考 (Costume)' },
+      },
+      '3': {
+        inputs: { image: 'pose_ref.png' },
+        class_type: 'LoadImage',
+        _meta: { title: '图3：姿势参考 (Pose)' },
+      },
+      '4': {
+        inputs: {
+          unet_name: 'image2image/qwen_image_2.1_bf16.safetensors',
+          weight_dtype: 'default',
+        },
+        class_type: 'UNETLoader',
+        _meta: { title: '加载 Qwen Image 2.1 基础模型' },
+      },
+      '5': {
+        inputs: {
+          model: ['4', 0],
+          lora_name: 'qwen2.1/动作编辑VNCCS_QI2_PoseStudioV2_3294845.safetensors',
+          strength_model: 1.0,
+        },
+        class_type: 'LoraLoaderModelOnly',
+        _meta: { title: '加载姿态编辑 LoRA 适配器' },
+      },
+      '6': {
+        inputs: { device: 'auto', dtype: 'default', model: ['5', 0] },
+        class_type: 'QwenImage21Cache',
+        _meta: { title: 'Qwen Image 2.1 条件缓存' },
+      },
+      '7': {
+        inputs: {
+          clip_name: 'text_encoders/qwen3vl_8b_bf16.safetensors',
+          type: 'qwen_image',
+          device: 'default',
+        },
+        class_type: 'CLIPLoader',
+        _meta: { title: '加载 Qwen3-VL 8B 编码器' },
+      },
+      '8': {
+        inputs: { vae_name: 'vae/qwen_image_2.1_vae_bf16.safetensors' },
+        class_type: 'VAELoader',
+        _meta: { title: '加载 Qwen Image 2.1 VAE' },
+      },
+      '9': {
+        inputs: {
+          prompt: '',
+          negative_prompt: '',
+          resolution: 1024,
+          clip: ['7', 0],
+          'images.image_1': ['1', 0],
+          'images.image_2': ['2', 0],
+          'images.image_3': ['3', 0],
+          vae: ['8', 0],
+        },
+        class_type: 'TextEncodeQwenImage21',
+        _meta: { title: '正向提示词与多图编码 (Qwen 2.1)' },
+      },
+      '10': {
+        inputs: {
+          seed: 20261031,
+          steps: 25,
+          cfg: 1.0,
+          sampler_name: 'euler',
+          scheduler: 'simple',
+          denoise: 1.0,
+          model: ['6', 0],
+          positive: ['9', 0],
+          negative: ['9', 1],
+          latent_image: ['9', 2],
+        },
+        class_type: 'KSampler',
+        _meta: { title: 'KSampler 采样器' },
+      },
+      '11': {
+        inputs: { samples: ['10', 0], vae: ['8', 0] },
+        class_type: 'VAEDecode',
+        _meta: { title: 'VAE 解码' },
+      },
+      '12': {
+        inputs: { filename_prefix: 'pose_studio/result', images: ['11', 0] },
+        class_type: 'SaveImage',
+        _meta: { title: '保存生成结果' },
+      },
+    },
+  },
+  qwen21_2img: {
+    label: 'Qwen-Image 2.1 双图姿态迁移（姿势+人物/拼图）',
+    defaults: {
+      promptNodeId: '9',
+      portraitNodeId: '1',
+      costumeNodeId: 'none',
+      poseNodeId: '2',
+      stitchedNodeId: 'none',
+    },
+    workflow: {
+      '1': {
+        inputs: { image: 'person_reference.png' },
+        class_type: 'LoadImage',
+        _meta: { title: '图2：人物/服装参考图 (LoadImage)' },
+      },
+      '2': {
+        inputs: { image: 'pose_reference.png' },
+        class_type: 'LoadImage',
+        _meta: { title: '图1：姿势参考图 (LoadImage)' },
+      },
+      '4': {
+        inputs: {
+          unet_name: 'image2image/qwen_image_2.1_bf16.safetensors',
+          weight_dtype: 'default',
+        },
+        class_type: 'UNETLoader',
+        _meta: { title: '加载 Qwen Image 2.1 基础模型' },
+      },
+      '5': {
+        inputs: {
+          model: ['4', 0],
+          lora_name: 'qwen2.1/动作编辑VNCCS_QI2_PoseStudioV2_3294845.safetensors',
+          strength_model: 1.0,
+        },
+        class_type: 'LoraLoaderModelOnly',
+        _meta: { title: '加载姿态编辑 LoRA 适配器' },
+      },
+      '6': {
+        inputs: { device: 'auto', dtype: 'default', model: ['5', 0] },
+        class_type: 'QwenImage21Cache',
+        _meta: { title: 'Qwen Image 2.1 条件缓存' },
+      },
+      '7': {
+        inputs: {
+          clip_name: 'text_encoders/qwen3vl_8b_bf16.safetensors',
+          type: 'qwen_image',
+          device: 'default',
+        },
+        class_type: 'CLIPLoader',
+        _meta: { title: '加载 Qwen3-VL 8B 编码器' },
+      },
+      '8': {
+        inputs: { vae_name: 'vae/qwen_image_2.1_vae_bf16.safetensors' },
+        class_type: 'VAELoader',
+        _meta: { title: '加载 Qwen Image 2.1 VAE' },
+      },
+      '9': {
+        inputs: {
+          prompt: '',
+          negative_prompt: '',
+          resolution: 1024,
+          clip: ['7', 0],
+          'images.image_1': ['2', 0],
+          'images.image_2': ['1', 0],
+          vae: ['8', 0],
+        },
+        class_type: 'TextEncodeQwenImage21',
+        _meta: { title: '正向提示词与双图编码 (Qwen 2.1)' },
+      },
+      '10': {
+        inputs: {
+          seed: 20261031,
+          steps: 25,
+          cfg: 1.0,
+          sampler_name: 'euler',
+          scheduler: 'simple',
+          denoise: 1.0,
+          model: ['6', 0],
+          positive: ['9', 0],
+          negative: ['9', 1],
+          latent_image: ['9', 2],
+        },
+        class_type: 'KSampler',
+        _meta: { title: 'KSampler 采样器' },
+      },
+      '11': {
+        inputs: { samples: ['10', 0], vae: ['8', 0] },
+        class_type: 'VAEDecode',
+        _meta: { title: 'VAE 解码' },
+      },
+      '12': {
+        inputs: { filename_prefix: 'pose_studio/result', images: ['11', 0] },
+        class_type: 'SaveImage',
+        _meta: { title: '保存生成结果' },
+      },
+    },
+  },
+}
+
+export interface ComfyParsedNodes {
+  valid: boolean
+  isUiFormat: boolean
+  error?: string
+  imageNodes: Array<{ id: string; title: string; classType: string; currentImage: string }>
+  promptNodes: Array<{ id: string; title: string; classType: string; field: string }>
+}
+
+export function parseComfyWorkflowNodes(workflowJson: string): ComfyParsedNodes {
+  if (!workflowJson.trim()) {
+    return { valid: false, isUiFormat: false, error: '工作流 JSON 为空', imageNodes: [], promptNodes: [] }
+  }
+  try {
+    const parsed = JSON.parse(workflowJson)
+    if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
+      return { valid: false, isUiFormat: false, error: '无效的 JSON 对象', imageNodes: [], promptNodes: [] }
+    }
+    if (Array.isArray(parsed.nodes) && Array.isArray(parsed.links)) {
+      return {
+        valid: false,
+        isUiFormat: true,
+        error: '检测到普通画布格式 JSON，请在 ComfyUI 设置中开启「开发者模式」并使用「导出 (API)」',
+        imageNodes: [],
+        promptNodes: [],
+      }
+    }
+
+    const imageNodes: ComfyParsedNodes['imageNodes'] = []
+    const promptNodes: ComfyParsedNodes['promptNodes'] = []
+
+    for (const [id, node] of Object.entries<any>(parsed)) {
+      if (!node || typeof node !== 'object' || !node.class_type) continue
+      const classType = String(node.class_type)
+      const title = String(node._meta?.title || classType)
+      const inputs = node.inputs || {}
+
+      if (classType === 'LoadImage' || typeof inputs.image === 'string') {
+        imageNodes.push({
+          id,
+          title,
+          classType,
+          currentImage: String(inputs.image || ''),
+        })
+      }
+
+      for (const field of ['prompt', 'text', 'string', 'positive']) {
+        if (typeof inputs[field] === 'string') {
+          promptNodes.push({
+            id,
+            title,
+            classType,
+            field,
+          })
+          break
+        }
+      }
+    }
+
+    return { valid: true, isUiFormat: false, imageNodes, promptNodes }
+  } catch (err: any) {
+    return {
+      valid: false,
+      isUiFormat: false,
+      error: `JSON 解析失败: ${err?.message || '语法错误'}`,
+      imageNodes: [],
+      promptNodes: [],
+    }
+  }
+}
+
+export function autoDetectComfyMappings(workflowJson: string): {
+  promptNodeId: string
+  portraitNodeId: string
+  costumeNodeId: string
+  poseNodeId: string
+  stitchedNodeId: string
+} {
+  const parsed = parseComfyWorkflowNodes(workflowJson)
+  let promptNodeId = 'none'
+  let portraitNodeId = 'none'
+  let costumeNodeId = 'none'
+  let poseNodeId = 'none'
+  let stitchedNodeId = 'none'
+
+  const posPrompt =
+    parsed.promptNodes.find((n) => !/negative|反向|负面/i.test(n.title)) || parsed.promptNodes[0]
+  if (posPrompt) promptNodeId = posPrompt.id
+
+  const usedIds = new Set<string>()
+  for (const n of parsed.imageNodes) {
+    if (/人像|脸|人物|portrait|face|person/i.test(n.title) && portraitNodeId === 'none') {
+      portraitNodeId = n.id
+      usedIds.add(n.id)
+    } else if (/服装|衣|穿搭|costume|cloth|outfit/i.test(n.title) && costumeNodeId === 'none') {
+      costumeNodeId = n.id
+      usedIds.add(n.id)
+    } else if (/姿势|动作|骨架|pose/i.test(n.title) && poseNodeId === 'none') {
+      poseNodeId = n.id
+      usedIds.add(n.id)
+    } else if (/拼图|合成|stitch/i.test(n.title) && stitchedNodeId === 'none') {
+      stitchedNodeId = n.id
+      usedIds.add(n.id)
+    }
+  }
+
+  const remaining = parsed.imageNodes.filter((n) => !usedIds.has(n.id))
+  if (portraitNodeId === 'none' && remaining[0]) {
+    portraitNodeId = remaining.shift()!.id
+  }
+  if (costumeNodeId === 'none' && remaining[0]) {
+    costumeNodeId = remaining.shift()!.id
+  }
+  if (poseNodeId === 'none' && remaining[0]) {
+    poseNodeId = remaining.shift()!.id
+  }
+
+  return { promptNodeId, portraitNodeId, costumeNodeId, poseNodeId, stitchedNodeId }
+}
+
+export async function testComfyConnection(baseUrl: string, apiKey = ''): Promise<string> {
+  const cleanUrl = (baseUrl.trim() || PROVIDER_META.comfyui.defaultBaseUrl).replace(/\/+$/, '')
+  const headers: Record<string, string> = {}
+  if (apiKey.trim()) headers.Authorization = `Bearer ${apiKey.trim()}`
+  const res = await fetch(`${cleanUrl}/system_stats`, { headers })
+  if (!res.ok) {
+    throw new Error(`HTTP ${res.status}`)
+  }
+  const data = await res.json()
+  const ver = data?.system?.comfyui_version || '未知版本'
+  const gpu = data?.devices?.[0]?.name || '本地设备'
+  return `ComfyUI ${ver} · ${gpu}`
+}
+
+async function uploadImageToComfy(
+  baseUrl: string,
+  src: string,
+  filenamePrefix: string,
+  apiKey: string
+): Promise<string> {
+  const dataUrl = await srcToPngDataUrl(src)
+  const blob = dataUrlToBlob(dataUrl)
+  const form = new FormData()
+  form.append('image', blob, `${filenamePrefix}_${Date.now()}.png`)
+  form.append('overwrite', 'true')
+
+  const headers: Record<string, string> = {}
+  if (apiKey) headers.Authorization = `Bearer ${apiKey}`
+
+  const res = await fetch(`${baseUrl}/upload/image`, {
+    method: 'POST',
+    headers,
+    body: form,
+  })
+  if (!res.ok) {
+    throw new Error(`上传参考图到 ComfyUI 失败 (HTTP ${res.status})，请确认已开启 --enable-cors-header *`)
+  }
+  const json = await res.json()
+  return json.subfolder ? `${json.subfolder}/${json.name}` : json.name
+}
+
+async function generateWithComfyUi(params: {
+  recipe: RecipeState
+  prompt: string
+  config: ApiConfig
+  baseUrl: string
+  apiKey: string
+  model: string
+}): Promise<{ imageUrl: string; modelUsed: string; providerUsed: ImageProviderId }> {
+  const { recipe, prompt, config, baseUrl, apiKey, model } = params
+  const cp = config.comfyuiParams
+  const parsedInfo = parseComfyWorkflowNodes(cp.workflowJson)
+  if (!parsedInfo.valid) {
+    throw new Error(`[ComfyUI] ${parsedInfo.error || '工作流 JSON 无效'}`)
+  }
+
+  const workflow = JSON.parse(cp.workflowJson)
+
+  // 1. 按映射槽位上传参考图并注入节点
+  const slotUploads: Array<{ nodeId: string; src: string | null; prefix: string }> = [
+    {
+      nodeId: cp.portraitNodeId,
+      src: recipe.portrait ? recipe.portrait.原图 || recipe.portrait.缩略图 : null,
+      prefix: 'studio_portrait',
+    },
+    {
+      nodeId: cp.costumeNodeId,
+      src: recipe.costume ? recipe.costume.预览图 || recipe.costume.原图 || recipe.costume.缩略图 : null,
+      prefix: 'studio_costume',
+    },
+    {
+      nodeId: cp.poseNodeId,
+      src: recipe.pose ? recipe.pose.原图 || recipe.pose.缩略图 : null,
+      prefix: 'studio_pose',
+    },
+  ]
+
+  for (const slot of slotUploads) {
+    if (slot.nodeId && slot.nodeId !== 'none' && slot.src && workflow[slot.nodeId]?.inputs) {
+      const uploadedName = await uploadImageToComfy(baseUrl, slot.src, slot.prefix, apiKey)
+      workflow[slot.nodeId].inputs.image = uploadedName
+    }
+  }
+
+  if (cp.stitchedNodeId && cp.stitchedNodeId !== 'none' && workflow[cp.stitchedNodeId]?.inputs) {
+    const stitchedDataUrl = await stitchRecipeCanvas(recipe)
+    const uploadedName = await uploadImageToComfy(baseUrl, stitchedDataUrl, 'studio_stitched', apiKey)
+    workflow[cp.stitchedNodeId].inputs.image = uploadedName
+  }
+
+  // 2. 注入提示词节点
+  if (cp.promptNodeId && cp.promptNodeId !== 'none' && workflow[cp.promptNodeId]?.inputs) {
+    const inputs = workflow[cp.promptNodeId].inputs
+    for (const field of ['prompt', 'text', 'string', 'positive']) {
+      if (typeof inputs[field] === 'string') {
+        inputs[field] = prompt
+        break
+      }
+    }
+  }
+
+  // 3. 随机化种子
+  if (cp.randomizeSeed) {
+    const nextSeed = Math.floor(Math.random() * 90000000000000) + 1000000
+    for (const node of Object.values<any>(workflow)) {
+      if (!node?.inputs) continue
+      if (typeof node.inputs.seed === 'number') node.inputs.seed = nextSeed
+      if (typeof node.inputs.noise_seed === 'number') node.inputs.noise_seed = nextSeed
+    }
+  }
+
+  // 4. 提交任务到 ComfyUI /prompt
+  const headers: Record<string, string> = { 'Content-Type': 'application/json' }
+  if (apiKey) headers.Authorization = `Bearer ${apiKey}`
+
+  const clientId = `pose_studio_${Math.random().toString(36).slice(2, 10)}`
+  let promptRes: Response
+  try {
+    promptRes = await fetch(`${baseUrl}/prompt`, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify({ prompt: workflow, client_id: clientId }),
+    })
+  } catch {
+    throw new Error(
+      `无法连接本地 ComfyUI (${baseUrl})。请确认 ComfyUI 已启动，且启动参数包含 --enable-cors-header *`
+    )
+  }
+
+  const promptJson = await promptRes.json()
+  if (!promptRes.ok || !promptJson?.prompt_id) {
+    const nodeErr = promptJson?.node_errors
+      ? JSON.stringify(promptJson.node_errors).slice(0, 220)
+      : promptJson?.error?.message || `HTTP ${promptRes.status}`
+    throw new Error(`[ComfyUI] 提交工作流失败：${nodeErr}`)
+  }
+
+  const promptId: string = promptJson.prompt_id
+
+  // 5. 轮询 /history/{prompt_id} 获取生成结果图片
+  const authHeaders: Record<string, string> = {}
+  if (apiKey) authHeaders.Authorization = `Bearer ${apiKey}`
+
+  for (let attempt = 0; attempt < 250; attempt++) {
+    await new Promise((r) => setTimeout(r, 1200))
+    const histRes = await fetch(`${baseUrl}/history/${promptId}`, { headers: authHeaders })
+    if (!histRes.ok) continue
+    const histJson = await histRes.json()
+    const item = histJson?.[promptId]
+    if (!item) continue
+
+    if (item.status?.status_str === 'error') {
+      const errDetail = JSON.stringify(item.status?.messages || '执行出错').slice(0, 220)
+      throw new Error(`[ComfyUI] 工作流执行出错：${errDetail}`)
+    }
+
+    const outputs = item.outputs || {}
+    let outImg: { filename: string; subfolder?: string; type?: string } | null = null
+    for (const nodeOut of Object.values<any>(outputs)) {
+      if (Array.isArray(nodeOut?.images) && nodeOut.images.length > 0) {
+        outImg = nodeOut.images[0]
+        if (outImg?.type === 'output') break
+      }
+    }
+
+    if (outImg) {
+      const qs = new URLSearchParams({
+        filename: outImg.filename,
+        subfolder: outImg.subfolder || '',
+        type: outImg.type || 'output',
+      })
+      const viewUrl = `${baseUrl}/view?${qs.toString()}`
+      try {
+        const imgDataUrl = await srcToPngDataUrl(viewUrl)
+        return { imageUrl: imgDataUrl, modelUsed: model || 'comfyui', providerUsed: 'comfyui' }
+      } catch {
+        return { imageUrl: viewUrl, modelUsed: model || 'comfyui', providerUsed: 'comfyui' }
+      }
+    }
+  }
+
+  throw new Error('[ComfyUI] 等待生图结果超时（超过 5 分钟），请在 ComfyUI 终端查看进度')
+}
+
 export async function generateCharacterImage(params: {
   recipe: RecipeState
   prompt: string
@@ -414,7 +950,7 @@ export async function generateCharacterImage(params: {
   const pCfg = config.providers[provider]
   const apiKey = pCfg.apiKey.trim()
 
-  if (!apiKey) {
+  if (provider !== 'comfyui' && !apiKey) {
     throw new Error(`请先配置 ${PROVIDER_META[provider].name} 的 API Key`)
   }
 
@@ -435,6 +971,10 @@ export async function generateCharacterImage(params: {
   }
 
   const baseUrl = (pCfg.baseUrl.trim() || PROVIDER_META[provider].defaultBaseUrl).replace(/\/+$/, '')
+
+  if (provider === 'comfyui') {
+    return generateWithComfyUi({ recipe, prompt, config, baseUrl, apiKey, model })
+  }
 
   // 判断当前请求是否需要转换为本地 Base64：
   // 1) 用户显式选择了 base64 模式

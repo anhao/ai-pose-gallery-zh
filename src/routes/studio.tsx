@@ -3,9 +3,11 @@ import { createFileRoute, Link } from '@tanstack/react-router'
 import {
   ChevronDownIcon,
   ChevronUpIcon,
+  CodeXmlIcon,
   CopyIcon,
   DicesIcon,
   DownloadIcon,
+  FileUpIcon,
   ImagePlusIcon,
   KeyRoundIcon,
   LayoutGridIcon,
@@ -20,7 +22,7 @@ import {
   UserRoundIcon,
   XIcon,
 } from 'lucide-react'
-import { type ChangeEvent, type DragEvent, useEffect, useRef, useState } from 'react'
+import { type ChangeEvent, type DragEvent, useEffect, useMemo, useRef, useState } from 'react'
 import { toast } from 'sonner'
 import { costumesQuery, portraitsQuery, posesQuery } from '@/api/gallery'
 import { Field, Section } from '@/components/common/FormSection'
@@ -33,14 +35,18 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Switch } from '@/components/ui/switch'
 import { Textarea } from '@/components/ui/textarea'
 import {
+  autoDetectComfyMappings,
   buildRecipePrompt,
+  COMFYUI_WORKFLOW_TEMPLATES,
   fileToDataUrl,
+  parseComfyWorkflowNodes,
   PROVIDER_META,
   stitchRecipeCanvas,
   STYLE_PRESETS,
 } from '@/services/aiGenerator'
 import { useStudio } from '@/store/studioStore'
 import type {
+  ComfyUiParams,
   DoubaoParams,
   GeminiParams,
   GptParams,
@@ -54,7 +60,7 @@ export const Route = createFileRoute('/studio')({
   component: StudioPage,
 })
 
-const PROVIDER_LIST: ImageProviderId[] = ['gemini', 'gpt', 'qwen', 'doubao']
+const PROVIDER_LIST: ImageProviderId[] = ['gemini', 'gpt', 'qwen', 'doubao', 'comfyui']
 
 function StudioPage() {
   const {
@@ -80,12 +86,14 @@ function StudioPage() {
     updateGeminiParams,
     updateQwenParams,
     updateDoubaoParams,
+    updateComfyUiParams,
     randomizeRecipe,
     removeHistoryItem,
     clearHistory,
   } = useStudio()
   const qc = useQueryClient()
   const fileInputRef = useRef<HTMLInputElement | null>(null)
+  const comfyFileInputRef = useRef<HTMLInputElement | null>(null)
 
   const activeProvider = apiConfig.activeProvider
   const providerMeta = PROVIDER_META[activeProvider]
@@ -98,7 +106,79 @@ function StudioPage() {
   const [showUrlInput, setShowUrlInput] = useState(false)
   const [stitchModalUrl, setStitchModalUrl] = useState<string | null>(null)
   const [zoomImageUrl, setZoomImageUrl] = useState<string | null>(null)
+  const [showComfyJsonModal, setShowComfyJsonModal] = useState(false)
   const [isDragging, setIsDragging] = useState(false)
+
+  const parsedComfyNodes = useMemo(
+    () => parseComfyWorkflowNodes(apiConfig.comfyuiParams.workflowJson),
+    [apiConfig.comfyuiParams.workflowJson]
+  )
+
+  const handleSelectComfyPreset = (preset: ComfyUiParams['workflowPreset']) => {
+    if (preset === 'custom') {
+      updateComfyUiParams({ workflowPreset: 'custom' })
+      return
+    }
+    const tpl = COMFYUI_WORKFLOW_TEMPLATES[preset]
+    updateComfyUiParams({
+      workflowPreset: preset,
+      workflowJson: JSON.stringify(tpl.workflow, null, 2),
+      ...tpl.defaults,
+    })
+    toast.success(`已切换为：${tpl.label}`)
+  }
+
+  const handleComfyFileUpload = async (e: ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    e.target.value = ''
+    if (!file) return
+    try {
+      const text = await file.text()
+      const info = parseComfyWorkflowNodes(text)
+      if (!info.valid) {
+        toast.error(info.error || '工作流 JSON 无效')
+        return
+      }
+      const detected = autoDetectComfyMappings(text)
+      updateComfyUiParams({
+        workflowPreset: 'custom',
+        workflowJson: text,
+        ...detected,
+      })
+      setShowAdvanced(true)
+      toast.success(
+        `已导入工作流：识别到 ${info.imageNodes.length} 个图片节点、${info.promptNodes.length} 个提示词节点`
+      )
+    } catch {
+      toast.error('读取 JSON 文件失败')
+    }
+  }
+
+  const handleExportComfyJson = () => {
+    try {
+      const wf = JSON.parse(apiConfig.comfyuiParams.workflowJson)
+      const cp = apiConfig.comfyuiParams
+      if (cp.promptNodeId && cp.promptNodeId !== 'none' && wf[cp.promptNodeId]?.inputs) {
+        const inputs = wf[cp.promptNodeId].inputs
+        for (const field of ['prompt', 'text', 'string', 'positive']) {
+          if (typeof inputs[field] === 'string') {
+            inputs[field] = prompt
+            break
+          }
+        }
+      }
+      const blob = new Blob([JSON.stringify(wf, null, 2)], { type: 'application/json' })
+      const url = URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
+      a.download = `comfyui-workflow-${Date.now()}.api.json`
+      a.click()
+      URL.revokeObjectURL(url)
+      toast.success('已导出 ComfyUI API 工作流 JSON')
+    } catch {
+      toast.error('当前工作流 JSON 格式有误，无法导出')
+    }
+  }
 
   const extraImages = recipe.extraImages || []
   const hasAnyRef = Boolean(
@@ -473,35 +553,104 @@ function StudioPage() {
               </Select>
             </Field>
 
-            <Field label="模型 ID">
-              <Select
-                value={providerCfg.model}
-                onValueChange={(v) => updateProviderConfig(activeProvider, { model: v })}
-              >
-                <SelectTrigger className="w-full font-mono text-xs">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  {providerMeta.models.map((m) => (
-                    <SelectItem key={m.value} value={m.value} className="font-mono text-xs">
-                      {m.label}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </Field>
-
-            {providerCfg.model === 'custom' && (
-              <Field label="自定义模型 ID">
-                <Input
-                  value={providerCfg.customModel}
-                  onChange={(e) =>
-                    updateProviderConfig(activeProvider, { customModel: e.target.value })
-                  }
-                  placeholder="输入模型 ID"
-                  className="bg-background font-mono text-xs"
-                />
+            {activeProvider === 'comfyui' ? (
+              <Field label="工作流模板 (API 格式)">
+                <div className="space-y-2">
+                  <Select
+                    value={apiConfig.comfyuiParams.workflowPreset}
+                    onValueChange={(v) =>
+                      handleSelectComfyPreset(v as ComfyUiParams['workflowPreset'])
+                    }
+                  >
+                    <SelectTrigger className="w-full text-xs">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="qwen21_3img" className="text-xs">
+                        {COMFYUI_WORKFLOW_TEMPLATES.qwen21_3img.label}
+                      </SelectItem>
+                      <SelectItem value="qwen21_2img" className="text-xs">
+                        {COMFYUI_WORKFLOW_TEMPLATES.qwen21_2img.label}
+                      </SelectItem>
+                      <SelectItem value="custom" className="text-xs">
+                        自定义工作流 (已导入 JSON)
+                      </SelectItem>
+                    </SelectContent>
+                  </Select>
+                  <div className="flex flex-wrap gap-1.5">
+                    <input
+                      ref={comfyFileInputRef}
+                      type="file"
+                      accept=".json,application/json"
+                      onChange={handleComfyFileUpload}
+                      className="hidden"
+                    />
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      className="h-7 px-2 text-xs"
+                      onClick={() => comfyFileInputRef.current?.click()}
+                    >
+                      <FileUpIcon className="size-3.5" />
+                      导入 .json
+                    </Button>
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      className="h-7 px-2 text-xs"
+                      onClick={() => setShowComfyJsonModal(true)}
+                    >
+                      <CodeXmlIcon className="size-3.5" />
+                      编辑 JSON
+                    </Button>
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      className="h-7 px-2 text-xs"
+                      onClick={handleExportComfyJson}
+                    >
+                      <DownloadIcon className="size-3.5" />
+                      导出 .json
+                    </Button>
+                  </div>
+                </div>
               </Field>
+            ) : (
+              <>
+                <Field label="模型 ID">
+                  <Select
+                    value={providerCfg.model}
+                    onValueChange={(v) => updateProviderConfig(activeProvider, { model: v })}
+                  >
+                    <SelectTrigger className="w-full font-mono text-xs">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {providerMeta.models.map((m) => (
+                        <SelectItem key={m.value} value={m.value} className="font-mono text-xs">
+                          {m.label}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </Field>
+
+                {providerCfg.model === 'custom' && (
+                  <Field label="自定义模型 ID">
+                    <Input
+                      value={providerCfg.customModel}
+                      onChange={(e) =>
+                        updateProviderConfig(activeProvider, { customModel: e.target.value })
+                      }
+                      placeholder="输入模型 ID"
+                      className="bg-background font-mono text-xs"
+                    />
+                  </Field>
+                )}
+              </>
             )}
 
             <Field label="画风预设">
@@ -521,6 +670,92 @@ function StudioPage() {
                 </SelectContent>
               </Select>
             </Field>
+
+            {activeProvider === 'comfyui' && (
+              <>
+                {!parsedComfyNodes.valid && (
+                  <div className="col-span-full rounded-xl border border-destructive/40 bg-destructive/10 px-3 py-2 text-xs text-destructive">
+                    {parsedComfyNodes.error}
+                  </div>
+                )}
+
+                <Field label="人像图节点 (LoadImage)">
+                  <Select
+                    value={apiConfig.comfyuiParams.portraitNodeId}
+                    onValueChange={(v) => updateComfyUiParams({ portraitNodeId: v })}
+                  >
+                    <SelectTrigger className="w-full text-xs">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="none">不绑定</SelectItem>
+                      {parsedComfyNodes.imageNodes.map((n) => (
+                        <SelectItem key={n.id} value={n.id} className="text-xs">
+                          #{n.id} {n.title}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </Field>
+
+                <Field label="服装图节点 (LoadImage)">
+                  <Select
+                    value={apiConfig.comfyuiParams.costumeNodeId}
+                    onValueChange={(v) => updateComfyUiParams({ costumeNodeId: v })}
+                  >
+                    <SelectTrigger className="w-full text-xs">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="none">不绑定</SelectItem>
+                      {parsedComfyNodes.imageNodes.map((n) => (
+                        <SelectItem key={n.id} value={n.id} className="text-xs">
+                          #{n.id} {n.title}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </Field>
+
+                <Field label="姿势图节点 (LoadImage)">
+                  <Select
+                    value={apiConfig.comfyuiParams.poseNodeId}
+                    onValueChange={(v) => updateComfyUiParams({ poseNodeId: v })}
+                  >
+                    <SelectTrigger className="w-full text-xs">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="none">不绑定</SelectItem>
+                      {parsedComfyNodes.imageNodes.map((n) => (
+                        <SelectItem key={n.id} value={n.id} className="text-xs">
+                          #{n.id} {n.title}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </Field>
+
+                <Field label="正向提示词节点 (Prompt)">
+                  <Select
+                    value={apiConfig.comfyuiParams.promptNodeId}
+                    onValueChange={(v) => updateComfyUiParams({ promptNodeId: v })}
+                  >
+                    <SelectTrigger className="w-full text-xs">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="none">保留工作流原提示词</SelectItem>
+                      {parsedComfyNodes.promptNodes.map((n) => (
+                        <SelectItem key={n.id} value={n.id} className="text-xs">
+                          #{n.id} {n.title} ({n.field})
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </Field>
+              </>
+            )}
 
             {/* 展开的高级协议专属参数 */}
             {showAdvanced && (
@@ -791,32 +1026,70 @@ function StudioPage() {
                   </>
                 )}
 
-                <Field label="图片传参方式">
-                  <Select
-                    value={apiConfig.imagePassMode}
-                    onValueChange={(v) => updateApiConfig({ imagePassMode: v as ImagePassMode })}
-                  >
-                    <SelectTrigger className="w-full">
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="url">URL</SelectItem>
-                      <SelectItem value="base64">Base64</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </Field>
+                {activeProvider === 'comfyui' && (
+                  <>
+                    <Field label="三合一拼图节点 (可选)">
+                      <Select
+                        value={apiConfig.comfyuiParams.stitchedNodeId}
+                        onValueChange={(v) => updateComfyUiParams({ stitchedNodeId: v })}
+                      >
+                        <SelectTrigger className="w-full text-xs">
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="none">不绑定</SelectItem>
+                          {parsedComfyNodes.imageNodes.map((n) => (
+                            <SelectItem key={n.id} value={n.id} className="text-xs">
+                              #{n.id} {n.title}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </Field>
+                    <Field label="随机种子 (seed)">
+                      <div className="flex h-9 items-center justify-between rounded-xl border bg-background px-3">
+                        <span className="text-xs text-muted-foreground">
+                          {apiConfig.comfyuiParams.randomizeSeed ? '每次随机种子' : '固定工作流种子'}
+                        </span>
+                        <Switch
+                          checked={apiConfig.comfyuiParams.randomizeSeed}
+                          onCheckedChange={(v) => updateComfyUiParams({ randomizeSeed: v })}
+                        />
+                      </div>
+                    </Field>
+                  </>
+                )}
 
-                <Field label="附带合成拼图">
-                  <div className="flex h-9 items-center justify-between rounded-xl border bg-background px-3">
-                    <span className="text-xs text-muted-foreground">
-                      {apiConfig.sendStitchedSheet ? '同时发送拼图' : '仅发单图序列'}
-                    </span>
-                    <Switch
-                      checked={apiConfig.sendStitchedSheet}
-                      onCheckedChange={(v) => updateApiConfig({ sendStitchedSheet: v })}
-                    />
-                  </div>
-                </Field>
+                {activeProvider !== 'comfyui' && (
+                  <>
+                    <Field label="图片传参方式">
+                      <Select
+                        value={apiConfig.imagePassMode}
+                        onValueChange={(v) => updateApiConfig({ imagePassMode: v as ImagePassMode })}
+                      >
+                        <SelectTrigger className="w-full">
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="url">URL</SelectItem>
+                          <SelectItem value="base64">Base64</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </Field>
+
+                    <Field label="附带合成拼图">
+                      <div className="flex h-9 items-center justify-between rounded-xl border bg-background px-3">
+                        <span className="text-xs text-muted-foreground">
+                          {apiConfig.sendStitchedSheet ? '同时发送拼图' : '仅发单图序列'}
+                        </span>
+                        <Switch
+                          checked={apiConfig.sendStitchedSheet}
+                          onCheckedChange={(v) => updateApiConfig({ sendStitchedSheet: v })}
+                        />
+                      </div>
+                    </Field>
+                  </>
+                )}
               </>
             )}
           </Section>
@@ -1046,6 +1319,47 @@ function StudioPage() {
               />
             </div>
           )}
+        </DialogContent>
+      </Dialog>
+
+      {/* ComfyUI API 工作流 JSON 编辑器弹窗 */}
+      <Dialog open={showComfyJsonModal} onOpenChange={setShowComfyJsonModal}>
+        <DialogContent className="max-h-[90vh] w-[95vw] max-w-3xl overflow-y-auto p-4 sm:max-w-3xl">
+          <DialogHeader className="flex flex-row items-center justify-between pr-6">
+            <DialogTitle className="text-base">ComfyUI API 工作流 JSON</DialogTitle>
+            <Button
+              size="sm"
+              variant="outline"
+              onClick={() => {
+                const info = parseComfyWorkflowNodes(apiConfig.comfyuiParams.workflowJson)
+                if (!info.valid) {
+                  toast.error(info.error || '工作流 JSON 无效')
+                  return
+                }
+                const detected = autoDetectComfyMappings(apiConfig.comfyuiParams.workflowJson)
+                updateComfyUiParams(detected)
+                toast.success(
+                  `已自动重新识别节点：${info.imageNodes.length} 个图片节点、${info.promptNodes.length} 个提示词节点`
+                )
+              }}
+            >
+              自动识别节点
+            </Button>
+          </DialogHeader>
+          <p className="text-xs text-muted-foreground">
+            请在 ComfyUI 设置中开启「启用开发模式选项」，点击菜单中的「导出 (API)」获取 JSON 并粘贴于下方。
+          </p>
+          <Textarea
+            value={apiConfig.comfyuiParams.workflowJson}
+            onChange={(e) =>
+              updateComfyUiParams({
+                workflowPreset: 'custom',
+                workflowJson: e.target.value,
+              })
+            }
+            rows={18}
+            className="font-mono text-xs leading-relaxed"
+          />
         </DialogContent>
       </Dialog>
     </>

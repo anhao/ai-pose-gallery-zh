@@ -1,5 +1,13 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
-import { CheckIcon, ExternalLinkIcon, EyeIcon, EyeOffIcon, RotateCcwIcon, SparklesIcon } from 'lucide-react'
+import {
+  ActivityIcon,
+  CheckIcon,
+  ExternalLinkIcon,
+  EyeIcon,
+  EyeOffIcon,
+  RotateCcwIcon,
+  SparklesIcon,
+} from 'lucide-react'
 import { useState } from 'react'
 import { toast } from 'sonner'
 import { Field, Section } from '@/components/common/FormSection'
@@ -8,7 +16,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Switch } from '@/components/ui/switch'
-import { PROVIDER_META } from '@/services/aiGenerator'
+import { PROVIDER_META, testComfyConnection } from '@/services/aiGenerator'
 import { useStudio } from '@/store/studioStore'
 import type { ImagePassMode, ImageProviderId } from '@/types/gallery'
 
@@ -17,15 +25,28 @@ export const Route = createFileRoute('/settings')({
   component: SettingsPage,
 })
 
-const PROVIDER_ORDER: ImageProviderId[] = ['gemini', 'gpt', 'qwen', 'doubao']
+const PROVIDER_ORDER: ImageProviderId[] = ['gemini', 'gpt', 'qwen', 'doubao', 'comfyui']
 
 function SettingsPage() {
   const { apiConfig, updateApiConfig, updateProviderConfig } = useStudio()
   const [showKey, setShowKey] = useState(false)
+  const [testingComfy, setTestingComfy] = useState(false)
 
   const pid = apiConfig.activeProvider
   const meta = PROVIDER_META[pid]
   const pCfg = apiConfig.providers[pid]
+
+  const handleTestComfy = async () => {
+    setTestingComfy(true)
+    try {
+      const info = await testComfyConnection(pCfg.baseUrl, pCfg.apiKey)
+      toast.success(`连接成功：${info}`)
+    } catch {
+      toast.error('连接失败，请确认 ComfyUI 已启动且添加了 --enable-cors-header *')
+    } finally {
+      setTestingComfy(false)
+    }
+  }
 
   return (
     <>
@@ -41,12 +62,15 @@ function SettingsPage() {
         }
       />
 
-      {/* 四大协议切换标签 */}
-      <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+      {/* 五大协议切换标签 */}
+      <div className="grid grid-cols-2 gap-2 sm:grid-cols-5">
         {PROVIDER_ORDER.map((id) => {
           const itemMeta = PROVIDER_META[id]
           const isActive = pid === id
-          const hasKey = Boolean(apiConfig.providers[id].apiKey.trim())
+          const hasKey =
+            id === 'comfyui'
+              ? Boolean(apiConfig.providers.comfyui.baseUrl.trim())
+              : Boolean(apiConfig.providers[id].apiKey.trim())
           return (
             <button
               key={id}
@@ -63,7 +87,7 @@ function SettingsPage() {
                 className={`size-2 shrink-0 rounded-full ${
                   hasKey ? 'bg-emerald-500' : 'bg-muted-foreground/30'
                 }`}
-                title={hasKey ? '已配置 Key' : '未配置 Key'}
+                title={hasKey ? '已就绪' : '未配置 Key'}
               />
             </button>
           )
@@ -75,6 +99,12 @@ function SettingsPage() {
         title={`${meta.name} 连接配置`}
         actions={
           <div className="flex items-center gap-1.5">
+            {pid === 'comfyui' && (
+              <Button variant="outline" size="sm" onClick={handleTestComfy} disabled={testingComfy}>
+                <ActivityIcon className="size-3.5" />
+                {testingComfy ? '检测中…' : '测试连接'}
+              </Button>
+            )}
             <Button variant="ghost" size="sm" asChild>
               <a href={meta.docUrl} target="_blank" rel="noreferrer">
                 <ExternalLinkIcon className="size-3.5" />
@@ -98,7 +128,14 @@ function SettingsPage() {
           </div>
         }
       >
-        <Field label="Base URL">
+        <Field
+          label={pid === 'comfyui' ? 'ComfyUI 地址 (Base URL)' : 'Base URL'}
+          hint={
+            pid === 'comfyui'
+              ? '启动 ComfyUI 需加参数 --enable-cors-header *（秋叶整合包勾选「允许跨域」）'
+              : undefined
+          }
+        >
           <Input
             type="url"
             value={pCfg.baseUrl}
@@ -107,13 +144,17 @@ function SettingsPage() {
           />
         </Field>
 
-        <Field label="API Key">
+        <Field label={pid === 'comfyui' ? 'API Key（可选，本地留空）' : 'API Key'}>
           <div className="relative">
             <Input
               type={showKey ? 'text' : 'password'}
               value={pCfg.apiKey}
               onChange={(e) => updateProviderConfig(pid, { apiKey: e.target.value })}
-              placeholder="输入 API Key（仅保存在本地浏览器）"
+              placeholder={
+                pid === 'comfyui'
+                  ? '本地 ComfyUI 无需填写，远程鉴权可填 Token'
+                  : '输入 API Key（仅保存在本地浏览器）'
+              }
               className="pr-10"
             />
             <button

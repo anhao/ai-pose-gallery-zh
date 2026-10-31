@@ -3,12 +3,14 @@ import { toast } from 'sonner'
 import { idbGet, idbSet } from '@/lib/idbStorage'
 import {
   buildRecipePrompt,
+  COMFYUI_WORKFLOW_TEMPLATES,
   generateCharacterImage,
   PROVIDER_META,
   stitchRecipeCanvas,
 } from '@/services/aiGenerator'
 import type {
   ApiConfig,
+  ComfyUiParams,
   CostumeItem,
   DoubaoParams,
   ExtraReferenceImage,
@@ -58,6 +60,12 @@ const DEFAULT_API_CONFIG: ApiConfig = {
       model: PROVIDER_META.doubao.models[0].value,
       customModel: '',
     },
+    comfyui: {
+      baseUrl: PROVIDER_META.comfyui.defaultBaseUrl,
+      apiKey: '',
+      model: PROVIDER_META.comfyui.models[0].value,
+      customModel: '',
+    },
   },
   gptParams: {
     endpointMode: 'images_edits_json',
@@ -86,6 +94,12 @@ const DEFAULT_API_CONFIG: ApiConfig = {
     watermark: false,
     responseFormat: 'b64_json',
   },
+  comfyuiParams: {
+    workflowPreset: 'qwen21_3img',
+    workflowJson: JSON.stringify(COMFYUI_WORKFLOW_TEMPLATES.qwen21_3img.workflow, null, 2),
+    ...COMFYUI_WORKFLOW_TEMPLATES.qwen21_3img.defaults,
+    randomizeSeed: true,
+  },
 }
 
 function mergeStoredConfig(raw: unknown): ApiConfig {
@@ -99,11 +113,13 @@ function mergeStoredConfig(raw: unknown): ApiConfig {
       gpt: { ...DEFAULT_API_CONFIG.providers.gpt, ...obj.providers?.gpt },
       qwen: { ...DEFAULT_API_CONFIG.providers.qwen, ...obj.providers?.qwen },
       doubao: { ...DEFAULT_API_CONFIG.providers.doubao, ...obj.providers?.doubao },
+      comfyui: { ...DEFAULT_API_CONFIG.providers.comfyui, ...obj.providers?.comfyui },
     },
     gptParams: { ...DEFAULT_API_CONFIG.gptParams, ...obj.gptParams },
     geminiParams: { ...DEFAULT_API_CONFIG.geminiParams, ...obj.geminiParams },
     qwenParams: { ...DEFAULT_API_CONFIG.qwenParams, ...obj.qwenParams },
     doubaoParams: { ...DEFAULT_API_CONFIG.doubaoParams, ...obj.doubaoParams },
+    comfyuiParams: { ...DEFAULT_API_CONFIG.comfyuiParams, ...obj.comfyuiParams },
   }
 }
 
@@ -137,6 +153,7 @@ interface StudioContextValue {
   updateGeminiParams: (patch: Partial<GeminiParams>) => void
   updateQwenParams: (patch: Partial<QwenParams>) => void
   updateDoubaoParams: (patch: Partial<DoubaoParams>) => void
+  updateComfyUiParams: (patch: Partial<ComfyUiParams>) => void
   addHistory: (item: Omit<GenerationHistoryItem, 'id' | 'createdAt'>) => void
   removeHistoryItem: (id: string) => void
   clearHistory: () => void
@@ -351,6 +368,10 @@ export function StudioProvider({ children }: { children: ReactNode }) {
     setApiConfig((prev) => ({ ...prev, doubaoParams: { ...prev.doubaoParams, ...patch } }))
   }
 
+  const updateComfyUiParams = (patch: Partial<ComfyUiParams>) => {
+    setApiConfig((prev) => ({ ...prev, comfyuiParams: { ...prev.comfyuiParams, ...patch } }))
+  }
+
   const addHistory = (item: Omit<GenerationHistoryItem, 'id' | 'createdAt'>) => {
     setHistory((prev) => [
       { ...item, id: `${Date.now()}-${Math.random().toString(36).slice(2, 6)}`, createdAt: Date.now() },
@@ -458,6 +479,7 @@ export function StudioProvider({ children }: { children: ReactNode }) {
         updateGeminiParams,
         updateQwenParams,
         updateDoubaoParams,
+        updateComfyUiParams,
         addHistory,
         removeHistoryItem,
         clearHistory,
