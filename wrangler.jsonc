@@ -7,11 +7,8 @@
     "enabled": true
   },
   "previews": {},
-  // 可选环境变量：在 Cloudflare 控制台 Variables and Secrets 或下方 vars 中配置 PROXY_ALLOWED_ORIGINS
-  // 多个上游规则用逗号分隔，支持精确域名或 * 通配子域名，例如："https://*.openai.com,https://*.volces.com,https://api.example.com"
-  "vars": {
-    "PROXY_ALLOWED_ORIGINS": ""
-  },
+  // 可选环境变量：通过 `cf workers secrets update PROXY_ALLOWED_ORIGINS --worker ai-pose-gallery-zh --text "https://..." --type secret_text`
+  // 或在 Cloudflare 控制台 Variables and Secrets 中配置 PROXY_ALLOWED_ORIGINS（支持逗号分隔的精确域名或 https://*.openai.com 泛子域名）
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS",
