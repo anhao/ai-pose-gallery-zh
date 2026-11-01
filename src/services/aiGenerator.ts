@@ -385,30 +385,37 @@ function dataUrlToBlob(dataUrl: string): Blob {
   return new Blob([arr], { type: mime })
 }
 
+// 与 functions/api/proxy.ts 白名单保持一致的 4 个官方源站
+const PROXY_ALLOWED_ORIGINS = new Set([
+  'https://dashscope.aliyuncs.com',
+  'https://ark.cn-beijing.volces.com',
+  'https://generativelanguage.googleapis.com',
+  'https://api.openai.com',
+])
+
 async function smartFetch(
   targetUrl: string,
   init: RequestInit,
   useProxy: boolean
 ): Promise<Response> {
-  if (!useProxy) {
+  let canUseProxy = useProxy
+  if (canUseProxy) {
+    try {
+      canUseProxy = PROXY_ALLOWED_ORIGINS.has(new URL(targetUrl).origin)
+    } catch {
+      canUseProxy = false
+    }
+  }
+  if (!canUseProxy) {
     return fetch(targetUrl, init)
   }
   const headers = new Headers(init.headers)
   headers.set('x-target-url', targetUrl)
-  const proxyRes = await fetch('/api/proxy', {
+  return fetch('/api/proxy', {
     method: init.method || 'POST',
     headers,
     body: init.body,
   })
-  // 若开启代理时遇到 Cloudflare 网关/SSL 握手错误（如 525/502/504），且上游本身支持 CORS（如第三方中转站），自动降级浏览器直连重试
-  if (proxyRes.status === 502 || proxyRes.status === 504 || (proxyRes.status >= 520 && proxyRes.status <= 526)) {
-    try {
-      return await fetch(targetUrl, init)
-    } catch {
-      return proxyRes
-    }
-  }
-  return proxyRes
 }
 
 function extractUniversalImage(json: any): string | null {
