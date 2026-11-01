@@ -145,7 +145,7 @@ function CostumesPage() {
       </div>
 
       {/* 搜索与单品筛选栏 */}
-      <div className="grid gap-3 rounded-[22px] bg-muted p-4 md:grid-cols-[1fr_220px_auto]">
+      <div className="grid gap-3 rounded-[22px] bg-muted p-4 @xl/main:grid-cols-2 @3xl/main:grid-cols-[minmax(0,1fr)_220px_auto]">
         <div className="relative">
           <SearchIcon className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" />
           <Input
@@ -269,16 +269,16 @@ function CostumesPage() {
 
       {/* 服装详情弹窗 */}
       <Dialog open={viewerIndex !== null} onOpenChange={(o) => !o && setViewerIndex(null)}>
-        <DialogContent className="max-h-[90vh] w-[95vw] max-w-4xl overflow-y-auto p-0 sm:max-w-4xl">
+        <DialogContent className="max-h-[90dvh] w-[95vw] max-w-4xl overflow-y-auto p-0 sm:max-w-4xl">
           {currentItem && viewerIndex !== null && (() => {
             const picked = recipe.costume?.id === currentItem.id
             return (
               <div className="grid md:grid-cols-[1fr_320px]">
-                <div className="relative flex max-h-[78vh] min-h-[380px] items-center justify-center bg-muted/60 p-4">
+                <div className="relative flex max-h-[78dvh] min-h-[min(380px,65dvh)] items-center justify-center bg-muted/60 p-4">
                   <img
                     src={`/${currentItem.预览图 || currentItem.原图}`}
                     alt={currentItem.服装名称}
-                    className="max-h-[72vh] w-auto rounded-lg object-contain"
+                    className="max-h-[72dvh] w-auto rounded-lg object-contain"
                   />
                   <Button
                     variant="secondary"

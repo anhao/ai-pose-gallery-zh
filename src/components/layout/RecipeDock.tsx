@@ -42,11 +42,11 @@ export function RecipeDock() {
   }
 
   return (
-    <div className="sticky bottom-3 z-30 mx-auto mt-4 w-full max-w-5xl">
-      <div className="flex flex-col gap-2 rounded-2xl border border-border/80 bg-card/95 p-2 shadow-lg backdrop-blur-md sm:flex-row sm:items-center sm:justify-between sm:px-3.5 sm:py-2.5">
-        <div className="grid flex-1 grid-cols-3 gap-1.5 sm:gap-2">
+    <div className="sticky bottom-[max(0.75rem,env(safe-area-inset-bottom))] z-30 mx-auto mt-4 w-full max-w-5xl [@media(max-height:30rem)]:static">
+      <div className="flex flex-col gap-2 rounded-2xl border border-border/80 bg-card/95 p-2 shadow-lg backdrop-blur-md @3xl/main:flex-row @3xl/main:items-center @3xl/main:justify-between sm:px-3.5 sm:py-2.5">
+        <div className="grid min-w-0 max-w-full flex-1 grid-cols-3 gap-1.5 sm:gap-2">
           {/* Slot 1: Portrait */}
-          <div className="relative flex items-center gap-1.5 rounded-xl bg-muted/80 p-1.5 sm:gap-2 sm:p-2">
+          <div className="relative flex min-w-0 flex-col items-start gap-1.5 rounded-xl bg-muted/80 p-1.5 @md/main:flex-row @md/main:items-center sm:gap-2 sm:p-2">
             {recipe.portrait ? (
               <>
                 <img
@@ -54,19 +54,20 @@ export function RecipeDock() {
                   alt={recipe.portrait.标题}
                   className="h-8 w-7 shrink-0 rounded-md object-cover sm:h-10 sm:w-8"
                 />
-                <div className="min-w-0 flex-1">
+                <div className="min-w-0 max-w-full flex-1">
                   <div className="truncate text-[11px] font-medium sm:text-xs">{recipe.portrait.发型名称}</div>
                 </div>
                 <button
                   type="button"
+                  aria-label="清除人像参考图"
                   onClick={() => setPortrait(null)}
-                  className="rounded-full p-0.5 text-muted-foreground hover:text-foreground"
+                  className="absolute top-1 right-1 shrink-0 rounded-full p-0.5 text-muted-foreground hover:text-foreground @md/main:static"
                 >
                   <XIcon className="size-3" />
                 </button>
               </>
             ) : (
-              <Link to="/portraits" className="flex flex-1 items-center gap-1.5 text-muted-foreground hover:text-foreground">
+              <Link to="/portraits" className="flex min-w-0 max-w-full flex-1 items-center gap-1.5 text-muted-foreground hover:text-foreground">
                 <div className="flex h-8 w-7 shrink-0 items-center justify-center rounded-md bg-background/80 sm:h-10 sm:w-8">
                   <UserRoundIcon className="size-3.5" />
                 </div>
@@ -76,7 +77,7 @@ export function RecipeDock() {
           </div>
 
           {/* Slot 2: Costume */}
-          <div className="relative flex items-center gap-1.5 rounded-xl bg-muted/80 p-1.5 sm:gap-2 sm:p-2">
+          <div className="relative flex min-w-0 flex-col items-start gap-1.5 rounded-xl bg-muted/80 p-1.5 @md/main:flex-row @md/main:items-center sm:gap-2 sm:p-2">
             {recipe.costume ? (
               <>
                 <img
@@ -84,19 +85,20 @@ export function RecipeDock() {
                   alt={recipe.costume.服装名称}
                   className="h-8 w-7 shrink-0 rounded-md object-cover sm:h-10 sm:w-8"
                 />
-                <div className="min-w-0 flex-1">
+                <div className="min-w-0 max-w-full flex-1">
                   <div className="truncate text-[11px] font-medium sm:text-xs">{recipe.costume.服装名称}</div>
                 </div>
                 <button
                   type="button"
+                  aria-label="清除服装参考图"
                   onClick={() => setCostume(null)}
-                  className="rounded-full p-0.5 text-muted-foreground hover:text-foreground"
+                  className="absolute top-1 right-1 shrink-0 rounded-full p-0.5 text-muted-foreground hover:text-foreground @md/main:static"
                 >
                   <XIcon className="size-3" />
                 </button>
               </>
             ) : (
-              <Link to="/costumes" className="flex flex-1 items-center gap-1.5 text-muted-foreground hover:text-foreground">
+              <Link to="/costumes" className="flex min-w-0 max-w-full flex-1 items-center gap-1.5 text-muted-foreground hover:text-foreground">
                 <div className="flex h-8 w-7 shrink-0 items-center justify-center rounded-md bg-background/80 sm:h-10 sm:w-8">
                   <ShirtIcon className="size-3.5" />
                 </div>
@@ -106,7 +108,7 @@ export function RecipeDock() {
           </div>
 
           {/* Slot 3: Pose */}
-          <div className="relative flex items-center gap-1.5 rounded-xl bg-muted/80 p-1.5 sm:gap-2 sm:p-2">
+          <div className="relative flex min-w-0 flex-col items-start gap-1.5 rounded-xl bg-muted/80 p-1.5 @md/main:flex-row @md/main:items-center sm:gap-2 sm:p-2">
             {recipe.pose ? (
               <>
                 <img
@@ -114,7 +116,7 @@ export function RecipeDock() {
                   alt={recipe.pose.姿势名称}
                   className="h-8 w-7 shrink-0 rounded-md object-cover sm:h-10 sm:w-8"
                 />
-                <div className="min-w-0 flex-1">
+                <div className="min-w-0 max-w-full flex-1">
                   <div className="truncate text-[11px] font-medium sm:text-xs" title={recipe.pose.姿势名称}>{recipe.pose.姿势名称}</div>
                   {recipe.pose.source !== 'upload' && (
                     <button
@@ -130,14 +132,15 @@ export function RecipeDock() {
                 </div>
                 <button
                   type="button"
+                  aria-label="清除姿势参考图"
                   onClick={() => setPose(null)}
-                  className="rounded-full p-0.5 text-muted-foreground hover:text-foreground"
+                  className="absolute top-1 right-1 shrink-0 rounded-full p-0.5 text-muted-foreground hover:text-foreground @md/main:static"
                 >
                   <XIcon className="size-3" />
                 </button>
               </>
             ) : (
-              <Link to="/poses" className="flex flex-1 items-center gap-1.5 text-muted-foreground hover:text-foreground">
+              <Link to="/poses" className="flex min-w-0 max-w-full flex-1 items-center gap-1.5 text-muted-foreground hover:text-foreground">
                 <div className="flex h-8 w-7 shrink-0 items-center justify-center rounded-md bg-background/80 sm:h-10 sm:w-8">
                   <PersonStandingIcon className="size-3.5" />
                 </div>
@@ -147,18 +150,18 @@ export function RecipeDock() {
           </div>
         </div>
 
-        <div className="flex items-center justify-end gap-1.5">
+        <div className="flex flex-wrap items-center justify-end gap-1.5">
           <Button variant="outline" size="sm" className="h-8 px-2.5 text-xs" onClick={handleRandom}>
             <DicesIcon className="size-3.5" />
             随机
           </Button>
           {count > 0 && (
             <>
-              <Button variant="outline" size="sm" className="h-8 px-2.5 text-xs" onClick={handleCopyPrompt}>
+              <Button variant="outline" size="sm" className="h-8 px-2.5 text-xs" aria-label="复制提示词" onClick={handleCopyPrompt}>
                 <CopyIcon className="size-3.5" />
                 <span className="hidden md:inline">复制词</span>
               </Button>
-              <Button variant="ghost" size="icon" className="size-8" onClick={clearRecipe}>
+              <Button variant="ghost" size="icon" className="size-8" aria-label="清空参考图" onClick={clearRecipe}>
                 <Trash2Icon className="size-3.5" />
               </Button>
             </>
