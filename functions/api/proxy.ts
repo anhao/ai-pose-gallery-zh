@@ -4,18 +4,17 @@
 
 export interface ProxyEnv {
   /**
-   * 可选环境变量：动态配置允许通过 /api/proxy 转发的上游域名列表（多个域名用逗号、分号或空白分隔）。
-   * 例如：PROXY_ALLOWED_ORIGINS="https://api.example.com,https://relay.example.org"
-   * 若设置为 "*" 则放行所有 https 源站。
+   * 可选环境变量：动态配置允许通过 /api/proxy 转发的上游域名列表（多个规则用逗号、分号或空白分隔）。
+   * 支持：
+   * - 精确域名：`https://api.openai.com`
+   * - 通配子域名：`https://*.openai.com`、`https://*.volces.com`
+   * - 全部放行：`*`
    */
   PROXY_ALLOWED_ORIGINS?: string
 }
 
 /**
- * 默认允许转发的上游 origin 白名单。
- *
- * 必须按 origin 精确匹配，不能改用 startsWith 或正则前缀匹配，
- * 否则 `https://dashscope.aliyuncs.com.example.com` 之类的域名可以绕过。
+ * 默认允许转发的上游 origin 规则。
  */
 const DEFAULT_ALLOWED_ORIGINS = [
   'https://dashscope.aliyuncs.com', // 阿里云百炼 / Qwen
@@ -24,23 +23,41 @@ const DEFAULT_ALLOWED_ORIGINS = [
   'https://api.openai.com', // OpenAI
 ]
 
-function isOriginAllowed(targetOrigin: string, envRaw?: string): boolean {
-  const allowed = new Set<string>(DEFAULT_ALLOWED_ORIGINS)
-  if (envRaw && typeof envRaw === 'string') {
-    const tokens = envRaw
-      .split(/[\s,;]+/)
-      .map((s) => s.trim())
-      .filter(Boolean)
-    for (const token of tokens) {
-      if (token === '*') return true
-      try {
-        allowed.add(new URL(token).origin)
-      } catch {
-        // 忽略格式非法的配置项
-      }
-    }
+function matchOriginRule(target: URL, rawRule: string): boolean {
+  const rule = rawRule.trim()
+  if (!rule) return false
+  if (rule === '*') return true
+
+  // 支持通配子域名：例如 https://*.openai.com 或 *.openai.com
+  const wildcardMatch = rule.match(/^(?:(https?):\/\/)?\*\.([a-z0-9.-]+)(?::(\d+))?(?:\/.*)?$/i)
+  if (wildcardMatch) {
+    const [, proto, baseHost, port] = wildcardMatch
+    if (proto && `${proto.toLowerCase()}:` !== target.protocol) return false
+    if ((port || '') !== target.port) return false
+    const host = target.hostname.toLowerCase()
+    const suffix = `.${baseHost.toLowerCase().replace(/^\.+|\.+$/g, '')}`
+    return host.endsWith(suffix) && host.length > suffix.length
   }
-  return allowed.has(targetOrigin)
+
+  // 精确 origin 匹配
+  try {
+    const parsed = new URL(rule.includes('://') ? rule : `https://${rule}`)
+    return parsed.origin === target.origin
+  } catch {
+    return false
+  }
+}
+
+function isOriginAllowed(target: URL, envRaw?: string): boolean {
+  const extraRules =
+    envRaw && typeof envRaw === 'string'
+      ? envRaw
+          .split(/[\s,;]+/)
+          .map((s) => s.trim())
+          .filter(Boolean)
+      : []
+  const allRules = [...DEFAULT_ALLOWED_ORIGINS, ...extraRules]
+  return allRules.some((rule) => matchOriginRule(target, rule))
 }
 
 /** 单次转发的请求体上限：生图接口携带 base64 图片时 10 MiB 足够。 */
@@ -89,7 +106,7 @@ export const onRequestPost = async (context: { request: Request; env?: ProxyEnv 
   }
 
   // 只允许白名单（含环境变量 PROXY_ALLOWED_ORIGINS）内的 https 上游，其余一律拒绝
-  if (target.protocol !== 'https:' || !isOriginAllowed(target.origin, env?.PROXY_ALLOWED_ORIGINS)) {
+  if (target.protocol !== 'https:' || !isOriginAllowed(target, env?.PROXY_ALLOWED_ORIGINS)) {
     return jsonResponse(403, 'Target origin not allowed')
   }
 
