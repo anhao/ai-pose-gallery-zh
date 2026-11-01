@@ -59,5 +59,3 @@ Use case: product-mockup. Create ONE photorealistic full outfit catalog asset. P
 ## MO012_大衣高领
 
 Use case: product-mockup. Create ONE photorealistic full outfit catalog asset. Portrait 3:4 aspect ratio. Pure white seamless studio, soft even illumination, very faint floor contact shadow. A single headless matte neutral light-gray male mannequin with realistic adult male proportions, neck stump and simple mannequin hands visible, relaxed arms with a small gap beside torso. Entire mannequin from neck stump and shoulders down to both shoes and soles completely inside frame with generous margin. Near frontal view rotated only 15 degrees. Realistic fabric weave, seams, garment construction and natural drape. One complete outfit only, no collage, no inset, no text, no logos, no watermarks, no bag, no extra accessories, no face or human head. Outfit: camel knee-length overcoat worn open over black turtleneck sweater, dark gray trousers, black Chelsea boots.
-
-
