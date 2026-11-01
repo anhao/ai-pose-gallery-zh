@@ -22,6 +22,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/u
 import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Skeleton } from '@/components/ui/skeleton'
+import { poseImagePath, poseThumbPath } from '@/lib/recipeImages'
 import { cn } from '@/lib/utils'
 import { useStudio } from '@/store/studioStore'
 import type { PoseGroup, PoseItem } from '@/types/gallery'
@@ -35,7 +36,7 @@ export const Route = createFileRoute('/poses')({
 
 function PosesPage() {
   const { data } = useSuspenseQuery(posesQuery)
-  const { recipe, togglePose, safeMode, requestUnlockNsfw } = useStudio()
+  const { recipe, togglePose, safeMode, requestUnlockNsfw, poseDepthMode, setPoseDepthMode } = useStudio()
 
   const [line, setLine] = useState('')
   const [category, setCategory] = useState('all')
@@ -139,27 +140,57 @@ function PosesPage() {
       <PageHeader
         title="动作姿势库"
         actions={
-          <div className="flex items-center gap-1.5">
-            <Button
-              variant={viewMode === 'group' ? 'default' : 'outline'}
-              size="sm"
-              onClick={() => {
-                setViewMode('group')
-                setShown(60)
-              }}
-            >
-              分组
-            </Button>
-            <Button
-              variant={viewMode === 'single' ? 'default' : 'outline'}
-              size="sm"
-              onClick={() => {
-                setViewMode('single')
-                setShown(96)
-              }}
-            >
-              单张
-            </Button>
+          <div className="flex flex-wrap items-center gap-2">
+            {/* 素体白模 / 深度图 切换 */}
+            <div className="inline-flex items-center rounded-lg border border-border/70 bg-muted p-0.5">
+              <button
+                type="button"
+                onClick={() => setPoseDepthMode(false)}
+                className={cn(
+                  'rounded-md px-2.5 py-1 text-xs font-medium transition',
+                  !poseDepthMode
+                    ? 'bg-background text-foreground shadow-xs'
+                    : 'text-muted-foreground hover:text-foreground'
+                )}
+              >
+                素体白模
+              </button>
+              <button
+                type="button"
+                onClick={() => setPoseDepthMode(true)}
+                className={cn(
+                  'rounded-md px-2.5 py-1 text-xs font-medium transition',
+                  poseDepthMode
+                    ? 'bg-primary text-primary-foreground shadow-xs'
+                    : 'text-muted-foreground hover:text-foreground'
+                )}
+              >
+                深度图 (Depth)
+              </button>
+            </div>
+
+            <div className="flex items-center gap-1.5">
+              <Button
+                variant={viewMode === 'group' ? 'default' : 'outline'}
+                size="sm"
+                onClick={() => {
+                  setViewMode('group')
+                  setShown(60)
+                }}
+              >
+                分组
+              </Button>
+              <Button
+                variant={viewMode === 'single' ? 'default' : 'outline'}
+                size="sm"
+                onClick={() => {
+                  setViewMode('single')
+                  setShown(96)
+                }}
+              >
+                单张
+              </Button>
+            </div>
           </div>
         }
       />
@@ -296,7 +327,7 @@ function PosesPage() {
                   className="relative aspect-3/4 cursor-zoom-in overflow-hidden rounded-2xl bg-background"
                 >
                   <img
-                    src={`/${item.缩略图}`}
+                    src={`/${poseThumbPath(item, poseDepthMode)}`}
                     alt={`${group.name} · ${item.角度}`}
                     loading="lazy"
                     className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
@@ -351,7 +382,7 @@ function PosesPage() {
                         )}
                       >
                         <img
-                          src={`/${angItem.缩略图}`}
+                          src={`/${poseThumbPath(angItem, poseDepthMode)}`}
                           alt={ang}
                           loading="lazy"
                           className="aspect-square w-full rounded-md object-cover"
@@ -380,7 +411,7 @@ function PosesPage() {
                   className="relative aspect-3/4 cursor-zoom-in overflow-hidden rounded-2xl bg-background"
                 >
                   <img
-                    src={`/${item.缩略图}`}
+                    src={`/${poseThumbPath(item, poseDepthMode)}`}
                     alt={item.姿势名称}
                     loading="lazy"
                     className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
@@ -432,11 +463,12 @@ function PosesPage() {
           {viewer && (() => {
             const grp = filteredGroups[viewer.groupIndex]
             const it = viewer.item
-            const picked = recipe.pose?.id === it.id
+            const picked = recipe.pose?.id === it.id && Boolean(recipe.pose?.useDepth) === poseDepthMode
+            const activeImgPath = poseImagePath(it, poseDepthMode)
             return (
               <div className="grid md:grid-cols-[1fr_300px]">
                 <div className="relative flex max-h-[78vh] min-h-[360px] items-center justify-center bg-muted/60 p-4">
-                  <img src={`/${it.原图}`} alt={it.姿势名称} className="max-h-[72vh] w-auto rounded-lg object-contain" />
+                  <img src={`/${activeImgPath}`} alt={it.姿势名称} className="max-h-[72vh] w-auto rounded-lg object-contain" />
                   {grp && grp.order.length > 1 && (
                     <>
                       <Button
@@ -470,9 +502,31 @@ function PosesPage() {
                 <div className="flex flex-col justify-between gap-4 border-t p-5 md:border-t-0 md:border-l">
                   <div className="space-y-4">
                     <DialogHeader>
-                      <div className="flex items-center gap-2">
+                      <div className="flex flex-wrap items-center gap-2">
                         <Badge>{it.姿势编号}</Badge>
                         <Badge variant="outline">{it.角度}</Badge>
+                        <div className="ml-auto inline-flex items-center rounded-md border bg-muted p-0.5">
+                          <button
+                            type="button"
+                            onClick={() => setPoseDepthMode(false)}
+                            className={cn(
+                              'rounded px-2 py-0.5 text-[11px] font-medium transition',
+                              !poseDepthMode ? 'bg-background text-foreground shadow-2xs' : 'text-muted-foreground'
+                            )}
+                          >
+                            白模
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => setPoseDepthMode(true)}
+                            className={cn(
+                              'rounded px-2 py-0.5 text-[11px] font-medium transition',
+                              poseDepthMode ? 'bg-primary text-primary-foreground shadow-2xs' : 'text-muted-foreground'
+                            )}
+                          >
+                            深度图
+                          </button>
+                        </div>
                       </div>
                       <DialogTitle className="mt-2 text-lg leading-snug">{it.姿势名称}</DialogTitle>
                     </DialogHeader>
@@ -508,7 +562,7 @@ function PosesPage() {
                                   angItem.id === it.id ? 'border-primary bg-muted' : 'border-transparent opacity-70'
                                 )}
                               >
-                                <img src={`/${angItem.缩略图}`} alt={ang} className="aspect-square w-full rounded object-cover" />
+                                <img src={`/${poseThumbPath(angItem, poseDepthMode)}`} alt={ang} className="aspect-square w-full rounded object-cover" />
                                 <span className="mt-0.5 block text-center text-[10px]">{ang}</span>
                               </button>
                             )
@@ -522,25 +576,27 @@ function PosesPage() {
                       <dd className="font-medium">{it.体系}</dd>
                       <dt className="text-muted-foreground">动作分类</dt>
                       <dd className="font-medium">{it.分类}</dd>
+                      <dt className="text-muted-foreground">当前模式</dt>
+                      <dd className="font-medium">{poseDepthMode ? '深度图 (Depth Map)' : '3D 素体白模'}</dd>
                       <dt className="text-muted-foreground">原图尺寸</dt>
-                      <dd className="font-medium">900 × 1200 PNG</dd>
+                      <dd className="font-medium">900 × 1200 {poseDepthMode ? 'WebP' : 'PNG'}</dd>
                     </dl>
                   </div>
 
                   <div className="flex flex-col gap-2">
                     <Button onClick={() => togglePose(it)} variant={picked ? 'secondary' : 'default'}>
                       {picked ? <CheckIcon className="size-4" /> : <PlusIcon className="size-4" />}
-                      {picked ? '已在角色配方中（点击移除）' : '加入角色配方'}
+                      {picked ? '已在角色配方中（点击移除）' : `加入角色配方（${poseDepthMode ? '深度图' : '白模'}）`}
                     </Button>
                     <div className="grid grid-cols-2 gap-2">
                       <Button variant="outline" size="sm" asChild>
-                        <a href={`/${it.原图}`} download={`${it.id}.png`}>
+                        <a href={`/${activeImgPath}`} download={`${it.id}${poseDepthMode ? '_depth.webp' : '.png'}`}>
                           <DownloadIcon className="size-3.5" />
-                          下载 PNG
+                          下载{poseDepthMode ? '深度图' : ' PNG'}
                         </a>
                       </Button>
                       <Button variant="outline" size="sm" asChild>
-                        <a href={`/${it.原图}`} target="_blank" rel="noopener noreferrer">
+                        <a href={`/${activeImgPath}`} target="_blank" rel="noopener noreferrer">
                           <ExternalLinkIcon className="size-3.5" />
                           新窗口原图
                         </a>

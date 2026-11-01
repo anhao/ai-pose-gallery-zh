@@ -3,7 +3,7 @@ import { Link, useLocation } from '@tanstack/react-router'
 import { CopyIcon, DicesIcon, LoaderCircleIcon, PersonStandingIcon, ShirtIcon, SparklesIcon, Trash2Icon, UserRoundIcon, XIcon } from 'lucide-react'
 import { toast } from 'sonner'
 import { costumesQuery, portraitsQuery, posesQuery } from '@/api/gallery'
-import { referenceImageUrl } from '@/lib/recipeImages'
+import { poseThumbPath, referenceImageUrl } from '@/lib/recipeImages'
 import { workflowIdentity } from '@/lib/comfyWorkflowParameters'
 import { Button } from '@/components/ui/button'
 import { buildRecipePrompt } from '@/services/aiGenerator'
@@ -11,7 +11,7 @@ import { useStudio } from '@/store/studioStore'
 
 export function RecipeDock() {
   const { pathname } = useLocation()
-  const { recipe, apiConfig, isGenerating, setPortrait, setCostume, setPose, clearRecipe, randomizeRecipe } = useStudio()
+  const { recipe, apiConfig, isGenerating, setPortrait, setCostume, setPose, toggleRecipePoseDepth, clearRecipe, randomizeRecipe } = useStudio()
   const qc = useQueryClient()
   const extraCount = (recipe.extraImages || []).length
   const workflowImages = apiConfig.activeProvider === 'comfyui' && recipe.workflowImagesIdentity === workflowIdentity(apiConfig.comfyuiParams.workflowJson) ? Object.values(recipe.workflowImages || {}) : []
@@ -110,12 +110,23 @@ export function RecipeDock() {
             {recipe.pose ? (
               <>
                 <img
-                  src={referenceImageUrl(recipe.pose.缩略图)}
+                  src={referenceImageUrl(poseThumbPath(recipe.pose))}
                   alt={recipe.pose.姿势名称}
                   className="h-8 w-7 shrink-0 rounded-md object-cover sm:h-10 sm:w-8"
                 />
                 <div className="min-w-0 flex-1">
-                  <div className="truncate text-[11px] font-medium sm:text-xs">{recipe.pose.姿势名称}</div>
+                  <div className="truncate text-[11px] font-medium sm:text-xs" title={recipe.pose.姿势名称}>{recipe.pose.姿势名称}</div>
+                  {recipe.pose.source !== 'upload' && (
+                    <button
+                      type="button"
+                      onClick={toggleRecipePoseDepth}
+                      className="mt-0.5 inline-flex items-center gap-1 rounded bg-background/80 px-1 py-0.5 text-[10px] leading-none text-muted-foreground hover:text-foreground"
+                    >
+                      <span className={!recipe.pose.useDepth ? 'font-semibold text-foreground' : ''}>白模</span>
+                      <span>/</span>
+                      <span className={recipe.pose.useDepth ? 'font-semibold text-primary' : ''}>深度</span>
+                    </button>
+                  )}
                 </div>
                 <button
                   type="button"

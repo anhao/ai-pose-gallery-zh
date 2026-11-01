@@ -4,6 +4,28 @@ export function referenceImageUrl(src: string): string {
   return /^(data:|https?:\/\/|\/)/i.test(src) ? src : `/${src}`
 }
 
+export function poseThumbPath(pose: PoseItem, useDepth = Boolean(pose.useDepth)): string {
+  const raw = pose.缩略图
+  if (pose.source === 'upload' || !useDepth || /^(data:|https?:\/\/)/i.test(raw)) return raw
+  const clean = raw.replace(/^\/+/, '')
+  if (clean.startsWith('thumbs/depth/')) return raw
+  if (clean.startsWith('thumbs/')) {
+    return `thumbs/depth/${clean.slice('thumbs/'.length).replace(/\.(jpe?g|png)$/i, '.webp')}`
+  }
+  return raw
+}
+
+export function poseImagePath(pose: PoseItem, useDepth = Boolean(pose.useDepth)): string {
+  const raw = pose.原图 || pose.缩略图
+  if (pose.source === 'upload' || !useDepth || /^(data:|https?:\/\/)/i.test(raw)) return raw
+  const clean = raw.replace(/^\/+/, '')
+  if (clean.startsWith('img/depth/')) return raw
+  if (clean.startsWith('img/')) {
+    return `img/depth/${clean.slice('img/'.length).replace(/\.(png|jpe?g)$/i, '.webp')}`
+  }
+  return raw
+}
+
 export function uploadedReferences(name: string, url: string, width: number, height: number, bytes: number) {
   const base = { id: crypto.randomUUID(), source: 'upload' as const, 原图: url, 缩略图: url, 检索: name }
   const portrait: PortraitItem = {

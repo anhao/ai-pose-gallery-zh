@@ -54,7 +54,7 @@ import {
   stitchRecipeCanvas,
   STYLE_PRESETS,
 } from '@/services/aiGenerator'
-import { referenceImageUrl, uploadedReferences } from '@/lib/recipeImages'
+import { poseImagePath, poseThumbPath, referenceImageUrl, uploadedReferences } from '@/lib/recipeImages'
 import { useStudio } from '@/store/studioStore'
 import type {
   ComfyUiParams,
@@ -90,6 +90,7 @@ function StudioPage() {
     setPortrait,
     setCostume,
     setPose,
+    toggleRecipePoseDepth,
     addExtraImage,
     removeExtraImage,
     updateExtraImageName,
@@ -447,44 +448,48 @@ function StudioPage() {
             {/* 3 个核心图库槽位：手机端单列舒展展示，平板/桌面端三列并排 */}
             <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
               {/* 人像槽 */}
-              <div className={`relative flex min-w-0 items-center gap-2 rounded-xl bg-background p-2 ${showReferenceErrors && missingReferences.includes('人像') ? 'ring-1 ring-destructive' : ''}`}>
+              <div className={`relative flex min-w-0 items-start gap-2.5 rounded-xl bg-background p-2.5 ${showReferenceErrors && missingReferences.includes('人像') ? 'ring-1 ring-destructive' : ''}`}>
                 {recipe.portrait ? (
                   <>
-                    <button type="button" aria-label="放大人像参考图" className="flex min-h-11 min-w-11 shrink-0 cursor-zoom-in items-center justify-center rounded-lg transition-opacity hover:opacity-80 focus-visible:outline-2 focus-visible:outline-ring" onClick={() => {
+                    <button type="button" aria-label="放大人像参考图" className="shrink-0 cursor-zoom-in overflow-hidden rounded-lg transition-opacity hover:opacity-80 focus-visible:outline-2 focus-visible:outline-ring" onClick={() => {
                       const item = recipe.portrait
                       if (item) setZoomImageUrl(referenceImageUrl(item.原图 || item.缩略图))
                     }}>
                       <img
                         src={referenceImageUrl(recipe.portrait.缩略图)}
                         alt={recipe.portrait.标题}
-                        className="h-11 w-9 shrink-0 rounded-lg object-cover"
+                        className="h-12 w-10 shrink-0 rounded-lg object-cover"
                       />
                     </button>
-                    <div className="min-w-0 flex-1">
-                      <div className="text-xs text-muted-foreground">人像</div>
-                      <div className="truncate text-xs font-medium" title={recipe.portrait.发型名称}>{recipe.portrait.发型名称}</div>
+                    <div className="flex min-h-12 min-w-0 flex-1 flex-col justify-between gap-1">
+                      <div className="flex items-center justify-between gap-1">
+                        <span className="shrink-0 text-[11px] text-muted-foreground">人像</span>
+                        <button
+                          type="button"
+                          aria-label="清除人像参考图"
+                          onClick={() => setPortrait(null)}
+                          className="-mr-0.5 -mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring"
+                        >
+                          <XIcon className="size-3.5" />
+                        </button>
+                      </div>
+                      <div className="line-clamp-2 text-xs font-medium leading-snug" title={recipe.portrait.发型名称}>
+                        {recipe.portrait.发型名称}
+                      </div>
                     </div>
-                    <button
-                      type="button"
-                      aria-label="清除人像参考图"
-                      onClick={() => setPortrait(null)}
-                      className="flex size-11 shrink-0 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring"
-                    >
-                      <XIcon className="size-3.5" />
-                    </button>
                   </>
                 ) : (
                   <>
                     <Link
                       to="/portraits"
-                      className="flex min-h-11 min-w-0 flex-1 items-center gap-2 rounded-lg text-muted-foreground hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring"
+                      className="flex min-h-12 min-w-0 flex-1 items-center gap-2 rounded-lg text-muted-foreground hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring"
                     >
                       <div className="flex h-10 w-8 shrink-0 items-center justify-center rounded-lg bg-muted">
                         <UserRoundIcon className="size-4" />
                       </div>
                       <span className="truncate text-xs">+ 选人像</span>
                     </Link>
-                    <Button type="button" variant="ghost" size="sm" aria-label="上传人像参考图" aria-describedby={showReferenceErrors && missingReferences.includes('人像') ? 'reference-errors' : undefined} aria-busy={uploadingSlot === 'portrait'} disabled={uploadingSlot !== null} className="h-11 shrink-0 border-l px-2 text-xs" onClick={() => { uploadSlotRef.current = 'portrait'; slotInputRef.current?.click() }}>
+                    <Button type="button" variant="ghost" size="sm" aria-label="上传人像参考图" aria-describedby={showReferenceErrors && missingReferences.includes('人像') ? 'reference-errors' : undefined} aria-busy={uploadingSlot === 'portrait'} disabled={uploadingSlot !== null} className="h-12 shrink-0 border-l px-2 text-xs" onClick={() => { uploadSlotRef.current = 'portrait'; slotInputRef.current?.click() }}>
                       {uploadingSlot === 'portrait' ? <LoaderCircleIcon className="size-3.5 animate-spin motion-reduce:animate-none" /> : <ImagePlusIcon className="size-3.5" />}
                       {uploadingSlot === 'portrait' ? '处理中' : '上传'}
                     </Button>
@@ -493,44 +498,48 @@ function StudioPage() {
               </div>
 
               {/* 服装槽 */}
-              <div className={`relative flex min-w-0 items-center gap-2 rounded-xl bg-background p-2 ${showReferenceErrors && missingReferences.includes('服装') ? 'ring-1 ring-destructive' : ''}`}>
+              <div className={`relative flex min-w-0 items-start gap-2.5 rounded-xl bg-background p-2.5 ${showReferenceErrors && missingReferences.includes('服装') ? 'ring-1 ring-destructive' : ''}`}>
                 {recipe.costume ? (
                   <>
-                    <button type="button" aria-label="放大服装参考图" className="flex min-h-11 min-w-11 shrink-0 cursor-zoom-in items-center justify-center rounded-lg transition-opacity hover:opacity-80 focus-visible:outline-2 focus-visible:outline-ring" onClick={() => {
+                    <button type="button" aria-label="放大服装参考图" className="shrink-0 cursor-zoom-in overflow-hidden rounded-lg transition-opacity hover:opacity-80 focus-visible:outline-2 focus-visible:outline-ring" onClick={() => {
                       const item = recipe.costume
                       if (item) setZoomImageUrl(referenceImageUrl(item.预览图 || item.原图 || item.缩略图))
                     }}>
                       <img
                         src={referenceImageUrl(recipe.costume.缩略图)}
                         alt={recipe.costume.服装名称}
-                        className="h-11 w-9 shrink-0 rounded-lg object-cover"
+                        className="h-12 w-10 shrink-0 rounded-lg object-cover"
                       />
                     </button>
-                    <div className="min-w-0 flex-1">
-                      <div className="text-xs text-muted-foreground">服装</div>
-                      <div className="truncate text-xs font-medium" title={recipe.costume.服装名称}>{recipe.costume.服装名称}</div>
+                    <div className="flex min-h-12 min-w-0 flex-1 flex-col justify-between gap-1">
+                      <div className="flex items-center justify-between gap-1">
+                        <span className="shrink-0 text-[11px] text-muted-foreground">服装</span>
+                        <button
+                          type="button"
+                          aria-label="清除服装参考图"
+                          onClick={() => setCostume(null)}
+                          className="-mr-0.5 -mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring"
+                        >
+                          <XIcon className="size-3.5" />
+                        </button>
+                      </div>
+                      <div className="line-clamp-2 text-xs font-medium leading-snug" title={recipe.costume.服装名称}>
+                        {recipe.costume.服装名称}
+                      </div>
                     </div>
-                    <button
-                      type="button"
-                      aria-label="清除服装参考图"
-                      onClick={() => setCostume(null)}
-                      className="flex size-11 shrink-0 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring"
-                    >
-                      <XIcon className="size-3.5" />
-                    </button>
                   </>
                 ) : (
                   <>
                     <Link
                       to="/costumes"
-                      className="flex min-h-11 min-w-0 flex-1 items-center gap-2 rounded-lg text-muted-foreground hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring"
+                      className="flex min-h-12 min-w-0 flex-1 items-center gap-2 rounded-lg text-muted-foreground hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring"
                     >
                       <div className="flex h-10 w-8 shrink-0 items-center justify-center rounded-lg bg-muted">
                         <ShirtIcon className="size-4" />
                       </div>
                       <span className="truncate text-xs">+ 选服装</span>
                     </Link>
-                    <Button type="button" variant="ghost" size="sm" aria-label="上传服装参考图" aria-describedby={showReferenceErrors && missingReferences.includes('服装') ? 'reference-errors' : undefined} aria-busy={uploadingSlot === 'costume'} disabled={uploadingSlot !== null} className="h-11 shrink-0 border-l px-2 text-xs" onClick={() => { uploadSlotRef.current = 'costume'; slotInputRef.current?.click() }}>
+                    <Button type="button" variant="ghost" size="sm" aria-label="上传服装参考图" aria-describedby={showReferenceErrors && missingReferences.includes('服装') ? 'reference-errors' : undefined} aria-busy={uploadingSlot === 'costume'} disabled={uploadingSlot !== null} className="h-12 shrink-0 border-l px-2 text-xs" onClick={() => { uploadSlotRef.current = 'costume'; slotInputRef.current?.click() }}>
                       {uploadingSlot === 'costume' ? <LoaderCircleIcon className="size-3.5 animate-spin motion-reduce:animate-none" /> : <ImagePlusIcon className="size-3.5" />}
                       {uploadingSlot === 'costume' ? '处理中' : '上传'}
                     </Button>
@@ -539,44 +548,87 @@ function StudioPage() {
               </div>
 
               {/* 姿势槽 */}
-              <div className={`relative flex min-w-0 items-center gap-2 rounded-xl bg-background p-2 ${showReferenceErrors && missingReferences.includes('姿势') ? 'ring-1 ring-destructive' : ''}`}>
+              <div className={`relative flex min-w-0 items-start gap-2.5 rounded-xl bg-background p-2.5 ${showReferenceErrors && missingReferences.includes('姿势') ? 'ring-1 ring-destructive' : ''}`}>
                 {recipe.pose ? (
                   <>
-                    <button type="button" aria-label="放大姿势参考图" className="flex min-h-11 min-w-11 shrink-0 cursor-zoom-in items-center justify-center rounded-lg transition-opacity hover:opacity-80 focus-visible:outline-2 focus-visible:outline-ring" onClick={() => {
+                    <button type="button" aria-label="放大姿势参考图" className="shrink-0 cursor-zoom-in overflow-hidden rounded-lg transition-opacity hover:opacity-80 focus-visible:outline-2 focus-visible:outline-ring" onClick={() => {
                       const item = recipe.pose
-                      if (item) setZoomImageUrl(referenceImageUrl(item.原图 || item.缩略图))
+                      if (item) setZoomImageUrl(referenceImageUrl(poseImagePath(item)))
                     }}>
                       <img
-                        src={referenceImageUrl(recipe.pose.缩略图)}
+                        src={referenceImageUrl(poseThumbPath(recipe.pose))}
                         alt={recipe.pose.姿势名称}
-                        className="h-11 w-9 shrink-0 rounded-lg object-cover"
+                        className="h-12 w-10 shrink-0 rounded-lg object-cover"
                       />
                     </button>
-                    <div className="min-w-0 flex-1">
-                      <div className="text-xs text-muted-foreground">姿势{recipe.pose.source === 'upload' ? ' · 本机上传' : recipe.pose.角度 ? ` · ${recipe.pose.角度}` : ''}</div>
-                      <div className="truncate text-xs font-medium" title={recipe.pose.姿势名称}>{recipe.pose.姿势名称}</div>
+                    <div className="flex min-h-12 min-w-0 flex-1 flex-col justify-between gap-1">
+                      <div className="flex items-center justify-between gap-1">
+                        <div className="flex min-w-0 items-center gap-1.5">
+                          <span className="shrink-0 text-[11px] text-muted-foreground">姿势</span>
+                          {recipe.pose.source !== 'upload' && (
+                            <div
+                              role="group"
+                              aria-label="切换素体白模或深度图"
+                              className="inline-flex shrink-0 items-center rounded-md border border-border/70 bg-muted/70 p-0.5 text-[10px] leading-none"
+                            >
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  if (recipe.pose?.useDepth) toggleRecipePoseDepth()
+                                }}
+                                className={`rounded px-1.5 py-0.5 font-medium transition ${
+                                  !recipe.pose.useDepth
+                                    ? 'bg-background text-foreground shadow-xs'
+                                    : 'text-muted-foreground hover:text-foreground'
+                                }`}
+                              >
+                                白模
+                              </button>
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  if (!recipe.pose?.useDepth) toggleRecipePoseDepth()
+                                }}
+                                className={`rounded px-1.5 py-0.5 font-medium transition ${
+                                  recipe.pose.useDepth
+                                    ? 'bg-primary text-primary-foreground shadow-xs'
+                                    : 'text-muted-foreground hover:text-foreground'
+                                }`}
+                              >
+                                深度
+                              </button>
+                            </div>
+                          )}
+                        </div>
+                        <button
+                          type="button"
+                          aria-label="清除姿势参考图"
+                          onClick={() => setPose(null)}
+                          className="-mr-0.5 -mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring"
+                        >
+                          <XIcon className="size-3.5" />
+                        </button>
+                      </div>
+                      <div
+                        className="line-clamp-2 text-xs font-medium leading-snug"
+                        title={recipe.pose.角度 ? `${recipe.pose.姿势名称} · ${recipe.pose.角度}` : recipe.pose.姿势名称}
+                      >
+                        {recipe.pose.角度 ? `${recipe.pose.姿势名称} · ${recipe.pose.角度}` : recipe.pose.姿势名称}
+                      </div>
                     </div>
-                    <button
-                      type="button"
-                      aria-label="清除姿势参考图"
-                      onClick={() => setPose(null)}
-                      className="flex size-11 shrink-0 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring"
-                    >
-                      <XIcon className="size-3.5" />
-                    </button>
                   </>
                 ) : (
                   <>
                     <Link
                       to="/poses"
-                      className="flex min-h-11 min-w-0 flex-1 items-center gap-2 rounded-lg text-muted-foreground hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring"
+                      className="flex min-h-12 min-w-0 flex-1 items-center gap-2 rounded-lg text-muted-foreground hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring"
                     >
                       <div className="flex h-10 w-8 shrink-0 items-center justify-center rounded-lg bg-muted">
                         <PersonStandingIcon className="size-4" />
                       </div>
                       <span className="truncate text-xs">+ 选姿势</span>
                     </Link>
-                    <Button type="button" variant="ghost" size="sm" aria-label="上传姿势参考图" aria-describedby={showReferenceErrors && missingReferences.includes('姿势') ? 'reference-errors' : undefined} aria-busy={uploadingSlot === 'pose'} disabled={uploadingSlot !== null} className="h-11 shrink-0 border-l px-2 text-xs" onClick={() => { uploadSlotRef.current = 'pose'; slotInputRef.current?.click() }}>
+                    <Button type="button" variant="ghost" size="sm" aria-label="上传姿势参考图" aria-describedby={showReferenceErrors && missingReferences.includes('姿势') ? 'reference-errors' : undefined} aria-busy={uploadingSlot === 'pose'} disabled={uploadingSlot !== null} className="h-12 shrink-0 border-l px-2 text-xs" onClick={() => { uploadSlotRef.current = 'pose'; slotInputRef.current?.click() }}>
                       {uploadingSlot === 'pose' ? <LoaderCircleIcon className="size-3.5 animate-spin motion-reduce:animate-none" /> : <ImagePlusIcon className="size-3.5" />}
                       {uploadingSlot === 'pose' ? '处理中' : '上传'}
                     </Button>

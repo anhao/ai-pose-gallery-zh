@@ -192,6 +192,9 @@ interface StudioContextValue {
   safeMode: boolean
   toggleSafeMode: () => void
   requestUnlockNsfw: (onUnlocked?: () => void) => void
+  poseDepthMode: boolean
+  setPoseDepthMode: (val: boolean) => void
+  toggleRecipePoseDepth: () => void
   // 全局持久化的合成台状态（切换页面不丢失、不断开请求）
   customPrompt: string | null
   setCustomPrompt: (val: string | null) => void
@@ -274,6 +277,7 @@ export function StudioProvider({ children }: { children: ReactNode }) {
   })
   const [ageGateOpen, setAgeGateOpen] = useState(false)
   const pendingUnlockCbRef = useRef<(() => void) | null>(null)
+  const [poseDepthMode, setPoseDepthModeState] = useState<boolean>(() => Boolean(recipe.pose?.useDepth))
 
   // 提升到根部 Provider 的生成状态，路由切换不会卸载或中断
   const [customPrompt, setCustomPrompt] = useState<string | null>(null)
@@ -302,6 +306,9 @@ export function StudioProvider({ children }: { children: ReactNode }) {
     ]).then(([savedRecipe, savedHistory]) => {
       if (!active) return
       if (savedRecipe) {
+        if (savedRecipe.pose?.useDepth !== undefined) {
+          setPoseDepthModeState(Boolean(savedRecipe.pose.useDepth))
+        }
         setRecipe({
           portrait: savedRecipe.portrait ?? null,
           costume: savedRecipe.costume ?? null,
@@ -382,6 +389,20 @@ export function StudioProvider({ children }: { children: ReactNode }) {
   const setCostume = (costume: CostumeItem | null) => setRecipe((r) => ({ ...r, costume }))
   const setPose = (pose: PoseItem | null) => setRecipe((r) => ({ ...r, pose }))
 
+  const setPoseDepthMode = (val: boolean) => {
+    setPoseDepthModeState(val)
+    setRecipe((r) => {
+      if (!r.pose || r.pose.source === 'upload' || Boolean(r.pose.useDepth) === val) return r
+      return { ...r, pose: { ...r.pose, useDepth: val } }
+    })
+  }
+
+  const toggleRecipePoseDepth = () => {
+    const next = !(recipe.pose?.useDepth ?? poseDepthMode)
+    setPoseDepthMode(next)
+    toast.success(next ? '已切换姿势图为：深度图 (Depth)' : '已切换姿势图为：素体白模')
+  }
+
   const togglePortrait = (item: PortraitItem) => {
     setRecipe((r) => {
       const remove = r.portrait?.id === item.id
@@ -399,10 +420,15 @@ export function StudioProvider({ children }: { children: ReactNode }) {
   }
 
   const togglePose = (item: PoseItem) => {
+    const useDepth = item.source === 'upload' ? false : (item.useDepth ?? poseDepthMode)
     setRecipe((r) => {
-      const remove = r.pose?.id === item.id
-      toast.success(remove ? '已移除姿势' : `已选姿势：${item.姿势名称}（${item.角度}）`)
-      return { ...r, pose: remove ? null : item }
+      const remove = r.pose?.id === item.id && Boolean(r.pose?.useDepth) === useDepth
+      toast.success(
+        remove
+          ? '已移除姿势'
+          : `已选姿势：${item.姿势名称}（${item.角度}${useDepth ? ' · 深度图' : ''}）`
+      )
+      return { ...r, pose: remove ? null : { ...item, useDepth } }
     })
   }
 
@@ -479,7 +505,9 @@ export function StudioProvider({ children }: { children: ReactNode }) {
       costume: costumePool.length
         ? costumePool[Math.floor(Math.random() * costumePool.length)]
         : prev.costume,
-      pose: posePool.length ? posePool[Math.floor(Math.random() * posePool.length)] : prev.pose,
+      pose: posePool.length
+        ? { ...posePool[Math.floor(Math.random() * posePool.length)], useDepth: poseDepthMode }
+        : prev.pose,
     }))
     toast.success(safeMode ? '已随机抽取一套角色配方（安全模式）' : '已随机抽取一套角色配方')
   }
@@ -623,6 +651,9 @@ export function StudioProvider({ children }: { children: ReactNode }) {
         safeMode,
         toggleSafeMode,
         requestUnlockNsfw,
+        poseDepthMode,
+        setPoseDepthMode,
+        toggleRecipePoseDepth,
         customPrompt,
         setCustomPrompt,
         previewUrl,

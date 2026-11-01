@@ -49,13 +49,13 @@ function DashboardPage() {
           title="总参考图"
           value={totalImages.toLocaleString('zh-CN')}
           icon={<LayersIcon />}
-          desc="8,690 本地高清图"
+          desc="11,568 本地高清图"
         />
         <StatCard
           title="动作姿势 (Pose)"
           value={`${posesData.groups.length} 组`}
           icon={<PersonStandingIcon />}
-          desc={`${posesData.items.length} 张 · 5 视角`}
+          desc={`${posesData.items.length} 张 · 白模/深度`}
         />
         <StatCard
           title="服装穿搭 (Costume)"
