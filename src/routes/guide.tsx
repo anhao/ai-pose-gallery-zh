@@ -24,9 +24,9 @@ function GuidePage() {
 
         <div className="rounded-2xl bg-background p-4">
           <Badge>2. 服装</Badge>
-          <h3 className="mt-2 text-sm font-semibold">服装穿搭库 (1,407)</h3>
+          <h3 className="mt-2 text-sm font-semibold">服装穿搭库 (1,847)</h3>
           <p className="mt-1 text-xs text-muted-foreground">
-            按分类或标签挑选服饰，自带中英双语生图词条，也支持上传本地服装参考图。
+            按全部 / 现实 / 二次元及分类、标签挑选；现实服装 1,407 套，CharaDB 二次元服装 440 套。二次元图片需联网并遵守独立来源条件。
           </p>
         </div>
 
@@ -64,12 +64,13 @@ function GuidePage() {
         <div className="space-y-2.5 rounded-2xl bg-background p-4 text-xs leading-relaxed text-muted-foreground">
           <p>
             <strong className="text-foreground">• 原作者版权归属：</strong>
-            本仓库收录的全部姿势（<code>ai-pose-gallery.pages.dev</code>、<code>ai-pose-depth-gallery.pages.dev</code>）、服装（<code>ai-costume-gallery.pages.dev</code>）、人像（<code>ai-portrait-gallery.pages.dev</code>）参考图与原始元数据均源自原作者{' '}
+            本仓库原有姿势（<code>ai-pose-gallery.pages.dev</code>、<code>ai-pose-depth-gallery.pages.dev</code>）、现实服装（<code>ai-costume-gallery.pages.dev</code>）、人像（<code>ai-portrait-gallery.pages.dev</code>）参考图与原始元数据源自原作者{' '}
             <strong className="text-foreground">ギア（@giaaibusi）</strong> 公开站点，著作权归原作者所有。本仓库仅为中文本地化翻译整理与前端工程学习存档，不对原始图片主张任何所有权。
           </p>
+          <p>二次元服装来源为 <a className="underline" href="https://charadb-2fi.pages.dev/" target="_blank" rel="noopener noreferrer">たき AI · CharaDB</a>。标签和日文名称为 CC0，官方代码为 MIT；图片不适用上述许可。图片仅供参考，禁止真人及未成年人用途、原图或加工图再分发、转载、转售。无需图片署名。本站不保存这些图片，也未取得远程展示或向模型传图的额外授权；热链不等于授权。请先阅读 <a className="underline" href="https://github.com/taki-ttt/charadb/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">原作者完整条件</a>。配方首次选择需确认，默认随机排除二次元条目。离线时仍可搜索和复制标签，图片及图片生成需来源在线。</p>
           <p>
             <strong className="text-foreground">• 使用与分发限制：</strong>
-            人像库遵循 <strong className="text-emerald-600 dark:text-emerald-400">CC0 1.0 协议</strong>；姿势库与服装库免费供个人学习与 AI 生图参考使用，
+            人像库遵循 <strong className="text-emerald-600 dark:text-emerald-400">CC0 1.0 协议</strong>；原有姿势库与现实服装库免费供个人学习与 AI 生图参考使用，
             <strong className="text-foreground">严禁将本图库原始图片打包转售或用于付费分发</strong>。
           </p>
         </div>

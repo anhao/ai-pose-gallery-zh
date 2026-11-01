@@ -1,6 +1,7 @@
 import type { ApiConfig, ExtraReferenceImage, ImageProviderId, RecipeState } from '@/types/gallery'
 import { applyWorkflowOverrides, getWorkflowImages, validateReferenceCombinations, workflowIdentity, type ComfyObjectInfo } from '@/lib/comfyWorkflowParameters'
-import { poseImagePath } from '@/lib/recipeImages'
+import { poseImagePath, referenceImageUrl } from '@/lib/recipeImages'
+import { confirmCostumeSource } from '@/lib/charadb'
 import qwen2509ThreeImageWorkflow from '@/workflows/qwen_image_edit_2509_3img.api.json'
 
 export interface ProviderModelOption {
@@ -253,15 +254,12 @@ function loadImage(src: string): Promise<HTMLImageElement> {
     img.crossOrigin = 'anonymous'
     img.onload = () => resolve(img)
     img.onerror = () => reject(new Error(`加载图片失败: ${src}`))
-    if (src.startsWith('data:') || /^https?:\/\//i.test(src) || src.startsWith('/')) {
-      img.src = src
-    } else {
-      img.src = `/${src}`
-    }
+    img.src = referenceImageUrl(src)
   })
 }
 
 export async function stitchRecipeCanvas(recipe: RecipeState): Promise<string> {
+  if (!confirmCostumeSource(recipe.costume)) throw new Error('尚未确认 CharaDB 来源使用条件')
   const list: Array<{ tag: string; sub: string; src: string }> = []
   let idx = 1
 
@@ -1371,6 +1369,7 @@ export async function generateCharacterImage(params: {
   onProgress?: (p: GenerationProgress) => void
 }): Promise<{ imageUrl: string; modelUsed: string; providerUsed: ImageProviderId }> {
   const { recipe, prompt, config, onProgress } = params
+  if (!confirmCostumeSource(recipe.costume)) throw new Error('尚未确认 CharaDB 来源使用条件')
   const provider = config.activeProvider
   const pCfg = config.providers[provider]
   const apiKey = pCfg.apiKey.trim()

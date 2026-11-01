@@ -27,7 +27,7 @@ export function isNsfwCostumeCategory(category: string): boolean {
 }
 
 export function isNsfwCostume(item: CostumeItem): boolean {
-  return NSFW_COSTUME_CATEGORIES.has(item.分类)
+  return Boolean(item.敏感) || NSFW_COSTUME_CATEGORIES.has(item.分类)
 }
 
 export function buildPoseGroups(items: PoseItem[]): { items: PoseItem[]; groups: PoseGroup[]; lines: string[] } {
@@ -89,9 +89,12 @@ export const costumesQuery = queryOptions({
   queryKey: ['gallery', 'costumes'],
   staleTime: Infinity,
   queryFn: async () => {
-    const res = await fetch('/data/costume-zh.json')
-    if (!res.ok) throw new Error(`加载服装数据失败: HTTP ${res.status}`)
-    return (await res.json()) as CostumeItem[]
+    const lists = await Promise.all(['/data/costume-zh.json', '/data/costume-anime-zh.json'].map(async (url) => {
+      const res = await fetch(url)
+      if (!res.ok) throw new Error(`加载服装数据失败: HTTP ${res.status}`)
+      return (await res.json()) as CostumeItem[]
+    }))
+    return lists.flat()
   },
 })
 

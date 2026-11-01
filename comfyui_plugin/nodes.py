@@ -5,7 +5,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from .routes import find_item, resolve_safe_image_path
+from .routes import find_item, open_reference_image
 
 if TYPE_CHECKING:
     from PIL import Image
@@ -15,6 +15,11 @@ RESIZE_MODES = [
     "指定尺寸（居中裁剪）",
     "指定尺寸（留白填充）",
 ]
+
+
+def _check_charadb_rules(item: dict, acknowledged: bool):
+    if item.get("source") == "charadb" and not acknowledged:
+        raise ValueError("请先确认 CharaDB 来源条款并设置 charadb_rules_ack：图片仅作参考，禁止真人、未成年人用途及原图/加工图再分发；未取得额外展示或传图授权。详见 https://github.com/taki-ttt/charadb/blob/main/LICENSE")
 
 STYLE_PRESETS = {
     "高清日系动漫": (
@@ -54,8 +59,7 @@ def _load_pil_image(
 ) -> Image.Image:
     from PIL import Image, ImageOps
 
-    path = resolve_safe_image_path(rel_path)
-    img = Image.open(path)
+    img = open_reference_image(rel_path)
     img = ImageOps.exif_transpose(img).convert("RGB")
 
     if flip_horizontal:
@@ -173,7 +177,8 @@ class CostumeGalleryNode:
                 "width": ("INT", {"default": 1024, "min": 64, "max": 4096, "step": 8}),
                 "height": ("INT", {"default": 1280, "min": 64, "max": 4096, "step": 8}),
                 "flip_horizontal": ("BOOLEAN", {"default": False}),
-            }
+            },
+            "optional": {"charadb_rules_ack": ("BOOLEAN", {"default": False})},
         }
 
     RETURN_TYPES = ("IMAGE", "STRING", "STRING", "STRING")
@@ -188,8 +193,10 @@ class CostumeGalleryNode:
         width: int = 1024,
         height: int = 1280,
         flip_horizontal: bool = False,
+        charadb_rules_ack: bool = False,
     ):
         item = find_item("costume", image_id)
+        _check_charadb_rules(item, charadb_rules_ack)
         pil_img = _load_pil_image(
             item["原图"],
             resize_mode=resize_mode,
@@ -276,6 +283,7 @@ class CharacterRecipeNode:
             },
             "optional": {
                 "use_depth": ("BOOLEAN", {"default": False}),
+                "charadb_rules_ack": ("BOOLEAN", {"default": False}),
             },
         }
 
@@ -303,9 +311,11 @@ class CharacterRecipeNode:
         height: int = 1280,
         flip_pose_horizontal: bool = False,
         use_depth: bool = False,
+        charadb_rules_ack: bool = False,
     ):
         portrait_item = find_item("portrait", portrait_id)
         costume_item = find_item("costume", costume_id)
+        _check_charadb_rules(costume_item, charadb_rules_ack)
         pose_item = find_item("pose", pose_id)
 
         portrait_pil = _load_pil_image(

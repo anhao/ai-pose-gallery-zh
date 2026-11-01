@@ -15,14 +15,14 @@ const LIBRARIES = {
   },
   costume: {
     key: "costume",
-    label: "服装库 (1,407)",
+    label: "服装库 (1,847)",
     shortLabel: "服装",
     defaultId: "SPR-0001",
     titleField: "服装名称",
-    primaryField: "分类",
-    secondaryField: "",
-    primaryPlaceholder: "全部穿搭大类",
-    secondaryPlaceholder: "全部细分区",
+    primaryField: "一级分类",
+    secondaryField: "分类",
+    primaryPlaceholder: "全部 · 现实 / 二次元",
+    secondaryPlaceholder: "全部服装分类",
   },
   portrait: {
     key: "portrait",
@@ -47,6 +47,14 @@ const NODE_LIB_MAP = {
 const catalogueCache = {};
 const PAGE_SIZE = 60;
 
+function confirmCharaDB() {
+  const key = "charadb-image-rules-v1";
+  try { if (localStorage.getItem(key) === "accepted") return true; } catch {}
+  if (!window.confirm("CharaDB 图片仅作参考，禁止用于表现真实人物或未成年人；禁止原图/加工图再分发、转载、转售。图片不适用 MIT/CC0。远程展示及传图未取得额外授权，确认遵守作者条件后再加入节点。\nhttps://github.com/taki-ttt/charadb/blob/main/LICENSE")) return false;
+  try { localStorage.setItem(key, "accepted"); } catch {}
+  return true;
+}
+
 function injectStylesheet() {
   if (document.getElementById("pca-comfy-styles")) return;
   const link = document.createElement("link");
@@ -65,11 +73,12 @@ async function fetchCatalogue(lib) {
     throw new Error(`加载 ${lib} 图库失败: HTTP ${resp.status}`);
   }
   const data = await resp.json();
-  catalogueCache[lib] = data.items || [];
+  catalogueCache[lib] = (data.items || []).map((item) => lib === "costume" ? { ...item, 一级分类: item["一级分类"] || "现实" } : item);
   return catalogueCache[lib];
 }
 
 function getThumbUrl(lib, id, relPath, useDepth = false) {
+  if (lib === "costume" && /^charadb-O\d{3}$/.test(id)) return `https://charadb-2fi.pages.dev/thumb/${id.slice(8)}.webp`;
   const depthParam = lib === "pose" && useDepth ? "&depth=1" : "";
   if (relPath) {
     return `/pose_character_atlas/image?path=${encodeURIComponent(relPath)}${depthParam}`;
@@ -108,7 +117,7 @@ const NSFW_COSTUME_CATEGORIES = new Set(["内衣・睡衣", "性感穿搭"]);
 
 function isItemNsfw(lib, item) {
   if (lib === "pose") return NSFW_POSE_SYSTEMS.has(item["体系"]);
-  if (lib === "costume") return NSFW_COSTUME_CATEGORIES.has(item["分类"]);
+  if (lib === "costume") return Boolean(item["敏感"]) || NSFW_COSTUME_CATEGORIES.has(item["分类"]);
   return false;
 }
 
@@ -181,7 +190,7 @@ class PoseAtlasModal {
           <div class="pca-title-group">
             <div>
               <h3 class="pca-title">AI 角色三合一参考图集 (ComfyUI 选图器)</h3>
-              <div class="pca-subtitle">4,345 张高清中文标签参考图 · 点击卡片即可填入节点</div>
+              <div class="pca-subtitle">4,785 条中文参考索引 · 二次元图片需联网 · <a href="https://github.com/taki-ttt/charadb/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">CharaDB来源条款</a></div>
             </div>
           </div>
           <div class="pca-tabs" id="pca-tabs"></div>
@@ -229,6 +238,8 @@ class PoseAtlasModal {
       .querySelector("#pca-filter-primary")
       .addEventListener("change", (e) => {
         this.primaryFilter = e.target.value;
+        this.secondaryFilter = "";
+        this.populateFilters();
         this.page = 1;
         this.renderGrid();
       });
@@ -346,7 +357,7 @@ class PoseAtlasModal {
       if (cfg.primaryField && it[cfg.primaryField]) {
         primarySet.add(it[cfg.primaryField]);
       }
-      if (cfg.secondaryField && it[cfg.secondaryField]) {
+      if (cfg.secondaryField && it[cfg.secondaryField] && (!this.primaryFilter || it[cfg.primaryField] === this.primaryFilter)) {
         secondarySet.add(it[cfg.secondaryField]);
       }
     });
@@ -359,6 +370,7 @@ class PoseAtlasModal {
       opt.textContent = val;
       pSelect.appendChild(opt);
     });
+    pSelect.value = this.primaryFilter;
 
     const sSelect = this.backdrop.querySelector("#pca-filter-secondary");
     if (!cfg.secondaryField) {
@@ -372,6 +384,7 @@ class PoseAtlasModal {
         opt.textContent = val;
         sSelect.appendChild(opt);
       });
+      sSelect.value = this.secondaryFilter;
     }
   }
 
@@ -437,7 +450,7 @@ class PoseAtlasModal {
         (item[cfg.primaryField] || "") +
         (cfg.secondaryField && item[cfg.secondaryField]
           ? ` · ${item[cfg.secondaryField]}`
-          : "");
+          : "") + (item.source === "charadb" ? " · たき AI / CharaDB" : "");
 
       card.innerHTML = `
         <div class="pca-card-img-wrap">
@@ -452,6 +465,7 @@ class PoseAtlasModal {
       `;
 
       card.addEventListener("click", () => {
+        if (item.source === "charadb" && !confirmCharaDB()) return;
         this.recipeSelection[this.activeLib] = item.id;
         if (this.mode === "single") {
           this.applyAndClose();
@@ -485,7 +499,7 @@ class PoseAtlasModal {
   }
 
   pickRandom() {
-    const filtered = this.getFilteredItems();
+    const filtered = this.getFilteredItems().filter((item) => item.source !== "charadb");
     if (!filtered.length) return;
     const rand = filtered[Math.floor(Math.random() * filtered.length)];
     this.recipeSelection[this.activeLib] = rand.id;
@@ -497,7 +511,10 @@ class PoseAtlasModal {
   }
 
   applyAndClose() {
+    const usesCharaDB = this.recipeSelection.costume?.startsWith("charadb-") && (this.mode === "recipe" || this.activeLib === "costume");
+    if (usesCharaDB && !confirmCharaDB()) return;
     if (this.targetNode) {
+      if (usesCharaDB) setWidgetValue(this.targetNode, "charadb_rules_ack", true);
       setWidgetValue(this.targetNode, "use_depth", this.useDepth);
       if (this.mode === "recipe") {
         setWidgetValue(
@@ -525,6 +542,7 @@ class PoseAtlasModal {
       const node = window.LiteGraph.createNode("CharacterRecipeNode");
       if (node) {
         app.graph.add(node);
+        if (usesCharaDB) setWidgetValue(node, "charadb_rules_ack", true);
         node.pos = [200, 200];
         setWidgetValue(node, "portrait_id", this.recipeSelection.portrait);
         setWidgetValue(node, "costume_id", this.recipeSelection.costume);
@@ -637,7 +655,7 @@ app.registerExtension({
 
       const btnLabel =
         nodeKind === "recipe"
-          ? "🎨 打开三合一选图器 (4,345张)"
+          ? "🎨 打开三合一选图器 (4,785张)"
           : `🖼️ 打开${LIBRARIES[nodeKind].shortLabel}图库选图`;
 
       this.addWidget("button", btnLabel, null, () => {
