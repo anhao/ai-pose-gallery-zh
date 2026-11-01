@@ -1408,6 +1408,8 @@ export async function generateCharacterImage(params: {
   // 2) 或者勾选了「附带三合一 Canvas 合成图」（本地动态绘制无公网 URL）
   // 3) 或者使用 Gemini Native 原生接口 / OpenAI multipart/form-data 模式
   const needBase64 =
+    // 新增的本地男士素材不在原站 CDN 上，必须传实际图片内容。
+    rawSources.some((src) => src.replace(/^\/+/, '').startsWith('img/male/')) ||
     config.imagePassMode === 'base64' ||
     config.sendStitchedSheet ||
     (provider === 'gemini' && config.geminiParams.endpointMode === 'native') ||

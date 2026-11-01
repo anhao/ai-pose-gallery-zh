@@ -39,7 +39,7 @@ function PortraitsPage() {
   const { data: portraits } = useSuspenseQuery(portraitsQuery)
   const { recipe, togglePortrait } = useStudio()
 
-  const [section, setSection] = useState<'' | '正脸参考' | '造型氛围'>('')
+  const [section, setSection] = useState('')
   const [hair, setHair] = useState('')
   const [styleName, setStyleName] = useState('all')
   const [onlyHot, setOnlyHot] = useState(false)
@@ -118,7 +118,7 @@ function PortraitsPage() {
         >
           全部人像 ({portraits.length})
         </button>
-        {(['正脸参考', '造型氛围'] as const).map((sec) => {
+        {['男士人像', '正脸参考', '造型氛围'].map((sec) => {
           const cnt = portraits.filter((x) => x.分区 === sec).length
           return (
             <button

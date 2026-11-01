@@ -4,6 +4,7 @@ import type { CostumeItem, PortraitItem, PoseGroup, PoseItem } from '@/types/gal
 export const ANGLES = ['正面', '俯视', '仰视', '侧面', '斜侧'] as const
 
 export const PREFERRED_POSE_LINE_ORDER = [
+  '男士拍照姿势',
   '全身单人・标准系',
   '上半身单人',
   '全身单人・性感系',
@@ -78,7 +79,7 @@ export const posesQuery = queryOptions({
   queryKey: ['gallery', 'poses'],
   staleTime: Infinity,
   queryFn: async () => {
-    const res = await fetch('/data/pose-zh.json')
+    const res = await fetch('/data/pose-zh.json', { cache: 'no-store' })
     if (!res.ok) throw new Error(`加载姿势数据失败: HTTP ${res.status}`)
     const data = (await res.json()) as PoseItem[]
     return buildPoseGroups(data)
@@ -89,7 +90,7 @@ export const costumesQuery = queryOptions({
   queryKey: ['gallery', 'costumes'],
   staleTime: Infinity,
   queryFn: async () => {
-    const res = await fetch('/data/costume-zh.json')
+    const res = await fetch('/data/costume-zh.json', { cache: 'no-store' })
     if (!res.ok) throw new Error(`加载服装数据失败: HTTP ${res.status}`)
     return (await res.json()) as CostumeItem[]
   },
@@ -99,7 +100,7 @@ export const portraitsQuery = queryOptions({
   queryKey: ['gallery', 'portraits'],
   staleTime: Infinity,
   queryFn: async () => {
-    const res = await fetch('/data/portrait-zh.json')
+    const res = await fetch('/data/portrait-zh.json', { cache: 'no-store' })
     if (!res.ok) throw new Error(`加载人像数据失败: HTTP ${res.status}`)
     return (await res.json()) as PortraitItem[]
   },
