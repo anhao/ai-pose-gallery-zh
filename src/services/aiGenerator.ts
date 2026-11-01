@@ -385,28 +385,12 @@ function dataUrlToBlob(dataUrl: string): Blob {
   return new Blob([arr], { type: mime })
 }
 
-// 与 functions/api/proxy.ts 白名单保持一致的 4 个官方源站
-const PROXY_ALLOWED_ORIGINS = new Set([
-  'https://dashscope.aliyuncs.com',
-  'https://ark.cn-beijing.volces.com',
-  'https://generativelanguage.googleapis.com',
-  'https://api.openai.com',
-])
-
 async function smartFetch(
   targetUrl: string,
   init: RequestInit,
   useProxy: boolean
 ): Promise<Response> {
-  let canUseProxy = useProxy
-  if (canUseProxy) {
-    try {
-      canUseProxy = PROXY_ALLOWED_ORIGINS.has(new URL(targetUrl).origin)
-    } catch {
-      canUseProxy = false
-    }
-  }
-  if (!canUseProxy) {
+  if (!useProxy) {
     return fetch(targetUrl, init)
   }
   const headers = new Headers(init.headers)

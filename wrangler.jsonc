@@ -7,6 +7,11 @@
     "enabled": true
   },
   "previews": {},
+  // 可选环境变量：在 Cloudflare 控制台 Variables and Secrets 或下方 vars 中配置 PROXY_ALLOWED_ORIGINS
+  // 多个上游域名用逗号分隔，例如："https://api.example.com,https://relay.example.org"
+  "vars": {
+    "PROXY_ALLOWED_ORIGINS": ""
+  },
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS",

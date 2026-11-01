@@ -45,12 +45,15 @@ const RECIPE_KEY = 'pose_atlas_recipe_v3'
 const HISTORY_KEY = 'pose_atlas_history_v3'
 const SAFE_MODE_KEY = 'pose_atlas_safe_mode_v1'
 
-const COMFY_CONFIG_VERSION = 2
+const COMFY_CONFIG_VERSION = 3
+
+const shouldEnableProxyByDefault = (provider?: ImageProviderId) =>
+  provider === 'qwen' || provider === 'doubao'
 
 const DEFAULT_API_CONFIG: ApiConfig = {
   activeProvider: 'gemini',
   imagePassMode: 'url',
-  useProxy: true,
+  useProxy: false,
   stylePreset: 'realistic',
   sendStitchedSheet: false,
   providers: {
@@ -151,13 +154,22 @@ function migrateComfy(
 function mergeStoredConfig(raw: unknown): ApiConfig {
   if (!raw || typeof raw !== 'object') return DEFAULT_API_CONFIG
   const obj = raw as Partial<ApiConfig>
+  const storedVer = obj.comfyuiParams?.configVersion ?? 1
   const comfy = migrateComfy(
     { ...DEFAULT_API_CONFIG.providers.comfyui, ...obj.providers?.comfyui },
     { ...DEFAULT_API_CONFIG.comfyuiParams, configVersion: 1, ...obj.comfyuiParams }
   )
+  const activeProvider = obj.activeProvider ?? DEFAULT_API_CONFIG.activeProvider
+  // v3 起服务端 CORS 代理默认关闭，仅在切换到 Qwen / Doubao 时自动关联开启
+  const useProxy =
+    storedVer < 3
+      ? shouldEnableProxyByDefault(activeProvider)
+      : (obj.useProxy ?? shouldEnableProxyByDefault(activeProvider))
   return {
     ...DEFAULT_API_CONFIG,
     ...obj,
+    activeProvider,
+    useProxy,
     providers: {
       gemini: { ...DEFAULT_API_CONFIG.providers.gemini, ...obj.providers?.gemini },
       gpt: { ...DEFAULT_API_CONFIG.providers.gpt, ...obj.providers?.gpt },
@@ -473,7 +485,13 @@ export function StudioProvider({ children }: { children: ReactNode }) {
   }
 
   const updateApiConfig = (patch: Partial<ApiConfig>) => {
-    setApiConfig((prev) => ({ ...prev, ...patch }))
+    setApiConfig((prev) => {
+      const next = { ...prev, ...patch }
+      if (patch.activeProvider && patch.useProxy === undefined) {
+        next.useProxy = shouldEnableProxyByDefault(patch.activeProvider)
+      }
+      return next
+    })
   }
 
   const updateProviderConfig = (provider: ImageProviderId, patch: Partial<ProviderEndpointConfig>) => {
