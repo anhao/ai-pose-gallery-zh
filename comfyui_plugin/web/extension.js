@@ -47,14 +47,6 @@ const NODE_LIB_MAP = {
 const catalogueCache = {};
 const PAGE_SIZE = 60;
 
-function confirmCharaDB() {
-  const key = "charadb-image-rules-v1";
-  try { if (localStorage.getItem(key) === "accepted") return true; } catch {}
-  if (!window.confirm("CharaDB 图片仅作参考，禁止用于表现真实人物或未成年人；禁止原图/加工图再分发、转载、转售。图片不适用 MIT/CC0。远程展示及传图未取得额外授权，确认遵守作者条件后再加入节点。\nhttps://github.com/taki-ttt/charadb/blob/main/LICENSE")) return false;
-  try { localStorage.setItem(key, "accepted"); } catch {}
-  return true;
-}
-
 function injectStylesheet() {
   if (document.getElementById("pca-comfy-styles")) return;
   const link = document.createElement("link");
@@ -465,7 +457,6 @@ class PoseAtlasModal {
       `;
 
       card.addEventListener("click", () => {
-        if (item.source === "charadb" && !confirmCharaDB()) return;
         this.recipeSelection[this.activeLib] = item.id;
         if (this.mode === "single") {
           this.applyAndClose();
@@ -511,10 +502,7 @@ class PoseAtlasModal {
   }
 
   applyAndClose() {
-    const usesCharaDB = this.recipeSelection.costume?.startsWith("charadb-") && (this.mode === "recipe" || this.activeLib === "costume");
-    if (usesCharaDB && !confirmCharaDB()) return;
     if (this.targetNode) {
-      if (usesCharaDB) setWidgetValue(this.targetNode, "charadb_rules_ack", true);
       setWidgetValue(this.targetNode, "use_depth", this.useDepth);
       if (this.mode === "recipe") {
         setWidgetValue(
@@ -542,7 +530,6 @@ class PoseAtlasModal {
       const node = window.LiteGraph.createNode("CharacterRecipeNode");
       if (node) {
         app.graph.add(node);
-        if (usesCharaDB) setWidgetValue(node, "charadb_rules_ack", true);
         node.pos = [200, 200];
         setWidgetValue(node, "portrait_id", this.recipeSelection.portrait);
         setWidgetValue(node, "costume_id", this.recipeSelection.costume);

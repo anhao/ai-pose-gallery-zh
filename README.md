@@ -19,14 +19,14 @@
 - 服装库：<https://ai-costume-gallery.pages.dev/>
 - 人像库：<https://ai-portrait-gallery.pages.dev/>
 
-**原有图库作者：** ギア（@giaaibusi）；二次元服装作者：たき AI（@taki_auto），详见 [NOTICE.md](NOTICE.md)。
+**原有图库作者：** ギア（@giaaibusi）；二次元服装作者：たき AI（[@taki_auto](https://x.com/taki_auto) · [CharaDB](https://charadb-2fi.pages.dev/)）。
 **中文版维护：** Anhao · [X @anhao_ai](https://x.com/anhao_ai)
 **GitHub：** <https://github.com/anhao/ai-pose-gallery-zh>
 
 > ⚠️ **免责声明（必读）**：
 > 1. **学习与创作限定**：本项目及配套插件/工作流**仅供个人学习、人体动态研究、合法艺术创作与技术交流使用**，严禁用于任何违反法律法规、生成违法违规/淫秽色情内容或侵害他人合法权益（如未经授权的真人肖像换脸）的用途。
 > 2. **NSFW 敏感内容提示**：图库包含部分 18+ 成人向人体素体姿势与内衣/性感穿搭参考，系统默认开启「安全模式 (SFW)」隐藏，**未成年人严禁解锁或访问**。
-> 3. **来源与版权声明**：新增CharaDB服装适用独立条件，详见 [NOTICE.md](NOTICE.md)；原有姿势、现实服装、人像参考图源自原作者 **ギア（@giaaibusi）** 公开站点，版权归原作者所有；本仓库仅为中文翻译整理与工程学习存档，禁止将图库图片打包倒卖。使用者因违规使用产生的一切法律责任由使用者本人独立承担。
+> 3. **来源与版权声明**：原有姿势、现实服装、人像参考图源自原作者 **ギア（@giaaibusi）** 公开站点；440 套二次元服装源自 **たき AI（@taki_auto）** 的 [CharaDB](https://charadb-2fi.pages.dev/)（详见其 [LICENSE](https://github.com/taki-ttt/charadb/blob/main/LICENSE)），版权归各自原作者所有；本仓库仅为中文翻译整理与工程学习存档，禁止将图库图片打包倒卖。使用者因违规使用产生的一切法律责任由使用者本人独立承担。
 
 ---
 
@@ -259,20 +259,13 @@ for d in ~/ai-pose-gallery-zh/skills/*-reference*; do ln -s "$d" ~/.claude/skill
 
 ## 二次元服装（CharaDB）
 
-新增たき AI 的公开版440套服装：服装页默认「全部」，可按「现实 / 二次元」及二级分类、单品颜色标签筛选，中日名称、英文标签和前缀ID检索。原有现实服装数据与图片保持原样。
+新增 **たき AI（[@taki_auto](https://x.com/taki_auto)）** [CharaDB](https://charadb-2fi.pages.dev/) 公开版 **440 套**二次元服装：服装页与 ComfyUI 选图器均支持按 **`[ 全部 | 现实 | 二次元 ]`** 一级分类、15 个二级分类及单品颜色标签筛选，支持中文名称、英文 Danbooru 标签和编号检索。
 
-二次元图片从作者原站直接读取，不加入仓库、发布包、镜像或公共缓存。网络不可用时仍可检索/复制标签，图片、拼图及生成参考可能失败。首次加入配方须阅读并确认来源条件，默认随机配方排除这些条目。网页、ComfyUI节点与 `costume-reference-anime` Agent技能均可按明确选择使用；节点的 `charadb_rules_ack` 默认为false，选图器确认后自动设为true，直接API调用须自行确认后设置。
-
-**许可分类、真人/未成年人用途限制、再分发限制及未取得额外授权的边界，统一见 [NOTICE.md](NOTICE.md)。** 向模型发送参考图不代表具体用途已获作者允许；标签为CC0，图片不适用MIT/CC0。SFW额外隐藏公开版泳装及部分性感词条，但不进行身份、年龄或完整画面检测。
-
-快照与来源版本：`data/charadb/`；生成数据：`data/costume-anime-zh.json`。中文名称独立翻译，没有复用第三方中文站资源。离线重建或审核后更新：
-
-```bash
-python scripts/import_charadb.py
-python scripts/import_charadb.py --revision <官方40位提交SHA>
-```
-
-更新需先补齐 `names-zh.json` 并审查分类、标签、敏感规则和许可。提交与哈希记录在 `source.json`，脚本不下载图片。原有截图和本地图片总数不代表新增远程图片已被镜像。
+- **在线原图加载**：根据[原作者 LICENSE](https://github.com/taki-ttt/charadb/blob/main/LICENSE)（标签为 CC0，图片仅作参考且禁止再分发、禁止用于真人或未成年人用途），本仓库仅收录中文翻译与标签元数据（`data/costume-anime-zh.json`），图片直接从原站在线加载，不随本仓库打包分发。
+- **数据更新脚本**：
+  ```bash
+  python3 scripts/import_charadb.py
+  ```
 
 ## 免责声明与版权说明（Disclaimer）
 

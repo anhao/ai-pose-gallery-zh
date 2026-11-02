@@ -14,7 +14,6 @@ import {
 import { idbGet, idbSet } from '@/lib/idbStorage'
 import { parseParameterWorkflow, workflowIdentity } from '@/lib/comfyWorkflowParameters'
 import { recipeBackup } from '@/lib/recipeImages'
-import { confirmCostumeSource } from '@/lib/charadb'
 import {
   buildRecipePrompt,
   COMFYUI_WORKFLOW_TEMPLATES,
@@ -387,9 +386,7 @@ export function StudioProvider({ children }: { children: ReactNode }) {
   }, [history, idbHydrated])
 
   const setPortrait = (portrait: PortraitItem | null) => setRecipe((r) => ({ ...r, portrait }))
-  const setCostume = (costume: CostumeItem | null) => {
-    if (confirmCostumeSource(costume)) setRecipe((r) => ({ ...r, costume }))
-  }
+  const setCostume = (costume: CostumeItem | null) => setRecipe((r) => ({ ...r, costume }))
   const setPose = (pose: PoseItem | null) => setRecipe((r) => ({ ...r, pose }))
 
   const setPoseDepthMode = (val: boolean) => {
@@ -415,7 +412,6 @@ export function StudioProvider({ children }: { children: ReactNode }) {
   }
 
   const toggleCostume = (item: CostumeItem) => {
-    if (recipe.costume?.id !== item.id && !confirmCostumeSource(item)) return
     setRecipe((r) => {
       const remove = r.costume?.id === item.id
       toast.success(remove ? '已移除服装' : `已选服装：${item.服装名称}`)

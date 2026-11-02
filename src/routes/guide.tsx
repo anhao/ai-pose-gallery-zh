@@ -67,7 +67,10 @@ function GuidePage() {
             本仓库原有姿势（<code>ai-pose-gallery.pages.dev</code>、<code>ai-pose-depth-gallery.pages.dev</code>）、现实服装（<code>ai-costume-gallery.pages.dev</code>）、人像（<code>ai-portrait-gallery.pages.dev</code>）参考图与原始元数据源自原作者{' '}
             <strong className="text-foreground">ギア（@giaaibusi）</strong> 公开站点，著作权归原作者所有。本仓库仅为中文本地化翻译整理与前端工程学习存档，不对原始图片主张任何所有权。
           </p>
-          <p>二次元服装来源为 <a className="underline" href="https://charadb-2fi.pages.dev/" target="_blank" rel="noopener noreferrer">たき AI · CharaDB</a>。标签和日文名称为 CC0，官方代码为 MIT；图片不适用上述许可。图片仅供参考，禁止真人及未成年人用途、原图或加工图再分发、转载、转售。无需图片署名。本站不保存这些图片，也未取得远程展示或向模型传图的额外授权；热链不等于授权。请先阅读 <a className="underline" href="https://github.com/taki-ttt/charadb/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">原作者完整条件</a>。配方首次选择需确认，默认随机排除二次元条目。离线时仍可搜索和复制标签，图片及图片生成需来源在线。</p>
+          <p>
+            <strong className="text-foreground">• 二次元服装来源：</strong>
+            440 套二次元服装源自 <a className="underline hover:text-foreground" href="https://charadb-2fi.pages.dev/" target="_blank" rel="noopener noreferrer">たき AI · CharaDB</a>（标签与名称遵循 CC0，图片从原站在线加载，仅供学习与生图参考，禁止用于真人/未成年人或将原图二次分发，详见 <a className="underline hover:text-foreground" href="https://github.com/taki-ttt/charadb/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">原作者说明</a>）。
+          </p>
           <p>
             <strong className="text-foreground">• 使用与分发限制：</strong>
             人像库遵循 <strong className="text-emerald-600 dark:text-emerald-400">CC0 1.0 协议</strong>；原有姿势库与现实服装库免费供个人学习与 AI 生图参考使用，

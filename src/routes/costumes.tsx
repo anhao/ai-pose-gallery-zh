@@ -94,17 +94,20 @@ function CostumesPage() {
     <>
       <PageHeader title="服装穿搭库" />
 
-      <div className="flex flex-wrap gap-2" aria-label="服装一级分类">
-        {['全部', '现实', '二次元'].map((value) => (
-          <Button key={value} variant={kind === value ? 'default' : 'outline'} aria-pressed={kind === value} onClick={() => {
-            setKind(value); setCategory(''); setTag('all'); setShown(60); setViewerIndex(null)
-          }}>{value}</Button>
-        ))}
+      <div className="flex flex-wrap items-center justify-between gap-2" aria-label="服装一级分类">
+        <div className="flex flex-wrap gap-2">
+          {['全部', '现实', '二次元'].map((value) => (
+            <Button key={value} variant={kind === value ? 'default' : 'outline'} aria-pressed={kind === value} onClick={() => {
+              setKind(value); setCategory(''); setTag('all'); setShown(60); setViewerIndex(null)
+            }}>{value}</Button>
+          ))}
+        </div>
+        {kind !== '现实' && (
+          <p className="text-xs text-muted-foreground">
+            二次元服装来源：<a className="underline hover:text-foreground" href="https://charadb-2fi.pages.dev/" target="_blank" rel="noopener noreferrer">たき AI · CharaDB</a>（<a className="underline hover:text-foreground" href={CHARADB_NOTICE_URL} target="_blank" rel="noopener noreferrer">使用说明</a>）
+          </p>
+        )}
       </div>
-      <p className="text-xs leading-relaxed text-muted-foreground">
-        二次元服装来自 <a className="underline" href="https://charadb-2fi.pages.dev/" target="_blank" rel="noopener noreferrer">たき AI · CharaDB</a>，图片联网从原站读取，不随本站分发。
-        <a className="underline" href={CHARADB_NOTICE_URL} target="_blank" rel="noopener noreferrer">来源使用条件</a>：禁止真人、未成年人用途及图片再分发；选择后才可加入配方，默认随机不选取。
-      </p>
 
       {/* 分类筛选药丸 */}
       <div className="flex gap-2 overflow-x-auto pb-1 sm:flex-wrap sm:pb-0">
