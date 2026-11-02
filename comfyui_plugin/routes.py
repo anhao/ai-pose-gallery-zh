@@ -4,7 +4,9 @@
 from __future__ import annotations
 
 import json
+import io
 import logging
+import urllib.request
 from pathlib import Path
 
 logger = logging.getLogger(__name__)
@@ -32,6 +34,9 @@ def load_library(lib: str) -> list[dict]:
             raise FileNotFoundError(f"未找到数据文件: {fp}")
         with open(fp, encoding="utf-8") as f:
             _CACHE[lib] = json.load(f)
+        if lib == "costume":
+            with open(DATA_DIR / "costume-anime-zh.json", encoding="utf-8") as f:
+                _CACHE[lib] += json.load(f)
     return _CACHE[lib]
 
 
@@ -41,7 +46,41 @@ def find_item(lib: str, item_id: str) -> dict:
     for it in items:
         if it.get("id") == clean_id:
             return it
+    if clean_id.startswith("charadb-"):
+        raise ValueError("未知 CharaDB 服装 ID")
     return items[0]
+
+
+class _NoRedirect(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        raise ValueError("CharaDB 图片地址不允许重定向")
+
+
+def open_reference_image(rel_path: str):
+    """本地图保持原行为；远程仅允许已收录 CharaDB 原图，内存读取。"""
+    from PIL import Image
+
+    if not rel_path.startswith("https://"):
+        return Image.open(resolve_safe_image_path(rel_path))
+    allowed = {row["原图"] for row in load_library("costume") if row.get("source") == "charadb"}
+    if rel_path not in allowed:
+        raise ValueError("远程图片不在 CharaDB 服装目录中")
+    opener = urllib.request.build_opener(_NoRedirect())
+    request = urllib.request.Request(rel_path, headers={"User-Agent": "ai-pose-gallery/2.0 (CharaDB reference reader)", "Accept": "image/jpeg"})
+    with opener.open(request, timeout=20) as response:
+        if response.status != 200 or response.headers.get_content_type() != "image/jpeg":
+            raise ValueError("CharaDB 返回非 JPEG 图片")
+        limit = 10 * 1024 * 1024
+        if int(response.headers.get("Content-Length", 0)) > limit:
+            raise ValueError("CharaDB 图片超过10MB")
+        raw = response.read(limit + 1)
+    if len(raw) > limit:
+        raise ValueError("CharaDB 图片超过10MB")
+    image = Image.open(io.BytesIO(raw))
+    if image.format != "JPEG" or image.width * image.height > 20_000_000:
+        raise ValueError("CharaDB 图片格式或尺寸不符")
+    image.load()
+    return image
 
 
 def resolve_safe_image_path(rel_path: str) -> Path:

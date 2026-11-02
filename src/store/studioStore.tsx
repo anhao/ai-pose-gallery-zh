@@ -14,6 +14,7 @@ import {
 import { idbGet, idbSet } from '@/lib/idbStorage'
 import { parseParameterWorkflow, workflowIdentity } from '@/lib/comfyWorkflowParameters'
 import { recipeBackup } from '@/lib/recipeImages'
+import { confirmCostumeSource } from '@/lib/charadb'
 import {
   buildRecipePrompt,
   COMFYUI_WORKFLOW_TEMPLATES,
@@ -386,7 +387,9 @@ export function StudioProvider({ children }: { children: ReactNode }) {
   }, [history, idbHydrated])
 
   const setPortrait = (portrait: PortraitItem | null) => setRecipe((r) => ({ ...r, portrait }))
-  const setCostume = (costume: CostumeItem | null) => setRecipe((r) => ({ ...r, costume }))
+  const setCostume = (costume: CostumeItem | null) => {
+    if (confirmCostumeSource(costume)) setRecipe((r) => ({ ...r, costume }))
+  }
   const setPose = (pose: PoseItem | null) => setRecipe((r) => ({ ...r, pose }))
 
   const setPoseDepthMode = (val: boolean) => {
@@ -412,6 +415,7 @@ export function StudioProvider({ children }: { children: ReactNode }) {
   }
 
   const toggleCostume = (item: CostumeItem) => {
+    if (recipe.costume?.id !== item.id && !confirmCostumeSource(item)) return
     setRecipe((r) => {
       const remove = r.costume?.id === item.id
       toast.success(remove ? '已移除服装' : `已选服装：${item.服装名称}`)
@@ -494,7 +498,7 @@ export function StudioProvider({ children }: { children: ReactNode }) {
 
   const randomizeRecipe = (pools: { portraits?: PortraitItem[]; costumes?: CostumeItem[]; poses?: PoseItem[] }) => {
     const posePool = safeMode ? (pools.poses || []).filter((p) => !isNsfwPose(p)) : pools.poses || []
-    const costumePool = safeMode ? (pools.costumes || []).filter((c) => !isNsfwCostume(c)) : pools.costumes || []
+    const costumePool = (pools.costumes || []).filter((c) => c.source !== 'charadb' && (!safeMode || !isNsfwCostume(c)))
     const portraitPool = pools.portraits || []
 
     setRecipe((prev) => ({
@@ -705,7 +709,7 @@ export function StudioProvider({ children }: { children: ReactNode }) {
               <span className="block text-xs">
                 <strong>免责声明</strong>：
                 <br />1. <strong>年龄限制</strong>：未满 18 周岁的未成年人严禁关闭安全模式或浏览上述敏感分类。
-                <br />2. <strong>来源说明</strong>：图鉴素材源自原作者 ギア（@giaaibusi）公开分享，仅供个人学习交流，严禁商业倒卖。
+                <br />2. <strong>来源说明</strong>：原有图鉴素材来自 ギア（@giaaibusi）；二次元服装来自 たき AI · CharaDB，适用独立来源条件，禁止真人、未成年人用途及图片再分发，首次使用须确认。
                 <br />3. <strong>合法使用</strong>：本工具与素材<strong>仅供 AI 绘画学习与合法艺术创作使用，严禁用于任何违法违规、色情传播或侵害他人肖像权（如未经授权的真人换脸）等用途</strong>，使用者须自行承担一切法律责任。
               </span>
             </AlertDialogDescription>

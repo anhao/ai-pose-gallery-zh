@@ -1,6 +1,6 @@
 # AI 角色参考与合成工作台 · 中文版（3合1）
 
-> **姿势库（1,439 张素体白模 + 1,439 张深度图 Depth） + 服装库（1,407 套） + 人像库（1,499 位） = 4,345 条全中文参考数据 / 11,568 张本地高清图**，集成 **5 大 AI 图像协议直连工作台** 与 **原生 ComfyUI 自定义节点插件（`custom_nodes`）**。
+> **姿势库（1,439 张素体白模 + 1,439 张深度图 Depth） + 服装库（现实 1,407 套 + 二次元 440 套） + 人像库（1,499 位） = 4,785 条全中文参考数据 / 11,568 张本地高清图，另有 440 张来源站点参考图**，集成 **5 大 AI 图像协议直连工作台** 与 **原生 ComfyUI 自定义节点插件（`custom_nodes`）**。
 
 ![画廊总览预览](docs/preview.jpg)
 
@@ -19,14 +19,14 @@
 - 服装库：<https://ai-costume-gallery.pages.dev/>
 - 人像库：<https://ai-portrait-gallery.pages.dev/>
 
-**原作者：** ギア（@giaaibusi）
+**原有图库作者：** ギア（@giaaibusi）；二次元服装作者：たき AI（@taki_auto），详见 [NOTICE.md](NOTICE.md)。
 **中文版维护：** Anhao · [X @anhao_ai](https://x.com/anhao_ai)
 **GitHub：** <https://github.com/anhao/ai-pose-gallery-zh>
 
 > ⚠️ **免责声明（必读）**：
 > 1. **学习与创作限定**：本项目及配套插件/工作流**仅供个人学习、人体动态研究、合法艺术创作与技术交流使用**，严禁用于任何违反法律法规、生成违法违规/淫秽色情内容或侵害他人合法权益（如未经授权的真人肖像换脸）的用途。
 > 2. **NSFW 敏感内容提示**：图库包含部分 18+ 成人向人体素体姿势与内衣/性感穿搭参考，系统默认开启「安全模式 (SFW)」隐藏，**未成年人严禁解锁或访问**。
-> 3. **来源与版权声明**：全部姿势、服装、人像参考图均源自原作者 **ギア（@giaaibusi）** 公开站点，版权归原作者所有；本仓库仅为中文翻译整理与工程学习存档，禁止将图库图片打包倒卖。使用者因违规使用产生的一切法律责任由使用者本人独立承担。
+> 3. **来源与版权声明**：新增CharaDB服装适用独立条件，详见 [NOTICE.md](NOTICE.md)；原有姿势、现实服装、人像参考图源自原作者 **ギア（@giaaibusi）** 公开站点，版权归原作者所有；本仓库仅为中文翻译整理与工程学习存档，禁止将图库图片打包倒卖。使用者因违规使用产生的一切法律责任由使用者本人独立承担。
 
 ---
 
@@ -35,12 +35,12 @@
 原站是ギア（@giaaibusi）发布的三大 AI 绘画参考图库（姿势、服装、人像），元数据全部为日文，且分散在三个独立站点。本仓库（v2.0）完成了**三站合一、全量中文化、AI 角色合成工作台与 ComfyUI 原生插件升级**：
 
 1. **三库四站全量本地镜像（11,568 张图）** —— 完整收录姿势库（素体白模 2,878 张 + 深度图 Depth 2,878 张 WebP）、服装库（2,814 张 WebP）、人像库（2,998 张，全尺寸 `1600×2000` 高清 WebP）的全部缩略图与高清原图，支持纯离线浏览与静态托管。
-2. **100% 纯净中文元数据（零日文残留）** —— 动作体系、姿势分类、服装款式、穿搭标签、人像分区、发长与 51 种细分发型全部译为地道中文，自动组装的生图提示词纯净无日文干扰。
+2. **原有图库全中文元数据** —— 动作体系、姿势分类、服装款式、穿搭标签、人像分区、发长与 51 种细分发型全部译为地道中文，自动组装的生图提示词纯净无日文干扰。
 3. **三合一 AI 角色合成工作台（Web Studio）** —— 基于 **React 19 + Tailwind CSS 4 + TypeScript 7 + shadcn/ui + TanStack Router** 构建的响应式多页面应用（兼容 PC / 平板 / 手机）：
    - 从三大图库任意挑选 **人像 + 服装 + 姿势（支持素体白模 / 深度图一键切换）** 组合配方，或一键随机捏人；
    - 支持拖拽、剪贴板粘贴（`Cmd+V` / `Ctrl+V`）或 URL 添加多张自定义附加参考图；
    - 内置 **5 大 AI 图像协议直连**（Google Gemini、OpenAI GPT Image、阿里云百炼 Qwen、字节火山方舟 Doubao、**本地 ComfyUI**），生成记录通过 **IndexedDB** 本地持久化保存。
-4. **原生 ComfyUI 自定义节点插件（`custom_nodes`）** —— 本仓库同时是一个即插即用的 ComfyUI 插件！直接 `git clone` 到 `ComfyUI/custom_nodes/` 即可在 ComfyUI 画布内使用 **姿势 / 服装 / 人像 / 三合一角色配方** 4 个自定义节点（姿势与配方节点内置 `use_depth` 深度图切换，可直接接入 ControlNet Depth）与内置的 **4,345 条中文可视化弹窗选图器**。
+4. **原生 ComfyUI 自定义节点插件（`custom_nodes`）** —— 本仓库同时是一个即插即用的 ComfyUI 插件！直接 `git clone` 到 `ComfyUI/custom_nodes/` 即可在 ComfyUI 画布内使用 **姿势 / 服装 / 人像 / 三合一角色配方** 4 个自定义节点（姿势与配方节点内置 `use_depth` 深度图切换，可直接接入 ControlNet Depth）与内置的 **4,785 条中文可视化弹窗选图器**。
 
 ---
 
@@ -73,7 +73,7 @@
 - **AI 姿势参考图 (`PoseGalleryNode`)**：输出 `姿势图 (IMAGE)`、`图片ID`、`姿势提示词`（支持 `use_depth` 开关一键切换输出素体白模或深度图）
 - **AI 服装参考图 (`CostumeGalleryNode`)**：输出 `服装图 (IMAGE)`、`图片ID`、`中文服装描述`、`英文服装Prompt`
 - **AI 人像参考图 (`PortraitGalleryNode`)**：输出 `人像图 (IMAGE)`、`图片ID`、`人像发型描述`
-- **AI 角色三合一合成配方 (`CharacterRecipeNode`)**：单节点同时输出 `人像图`、`服装图`、`姿势图（支持 use_depth 深度图切换）`、`三合一拼图` 以及自动组装的 `中文合成Prompt` 与 `英文合成Prompt`，并内置 **4,345 条中文可视化弹窗选图器（含 🌗 深度图预览开关）**与节点内实时缩略图预览。
+- **AI 角色三合一合成配方 (`CharacterRecipeNode`)**：单节点同时输出 `人像图`、`服装图`、`姿势图（支持 use_depth 深度图切换）`、`三合一拼图` 以及自动组装的 `中文合成Prompt` 与 `英文合成Prompt`，并内置 **4,785 条中文可视化弹窗选图器（含 🌗 深度图预览开关）**与节点内实时缩略图预览。
 
 ---
 
@@ -85,7 +85,8 @@
 | **姿势深度图（Pose Depth）** | 与 1,439 条姿势 ID 一一对应（`POSE-DB-02`） | 1,439（共享索引） | 2,878 张（缩略图 `.webp` + 原图 `.webp`） |
 | **服装库（Costume）** | 春季 (215) · 夏季 (254) · 秋季 (244) · 冬季 (253) · 内衣睡衣 (199) · 性感 (140) · 泳装 (54) · 礼服 (48) | 1,407 | 2,814 张（缩略图 `.webp` + 原图 `.webp`） |
 | **人像库（Portrait）** | 正脸参考 (893) · 造型氛围 (606) / 短发 (727) · 中发 (376) · 中长发 (260) · 长发 (136) | 1,499 | 2,998 张（缩略图 `.webp` + `1600×2000` 原图 `.webp`） |
-| **合计** | **3 大图库全中文索引（含白模 + 深度双视图）** | **4,345** | **11,568 张** |
+| **二次元服装（CharaDB）** | 15类，中文名称与原始Danbooru标签 | 440 | 原站热链，仓库与发布包不存图 |
+| **合计** | **3 大图库全中文索引（含白模 + 深度双视图）** | **4,785** | **11,568 张** |
 
 ---
 
@@ -103,7 +104,7 @@ git clone --depth 1 https://github.com/anhao/ai-pose-gallery-zh.git
 重启 ComfyUI 后：
 1. 在画布空白处右键 → **新建节点** → **AI角色三合一参考图集**；
 2. 选择 **「AI 角色三合一合成配方 (3-in-1 Recipe)」** 或单个姿势 / 服装 / 人像节点；
-3. 点击节点上的 **「🎨 打开三合一选图器 (4,345张)」** 按钮（或直接点击节点上的缩略图），即可在弹窗中按分类、视角、发长筛选或中文搜索，一键填入节点并输出 `IMAGE` 张量与中英文 Prompt。
+3. 点击节点上的 **「🎨 打开三合一选图器 (4,785张)」** 按钮（或直接点击节点上的缩略图），即可在弹窗中按分类、视角、发长筛选或中文搜索，一键填入节点并输出 `IMAGE` 张量与中英文 Prompt。
 
 ### 模式 B：从 Web 合成台直连本地 ComfyUI API
 
@@ -131,7 +132,7 @@ git clone --depth 1 https://github.com/anhao/ai-pose-gallery-zh.git
 ├── comfyui_plugin/         # ComfyUI 原生插件模块
 │   ├── nodes.py            # 姿势 / 服装 / 人像 / 三合一角色配方 4 个 ComfyUI 节点实现
 │   ├── routes.py           # ComfyUI PromptServer 本地目录与图片静态服务路由
-│   └── web/                # ComfyUI 画布节点缩略图预览与 4,345 张可视化弹窗选图器 (extension.js / style.css)
+│   └── web/                # ComfyUI 画布节点缩略图预览与 4,785 张可视化弹窗选图器 (extension.js / style.css)
 ├── src/
 │   ├── components/         # 通用组件、AppLayout 响应式导航、GalleryLightbox 灯箱、RecipeDock
 │   ├── routes/             # 页面路由：概览(index)、姿势(poses)、服装(costumes)、人像(portraits)、合成台(studio)、配置(settings)、指南(guide)
@@ -232,7 +233,7 @@ npx wrangler deploy
 
 ## Agent 技能（Skills）
 
-`skills/` 下提供 8 个 `SKILL.md` 格式的 Agent 技能，让 AI Agent 直接检索本仓库三大图库，作为生图 / 生视频的姿势、服装、人像参考。每个技能的 `references/catalog.csv` 用**相对路径**（`../../img/…`）指向本仓库 `img/`，不重复存图：
+`skills/` 下提供 9 个 `SKILL.md` 格式的 Agent 技能，让 AI Agent 检索姿势、服装、人像参考。原有技能的 `references/catalog.csv` 用**相对路径**（`../../img/…`）指向本仓库 `img/`；二次元技能使用原站URL，不重复存图：
 
 | 技能 | 图片数 | 范围 |
 | --- | ---: | --- |
@@ -242,6 +243,7 @@ npx wrangler deploy
 | `pose-reference-couple` | 275 | 双人缠绵（18+） |
 | `pose-reference-all` | 1,439 | 全部姿势 |
 | `costume-reference` | 1,068 | 服装：春夏秋冬・派对礼服・泳装度假（按单品 / 颜色 / 英文关键词检索） |
+| `costume-reference-anime` | 440 | CharaDB 二次元服装，联网参考图，独立来源限制 |
 | `costume-reference-sexy` | 339 | 服装：内衣睡衣・性感穿搭（18+） |
 | `portrait-reference` | 1,499 | 人像：正脸参考・造型氛围，按发长 / 51 种发型检索 |
 
@@ -251,9 +253,26 @@ mkdir -p ~/.claude/skills
 for d in ~/ai-pose-gallery-zh/skills/*-reference*; do ln -s "$d" ~/.claude/skills/; done
 ```
 
-技能靠相对路径读取 `img/`，请**软链**而不是复制，并保留整个仓库。三个技能可组合使用：人像定脸和发型 + 服装定穿搭 + 姿势定动作。
+原有技能靠相对路径读取 `img/`，请**软链**而不是复制，并保留整个仓库。`costume-reference-anime` 使用原站URL，不保存图片，且适用独立来源限制。组合参考时须分别遵守各来源条件。
 
 ---
+
+## 二次元服装（CharaDB）
+
+新增たき AI 的公开版440套服装：服装页默认「全部」，可按「现实 / 二次元」及二级分类、单品颜色标签筛选，中日名称、英文标签和前缀ID检索。原有现实服装数据与图片保持原样。
+
+二次元图片从作者原站直接读取，不加入仓库、发布包、镜像或公共缓存。网络不可用时仍可检索/复制标签，图片、拼图及生成参考可能失败。首次加入配方须阅读并确认来源条件，默认随机配方排除这些条目。网页、ComfyUI节点与 `costume-reference-anime` Agent技能均可按明确选择使用；节点的 `charadb_rules_ack` 默认为false，选图器确认后自动设为true，直接API调用须自行确认后设置。
+
+**许可分类、真人/未成年人用途限制、再分发限制及未取得额外授权的边界，统一见 [NOTICE.md](NOTICE.md)。** 向模型发送参考图不代表具体用途已获作者允许；标签为CC0，图片不适用MIT/CC0。SFW额外隐藏公开版泳装及部分性感词条，但不进行身份、年龄或完整画面检测。
+
+快照与来源版本：`data/charadb/`；生成数据：`data/costume-anime-zh.json`。中文名称独立翻译，没有复用第三方中文站资源。离线重建或审核后更新：
+
+```bash
+python scripts/import_charadb.py
+python scripts/import_charadb.py --revision <官方40位提交SHA>
+```
+
+更新需先补齐 `names-zh.json` 并审查分类、标签、敏感规则和许可。提交与哈希记录在 `source.json`，脚本不下载图片。原有截图和本地图片总数不代表新增远程图片已被镜像。
 
 ## 免责声明与版权说明（Disclaimer）
 
@@ -265,7 +284,7 @@ for d in ~/ai-pose-gallery-zh/skills/*-reference*; do ln -s "$d" ~/.claude/skill
    - 图库中包含部分成人向 3D 素体姿势（全身单人・性感系、双人缠绵）及性感/内衣穿搭参考，旨在服务插画师与创作者的人体动态与光影练习。
    - 站点与插件默认开启 **「安全模式 (SFW)」** 屏蔽上述分类；**未满 18 周岁的未成年人严禁关闭安全模式或访问相关内容**。
 3. **数据来源与版权归属声明**
-   - 本仓库中的全部姿势（`ai-pose-gallery.pages.dev`）、服装（`ai-costume-gallery.pages.dev`）、人像（`ai-portrait-gallery.pages.dev`，CC0 1.0 协议）图片与原始数据的著作权归原作者 **ギア（@giaaibusi）** 所有。
+   - 本仓库原有姿势（`ai-pose-gallery.pages.dev`）、服装（`ai-costume-gallery.pages.dev`）、人像（`ai-portrait-gallery.pages.dev`，CC0 1.0 协议）图片与原始数据的著作权归原作者 **ギア（@giaaibusi）** 所有。
    - 本仓库仅为中文本地化翻译与前端工程实践存档，不对原始图片主张任何权利，**严禁任何人将本仓库图片提取后进行商业倒卖或付费分发**。若原作者对镜像存档有任何异议，请联系维护者立即处理。
 4. **开源协议**
    - 前端应用代码（`src/`）、ComfyUI 插件（`comfyui_plugin/`）与数据处理脚本（`scripts/`）以 [MIT 协议](LICENSE) 开源；该协议**不覆盖** `img/`、`thumbs/` 与 `data/` 中的图片及原始数据。
