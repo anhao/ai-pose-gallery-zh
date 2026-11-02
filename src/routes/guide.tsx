@@ -13,7 +13,7 @@ function GuidePage() {
     <>
       <PageHeader title="使用指南与免责声明" />
 
-      <Section title="角色合成流程" className="md:grid-cols-3">
+      <Section title="角色合成流程" className="@lg/section:grid-cols-3">
         <div className="rounded-2xl bg-background p-4">
           <Badge>1. 人像</Badge>
           <h3 className="mt-2 text-sm font-semibold">人像颜值库 (1,499)</h3>
@@ -39,7 +39,7 @@ function GuidePage() {
         </div>
       </Section>
 
-      <Section title="免责声明与合规使用规范（必读）" className="md:grid-cols-1">
+      <Section title="免责声明与合规使用规范（必读）" className="@lg/section:grid-cols-1">
         <div className="space-y-2.5 rounded-2xl bg-background p-4 text-xs leading-relaxed text-muted-foreground">
           <p>
             <strong className="text-foreground">1. 仅供学习与合法艺术创作（严禁违法）：</strong>
@@ -60,7 +60,7 @@ function GuidePage() {
         </div>
       </Section>
 
-      <Section title="数据来源与版权说明" className="md:grid-cols-1">
+      <Section title="数据来源与版权说明" className="@lg/section:grid-cols-1">
         <div className="space-y-2.5 rounded-2xl bg-background p-4 text-xs leading-relaxed text-muted-foreground">
           <p>
             <strong className="text-foreground">• 原作者版权归属：</strong>

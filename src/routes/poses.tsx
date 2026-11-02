@@ -250,7 +250,7 @@ function PosesPage() {
       </div>
 
       {/* 搜索与筛选面板 */}
-      <div className="grid gap-3 rounded-[22px] bg-muted p-4 md:grid-cols-[1fr_200px_auto_auto]">
+      <div className="grid gap-3 rounded-[22px] bg-muted p-4 @xl/main:grid-cols-2 @4xl/main:grid-cols-[minmax(0,1fr)_200px_minmax(0,auto)_auto]">
         <div className="relative">
           <SearchIcon className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" />
           <Input
@@ -459,7 +459,7 @@ function PosesPage() {
 
       {/* 高清大图预览弹窗 */}
       <Dialog open={Boolean(viewer)} onOpenChange={(o) => !o && setViewer(null)}>
-        <DialogContent className="max-h-[90vh] w-[95vw] max-w-4xl overflow-y-auto p-0 sm:max-w-4xl">
+        <DialogContent className="max-h-[90dvh] w-[95vw] max-w-4xl overflow-y-auto p-0 sm:max-w-4xl">
           {viewer && (() => {
             const grp = filteredGroups[viewer.groupIndex]
             const it = viewer.item
@@ -467,8 +467,8 @@ function PosesPage() {
             const activeImgPath = poseImagePath(it, poseDepthMode)
             return (
               <div className="grid md:grid-cols-[1fr_300px]">
-                <div className="relative flex max-h-[78vh] min-h-[360px] items-center justify-center bg-muted/60 p-4">
-                  <img src={`/${activeImgPath}`} alt={it.姿势名称} className="max-h-[72vh] w-auto rounded-lg object-contain" />
+                <div className="relative flex max-h-[78dvh] min-h-[min(360px,65dvh)] items-center justify-center bg-muted/60 p-4">
+                  <img src={`/${activeImgPath}`} alt={it.姿势名称} className="max-h-[72dvh] w-auto rounded-lg object-contain" />
                   {grp && grp.order.length > 1 && (
                     <>
                       <Button

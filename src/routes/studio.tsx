@@ -393,7 +393,7 @@ function StudioPage() {
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-12 lg:gap-6">
         {/* 左栏：参考图、模型参数与 Prompt */}
         <div
-          className="flex flex-col gap-4 lg:col-span-7"
+          className="flex min-w-0 flex-col gap-4 lg:col-span-7"
           onDragOver={(e) => {
             e.preventDefault()
             setIsDragging(true)
@@ -404,7 +404,7 @@ function StudioPage() {
           {/* 1. 参考图组合 */}
           <Section
             title="1. 参考图组合"
-            className="md:grid-cols-1"
+            className="@lg/section:grid-cols-1"
             actions={
               <div className="flex flex-wrap items-center gap-1.5">
                 <input
@@ -446,7 +446,7 @@ function StudioPage() {
               </div>
             )}
             {/* 3 个核心图库槽位：手机端单列舒展展示，平板/桌面端三列并排 */}
-            <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
+            <div className="grid min-w-0 grid-cols-1 gap-2 @min-[42rem]/section:grid-cols-3">
               {/* 人像槽 */}
               <div className={`relative flex min-w-0 items-start gap-2.5 rounded-xl bg-background p-2.5 ${showReferenceErrors && missingReferences.includes('人像') ? 'ring-1 ring-destructive' : ''}`}>
                 {recipe.portrait ? (
@@ -563,7 +563,7 @@ function StudioPage() {
                     </button>
                     <div className="flex min-h-12 min-w-0 flex-1 flex-col justify-between gap-1">
                       <div className="flex items-center justify-between gap-1">
-                        <div className="flex min-w-0 items-center gap-1.5">
+                        <div className="flex min-w-0 flex-wrap items-center gap-1.5">
                           <span className="shrink-0 text-[11px] text-muted-foreground">姿势</span>
                           {recipe.pose.source !== 'upload' && (
                             <div
@@ -640,7 +640,7 @@ function StudioPage() {
             {/* 附加参考图列表 + 可视化拖拽/粘贴上传框 */}
             <div className="space-y-2 pt-1">
               {extraImages.length > 0 && (
-                <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
+                <div className="grid min-w-0 grid-cols-1 gap-2 @min-[42rem]/section:grid-cols-3">
                   {extraImages.map((img, idx) => (
                     <div
                       key={img.id}
@@ -1359,7 +1359,7 @@ function StudioPage() {
           {/* 3. 提示词与生成按钮 */}
           <Section
             title="3. 提示词 (Prompt)"
-            className="md:grid-cols-1"
+            className="@lg/section:grid-cols-1"
             actions={
               <div className="flex items-center gap-1.5">
                 <Button variant="ghost" size="sm" onClick={() => setCustomPrompt(null)}>
@@ -1408,10 +1408,10 @@ function StudioPage() {
         </div>
 
         {/* 右栏：专注展示 AI 生成结果与生成状态 */}
-        <div className="lg:col-span-5">
+        <div className="min-w-0 lg:col-span-5">
           <Section
             title="生成结果"
-            className="md:grid-cols-1"
+            className="@lg/section:grid-cols-1"
             actions={
               previewUrl && !isGenerating ? (
                 <Button variant="outline" size="sm" asChild>
@@ -1437,7 +1437,7 @@ function StudioPage() {
                       </Badge>
                     )}
                     {generationProgress && (
-                      <div className="w-56 space-y-1.5 pt-1">
+                      <div className="w-56 max-w-full space-y-1.5 pt-1">
                         <div className="text-xs text-foreground/80">{generationProgress.message}</div>
                         {generationProgress.percent !== undefined && (
                           <div className="h-1.5 overflow-hidden rounded-full bg-muted">
@@ -1490,7 +1490,7 @@ function StudioPage() {
       {history.length > 0 && (
         <Section
           title={`生成记录 (${history.length})`}
-          className="grid-cols-2 sm:grid-cols-3 md:grid-cols-4"
+          className="grid-cols-2 @lg/section:grid-cols-3 @3xl/section:grid-cols-4"
           actions={
             <Button variant="ghost" size="sm" onClick={clearHistory}>
               <Trash2Icon className="size-3.5" />
@@ -1560,8 +1560,8 @@ function StudioPage() {
 
       {/* 生成结果全屏放大灯箱 */}
       <Dialog open={Boolean(zoomImageUrl)} onOpenChange={(o) => !o && setZoomImageUrl(null)}>
-        <DialogContent className="max-h-[92vh] w-[95vw] max-w-4xl overflow-y-auto p-4 sm:max-w-4xl">
-          <DialogHeader className="flex flex-row items-center justify-between pr-6">
+        <DialogContent className="max-h-[92dvh] w-[95vw] max-w-4xl overflow-y-auto p-4 sm:max-w-4xl">
+          <DialogHeader className="flex flex-row flex-wrap items-center justify-between gap-3 pr-8">
             <div><DialogTitle className="text-base">图片大图预览</DialogTitle><DialogDescription className="sr-only">参考图片或生成结果的放大预览。按 Esc 或关闭按钮返回。</DialogDescription></div>
             {zoomImageUrl && (
               <Button size="sm" variant="outline" asChild>
@@ -1577,7 +1577,7 @@ function StudioPage() {
               <img
                 src={zoomImageUrl}
                 alt="大图预览"
-                className="max-h-[78vh] w-auto rounded-lg object-contain"
+                className="max-h-[78dvh] w-auto rounded-lg object-contain"
               />
             </div>
           )}
@@ -1586,8 +1586,8 @@ function StudioPage() {
 
       {/* 参考拼图独立弹窗（不占用主画布） */}
       <Dialog open={Boolean(stitchModalUrl)} onOpenChange={(o) => !o && setStitchModalUrl(null)}>
-        <DialogContent className="max-h-[90vh] w-[95vw] max-w-3xl overflow-y-auto p-4 sm:max-w-3xl">
-          <DialogHeader className="flex flex-row items-center justify-between pr-6">
+        <DialogContent className="max-h-[90dvh] w-[95vw] max-w-3xl overflow-y-auto p-4 sm:max-w-3xl">
+          <DialogHeader className="flex flex-row flex-wrap items-center justify-between gap-3 pr-8">
             <DialogTitle className="text-base">参考图拼合卡片</DialogTitle>
             {stitchModalUrl && (
               <Button size="sm" variant="outline" asChild>
@@ -1603,7 +1603,7 @@ function StudioPage() {
               <img
                 src={stitchModalUrl}
                 alt="参考拼图"
-                className="max-h-[70vh] w-auto rounded-lg object-contain"
+                className="max-h-[70dvh] w-auto rounded-lg object-contain"
               />
             </div>
           )}
@@ -1612,8 +1612,8 @@ function StudioPage() {
 
       {/* ComfyUI API 工作流 JSON 编辑器弹窗 */}
       <Dialog open={showComfyJsonModal} onOpenChange={setShowComfyJsonModal}>
-        <DialogContent className="max-h-[90vh] w-[95vw] max-w-3xl overflow-y-auto p-4 sm:max-w-3xl">
-          <DialogHeader className="flex flex-row items-center justify-between pr-6">
+        <DialogContent className="max-h-[90dvh] w-[95vw] max-w-3xl overflow-y-auto p-4 sm:max-w-3xl">
+          <DialogHeader className="flex flex-row flex-wrap items-center justify-between gap-3 pr-8">
             <DialogTitle className="text-base">ComfyUI API 工作流 JSON</DialogTitle>
             <Button
               size="sm"
