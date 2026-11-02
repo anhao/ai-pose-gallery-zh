@@ -5,7 +5,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from .routes import find_item, resolve_safe_image_path
+from .routes import find_item, open_reference_image
 
 if TYPE_CHECKING:
     from PIL import Image
@@ -54,8 +54,7 @@ def _load_pil_image(
 ) -> Image.Image:
     from PIL import Image, ImageOps
 
-    path = resolve_safe_image_path(rel_path)
-    img = Image.open(path)
+    img = open_reference_image(rel_path)
     img = ImageOps.exif_transpose(img).convert("RGB")
 
     if flip_horizontal:
@@ -106,6 +105,14 @@ def _build_portrait_prompts(item: dict) -> tuple[str, str]:
     return zh, en
 
 
+def _pose_image_rel_path(item: dict, use_depth: bool = False) -> str:
+    raw = str(item.get("原图", "")).lstrip("/")
+    if use_depth and raw.startswith("img/") and not raw.startswith("img/depth/"):
+        stem = raw[len("img/") :].rsplit(".", 1)[0]
+        return f"img/depth/{stem}.webp"
+    return raw
+
+
 class PoseGalleryNode:
     """从 1,439 张 3D 素体姿势库中选择姿势参考图并输出 IMAGE 与提示词。"""
 
@@ -121,7 +128,10 @@ class PoseGalleryNode:
                 "width": ("INT", {"default": 1024, "min": 64, "max": 4096, "step": 8}),
                 "height": ("INT", {"default": 1280, "min": 64, "max": 4096, "step": 8}),
                 "flip_horizontal": ("BOOLEAN", {"default": False}),
-            }
+            },
+            "optional": {
+                "use_depth": ("BOOLEAN", {"default": False}),
+            },
         }
 
     RETURN_TYPES = ("IMAGE", "STRING", "STRING")
@@ -136,10 +146,11 @@ class PoseGalleryNode:
         width: int = 1024,
         height: int = 1280,
         flip_horizontal: bool = False,
+        use_depth: bool = False,
     ):
         item = find_item("pose", image_id)
         pil_img = _load_pil_image(
-            item["原图"],
+            _pose_image_rel_path(item, use_depth=use_depth),
             resize_mode=resize_mode,
             width=width,
             height=height,
@@ -150,7 +161,7 @@ class PoseGalleryNode:
 
 
 class CostumeGalleryNode:
-    """从 1,407 套穿搭服装库中选择服装参考图并输出 IMAGE 与中英文服装 Prompt。"""
+    """从 1,847 套穿搭服装库中选择服装参考图并输出 IMAGE 与中英文服装 Prompt。"""
 
     @classmethod
     def INPUT_TYPES(cls):
@@ -161,7 +172,7 @@ class CostumeGalleryNode:
                 "width": ("INT", {"default": 1024, "min": 64, "max": 4096, "step": 8}),
                 "height": ("INT", {"default": 1280, "min": 64, "max": 4096, "step": 8}),
                 "flip_horizontal": ("BOOLEAN", {"default": False}),
-            }
+            },
         }
 
     RETURN_TYPES = ("IMAGE", "STRING", "STRING", "STRING")
@@ -261,7 +272,10 @@ class CharacterRecipeNode:
                 "width": ("INT", {"default": 1024, "min": 64, "max": 4096, "step": 8}),
                 "height": ("INT", {"default": 1280, "min": 64, "max": 4096, "step": 8}),
                 "flip_pose_horizontal": ("BOOLEAN", {"default": False}),
-            }
+            },
+            "optional": {
+                "use_depth": ("BOOLEAN", {"default": False}),
+            },
         }
 
     RETURN_TYPES = ("IMAGE", "IMAGE", "IMAGE", "IMAGE", "STRING", "STRING")
@@ -287,6 +301,7 @@ class CharacterRecipeNode:
         width: int = 1024,
         height: int = 1280,
         flip_pose_horizontal: bool = False,
+        use_depth: bool = False,
     ):
         portrait_item = find_item("portrait", portrait_id)
         costume_item = find_item("costume", costume_id)
@@ -299,7 +314,7 @@ class CharacterRecipeNode:
             costume_item["原图"], resize_mode=resize_mode, width=width, height=height
         )
         pose_pil = _load_pil_image(
-            pose_item["原图"],
+            _pose_image_rel_path(pose_item, use_depth=use_depth),
             resize_mode=resize_mode,
             width=width,
             height=height,

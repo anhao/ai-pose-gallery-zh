@@ -41,17 +41,17 @@ export function AppHeader() {
   }
 
   return (
-    <header className="flex h-14 shrink-0 items-center gap-2 border-b border-border/60 px-4">
+    <header className="@container/header flex min-h-14 shrink-0 items-center gap-2 border-b border-border/60 px-4">
       <SidebarTrigger className="-ml-1" />
       <Separator orientation="vertical" className="mr-2 h-4 data-vertical:self-center" />
-      <Breadcrumb>
-        <BreadcrumbList>
+      <Breadcrumb className="min-w-0 flex-1">
+        <BreadcrumbList className="flex-nowrap">
           {crumbs.map((c, i) => (
             <Fragment key={c.path}>
               {i > 0 && <BreadcrumbSeparator />}
-              <BreadcrumbItem>
+              <BreadcrumbItem className="min-w-0">
                 {i === crumbs.length - 1 ? (
-                  <BreadcrumbPage>{c.title}</BreadcrumbPage>
+                  <BreadcrumbPage className="truncate">{c.title}</BreadcrumbPage>
                 ) : (
                   <BreadcrumbLink asChild>
                     <Link to={c.path}>{c.title}</Link>
@@ -63,7 +63,7 @@ export function AppHeader() {
         </BreadcrumbList>
       </Breadcrumb>
 
-      <div className="ml-auto flex items-center gap-2">
+      <div className="ml-auto flex shrink-0 items-center gap-1 @lg/header:gap-2">
         <Button
           variant={safeMode ? 'outline' : 'secondary'}
           size="sm"
@@ -76,17 +76,17 @@ export function AppHeader() {
           }
         >
           <ShieldCheckIcon className="size-3.5" />
-          <span className="hidden sm:inline">{safeMode ? '安全模式 (SFW)' : '18+ 完整模式'}</span>
-          <span className="sm:hidden">{safeMode ? 'SFW' : '18+'}</span>
+          <span className="hidden @2xl/header:inline">{safeMode ? '安全模式 (SFW)' : '18+ 完整模式'}</span>
+          <span className="@2xl/header:hidden">{safeMode ? 'SFW' : '18+'}</span>
         </Button>
-        <Button variant="outline" size="sm" onClick={handleRandom} className="hidden sm:inline-flex">
+        <Button variant="outline" size="sm" onClick={handleRandom} className="hidden @3xl/header:inline-flex">
           <DicesIcon className="size-3.5" />
           随机捏人
         </Button>
         <Button size="sm" asChild>
-          <Link to="/studio">
+          <Link to="/studio" aria-label={`AI 合成台，已选 ${selectedCount} 项参考图`}>
             <SparklesIcon className="size-3.5" />
-            AI 合成台
+            <span className="hidden @lg/header:inline">AI 合成台</span>
             {selectedCount > 0 && (
               <span className="ml-1 rounded-full bg-primary-foreground/20 px-1.5 py-0.2 text-[11px] font-bold">
                 {selectedCount}/3

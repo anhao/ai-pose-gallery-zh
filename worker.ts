@@ -1,6 +1,6 @@
-import { onRequestPost } from './functions/api/proxy'
+import { onRequestPost, type ProxyEnv } from './functions/api/proxy'
 
-export interface Env {
+export interface Env extends ProxyEnv {
   ASSETS: {
     fetch: (request: Request) => Promise<Response>
   }
@@ -13,7 +13,7 @@ export default {
     // Handle /api/proxy CORS forwarding for DashScope (Qwen) & Volcengine Ark (Doubao)
     if (url.pathname === '/api/proxy') {
       if (request.method === 'POST') {
-        return onRequestPost({ request })
+        return onRequestPost({ request, env })
       }
       return new Response(JSON.stringify({ error: { message: 'Method Not Allowed' } }), {
         status: 405,

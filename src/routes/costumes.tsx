@@ -23,6 +23,8 @@ import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Skeleton } from '@/components/ui/skeleton'
 import { cn } from '@/lib/utils'
+import { referenceImageUrl } from '@/lib/recipeImages'
+import { CHARADB_NOTICE_URL } from '@/lib/charadb'
 import { useStudio } from '@/store/studioStore'
 
 export const Route = createFileRoute('/costumes')({
@@ -37,6 +39,7 @@ function CostumesPage() {
   const { recipe, toggleCostume, safeMode, requestUnlockNsfw } = useStudio()
 
   const [category, setCategory] = useState('')
+  const [kind, setKind] = useState('全部')
   const [tag, setTag] = useState('all')
   const [query, setQuery] = useState('')
   const [shown, setShown] = useState(60)
@@ -45,10 +48,11 @@ function CostumesPage() {
   const activeCategory = safeMode && category && isNsfwCostumeCategory(category) ? '' : category
 
   const baseCostumes = useMemo(
-    () => (safeMode ? costumes.filter((x) => !isNsfwCostume(x)) : costumes),
-    [costumes, safeMode]
+    () => costumes.filter((x) => (kind === '全部' || (x.一级分类 || '现实') === kind) && (!safeMode || !isNsfwCostume(x))),
+    [costumes, safeMode, kind]
   )
-  const hiddenNsfwCount = costumes.length - baseCostumes.length
+  const hiddenNsfwCount = costumes.filter((x) => (kind === '全部' || (x.一级分类 || '现实') === kind) && isNsfwCostume(x)).length
+  const activeTag = tag === 'all' || baseCostumes.some((x) => (!activeCategory || x.分类 === activeCategory) && x.标签.includes(tag)) ? tag : 'all'
 
   const categories = useMemo(
     () => [...new Set(baseCostumes.map((x) => x.分类))],
@@ -65,11 +69,11 @@ function CostumesPage() {
   const filtered = useMemo(() => {
     return baseCostumes.filter((item) => {
       if (activeCategory && item.分类 !== activeCategory) return false
-      if (tag !== 'all' && !(item.标签 || []).includes(tag)) return false
+      if (activeTag !== 'all' && !(item.标签 || []).includes(activeTag)) return false
       if (q && !item.检索.toLowerCase().includes(q)) return false
       return true
     })
-  }, [baseCostumes, activeCategory, tag, q])
+  }, [baseCostumes, activeCategory, activeTag, q])
 
   const currentItem = viewerIndex !== null ? filtered[viewerIndex] : null
 
@@ -90,6 +94,21 @@ function CostumesPage() {
     <>
       <PageHeader title="服装穿搭库" />
 
+      <div className="flex flex-wrap items-center justify-between gap-2" aria-label="服装一级分类">
+        <div className="flex flex-wrap gap-2">
+          {['全部', '现实', '二次元'].map((value) => (
+            <Button key={value} variant={kind === value ? 'default' : 'outline'} aria-pressed={kind === value} onClick={() => {
+              setKind(value); setCategory(''); setTag('all'); setShown(60); setViewerIndex(null)
+            }}>{value}</Button>
+          ))}
+        </div>
+        {kind !== '现实' && (
+          <p className="text-xs text-muted-foreground">
+            二次元服装来源：<a className="underline hover:text-foreground" href="https://charadb-2fi.pages.dev/" target="_blank" rel="noopener noreferrer">たき AI · CharaDB</a>（<a className="underline hover:text-foreground" href={CHARADB_NOTICE_URL} target="_blank" rel="noopener noreferrer">使用说明</a>）
+          </p>
+        )}
+      </div>
+
       {/* 分类筛选药丸 */}
       <div className="flex gap-2 overflow-x-auto pb-1 sm:flex-wrap sm:pb-0">
         <button
@@ -107,7 +126,7 @@ function CostumesPage() {
           全部穿搭 ({baseCostumes.length})
         </button>
         {categories.map((c) => {
-          const cnt = costumes.filter((x) => x.分类 === c).length
+          const cnt = baseCostumes.filter((x) => x.分类 === c).length
           const isNsfw = isNsfwCostumeCategory(c)
           return (
             <button
@@ -132,20 +151,20 @@ function CostumesPage() {
             type="button"
             onClick={() =>
               requestUnlockNsfw(() => {
-                setCategory('性感穿搭')
+                setCategory('')
                 setTag('all')
                 setShown(60)
               })
             }
             className="shrink-0 rounded-full border border-dashed border-rose-500/40 bg-rose-500/5 px-3.5 py-1.5 text-sm font-medium text-rose-600 transition-colors hover:bg-rose-500/10 dark:text-rose-400"
           >
-            🔒 解锁 18+ 内衣/性感穿搭 ({hiddenNsfwCount})
+            🔒 解锁 18+ 敏感服装 ({hiddenNsfwCount})
           </button>
         )}
       </div>
 
       {/* 搜索与单品筛选栏 */}
-      <div className="grid gap-3 rounded-[22px] bg-muted p-4 md:grid-cols-[1fr_220px_auto]">
+      <div className="grid gap-3 rounded-[22px] bg-muted p-4 @xl/main:grid-cols-2 @3xl/main:grid-cols-[minmax(0,1fr)_220px_auto]">
         <div className="relative">
           <SearchIcon className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" />
           <Input
@@ -160,7 +179,7 @@ function CostumesPage() {
         </div>
 
         <Select
-          value={tag}
+          value={activeTag}
           onValueChange={(v) => {
             setTag(v)
             setShown(60)
@@ -187,6 +206,7 @@ function CostumesPage() {
             setCategory('')
             setTag('all')
             setQuery('')
+            setKind('全部')
             setShown(60)
           }}
         >
@@ -211,7 +231,7 @@ function CostumesPage() {
                   className="relative aspect-2/3 cursor-zoom-in overflow-hidden rounded-2xl bg-background"
                 >
                   <img
-                    src={`/${item.缩略图}`}
+                    src={referenceImageUrl(item.缩略图)}
                     alt={item.服装名称}
                     loading="lazy"
                     className="h-full w-full object-contain transition duration-300 group-hover:scale-105"
@@ -243,6 +263,7 @@ function CostumesPage() {
                 <div className="flex flex-1 flex-col justify-between px-1.5 pt-2.5 pb-1">
                   <div>
                     <div className="line-clamp-2 text-xs leading-snug font-semibold">{item.服装名称}</div>
+                    <div className="mt-1 text-[11px] text-muted-foreground">{item.来源 || 'ギア · 现实服装'}</div>
                     <div className="mt-1.5 flex flex-wrap gap-1">
                       {(item.标签 || []).slice(0, 5).map((t) => (
                         <span key={t} className="rounded bg-background px-1.5 py-0.5 text-[10px] text-muted-foreground">
@@ -269,16 +290,16 @@ function CostumesPage() {
 
       {/* 服装详情弹窗 */}
       <Dialog open={viewerIndex !== null} onOpenChange={(o) => !o && setViewerIndex(null)}>
-        <DialogContent className="max-h-[90vh] w-[95vw] max-w-4xl overflow-y-auto p-0 sm:max-w-4xl">
+        <DialogContent className="max-h-[90dvh] w-[95vw] max-w-4xl overflow-y-auto p-0 sm:max-w-4xl">
           {currentItem && viewerIndex !== null && (() => {
             const picked = recipe.costume?.id === currentItem.id
             return (
               <div className="grid md:grid-cols-[1fr_320px]">
-                <div className="relative flex max-h-[78vh] min-h-[380px] items-center justify-center bg-muted/60 p-4">
+                <div className="relative flex max-h-[78dvh] min-h-[min(380px,65dvh)] items-center justify-center bg-muted/60 p-4">
                   <img
-                    src={`/${currentItem.预览图 || currentItem.原图}`}
+                    src={referenceImageUrl(currentItem.预览图 || currentItem.原图)}
                     alt={currentItem.服装名称}
-                    className="max-h-[72vh] w-auto rounded-lg object-contain"
+                    className="max-h-[72dvh] w-auto rounded-lg object-contain"
                   />
                   <Button
                     variant="secondary"
@@ -306,6 +327,8 @@ function CostumesPage() {
                         <Badge variant="outline">{currentItem.id}</Badge>
                       </div>
                       <DialogTitle className="mt-2 text-base leading-snug">{currentItem.服装名称}</DialogTitle>
+                      <p className="text-xs text-muted-foreground">来源：{currentItem.来源 || 'ギア（@giaaibusi）'}</p>
+                      {currentItem.source === 'charadb' && <a className="text-xs underline" href={CHARADB_NOTICE_URL} target="_blank" rel="noopener noreferrer">图片仅作参考，禁止真人、未成年人及再分发；查看原作者条件</a>}
                     </DialogHeader>
 
                     <div>
@@ -347,15 +370,15 @@ function CostumesPage() {
                     </Button>
                     <div className="grid grid-cols-2 gap-2">
                       <Button variant="outline" size="sm" asChild>
-                        <a href={`/${currentItem.原图}`} download={`${currentItem.id}.webp`}>
+                        <a href={referenceImageUrl(currentItem.原图)} download={currentItem.source === 'charadb' ? undefined : `${currentItem.id}.webp`} target={currentItem.source === 'charadb' ? '_blank' : undefined} rel="noopener noreferrer">
                           <DownloadIcon className="size-3.5" />
-                          下载高清原图
+                          {currentItem.source === 'charadb' ? '前往来源原图' : '下载高清原图'}
                         </a>
                       </Button>
                       <Button variant="outline" size="sm" asChild>
-                        <a href={`/${currentItem.原图}`} target="_blank" rel="noopener noreferrer">
+                        <a href={currentItem.来源地址 || referenceImageUrl(currentItem.原图)} target="_blank" rel="noopener noreferrer">
                           <ExternalLinkIcon className="size-3.5" />
-                          新窗口原图
+                          {currentItem.source === 'charadb' ? '原作者站点' : '新窗口原图'}
                         </a>
                       </Button>
                     </div>

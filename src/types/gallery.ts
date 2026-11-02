@@ -1,5 +1,7 @@
 export interface PoseItem {
   source?: 'upload'
+  /** 是否使用灰阶深度图（Depth Map）代替素体白模 */
+  useDepth?: boolean
   id: string
   体系: string
   姿势编号: string
@@ -23,7 +25,12 @@ export interface PoseGroup {
 }
 
 export interface CostumeItem {
-  source?: 'upload'
+  source?: 'upload' | 'charadb'
+  一级分类?: '现实' | '二次元'
+  来源?: string
+  来源地址?: string
+  日文名称?: string
+  敏感?: boolean
   id: string
   分类: string
   服装名称: string

@@ -1,5 +1,6 @@
 import type { ApiConfig, ExtraReferenceImage, ImageProviderId, RecipeState } from '@/types/gallery'
 import { applyWorkflowOverrides, getWorkflowImages, validateReferenceCombinations, workflowIdentity, type ComfyObjectInfo } from '@/lib/comfyWorkflowParameters'
+import { poseImagePath, referenceImageUrl } from '@/lib/recipeImages'
 import qwen2509ThreeImageWorkflow from '@/workflows/qwen_image_edit_2509_3img.api.json'
 
 export interface ProviderModelOption {
@@ -252,11 +253,7 @@ function loadImage(src: string): Promise<HTMLImageElement> {
     img.crossOrigin = 'anonymous'
     img.onload = () => resolve(img)
     img.onerror = () => reject(new Error(`加载图片失败: ${src}`))
-    if (src.startsWith('data:') || /^https?:\/\//i.test(src) || src.startsWith('/')) {
-      img.src = src
-    } else {
-      img.src = `/${src}`
-    }
+    img.src = referenceImageUrl(src)
   })
 }
 
@@ -281,8 +278,8 @@ export async function stitchRecipeCanvas(recipe: RecipeState): Promise<string> {
   if (recipe.pose) {
     list.push({
       tag: `图${idx++} · 姿势`,
-      sub: `${recipe.pose.姿势名称}（${recipe.pose.角度}）`,
-      src: recipe.pose.原图 || recipe.pose.缩略图,
+      sub: `${recipe.pose.姿势名称}（${recipe.pose.角度}${recipe.pose.useDepth ? ' · 深度图' : ''}）`,
+      src: poseImagePath(recipe.pose),
     })
   }
   for (const extra of recipe.extraImages || []) {
@@ -361,6 +358,14 @@ export function toPublicHttpsUrl(src: string): string {
   if (clean.startsWith('img/costume/') || clean.startsWith('thumbs/costume/')) {
     return `https://ai-costume-gallery.pages.dev/${clean}`
   }
+  if (clean.startsWith('img/depth/')) {
+    const filename = clean.slice('img/depth/'.length).replace(/\.webp$/i, '.png')
+    return `https://ai-pose-depth-gallery.pages.dev/img/${filename}`
+  }
+  if (clean.startsWith('thumbs/depth/')) {
+    const filename = clean.slice('thumbs/depth/'.length).replace(/\.webp$/i, '.jpg')
+    return `https://ai-pose-depth-gallery.pages.dev/thumbs/${filename}`
+  }
   return `https://ai-pose-gallery.pages.dev/${clean}`
 }
 
@@ -395,20 +400,11 @@ async function smartFetch(
   }
   const headers = new Headers(init.headers)
   headers.set('x-target-url', targetUrl)
-  const proxyRes = await fetch('/api/proxy', {
+  return fetch('/api/proxy', {
     method: init.method || 'POST',
     headers,
     body: init.body,
   })
-  // 若开启代理时遇到 Cloudflare 网关/SSL 握手错误（如 525/502/504），且上游本身支持 CORS（如第三方中转站），自动降级浏览器直连重试
-  if (proxyRes.status === 502 || proxyRes.status === 504 || (proxyRes.status >= 520 && proxyRes.status <= 526)) {
-    try {
-      return await fetch(targetUrl, init)
-    } catch {
-      return proxyRes
-    }
-  }
-  return proxyRes
 }
 
 function extractUniversalImage(json: any): string | null {
@@ -1166,7 +1162,7 @@ async function generateWithComfyUi(params: {
     },
     {
       nodeId: cp.poseNodeId,
-      src: recipe.pose ? recipe.pose.原图 || recipe.pose.缩略图 : null,
+      src: recipe.pose ? poseImagePath(recipe.pose) : null,
       prefix: 'studio_pose',
       label: '姿势',
     },
@@ -1382,7 +1378,7 @@ export async function generateCharacterImage(params: {
   const rawSources = [
     recipe.portrait && (recipe.portrait.原图 || recipe.portrait.缩略图),
     recipe.costume && (recipe.costume.预览图 || recipe.costume.原图 || recipe.costume.缩略图),
-    recipe.pose && (recipe.pose.原图 || recipe.pose.缩略图),
+    recipe.pose && poseImagePath(recipe.pose),
     ...(recipe.extraImages || []).map((x) => x.url),
     ...(provider === 'comfyui' && recipe.workflowImagesIdentity === workflowIdentity(config.comfyuiParams.workflowJson)
       ? Object.values(recipe.workflowImages || {}).map((image) => image.url) : []),

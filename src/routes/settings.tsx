@@ -245,7 +245,10 @@ function SettingsPage() {
             </Select>
           </Field>
 
-          <Field label="服务端 CORS 代理 (/api/proxy)">
+          <Field
+            label="服务端 CORS 代理 (/api/proxy)"
+            hint="默认关闭（浏览器直连）；切换到阿里云百炼 (Qwen) 或火山方舟 (Doubao) 时会自动开启。仅支持白名单域名（可通过服务端环境变量 PROXY_ALLOWED_ORIGINS 扩展）"
+          >
             <div className="flex h-9 items-center justify-between rounded-xl border bg-background px-3">
               <span className="text-xs text-muted-foreground">
                 {apiConfig.useProxy ? '已启用（解决跨域限制）' : '已关闭（浏览器直连）'}
