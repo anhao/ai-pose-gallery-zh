@@ -1,5 +1,6 @@
 import type { ApiConfig, ExtraReferenceImage, ImageProviderId, RecipeState } from '@/types/gallery'
 import { applyWorkflowOverrides, getWorkflowImages, validateReferenceCombinations, workflowIdentity, type ComfyObjectInfo } from '@/lib/comfyWorkflowParameters'
+import { poseImagePath } from '@/lib/recipeImages'
 import flux3KleinWorkflow from '@/workflows/flux3-klein-edit.api.json'
 import qwen2509DepthWorkflow from '@/workflows/qwen-image-edit-2509.api.json'
 import qwen2509ThreeImageWorkflow from '@/workflows/qwen_image_edit_2509_3img.api.json'
@@ -284,8 +285,8 @@ export async function stitchRecipeCanvas(recipe: RecipeState): Promise<string> {
   if (recipe.pose) {
     list.push({
       tag: `图${idx++} · 姿势`,
-      sub: `${recipe.pose.姿势名称}（${recipe.pose.角度}）`,
-      src: recipe.pose.原图 || recipe.pose.缩略图,
+      sub: `${recipe.pose.姿势名称}（${recipe.pose.角度}${recipe.pose.useDepth ? ' · 深度图' : ''}）`,
+      src: poseImagePath(recipe.pose),
     })
   }
   for (const extra of recipe.extraImages || []) {
@@ -364,6 +365,14 @@ export function toPublicHttpsUrl(src: string): string {
   if (clean.startsWith('img/costume/') || clean.startsWith('thumbs/costume/')) {
     return `https://ai-costume-gallery.pages.dev/${clean}`
   }
+  if (clean.startsWith('img/depth/')) {
+    const filename = clean.slice('img/depth/'.length).replace(/\.webp$/i, '.png')
+    return `https://ai-pose-depth-gallery.pages.dev/img/${filename}`
+  }
+  if (clean.startsWith('thumbs/depth/')) {
+    const filename = clean.slice('thumbs/depth/'.length).replace(/\.webp$/i, '.jpg')
+    return `https://ai-pose-depth-gallery.pages.dev/thumbs/${filename}`
+  }
   return `https://ai-pose-gallery.pages.dev/${clean}`
 }
 
@@ -398,20 +407,11 @@ async function smartFetch(
   }
   const headers = new Headers(init.headers)
   headers.set('x-target-url', targetUrl)
-  const proxyRes = await fetch('/api/proxy', {
+  return fetch('/api/proxy', {
     method: init.method || 'POST',
     headers,
     body: init.body,
   })
-  // 若开启代理时遇到 Cloudflare 网关/SSL 握手错误（如 525/502/504），且上游本身支持 CORS（如第三方中转站），自动降级浏览器直连重试
-  if (proxyRes.status === 502 || proxyRes.status === 504 || (proxyRes.status >= 520 && proxyRes.status <= 526)) {
-    try {
-      return await fetch(targetUrl, init)
-    } catch {
-      return proxyRes
-    }
-  }
-  return proxyRes
 }
 
 function extractUniversalImage(json: any): string | null {
@@ -1195,6 +1195,35 @@ function pruneUnusedImageSlot(workflow: ComfyWorkflow, loadNodeId: string): void
   }
 }
 
+function bypassPreRenderedPoseDepth(workflowJson: string, poseNodeId: string): string {
+  if (!poseNodeId || poseNodeId === 'none') return workflowJson
+  try {
+    const wf = JSON.parse(workflowJson) as ComfyWorkflow
+    let changed = false
+    for (const [depthId, node] of Object.entries(wf)) {
+      if (
+        node?.class_type === 'DepthAnythingV2Preprocessor' &&
+        Array.isArray(node.inputs?.image) &&
+        String(node.inputs.image[0]) === poseNodeId
+      ) {
+        for (const other of Object.values(wf)) {
+          if (!other?.inputs) continue
+          for (const [k, v] of Object.entries(other.inputs)) {
+            if (Array.isArray(v) && String(v[0]) === depthId) {
+              other.inputs[k] = [poseNodeId, 0]
+            }
+          }
+        }
+        delete wf[depthId]
+        changed = true
+      }
+    }
+    return changed ? JSON.stringify(wf) : workflowJson
+  } catch {
+    return workflowJson
+  }
+}
+
 async function generateWithComfyUi(params: {
   recipe: RecipeState
   prompt: string
@@ -1218,7 +1247,11 @@ async function generateWithComfyUi(params: {
   const schemas = await fetchComfyObjectInfo(baseUrl, apiKey, cp.workflowJson)
   const extraImageNodes = getWorkflowImages(cp.workflowJson, [cp.portraitNodeId, cp.costumeNodeId, cp.poseNodeId, cp.stitchedNodeId], schemas)
   const extraImages = recipe.workflowImagesIdentity === workflowIdentity(cp.workflowJson) ? recipe.workflowImages || {} : {}
-  const selectedJson = applyWorkflowOverrides(cp.workflowJson, cp.parameterOverrides, schemas)
+  const overriddenJson = applyWorkflowOverrides(cp.workflowJson, cp.parameterOverrides, schemas)
+  const selectedJson =
+    recipe.pose?.useDepth && recipe.pose?.source !== 'upload'
+      ? bypassPreRenderedPoseDepth(overriddenJson, cp.poseNodeId)
+      : overriddenJson
   const check = await checkComfyWorkflow(baseUrl, apiKey, selectedJson, [
     cp.portraitNodeId,
     cp.costumeNodeId,
@@ -1247,7 +1280,7 @@ async function generateWithComfyUi(params: {
     },
     {
       nodeId: cp.poseNodeId,
-      src: recipe.pose ? recipe.pose.原图 || recipe.pose.缩略图 : null,
+      src: recipe.pose ? poseImagePath(recipe.pose) : null,
       prefix: 'studio_pose',
       label: '姿势',
     },
@@ -1473,7 +1506,7 @@ export async function generateCharacterImage(params: {
   const rawSources = [
     recipe.portrait && (recipe.portrait.原图 || recipe.portrait.缩略图),
     recipe.costume && (recipe.costume.预览图 || recipe.costume.原图 || recipe.costume.缩略图),
-    recipe.pose && (recipe.pose.原图 || recipe.pose.缩略图),
+    recipe.pose && poseImagePath(recipe.pose),
     ...(recipe.extraImages || []).map((x) => x.url),
     ...(provider === 'comfyui' && recipe.workflowImagesIdentity === workflowIdentity(config.comfyuiParams.workflowJson)
       ? Object.values(recipe.workflowImages || {}).map((image) => image.url) : []),

@@ -1,5 +1,7 @@
 export interface PoseItem {
   source?: 'upload'
+  /** 是否使用灰阶深度图（Depth Map）代替素体白模 */
+  useDepth?: boolean
   id: string
   体系: string
   姿势编号: string

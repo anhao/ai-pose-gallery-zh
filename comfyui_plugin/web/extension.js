@@ -69,11 +69,12 @@ async function fetchCatalogue(lib) {
   return catalogueCache[lib];
 }
 
-function getThumbUrl(lib, id, relPath) {
+function getThumbUrl(lib, id, relPath, useDepth = false) {
+  const depthParam = lib === "pose" && useDepth ? "&depth=1" : "";
   if (relPath) {
-    return `/pose_character_atlas/image?path=${encodeURIComponent(relPath)}`;
+    return `/pose_character_atlas/image?path=${encodeURIComponent(relPath)}${depthParam}`;
   }
-  return `/pose_character_atlas/image?library=${encodeURIComponent(lib)}&id=${encodeURIComponent(id)}&kind=thumb`;
+  return `/pose_character_atlas/image?library=${encodeURIComponent(lib)}&id=${encodeURIComponent(id)}&kind=thumb${depthParam}`;
 }
 
 function getItemTitle(lib, item) {
@@ -118,6 +119,7 @@ class PoseAtlasModal {
     this.targetNode = null;
     this.mode = "single"; // "single" | "recipe"
     this.safeMode = true;
+    this.useDepth = false;
     this.searchQuery = "";
     this.primaryFilter = "";
     this.secondaryFilter = "";
@@ -137,6 +139,7 @@ class PoseAtlasModal {
     this.page = 1;
 
     if (node) {
+      this.useDepth = Boolean(findWidget(node, "use_depth")?.value);
       if (mode === "recipe") {
         this.recipeSelection.portrait =
           findWidget(node, "portrait_id")?.value ||
@@ -188,6 +191,7 @@ class PoseAtlasModal {
           <input class="pca-search-input" id="pca-search" type="text" placeholder="搜索中文标题、动作、服装、发型、编号 (如: 坐姿 / 水手服 / 双马尾 / SPR-0001)..." />
           <select class="pca-select" id="pca-filter-primary"></select>
           <select class="pca-select" id="pca-filter-secondary"></select>
+          <button class="pca-btn" id="pca-depth-btn">${this.useDepth ? "🌗 深度图 (Depth)" : "🗿 素体白模"}</button>
           <button class="pca-btn" id="pca-sfw-btn">${this.safeMode ? "🛡️ 安全模式 (SFW)" : "🔞 18+ 完整模式"}</button>
           <button class="pca-btn" id="pca-random-btn">🎲 随机抽一张</button>
           <button class="pca-btn" id="pca-reset-btn">重置筛选</button>
@@ -236,6 +240,17 @@ class PoseAtlasModal {
         this.page = 1;
         this.renderGrid();
       });
+
+    const depthBtn = backdrop.querySelector("#pca-depth-btn");
+    depthBtn.addEventListener("click", () => {
+      this.useDepth = !this.useDepth;
+      depthBtn.textContent = this.useDepth ? "🌗 深度图 (Depth)" : "🗿 素体白模";
+      if (this.targetNode) {
+        setWidgetValue(this.targetNode, "use_depth", this.useDepth);
+      }
+      this.renderGrid();
+      this.renderFooterSlots();
+    });
 
     const sfwBtn = backdrop.querySelector("#pca-sfw-btn");
     sfwBtn.addEventListener("click", () => {
@@ -426,7 +441,7 @@ class PoseAtlasModal {
 
       card.innerHTML = `
         <div class="pca-card-img-wrap">
-          <img class="pca-card-img" loading="lazy" src="${getThumbUrl(this.activeLib, item.id, item["缩略图"])}" alt="${title}" />
+          <img class="pca-card-img" loading="lazy" src="${getThumbUrl(this.activeLib, item.id, item["缩略图"], this.useDepth)}" alt="${title}" />
           <span class="pca-card-id">#${item.id}</span>
           ${badge ? `<span class="pca-card-badge">${badge}</span>` : ""}
         </div>
@@ -458,7 +473,7 @@ class PoseAtlasModal {
       const pill = document.createElement("div");
       pill.className = `pca-slot-pill ${this.activeLib === libKey ? "active" : ""}`;
       pill.innerHTML = `
-        <img src="${getThumbUrl(libKey, id)}" alt="${id}" />
+        <img src="${getThumbUrl(libKey, id, null, this.useDepth)}" alt="${id}" />
         <div>
           <div style="font-weight:600;color:#fff;">${LIBRARIES[libKey].shortLabel}</div>
           <div style="color:#9ca3af;font-family:monospace;">#${id}</div>
@@ -483,6 +498,7 @@ class PoseAtlasModal {
 
   applyAndClose() {
     if (this.targetNode) {
+      setWidgetValue(this.targetNode, "use_depth", this.useDepth);
       if (this.mode === "recipe") {
         setWidgetValue(
           this.targetNode,
@@ -531,6 +547,7 @@ function attachNodePreviewWidget(node, nodeKind) {
 
   const refresh = () => {
     container.innerHTML = "";
+    const useDepth = Boolean(findWidget(node, "use_depth")?.value);
     if (nodeKind === "recipe") {
       const slots = [
         {
@@ -549,7 +566,7 @@ function attachNodePreviewWidget(node, nodeKind) {
         },
         {
           lib: "pose",
-          label: "姿势",
+          label: useDepth ? "姿势(深度)" : "姿势",
           val: findWidget(node, "pose_id")?.value || LIBRARIES.pose.defaultId,
         },
       ];
@@ -558,7 +575,7 @@ function attachNodePreviewWidget(node, nodeKind) {
         card.className = "pca-node-thumb-card";
         card.title = `点击更换${s.label}参考图`;
         card.innerHTML = `
-          <img src="${getThumbUrl(s.lib, s.val)}" alt="${s.val}" />
+          <img src="${getThumbUrl(s.lib, s.val, null, useDepth)}" alt="${s.val}" />
           <div class="pca-node-thumb-label">${s.label} #${s.val}</div>
         `;
         card.addEventListener("click", () => {
@@ -573,8 +590,8 @@ function attachNodePreviewWidget(node, nodeKind) {
       card.className = "pca-node-thumb-card";
       card.title = "点击打开图库选图";
       card.innerHTML = `
-        <img src="${getThumbUrl(nodeKind, id)}" alt="${id}" />
-        <div class="pca-node-thumb-label">${LIBRARIES[nodeKind].shortLabel} #${id}</div>
+        <img src="${getThumbUrl(nodeKind, id, null, useDepth)}" alt="${id}" />
+        <div class="pca-node-thumb-label">${LIBRARIES[nodeKind].shortLabel}${nodeKind === "pose" && useDepth ? "(深度)" : ""} #${id}</div>
       `;
       card.addEventListener("click", () => {
         modalInstance.open({ node, initialLib: nodeKind, mode: "single" });
@@ -592,7 +609,7 @@ function attachNodePreviewWidget(node, nodeKind) {
     });
   }
 
-  ["image_id", "portrait_id", "costume_id", "pose_id"].forEach((wName) => {
+  ["image_id", "portrait_id", "costume_id", "pose_id", "use_depth"].forEach((wName) => {
     const w = findWidget(node, wName);
     if (w) {
       const origCb = w.callback;

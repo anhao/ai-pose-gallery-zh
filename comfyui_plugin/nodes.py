@@ -106,6 +106,14 @@ def _build_portrait_prompts(item: dict) -> tuple[str, str]:
     return zh, en
 
 
+def _pose_image_rel_path(item: dict, use_depth: bool = False) -> str:
+    raw = str(item.get("原图", "")).lstrip("/")
+    if use_depth and raw.startswith("img/") and not raw.startswith("img/depth/"):
+        stem = raw[len("img/") :].rsplit(".", 1)[0]
+        return f"img/depth/{stem}.webp"
+    return raw
+
+
 class PoseGalleryNode:
     """从 1,439 张 3D 素体姿势库中选择姿势参考图并输出 IMAGE 与提示词。"""
 
@@ -121,7 +129,10 @@ class PoseGalleryNode:
                 "width": ("INT", {"default": 1024, "min": 64, "max": 4096, "step": 8}),
                 "height": ("INT", {"default": 1280, "min": 64, "max": 4096, "step": 8}),
                 "flip_horizontal": ("BOOLEAN", {"default": False}),
-            }
+            },
+            "optional": {
+                "use_depth": ("BOOLEAN", {"default": False}),
+            },
         }
 
     RETURN_TYPES = ("IMAGE", "STRING", "STRING")
@@ -136,10 +147,11 @@ class PoseGalleryNode:
         width: int = 1024,
         height: int = 1280,
         flip_horizontal: bool = False,
+        use_depth: bool = False,
     ):
         item = find_item("pose", image_id)
         pil_img = _load_pil_image(
-            item["原图"],
+            _pose_image_rel_path(item, use_depth=use_depth),
             resize_mode=resize_mode,
             width=width,
             height=height,
@@ -261,7 +273,10 @@ class CharacterRecipeNode:
                 "width": ("INT", {"default": 1024, "min": 64, "max": 4096, "step": 8}),
                 "height": ("INT", {"default": 1280, "min": 64, "max": 4096, "step": 8}),
                 "flip_pose_horizontal": ("BOOLEAN", {"default": False}),
-            }
+            },
+            "optional": {
+                "use_depth": ("BOOLEAN", {"default": False}),
+            },
         }
 
     RETURN_TYPES = ("IMAGE", "IMAGE", "IMAGE", "IMAGE", "STRING", "STRING")
@@ -287,6 +302,7 @@ class CharacterRecipeNode:
         width: int = 1024,
         height: int = 1280,
         flip_pose_horizontal: bool = False,
+        use_depth: bool = False,
     ):
         portrait_item = find_item("portrait", portrait_id)
         costume_item = find_item("costume", costume_id)
@@ -299,7 +315,7 @@ class CharacterRecipeNode:
             costume_item["原图"], resize_mode=resize_mode, width=width, height=height
         )
         pose_pil = _load_pil_image(
-            pose_item["原图"],
+            _pose_image_rel_path(pose_item, use_depth=use_depth),
             resize_mode=resize_mode,
             width=width,
             height=height,

@@ -18,4 +18,6 @@ services:
 
   proxy:
     build: ./deploy/proxy
+    environment:
+      PROXY_ALLOWED_ORIGINS: ${PROXY_ALLOWED_ORIGINS:-}
     restart: unless-stopped

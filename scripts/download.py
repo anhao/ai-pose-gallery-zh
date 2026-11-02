@@ -13,6 +13,7 @@ import urllib.request
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 POSE_BASE = "https://ai-pose-gallery.pages.dev/"
+POSE_DEPTH_BASE = "https://ai-pose-depth-gallery.pages.dev/"
 COSTUME_BASE = "https://ai-costume-gallery.pages.dev/"
 PORTRAIT_BASE = "https://ai-portrait-gallery.pages.dev/"
 
@@ -33,6 +34,19 @@ if DATASET in ("all", "pose"):
             for item in json.load(f):
                 tasks_fast.append((POSE_BASE + item["サムネ"], os.path.join(ROOT, item["サムネ"]), POSE_BASE))
                 tasks_full.append((POSE_BASE + item["原寸"], os.path.join(ROOT, item["原寸"]), POSE_BASE))
+
+# 1b. POSE DEPTH (POSE-DB-02)
+if DATASET in ("all", "depth", "pose_depth"):
+    pose_zh_path = os.path.join(ROOT, "data", "pose-zh.json")
+    if os.path.exists(pose_zh_path):
+        with open(pose_zh_path, encoding="utf-8") as f:
+            for item in json.load(f):
+                thumb_rel = item["缩略图"]  # thumbs/xxx.jpg
+                full_rel = item["原图"]     # img/xxx.png
+                depth_thumb = thumb_rel.replace("thumbs/", "thumbs/depth/", 1)
+                depth_full = full_rel.replace("img/", "img/depth/", 1)
+                tasks_fast.append((POSE_DEPTH_BASE + thumb_rel, os.path.join(ROOT, depth_thumb), POSE_DEPTH_BASE))
+                tasks_full.append((POSE_DEPTH_BASE + full_rel, os.path.join(ROOT, depth_full), POSE_DEPTH_BASE))
 
 # 2. COSTUME
 if DATASET in ("all", "costume"):

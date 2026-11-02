@@ -92,10 +92,19 @@ def register_routes() -> None:
         lib = request.query.get("library", "")
         item_id = request.query.get("id", "")
         kind = request.query.get("kind", "thumb")
+        depth = request.query.get("depth", "") in ("1", "true")
         try:
             if not rel and lib and item_id:
                 item = find_item(lib, item_id)
                 rel = item.get("缩略图" if kind == "thumb" else "原图", "")
+            if depth:
+                clean_rel = (rel or "").lstrip("/")
+                if clean_rel.startswith("thumbs/") and not clean_rel.startswith("thumbs/depth/"):
+                    stem = clean_rel[len("thumbs/") :].rsplit(".", 1)[0]
+                    rel = f"thumbs/depth/{stem}.webp"
+                elif clean_rel.startswith("img/") and not clean_rel.startswith("img/depth/"):
+                    stem = clean_rel[len("img/") :].rsplit(".", 1)[0]
+                    rel = f"img/depth/{stem}.webp"
             path = resolve_safe_image_path(rel)
             return web.FileResponse(
                 path,
