@@ -404,32 +404,20 @@ export function StudioProvider({ children }: { children: ReactNode }) {
   }
 
   const togglePortrait = (item: PortraitItem) => {
-    setRecipe((r) => {
-      const remove = r.portrait?.id === item.id
-      toast.success(remove ? '已移除人像' : `已选人像：${item.发型名称}`)
-      return { ...r, portrait: remove ? null : item }
-    })
+    const remove = recipe.portrait?.id === item.id
+    setRecipe((r) => ({ ...r, portrait: remove ? null : item }))
+    toast.success(remove ? '已移除人像' : `已选人像：${item.发型名称}`)
   }
-
   const toggleCostume = (item: CostumeItem) => {
-    setRecipe((r) => {
-      const remove = r.costume?.id === item.id
-      toast.success(remove ? '已移除服装' : `已选服装：${item.服装名称}`)
-      return { ...r, costume: remove ? null : item }
-    })
+    const remove = recipe.costume?.id === item.id
+    setRecipe((r) => ({ ...r, costume: remove ? null : item }))
+    toast.success(remove ? '已移除服装' : `已选服装：${item.服装名称}`)
   }
-
   const togglePose = (item: PoseItem) => {
     const useDepth = item.source === 'upload' ? false : (item.useDepth ?? poseDepthMode)
-    setRecipe((r) => {
-      const remove = r.pose?.id === item.id && Boolean(r.pose?.useDepth) === useDepth
-      toast.success(
-        remove
-          ? '已移除姿势'
-          : `已选姿势：${item.姿势名称}（${item.角度}${useDepth ? ' · 深度图' : ''}）`
-      )
-      return { ...r, pose: remove ? null : { ...item, useDepth } }
-    })
+    const remove = recipe.pose?.id === item.id && Boolean(recipe.pose?.useDepth) === useDepth
+    setRecipe((r) => ({ ...r, pose: remove ? null : { ...item, useDepth } }))
+    toast.success(remove ? '已移除姿势' : `已选姿势：${item.姿势名称}（${item.角度}${useDepth ? ' · 深度图' : ''}）`)
   }
 
   const addExtraImage = (item: { name: string; url: string }) => {
