@@ -1,0 +1,380 @@
+[
+  {
+    "id": "male_M001",
+    "image": "img/male/M001_单手插兜自然站立.png",
+    "sha256": "dfb6d6dcadddb26a3127b56e503b420241daaef7d1e3fc40f05ad8d5809fd9b2",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_M002",
+    "image": "img/male/M002_双手插兜一腿放松.png",
+    "sha256": "0d67f68e68588ade001f71290223fe5afef4fee7743df42c9739fe7365e100f0",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_M003",
+    "image": "img/male/M003_交叉抱臂三分之四站立.png",
+    "sha256": "4886f7c4f7ebfd7c01ec0ad6374acbb4d5a16f19cbff8ba2455b2c7e7f4f4e7c",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_M004",
+    "image": "img/male/M004_低头整理袖口.png",
+    "sha256": "f56a96c0fdc8193f175fd84ca510d604086c5fd1b271bb6e92a6bb2d2c65f10a",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_M005",
+    "image": "img/male/M005_一只手搭着肩上的外套.png",
+    "sha256": "8e3493c2a1a1044d21bda0fb17b3a57435a1060976ec35eccc119413e8f4c355",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_M006",
+    "image": "img/male/M006_身体侧向镜头回头看.png",
+    "sha256": "cb77209fdab2630828ed206d8d2d73c3acabc14eb7be1a7720158cd6e7a4d9b0",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_M007",
+    "image": "img/male/M007_坐凳上前倾双手自然扶膝.png",
+    "sha256": "5caa25c9d75a6236fc1dea5f71fded669463e79396dba9ed6f08ed19b92f8be4",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_M008",
+    "image": "img/male/M008_坐椅子自然翘腿.png",
+    "sha256": "df5f90e9445f9daf06d7a4db1c49c9d9273060ce9a5eaf31775d3c220745b2e5",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_M009",
+    "image": "img/male/M009_反坐椅子双臂搭椅背.png",
+    "sha256": "8ec83dbe79133704717c2b2be79d5c1bec5c8cebede8214e80a9e527a7f4b580",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_M010",
+    "image": "img/male/M010_坐在两三级简单台阶上.png",
+    "sha256": "94c99cea36c6f36be2b993f29dc471b1b3026030fc86d23d4c9d8a8cda328871",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_M011",
+    "image": "img/male/M011_坐姿单手托腮另一手扶腿.png",
+    "sha256": "cb45e274adc89fd4304ccaded95a41e9f9975cc4a95b3cc83f5570d1b25deb2d",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_M012",
+    "image": "img/male/M012_侧坐凳上回望镜头.png",
+    "sha256": "6afabb37161a10111d5f6a190cfdc882807a4594dc0dc50a21492c29455bb3a2",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_M013",
+    "image": "img/male/M013_单肩靠墙.png",
+    "sha256": "c4493450dafae2f2c61b06ed802757bac3ee10e72f753cc24258f5d24c7094e2",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_M014",
+    "image": "img/male/M014_背靠墙单膝屈起脚掌抵墙.png",
+    "sha256": "626dc6f196d576a405ee8fa206db2d51ce8803b15c5bafaef2d82c0996f2eb8e",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_M015",
+    "image": "img/male/M015_站姿倚简洁栏杆远望.png",
+    "sha256": "cbcd68c6c818880bb31b096bb5a057484ad5e96362c06c1242f3599beee907c4",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_M016",
+    "image": "img/male/M016_行走中回头.png",
+    "sha256": "3c1b0264f2c8e38df55d11194cdb3e057a1097735d0a17dc362f5782ef068ecc",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_M017",
+    "image": "img/male/M017_站姿低头整理衣领.png",
+    "sha256": "e74842a1fe050ea3add9231f3bc89bdfbceb046fe84ba413e2a2f19ab80cb3a7",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_M018",
+    "image": "img/male/M018_一手抬起遮阳头微抬另一手自然垂下.png",
+    "sha256": "a4eb389f7eb655ad80d7afc44b9f7fc08abe84f188fe2d79e4f3e8415df742f5",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_MH001",
+    "image": "img/male/MH001_圆寸.png",
+    "sha256": "f894addcef640c134137b9587c63c9aff93430b999aef01b4eeecdc573776b61",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_MH002",
+    "image": "img/male/MH002_毛寸.png",
+    "sha256": "b09f5fff6a7914b6974097ea4e088ac074b47fd11308f1b2db14282df3f6a6d9",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_MH003",
+    "image": "img/male/MH003_平头.png",
+    "sha256": "81e083ea7c9f6a65f197fc4f4e83afd1a3205addac6c0cbbcbc438b1b8298d6e",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_MH004",
+    "image": "img/male/MH004_常规清爽短发.png",
+    "sha256": "206d4604e0ba94ac02989cb1aab0624b1da7f82dd88408ed59000b9eed4da94a",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_MH005",
+    "image": "img/male/MH005_法式短碎发.png",
+    "sha256": "f5e4fcb3ea83b6b5ced86c91ba226769e8ea4305bf614a415964e68c7263eb13",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_MH006",
+    "image": "img/male/MH006_凯撒短发.png",
+    "sha256": "274e8379042e54f6c64da31e74e05d2c9b579d6bba0f7ed0df67cb5a47cc415a",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_MH007",
+    "image": "img/male/MH007_常春藤短发.png",
+    "sha256": "30b1836a9e6e474bc7f845967f40619a70ac50481cd081c3ec6f66d2e05963ee",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_MH008",
+    "image": "img/male/MH008_三七侧分.png",
+    "sha256": "50004cf2dd4378aeb619a81a19f0051277eb2f771ad6ea1d8afd622274842e19",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_MH009",
+    "image": "img/male/MH009_短飞机头.png",
+    "sha256": "5fbede3e551d0b66ee8493879f2de37f92685497ea76c16c7297579127469701",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_MH010",
+    "image": "img/male/MH010_后梳背头.png",
+    "sha256": "c4b16b3d4ba761a36963ebea48276852017c5c770929b2f89cbeee17fbff5ddc",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_MH011",
+    "image": "img/male/MH011_两段式短发.png",
+    "sha256": "6bfa4403d5021dd3679222227c1568261092d91f90bbb92db9f0a87b749e0956",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_MH012",
+    "image": "img/male/MH012_纹理碎盖.png",
+    "sha256": "52b8fcc7b88876c39445f8f59d44e2b3380488daec1cbdba035f294ffe1dc50e",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_MH013",
+    "image": "img/male/MH013_中分帘式发型.png",
+    "sha256": "c4de618fa269abf1c20e558b6d4c59d7f54186a59b2306accf64b8884bbd0793",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_MH014",
+    "image": "img/male/MH014_偏分逗号刘海.png",
+    "sha256": "a652924c6cd9fa2ca8303f62b614026de5481b4d81626256f3ff0f349a9bdde9",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_MH015",
+    "image": "img/male/MH015_自然微卷.png",
+    "sha256": "6d110f6feb68e9d03a3324e3fcbd4c3aa8b3a92b7b9a7b430ac9b30d64884d17",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_MH016",
+    "image": "img/male/MH016_层次狼尾.png",
+    "sha256": "786b59e1afddb2a1de521d9f1adafedf2e6cc3c664faeef0d7a9a4f6f7a5f01c",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_MH017",
+    "image": "img/male/MH017_耳后后梳中长发.png",
+    "sha256": "a5e43ba44926b3551097c1c93f610c132b07e91ade5f58ea35148ee951eb5fad",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_MH018",
+    "image": "img/male/MH018_齐肩长发.png",
+    "sha256": "f9469b5e919f1b8937d9d332c4a604c2992ba8cefceb81d347c8fe1c63c1645a",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_MP001",
+    "image": "img/male/MP001_清爽短发青年.png",
+    "sha256": "5bff97081bec019a2d9b0b802f80020269ce3d3c0340bcb242a33e11201c440a",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_MP002",
+    "image": "img/male/MP002_成熟商务男士.png",
+    "sha256": "f22028cb4da64c822481dc6ecb1bc840c3d36c7c97c6498a84772816f3ebcc0e",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_MP003",
+    "image": "img/male/MP003_运动型男士.png",
+    "sha256": "ff25404d36b59e469ef0ba48882611ace0396af45701e0ee6ce0f328cf121b0f",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_MO001",
+    "image": "img/male/MO001_白T牛仔.png",
+    "sha256": "1cda2411e9abe517734f28a59a6228e2e32be8162a0dc1ebb5175c75c317f682",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_MO002",
+    "image": "img/male/MO002_Polo简约.png",
+    "sha256": "a3e6d428ff16f71c926530f2212e66277cbbc634f0b4d83385462b02a8532daa",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_MO003",
+    "image": "img/male/MO003_亚麻衬衫.png",
+    "sha256": "8b0c9503e8942587ce767fd8013809221919db26708fa4e97175cec1fb8373fb",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_MO004",
+    "image": "img/male/MO004_衬衫西裤.png",
+    "sha256": "5041f94208c717a3b32ae512d59702cbeb21957e3641bab00f3f9dd3c525d6a8",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_MO005",
+    "image": "img/male/MO005_单西混搭.png",
+    "sha256": "8f4980a1890633c38f3c1e7c633587b0f4bed242fee14070504ff89e6dddf8b1",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_MO006",
+    "image": "img/male/MO006_两件套西装.png",
+    "sha256": "2aaa80b5be01347605c0f518ee27eee9abb21a03f65be8a680038a81bc8147cd",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_MO007",
+    "image": "img/male/MO007_衬衫针织.png",
+    "sha256": "73271f9eb992e16872f10441a58b4e0f6be57fbcaaa73fedab929aa654d41342",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_MO008",
+    "image": "img/male/MO008_针织通勤.png",
+    "sha256": "24d5bd67d0618929322b419a80fe0cf881eda254aa365ff8c3b806bd8fe8311d",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_MO009",
+    "image": "img/male/MO009_工装夹克.png",
+    "sha256": "bee106dc7a6556476ece87cea01422c65e4c873b8c214b09f879b04767faed51",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_MO010",
+    "image": "img/male/MO010_牛仔夹克.png",
+    "sha256": "aea2cbf6626ce03c198891ad59d58bcfcb714142a66f8646f01d83516a118c29",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_MO011",
+    "image": "img/male/MO011_卫衣运动装.png",
+    "sha256": "a22affe051ec0d75045c937d271498b69e54441d932140614972b8e5e92bb578",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_MO012",
+    "image": "img/male/MO012_大衣高领.png",
+    "sha256": "cfd62b0c5543b23340e159a1c559cddb3cf4bf5f892409af462ec1532ad6d9c9",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_MC001",
+    "image": "img/male/MC001_浅色衬衫商务穿搭.png",
+    "sha256": "e51c6c5fa93b681d6b91a81cc2694bcf6e1bed1593a88d1cfa50377a94e41f30",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_MC002",
+    "image": "img/male/MC002_白T牛仔休闲穿搭.png",
+    "sha256": "c78ab6a16387b2efeab3220e3560249b1b192f954dc8ee9b9b4cb1c8578d82f3",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  },
+  {
+    "id": "male_MC003",
+    "image": "img/male/MC003_灰色西装套装.png",
+    "sha256": "56455930311fe731fbcee63f701c805d8b322002b22e9946c3ffb9bdc734455f",
+    "generation": "Codex built-in image generation",
+    "synthetic": true
+  }
+]

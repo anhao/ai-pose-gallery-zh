@@ -83,7 +83,7 @@ function localAssetsAndProxyPlugin(): Plugin {
     }
     const ext = path.extname(filePath).toLowerCase()
     res.setHeader('Content-Type', MIME[ext] || 'application/octet-stream')
-    res.setHeader('Cache-Control', 'public, max-age=3600')
+    res.setHeader('Cache-Control', ext === '.json' ? 'no-store' : 'public, max-age=3600')
     fs.createReadStream(filePath).pipe(res)
   }
 
