@@ -1,3 +1,4 @@
+import { ZoomViewport } from '@/components/common/ZoomViewport'
 import { useSuspenseQuery } from '@tanstack/react-query'
 import { createFileRoute } from '@tanstack/react-router'
 import {
@@ -468,13 +469,13 @@ function PosesPage() {
             return (
               <div className="grid md:grid-cols-[1fr_300px]">
                 <div className="relative flex max-h-[78dvh] min-h-[min(360px,65dvh)] items-center justify-center bg-muted/60 p-4">
-                  <img src={`/${activeImgPath}`} alt={it.姿势名称} className="max-h-[72dvh] w-auto rounded-lg object-contain" />
+                  <ZoomViewport imageUrl={`/${activeImgPath}`} alt={it.姿势名称} className="min-h-0 h-[58dvh]" />
                   {grp && grp.order.length > 1 && (
                     <>
                       <Button
                         variant="secondary"
                         size="icon"
-                        className="absolute top-1/2 left-3 -translate-y-1/2 rounded-full shadow"
+                        aria-label="上一张图片" className="absolute top-1/2 left-3 min-h-11 min-w-11 -translate-y-1/2 rounded-full shadow"
                         onClick={() => {
                           const idx = grp.order.findIndex((x) => x.id === it.id)
                           const next = grp.order[(idx - 1 + grp.order.length) % grp.order.length]
@@ -486,7 +487,7 @@ function PosesPage() {
                       <Button
                         variant="secondary"
                         size="icon"
-                        className="absolute top-1/2 right-3 -translate-y-1/2 rounded-full shadow"
+                        aria-label="下一张图片" className="absolute top-1/2 right-3 min-h-11 min-w-11 -translate-y-1/2 rounded-full shadow"
                         onClick={() => {
                           const idx = grp.order.findIndex((x) => x.id === it.id)
                           const next = grp.order[(idx + 1) % grp.order.length]
