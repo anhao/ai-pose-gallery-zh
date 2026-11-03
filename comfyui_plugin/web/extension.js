@@ -652,7 +652,7 @@ app.registerExtension({
 
       const btnLabel =
         nodeKind === "recipe"
-          ? "🎨 打开三合一选图器 (6,105张)"
+          ? "🎨 打开三合一选图器"
           : `🖼️ 打开${LIBRARIES[nodeKind].shortLabel}图库选图`;
 
       this.addWidget("button", btnLabel, null, () => {
