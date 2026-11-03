@@ -16,18 +16,20 @@ function openDb(): Promise<IDBDatabase> {
   })
 }
 
-export async function idbGet<T>(key: string): Promise<T | undefined> {
+export async function idbRead<T>(key: string): Promise<T | undefined> {
+  const db = await openDb()
   try {
-    const db = await openDb()
     return await new Promise<T | undefined>((resolve, reject) => {
       const tx = db.transaction(STORE_NAME, 'readonly')
       const req = tx.objectStore(STORE_NAME).get(key)
       req.onsuccess = () => resolve(req.result as T | undefined)
       req.onerror = () => reject(req.error)
+      tx.onabort = () => reject(tx.error)
     })
-  } catch {
-    return undefined
-  }
+  } finally { db.close() }
+}
+export async function idbGet<T>(key: string): Promise<T | undefined> {
+  try { return await idbRead<T>(key) } catch { return undefined }
 }
 
 export async function idbSet<T>(key: string, value: T): Promise<void> {
@@ -42,4 +44,17 @@ export async function idbSet<T>(key: string, value: T): Promise<void> {
   } catch {
     // ignore storage errors in private browsing
   }
+}
+
+// 确认保存成功的操作必须等待事务提交。
+export async function idbWrite<T>(key: string, value: T): Promise<void> {
+  const db = await openDb()
+  try {
+    await new Promise<void>((resolve, reject) => {
+      const tx = db.transaction(STORE_NAME, 'readwrite')
+      tx.objectStore(STORE_NAME).put(value, key)
+      tx.oncomplete = () => resolve()
+      tx.onerror = tx.onabort = () => reject(tx.error || new Error('浏览器存储写入失败'))
+    })
+  } finally { db.close() }
 }
