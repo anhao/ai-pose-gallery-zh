@@ -1272,7 +1272,12 @@ async function trackComfyTask(params: {
         reconcile()
       }
     }
-    socket.onConnection = (connection) => { report({ connection }); reconcile() }
+    socket.onConnection = (connection) => {
+      const wasConnected = progress.connection === 'connected'
+      report({ connection })
+      if (connection === 'connected' || wasConnected) reconcile()
+      else { nextHistoryAt = Math.min(nextHistoryAt, Date.now() + 3000); wake() }
+    }
     report({ connection: socket.connection })
     window.addEventListener('online', reconcile)
     document.addEventListener('visibilitychange', activate)
