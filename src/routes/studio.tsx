@@ -57,6 +57,7 @@ import {
 } from '@/services/aiGenerator'
 import { poseImagePath, poseThumbPath, referenceImageUrl, uploadedReferences } from '@/lib/recipeImages'
 import { useStudio } from '@/store/studioStore'
+import { selectCostumeView } from '@/lib/costumeSources'
 import type {
   ComfyUiParams,
   DoubaoParams,
@@ -112,6 +113,7 @@ function StudioPage() {
   const slotInputRef = useRef<HTMLInputElement | null>(null)
   const uploadSlotRef = useRef<'portrait' | 'costume' | 'pose'>('portrait')
   const [uploadingSlot, setUploadingSlot] = useState<string | null>(null)
+  const costumeViews = recipe.costume?.views?.filter((view) => view.原图 && view.缩略图) || []
   const [showReferenceErrors, setShowReferenceErrors] = useState(false)
   const referenceErrorsRef = useRef<HTMLDivElement | null>(null)
 
@@ -527,6 +529,16 @@ function StudioPage() {
                       <div className="line-clamp-2 text-xs font-medium leading-snug" title={recipe.costume.服装名称}>
                         {recipe.costume.服装名称}
                       </div>
+                      {costumeViews.length > 0 && <Select
+                        value={costumeViews.find((view) => view.id === recipe.costume?.selectedView)?.id || costumeViews.find((view) => view.id === 'front')?.id || costumeViews[0].id}
+                        disabled={uploadingSlot !== null}
+                        onValueChange={(value) => {
+                          if (recipe.costume && uploadingSlot === null) setCostume(selectCostumeView(recipe.costume, value))
+                        }}
+                      >
+                        <SelectTrigger aria-label="已选服装视角" className="h-8 w-full text-xs"><SelectValue /></SelectTrigger>
+                        <SelectContent>{costumeViews.map((view) => <SelectItem key={view.id} value={view.id}>{view.label}</SelectItem>)}</SelectContent>
+                      </Select>}
                     </div>
                   </>
                 ) : (

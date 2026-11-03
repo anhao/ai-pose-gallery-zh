@@ -498,7 +498,7 @@ export function StudioProvider({ children }: { children: ReactNode }) {
 
   const randomizeRecipe = (pools: { portraits?: PortraitItem[]; costumes?: CostumeItem[]; poses?: PoseItem[] }) => {
     const posePool = safeMode ? (pools.poses || []).filter((p) => !isNsfwPose(p)) : pools.poses || []
-    const costumePool = (pools.costumes || []).filter((c) => c.source !== 'charadb' && (!safeMode || !isNsfwCostume(c)))
+    const costumePool = (pools.costumes || []).filter((c) => !c.source && c.一级分类 !== '二次元' && (!safeMode || !isNsfwCostume(c)))
     const portraitPool = pools.portraits || []
 
     setRecipe((prev) => ({
