@@ -1,1 +1,4 @@
 data/charadb/*.json text eol=lf
+data/shisei/costumes.json -text
+data/shisei/LICENSE-images -text
+data/shisei/NOTICE -text

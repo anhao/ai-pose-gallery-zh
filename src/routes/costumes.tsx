@@ -25,6 +25,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Skeleton } from '@/components/ui/skeleton'
 import { cn } from '@/lib/utils'
 import { referenceImageUrl } from '@/lib/recipeImages'
+import { COSTUME_SOURCES, costumeSourceId, selectCostumeView } from '@/lib/costumeSources'
 import { CHARADB_NOTICE_URL } from '@/lib/charadb'
 import { useStudio } from '@/store/studioStore'
 
@@ -39,6 +40,8 @@ function CostumesPage() {
   const { data: costumes } = useSuspenseQuery(costumesQuery)
   const { recipe, toggleCostume, safeMode, requestUnlockNsfw } = useStudio()
 
+  const [source, setSource] = useState('all')
+  const [view, setView] = useState({ itemId: '', id: 'front' })
   const [category, setCategory] = useState('')
   const [kind, setKind] = useState('全部')
   const [tag, setTag] = useState('all')
@@ -49,10 +52,10 @@ function CostumesPage() {
   const activeCategory = safeMode && category && isNsfwCostumeCategory(category) ? '' : category
 
   const baseCostumes = useMemo(
-    () => costumes.filter((x) => (kind === '全部' || (x.一级分类 || '现实') === kind) && (!safeMode || !isNsfwCostume(x))),
-    [costumes, safeMode, kind]
+    () => costumes.filter((x) => (source === 'all' || costumeSourceId(x) === source) && (kind === '全部' || (x.一级分类 || '现实') === kind) && (!safeMode || !isNsfwCostume(x))),
+    [costumes, safeMode, kind, source]
   )
-  const hiddenNsfwCount = costumes.filter((x) => (kind === '全部' || (x.一级分类 || '现实') === kind) && isNsfwCostume(x)).length
+  const hiddenNsfwCount = costumes.filter((x) => (source === 'all' || costumeSourceId(x) === source) && (kind === '全部' || (x.一级分类 || '现实') === kind) && isNsfwCostume(x)).length
   const activeTag = tag === 'all' || baseCostumes.some((x) => (!activeCategory || x.分类 === activeCategory) && x.标签.includes(tag)) ? tag : 'all'
 
   const categories = useMemo(
@@ -76,7 +79,8 @@ function CostumesPage() {
     })
   }, [baseCostumes, activeCategory, activeTag, q])
 
-  const currentItem = viewerIndex !== null ? filtered[viewerIndex] : null
+  const viewedItem = viewerIndex !== null ? filtered[viewerIndex] : null
+  const currentItem = viewedItem ? selectCostumeView(viewedItem, view.itemId === viewedItem.id ? view.id : 'front') : null
 
   useEffect(() => {
     if (viewerIndex === null || !filtered.length) return
@@ -103,13 +107,15 @@ function CostumesPage() {
             }}>{value}</Button>
           ))}
         </div>
-        {kind !== '现实' && (
-          <p className="text-xs text-muted-foreground">
-            二次元服装来源：<a className="underline hover:text-foreground" href="https://charadb-2fi.pages.dev/" target="_blank" rel="noopener noreferrer">たき AI · CharaDB</a>（<a className="underline hover:text-foreground" href={CHARADB_NOTICE_URL} target="_blank" rel="noopener noreferrer">使用说明</a>）
-          </p>
-        )}
+        <Select value={source} onValueChange={(value) => { setSource(value); setCategory(''); setTag('all'); setShown(60); setViewerIndex(null) }}>
+          <SelectTrigger aria-label="服装来源" className="w-56"><SelectValue placeholder="全部来源" /></SelectTrigger>
+          <SelectContent><SelectItem value="all">全部来源</SelectItem>{COSTUME_SOURCES.map((entry) => <SelectItem key={entry.id} value={entry.id}>{entry.label}</SelectItem>)}</SelectContent>
+        </Select>
       </div>
 
+      <div className="space-y-1 text-xs text-muted-foreground">
+        {COSTUME_SOURCES.filter((entry) => (source === 'all' || source === entry.id) && (kind === '全部' || (entry.id === 'charadb' ? '二次元' : '现实') === kind)).map((entry) => <p key={entry.id}><a href={entry.url} target="_blank" rel="noopener noreferrer" className="underline">{entry.label}</a>：{entry.notice}</p>)}
+      </div>
       {/* 分类筛选药丸 */}
       <div className="flex gap-2 overflow-x-auto pb-1 sm:flex-wrap sm:pb-0">
         <button
@@ -208,6 +214,7 @@ function CostumesPage() {
             setTag('all')
             setQuery('')
             setKind('全部')
+            setSource('all')
             setShown(60)
           }}
         >
@@ -293,7 +300,7 @@ function CostumesPage() {
       <Dialog open={viewerIndex !== null} onOpenChange={(o) => !o && setViewerIndex(null)}>
         <DialogContent className="max-h-[90dvh] w-[95vw] max-w-4xl overflow-y-auto p-0 sm:max-w-4xl">
           {currentItem && viewerIndex !== null && (() => {
-            const picked = recipe.costume?.id === currentItem.id
+            const picked = recipe.costume?.id === currentItem.id && (recipe.costume.selectedView || 'front') === (currentItem.selectedView || 'front')
             return (
               <div className="grid md:grid-cols-[1fr_320px]">
                 <div className="relative flex max-h-[78dvh] min-h-[min(380px,65dvh)] items-center justify-center bg-muted/60 p-4">
@@ -325,9 +332,11 @@ function CostumesPage() {
                       </div>
                       <DialogTitle className="mt-2 text-base leading-snug">{currentItem.服装名称}</DialogTitle>
                       <p className="text-xs text-muted-foreground">来源：{currentItem.来源 || 'ギア（@giaaibusi）'}</p>
+                      {currentItem.source === 'shisei' && <p className="text-xs text-muted-foreground">Shisei / wquguru · CC0 · AI 生成服装参考，并非专业复原。</p>}
                       {currentItem.source === 'charadb' && <a className="text-xs underline" href={CHARADB_NOTICE_URL} target="_blank" rel="noopener noreferrer">图片仅作参考，禁止真人、未成年人及再分发；查看原作者条件</a>}
                     </DialogHeader>
 
+                    {currentItem.views && <div className="flex flex-wrap gap-2" aria-label="服装视角">{currentItem.views.map((entry) => <Button key={entry.id} variant={currentItem.selectedView === entry.id ? 'default' : 'outline'} aria-pressed={currentItem.selectedView === entry.id} onClick={() => setView({ itemId: currentItem.id, id: entry.id })}>{entry.label}</Button>)}</div>}
                     <div>
                       <div className="mb-1.5 text-xs font-medium text-muted-foreground">中文单品与色彩标签</div>
                       <div className="flex flex-wrap gap-1.5">

@@ -425,7 +425,7 @@ export function StudioProvider({ children }: { children: ReactNode }) {
     toast.success(remove ? '已移除人像' : `已选人像：${item.发型名称}`)
   }
   const toggleCostume = (item: CostumeItem) => {
-    const remove = recipe.costume?.id === item.id
+    const remove = recipe.costume?.id === item.id && (recipe.costume.selectedView || 'front') === (item.selectedView || 'front')
     setRecipe((r) => ({ ...r, costume: remove ? null : item }))
     toast.success(remove ? '已移除服装' : `已选服装：${item.服装名称}`)
   }
