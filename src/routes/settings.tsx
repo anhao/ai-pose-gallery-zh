@@ -10,7 +10,7 @@ import {
   SparklesIcon,
 } from 'lucide-react'
 import { useState } from 'react'
-import { toast } from 'sonner'
+import { toast } from '@/lib/notifications'
 import { Field, Section } from '@/components/common/FormSection'
 import { PageHeader } from '@/components/common/PageHeader'
 import { Button } from '@/components/ui/button'

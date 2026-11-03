@@ -26,7 +26,7 @@ function RootLayout() {
           </main>
         </SidebarInset>
       </SidebarProvider>
-      <Toaster position="top-center" richColors />
+      <Toaster />
     </TooltipProvider>
   )
 }
