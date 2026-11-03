@@ -162,4 +162,14 @@ export interface GenerationHistoryItem {
   prompt: string
   imageUrl: string
   recipeSummary: string
+  snapshot?: GenerationSnapshot
+}
+
+
+export interface GenerationSnapshot {
+  recipe: RecipeState
+  prompt: string
+  settings: Omit<ApiConfig, 'providers'>
+  models: Record<ImageProviderId, Pick<ProviderEndpointConfig, 'model' | 'customModel'>>
+  submittedWorkflowJson?: string
 }

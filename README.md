@@ -68,6 +68,8 @@
 
 > 导入 API 后的动态高级参数、设定集参考上传与可选显示声明见 [ComfyUI 工作流高级参数](docs/comfyui-workflow-parameters.md)。
 
+> WebSocket 实时进度、HTTP 保底与刷新恢复见 [ComfyUI 任务连接与恢复](docs/comfyui-task-tracking.md)。
+
 ### 3. ComfyUI 原生自定义节点插件（`comfyui_plugin/`）
 将本仓库克隆到 `ComfyUI/custom_nodes/ai-pose-gallery-zh` 后，ComfyUI 画布右键菜单 **「AI角色三合一参考图集」** 下自动提供 4 个节点：
 - **AI 姿势参考图 (`PoseGalleryNode`)**：输出 `姿势图 (IMAGE)`、`图片ID`、`姿势提示词`（支持 `use_depth` 开关一键切换输出素体白模或深度图）
