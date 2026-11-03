@@ -23,6 +23,7 @@ function ZoomSurface({ imageUrl, alt = '图片预览', children, contentWidth = 
   const [size, setSize] = useState({ width: 1, height: 1 })
   const [natural, setNatural] = useState({ width: contentWidth, height: contentHeight })
   const [view, setView] = useState({ zoom: 1, x: 0, y: 0 })
+  const [imageFailed, setImageFailed] = useState(false)
   const current = useRef(view)
   const pointers = useRef(new Map<number, { x: number; y: number }>())
   const previous = useRef<{ x: number; y: number; distance: number } | null>(null)
@@ -80,6 +81,7 @@ function ZoomSurface({ imageUrl, alt = '图片预览', children, contentWidth = 
       className="relative min-h-0 flex-1 overflow-hidden rounded-lg bg-muted/60 outline-offset-2 focus-visible:outline-2 focus-visible:outline-ring"
       style={{ touchAction: 'none', cursor: view.zoom > 1 ? 'grab' : 'default' }}
       onKeyDown={(e) => {
+        if (e.target !== e.currentTarget) return
         if (e.key === '+' || e.key === '=') { e.preventDefault(); zoomAt(current.current.zoom * 1.25) }
         if (e.key === '-') { e.preventDefault(); zoomAt(current.current.zoom / 1.25) }
         if (e.key === '0' || e.key === 'Home') { e.preventDefault(); reset() }
@@ -106,8 +108,12 @@ function ZoomSurface({ imageUrl, alt = '图片预览', children, contentWidth = 
       onPointerCancel={(e) => { pointers.current.delete(e.pointerId); previous.current = gesture() }}
       onLostPointerCapture={(e) => { pointers.current.delete(e.pointerId); previous.current = gesture() }}>
       <div className="pointer-events-none absolute top-1/2 left-1/2 origin-center select-none" style={{ width: natural.width, height: natural.height, transform: `translate(-50%, -50%) translate(${view.x}px, ${view.y}px) scale(${fit * view.zoom})` }}>
-        {children ?? (imageUrl && <img src={imageUrl} alt={alt} draggable={false} className="h-full w-full object-contain" onLoad={(e) => { setNatural({ width: e.currentTarget.naturalWidth, height: e.currentTarget.naturalHeight }); reset() }} />)}
+        {children ?? (imageUrl && !imageFailed && <img src={imageUrl} alt={alt} draggable={false} className="h-full w-full object-contain" onError={() => setImageFailed(true)} onLoad={(e) => { setNatural({ width: e.currentTarget.naturalWidth, height: e.currentTarget.naturalHeight }); reset() }} />)}
       </div>
+      {!children && imageFailed && <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-background/90 p-4 text-center" onPointerDown={(e) => e.stopPropagation()}>
+        <p role="status" className="text-sm text-muted-foreground">图片加载失败，请检查网络后重试。</p>
+        <Button type="button" variant="outline" className="min-h-11" onClick={() => { setImageFailed(false); viewport.current?.focus() }}>重新加载图片</Button>
+      </div>}
     </div>
     <p className="shrink-0 text-center text-xs text-muted-foreground">滚轮或双指缩放 · 放大后拖动 · 100% 为适应窗口</p>
   </div>
