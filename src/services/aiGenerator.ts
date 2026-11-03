@@ -743,7 +743,7 @@ export function autoDetectComfyMappings(workflowJson: string): ComfyNodeMappings
 // 网络请求与中文错误
 // ---------------------------------------------------------------------------
 
-function normalizeComfyBase(baseUrl: string): string {
+export function normalizeComfyBase(baseUrl: string): string {
   return (baseUrl.trim() || defaultComfyBaseUrl()).replace(/\/+$/, '')
 }
 
@@ -768,7 +768,7 @@ function describeComfyNetworkError(baseUrl: string, timedOut: boolean): string {
   return `[ComfyUI] 无法连接 ${baseUrl}。可能原因：\n${reasons.join('\n')}`
 }
 
-async function comfyFetch(
+export async function comfyFetch(
   baseUrl: string,
   path: string,
   init: RequestInit = {},
@@ -781,7 +781,8 @@ async function comfyFetch(
   const timer = setTimeout(() => ctrl.abort(), timeoutMs)
   let res: Response
   try {
-    res = await fetch(`${baseUrl}${path}`, { ...init, headers, signal: ctrl.signal })
+    const signal = init.signal ? AbortSignal.any([ctrl.signal, init.signal]) : ctrl.signal
+    res = await fetch(`${baseUrl}${path}`, { ...init, headers, signal })
   } catch (e: any) {
     throw new Error(describeComfyNetworkError(baseUrl, e?.name === 'AbortError'))
   } finally {

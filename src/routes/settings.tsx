@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import {
-  ActivityIcon,
   CheckIcon,
   ExternalLinkIcon,
   EyeIcon,
@@ -17,9 +16,11 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Switch } from '@/components/ui/switch'
-import { detectComfyUi, PROVIDER_META, testComfyConnection } from '@/services/aiGenerator'
+import { detectComfyUi, PROVIDER_META } from '@/services/aiGenerator'
 import { useStudio } from '@/store/studioStore'
 import type { ImagePassMode, ImageProviderId } from '@/types/gallery'
+import { ComfyConnectionStatus } from '@/components/studio/ComfyConnectionStatus'
+import { COMFY_CONNECTION_LABELS } from '@/store/useComfyConnection'
 
 export const Route = createFileRoute('/settings')({
   staticData: { title: 'API 配置' },
@@ -29,25 +30,13 @@ export const Route = createFileRoute('/settings')({
 const PROVIDER_ORDER: ImageProviderId[] = ['gemini', 'gpt', 'qwen', 'doubao', 'comfyui']
 
 function SettingsPage() {
-  const { apiConfig, updateApiConfig, updateProviderConfig } = useStudio()
+  const { apiConfig, updateApiConfig, updateProviderConfig, comfyConnection } = useStudio()
   const [showKey, setShowKey] = useState(false)
   const [testingComfy, setTestingComfy] = useState(false)
 
   const pid = apiConfig.activeProvider
   const meta = PROVIDER_META[pid]
   const pCfg = apiConfig.providers[pid]
-
-  const handleTestComfy = async () => {
-    setTestingComfy(true)
-    try {
-      const info = await testComfyConnection(pCfg.baseUrl, pCfg.apiKey)
-      toast.success(`连接成功：${info}`)
-    } catch (e) {
-      toast.error(e instanceof Error ? e.message : '连接失败', { duration: 10000 })
-    } finally {
-      setTestingComfy(false)
-    }
-  }
 
   const handleDetectComfy = async () => {
     setTestingComfy(true)
@@ -100,17 +89,20 @@ function SettingsPage() {
                   : 'border-border/60 bg-card hover:bg-muted/40'
               }`}
             >
-              <span className="truncate text-xs sm:text-sm">{itemMeta.name}</span>
+              <span className="min-w-0"><span className="block truncate text-sm">{itemMeta.name}</span><span className="block text-xs font-normal text-muted-foreground">{id === 'comfyui' ? COMFY_CONNECTION_LABELS[comfyConnection.status] : hasKey ? '已配置' : '未配置 Key'}</span></span>
               <span
+                aria-hidden="true"
                 className={`size-2 shrink-0 rounded-full ${
-                  hasKey ? 'bg-emerald-500' : 'bg-muted-foreground/30'
+                  id === 'comfyui' && comfyConnection.status === 'connected' ? 'bg-emerald-500' : hasKey ? 'bg-amber-500' : 'bg-muted-foreground/30'
                 }`}
-                title={hasKey ? '已就绪' : '未配置 Key'}
+                title={id === 'comfyui' ? COMFY_CONNECTION_LABELS[comfyConnection.status] : hasKey ? '已配置，尚未检测' : '未配置 Key'}
               />
             </button>
           )
         })}
       </div>
+
+      {pid === 'comfyui' && <ComfyConnectionStatus />}
 
       {/* 当前厂商连接配置 */}
       <Section
@@ -122,10 +114,6 @@ function SettingsPage() {
                 <Button variant="outline" size="sm" onClick={handleDetectComfy} disabled={testingComfy}>
                   <ScanSearchIcon className="size-3.5" />
                   自动识别
-                </Button>
-                <Button variant="outline" size="sm" onClick={handleTestComfy} disabled={testingComfy}>
-                  <ActivityIcon className="size-3.5" />
-                  {testingComfy ? '检测中…' : '测试连接'}
                 </Button>
               </>
             )}
