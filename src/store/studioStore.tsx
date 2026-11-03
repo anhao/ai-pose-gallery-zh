@@ -15,6 +15,7 @@ import { idbRead, idbWrite } from '@/lib/idbStorage'
 import { parseParameterWorkflow, workflowIdentity } from '@/lib/comfyWorkflowParameters'
 import { durableImage, snapshotGeneration } from '@/lib/generationSnapshot'
 import { recipeBackup } from '@/lib/recipeImages'
+import { randomSlot, type RandomScope, type ReferencePools, type ReferenceSlot } from '@/lib/randomRecipe'
 import {
   buildRecipePrompt,
   COMFYUI_WORKFLOW_TEMPLATES,
@@ -230,6 +231,7 @@ interface StudioContextValue {
   setWorkflowImage: (nodeId: string, image: ExtraReferenceImage | null, identity: string) => void
   clearRecipe: () => void
   randomizeRecipe: (pools: { portraits?: PortraitItem[]; costumes?: CostumeItem[]; poses?: PoseItem[] }) => void
+  randomizeSlot: (slot: ReferenceSlot, scope: RandomScope, pools: ReferencePools, expectedId?: string | null) => void
   updateApiConfig: (patch: Partial<ApiConfig>) => void
   updateProviderConfig: (provider: ImageProviderId, patch: Partial<ProviderEndpointConfig>) => void
   updateGptParams: (patch: Partial<GptParams>) => void
@@ -290,6 +292,8 @@ export function StudioProvider({ children }: { children: ReactNode }) {
   const [ageGateOpen, setAgeGateOpen] = useState(false)
   const pendingUnlockCbRef = useRef<(() => void) | null>(null)
   const [poseDepthMode, setPoseDepthModeState] = useState<boolean>(() => Boolean(recipe.pose?.useDepth))
+  const randomContext = useRef({ recipe, safeMode, poseDepthMode })
+  useEffect(() => { randomContext.current = { recipe, safeMode, poseDepthMode } }, [recipe, safeMode, poseDepthMode])
 
   // 提升到根部 Provider 的生成状态，路由切换不会卸载或中断
   const [customPrompt, setCustomPrompt] = useState<string | null>(null)
@@ -516,6 +520,25 @@ export function StudioProvider({ children }: { children: ReactNode }) {
     toast.success(safeMode ? '已随机抽取一套角色配方（安全模式）' : '已随机抽取一套角色配方')
   }
 
+  const randomizeSlot = (slot: ReferenceSlot, scope: RandomScope, pools: ReferencePools, expectedId?: string | null) => {
+    const current = randomContext.current
+    if (expectedId !== undefined && (current.recipe[slot]?.id ?? null) !== expectedId) {
+      toast.info('参考已更改，本次换样已取消')
+      return
+    }
+    const next = randomSlot(current.recipe, slot, scope, {
+      ...pools,
+      costumes: (pools.costumes || []).filter((item) => !current.safeMode || !isNsfwCostume(item)),
+      poses: (pools.poses || []).filter((item) => !current.safeMode || !isNsfwPose(item)),
+    }, current.poseDepthMode)
+    if (!next) {
+      toast.info(scope === 'similar' ? '没有其他同类素材，可切到“全部”再试' : '没有其他可用素材')
+      return
+    }
+    setRecipe((previous) => ({ ...previous, [slot]: next[slot] }))
+    toast.success(`已更换${{ portrait: '人像', costume: '服装', pose: '姿势' }[slot]}，其他参考保持不变`)
+  }
+
   const updateApiConfig = (patch: Partial<ApiConfig>) => {
     setApiConfig((prev) => {
       const next = { ...prev, ...patch }
@@ -725,6 +748,7 @@ export function StudioProvider({ children }: { children: ReactNode }) {
         setWorkflowImage,
         clearRecipe,
         randomizeRecipe,
+        randomizeSlot,
         updateApiConfig,
         updateProviderConfig,
         updateGptParams,
