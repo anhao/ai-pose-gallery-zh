@@ -1,0 +1,25 @@
+.app-notices { position:fixed; z-index:1000; top:calc(64px + env(safe-area-inset-top, 0px)); left:50%; transform:translateX(-50%); width:max-content; max-width:min(440px,calc(100vw - 24px)); pointer-events:none; }
+.app-notice-layer { --notice-index:0; position:absolute; top:0; width:100%; transform:translateY(calc(var(--notice-index) * 7px)) scale(calc(1 - var(--notice-index) * .045)); transform-origin:top center; transition:transform 180ms ease,opacity 160ms ease; pointer-events:none; }
+.app-notice-layer[data-front=true] {position:relative;pointer-events:auto;}
+.app-notices[data-expanded=true] {display:flex; flex-direction:column; gap:8px; padding:2px;}
+.app-notices[data-expanded=true] .app-notice-layer {position:relative;transform:none;pointer-events:auto;}
+.app-notice {display:flex;align-items:center;gap:10px;min-width:180px;min-height:50px;padding:4px 4px 4px 16px;border:1px solid var(--border);border-radius:14px;background:var(--popover);color:var(--popover-foreground);box-shadow:0 8px 24px #00000014;font-size:14px;line-height:1.45;animation:notice-enter 180ms ease both;}
+.app-notice-content {min-width:0;flex:1;overflow-wrap:anywhere;}
+.app-notice-description {font-size:12px;opacity:.8;margin-top:3px;}
+.app-notice-icon {display:flex;flex-shrink:0;align-self:flex-start;margin-top:13px;}
+.app-notice-close {display:flex;flex-shrink:0;width:44px;height:44px;align-items:center;justify-content:center;align-self:flex-start;border-radius:10px;opacity:.75;cursor:pointer;}
+.app-notice-close:hover {background:#0000000c;opacity:1;}
+.app-notice-close:focus-visible {outline:2px solid currentColor;outline-offset:-5px;}
+.app-notice[data-kind=success] {background:#f0fdf4;border-color:#b5e8c9;color:#166546;}
+.app-notice[data-kind=error] {background:#fff1f2;border-color:#f8c6cb;color:#982a38;}
+.app-notice[data-kind=warning] {background:#fffbeb;border-color:#f0d99a;color:#81520c;}
+.dark .app-notice[data-kind=success] {background:#002617;border-color:#164734;color:#7ed4aa;}
+.dark .app-notice[data-kind=error] {background:#351419;border-color:#682e3a;color:#ffacb9;}
+.dark .app-notice[data-kind=warning] {background:#30240d;border-color:#614d23;color:#f0ce7a;}
+@keyframes notice-enter {from {opacity:0;translate:0 -8px;} to {opacity:1;translate:0 0;}}
+@media(prefers-reduced-motion:reduce) {.app-notice,.app-notice-layer {animation:none;transition:none;}}
+
+.app-notice[data-closing=true] {animation:notice-exit 160ms ease both;pointer-events:none;}
+@keyframes notice-exit {to {opacity:0;translate:0 -6px;}}
+html[data-gallery-motion=off] .app-notice,html[data-gallery-motion=off] .app-notice-layer {animation:none;transition:none;}
+@media(prefers-reduced-motion:reduce) {.app-notice[data-closing=true] {animation:none;}}

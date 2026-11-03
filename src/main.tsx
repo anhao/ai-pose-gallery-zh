@@ -6,6 +6,7 @@ import { ThemeProvider } from '@/components/theme/ThemeProvider'
 import { StudioProvider } from '@/store/studioStore'
 import { routeTree } from './routeTree.gen'
 import './index.css'
+import './notifications.css'
 
 const queryClient = new QueryClient({
   defaultOptions: {
