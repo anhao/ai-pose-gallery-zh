@@ -75,6 +75,7 @@ const PROVIDER_LIST: ImageProviderId[] = ['gemini', 'gpt', 'qwen', 'doubao', 'co
 
 function StudioPage() {
   const {
+    hydrated, activeTask, resumeGeneration, stopTracking,
     recipe,
     apiConfig,
     history,
@@ -1356,6 +1357,13 @@ function StudioPage() {
             )}
           </Section>
 
+          {activeTask && <Section title="未决任务" className="@lg/section:grid-cols-1">
+            <p className="break-all text-xs">{activeTask.task ? `任务 ${activeTask.task.promptId}：刷新后查询原任务，不重复提交。` : '提交结果未知或提交前被中断，请核对后端队列；不会自动重试提交。'}</p>
+            <div className="flex flex-wrap gap-2">
+              <Button disabled={isGenerating || !activeTask.task} onClick={() => void resumeGeneration()}>恢复追踪</Button>
+              <Button variant="outline" onClick={() => void stopTracking()}>停止跟踪（不取消后端）</Button>
+            </div>
+          </Section>}
           {/* 3. 提示词与生成按钮 */}
           <Section
             title="3. 提示词 (Prompt)"
@@ -1389,7 +1397,7 @@ function StudioPage() {
 
             <Button
               onClick={handleGenerate}
-              disabled={isGenerating || uploadingSlot !== null}
+              disabled={!hydrated || !!activeTask || isGenerating || uploadingSlot !== null}
               className="h-11 w-full text-sm font-semibold"
             >
               {isGenerating ? (
@@ -1439,6 +1447,7 @@ function StudioPage() {
                     {generationProgress && (
                       <div className="w-56 max-w-full space-y-1.5 pt-1">
                         <div className="text-xs text-foreground/80">{generationProgress.message}</div>
+                        {generationProgress.connection && <p className="text-xs text-muted-foreground">连接：{{connecting: 'WebSocket 连接中', connected: 'WebSocket 已连接', reconnecting: 'WebSocket 重连中，HTTP 保底跟踪', degraded: 'WebSocket 暂不可用，HTTP 保底跟踪'}[generationProgress.connection]}</p>}
                         {generationProgress.percent !== undefined && (
                           <div className="h-1.5 overflow-hidden rounded-full bg-muted">
                             <div
