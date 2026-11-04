@@ -24,9 +24,9 @@ function GuidePage() {
 
         <div className="rounded-2xl bg-background p-4">
           <Badge>2. 服装</Badge>
-          <h3 className="mt-2 text-sm font-semibold">服装穿搭库 (1,847)</h3>
+          <h3 className="mt-2 text-sm font-semibold">服装穿搭库 (3,224)</h3>
           <p className="mt-1 text-xs text-muted-foreground">
-            按全部 / 现实 / 二次元及分类、标签挑选；现实服装 1,407 套，CharaDB 二次元服装 440 套。二次元图片需联网并遵守独立来源条件。
+            按全部 / 现实 / 二次元及来源、分类、标签挑选；含ギア写实 1,407 套、Shisei 中国历代 57 套（227 视角）、ギア动漫 1,320 套与 CharaDB 二次元 440 套。
           </p>
         </div>
 
