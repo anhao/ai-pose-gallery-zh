@@ -15,7 +15,7 @@ const LIBRARIES = {
   },
   costume: {
     key: "costume",
-    label: "服装库 (1,847)",
+    label: "服装库 (3,167)",
     shortLabel: "服装",
     defaultId: "SPR-0001",
     titleField: "服装名称",
@@ -71,6 +71,7 @@ async function fetchCatalogue(lib) {
 
 function getThumbUrl(lib, id, relPath, useDepth = false) {
   if (lib === "costume" && /^charadb-O\d{3}$/.test(id)) return `https://charadb-2fi.pages.dev/thumb/${id.slice(8)}.webp`;
+  if (lib === "costume" && relPath?.startsWith("https://ai-costume-anime-gallery.pages.dev/")) return relPath;
   const depthParam = lib === "pose" && useDepth ? "&depth=1" : "";
   if (relPath) {
     return `/pose_character_atlas/image?path=${encodeURIComponent(relPath)}${depthParam}`;
@@ -124,6 +125,7 @@ class PoseAtlasModal {
     this.searchQuery = "";
     this.primaryFilter = "";
     this.secondaryFilter = "";
+    this.sourceFilter = "";
     this.page = 1;
     this.recipeSelection = {
       portrait: LIBRARIES.portrait.defaultId,
@@ -182,7 +184,7 @@ class PoseAtlasModal {
           <div class="pca-title-group">
             <div>
               <h3 class="pca-title">AI 角色三合一参考图集 (ComfyUI 选图器)</h3>
-              <div class="pca-subtitle">4,785 条中文参考索引 · 二次元图片需联网 · <a href="https://github.com/taki-ttt/charadb/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">CharaDB来源条款</a></div>
+              <div class="pca-subtitle">6,105 条中文参考索引 · 二次元图片需联网 · <a href="https://github.com/taki-ttt/charadb/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">CharaDB来源条款</a></div>
             </div>
           </div>
           <div class="pca-tabs" id="pca-tabs"></div>
@@ -192,6 +194,7 @@ class PoseAtlasModal {
           <input class="pca-search-input" id="pca-search" type="text" placeholder="搜索中文标题、动作、服装、发型、编号 (如: 坐姿 / 水手服 / 双马尾 / SPR-0001)..." />
           <select class="pca-select" id="pca-filter-primary"></select>
           <select class="pca-select" id="pca-filter-secondary"></select>
+          <select class="pca-select" aria-label="服装来源" id="pca-filter-source"><option value="">全部来源</option><option value="gia">ギア · 写实</option><option value="gia-anime">ギア · 动漫</option><option value="charadb">CharaDB</option></select>
           <button class="pca-btn" id="pca-depth-btn">${this.useDepth ? "🌗 深度图 (Depth)" : "🗿 素体白模"}</button>
           <button class="pca-btn" id="pca-sfw-btn">${this.safeMode ? "🛡️ 安全模式 (SFW)" : "🔞 18+ 完整模式"}</button>
           <button class="pca-btn" id="pca-random-btn">🎲 随机抽一张</button>
@@ -244,6 +247,9 @@ class PoseAtlasModal {
         this.renderGrid();
       });
 
+    backdrop.querySelector("#pca-filter-source").addEventListener("change", (e) => {
+      this.sourceFilter = e.target.value; this.page = 1; this.renderGrid();
+    });
     const depthBtn = backdrop.querySelector("#pca-depth-btn");
     depthBtn.addEventListener("click", () => {
       this.useDepth = !this.useDepth;
@@ -279,6 +285,8 @@ class PoseAtlasModal {
       this.searchQuery = "";
       this.primaryFilter = "";
       this.secondaryFilter = "";
+      this.sourceFilter = "";
+      backdrop.querySelector("#pca-filter-source").value = "";
       searchInput.value = "";
       this.page = 1;
       this.populateFilters();
@@ -322,6 +330,7 @@ class PoseAtlasModal {
 
   async switchLibrary(lib) {
     this.activeLib = lib;
+    this.backdrop.querySelector("#pca-filter-source").style.display = lib === "costume" ? "" : "none";
     this.primaryFilter = "";
     this.secondaryFilter = "";
     this.page = 1;
@@ -389,6 +398,7 @@ class PoseAtlasModal {
     const q = this.searchQuery;
 
     return items.filter((it) => {
+      if (this.activeLib === "costume" && this.sourceFilter && (it.source || "gia") !== this.sourceFilter) return false;
       if (
         this.primaryFilter &&
         cfg.primaryField &&
@@ -642,7 +652,7 @@ app.registerExtension({
 
       const btnLabel =
         nodeKind === "recipe"
-          ? "🎨 打开三合一选图器 (4,785张)"
+          ? "🎨 打开三合一选图器"
           : `🖼️ 打开${LIBRARIES[nodeKind].shortLabel}图库选图`;
 
       this.addWidget("button", btnLabel, null, () => {

@@ -12,7 +12,7 @@ import {
   RotateCcwIcon,
   SearchIcon,
 } from 'lucide-react'
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { toast } from '@/lib/notifications'
 import { costumesQuery, isNsfwCostume, isNsfwCostumeCategory } from '@/api/gallery'
 import { EmptyState } from '@/components/common/EmptyState'
@@ -25,8 +25,10 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Skeleton } from '@/components/ui/skeleton'
 import { cn } from '@/lib/utils'
 import { referenceImageUrl } from '@/lib/recipeImages'
+import { COSTUME_SOURCES, costumeSourceId } from '@/lib/costumeSources'
 import { CHARADB_NOTICE_URL } from '@/lib/charadb'
 import { useStudio } from '@/store/studioStore'
+import type { CostumeItem } from '@/types/gallery'
 
 export const Route = createFileRoute('/costumes')({
   staticData: { title: '服装穿搭库' },
@@ -35,10 +37,36 @@ export const Route = createFileRoute('/costumes')({
   component: CostumesPage,
 })
 
+function CostumeThumbnail({ item, onOpen, picked, onToggle }: { item: CostumeItem; onOpen: () => void; picked: boolean; onToggle: () => void }) {
+  const [failed, setFailed] = useState(false)
+  const openButton = useRef<HTMLButtonElement>(null)
+  return <div className="relative aspect-2/3 w-full shrink-0 overflow-hidden rounded-2xl bg-background">
+    <button ref={openButton} type="button" aria-label={`查看 ${item.id} 大图`} onClick={onOpen} className="relative block h-full w-full cursor-zoom-in focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
+      {!failed && <img src={referenceImageUrl(item.缩略图)} alt={item.服装名称} loading="lazy" onError={() => setFailed(true)} className="h-full w-full object-contain transition duration-300 group-hover:scale-105" />}
+      <span className="absolute inset-x-2 top-2 flex items-center justify-between gap-1">
+        <span className="rounded-md bg-black/70 px-1.5 py-0.5 font-mono text-[10px] font-bold text-white">{item.id}</span>
+        <span className="rounded-md bg-white/90 px-1.5 py-0.5 text-[10px] font-semibold text-zinc-900">{item.分类}</span>
+      </span>
+    </button>
+    <button type="button" onClick={onToggle} className={cn(
+      'absolute bottom-2 left-2 flex items-center gap-1 rounded-lg px-2.5 py-1 text-[11px] font-semibold text-white shadow transition',
+      picked ? 'bg-emerald-600' : 'bg-black/75 hover:bg-primary'
+    )}>
+      {picked ? <CheckIcon className="size-3" /> : <PlusIcon className="size-3" />}
+      {picked ? '已选' : '加入配方'}
+    </button>
+    {failed && <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center gap-2 bg-background/90 p-2 text-center">
+      <p role="status" className="text-xs text-muted-foreground">图片加载失败</p>
+      <Button type="button" variant="outline" className="pointer-events-auto min-h-11" aria-label={`重新加载 ${item.id} 缩略图`} onClick={() => { setFailed(false); openButton.current?.focus() }}>重新加载</Button>
+    </div>}
+  </div>
+}
+
 function CostumesPage() {
   const { data: costumes } = useSuspenseQuery(costumesQuery)
   const { recipe, toggleCostume, safeMode, requestUnlockNsfw } = useStudio()
 
+  const [source, setSource] = useState('all')
   const [category, setCategory] = useState('')
   const [kind, setKind] = useState('全部')
   const [tag, setTag] = useState('all')
@@ -49,10 +77,10 @@ function CostumesPage() {
   const activeCategory = safeMode && category && isNsfwCostumeCategory(category) ? '' : category
 
   const baseCostumes = useMemo(
-    () => costumes.filter((x) => (kind === '全部' || (x.一级分类 || '现实') === kind) && (!safeMode || !isNsfwCostume(x))),
-    [costumes, safeMode, kind]
+    () => costumes.filter((x) => (source === 'all' || costumeSourceId(x) === source) && (kind === '全部' || (x.一级分类 || '现实') === kind) && (!safeMode || !isNsfwCostume(x))),
+    [costumes, safeMode, kind, source]
   )
-  const hiddenNsfwCount = costumes.filter((x) => (kind === '全部' || (x.一级分类 || '现实') === kind) && isNsfwCostume(x)).length
+  const hiddenNsfwCount = costumes.filter((x) => (source === 'all' || costumeSourceId(x) === source) && (kind === '全部' || (x.一级分类 || '现实') === kind) && isNsfwCostume(x)).length
   const activeTag = tag === 'all' || baseCostumes.some((x) => (!activeCategory || x.分类 === activeCategory) && x.标签.includes(tag)) ? tag : 'all'
 
   const categories = useMemo(
@@ -103,13 +131,15 @@ function CostumesPage() {
             }}>{value}</Button>
           ))}
         </div>
-        {kind !== '现实' && (
-          <p className="text-xs text-muted-foreground">
-            二次元服装来源：<a className="underline hover:text-foreground" href="https://charadb-2fi.pages.dev/" target="_blank" rel="noopener noreferrer">たき AI · CharaDB</a>（<a className="underline hover:text-foreground" href={CHARADB_NOTICE_URL} target="_blank" rel="noopener noreferrer">使用说明</a>）
-          </p>
-        )}
+        <Select value={source} onValueChange={(value) => { setSource(value); setCategory(''); setTag('all'); setShown(60); setViewerIndex(null) }}>
+          <SelectTrigger aria-label="服装来源" className="w-56"><SelectValue placeholder="全部来源" /></SelectTrigger>
+          <SelectContent><SelectItem value="all">全部来源</SelectItem>{COSTUME_SOURCES.map((entry) => <SelectItem key={entry.id} value={entry.id}>{entry.label}</SelectItem>)}</SelectContent>
+        </Select>
       </div>
 
+      <div className="space-y-1 text-xs text-muted-foreground">
+        {COSTUME_SOURCES.filter((entry) => (source === 'all' || source === entry.id) && (kind === '全部' || (['gia-anime', 'charadb'].includes(entry.id) ? '二次元' : '现实') === kind)).map((entry) => <p key={entry.id}><a href={entry.url} target="_blank" rel="noopener noreferrer" className="underline">{entry.label}</a>：{entry.notice}</p>)}
+      </div>
       {/* 分类筛选药丸 */}
       <div className="flex gap-2 overflow-x-auto pb-1 sm:flex-wrap sm:pb-0">
         <button
@@ -208,6 +238,7 @@ function CostumesPage() {
             setTag('all')
             setQuery('')
             setKind('全部')
+            setSource('all')
             setShown(60)
           }}
         >
@@ -227,39 +258,7 @@ function CostumesPage() {
                 key={item.id}
                 className="group flex flex-col overflow-hidden rounded-[20px] bg-muted p-2 transition hover:-translate-y-0.5 hover:shadow-md"
               >
-                <div
-                  onClick={() => setViewerIndex(idx)}
-                  className="relative aspect-2/3 cursor-zoom-in overflow-hidden rounded-2xl bg-background"
-                >
-                  <img
-                    src={referenceImageUrl(item.缩略图)}
-                    alt={item.服装名称}
-                    loading="lazy"
-                    className="h-full w-full object-contain transition duration-300 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-x-2 top-2 flex items-center justify-between gap-1">
-                    <span className="rounded-md bg-black/70 px-1.5 py-0.5 font-mono text-[10px] font-bold text-white">
-                      {item.id}
-                    </span>
-                    <span className="rounded-md bg-white/90 px-1.5 py-0.5 text-[10px] font-semibold text-zinc-900">
-                      {item.分类}
-                    </span>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={(e) => {
-                      e.stopPropagation()
-                      toggleCostume(item)
-                    }}
-                    className={cn(
-                      'absolute bottom-2 left-2 flex items-center gap-1 rounded-lg px-2.5 py-1 text-[11px] font-semibold text-white shadow transition',
-                      picked ? 'bg-emerald-600' : 'bg-black/75 hover:bg-primary'
-                    )}
-                  >
-                    {picked ? <CheckIcon className="size-3" /> : <PlusIcon className="size-3" />}
-                    {picked ? '已选' : '加入配方'}
-                  </button>
-                </div>
+                <CostumeThumbnail key={item.缩略图} item={item} onOpen={() => setViewerIndex(idx)} picked={picked} onToggle={() => toggleCostume(item)} />
 
                 <div className="flex flex-1 flex-col justify-between px-1.5 pt-2.5 pb-1">
                   <div>
@@ -367,15 +366,15 @@ function CostumesPage() {
                     </Button>
                     <div className="grid grid-cols-2 gap-2">
                       <Button variant="outline" size="sm" asChild>
-                        <a href={referenceImageUrl(currentItem.原图)} download={currentItem.source === 'charadb' ? undefined : `${currentItem.id}.webp`} target={currentItem.source === 'charadb' ? '_blank' : undefined} rel="noopener noreferrer">
+                        <a href={referenceImageUrl(currentItem.原图)} download={['charadb', 'gia-anime'].includes(currentItem.source || '') ? undefined : `${currentItem.id}.webp`} target={['charadb', 'gia-anime'].includes(currentItem.source || '') ? '_blank' : undefined} rel="noopener noreferrer">
                           <DownloadIcon className="size-3.5" />
-                          {currentItem.source === 'charadb' ? '前往来源原图' : '下载高清原图'}
+                          {['charadb', 'gia-anime'].includes(currentItem.source || '') ? '前往来源原图' : '下载高清原图'}
                         </a>
                       </Button>
                       <Button variant="outline" size="sm" asChild>
                         <a href={currentItem.来源地址 || referenceImageUrl(currentItem.原图)} target="_blank" rel="noopener noreferrer">
                           <ExternalLinkIcon className="size-3.5" />
-                          {currentItem.source === 'charadb' ? '原作者站点' : '新窗口原图'}
+                          {['charadb', 'gia-anime'].includes(currentItem.source || '') ? '原作者站点' : '新窗口原图'}
                         </a>
                       </Button>
                     </div>

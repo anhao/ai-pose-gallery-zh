@@ -25,7 +25,7 @@ export interface PoseGroup {
 }
 
 export interface CostumeItem {
-  source?: 'upload' | 'charadb'
+  source?: 'upload' | 'charadb' | 'gia-anime'
   一级分类?: '现实' | '二次元'
   来源?: string
   来源地址?: string
