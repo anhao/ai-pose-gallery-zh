@@ -1,3 +1,4 @@
+import { ReferenceComparisonDialog } from '@/components/common/ReferenceComparisonDialog'
 import { ImageViewer } from '@/components/common/ImageViewer'
 import { useQueryClient } from '@tanstack/react-query'
 import { createFileRoute, Link } from '@tanstack/react-router'
@@ -62,6 +63,7 @@ import type {
   ComfyUiParams,
   DoubaoParams,
   GeminiParams,
+  GenerationHistoryItem,
   GptParams,
   ImagePassMode,
   ImageProviderId,
@@ -107,6 +109,8 @@ function StudioPage() {
     removeHistoryItem,
     clearHistory,
   } = useStudio()
+  const [comparisonResult, setComparisonResult] = useState<GenerationHistoryItem | null>(null)
+  const previewResult = history.find((item) => item.imageUrl === previewUrl)
   const qc = useQueryClient()
   const fileInputRef = useRef<HTMLInputElement | null>(null)
   const comfyFileInputRef = useRef<HTMLInputElement | null>(null)
@@ -1425,6 +1429,7 @@ function StudioPage() {
               ) : null
             }
           >
+            {previewResult && !isGenerating && <Button className="min-h-11" variant="outline" onClick={() => setComparisonResult(previewResult)}>对比参考</Button>}
             <div className="relative flex min-h-[340px] items-center justify-center overflow-hidden rounded-2xl bg-background p-4 sm:min-h-[460px]">
               {isGenerating ? (
                 <div className="flex flex-col items-center gap-3 text-center">
@@ -1533,6 +1538,7 @@ function StudioPage() {
 
               <div className="mt-2 space-y-1.5 px-0.5">
                 <div className="truncate text-xs font-medium">{h.recipeSummary}</div>
+                <Button variant="outline" className="min-h-11 w-full" onClick={() => setComparisonResult(h)}>对比参考</Button>
                 <div className="grid grid-cols-2 gap-1.5">
                   <button
                     type="button"
@@ -1558,6 +1564,7 @@ function StudioPage() {
         </Section>
       )}
 
+      <ReferenceComparisonDialog result={comparisonResult} open={comparisonResult !== null} onOpenChange={(open) => !open && setComparisonResult(null)} />
       {/* 生成结果全屏放大灯箱 */}
       <ImageViewer imageUrl={zoomImageUrl || ''} open={Boolean(zoomImageUrl)} onOpenChange={(open) => !open && setZoomImageUrl(null)} />
 
