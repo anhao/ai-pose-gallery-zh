@@ -1,0 +1,10 @@
+{
+  "name": "ai-pose-gallery-local",
+  "interface": {"displayName": "AI Pose Gallery · 本机"},
+  "plugins": [{
+    "name": "ai-pose-gallery-zh",
+    "source": {"source": "local", "path": "./"},
+    "policy": {"installation": "AVAILABLE", "authentication": "ON_INSTALL"},
+    "category": "Productivity"
+  }]
+}
