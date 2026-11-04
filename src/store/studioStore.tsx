@@ -11,6 +11,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from '@/components/ui/alert-dialog'
+import { useComfyConnection, type ComfyConnectionState } from './useComfyConnection'
 import { idbRead, idbWrite } from '@/lib/idbStorage'
 import { parseParameterWorkflow, workflowIdentity } from '@/lib/comfyWorkflowParameters'
 import { durableImage, snapshotGeneration } from '@/lib/generationSnapshot'
@@ -194,6 +195,9 @@ function mergeStoredConfig(raw: unknown): ApiConfig {
 }
 
 interface StudioContextValue {
+  comfyConnection: ComfyConnectionState
+  checkComfyConnection: (manual?: boolean) => Promise<void>
+  setComfyConnectionVisible: (visible: boolean) => void
   hydrated: boolean
   activeTask: ActiveTask | null
   resumeGeneration: () => Promise<void>
@@ -279,6 +283,9 @@ export function StudioProvider({ children }: { children: ReactNode }) {
     }
   })
 
+  const [comfyConnectionVisible, setComfyConnectionVisible] = useState(false)
+  const { comfyConnection, checkComfyConnection } = useComfyConnection(apiConfig.providers.comfyui.baseUrl, apiConfig.providers.comfyui.apiKey, comfyConnectionVisible && apiConfig.activeProvider === 'comfyui')
+
   const [safeMode, setSafeMode] = useState<boolean>(() => {
     try {
       const raw = localStorage.getItem(SAFE_MODE_KEY)
@@ -344,7 +351,7 @@ export function StudioProvider({ children }: { children: ReactNode }) {
       activeTaskRef.current = savedTask || null
       setActiveTask(savedTask || null)
       setIdbHydrated(true)
-    }).catch(() => { if (active) toast.error('无法读取浏览器存储，已暂停生成以保护未决任务；请恢复存储后刷新') })
+    }).catch(() => { if (active) toast.error('无法读取浏览器存储，已暂停生成以保护待确认任务；请恢复存储后刷新') })
     return () => {
       active = false
     }
@@ -646,7 +653,7 @@ export function StudioProvider({ children }: { children: ReactNode }) {
   useEffect(() => () => trackingRef.current?.abort(), [])
   const startGeneration = async (overridePrompt?: string) => {
     if (!idbHydrated || isGeneratingRef.current) return
-    if (activeTaskRef.current) { toast.error('存在未决任务，请先恢复或明确停止跟踪'); return }
+    if (activeTaskRef.current) { toast.error('存在待确认任务，请先恢复或明确停止跟踪'); return }
     const recipeSnapshot = recipe
     const configSnapshot = apiConfig
     const finalPrompt = overridePrompt ?? customPrompt ?? buildRecipePrompt(recipeSnapshot, configSnapshot.stylePreset, configSnapshot.activeProvider === 'comfyui' && recipeSnapshot.workflowImagesIdentity === workflowIdentity(configSnapshot.comfyuiParams.workflowJson) ? Object.values(recipeSnapshot.workflowImages || {}) : [])
@@ -692,6 +699,7 @@ export function StudioProvider({ children }: { children: ReactNode }) {
   return (
     <StudioContext.Provider
       value={{
+        comfyConnection, checkComfyConnection, setComfyConnectionVisible,
         hydrated: idbHydrated,
         activeTask, resumeGeneration, stopTracking,
         recipe,
