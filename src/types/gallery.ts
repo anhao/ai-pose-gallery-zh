@@ -24,8 +24,18 @@ export interface PoseGroup {
   order: PoseItem[]
 }
 
+export interface CostumeView {
+  id: string
+  label: string
+  缩略图: string
+  预览图: string
+  原图: string
+}
+
 export interface CostumeItem {
-  source?: 'upload' | 'charadb' | 'gia-anime'
+  source?: 'upload' | 'charadb' | 'gia-anime' | 'shisei'
+  views?: CostumeView[]
+  selectedView?: string
   一级分类?: '现实' | '二次元'
   来源?: string
   来源地址?: string

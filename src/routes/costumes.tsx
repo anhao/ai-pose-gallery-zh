@@ -25,7 +25,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Skeleton } from '@/components/ui/skeleton'
 import { cn } from '@/lib/utils'
 import { referenceImageUrl } from '@/lib/recipeImages'
-import { COSTUME_SOURCES, costumeSourceId } from '@/lib/costumeSources'
+import { COSTUME_SOURCES, SHISEI_SOURCE_URLS, costumeSourceId, selectCostumeView } from '@/lib/costumeSources'
 import { CHARADB_NOTICE_URL } from '@/lib/charadb'
 import { useStudio } from '@/store/studioStore'
 import type { CostumeItem } from '@/types/gallery'
@@ -67,6 +67,7 @@ function CostumesPage() {
   const { recipe, toggleCostume, safeMode, requestUnlockNsfw } = useStudio()
 
   const [source, setSource] = useState('all')
+  const [view, setView] = useState({ itemId: '', id: 'front' })
   const [category, setCategory] = useState('')
   const [kind, setKind] = useState('全部')
   const [tag, setTag] = useState('all')
@@ -104,7 +105,8 @@ function CostumesPage() {
     })
   }, [baseCostumes, activeCategory, activeTag, q])
 
-  const currentItem = viewerIndex !== null ? filtered[viewerIndex] : null
+  const viewedItem = viewerIndex !== null ? filtered[viewerIndex] : null
+  const currentItem = viewedItem ? selectCostumeView(viewedItem, view.itemId === viewedItem.id ? view.id : 'front') : null
 
   useEffect(() => {
     if (viewerIndex === null || !filtered.length) return
@@ -292,7 +294,7 @@ function CostumesPage() {
       <Dialog open={viewerIndex !== null} onOpenChange={(o) => !o && setViewerIndex(null)}>
         <DialogContent className="max-h-[90dvh] w-[95vw] max-w-4xl overflow-y-auto p-0 sm:max-w-4xl">
           {currentItem && viewerIndex !== null && (() => {
-            const picked = recipe.costume?.id === currentItem.id
+            const picked = recipe.costume?.id === currentItem.id && (recipe.costume.selectedView || 'front') === (currentItem.selectedView || 'front')
             return (
               <div className="grid md:grid-cols-[1fr_320px]">
                 <div className="relative flex max-h-[78dvh] min-h-[min(380px,65dvh)] items-center justify-center bg-muted/60 p-4">
@@ -324,9 +326,18 @@ function CostumesPage() {
                       </div>
                       <DialogTitle className="mt-2 text-base leading-snug">{currentItem.服装名称}</DialogTitle>
                       <p className="text-xs text-muted-foreground">来源：{currentItem.来源 || 'ギア（@giaaibusi）'}</p>
+                      {currentItem.source === 'shisei' && <div className="space-y-2 text-xs text-muted-foreground">
+                        <p>Shisei / wquguru · CC0 · AI 生成服装参考，并非专业复原。</p>
+                        <div className="flex flex-wrap gap-x-3 gap-y-2" aria-label="Shisei 来源与许可">
+                          <a className="underline" href={SHISEI_SOURCE_URLS.repository} target="_blank" rel="noopener noreferrer">原仓库</a>
+                          <a className="underline" href={SHISEI_SOURCE_URLS.catalog} target="_blank" rel="noopener noreferrer">条目目录（{currentItem.id.replace('shisei-', '')}，固定版本）</a>
+                          <a className="underline" href={SHISEI_SOURCE_URLS.license} target="_blank" rel="noopener noreferrer">图片许可证（CC0）</a>
+                        </div>
+                      </div>}
                       {currentItem.source === 'charadb' && <a className="text-xs underline" href={CHARADB_NOTICE_URL} target="_blank" rel="noopener noreferrer">图片仅作参考，禁止真人、未成年人及再分发；查看原作者条件</a>}
                     </DialogHeader>
 
+                    {currentItem.views && <div className="flex flex-wrap gap-2" aria-label="服装视角">{currentItem.views.map((entry) => <Button key={entry.id} variant={currentItem.selectedView === entry.id ? 'default' : 'outline'} aria-pressed={currentItem.selectedView === entry.id} onClick={() => setView({ itemId: currentItem.id, id: entry.id })}>{entry.label}</Button>)}</div>}
                     <div>
                       <div className="mb-1.5 text-xs font-medium text-muted-foreground">中文单品与色彩标签</div>
                       <div className="flex flex-wrap gap-1.5">
@@ -372,7 +383,7 @@ function CostumesPage() {
                         </a>
                       </Button>
                       <Button variant="outline" size="sm" asChild>
-                        <a href={currentItem.来源地址 || referenceImageUrl(currentItem.原图)} target="_blank" rel="noopener noreferrer">
+                        <a href={currentItem.source === 'shisei' ? referenceImageUrl(currentItem.原图) : currentItem.来源地址 || referenceImageUrl(currentItem.原图)} target="_blank" rel="noopener noreferrer">
                           <ExternalLinkIcon className="size-3.5" />
                           {['charadb', 'gia-anime'].includes(currentItem.source || '') ? '原作者站点' : '新窗口原图'}
                         </a>

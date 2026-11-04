@@ -35,7 +35,7 @@ def load_library(lib: str) -> list[dict]:
         with open(fp, encoding="utf-8") as f:
             _CACHE[lib] = json.load(f)
         if lib == "costume":
-            for name in ("costume-anime-zh.json", "costume-gia-anime-zh.json"):
+            for name in ("costume-anime-zh.json", "costume-gia-anime-zh.json", "costume-shisei-zh.json"):
                 with open(DATA_DIR / name, encoding="utf-8") as f:
                     _CACHE[lib] += json.load(f)
     return _CACHE[lib]
@@ -47,9 +47,21 @@ def find_item(lib: str, item_id: str) -> dict:
     for it in items:
         if it.get("id") == clean_id:
             return it
-    if clean_id.startswith(("charadb-", "gia-anime-")):
+    if clean_id.startswith(("charadb-", "gia-anime-", "shisei-")):
         raise ValueError("未知外部来源服装 ID")
     return items[0]
+
+
+def select_costume_view(item: dict, view: str = "front") -> dict:
+    views = item.get("views", [])
+    if not views:
+        return item
+    selected = next((v for v in views if v["id"] == view), None)
+    if selected is None:
+        if view != "front":
+            raise ValueError(f"服装没有该视角: {view}")
+        selected = views[0]
+    return dict(item, selectedView=selected["id"], **{k: selected[k] for k in ("缩略图", "预览图", "原图")})
 
 
 class _NoRedirect(urllib.request.HTTPRedirectHandler):
@@ -138,6 +150,8 @@ def register_routes() -> None:
         try:
             if not rel and lib and item_id:
                 item = find_item(lib, item_id)
+                if lib == "costume":
+                    item = select_costume_view(item, request.query.get("view", "front"))
                 rel = item.get("缩略图" if kind == "thumb" else "原图", "")
             if depth:
                 clean_rel = (rel or "").lstrip("/")

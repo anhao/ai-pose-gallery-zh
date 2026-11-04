@@ -1,0 +1,21 @@
+Shisei
+Copyright 2026 The Shisei Authors
+
+Code and documentation (tools/, web/, docs/ and the top-level text files) are
+licensed under the Apache License, Version 2.0 (see LICENSE).
+
+Images (images/ and the Release zips) and the project's own data in data/ are
+dedicated to the public domain under CC0 1.0 Universal (see LICENSE-images).
+No attribution is required.
+
+Pose list: the selection, numbering (orig_id), names (name_*) and categories
+(class_*) of the 288 poses follow the public pose catalog of ai-pose-gallery
+(https://ai-pose-gallery.pages.dev/) by ギア (@giaaibusi); the zh / en / ko names
+are translations of it. That part is credited, not licensed: neither licence
+above covers it. Shisei is not affiliated with or endorsed by its author.
+
+All images were made for this project; none are copied, traced or derived from
+other pose collections. The figures are mannequins or AI-generated adults and do
+not depict real people. The gallery has no runtime dependencies; its web fonts
+(Inter Tight, Noto Sans SC, JetBrains Mono, SIL OFL 1.1) are loaded from Google
+Fonts and are not part of this repository.

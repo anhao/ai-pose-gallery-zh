@@ -89,7 +89,7 @@ export const costumesQuery = queryOptions({
   queryKey: ['gallery', 'costumes'],
   staleTime: Infinity,
   queryFn: async () => {
-    const lists = await Promise.all(['/data/costume-zh.json', '/data/costume-anime-zh.json', '/data/costume-gia-anime-zh.json'].map(async (url) => {
+    const lists = await Promise.all(['/data/costume-zh.json', '/data/costume-anime-zh.json', '/data/costume-gia-anime-zh.json', '/data/costume-shisei-zh.json'].map(async (url) => {
       const res = await fetch(url)
       if (!res.ok) throw new Error(`加载服装数据失败: HTTP ${res.status}`)
       return (await res.json()) as CostumeItem[]

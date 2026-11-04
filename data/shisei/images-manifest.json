@@ -1,0 +1,2726 @@
+[
+  {
+    "path": "thumbs/costumes/shisei/costume_C001_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C001_front.webp",
+    "bytes": 5624,
+    "sha256": "785c86a225df6b6906a3f721221d64b81e2f1770cb3b84903faa9df8564ea943"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C001_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C001_front.webp",
+    "bytes": 28272,
+    "sha256": "2454c09f94680e98caf3098f39fe2093479cfd1ecab805d9bdd0d84beb1de057"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C001_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C001_diag.webp",
+    "bytes": 5050,
+    "sha256": "2f7ad322baa51b3a45a356b4c36ba9975168676b1e5ebfb97fcfef5bf4a5873e"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C001_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C001_diag.webp",
+    "bytes": 25790,
+    "sha256": "af4f9bcb8312bb3c2206ce61d1bd5091182fe72cc144946f78b1e443ca2b0a21"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C001_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C001_side.webp",
+    "bytes": 2856,
+    "sha256": "0200f842dcbd9bb11d9157fca356d12d562d83a37a4c223f820763f9e50cf7c7"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C001_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C001_side.webp",
+    "bytes": 13790,
+    "sha256": "243ba1bd4d5cf22cd8c8ec20682052258cde9da1e814e49471a292fd60eb89bc"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C001_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C001_back.webp",
+    "bytes": 4296,
+    "sha256": "e8247b540d4aa722b5a62adcbab4026a4f739be188e8bca322eaddc862ba77c7"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C001_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C001_back.webp",
+    "bytes": 20354,
+    "sha256": "a137c8d6721feb723d4d33aeb14b37a0ac3927b4329d3c6b7d89dd5849ee524c"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C002_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C002_front.webp",
+    "bytes": 5440,
+    "sha256": "a4aca5ed7448e5bc7bf7bbdbeae88a043693b4640ae4f2a7fa0e35b6f686daf5"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C002_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C002_front.webp",
+    "bytes": 24796,
+    "sha256": "cf4528771788798613748202a6e95e3f715c942e22ac02b4eb9e94bad420f877"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C002_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C002_diag.webp",
+    "bytes": 4742,
+    "sha256": "d8690b8eda3d0ad3c80cd452aa888b9b02c0087c877c16cb8369b631becdaa63"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C002_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C002_diag.webp",
+    "bytes": 21814,
+    "sha256": "54effd640856ec223533b95feb1baa07fcb01261535545d8613732b1bf7437ac"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C002_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C002_side.webp",
+    "bytes": 3168,
+    "sha256": "12c670be203dfa3ae5868a968c0cc5727deed3e12906de173b03401081abb5a5"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C002_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C002_side.webp",
+    "bytes": 14606,
+    "sha256": "8c8c6a66b56a35ef9e1fc77a02c98d13f0cfe830244459ba58ee3eb9a8bbdca0"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C002_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C002_back.webp",
+    "bytes": 4640,
+    "sha256": "785f20005dee87cff22c39ec11687a29e80d784d2f6c5b1f1a121738bf59e1e1"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C002_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C002_back.webp",
+    "bytes": 20200,
+    "sha256": "80ca3113bcf1eeb06d5033549f35dba7ed6f543d9419e79b936247f329d297e3"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C003_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C003_front.webp",
+    "bytes": 4386,
+    "sha256": "0a10d70a9775e5c3adab44d4b66e2256694c13251faf42aef3f172a1dc23bd1e"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C003_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C003_front.webp",
+    "bytes": 18434,
+    "sha256": "c18329961ea22a212b7e901d5cfbceea7b765ea46327f1880ad81047df6b7d8b"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C003_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C003_diag.webp",
+    "bytes": 3778,
+    "sha256": "57921de59baac6157749f1a68a2ecada765755b066de84708e5a8c9cf54d9cc9"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C003_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C003_diag.webp",
+    "bytes": 16668,
+    "sha256": "ca2f07d182dc156ceca1d152b01b72c0d37abe60a7102e843aea423ba65cf1d6"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C003_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C003_side.webp",
+    "bytes": 2778,
+    "sha256": "079f28f8ba71ab9243a58af46e4a51a33f60d035ca266868931b24a630a63d95"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C003_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C003_side.webp",
+    "bytes": 12298,
+    "sha256": "385adfc2004a689561455b284f3dc60929c9fdb407cdade307ccbe1e0dc2c535"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C003_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C003_back.webp",
+    "bytes": 4238,
+    "sha256": "97ba42824b1b7363e370a881ca6ed79f9192675e49feecce8b70f1fd8f058f41"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C003_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C003_back.webp",
+    "bytes": 18178,
+    "sha256": "e5d6d069e1024d56c2c7c3c16ab40d1441bfa690f8cee5260cb33925ad8d0651"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C004_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C004_front.webp",
+    "bytes": 4670,
+    "sha256": "f4a0c1c35ec2910caccd4282650084c58da5f98654f741bdc5db57b09863042c"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C004_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C004_front.webp",
+    "bytes": 18478,
+    "sha256": "7175e41d9c3780fd25ede5d3a918d8b1496161d197d24d5da5236f6e8bca0648"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C004_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C004_diag.webp",
+    "bytes": 4098,
+    "sha256": "abc89363494ba38a44a26cf925b0f1ed80be024b1da76744148c792c4a918724"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C004_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C004_diag.webp",
+    "bytes": 16894,
+    "sha256": "c03c50d24e98b798fb6e822aff35d67978137229f13bb3db05dedf9b330156b1"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C004_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C004_side.webp",
+    "bytes": 2732,
+    "sha256": "0ca97e0376603fa7ef04e836ab5ad81dca4fc9573cc656499390b185a02342d6"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C004_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C004_side.webp",
+    "bytes": 11088,
+    "sha256": "3e1d25e8299611bbb7a42c66b108f57398cc43f918d4d5aaa8b884390cccac74"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C004_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C004_back.webp",
+    "bytes": 3912,
+    "sha256": "550f2c52fe5b785620feaddeb8b63a4837fb73b410fcf1a6ab7b56877c559f4a"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C004_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C004_back.webp",
+    "bytes": 16412,
+    "sha256": "7452262325a05c4473c240b370a0655bee5cd30742c9b5556a07c20755a57d26"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C005_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C005_front.webp",
+    "bytes": 4486,
+    "sha256": "cf7f25690720d4ac54e577eeb3d4515097945d824cb7baf7d25aab378abbb921"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C005_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C005_front.webp",
+    "bytes": 18480,
+    "sha256": "65df9eab102df4d07edccb84939465b3b28c6af86bb037994e6f28f4b3c1e8e3"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C005_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C005_diag.webp",
+    "bytes": 4228,
+    "sha256": "83e8e09a46594d2093cc20b575f4b2b46f978a438147667236194b0c51a413c4"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C005_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C005_diag.webp",
+    "bytes": 17460,
+    "sha256": "731f99e6a01e626fb21e3bd42467b92db59c620dd509390961643ff96411b55e"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C005_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C005_side.webp",
+    "bytes": 2452,
+    "sha256": "c2fff17a72b5194dec6d5a8862b773075661838b71611d6df41a6fa936262e35"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C005_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C005_side.webp",
+    "bytes": 10690,
+    "sha256": "dda6d91613abb2baa635c70aa68b0eb97b2a98b0255e1175e8b71db107d370f9"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C005_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C005_back.webp",
+    "bytes": 3496,
+    "sha256": "1dfc4cdd6bcbd8fbc27b86405127cd3b65069dd21a641773696cfe254e28553a"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C005_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C005_back.webp",
+    "bytes": 15222,
+    "sha256": "3cb8b96cd3c0ab4d3ac86f4b4b3e3152f32820b75262ad3b6dc6e0a98bc054d9"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C006_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C006_front.webp",
+    "bytes": 5444,
+    "sha256": "d757439cebeb571c08632815850d59819f5b0d92d41e4f12d3f88d2db4292f63"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C006_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C006_front.webp",
+    "bytes": 23538,
+    "sha256": "a0865d68d90ed3191da15e359b5b9f84fc8077dcc252f4fd65dd1bc9654727ec"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C006_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C006_diag.webp",
+    "bytes": 4526,
+    "sha256": "9d9733310d157e2c5f4c5e4c643350aef91a1eb0cbeacf43faa0545a3ce33dbd"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C006_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C006_diag.webp",
+    "bytes": 19636,
+    "sha256": "d8ad9fc831e1a378f050c9e0cdbd6d2137d86a0dd1cdb6fbd85bfe0b2edffd3a"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C006_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C006_side.webp",
+    "bytes": 2968,
+    "sha256": "f92943c82acddc5dc381db489070d08d1e418707e241d3ccaf3fbbe9654116df"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C006_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C006_side.webp",
+    "bytes": 13186,
+    "sha256": "5be14f94cb39f326d7b12b60955b95901fb319ee68bdfe856512d74fe91ce210"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C006_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C006_back.webp",
+    "bytes": 4930,
+    "sha256": "2a126f1941e509b3fe7687f2221f50cfafb665b563eacd1a9b8815970276f5d1"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C006_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C006_back.webp",
+    "bytes": 21402,
+    "sha256": "78d6ada40996088130923f745e48883c50652cc9bbc5f461d239fc8185a3716b"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C008_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C008_front.webp",
+    "bytes": 6248,
+    "sha256": "a8c162aa0fe1109bdef295e0aead36eb504c8eebbc4000927d2d544d7928e45b"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C008_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C008_front.webp",
+    "bytes": 31540,
+    "sha256": "c67ab1f90a4ab50a0203ea8ba019d064bb1f65af772d9d98ffba21895b954f68"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C008_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C008_diag.webp",
+    "bytes": 5526,
+    "sha256": "1d8f2b15448a04beb30af066f4c153d00e3173fb73c96b62981188fa5d84718a"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C008_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C008_diag.webp",
+    "bytes": 27514,
+    "sha256": "3aaef239acfda49fb66d3e0ee798aa94e37f9360668e06725153504588a8d943"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C008_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C008_side.webp",
+    "bytes": 2788,
+    "sha256": "87cefda4b2fbc85a735b459f8b53cc86f0930e0dbb7e30a49fe3eb92aafa34af"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C008_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C008_side.webp",
+    "bytes": 14802,
+    "sha256": "bbb7b22483342b33e7210f0dc8682687ad432eee59086c48d926a783391cc1c2"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C008_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C008_back.webp",
+    "bytes": 5114,
+    "sha256": "0a5274d8ec34150c94e729dbc815dee4b019ac60f0ce561db7f7df8743895e99"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C008_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C008_back.webp",
+    "bytes": 24794,
+    "sha256": "7250527c4af93399ba92374e8b3ac8eb3608fd5c2fc28f36389448e2877395fe"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C009_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C009_front.webp",
+    "bytes": 6846,
+    "sha256": "96addcef0dc69fda5494d5cd1ae9ad98afd6ae279c78f92c63164394ed38116c"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C009_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C009_front.webp",
+    "bytes": 32594,
+    "sha256": "f2432907e290102b8a373db49b557566063c8d560d13bce1f0bb01196c22d70e"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C009_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C009_diag.webp",
+    "bytes": 5622,
+    "sha256": "8a096e1c73b381f2043393e49228e4ba8cb41abf9f378e5b8fd663bf265b64e8"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C009_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C009_diag.webp",
+    "bytes": 25810,
+    "sha256": "f31b7e825b6d8b29534956492c091e4d7bb50543cc8221449101aad7ce2fed91"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C009_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C009_side.webp",
+    "bytes": 3904,
+    "sha256": "d7ff7cda0ab6f71dad393470085a98178b730cb0f90b93f16252be4948670c35"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C009_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C009_side.webp",
+    "bytes": 18568,
+    "sha256": "9824f1843cdd9e5570407e8ecefdc919249bdf151dd864a2188ec493b822a8c1"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C009_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C009_back.webp",
+    "bytes": 6242,
+    "sha256": "584942204d315c00edb036d2862b1ee79baab6e54354bcad56e72d9b6d65d56e"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C009_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C009_back.webp",
+    "bytes": 30344,
+    "sha256": "f90f6ba83aaf8aea27ca6887defb6c985d825e5a45ea2a0e521e47e4fa3f2cf3"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C010_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C010_front.webp",
+    "bytes": 4630,
+    "sha256": "63df5b8989d5c0c0169be08a8cf5ec1c0864301dbc6625f566532024bde89e67"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C010_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C010_front.webp",
+    "bytes": 22728,
+    "sha256": "04e6a2cc96325d1555d4e198d65d44515f9a43583b54ea4a610e4f0ae5c03dc4"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C010_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C010_diag.webp",
+    "bytes": 3924,
+    "sha256": "f8c8d3f21a11d58d0c04f9c1fdfc89f1340bb3e395d28ae50a5b3693e45000dd"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C010_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C010_diag.webp",
+    "bytes": 18806,
+    "sha256": "5f704d51d4443e7f87cf4f0fc68a119578a9d0b04a8c395bafaefed142f92da1"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C010_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C010_side.webp",
+    "bytes": 1932,
+    "sha256": "0b2303c92ee9afe3f29cc2028f1aea3ee04e86ec21c7d03e80fcaf0cdd4c37c2"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C010_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C010_side.webp",
+    "bytes": 9876,
+    "sha256": "79713745fdd4e16cf68890507f9caf491891cf924f7cc3434da585b6bd7c85d4"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C010_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C010_back.webp",
+    "bytes": 3390,
+    "sha256": "cfd5de7c4cba5626813eac08fefe37b6d79d87060cbf599bf3b2a77da4a5d766"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C010_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C010_back.webp",
+    "bytes": 16886,
+    "sha256": "b094e8d76cf0019c80edd6ee6661905f56997af467316ff28928b485755be72b"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C011_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C011_front.webp",
+    "bytes": 6720,
+    "sha256": "4f8987ae302baac9f09ea98dbc2c9ce144d112399bd94c8b4403fe9774e58c58"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C011_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C011_front.webp",
+    "bytes": 28820,
+    "sha256": "bc47512648abaa3a55accf2f4b74b5a238e1cf41dbf4198cebe3538aedab1ce8"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C011_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C011_diag.webp",
+    "bytes": 5440,
+    "sha256": "da3ba9cccef2d666b13e0f6e5a17458860e8729366ed54d1376c4ebcf50f888b"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C011_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C011_diag.webp",
+    "bytes": 23314,
+    "sha256": "9da04738410757d6ceaed212c91a7022b6e990e1878830e47ee777fd739d2cae"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C011_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C011_side.webp",
+    "bytes": 2810,
+    "sha256": "d3a6d00f5a121b4dec6c5b2f405c2d3f67c623714cb1749fd43a6427df6ed5dd"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C011_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C011_side.webp",
+    "bytes": 13604,
+    "sha256": "73470dc489b2fdfbd94866f80d1b1df02d57429ca8ecd03ed903407a9b82f5c9"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C011_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C011_back.webp",
+    "bytes": 5624,
+    "sha256": "a53e32d9ca05a56d1159dc7456c41ad4f593cf7b300dc2b39e83005e9627cdf5"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C011_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C011_back.webp",
+    "bytes": 25852,
+    "sha256": "8465eb79dfc6ca6cfd2ee1972cb93ef121879044d3cda4f46149a163e318d58b"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C012_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C012_front.webp",
+    "bytes": 4738,
+    "sha256": "dd8b381a83c436357ac812223231b710702807b1902f20cfe61c4fbdd9e8b3ea"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C012_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C012_front.webp",
+    "bytes": 19844,
+    "sha256": "36cc1a254debee7ae60e4a85f90c972a667058339ed4af94f66a2b9b5fe3442b"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C012_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C012_diag.webp",
+    "bytes": 3696,
+    "sha256": "b6a506e5915cc6515f138d3454cf1c6a3a1f9a750e1bfa21ab770117c985ab91"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C012_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C012_diag.webp",
+    "bytes": 15272,
+    "sha256": "d0ac3c26ce915f6b7ab1a5b5eaffd01c83968898feb8fbe5035266352d091544"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C012_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C012_side.webp",
+    "bytes": 3030,
+    "sha256": "4d4710128d5f8e4b75f8eac699968de1ee436800e4f1aa778bedb18631f0151b"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C012_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C012_side.webp",
+    "bytes": 13026,
+    "sha256": "e7e971bfc052c7b9a20f3781d416067de3036e90ac7c9832a6be2a4ba03c2400"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C012_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C012_back.webp",
+    "bytes": 4132,
+    "sha256": "40e8362c9553cd011777fce4a116769bf501037591cc2e81be51f3195812ba59"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C012_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C012_back.webp",
+    "bytes": 17346,
+    "sha256": "2cedbc83ec674a984b3801fa2f2dbbe64c1cbdaaf365543327fce09f35eb54a2"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C013_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C013_front.webp",
+    "bytes": 4826,
+    "sha256": "e35d4a055eb5cfc5a5a8b99f33f3f9871b0451aa94f56a7b3b54ff142c9e5718"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C013_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C013_front.webp",
+    "bytes": 22512,
+    "sha256": "97862cd1a141702eb3d705404bed37962d13981b79966faffff05305ee23d9e5"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C013_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C013_diag.webp",
+    "bytes": 3836,
+    "sha256": "e7524c7d3666262a11e9c4b45df25433349eabf9866a2633f3ea827f3a3d05f5"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C013_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C013_diag.webp",
+    "bytes": 17694,
+    "sha256": "6f46e5839adff74ee9e30f02377bf9508b6443593a4d25e64c1ec952813ffbb4"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C013_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C013_side.webp",
+    "bytes": 2542,
+    "sha256": "aacaae632c79902d21522f8db72d50101672bef25f91b515195e6570430c2c92"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C013_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C013_side.webp",
+    "bytes": 12736,
+    "sha256": "acec0cd685cdec356694bdb6256d5c042bed96fb1361ab5582b46efdc521964c"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C013_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C013_back.webp",
+    "bytes": 3904,
+    "sha256": "32d6cf8e56469c61515fdea8578ba67a0b5880bcb4bc103163f54e0c86167468"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C013_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C013_back.webp",
+    "bytes": 17404,
+    "sha256": "2353d5a474ad9d6e1853953e716739f9670fdc63e76a95290d6efafce284a09d"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C016_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C016_front.webp",
+    "bytes": 4666,
+    "sha256": "a32702b2108a1bc41be077fb021c39bee90cb58450113ca4eb19920c71e1c5cf"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C016_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C016_front.webp",
+    "bytes": 20172,
+    "sha256": "12f467d23a0fa7ae91f9275dd03a7fc939e322731b047bba4df0120f3ef2dd2f"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C016_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C016_diag.webp",
+    "bytes": 4574,
+    "sha256": "47354d50413d164a9321647671a559fc0b7c1db3a151e461526405db599c8724"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C016_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C016_diag.webp",
+    "bytes": 19872,
+    "sha256": "8c2041d61d1b236840f11986ebbee252db778731db9e67bb355f6f8958c78eff"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C016_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C016_side.webp",
+    "bytes": 2654,
+    "sha256": "66922c23f05cba102ee99195231028f0dce47df098ccafefd06c427d8fcfa2ce"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C016_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C016_side.webp",
+    "bytes": 12056,
+    "sha256": "2c7d5cff49332cbd701c848244a12bfbcb729d1378d7c6c0d1703a1f087359db"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C016_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C016_back.webp",
+    "bytes": 4102,
+    "sha256": "918efac4199cad2c6c7ec8c538a5fb292dfe1069c654cab80f2beeae16e8c313"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C016_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C016_back.webp",
+    "bytes": 17266,
+    "sha256": "9e38faafb7f0693684a5b93f4778164df0b81ff71453537f568a09c96f25151e"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C017_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C017_front.webp",
+    "bytes": 5134,
+    "sha256": "3910d40ef3449d849a0c686507934ef1fc2b72283b1ac73b49a29450c83f5772"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C017_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C017_front.webp",
+    "bytes": 21042,
+    "sha256": "f526a67511a3b1e6e74d3f81559f6c5b57a738b5eb03e25925c48fc1c0a184f9"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C017_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C017_diag.webp",
+    "bytes": 4646,
+    "sha256": "1755d35fc8de2372942d1d469b385855c235698df41eb3d7031b43e62471dcb0"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C017_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C017_diag.webp",
+    "bytes": 19758,
+    "sha256": "8e68b9a5be0ba3d1e9f1695aee7fc7c092c6c87c1181425c2eca8b8a0799d93d"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C017_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C017_side.webp",
+    "bytes": 3002,
+    "sha256": "66a84c4f29a4fc3642cd04b5f6e550fa18170c59a891435ffb2b580d2c6b3091"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C017_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C017_side.webp",
+    "bytes": 13582,
+    "sha256": "b8eec0bd08a49ac6255e8414e2cb20c12b23f79ac1b42f5fbe7858130cac53aa"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C017_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C017_back.webp",
+    "bytes": 4462,
+    "sha256": "7c28a9c6023b33c51ecc554b1dee09c65c86b57d7eb10740c4821e8997322a15"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C017_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C017_back.webp",
+    "bytes": 18476,
+    "sha256": "7faf4e2d3b21ef7126daf258915a9e6616cd6b9bc4ae40359bbd4923738e3f80"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C018_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C018_front.webp",
+    "bytes": 8382,
+    "sha256": "b448aba4a81d4edb03936d6f9328d5df3630bdabd604eac2df4b05e62bf90ce7"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C018_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C018_front.webp",
+    "bytes": 43268,
+    "sha256": "5b8010dd440faaef7b25a5134ac91b32be5005d70ce7425174624a0acad8cab3"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C018_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C018_diag.webp",
+    "bytes": 6528,
+    "sha256": "ed2a5d0eca5b162fb4bd770e53064c76015a62a10129e8e82e1f3b1f18e3b26d"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C018_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C018_diag.webp",
+    "bytes": 33330,
+    "sha256": "b9b37691c88d5518ac5e9d464a231e3fee47a6f1903e841ff44c13969372be66"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C018_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C018_side.webp",
+    "bytes": 4426,
+    "sha256": "8b5ef307f9135d6e63452f9c12ba0da3fcdc99b053f2b3b31a41cfca1f31aabc"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C018_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C018_side.webp",
+    "bytes": 23414,
+    "sha256": "425e8931e215d666c7809abdee3e48ed5784ef9f07aa8ce8631d90faffe9be9f"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C018_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C018_back.webp",
+    "bytes": 6804,
+    "sha256": "7f34010d282cb5aec3a1a4f09f07fbb07fb942f4b3d3d48ef14f3bafb12229bc"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C018_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C018_back.webp",
+    "bytes": 36398,
+    "sha256": "7509b0beea5f19d85b1b50ad1aa40f09c0da901feb6aaeec301a1c8eccdb248c"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C019_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C019_front.webp",
+    "bytes": 4258,
+    "sha256": "db6d06568870d38ccd8d9994b3447875968bcf2b370f8a2b77a175a6f28d1655"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C019_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C019_front.webp",
+    "bytes": 20450,
+    "sha256": "a3dedfe327622a2b657fc6657417f909096fdc3602512069a0287d9746efbc7f"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C019_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C019_diag.webp",
+    "bytes": 3838,
+    "sha256": "5b1c2ce05f9e52e1fe06f3fe04b62ed49aada5bc04328619b53afd91be2a0c39"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C019_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C019_diag.webp",
+    "bytes": 18726,
+    "sha256": "6566ff6f27cb7b4089d233df218862080d5ef8c26393187081ed3ca026dab257"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C019_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C019_side.webp",
+    "bytes": 1990,
+    "sha256": "7b3cb4ca1cd47791c800ce2c335bb097aca70d030f32019cd6082db2794810b4"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C019_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C019_side.webp",
+    "bytes": 9950,
+    "sha256": "52c0a05e459bc5f14be421a7ab088fdc58a70384fce48ebab81d2fe095e046d0"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C019_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C019_back.webp",
+    "bytes": 3950,
+    "sha256": "55b860cf97679ecc2cb7e3953e04374e4cd235286e4b6281e8a21a01996cf60f"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C019_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C019_back.webp",
+    "bytes": 18184,
+    "sha256": "95be883578c73ed23516850f17fc27801c665afa00d448deee75d6962e7214e2"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C020_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C020_front.webp",
+    "bytes": 2740,
+    "sha256": "e37bb3a816cfbdd1d6ffe774364d9ac0edf51bb648eb24f0f2fa5958b418996a"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C020_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C020_front.webp",
+    "bytes": 13174,
+    "sha256": "8376531cc87f463ddb655b61fe3f3ca6259b529942f04e29745799c26db5a8d7"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C020_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C020_diag.webp",
+    "bytes": 2306,
+    "sha256": "ff0b5e5f2d96a102f23c0fab5ba360a570a95a141c16406cfc31615ee25bf546"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C020_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C020_diag.webp",
+    "bytes": 11136,
+    "sha256": "47eb9ea2d278d82c04d7db953ebed2d033234976531131f1453df86436762570"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C020_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C020_side.webp",
+    "bytes": 1356,
+    "sha256": "531c024bf230b9988c1905ead9c255af5fa800ef8d83baa7c343ea12bba29bed"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C020_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C020_side.webp",
+    "bytes": 6848,
+    "sha256": "ea9b0c60de3585923b6339128557fd431ff6834592d47886e809a094dfa71f46"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C020_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C020_back.webp",
+    "bytes": 2186,
+    "sha256": "2a1a1969ec285bcb6a737683a723cd50462517ca728a8e988a0cdbd2da578f9c"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C020_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C020_back.webp",
+    "bytes": 10292,
+    "sha256": "78a4e315a943276b2cc3158bc4735cfa6d0cdb0f510c43362c1d31690a744ead"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C021_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C021_front.webp",
+    "bytes": 3016,
+    "sha256": "51fc1016689a1d591a24be61a54ad185f670fe9a3643785b5d686b649c35f472"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C021_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C021_front.webp",
+    "bytes": 13968,
+    "sha256": "2870f9d8644850933551764682b02b9a99c549a45ef12e92a7951428dc6d8ade"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C021_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C021_diag.webp",
+    "bytes": 2450,
+    "sha256": "43109f25dd551177a1d41d637eecabddb8c5b6e8af1c5bc9bff68b2aa50479aa"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C021_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C021_diag.webp",
+    "bytes": 11938,
+    "sha256": "11e0ac84cc5fbb55152949512cb1c8cd86db52f44b3ffc851f7ab596eb6e7d02"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C021_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C021_side.webp",
+    "bytes": 1514,
+    "sha256": "af83e565248fc363aa239533576dfc3732a0a332ac9849251f0c7066276d8123"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C021_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C021_side.webp",
+    "bytes": 7862,
+    "sha256": "a1a6c28435064fb3e12e8e4f8a077547c866ecd57d78de383916484a384a528e"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C021_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C021_back.webp",
+    "bytes": 2294,
+    "sha256": "b06ec236875c08ed327f07c24a2072e4ffbb9614f84010e2ea508a4bdcf1adc0"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C021_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C021_back.webp",
+    "bytes": 11104,
+    "sha256": "d0f35ae3d5e8e76bb8ee7564709467ded38e163fda168b2794158182d003acef"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C022_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C022_front.webp",
+    "bytes": 5638,
+    "sha256": "7d7d394bd4a6b4b70d7b50912ed57b7b706ffeeb34c144920367835bcbbf841e"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C022_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C022_front.webp",
+    "bytes": 29080,
+    "sha256": "b45bd2fcdf45eefcd9532b5f42ff1554e0c10e5537e881ab4c82098aced1f96e"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C022_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C022_diag.webp",
+    "bytes": 4338,
+    "sha256": "56089106ffbddbf7d644272a8c8c733c49207bc0e69f89df32afbc349a22075f"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C022_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C022_diag.webp",
+    "bytes": 21748,
+    "sha256": "e42a45911c4533dafb9c46e53e454662517d5e3b3113895d2e5f1675751970d6"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C022_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C022_side.webp",
+    "bytes": 2898,
+    "sha256": "858b99c5dadc6e916f843e57b7b24b3ccb865498ccda7aeb528f7bfa3e28e421"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C022_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C022_side.webp",
+    "bytes": 15942,
+    "sha256": "3696ee8d279c1bb8dbdcb595a99dca3d7f91b2fdedafd6fa85529c67af81977f"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C022_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C022_back.webp",
+    "bytes": 4860,
+    "sha256": "84a3cc12ee7a6a4bc692a3a3c690fe89a168eb9e37e5f53e703c043bcf03863c"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C022_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C022_back.webp",
+    "bytes": 25236,
+    "sha256": "163db7ac0fb46288a71585c7fcc06c1b031aa7882b92621f0904d3726c3aecca"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C023_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C023_front.webp",
+    "bytes": 4386,
+    "sha256": "e87cc6032514ce59eb81255040fa67816ae9c2ab4be23ccf61a005d59beb3c42"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C023_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C023_front.webp",
+    "bytes": 21554,
+    "sha256": "f67d7664e2b76d2cdbbd80e0858422c4d02787e6b64271cf29919b14b839b688"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C023_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C023_diag.webp",
+    "bytes": 3438,
+    "sha256": "004938bd79e3a2daf03b861a5ff9f78064447573d4a4f33d5283c8797ed0a2d4"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C023_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C023_diag.webp",
+    "bytes": 16492,
+    "sha256": "b4a0c4681efb8d30847af8ff1429d8e077610e44d79bf5e03711a7fd47fea9c4"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C023_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C023_side.webp",
+    "bytes": 2012,
+    "sha256": "a2762ba73f56cfc449ae94d467c554efa66ef766a44dd04505c52f94e3609b73"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C023_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C023_side.webp",
+    "bytes": 9786,
+    "sha256": "73e2723bee5478a9bc20830aa9a03e7c7c2fe4dcda2ef1bcab411bf0c7897724"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C023_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C023_back.webp",
+    "bytes": 3848,
+    "sha256": "6c4397061132af95329ff7e8b3bdbaa7b71dc818a79533954c7dda95d38c6c9e"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C023_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C023_back.webp",
+    "bytes": 17746,
+    "sha256": "fdefe5d1c4ad7ff4c3b34e205e0ad8c10fe149060ea6ac7319348a9ccaed021d"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C024_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C024_front.webp",
+    "bytes": 5174,
+    "sha256": "96523529f2ad42821ab762b3160c87bea18e114d5e2185fdeb4ad3071becdc5c"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C024_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C024_front.webp",
+    "bytes": 23738,
+    "sha256": "62ac9b1de5ab915938e0cecf7768c6be4c033a36f8944be3f982a05452d70d9b"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C024_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C024_diag.webp",
+    "bytes": 4066,
+    "sha256": "4be0091023a60c30613a50103775a8ea529e2639d4fe33c3442e44099e0c53d9"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C024_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C024_diag.webp",
+    "bytes": 18038,
+    "sha256": "a53d0aa16c6c1ad497dd0cd341750bc9a55733d7f4f17ec7c52be8a5e8ff63d8"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C024_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C024_side.webp",
+    "bytes": 2612,
+    "sha256": "83ff547f5360dfc4a8593bc18c2dc3429ea6da3259cee9b3dccc4d6e79e0de65"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C024_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C024_side.webp",
+    "bytes": 12534,
+    "sha256": "927cf60564c8d375ec07e788395b0bb987bbb58c2556c4852d56541e7d8d7d60"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C024_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C024_back.webp",
+    "bytes": 4210,
+    "sha256": "e50022cc388950b10d7e08c0d3d310c9b25d7a9d66c7387f47bea05885243034"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C024_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C024_back.webp",
+    "bytes": 19516,
+    "sha256": "0c3d7833c19b72e2bf5e08ea78dc3511a4fadef0498c278a54f9ffee974aa2d1"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C025_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C025_front.webp",
+    "bytes": 3920,
+    "sha256": "8cb157fd4e301f6b594c717df02fc125501af9ea1142451a2a555e1a1110f915"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C025_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C025_front.webp",
+    "bytes": 16966,
+    "sha256": "c4c41fa803cd3ad8e0d540373cdcab0b387776c7576610e76139c1f99141e0f7"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C025_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C025_diag.webp",
+    "bytes": 3316,
+    "sha256": "4349f47b2f236746d93925b9568a2624bef4f6d024e8caec045c97a0031eaa65"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C025_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C025_diag.webp",
+    "bytes": 14574,
+    "sha256": "babab3ed4168c309f1abba796feb222a9acc4c64b7cf05b45582caa624d14bf1"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C025_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C025_side.webp",
+    "bytes": 1942,
+    "sha256": "296e2f4913f56618abdff5e71844e68626b5291d307b3b5c12493681799f7443"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C025_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C025_side.webp",
+    "bytes": 9386,
+    "sha256": "fbba0c3e392b78fcf0850f63a975bbbe0ffb306ef18d1e95fa4acabaccfe2064"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C025_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C025_back.webp",
+    "bytes": 3488,
+    "sha256": "7982bf56c06b120969a4ddfcc814f2ba822cc177bf602e96e351e72fb6956476"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C025_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C025_back.webp",
+    "bytes": 14884,
+    "sha256": "56a99edff794dd858b2d3fed18bf29ae84332a05f22486892e565c66099e8093"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C026_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C026_front.webp",
+    "bytes": 3946,
+    "sha256": "3f4b58bd9e25edca7a85db36a9dd43bb5ae6bf665a681800740e872120312358"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C026_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C026_front.webp",
+    "bytes": 16920,
+    "sha256": "6df83e782dd14f8ede71cba6d989a83468757cf5e2cb521932b2ce7c2ed90253"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C026_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C026_diag.webp",
+    "bytes": 3310,
+    "sha256": "ad3459d716098b7430f228a1f5446e9f4886356f32b7d6aca71debea7ba64891"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C026_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C026_diag.webp",
+    "bytes": 14444,
+    "sha256": "d9441aea09bc6f1b043f84b900491034a812fd11b8eed97402349e8d5c09da95"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C026_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C026_side.webp",
+    "bytes": 1904,
+    "sha256": "b2952a476c1f045d9c7109507499ae64fc3f52d0cf61124abd517b10b80a3b96"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C026_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C026_side.webp",
+    "bytes": 8660,
+    "sha256": "07683dee5cc11c376311222539930d0adf6f02275100af379150e8972577cb86"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C026_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C026_back.webp",
+    "bytes": 3642,
+    "sha256": "9a37e25bafe77c79871af7757ada03d5ce3b436f8e86f439fcb0d082f9e8833c"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C026_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C026_back.webp",
+    "bytes": 16292,
+    "sha256": "3c6cd13bc7710daf13ec7f4c2ac16e6c84a4f7e1b17783746c47519489cf91dd"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C027_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C027_front.webp",
+    "bytes": 5330,
+    "sha256": "7d0545cf77c4965eee0b5af1ed08e0854e8c8a8e194788d63960e0d759422bfa"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C027_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C027_front.webp",
+    "bytes": 23342,
+    "sha256": "dbcd3a40b0020cf3c6aaf56c348f0fd7d07f6a551912aae775eb09053ebcc055"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C027_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C027_diag.webp",
+    "bytes": 4704,
+    "sha256": "f1cac85a279caf30b0768f177c0dbd7ae77be932867bcb91a55038ad62b74c62"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C027_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C027_diag.webp",
+    "bytes": 20714,
+    "sha256": "de21573b0ad1a0a558f1d444581fd946e500dcf05996f398740371724731618b"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C027_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C027_side.webp",
+    "bytes": 2678,
+    "sha256": "1d4decf17fd8a96a6a0086587bb583935228acf5666984374a55a0d21ff36828"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C027_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C027_side.webp",
+    "bytes": 12192,
+    "sha256": "f78ae26d2f8232636e984744c413157d1f2c7d542ec2516a10c74f8bf2454ae9"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C027_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C027_back.webp",
+    "bytes": 5256,
+    "sha256": "9b8de9c151c3a4dfafebf174659566429fe41a2f9c7b4f24d8edbb85026d2312"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C027_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C027_back.webp",
+    "bytes": 22638,
+    "sha256": "a5b73a5cb36c55ecf8126bd3420f829731a0cd848da772aae6ad99c1e66b476a"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C028_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C028_front.webp",
+    "bytes": 5828,
+    "sha256": "f7a171560f5fe187161afe352a42ad12fb5e25bfa88bc8e2f7eed4a3ab78ca80"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C028_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C028_front.webp",
+    "bytes": 35218,
+    "sha256": "e83fddb76a5da88d5cf945a64cff855d0ce2d74ac015f7645182b031f6d40a4f"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C028_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C028_diag.webp",
+    "bytes": 5442,
+    "sha256": "71f81fb91f57eac6743be402e9b80ba3bf88b8e67d8bd9f0143e1bda2789514d"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C028_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C028_diag.webp",
+    "bytes": 32936,
+    "sha256": "e8fde2c382cf31e866babf0096fb31312f7a544eaae6a88bab51bee5d053fa0b"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C028_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C028_side.webp",
+    "bytes": 3940,
+    "sha256": "3f5151f25e1b3db241352906f3f68381993dddbd262c7b04901870be9fd9a727"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C028_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C028_side.webp",
+    "bytes": 23308,
+    "sha256": "051e5b692e58404bba566f05cd1f969d985943e0218cdd7e0629bd7b10a3637e"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C028_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C028_back.webp",
+    "bytes": 4938,
+    "sha256": "954005068b475489f6961d37334f0d2ddc6f70b048b06a42c535803eff0d13b4"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C028_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C028_back.webp",
+    "bytes": 30470,
+    "sha256": "4c4d038a03e46e3a1ac2dc7a26a42d9c841d7a4f570faeb95bec8204bb9b28d0"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C029_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C029_front.webp",
+    "bytes": 7850,
+    "sha256": "ec5f94cabbe1ead26ed822a7109be3394fbc05eef0c4977ced12418dd72e15f7"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C029_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C029_front.webp",
+    "bytes": 42994,
+    "sha256": "e29c9576d38fadc49e7ab37c5d0b0432685d1a38aac80293ca78c7f2fe24d62d"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C029_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C029_diag.webp",
+    "bytes": 6316,
+    "sha256": "1722d547510a990f8e18c3fd225fdc96244c9ef3fb82e17accd8a2dde88df43a"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C029_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C029_diag.webp",
+    "bytes": 35090,
+    "sha256": "3f400e86f2a599252cb51ec86c8e9857c59346bd0a46e3cb53941f2f0aebacb0"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C029_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C029_side.webp",
+    "bytes": 4358,
+    "sha256": "bc4ebe039492ff28698cf4e95833cc263c05d5f06205f5e1040aeb327c886a8b"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C029_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C029_side.webp",
+    "bytes": 24754,
+    "sha256": "ace824c4c54c349003fe75bc4961592931fbc80aa4d33632b850d4aac08fdae3"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C029_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C029_back.webp",
+    "bytes": 6738,
+    "sha256": "66ea11e7559c82f3c1669426091a1c0411e88474a370dd99dc9a34f6dedf4a34"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C029_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C029_back.webp",
+    "bytes": 38052,
+    "sha256": "d12a38b103e461d0fd6305e2ec08146f483edfb87d83a553306da7b73ef816ee"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C030_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C030_front.webp",
+    "bytes": 4272,
+    "sha256": "1cb625e654bb5746364a04b95b1d49020a1d3e31efdef443a25d92571cd537f4"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C030_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C030_front.webp",
+    "bytes": 18946,
+    "sha256": "412952f8617aa25fe26688b58418c0547443561d0d05cc80e1ae73eb4e4ddf92"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C030_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C030_diag.webp",
+    "bytes": 3798,
+    "sha256": "c4b981b3ab003b260828b74e55330c244413b125cd18935a8c1442fca19a3381"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C030_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C030_diag.webp",
+    "bytes": 17396,
+    "sha256": "49d929357d125cf273a0fbd683412c6ddbcd4d035ca8131e3f968f0357806c45"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C030_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C030_side.webp",
+    "bytes": 2758,
+    "sha256": "a22121b97165c7edf9dc06f3f5f557581e8b4847467e810a9c78e20a0be4b660"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C030_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C030_side.webp",
+    "bytes": 12666,
+    "sha256": "4175476b6c9b77fd0e0df31df364ee40dfd03966e37642797e9c609f19fd25d7"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C030_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C030_back.webp",
+    "bytes": 4282,
+    "sha256": "252c5750ded155b883b8e34eb969189fbb60f17eac912a796a2accb71a5121fd"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C030_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C030_back.webp",
+    "bytes": 17928,
+    "sha256": "9942dd7c726818874dedcde9681e57598096b7a6a09bb2f00fef94188a870dde"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C031_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C031_front.webp",
+    "bytes": 4810,
+    "sha256": "b227c545abf92d16fa22ad27ba2891e712db8358f4431c255718510c89de6a1e"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C031_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C031_front.webp",
+    "bytes": 22518,
+    "sha256": "20db584fb66db9fed23b16e8f00324dde8d02f559b1c96ecdd6d14ac2f209908"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C031_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C031_diag.webp",
+    "bytes": 4016,
+    "sha256": "ade9a70033d1462f4452ea0388f2f7b2661c476bd4eca53ec58a049dfae4f209"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C031_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C031_diag.webp",
+    "bytes": 20602,
+    "sha256": "9713c89f9159e88bfe27b9c32197190c5becb379921d089dba90f4d5165bbd6a"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C031_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C031_side.webp",
+    "bytes": 2826,
+    "sha256": "b78a0e2c932aabd4bfca8a1e4a92e4f0d66af066dc6854bcf51da3e364732ddc"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C031_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C031_side.webp",
+    "bytes": 14154,
+    "sha256": "5723e60ef5219e4053446a1fdc46f915c1fb9cf7bfaa54c8cf6728548b128f2d"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C031_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C031_back.webp",
+    "bytes": 4206,
+    "sha256": "5ae1c8497e9d29bd1c4212e29e2ff62438485f9a7ece544d730a58972c4a0bf4"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C031_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C031_back.webp",
+    "bytes": 21176,
+    "sha256": "a7fc8269e1b987219c28ec2481f44c19996d91bff0f67a142822f1094113591e"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C032_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C032_front.webp",
+    "bytes": 4458,
+    "sha256": "5000da94f3c5ce430b1d0ae9e3d4d79e4e7ce001d2b7d68de907d2400eb1cb02"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C032_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C032_front.webp",
+    "bytes": 22012,
+    "sha256": "6a80bea4e8693fd5f5350629297e3153bc486daa8e74ea3bad33adb96d736d5d"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C032_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C032_diag.webp",
+    "bytes": 4190,
+    "sha256": "67f8e69194049e75f9b411146d33a06ea85fd40539408c4a7c0d5f037fa31212"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C032_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C032_diag.webp",
+    "bytes": 19532,
+    "sha256": "612a8fe7b9881fed8afd5a57dea5c3cc8184b46b593c030c8df5ab65a8725703"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C032_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C032_side.webp",
+    "bytes": 2992,
+    "sha256": "19a873414a6fa108b75d0c630d0b287a215d83b8667b80444357cec6a8b14ea6"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C032_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C032_side.webp",
+    "bytes": 14282,
+    "sha256": "9d71b54232ab8cbe33f459ad63e60a193efa5432148a08e1af0da2917fdd29e3"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C032_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C032_back.webp",
+    "bytes": 4194,
+    "sha256": "0fd33fbd59d976278caf11394c622231e618e5cc5211a81a740ad556884c6cf6"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C032_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C032_back.webp",
+    "bytes": 20352,
+    "sha256": "140037d647a2c0f029069beb3dabd828b927c503f7e7fd9bc71b71a57d8c0b0c"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C033_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C033_front.webp",
+    "bytes": 3970,
+    "sha256": "dc763303ef7dc47c1b9f9b9f416d721e3024681ddc65cae46cdf8e621940eba8"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C033_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C033_front.webp",
+    "bytes": 18514,
+    "sha256": "ed2d19e98a444bb2fd56232a35087055de836adef65af28c348ad41600facc47"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C033_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C033_diag.webp",
+    "bytes": 3732,
+    "sha256": "540735109f6c16126283e791aa5c6bfdf5e4578cd86b798702a494395d91c277"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C033_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C033_diag.webp",
+    "bytes": 17790,
+    "sha256": "8e395b3b14c792e93833da59890980be6918aa154379e39d54be665c9ffae538"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C033_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C033_side.webp",
+    "bytes": 2890,
+    "sha256": "0701f8811912aa44b6462c722898cc1a2a18b8c0eddf8937cef0b84b7f8bc560"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C033_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C033_side.webp",
+    "bytes": 12938,
+    "sha256": "d92f6185e6d638de1c7cf4c5f4cef99745c82e74d7ebcd14fe2e8afa5903ee36"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C033_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C033_back.webp",
+    "bytes": 3660,
+    "sha256": "740e67d66d9140ef972e46c8740c5e6f3d93bc7274ce52090fb587a04fe5ccff"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C033_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C033_back.webp",
+    "bytes": 17222,
+    "sha256": "19b5c10e459fbb484ac8fb03d1c25d8cf6b3b47e3188817f1b7435a179202b2e"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C034_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C034_front.webp",
+    "bytes": 3912,
+    "sha256": "767575899ce592b3f9a3c4e024ddc6ca8122963b70787dcf77a9ed08621f43db"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C034_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C034_front.webp",
+    "bytes": 20180,
+    "sha256": "364f28d5ef1001b6ce1c00893ac517df9e8280b41846ae82ad0a756769796964"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C034_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C034_diag.webp",
+    "bytes": 3432,
+    "sha256": "76adc65b25a8730a723bb122a9c7041293cfcc7348089055e7075b3a8ddda6c1"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C034_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C034_diag.webp",
+    "bytes": 16744,
+    "sha256": "9836a21971de9818fd9610460c24ab14e277f19553eff6075458eb8c242351bd"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C034_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C034_back.webp",
+    "bytes": 3266,
+    "sha256": "87575373fee2d626fc21da3be4fcb4c93124ee9f2f5ebf8445eaad664f61038e"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C034_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C034_back.webp",
+    "bytes": 17784,
+    "sha256": "df59f132df3265ce3bcee08c0b63e3c6fb7fcbf27e4841ce609702f54a9101f1"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C035_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C035_front.webp",
+    "bytes": 4260,
+    "sha256": "ca7afbe991e8e657f7ea6ccaf0a87c0338e638bba823eff3a7a9d4963cc7ef93"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C035_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C035_front.webp",
+    "bytes": 20694,
+    "sha256": "e68e14042cd41b60bca97eddfe3ad4b6e1bb5b20685d80ba31125ad58ecbd004"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C035_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C035_diag.webp",
+    "bytes": 3622,
+    "sha256": "844a35de6c76d1bbd1c2ee60bb617cf3f8ae9d42e5f604827e6773b36793745c"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C035_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C035_diag.webp",
+    "bytes": 17980,
+    "sha256": "1cbb89f594705163a7df6323bf3d2e35609e7a2e8552db010b74e10f2311a332"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C035_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C035_side.webp",
+    "bytes": 2904,
+    "sha256": "5caa52394d60855b5966e4540699046f66f48261a632e8879d217d42493537fd"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C035_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C035_side.webp",
+    "bytes": 13884,
+    "sha256": "d9d22254d3c29c8fc8c092b8bf54474dd3d4a558985c5d99cdb3c42b08a6392d"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C035_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C035_back.webp",
+    "bytes": 3614,
+    "sha256": "2756cbff4a4f96d7f561215888b5b3f2de0463d1bd1a730a72eeccf0859bf716"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C035_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C035_back.webp",
+    "bytes": 19670,
+    "sha256": "baae2626f959b2e348f14b5d59a5b428529e6ba513e4ef165fa178e05d1ff966"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C036_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C036_front.webp",
+    "bytes": 6512,
+    "sha256": "54da69f88fd23f1a116bdb39558739d8b0613e0ea59077567dcd58f661e7e992"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C036_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C036_front.webp",
+    "bytes": 29322,
+    "sha256": "2ccead5b92be02237690219616fd04ba000f23f287432929fec02f4491ee8b62"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C036_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C036_diag.webp",
+    "bytes": 5522,
+    "sha256": "bddd3fba4715355b2a461c54e3f09e344cf630d15366ca2e58c912bf3ea9b172"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C036_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C036_diag.webp",
+    "bytes": 25462,
+    "sha256": "1040aefbdc5cd9eceac787e7787429447f0f1c853494930eea03db578dd82853"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C036_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C036_side.webp",
+    "bytes": 3056,
+    "sha256": "7ac603a2a7736223b095a6923afdd27f5ae39e47dd9855d08e81214b2339aca9"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C036_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C036_side.webp",
+    "bytes": 14608,
+    "sha256": "c633b325d71a35d4228416d2a0853197de7f0c03633c5fb19f7da525f7c828c3"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C036_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C036_back.webp",
+    "bytes": 5818,
+    "sha256": "13a7d66885d8d2b1dbc15f5bac452e95e9e88cd5cf13bd905954c8d5e823af48"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C036_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C036_back.webp",
+    "bytes": 25090,
+    "sha256": "8bfcbc8df3c4ffe0f6a57f77759ed7f06ca78fec24808887b097e9c9ff829327"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C037_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C037_front.webp",
+    "bytes": 5258,
+    "sha256": "9b17e7d0966f8bf55c8bc27a2e31e04c95790c9289b84ca16d24b4d2ab83f1e5"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C037_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C037_front.webp",
+    "bytes": 24464,
+    "sha256": "0805e890bae0c7c82bf37847d965776b5516fd2aeeae6c975dc9876f3c270036"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C037_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C037_diag.webp",
+    "bytes": 4492,
+    "sha256": "23137f395e7ad7bc6b0049ddb89907792261a3249bac2c75faf35ac9a3d37931"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C037_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C037_diag.webp",
+    "bytes": 19704,
+    "sha256": "a92d1267aee905a828ec8c2a390d166f933dab05c61d815692b3ea9152285fc1"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C037_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C037_side.webp",
+    "bytes": 2684,
+    "sha256": "23b2c066850e2661a4853c9ee8f6d23ce759dd4be34ea0daa02bd9ea9f695edc"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C037_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C037_side.webp",
+    "bytes": 12580,
+    "sha256": "72fb039bbc1f4ce463252e7b9b74c5481a0c54a4cb41812fd89469d2def0f492"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C037_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C037_back.webp",
+    "bytes": 4436,
+    "sha256": "9eddb502092735485e9ae9a170617e2ca963b8d5650160a3fb56a8e14554225f"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C037_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C037_back.webp",
+    "bytes": 19566,
+    "sha256": "1ba7048c4647170107b3c9d5efd4266b6a8d63035ba52e6fb83fdcf37518bbb4"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C038_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C038_front.webp",
+    "bytes": 6290,
+    "sha256": "d104cda860761c7308a0be43096d38c0bc0b19fa9a3d7f42fbbfe9c9c95087e1"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C038_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C038_front.webp",
+    "bytes": 29740,
+    "sha256": "53b0e420eb87008e8cd19b49c804f84afb71c40075b1cc4687b6b8374c70435d"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C038_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C038_diag.webp",
+    "bytes": 5434,
+    "sha256": "4bf2b091eb68f7d8b6e1f4a33a4633a4891e5a2723b071b32ac6e074c1bf25a1"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C038_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C038_diag.webp",
+    "bytes": 25730,
+    "sha256": "45fcd764305d65cbe0eaf492cc2060add7125018e1894ef54581461d3b23ecaa"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C038_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C038_side.webp",
+    "bytes": 3682,
+    "sha256": "fa7c535cc7891219f951e1c428b9473810d8e188ea24f55db90280ad7c26cc3f"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C038_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C038_side.webp",
+    "bytes": 16974,
+    "sha256": "12b19c40645f2f77053b0fd0e74389c16294e6d80a1b668ec490b0e26b5fb414"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C038_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C038_back.webp",
+    "bytes": 5630,
+    "sha256": "5d6df808a544c14d3069238cacf70ab738504446a94562147fc14b9f28af343e"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C038_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C038_back.webp",
+    "bytes": 27316,
+    "sha256": "a41cfe8691b71bbd20d49417ce720a362356903c79fc942c2c09fc5d796cf185"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C039_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C039_front.webp",
+    "bytes": 4852,
+    "sha256": "7483912bd9761ff183fb6cc5ae84439456c0e4ab3d60e5f6a0ac26e5c3f217df"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C039_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C039_front.webp",
+    "bytes": 25492,
+    "sha256": "be51f30b6eec4184cde4df631db42a6d8959732583c15108b24618e6f077f2c4"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C039_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C039_diag.webp",
+    "bytes": 4070,
+    "sha256": "2a9571e8945086be0e0bccaad8c35ec78db6d5bb756fa3e9ac924d31a955b40a"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C039_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C039_diag.webp",
+    "bytes": 21564,
+    "sha256": "6ad437f3dfb47ec7cfc0ac30cb245ac61dd1a9854a3d79d1e57c00be3aa99572"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C039_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C039_side.webp",
+    "bytes": 2954,
+    "sha256": "25f71ca52aa864611b96f4e00014654af6959b7f82a911aa0089d1f5c13e54fc"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C039_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C039_side.webp",
+    "bytes": 15570,
+    "sha256": "c9f7bb539abe4ce38b3ccbc76f9b09f9977e0d6a204deedf7551092e3e6a9de8"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C039_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C039_back.webp",
+    "bytes": 4542,
+    "sha256": "0e56a79c07788ba1e027c44d8843fbbd7c0effe096d554f560df8bee987e3868"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C039_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C039_back.webp",
+    "bytes": 25112,
+    "sha256": "34ebdac777472ff977c9d921471c052e7e2d364dbb491895b1cfb8efc8882153"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C040_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C040_front.webp",
+    "bytes": 6950,
+    "sha256": "5b92fb0192e0081c894be93d98e585d7ab651ec7814983a919cd2c56c70fe38d"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C040_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C040_front.webp",
+    "bytes": 31714,
+    "sha256": "fbc9040802469d46051d692c45b2af5afccf984a3235b10ea8f7bc9fd4826ce6"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C040_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C040_diag.webp",
+    "bytes": 6328,
+    "sha256": "83a85bdde0ce04f0620db5fdbc4f0b6d3cdfa010c22a021a6003777436fe42ba"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C040_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C040_diag.webp",
+    "bytes": 27902,
+    "sha256": "0a903337be2fc977df6a019baa41637b987af3c41a132a503d89f8bfd6a87e7b"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C040_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C040_side.webp",
+    "bytes": 3162,
+    "sha256": "2472334dee1e9fedd23930dc2012ba6410399448fbf84bfd16020a5f2be58c0a"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C040_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C040_side.webp",
+    "bytes": 13988,
+    "sha256": "6ad9f4e467ca52c690fd3401afd72e9ce2813e610f60f2e13c14b040e0522809"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C040_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C040_back.webp",
+    "bytes": 6598,
+    "sha256": "eacb924584e93ceeb8ba8bdf7fed19114d4636f729d236b27488ec3cd6d1e80a"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C040_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C040_back.webp",
+    "bytes": 29116,
+    "sha256": "325583e83e614153045e34570e14810d14f97e49d6bab7c89d2b9def7045ffd9"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C041_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C041_front.webp",
+    "bytes": 6252,
+    "sha256": "797ce3cc03fce15108e7ef3a16ed1a240a9b2b66552a22b49d7c4079d06ab821"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C041_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C041_front.webp",
+    "bytes": 32682,
+    "sha256": "9de66dd259194ff0f0194e301427bcf43e430482adcc5a510674737faf405e15"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C041_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C041_diag.webp",
+    "bytes": 5480,
+    "sha256": "bc81eaae0ab9ba23e182fdbea5d9eb03460f913fe4340eeaf8d948640255e0c1"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C041_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C041_diag.webp",
+    "bytes": 28304,
+    "sha256": "e24702b903464e4756f4034d45bae765f9c3cd616ae31d3af42f53f54f44367f"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C041_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C041_side.webp",
+    "bytes": 2560,
+    "sha256": "a231b9083d26b98bf8a2f7cc99f38ed32b5047c13fce979e7fc8bd8c871bf241"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C041_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C041_side.webp",
+    "bytes": 14628,
+    "sha256": "e52de05c2582db48401ba50f6a655f559fe4e2d28361d280be13c96c8b440c14"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C041_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C041_back.webp",
+    "bytes": 5860,
+    "sha256": "7986038f32db839c5d7063b15cc02ec521dc401c6dd873e367b59686085db7a8"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C041_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C041_back.webp",
+    "bytes": 30818,
+    "sha256": "80dbe510502804f39f7064f6cfbd7782eae8c3a1d27b2bd8ded1c3fea661313c"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C042_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C042_front.webp",
+    "bytes": 4046,
+    "sha256": "6db75f81e2d084c20f1f88089f887c2ecde657462576f927d9eeebc9fc68edfc"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C042_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C042_front.webp",
+    "bytes": 21228,
+    "sha256": "4193cda1a7b2317ffe9b360a3cb9ec8e96febd8d0fcf09a5dae66ac59f5e0705"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C042_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C042_diag.webp",
+    "bytes": 3414,
+    "sha256": "ff8d5999b5285c353f21548a46801fefa0c95021d5ce86f476fccf3b15e6c7d6"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C042_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C042_diag.webp",
+    "bytes": 18992,
+    "sha256": "bef662172c2b4881989d8a9c537be38e64cc246187c52820226e6929d702fa9b"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C042_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C042_side.webp",
+    "bytes": 2018,
+    "sha256": "f6c6dc97e31d4146cd61862f82043b466da57806591eba9c013e7f8033e26dbb"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C042_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C042_side.webp",
+    "bytes": 12082,
+    "sha256": "b74d52f8b67595c0e7c51fc86f696dc5b14ef964551db2cdbcd16ae532b7aa7f"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C042_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C042_back.webp",
+    "bytes": 2996,
+    "sha256": "df163de7809ad2fa68b9027da415c9a58473b503123066368d5233a84331bf37"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C042_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C042_back.webp",
+    "bytes": 16818,
+    "sha256": "5485ae88adf5847fa0740c5f37a4405fd2dca7c8c13fcfc472f15014cacb1865"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C043_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C043_front.webp",
+    "bytes": 4008,
+    "sha256": "8fea2abf896b29b62e2d5b65f5c7000153065000206073d9409432c988255da3"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C043_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C043_front.webp",
+    "bytes": 20480,
+    "sha256": "58180b05b53b42844adac0094e46c9c50c36811721c67cbe5c59d9d0da311916"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C043_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C043_diag.webp",
+    "bytes": 3424,
+    "sha256": "6648d9e9ef2ba4d77820e8537206144081ba576f3c928c9eceea7cbc171618d0"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C043_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C043_diag.webp",
+    "bytes": 19178,
+    "sha256": "f879c0d83952976fc8941a56d5bf3ad65c3e3c1c7afa08e063cd20a5f10696dd"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C043_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C043_side.webp",
+    "bytes": 2382,
+    "sha256": "fb107fbb4a20a0b738d8f2237f4a3b198879874fd0139ce0ee19b41ed5a4af27"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C043_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C043_side.webp",
+    "bytes": 14454,
+    "sha256": "ffdf38ec6c33872f9f52a915461a1fe6935af8405d02a61ecc4500adc48d6279"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C043_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C043_back.webp",
+    "bytes": 3696,
+    "sha256": "0cf029215df23d5030009d0d8f8927c4dd15b797f3bfc4b7a4556624616ee443"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C043_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C043_back.webp",
+    "bytes": 19456,
+    "sha256": "22bb47f359b855f42763bd9ba486c8c38fe79933b70a1c457f31809549cc4dcc"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C044_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C044_front.webp",
+    "bytes": 9112,
+    "sha256": "a4cd32abb6c030f7e6f69963d801e8dfae93b3d4e4365adc45f1c7196f5178d7"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C044_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C044_front.webp",
+    "bytes": 61476,
+    "sha256": "f58a5fdcd165aa8550997ed6fb8a045d0a46d4677cbe8c439925d870db7ad117"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C044_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C044_diag.webp",
+    "bytes": 8130,
+    "sha256": "50752896ffcbe3da0241646d2d45027ff07a48a9bba9f8d74bc489f5f07f8ceb"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C044_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C044_diag.webp",
+    "bytes": 54216,
+    "sha256": "3952e596e7f65b797ac81bd0871a73134ddc599763ac8a53b52b30e72dbab542"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C044_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C044_side.webp",
+    "bytes": 5658,
+    "sha256": "5b68614ea925970d336f3129a0cfba6fc5dc4261cd9c80d0f730eedba2fa40d8"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C044_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C044_side.webp",
+    "bytes": 37818,
+    "sha256": "13646b21715f65b9a5f069026853f163abd9eb93c4f393d604558e6cadc286a9"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C044_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C044_back.webp",
+    "bytes": 7200,
+    "sha256": "fb08e7ff63fb875818bbd94f9784945d48b2649bad21ccd7eac077756ad18edf"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C044_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C044_back.webp",
+    "bytes": 48448,
+    "sha256": "d29b5d5201cf750ff28f863a9d6dc303476727824e2ccf73ed1badfec8111563"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C045_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C045_front.webp",
+    "bytes": 9566,
+    "sha256": "de52c37480973a1b1156186acc3ba17acbf316d6d2da19c06a0ebee3d71798f9"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C045_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C045_front.webp",
+    "bytes": 54618,
+    "sha256": "67b13b8dad03e8a2a692d482fbcb332ffe9d37507bf939410d113b382621c229"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C045_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C045_diag.webp",
+    "bytes": 9166,
+    "sha256": "65e2e100376f5ade0621367035f8a960ecae3c5f2908e85013ae5a49a6aa617b"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C045_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C045_diag.webp",
+    "bytes": 51606,
+    "sha256": "413e6181691798059aa78264df851cb284207628bc1d0b8279b95b4883a26cee"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C045_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C045_side.webp",
+    "bytes": 6568,
+    "sha256": "a329435b2d7638624300f1c9ec82bad98a459ca66256c59a56681feede797368"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C045_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C045_side.webp",
+    "bytes": 36256,
+    "sha256": "deb23938af1a62614e6d16997f9b9d53fdc398676f4418066f467c9991979214"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C045_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C045_back.webp",
+    "bytes": 6974,
+    "sha256": "ec0594998dfce2597987075b759bb7d82d8bb6900e7d21f5daba60eccab78f92"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C045_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C045_back.webp",
+    "bytes": 38320,
+    "sha256": "c364e5123587f79fcd032ce48152c8bb88d3d1d45aa8e0669d66122479fafbb5"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C046_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C046_front.webp",
+    "bytes": 3652,
+    "sha256": "eca7281964d58fff87530bf79a0e2131ccfc0551b896600fddc75e50b9d0c741"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C046_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C046_front.webp",
+    "bytes": 15878,
+    "sha256": "adab0d6646ce496f9479af50ec61fac7772e81ced4806c0fc200620d20bd551c"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C046_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C046_diag.webp",
+    "bytes": 3064,
+    "sha256": "ac11e0c9c581db3a0f8d7c010e5ccea3327c2d76d843470a3dac346ebad4ed94"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C046_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C046_diag.webp",
+    "bytes": 14022,
+    "sha256": "7461ed56edfacb4f1128b7133ba8542986b9fdf96e60af0fb941f56b580bb598"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C046_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C046_side.webp",
+    "bytes": 2196,
+    "sha256": "241bbda6d62d14b88bc50f916f1d949f9ae8aabea8d436f2dace1b41e707c25e"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C046_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C046_side.webp",
+    "bytes": 10260,
+    "sha256": "bcc0b35c994a50c02693d7bb8056ae173d14aecc837c6190f74baaa29db37706"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C046_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C046_back.webp",
+    "bytes": 3028,
+    "sha256": "754f887ccf081d41c010bba292bf4c7db6b432a0eb3f812f270660d03c242331"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C046_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C046_back.webp",
+    "bytes": 13390,
+    "sha256": "7f1206e18fd76c499e3c4a03f2ecdedeac20c1e4537384a08cd3160e8cc55e7a"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C047_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C047_front.webp",
+    "bytes": 3288,
+    "sha256": "9c088d334531a5bc5e9d233f0424a35afd65b1f39959ed7fde4caf15de74cbbe"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C047_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C047_front.webp",
+    "bytes": 14270,
+    "sha256": "ae786aa455e1e06569d7a3c3476713a96e0b392dceeadd92a882eb9961360b36"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C047_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C047_diag.webp",
+    "bytes": 2972,
+    "sha256": "428e39e55b9b511780ba0944fb8ce978b1add8a9802cc8ee68fb9b4642bcc93f"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C047_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C047_diag.webp",
+    "bytes": 13106,
+    "sha256": "86d3069c93d81eefa318912afd2f66f2b819229e0eeb60e33412e6dcc15b870a"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C047_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C047_side.webp",
+    "bytes": 2070,
+    "sha256": "1ddedfe8637a9432db51f975eb74fbca338a58fce90d8bfc0a9e9c6724207ed5"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C047_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C047_side.webp",
+    "bytes": 9876,
+    "sha256": "e15c7b638447167485df8bb5c9ac02c50d9176a29a18388a843a09b5898fee8f"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C047_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C047_back.webp",
+    "bytes": 2608,
+    "sha256": "bc5422ea4d366d7436296666cc882c266315abc230cf1979ba66537d37fb0378"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C047_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C047_back.webp",
+    "bytes": 11670,
+    "sha256": "594770cba136a6821cd0a9ccdbe69c6f21ebbced037306d85588d56a5e6706f7"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C048_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C048_front.webp",
+    "bytes": 7784,
+    "sha256": "0ceaefe55915ffbe5b400c79fa207478ca4362abb61e878ca595e22202b97bf8"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C048_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C048_front.webp",
+    "bytes": 38180,
+    "sha256": "8abd6b7c51bdcfe9cd83dfa6243f75eb4495450e99365993c96373195f56c5a6"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C048_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C048_diag.webp",
+    "bytes": 6626,
+    "sha256": "8271c8b756b6d62c2b12341864878521fda649b385b418d62c402df6397ef2d3"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C048_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C048_diag.webp",
+    "bytes": 33324,
+    "sha256": "dbe6c3d75d23f094733fef259dc9452c7f8b72ee73a44e37f5065817750db6da"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C048_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C048_side.webp",
+    "bytes": 3000,
+    "sha256": "0ac44272e0b68270a68d84a54bce4b85f462c6b33cee3bffbe8242cc0d904990"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C048_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C048_side.webp",
+    "bytes": 16338,
+    "sha256": "d46526093bae5c11c4ea74f9390242ce13c325f9a2eb30ffd2b67737083760b2"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C048_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C048_back.webp",
+    "bytes": 5584,
+    "sha256": "a81dd577fcd5096fd557f54749e28960a973953e3f216ec3cb65ed6e27dbaec1"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C048_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C048_back.webp",
+    "bytes": 30304,
+    "sha256": "9fca9f28002c4c0a6de5629e95773989a51a9b82e9c875294decdaa781ef6ed6"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C049_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C049_front.webp",
+    "bytes": 7698,
+    "sha256": "519eb5fd473426d9523b14803d5fe4dc832c9163a2b8dad7ef598fab76bbccb1"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C049_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C049_front.webp",
+    "bytes": 44968,
+    "sha256": "3a83e8f74c797b9b20bde0eeeae2fca44ce7b548caf61c698ac97e0221ad3673"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C049_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C049_diag.webp",
+    "bytes": 6158,
+    "sha256": "152839616e4e1363dbd245695f6248b65d75de662b92f3055338230eb76a2c3a"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C049_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C049_diag.webp",
+    "bytes": 37082,
+    "sha256": "07318da4c3ba10a0c71bdeb97b27b52288f0b241309f7b87393df8f344dc3d0f"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C049_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C049_side.webp",
+    "bytes": 4308,
+    "sha256": "4e2fa040b6207e9201bf410d92c8c8be3b95ef0e17a872d6e227c8d014a80a73"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C049_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C049_side.webp",
+    "bytes": 25496,
+    "sha256": "c86be29952448c606c39251a532058aa193dffdb564e6fbd486e9d2ae0235b7b"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C049_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C049_back.webp",
+    "bytes": 6028,
+    "sha256": "2327d2bc00d48d54857e0522da742baa6549f3fa1bf9cce9e16bb48b326d49d1"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C049_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C049_back.webp",
+    "bytes": 36006,
+    "sha256": "3c2cb596e6600e534e53c314e7d8e93ce7281e31a9fdc659dd30980d2af3598a"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C050_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C050_front.webp",
+    "bytes": 3256,
+    "sha256": "fc4e231dd5cce28bd832908e55a7052cc1ca7500d7b79133b8e00508469e5b83"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C050_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C050_front.webp",
+    "bytes": 16446,
+    "sha256": "651fd6dee38e3cb5373bc8d9a915eef3aec9c810935f106af9086c21ef193537"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C050_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C050_diag.webp",
+    "bytes": 3110,
+    "sha256": "896c7defb4edaf0cc18c2a1cea016388a5ced4a7af1ec81f1cfcd74b8f86c35d"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C050_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C050_diag.webp",
+    "bytes": 15672,
+    "sha256": "f1f10a8c21898b4e5bbb6a34c1f4c734896d2183f57343e9b1f8520da8c49de8"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C050_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C050_side.webp",
+    "bytes": 2192,
+    "sha256": "b64d8a8de981f5649eae258f3657c179bca8b5cbae44812e9abf7e9821539a87"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C050_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C050_side.webp",
+    "bytes": 10910,
+    "sha256": "7a573cf21c41fc1bfb9a5c1d624818fae936be5138db2798423bb81ecfc01534"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C050_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C050_back.webp",
+    "bytes": 2856,
+    "sha256": "e4ae1334708de44d193767b46d978d86ec83aaa9b8afa7d01d3ea11ad7afc444"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C050_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C050_back.webp",
+    "bytes": 13798,
+    "sha256": "3447b941bc4d72804e09598bba3242b3a7f4c9803dc87b3baa9af4d560cac10d"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C051_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C051_front.webp",
+    "bytes": 9112,
+    "sha256": "5c9ab2e4cc0bf962da2d0f23ebcd0043d15be1c67439f21a6b651e0e1578274e"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C051_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C051_front.webp",
+    "bytes": 60738,
+    "sha256": "4a3e587de1c4ac5c999b665b696273507c0e56baf707e4439d2022f46ec1e7a7"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C051_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C051_diag.webp",
+    "bytes": 8422,
+    "sha256": "d879bac7e0868cff15fd13acd98918b96b4b99f69b196ef9e77a205246d3c58f"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C051_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C051_diag.webp",
+    "bytes": 51144,
+    "sha256": "7f3f864e315fdd688f2d0646b757eccd29626e09c1c8dfa4c5bd042022e9e08f"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C051_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C051_side.webp",
+    "bytes": 5776,
+    "sha256": "27c32fd594ba35c4fe321ce4da82fe7ea583f83a24fa85a9f089c4811cc6109c"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C051_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C051_side.webp",
+    "bytes": 36206,
+    "sha256": "0edbf312abeb42d7685103a083d4f46bcba41ac9e3a37d7934757f5616d52b9c"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C051_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C051_back.webp",
+    "bytes": 9442,
+    "sha256": "5f049940a52106d4491f7666525479793aee6e8125c9b7487a49f2cfaf54dd85"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C051_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C051_back.webp",
+    "bytes": 58746,
+    "sha256": "96663489ea99d5d567ca12cd798b56fe671f3995386506a58b8c64edadc7759e"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C052_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C052_front.webp",
+    "bytes": 2864,
+    "sha256": "0a7e2a7e0903cc05f14b7e75c8cef9a5262b39e629736408b0e6adb67f971247"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C052_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C052_front.webp",
+    "bytes": 14364,
+    "sha256": "6c52c51cdaf4d09a3a0ab5245a848c428dbea94906016e1963a4a7a86aee4c1c"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C052_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C052_diag.webp",
+    "bytes": 2728,
+    "sha256": "d62fa0486e33e47e5abc502728e72cc39af8632ac1cc31091673237b98f25893"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C052_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C052_diag.webp",
+    "bytes": 14230,
+    "sha256": "5ce8b311853fecb12cb919019445f2cdb267cd594980347a50d714bed0a0b2ee"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C052_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C052_side.webp",
+    "bytes": 2180,
+    "sha256": "a76a205192b66f6891a0d0031740196802afb47b9fbf90053dc8ccf82766dc08"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C052_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C052_side.webp",
+    "bytes": 10606,
+    "sha256": "8b5526e7b35dbc06a28bea6263ae8f94ffeec2a1fb5253dce2a9b215e3fa9adc"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C052_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C052_back.webp",
+    "bytes": 2822,
+    "sha256": "c711d5126c917d42234b590850c9dcc1f8d01d54f39fa0d5b9742f5c96574d7e"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C052_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C052_back.webp",
+    "bytes": 13932,
+    "sha256": "35a1a94c4b6d8bf887840b9ac5a34eb2764c6ad17eaaea925e1863440b706757"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C053_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C053_front.webp",
+    "bytes": 4422,
+    "sha256": "f7ddabdf655aa1010414255c7155929bf2da2a4bf2b6a0e03308e773ca17bab5"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C053_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C053_front.webp",
+    "bytes": 26274,
+    "sha256": "6e13ad44d9569d80c746335912acecbc71a5e0ababaf8c373244f8fc3a68c4c6"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C053_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C053_diag.webp",
+    "bytes": 4182,
+    "sha256": "abad34b2464c47c4ae7ec098ebf57c0e9f9626c6f212fee830ccd6ddb4930477"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C053_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C053_diag.webp",
+    "bytes": 23524,
+    "sha256": "29413d0dca8d347350ce284cfa0f9ed7f3700e61f698d612a45928c99546353d"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C053_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C053_side.webp",
+    "bytes": 2914,
+    "sha256": "dfbe29401d731f5be7f8e2c94aab3bf8c1ff5fe723200e3d950f00a8f5680343"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C053_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C053_side.webp",
+    "bytes": 16470,
+    "sha256": "62c436def537dbf6218a0928b23fb5d586cedbe8c1a11f921f797e9f4596f09a"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C053_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C053_back.webp",
+    "bytes": 3748,
+    "sha256": "471919f5e7b53762c41757aa1d8128e8de0f031b9aad07a6124c33461a8ff735"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C053_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C053_back.webp",
+    "bytes": 22882,
+    "sha256": "831f23c692163e941af57f4202b373941170abb9af817a6bc82a05446b567bba"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C054_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C054_front.webp",
+    "bytes": 3154,
+    "sha256": "151e8bd2d082cd3f80066cb19e656f4e99f8ecc431a9826f2dfade4a3dcce6b4"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C054_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C054_front.webp",
+    "bytes": 15146,
+    "sha256": "309fc4ad0149b459d405c93f82e83929ee5c0603f8e73d2b92958468fd9dc05a"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C054_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C054_diag.webp",
+    "bytes": 3046,
+    "sha256": "ba61311ce3a120f063b0dc4ee07786bb9798d97d56e7c7e6835834c62ec6b43e"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C054_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C054_diag.webp",
+    "bytes": 14264,
+    "sha256": "1c586084e8b7b51a2d43e1cddd0ee4023fb7010fc38a384d2eea13db46a410b8"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C054_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C054_side.webp",
+    "bytes": 2270,
+    "sha256": "9e4505152066e8c884fd8f07dc3fa7fc1598a3b029a7e0bbc322993cc2c83056"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C054_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C054_side.webp",
+    "bytes": 11068,
+    "sha256": "fc0954d22f160c32e5f620a6cb396c5abbc69670f25ddca580f364b9143f8845"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C054_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C054_back.webp",
+    "bytes": 2592,
+    "sha256": "58061a2dfff4f5cc46732f0ebeceb13bc5f4d293c7216c3f3cef76252563cc02"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C054_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C054_back.webp",
+    "bytes": 12148,
+    "sha256": "7db47618b9d8bcfbe21e0f3d307e75ad3a356acc557b665dc422864e19ddac09"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C055_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C055_front.webp",
+    "bytes": 3190,
+    "sha256": "94f138bb45f39b4b2722e4d93f90917eef17d49e785c861847f21df5fb43f3c0"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C055_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C055_front.webp",
+    "bytes": 13942,
+    "sha256": "534e542af4751404fa6264552f9e7bde354e867bdf10d269e2a79bea0524e20c"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C055_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C055_diag.webp",
+    "bytes": 2712,
+    "sha256": "0911bba04b3e9d851d2ceb1c71be9f544e7eeb44dded3e92a4917418154f2ac8"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C055_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C055_diag.webp",
+    "bytes": 12070,
+    "sha256": "e6c57931099cd328c618ca2938188080b6dbe0d01d283718bd302a2ecf5e2011"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C055_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C055_side.webp",
+    "bytes": 2124,
+    "sha256": "b99f8ef2d704aed5ba123c767d525156c2e1f481f1a1a623b1f238474d9f2725"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C055_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C055_side.webp",
+    "bytes": 9246,
+    "sha256": "f7905f4ab224ce3b4f8c693dee76042b28ce9cc5b1b907da0cca4e4b0aea6c31"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C055_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C055_back.webp",
+    "bytes": 2676,
+    "sha256": "63c2f05fa3e6616dbf765042d5ba833a7212fe5b836c713ce0fd775ff54c8cc8"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C055_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C055_back.webp",
+    "bytes": 11572,
+    "sha256": "e3e1a9976897fe372a69eb6f33e7c4f4d7254388f1a8b3043022b7b8870ca524"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C056_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C056_front.webp",
+    "bytes": 2984,
+    "sha256": "d182b97e4bd7dcd0fd752aa1bf9be5798216ce648d5ea5de7991c718acc682d5"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C056_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C056_front.webp",
+    "bytes": 18632,
+    "sha256": "7debf177dc2449aecde2605047aee48032cbfef051ff0bee9f769689238a2199"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C056_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C056_diag.webp",
+    "bytes": 2574,
+    "sha256": "14452ddf113ac427f010ae7a5df7312eae63fec5eee2797498a3ab1b0214d553"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C056_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C056_diag.webp",
+    "bytes": 15588,
+    "sha256": "d1b355cfa1f6e811bbb55f272857a66e6305a812229746849b930b25b3bd4085"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C056_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C056_side.webp",
+    "bytes": 1854,
+    "sha256": "f14988cdc27fa3775969b75d5c8b4516d47b7361d1b39965b60162d10f8c041d"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C056_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C056_side.webp",
+    "bytes": 10788,
+    "sha256": "a505418a89ed19d20bc70c6425d5815ba8279c04b29cb599c85570c77da1b3bb"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C056_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C056_back.webp",
+    "bytes": 2342,
+    "sha256": "6e5ed68fb22177038df0de5722686ce091c63f7a533accf5e99d152ff0aaca88"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C056_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C056_back.webp",
+    "bytes": 14356,
+    "sha256": "98b596f357ef6d60fd35e98f3b9c140f362f5bab530ec254451b738c1682e1d3"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C057_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C057_front.webp",
+    "bytes": 2630,
+    "sha256": "3823d0c17967fe67632d070fa013b7babe861f137b27711900df20fe71063208"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C057_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C057_front.webp",
+    "bytes": 11468,
+    "sha256": "a2552c2e776116c46617e09a6c0ec9667f8f7e51c88e5e1d5929dcd539ca9c2e"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C057_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C057_diag.webp",
+    "bytes": 2358,
+    "sha256": "dd8de916c9f7c179e8ec9065d499ed7a64e4e77f7409a03dd5a2472c782d3b8c"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C057_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C057_diag.webp",
+    "bytes": 10462,
+    "sha256": "f74a2a98b7769878be358751a1cc8eb3ba5a82bba842887effd6387ba42b5615"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C057_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C057_side.webp",
+    "bytes": 1698,
+    "sha256": "6165fa744fd3667f41cd1bedbddee5f6d58474019967bc3550a497bead8d1e78"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C057_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C057_side.webp",
+    "bytes": 7772,
+    "sha256": "f15bd2132f3da6c6a1c529ed4cc27dba460155e9f34a3df54ff608f4a9bceacb"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C057_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C057_back.webp",
+    "bytes": 2254,
+    "sha256": "c21bffeebde3d4e2f6b234388b7e8f20d9459c14911acc84b2266e0e9304095b"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C057_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C057_back.webp",
+    "bytes": 9528,
+    "sha256": "b028b4c1c7cfe23f063fcd752f228a7b382c0ad2e962fe68acc18c1bdf17f52e"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C058_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C058_front.webp",
+    "bytes": 9366,
+    "sha256": "d4b2415ec5445a7cdd4aa343de66e11347e9c09d0eb7aa7d6631c0b7fd615b93"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C058_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C058_front.webp",
+    "bytes": 53552,
+    "sha256": "2473dcf5826647680ae194016d8c282dba101c5c80525ea30392ac868b533b58"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C058_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C058_diag.webp",
+    "bytes": 7752,
+    "sha256": "f696acc1a98b7cad0040143f95249108d6977e64e5ea57e5b12854210564b162"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C058_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C058_diag.webp",
+    "bytes": 45410,
+    "sha256": "a63d61795b9136982b122f8625f6ee85cdce27488b43e17ad24061d77549ea2a"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C058_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C058_side.webp",
+    "bytes": 5030,
+    "sha256": "963c3dc2940383497d7da4898c2c3297d9f1321af4bc8496a74263168b246af0"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C058_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C058_side.webp",
+    "bytes": 28614,
+    "sha256": "f07f967ebaf0be8447ca4dffe27456c9be8d3a7ab971d3a99650b1d973c01fb5"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C058_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C058_back.webp",
+    "bytes": 8018,
+    "sha256": "e244e929b80b5e2faa642da717ececd01fe1ba882e48e59a35dc71c63baffde4"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C058_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C058_back.webp",
+    "bytes": 47716,
+    "sha256": "1693042a1c0f1ffe4c62084d02942751a63d5d1855128a0c06af2276b3673421"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C059_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C059_front.webp",
+    "bytes": 10184,
+    "sha256": "493755983e6346236b1f4498898b19a9ae6e565b768eb2b0dbc89a9f8cf5f503"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C059_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C059_front.webp",
+    "bytes": 60704,
+    "sha256": "8e4c3ec7d5cba24591d113278d970335f04f82c4d548ab18180c50d2f2cab330"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C059_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C059_diag.webp",
+    "bytes": 8092,
+    "sha256": "13f510891f2840af43cfb336e90d36358da595b2f264dc23cb010fe446ac5568"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C059_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C059_diag.webp",
+    "bytes": 47668,
+    "sha256": "c0e35f044f8996c4c3b8339002c856b96db26ab697cacfa1ca4a4c035a5faa58"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C059_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C059_side.webp",
+    "bytes": 6036,
+    "sha256": "3c6567f675363ba908e06379ca2ba684b3a543733b0f3aa13c71cf7c4cf3bc28"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C059_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C059_side.webp",
+    "bytes": 33516,
+    "sha256": "f3f43d28b3be7e1711f82b127ae3a1f126b5fee068d2a00fad6b168487e97da9"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C059_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C059_back.webp",
+    "bytes": 9358,
+    "sha256": "6bb97005bc2390019635bf4df321622b5989ccef6a0e0d330bd14edefbe92fa4"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C059_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C059_back.webp",
+    "bytes": 59578,
+    "sha256": "dd960aac63d769bbbdc347f706f8a49c129e88795ee7c2a0c3d7e6e88376e638"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C060_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C060_front.webp",
+    "bytes": 9082,
+    "sha256": "6db1747f180bbe3dd109b0056ba7ae6395bc64be083b63304e6b790700240f9f"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C060_front.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C060_front.webp",
+    "bytes": 45720,
+    "sha256": "bd251e6f13b5563229502c7bcda47b89362bb1f0db8ec28ecbb96d196cf693a7"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C060_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C060_diag.webp",
+    "bytes": 6782,
+    "sha256": "4c54214a4eef75463718d6778d0ccb6c3a2cfa19280884a1596b56caa643a671"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C060_diag.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C060_diag.webp",
+    "bytes": 36356,
+    "sha256": "d9245cd871f0aff319dcbf14bf4c1f8dbad314e40f513d93962f9ef2c0f74432"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C060_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C060_side.webp",
+    "bytes": 4238,
+    "sha256": "8c281b726bcd400fdd27f2f9fe9981101afeec9390f8239bc0dc07e187428ff5"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C060_side.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C060_side.webp",
+    "bytes": 23546,
+    "sha256": "134cf898604d77be4b6320db95bec2639643e608cf9e6436385a04954a7c83ab"
+  },
+  {
+    "path": "thumbs/costumes/shisei/costume_C060_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w300/costume_C060_back.webp",
+    "bytes": 7658,
+    "sha256": "dcb6f79abf4bbb9516b432a9e6da857656213a9dfc0534dab8069a57f0517d3f"
+  },
+  {
+    "path": "img/costumes/shisei/costume_C060_back.webp",
+    "source": "https://raw.githubusercontent.com/wquguru/shisei/8f61ceab10e45f8d3afd254900903733a0ba76ee/images/costume/grey/w900/costume_C060_back.webp",
+    "bytes": 40452,
+    "sha256": "6688d4de83efe9dab68a0a20827862e120a6728cdb14fc00d8bd6e73bbb4513b"
+  }
+]
