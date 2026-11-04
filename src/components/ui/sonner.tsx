@@ -1,100 +1,143 @@
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
-import { toast, useSonner, type Action, type ToastT, type ToasterProps } from 'sonner'
-import { CircleCheckIcon, InfoIcon, TriangleAlertIcon, OctagonXIcon, Loader2Icon, XIcon } from 'lucide-react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { Toaster as Sonner, useSonner, type ToasterProps } from 'sonner'
+import { CircleCheckIcon, InfoIcon, TriangleAlertIcon, OctagonXIcon } from 'lucide-react'
+import { adoptNotification, toast, type Notification } from '@/lib/notifications'
+import { useTheme } from '@/components/theme/ThemeProvider'
 
-// 排队时仍保留计时器组件，只暂停倒计时，避免隐藏消息提前过期或重置剩余时间。
-function NoticeLifetime({ notice, paused, onExpire }: { notice: ToastT; paused: boolean; onExpire: () => void }) {
-  const duration = notice.duration === Infinity || notice.type === 'loading' ? Infinity : Number.isFinite(notice.duration) ? Math.max(0, notice.duration!) : 4000
+function Lifetime({ notice, paused }: { notice: Notification; paused: boolean }) {
+  const duration = notice.notificationDuration ?? 4000
   const remaining = useRef(duration)
-  const callback = useRef(onExpire)
-  callback.current = onExpire
-  useEffect(() => { remaining.current = duration }, [duration, notice.title, notice.type])
+  useEffect(() => { remaining.current = duration }, [duration, notice.type, notice.notificationRevision])
   useEffect(() => {
-    if (paused || duration === Infinity) return
+    if (paused || notice.type === 'loading' || duration === Infinity) return
     const started = performance.now()
-    const timer = window.setTimeout(() => callback.current(), remaining.current)
-    return () => { clearTimeout(timer); remaining.current = Math.max(0, remaining.current - (performance.now() - started)) }
-  }, [paused, duration, notice.title, notice.type])
+    const timer = window.setTimeout(() => {
+      if (notice.notificationAutoClosing) notice.notificationAutoClosing.current = true
+      try { notice.onAutoClose?.(notice) }
+      finally { toast.dismiss(notice.id) }
+    }, Math.max(0, remaining.current))
+    return () => {
+      clearTimeout(timer)
+      remaining.current = Math.max(0, remaining.current - (performance.now() - started))
+    }
+  }, [paused, duration, notice])
   return null
 }
 
-function Notice({ notice, closing, front, expanded, dismiss }: { notice: ToastT; closing: boolean; front: boolean; expanded: boolean; dismiss: () => void }) {
-  const action = notice.action && typeof notice.action === 'object' && 'label' in notice.action ? notice.action as Action : null
-  const Icon = ({success: CircleCheckIcon, error: OctagonXIcon, warning: TriangleAlertIcon, loading: Loader2Icon} as const)[notice.type as 'success' | 'error' | 'warning' | 'loading'] || InfoIcon
-  return <div className="app-notice" data-notice-id={String(notice.id)} data-closing={closing} data-kind={notice.type || 'normal'} role={notice.type === 'error' ? 'alert' : 'status'} aria-hidden={!front && !expanded} inert={!front && !expanded}>
-    <span className="app-notice-icon" aria-hidden="true">{notice.icon || <Icon className={notice.type === 'loading' ? 'size-4 animate-spin' : 'size-4'} />}</span>
-    <div className="app-notice-content">
-      <div>{typeof notice.title === 'function' ? notice.title() : notice.title}</div>
-      {notice.description && <div className="app-notice-description">{typeof notice.description === 'function' ? notice.description() : notice.description}</div>}
-      {notice.action && <div>{action ? <button onClick={(e) => { action.onClick(e); dismiss() }}>{action.label}</button> : notice.action as React.ReactNode}</div>}
-    </div>
-    <button type="button" className="app-notice-close" aria-label="关闭此通知" tabIndex={front || expanded ? 0 : -1} disabled={closing} onClick={dismiss}><XIcon className="size-3.5" /></button>
-  </div>
-}
-
-export function Toaster(_props: ToasterProps) {
+export function Toaster(props: ToasterProps) {
+  const { theme } = useTheme()
   const { toasts } = useSonner()
+  const region = useRef<HTMLElement>(null)
+  const events = useRef<HTMLDivElement>(null)
+  const [expanded, setExpanded] = useState(false)
   const [hovered, setHovered] = useState(false)
   const [focused, setFocused] = useState(false)
-  const [hidden, setHidden] = useState(document.hidden)
+  const [toggleFocused, setToggleFocused] = useState(false)
+  const [toggleTop, setToggleTop] = useState(128)
+  const [background, setBackground] = useState(document.hidden || !document.hasFocus())
   const [visibleCount, setVisibleCount] = useState(3)
-  const [closing, setClosing] = useState<Set<ToastT['id']>>(new Set())
-  const closeTimers = useRef(new Map<ToastT['id'], number>())
-  const heights = useRef(new Map<string, number>())
-  const region = useRef<HTMLDivElement>(null)
-  const expanded = hovered || focused
-  const dismiss = useCallback((notice: ToastT, automatic = false) => {
-    if (closeTimers.current.has(notice.id)) return
-    setClosing((current) => new Set(current).add(notice.id))
-    const delay = document.documentElement.dataset.galleryMotion === 'off' || matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 160
-    closeTimers.current.set(notice.id, window.setTimeout(() => {
-      try { if (automatic) notice.onAutoClose?.(notice); else notice.onDismiss?.(notice) }
-      finally { toast.dismiss(notice.id) }
-    }, delay))
-  }, [])
-  useEffect(() => () => { closeTimers.current.forEach(clearTimeout) }, [])
-  useEffect(() => {
-    const live = new Set(toasts.map((notice) => notice.id))
-    for (const [id, timer] of closeTimers.current) if (!live.has(id)) { clearTimeout(timer); closeTimers.current.delete(id) }
-    setClosing((current) => [...current].some((id) => !live.has(id)) ? new Set([...current].filter((id) => live.has(id))) : current)
-    for (const id of heights.current.keys()) if (!toasts.some((notice) => String(notice.id) === id)) heights.current.delete(id)
-    if (!toasts.length) setHovered(false)
-    if (!region.current?.contains(document.activeElement)) setFocused(false)
-  }, [toasts])
+  const [readable, setReadable] = useState<Set<Notification['id']>>(new Set())
+
+  useLayoutEffect(() => { toasts.forEach(adoptNotification) }, [toasts])
+
   useLayoutEffect(() => {
+    const root = region.current
+    if (!root) return
     const measure = () => {
-      const element = region.current
-      if (!element) return
-      element.querySelectorAll<HTMLElement>('[data-notice-id]').forEach((node) => heights.current.set(node.dataset.noticeId!, node.offsetHeight))
-      const budget = Math.max(100, Math.min(360, innerHeight * .45, innerHeight - element.getBoundingClientRect().top - 24))
-      let used = 0, count = 0
-      for (const notice of toasts.slice(0, 3)) {
-        const height = heights.current.get(String(notice.id)) ?? 72
+      const nodes = [...root.querySelectorAll<HTMLElement>('[data-sonner-toast]')]
+      const active = nodes.filter((node) => node.dataset.removed !== 'true')
+      const top = root.querySelector('[data-sonner-toaster]')?.getBoundingClientRect().top ?? 64
+      const toggleSpace = toasts.length > 1 && matchMedia('(pointer: coarse)').matches ? 52 : 0
+      const budget = Math.max(0, (window.visualViewport?.height ?? innerHeight) - top - 24 - toggleSpace)
+      let count = 0, used = 0
+      for (const node of active.slice(0, 3)) {
+        const height = parseFloat(node.style.getPropertyValue('--initial-height')) || node.offsetHeight
         if (count && used + height + 8 > budget) break
-        used += height + (count ? 8 : 0); count++
+        used += height + (count ? 8 : 0)
+        count++
       }
       setVisibleCount(Math.max(1, count))
+      const visible = active.filter((node) => node.dataset.visible === 'true')
+      const frontHeight = visible[0]?.offsetHeight ?? 56
+      const stackHeight = visible.reduce((height, node, index) => {
+        const bottom = node.dataset.expanded === 'true'
+          ? (parseFloat(node.style.getPropertyValue('--offset')) || 0) + node.offsetHeight
+          : frontHeight + index * 8
+        return Math.max(height, bottom)
+      }, frontHeight)
+      setToggleTop(top + stackHeight + 8)
+      const next = new Set<Notification['id']>()
+      for (const node of nodes) {
+        const accessible = node.dataset.visible === 'true' && node.dataset.mounted === 'true' && node.dataset.removed !== 'true' && (node.dataset.front === 'true' || node.dataset.expanded === 'true')
+        node.inert = !accessible
+        node.setAttribute('aria-hidden', String(!accessible))
+        if (accessible) {
+          const marker = [...node.classList].find((name) => name.startsWith('app-notification-'))
+          // A promise resolving directly to a React element bypasses Sonner's result options.
+          const notice = marker ? toasts.find((item: Notification) => marker === `app-notification-${item.notificationRevision}`) : toasts[active.indexOf(node)]
+          if (notice) next.add(notice.id)
+        }
+      }
+      setReadable((current) => current.size === next.size && [...current].every((name) => next.has(name)) ? current : next)
     }
     measure()
-    const observer = new ResizeObserver(measure)
-    region.current?.querySelectorAll('[data-notice-id]').forEach((node) => observer.observe(node))
+    const observer = new MutationObserver(measure)
+    observer.observe(root, { childList: true, subtree: true, attributes: true, attributeFilter: ['data-visible', 'data-mounted', 'data-expanded', 'data-removed', 'style', 'class'] })
+    const resize = new ResizeObserver(measure)
+    resize.observe(root)
     window.addEventListener('resize', measure)
-    return () => { observer.disconnect(); window.removeEventListener('resize', measure) }
-  }, [toasts, visibleCount, expanded])
+    window.visualViewport?.addEventListener('resize', measure)
+    return () => { observer.disconnect(); resize.disconnect(); window.removeEventListener('resize', measure); window.visualViewport?.removeEventListener('resize', measure) }
+  }, [toasts])
+
   useEffect(() => {
-    const reset = () => { setHovered(false); setFocused(false) }
-    const visibility = () => { setHidden(document.hidden); reset() }
-    const outside = (e: PointerEvent) => { if (region.current && !region.current.contains(e.target as Node)) reset() }
-    window.addEventListener('blur', reset); window.addEventListener('pointercancel', reset)
-    document.addEventListener('visibilitychange', visibility); document.addEventListener('pointerdown', outside)
-    return () => { window.removeEventListener('blur', reset); window.removeEventListener('pointercancel', reset); document.removeEventListener('visibilitychange', visibility); document.removeEventListener('pointerdown', outside) }
+    if (!toasts.length) { setExpanded(false); setHovered(false); setFocused(false); setToggleFocused(false) }
+  }, [toasts.length])
+
+  useEffect(() => {
+    const reset = () => { setHovered(false); setExpanded(false); setFocused(false); setToggleFocused(false) }
+    const visibility = () => { setBackground(document.hidden || !document.hasFocus()); if (document.hidden) reset() }
+    const outside = (event: PointerEvent) => { if (!events.current?.contains(event.target as Node)) setExpanded(false) }
+    const blur = () => { setBackground(true); reset() }
+    window.addEventListener('blur', blur)
+    window.addEventListener('focus', visibility)
+    window.addEventListener('pointercancel', reset)
+    document.addEventListener('visibilitychange', visibility)
+    document.addEventListener('pointerdown', outside)
+    return () => { window.removeEventListener('blur', blur); window.removeEventListener('focus', visibility); window.removeEventListener('pointercancel', reset); document.removeEventListener('visibilitychange', visibility); document.removeEventListener('pointerdown', outside) }
   }, [])
+
   return <>
-    {toasts.map((notice, index) => <NoticeLifetime key={notice.id} notice={notice} paused={index >= visibleCount || expanded || hidden || closing.has(notice.id)} onExpire={() => dismiss(notice, true)} />)}
-    <div ref={region} className="app-notices" data-expanded={expanded} data-queued={Math.max(0, toasts.length - visibleCount)} role="region" aria-label="操作通知" onPointerEnter={(e) => {if (e.pointerType !== 'touch') setHovered(true)}} onPointerLeave={() => setHovered(false)} onFocusCapture={() => setFocused(true)} onBlurCapture={(e) => {if (!e.currentTarget.contains(e.relatedTarget)) setFocused(false)}} onKeyDown={(e) => {if (e.key === 'Escape' && toasts[0]) { e.stopPropagation(); dismiss(toasts[0]) }}}>
-      {toasts.slice(0, visibleCount).map((notice, index) => <div key={notice.id} className="app-notice-layer" data-front={index === 0} style={{'--notice-index': index, zIndex: 3 - index} as React.CSSProperties} onPointerDown={(e) => {if (e.pointerType === 'touch' && !(e.target as HTMLElement).closest('button')) setHovered(true)}}>
-        <Notice notice={notice} closing={closing.has(notice.id)} front={index === 0} expanded={expanded} dismiss={() => dismiss(notice)} />
-      </div>)}
+    {toasts.map((notice: Notification) => <Lifetime key={notice.id} notice={notice} paused={notice.notificationRevision === undefined || background || hovered || focused || toggleFocused || expanded || !readable.has(notice.id)} />)}
+    <div ref={events} className="app-notification-events"
+      onPointerEnter={(event) => { if (event.pointerType !== 'touch') setHovered(true) }}
+      onPointerLeave={() => setHovered(false)}
+      onPointerDownCapture={(event) => { if (event.pointerType === 'touch' && !(event.target as HTMLElement).closest('.app-notification-toggle')) setExpanded(true) }}
+      onFocusCapture={(event) => {
+        const toggle = (event.target as HTMLElement).closest('.app-notification-toggle') !== null
+        setToggleFocused(toggle); setFocused(!toggle)
+      }}
+      onBlurCapture={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) { setFocused(false); setToggleFocused(false) } }}
+      onKeyDownCapture={(event) => {
+        if (event.key !== 'Escape') return
+        event.stopPropagation()
+        const target = (event.target as HTMLElement).closest('[data-sonner-toast]')
+        const notice = toasts.find((item: Notification) => target?.classList.contains(`app-notification-${item.notificationRevision}`)) ?? toasts[0]
+        if (notice && notice.dismissible !== false && notice.type !== 'loading') toast.dismiss(notice.id)
+        setExpanded(false)
+      }}>
+      <Sonner {...props} ref={region} theme={theme} className="app-notifications" position="top-center"
+        richColors={false} closeButton duration={Infinity} visibleToasts={visibleCount} expand={expanded || focused} gap={8}
+        offset={{ top: 'calc(64px + env(safe-area-inset-top, 0px))', left: 12, right: 12 }}
+        mobileOffset={{ top: 'calc(64px + env(safe-area-inset-top, 0px))', left: 12, right: 12 }}
+        customAriaLabel="操作通知（Alt+T 聚焦，Esc 关闭）"
+        hotkey={['altKey', 'KeyT']}
+        toastOptions={{ ...props.toastOptions, closeButtonAriaLabel: '关闭此通知' }}
+        icons={{ success: <CircleCheckIcon size={18} />, info: <InfoIcon size={18} />, warning: <TriangleAlertIcon size={18} />, error: <OctagonXIcon size={18} /> }} />
+      {toasts.length > 1 && <button type="button" className="app-notification-toggle" style={{ top: toggleTop }}
+        aria-expanded={expanded || focused} onClick={() => { setFocused(false); setExpanded((current) => !current) }}>
+        {expanded || focused ? '收起通知' : '展开通知'}
+      </button>}
     </div>
   </>
 }
