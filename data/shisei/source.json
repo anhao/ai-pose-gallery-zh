@@ -1,0 +1,13 @@
+{
+  "repository": "https://github.com/wquguru/shisei",
+  "revision": "8f61ceab10e45f8d3afd254900903733a0ba76ee",
+  "path": "data/costumes.json",
+  "snapshot_sha256": "af7287a57998a5437f3666e9c22ee25208eb61c11a16afba01f30754d93deda2",
+  "snapshot_git_blob": "4cc07d1e4bd4cbc36f95e8d0bae88f44e668f70f",
+  "license_sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+  "notice_sha256": "4f63b0955507193d860cd745fea51666017dc4b37ea35cfce44413de6eba1480",
+  "count": 57,
+  "views": 227,
+  "license": "CC0-1.0",
+  "attribution": "Shisei / wquguru"
+}

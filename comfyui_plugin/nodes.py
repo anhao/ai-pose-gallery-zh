@@ -5,7 +5,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from .routes import find_item, resolve_safe_image_path
+from .routes import find_item, open_reference_image, select_costume_view
 
 if TYPE_CHECKING:
     from PIL import Image
@@ -54,8 +54,7 @@ def _load_pil_image(
 ) -> Image.Image:
     from PIL import Image, ImageOps
 
-    path = resolve_safe_image_path(rel_path)
-    img = Image.open(path)
+    img = open_reference_image(rel_path)
     img = ImageOps.exif_transpose(img).convert("RGB")
 
     if flip_horizontal:
@@ -162,7 +161,7 @@ class PoseGalleryNode:
 
 
 class CostumeGalleryNode:
-    """从 1,407 套穿搭服装库中选择服装参考图并输出 IMAGE 与中英文服装 Prompt。"""
+    """从穿搭服装库选择服装及有效视角，输出 IMAGE 与中英文服装 Prompt。"""
 
     @classmethod
     def INPUT_TYPES(cls):
@@ -173,7 +172,8 @@ class CostumeGalleryNode:
                 "width": ("INT", {"default": 1024, "min": 64, "max": 4096, "step": 8}),
                 "height": ("INT", {"default": 1280, "min": 64, "max": 4096, "step": 8}),
                 "flip_horizontal": ("BOOLEAN", {"default": False}),
-            }
+            },
+            "optional": {"costume_view": (["front", "diag", "side", "back"], {"default": "front"})},
         }
 
     RETURN_TYPES = ("IMAGE", "STRING", "STRING", "STRING")
@@ -188,8 +188,9 @@ class CostumeGalleryNode:
         width: int = 1024,
         height: int = 1280,
         flip_horizontal: bool = False,
+        costume_view: str = "front",
     ):
-        item = find_item("costume", image_id)
+        item = select_costume_view(find_item("costume", image_id), costume_view)
         pil_img = _load_pil_image(
             item["原图"],
             resize_mode=resize_mode,
@@ -276,6 +277,7 @@ class CharacterRecipeNode:
             },
             "optional": {
                 "use_depth": ("BOOLEAN", {"default": False}),
+                "costume_view": (["front", "diag", "side", "back"], {"default": "front"}),
             },
         }
 
@@ -303,9 +305,10 @@ class CharacterRecipeNode:
         height: int = 1280,
         flip_pose_horizontal: bool = False,
         use_depth: bool = False,
+        costume_view: str = "front",
     ):
         portrait_item = find_item("portrait", portrait_id)
-        costume_item = find_item("costume", costume_id)
+        costume_item = select_costume_view(find_item("costume", costume_id), costume_view)
         pose_item = find_item("pose", pose_id)
 
         portrait_pil = _load_pil_image(

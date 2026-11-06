@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { useEffect, useRef, useState, type ChangeEvent } from 'react'
-import { toast } from 'sonner'
+import { toast } from '@/lib/notifications'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Switch } from '@/components/ui/switch'
@@ -34,8 +34,21 @@ export function WorkflowParameters({ onPreview, onUploadingChange }: { onPreview
   const endpoint = apiConfig.providers.comfyui
   const identity = workflowIdentity(cp.workflowJson)
   const currentIdentityRef = useRef(identity)
-  useEffect(() => { currentIdentityRef.current = identity; return () => { currentIdentityRef.current = '' } }, [identity])
+  const imageInputs = useRef<Record<string, HTMLInputElement | null>>({})
+  const readEpoch = useRef(0)
   const [uploading, setUploading] = useState<string | null>(null)
+  useEffect(() => {
+    currentIdentityRef.current = identity
+    // 工作流切换使正在读取的文件失效，同时解除生成按钮的占用。
+    // oxlint-disable-next-line react/set-state-in-effect
+    setUploading(null)
+    onUploadingChange(null)
+    return () => {
+      currentIdentityRef.current = ''
+      readEpoch.current += 1
+      onUploadingChange(null)
+    }
+  }, [identity, onUploadingChange])
   const { data: schemas, isPending, error, refetch } = useQuery({
     queryKey: ['comfy-widget-schema', endpoint.baseUrl, endpoint.apiKey, identity],
     queryFn: () => fetchComfyObjectInfo(endpoint.baseUrl, endpoint.apiKey, cp.workflowJson),
@@ -62,16 +75,21 @@ export function WorkflowParameters({ onPreview, onUploadingChange }: { onPreview
     const file = event.target.files?.[0]
     event.target.value = ''
     if (!file) return
+    if (uploading !== null) return
     if (!file.type.startsWith('image/')) { toast.error('请选择图片文件'); return }
     const startedIdentity = identity
+    const startedEpoch = ++readEpoch.current
     setUploading(nodeId)
     onUploadingChange(`workflow-${nodeId}`)
     try {
       const url = await fileToDataUrl(file)
-      if (currentIdentityRef.current !== startedIdentity) return
+      if (currentIdentityRef.current !== startedIdentity || startedEpoch !== readEpoch.current) return
       setWorkflowImage(nodeId, { id: crypto.randomUUID(), name: file.name, url, role }, startedIdentity)
-    } catch (error) { toast.error(error instanceof Error ? error.message : '图片读取失败，已保留原图') }
-    finally { setUploading(null); onUploadingChange(null) }
+    } catch {
+      if (currentIdentityRef.current === startedIdentity && startedEpoch === readEpoch.current) toast.error('图片读取失败，已保留原图，请重新选择')
+    } finally {
+      if (currentIdentityRef.current === startedIdentity && startedEpoch === readEpoch.current) { setUploading(null); onUploadingChange(null) }
+    }
   }
   return <div className="col-span-full min-w-0 space-y-4 break-words rounded-xl border p-3">
     <div className="flex flex-wrap items-center justify-between gap-2"><h3 className="text-sm font-medium">工作流高级参数</h3><Button type="button" size="sm" variant="ghost" className="min-h-11" disabled={!Object.keys(saved).length} onClick={() => updateComfyUiParams({ parameterOverrides: { workflowId: identity, values: {} } })}>全部恢复默认</Button></div>
@@ -80,11 +98,13 @@ export function WorkflowParameters({ onPreview, onUploadingChange }: { onPreview
       const selected = workflowImages[image.nodeId]
       const inputId = `workflow-image-${image.nodeId}`
       return <div key={image.nodeId} className="min-w-0 space-y-2 rounded-xl bg-background p-3" onDrop={(event) => { event.preventDefault(); event.stopPropagation() }}>
-        <label htmlFor={inputId} className="block text-sm font-medium">{image.label}{image.optional ? '（可选）' : '（可替换）'}</label>
+        <div className="block text-sm font-medium">{image.label}{image.optional ? '（可选）' : '（可替换）'}</div>
         {selected && <button type="button" className="block w-full cursor-zoom-in" onClick={() => onPreview(selected.url)} aria-label={`预览${image.label}`}><img src={selected.url} alt={image.label} className="h-28 w-full rounded-lg object-contain" /></button>}
-        <Input id={inputId} className="min-h-11 max-w-full py-2" type="file" accept="image/*" disabled={uploading !== null} onChange={(event) => void upload(event, image.nodeId, image.role)} aria-label={`上传${image.label}`} />
+        <input id={inputId} ref={(element) => { imageInputs.current[image.nodeId] = element }} hidden type="file" accept="image/*" disabled={uploading !== null} onChange={(event) => void upload(event, image.nodeId, image.role)} aria-label={`选择${image.label}`} />
+        <Button type="button" variant="outline" className="min-h-11" disabled={uploading !== null} onClick={() => imageInputs.current[image.nodeId]?.click()}>{selected ? '替换图片' : '选择图片'}</Button>
+        {selected && <><p className="break-all text-xs" title={selected.name}>{selected.name}</p><p className="text-xs text-muted-foreground">已选择，生成时上传</p></>}
         {uploading === image.nodeId && <p role="status" className="text-xs">正在读取图片…</p>}
-        {selected ? <Button type="button" variant="ghost" size="sm" className="min-h-11" aria-label={`清除${image.label}`} onClick={() => setWorkflowImage(image.nodeId, null, identity)}>清除图片</Button> : <p className="text-xs text-muted-foreground">{image.role === 'character_sheet' ? '可上传完整角色设定集，人物身份与外观以此图为准。' : image.optional ? '可上传此节点所需的参考图片。' : '默认沿用工作流原图；上传后替换，清除上传后恢复原图。'}</p>}
+        {selected ? <Button type="button" variant="ghost" size="sm" className="min-h-11" disabled={uploading !== null} aria-label={`清除${image.label}`} onClick={() => setWorkflowImage(image.nodeId, null, identity)}>清除图片</Button> : <p className="text-xs text-muted-foreground">{image.optional ? '未选择（可选），可添加参考图片。' : '默认沿用工作流原图；选择后替换，清除后恢复原图。'}{image.role === 'character_sheet' && ' 可选择完整角色设定集，人物身份与外观以此图为准。'}</p>}
       </div>
     })}</div>}
     {isPending && identity && <p role="status" className="text-xs text-muted-foreground">正在读取节点参数…</p>}

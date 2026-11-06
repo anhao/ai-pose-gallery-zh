@@ -1,0 +1,3082 @@
+[
+  {
+    "id": "O001",
+    "set": "outfit",
+    "cat": "制服・学生",
+    "jp": "セーラー服(紺)",
+    "tags": "serafuku, sailor collar, blue sailor collar, red neckerchief, pleated skirt, blue skirt"
+  },
+  {
+    "id": "O002",
+    "set": "outfit",
+    "cat": "制服・学生",
+    "jp": "セーラー服(白・夏服)",
+    "tags": "serafuku, white serafuku, short sleeves, blue sailor collar, blue neckerchief, pleated skirt"
+  },
+  {
+    "id": "O003",
+    "set": "outfit",
+    "cat": "制服・学生",
+    "jp": "セーラー服(黒)",
+    "tags": "serafuku, black serafuku, black sailor collar, red neckerchief, black pleated skirt"
+  },
+  {
+    "id": "O004",
+    "set": "outfit",
+    "cat": "制服・学生",
+    "jp": "ブレザー(紺・赤リボン)",
+    "tags": "school uniform, blazer, blue blazer, white shirt, red bow, plaid skirt, red plaid skirt"
+  },
+  {
+    "id": "O005",
+    "set": "outfit",
+    "cat": "制服・学生",
+    "jp": "ブレザー(グレー・ネクタイ)",
+    "tags": "school uniform, blazer, grey blazer, white shirt, striped necktie, pleated skirt, grey skirt"
+  },
+  {
+    "id": "O006",
+    "set": "outfit",
+    "cat": "制服・学生",
+    "jp": "ブレザー(ベージュ・ボレロ)",
+    "tags": "school uniform, bolero, beige jacket, white shirt, red ribbon, pleated skirt"
+  },
+  {
+    "id": "O007",
+    "set": "outfit",
+    "cat": "制服・学生",
+    "jp": "カーディガン制服",
+    "tags": "school uniform, cardigan, brown cardigan, white shirt, red necktie, plaid skirt"
+  },
+  {
+    "id": "O008",
+    "set": "outfit",
+    "cat": "制服・学生",
+    "jp": "ベスト制服",
+    "tags": "school uniform, sweater vest, grey vest, white shirt, blue bow, pleated skirt"
+  },
+  {
+    "id": "O009",
+    "set": "outfit",
+    "cat": "制服・学生",
+    "jp": "夏制服(半袖シャツ)",
+    "tags": "school uniform, white shirt, short sleeves, collared shirt, red necktie, pleated skirt, blue skirt"
+  },
+  {
+    "id": "O010",
+    "set": "outfit",
+    "cat": "制服・学生",
+    "jp": "夏制服(リボン)",
+    "tags": "school uniform, white shirt, short sleeves, blue bow, grey pleated skirt"
+  },
+  {
+    "id": "O011",
+    "set": "outfit",
+    "cat": "制服・学生",
+    "jp": "体操服・ブルマ",
+    "tags": "gym uniform, white shirt, short sleeves, buruma, red buruma"
+  },
+  {
+    "id": "O012",
+    "set": "outfit",
+    "cat": "制服・学生",
+    "jp": "体操服・ハーフパンツ",
+    "tags": "gym uniform, white shirt, short sleeves, gym shorts, blue shorts"
+  },
+  {
+    "id": "O013",
+    "set": "outfit",
+    "cat": "制服・学生",
+    "jp": "スクール水着",
+    "tags": "school swimsuit, one-piece swimsuit, blue one-piece swimsuit, name tag"
+  },
+  {
+    "id": "O014",
+    "set": "outfit",
+    "cat": "制服・学生",
+    "jp": "ジャージ(上下)",
+    "tags": "track jacket, track pants, red jacket, white stripes"
+  },
+  {
+    "id": "O015",
+    "set": "outfit",
+    "cat": "制服・学生",
+    "jp": "ジャージ(上だけ)",
+    "tags": "track jacket, pleated skirt, school uniform"
+  },
+  {
+    "id": "O016",
+    "set": "outfit",
+    "cat": "制服・学生",
+    "jp": "ジャンパースカート",
+    "tags": "pinafore dress, school uniform, white shirt, blue dress, red bow"
+  },
+  {
+    "id": "O017",
+    "set": "outfit",
+    "cat": "制服・学生",
+    "jp": "サスペンダースカート",
+    "tags": "suspender skirt, white shirt, school uniform, red skirt"
+  },
+  {
+    "id": "O018",
+    "set": "outfit",
+    "cat": "制服・学生",
+    "jp": "小学生風制服",
+    "tags": "school uniform, randoseru, white shirt, blue skirt, suspenders"
+  },
+  {
+    "id": "O019",
+    "set": "outfit",
+    "cat": "制服・学生",
+    "jp": "制服＋コート(冬)",
+    "tags": "school uniform, duffel coat, scarf, plaid skirt, winter clothes"
+  },
+  {
+    "id": "O020",
+    "set": "outfit",
+    "cat": "制服・学生",
+    "jp": "制服＋マフラー",
+    "tags": "school uniform, blazer, scarf, red scarf, pleated skirt"
+  },
+  {
+    "id": "O021",
+    "set": "outfit",
+    "cat": "制服・学生",
+    "jp": "制服＋セーター",
+    "tags": "school uniform, sweater, yellow sweater, white shirt, pleated skirt"
+  },
+  {
+    "id": "O022",
+    "set": "outfit",
+    "cat": "制服・学生",
+    "jp": "制服＋ニーソ",
+    "tags": "school uniform, serafuku, thighhighs, black thighhighs, zettai ryouiki"
+  },
+  {
+    "id": "O023",
+    "set": "outfit",
+    "cat": "制服・学生",
+    "jp": "制服＋ルーズソックス",
+    "tags": "school uniform, blazer, loose socks, pleated skirt"
+  },
+  {
+    "id": "O024",
+    "set": "outfit",
+    "cat": "制服・学生",
+    "jp": "制服＋パーカー",
+    "tags": "school uniform, hooded jacket, pleated skirt, casual"
+  },
+  {
+    "id": "O025",
+    "set": "outfit",
+    "cat": "制服・学生",
+    "jp": "制服＋エプロン(家庭科)",
+    "tags": "school uniform, apron, white apron, pleated skirt"
+  },
+  {
+    "id": "O026",
+    "set": "outfit",
+    "cat": "制服・学生",
+    "jp": "制服＋白衣",
+    "tags": "school uniform, labcoat, open labcoat, pleated skirt"
+  },
+  {
+    "id": "O027",
+    "set": "outfit",
+    "cat": "制服・学生",
+    "jp": "私立お嬢様制服",
+    "tags": "school uniform, white blazer, long skirt, bow, elegant, blue skirt"
+  },
+  {
+    "id": "O028",
+    "set": "outfit",
+    "cat": "制服・学生",
+    "jp": "チャイナ風制服",
+    "tags": "school uniform, china dress, short dress, pelvic curtain"
+  },
+  {
+    "id": "O029",
+    "set": "outfit",
+    "cat": "制服・学生",
+    "jp": "ミリタリー風制服",
+    "tags": "military uniform, school uniform, black jacket, double-breasted, pleated skirt"
+  },
+  {
+    "id": "O030",
+    "set": "outfit",
+    "cat": "制服・学生",
+    "jp": "アイドル風制服",
+    "tags": "idol clothes, school uniform, plaid skirt, frills, bow"
+  },
+  {
+    "id": "O031",
+    "set": "outfit",
+    "cat": "制服・学生",
+    "jp": "ダサい学生服(詰襟)",
+    "tags": "gakuran, black jacket, buttons, black pants, female"
+  },
+  {
+    "id": "O032",
+    "set": "outfit",
+    "cat": "制服・学生",
+    "jp": "修道院風制服",
+    "tags": "school uniform, long dress, white collar, black dress, cross necklace"
+  },
+  {
+    "id": "O033",
+    "set": "outfit",
+    "cat": "制服・学生",
+    "jp": "魔法学校制服",
+    "tags": "school uniform, robe, black robe, striped necktie, wand"
+  },
+  {
+    "id": "O034",
+    "set": "outfit",
+    "cat": "制服・学生",
+    "jp": "制服(ワンピース型)",
+    "tags": "school uniform, dress, one-piece, sailor collar, white dress, blue trim"
+  },
+  {
+    "id": "O035",
+    "set": "outfit",
+    "cat": "制服・学生",
+    "jp": "制服(タイトスカート)",
+    "tags": "school uniform, blazer, pencil skirt, black skirt, necktie"
+  },
+  {
+    "id": "O036",
+    "set": "outfit",
+    "cat": "制服・学生",
+    "jp": "半袖セーラー＋スパッツ",
+    "tags": "serafuku, short sleeves, bike shorts, black bike shorts"
+  },
+  {
+    "id": "O037",
+    "set": "outfit",
+    "cat": "制服・学生",
+    "jp": "制服(リュック)",
+    "tags": "school uniform, backpack, pleated skirt, blazer, walking"
+  },
+  {
+    "id": "O038",
+    "set": "outfit",
+    "cat": "制服・学生",
+    "jp": "制服(腕まくり)",
+    "tags": "school uniform, white shirt, sleeves rolled up, loose necktie, pleated skirt"
+  },
+  {
+    "id": "O039",
+    "set": "outfit",
+    "cat": "制服・学生",
+    "jp": "制服(シャツはみ出し)",
+    "tags": "school uniform, white shirt, untucked shirt, shirt tucked out, loose necktie, pleated skirt, delinquent, standing"
+  },
+  {
+    "id": "O040",
+    "set": "outfit",
+    "cat": "制服・学生",
+    "jp": "制服＋眼鏡",
+    "tags": "school uniform, glasses, red-framed eyewear, blazer, pleated skirt"
+  },
+  {
+    "id": "O041",
+    "set": "outfit",
+    "cat": "カジュアル(春夏)",
+    "jp": "白T＋デニム",
+    "tags": "white t-shirt, denim, jeans, blue pants, casual"
+  },
+  {
+    "id": "O042",
+    "set": "outfit",
+    "cat": "カジュアル(春夏)",
+    "jp": "Tシャツ＋ショートパンツ",
+    "tags": "t-shirt, print shirt, denim shorts, short shorts, casual"
+  },
+  {
+    "id": "O043",
+    "set": "outfit",
+    "cat": "カジュアル(春夏)",
+    "jp": "タンクトップ＋デニム",
+    "tags": "tank top, white tank top, denim, jeans"
+  },
+  {
+    "id": "O044",
+    "set": "outfit",
+    "cat": "カジュアル(春夏)",
+    "jp": "キャミソール＋ショートパンツ",
+    "tags": "camisole, black camisole, shorts, casual, summer"
+  },
+  {
+    "id": "O045",
+    "set": "outfit",
+    "cat": "カジュアル(春夏)",
+    "jp": "ノースリーブワンピ",
+    "tags": "sundress, white dress, sleeveless dress, summer"
+  },
+  {
+    "id": "O046",
+    "set": "outfit",
+    "cat": "カジュアル(春夏)",
+    "jp": "花柄ワンピース",
+    "tags": "floral print, dress, floral dress, short sleeves, summer"
+  },
+  {
+    "id": "O047",
+    "set": "outfit",
+    "cat": "カジュアル(春夏)",
+    "jp": "ストライプシャツワンピ",
+    "tags": "shirt dress, striped shirt, long dress, belt"
+  },
+  {
+    "id": "O048",
+    "set": "outfit",
+    "cat": "カジュアル(春夏)",
+    "jp": "オフショルダー",
+    "tags": "off-shoulder shirt, white shirt, bare shoulders, shorts"
+  },
+  {
+    "id": "O049",
+    "set": "outfit",
+    "cat": "カジュアル(春夏)",
+    "jp": "オーバーサイズT",
+    "tags": "oversized shirt, t-shirt, bare legs, casual"
+  },
+  {
+    "id": "O050",
+    "set": "outfit",
+    "cat": "カジュアル(春夏)",
+    "jp": "クロップトップ",
+    "tags": "crop top, midriff, shorts, casual"
+  },
+  {
+    "id": "O051",
+    "set": "outfit",
+    "cat": "カジュアル(春夏)",
+    "jp": "ポロシャツ＋スカート",
+    "tags": "polo shirt, white shirt, pleated skirt, casual"
+  },
+  {
+    "id": "O052",
+    "set": "outfit",
+    "cat": "カジュアル(春夏)",
+    "jp": "パーカー＋ショートパンツ",
+    "tags": "hoodie, grey hoodie, shorts, casual"
+  },
+  {
+    "id": "O053",
+    "set": "outfit",
+    "cat": "カジュアル(春夏)",
+    "jp": "ボーダーT＋スカート",
+    "tags": "striped shirt, long sleeves, skirt, white skirt, casual"
+  },
+  {
+    "id": "O054",
+    "set": "outfit",
+    "cat": "カジュアル(春夏)",
+    "jp": "サロペット",
+    "tags": "overalls, denim overalls, white shirt, short sleeves"
+  },
+  {
+    "id": "O055",
+    "set": "outfit",
+    "cat": "カジュアル(春夏)",
+    "jp": "サロペットスカート",
+    "tags": "overall skirt, denim, white shirt"
+  },
+  {
+    "id": "O056",
+    "set": "outfit",
+    "cat": "カジュアル(春夏)",
+    "jp": "ティアードワンピ",
+    "tags": "tiered dress, white dress, frills, summer"
+  },
+  {
+    "id": "O057",
+    "set": "outfit",
+    "cat": "カジュアル(春夏)",
+    "jp": "ロングスカート＋ブラウス",
+    "tags": "long skirt, pleated skirt, blouse, white blouse, casual"
+  },
+  {
+    "id": "O058",
+    "set": "outfit",
+    "cat": "カジュアル(春夏)",
+    "jp": "マキシワンピ",
+    "tags": "long dress, maxi dress, sleeveless, summer, straw hat"
+  },
+  {
+    "id": "O059",
+    "set": "outfit",
+    "cat": "カジュアル(春夏)",
+    "jp": "チュニック",
+    "tags": "tunic, loose shirt, shorts, casual"
+  },
+  {
+    "id": "O060",
+    "set": "outfit",
+    "cat": "カジュアル(春夏)",
+    "jp": "ジャケット＋Tシャツ",
+    "tags": "jacket, open jacket, t-shirt, jeans, casual"
+  },
+  {
+    "id": "O061",
+    "set": "outfit",
+    "cat": "カジュアル(春夏)",
+    "jp": "リネンシャツ",
+    "tags": "linen shirt, beige shirt, white pants, casual"
+  },
+  {
+    "id": "O062",
+    "set": "outfit",
+    "cat": "カジュアル(春夏)",
+    "jp": "ベスト＋シャツ",
+    "tags": "vest, white shirt, black vest, pants"
+  },
+  {
+    "id": "O063",
+    "set": "outfit",
+    "cat": "カジュアル(春夏)",
+    "jp": "キュロット",
+    "tags": "culottes, blouse, short sleeves, casual"
+  },
+  {
+    "id": "O064",
+    "set": "outfit",
+    "cat": "カジュアル(春夏)",
+    "jp": "ワイドパンツ",
+    "tags": "wide pants, white pants, tank top, casual"
+  },
+  {
+    "id": "O065",
+    "set": "outfit",
+    "cat": "カジュアル(春夏)",
+    "jp": "カーゴパンツ＋タンク",
+    "tags": "cargo pants, tank top, black tank top, street fashion"
+  },
+  {
+    "id": "O066",
+    "set": "outfit",
+    "cat": "カジュアル(春夏)",
+    "jp": "ストリート(オーバーサイズ)",
+    "tags": "streetwear, oversized shirt, baggy pants, sneakers, cap"
+  },
+  {
+    "id": "O067",
+    "set": "outfit",
+    "cat": "カジュアル(春夏)",
+    "jp": "ジャージスタイル(街)",
+    "tags": "track jacket, crop top, shorts, sneakers, streetwear"
+  },
+  {
+    "id": "O068",
+    "set": "outfit",
+    "cat": "カジュアル(春夏)",
+    "jp": "ガーリー(リボンブラウス)",
+    "tags": "blouse, bow, frilled blouse, skirt, pink skirt, girly"
+  },
+  {
+    "id": "O069",
+    "set": "outfit",
+    "cat": "カジュアル(春夏)",
+    "jp": "レトロワンピ",
+    "tags": "retro dress, polka dot, dress, red dress, headband"
+  },
+  {
+    "id": "O070",
+    "set": "outfit",
+    "cat": "カジュアル(春夏)",
+    "jp": "リゾート(透けシャツ)",
+    "tags": "see-through shirt, open shirt, bikini under clothes, shorts, sandals, summer, beach"
+  },
+  {
+    "id": "O071",
+    "set": "outfit",
+    "cat": "カジュアル(春夏)",
+    "jp": "浴衣風ワンピ",
+    "tags": "dress, japanese print, summer, sandals"
+  },
+  {
+    "id": "O072",
+    "set": "outfit",
+    "cat": "カジュアル(春夏)",
+    "jp": "デニムジャケット",
+    "tags": "denim jacket, white dress, casual"
+  },
+  {
+    "id": "O073",
+    "set": "outfit",
+    "cat": "カジュアル(春夏)",
+    "jp": "バスケ風(ジャージ)",
+    "tags": "basketball uniform, jersey, shorts, sneakers"
+  },
+  {
+    "id": "O074",
+    "set": "outfit",
+    "cat": "カジュアル(春夏)",
+    "jp": "ラフな部屋着",
+    "tags": "t-shirt, shorts, barefoot, casual, indoors"
+  },
+  {
+    "id": "O075",
+    "set": "outfit",
+    "cat": "カジュアル(春夏)",
+    "jp": "寝起きのTシャツ",
+    "tags": "oversized t-shirt, bare legs, messy hair, sleepy"
+  },
+  {
+    "id": "O076",
+    "set": "outfit",
+    "cat": "カジュアル(春夏)",
+    "jp": "チェックシャツ",
+    "tags": "plaid shirt, flannel, shorts, casual"
+  },
+  {
+    "id": "O077",
+    "set": "outfit",
+    "cat": "カジュアル(春夏)",
+    "jp": "セットアップ(半袖)",
+    "tags": "short sleeves, matching set, shirt, shorts, beige"
+  },
+  {
+    "id": "O078",
+    "set": "outfit",
+    "cat": "カジュアル(春夏)",
+    "jp": "ビッグシルエットパーカー",
+    "tags": "oversized hoodie, hoodie, bare legs, sleeves past wrists"
+  },
+  {
+    "id": "O079",
+    "set": "outfit",
+    "cat": "カジュアル(春夏)",
+    "jp": "ガウチョ",
+    "tags": "gaucho pants, blouse, casual"
+  },
+  {
+    "id": "O080",
+    "set": "outfit",
+    "cat": "カジュアル(春夏)",
+    "jp": "バケハ＋T",
+    "tags": "bucket hat, t-shirt, shorts, casual, streetwear"
+  },
+  {
+    "id": "O081",
+    "set": "outfit",
+    "cat": "カジュアル(秋冬)",
+    "jp": "ニット＋ロングスカート",
+    "tags": "sweater, turtleneck, ribbed sweater, long skirt, autumn"
+  },
+  {
+    "id": "O082",
+    "set": "outfit",
+    "cat": "カジュアル(秋冬)",
+    "jp": "白ニット＋デニム",
+    "tags": "sweater, white sweater, jeans, winter clothes"
+  },
+  {
+    "id": "O083",
+    "set": "outfit",
+    "cat": "カジュアル(秋冬)",
+    "jp": "ダッフルコート",
+    "tags": "duffel coat, scarf, winter clothes, skirt"
+  },
+  {
+    "id": "O084",
+    "set": "outfit",
+    "cat": "カジュアル(秋冬)",
+    "jp": "トレンチコート",
+    "tags": "trench coat, beige coat, boots, autumn"
+  },
+  {
+    "id": "O085",
+    "set": "outfit",
+    "cat": "カジュアル(秋冬)",
+    "jp": "チェスターコート",
+    "tags": "long coat, black coat, turtleneck, pants, winter"
+  },
+  {
+    "id": "O086",
+    "set": "outfit",
+    "cat": "カジュアル(秋冬)",
+    "jp": "ダウンジャケット",
+    "tags": "down jacket, puffer jacket, white jacket, winter clothes"
+  },
+  {
+    "id": "O087",
+    "set": "outfit",
+    "cat": "カジュアル(秋冬)",
+    "jp": "ピーコート",
+    "tags": "peacoat, navy coat, pleated skirt, winter"
+  },
+  {
+    "id": "O088",
+    "set": "outfit",
+    "cat": "カジュアル(秋冬)",
+    "jp": "ポンチョ",
+    "tags": "poncho, knit, autumn, boots"
+  },
+  {
+    "id": "O089",
+    "set": "outfit",
+    "cat": "カジュアル(秋冬)",
+    "jp": "タートルネック(黒)",
+    "tags": "turtleneck, black sweater, long sleeves, pants"
+  },
+  {
+    "id": "O090",
+    "set": "outfit",
+    "cat": "カジュアル(秋冬)",
+    "jp": "カーディガン＋ワンピ",
+    "tags": "cardigan, long cardigan, dress, autumn"
+  },
+  {
+    "id": "O091",
+    "set": "outfit",
+    "cat": "カジュアル(秋冬)",
+    "jp": "セーター＋プリーツ",
+    "tags": "sweater, beige sweater, pleated skirt, thighhighs, autumn"
+  },
+  {
+    "id": "O092",
+    "set": "outfit",
+    "cat": "カジュアル(秋冬)",
+    "jp": "ニットワンピ",
+    "tags": "sweater dress, ribbed dress, long sleeves, winter"
+  },
+  {
+    "id": "O093",
+    "set": "outfit",
+    "cat": "カジュアル(秋冬)",
+    "jp": "ケーブルニット",
+    "tags": "cable knit, sweater, scarf, winter"
+  },
+  {
+    "id": "O094",
+    "set": "outfit",
+    "cat": "カジュアル(秋冬)",
+    "jp": "フリース＋ジーンズ",
+    "tags": "fleece jacket, jeans, casual, winter"
+  },
+  {
+    "id": "O095",
+    "set": "outfit",
+    "cat": "カジュアル(秋冬)",
+    "jp": "ムートンコート",
+    "tags": "shearling coat, brown coat, boots, winter"
+  },
+  {
+    "id": "O096",
+    "set": "outfit",
+    "cat": "カジュアル(秋冬)",
+    "jp": "ロングブーツ＋ミニ",
+    "tags": "boots, knee boots, miniskirt, sweater, autumn"
+  },
+  {
+    "id": "O097",
+    "set": "outfit",
+    "cat": "カジュアル(秋冬)",
+    "jp": "マフラー＋手袋",
+    "tags": "scarf, mittens, coat, winter clothes, snow"
+  },
+  {
+    "id": "O098",
+    "set": "outfit",
+    "cat": "カジュアル(秋冬)",
+    "jp": "ニット帽",
+    "tags": "beanie, knit hat, sweater, winter"
+  },
+  {
+    "id": "O099",
+    "set": "outfit",
+    "cat": "カジュアル(秋冬)",
+    "jp": "ストール",
+    "tags": "shawl, dress, autumn, boots"
+  },
+  {
+    "id": "O100",
+    "set": "outfit",
+    "cat": "カジュアル(秋冬)",
+    "jp": "タイツ＋ショートパンツ",
+    "tags": "pantyhose, black pantyhose, shorts, sweater, autumn"
+  },
+  {
+    "id": "O101",
+    "set": "outfit",
+    "cat": "カジュアル(秋冬)",
+    "jp": "ライダース",
+    "tags": "leather jacket, black jacket, jeans, boots"
+  },
+  {
+    "id": "O102",
+    "set": "outfit",
+    "cat": "カジュアル(秋冬)",
+    "jp": "MA-1",
+    "tags": "bomber jacket, green jacket, t-shirt, pants"
+  },
+  {
+    "id": "O103",
+    "set": "outfit",
+    "cat": "カジュアル(秋冬)",
+    "jp": "コーデュロイ",
+    "tags": "corduroy, brown jacket, turtleneck, pants, autumn"
+  },
+  {
+    "id": "O104",
+    "set": "outfit",
+    "cat": "カジュアル(秋冬)",
+    "jp": "ワンピース＋ブーツ",
+    "tags": "long dress, brown dress, boots, autumn"
+  },
+  {
+    "id": "O105",
+    "set": "outfit",
+    "cat": "カジュアル(秋冬)",
+    "jp": "ハイネック＋ジャンスカ",
+    "tags": "turtleneck, pinafore dress, autumn"
+  },
+  {
+    "id": "O106",
+    "set": "outfit",
+    "cat": "カジュアル(秋冬)",
+    "jp": "チェック柄コート",
+    "tags": "plaid coat, coat, scarf, winter"
+  },
+  {
+    "id": "O107",
+    "set": "outfit",
+    "cat": "カジュアル(秋冬)",
+    "jp": "ロングカーディガン",
+    "tags": "long cardigan, grey cardigan, t-shirt, jeans"
+  },
+  {
+    "id": "O108",
+    "set": "outfit",
+    "cat": "カジュアル(秋冬)",
+    "jp": "パーカー＋コート",
+    "tags": "hoodie, coat, open coat, pants, winter"
+  },
+  {
+    "id": "O109",
+    "set": "outfit",
+    "cat": "カジュアル(秋冬)",
+    "jp": "セーター＋眼鏡",
+    "tags": "sweater, glasses, long sleeves, sleeves past wrists, skirt"
+  },
+  {
+    "id": "O110",
+    "set": "outfit",
+    "cat": "カジュアル(秋冬)",
+    "jp": "袖余りニット",
+    "tags": "sweater, sleeves past wrists, sleeves past fingers, oversized sweater"
+  },
+  {
+    "id": "O111",
+    "set": "outfit",
+    "cat": "カジュアル(秋冬)",
+    "jp": "裸ニット(肩出し)",
+    "tags": "off-shoulder sweater, sweater, bare shoulders, collarbone"
+  },
+  {
+    "id": "O112",
+    "set": "outfit",
+    "cat": "カジュアル(秋冬)",
+    "jp": "レギンス＋チュニック",
+    "tags": "leggings, tunic, black leggings, autumn"
+  },
+  {
+    "id": "O113",
+    "set": "outfit",
+    "cat": "カジュアル(秋冬)",
+    "jp": "ファーコート",
+    "tags": "fur coat, white coat, dress, winter"
+  },
+  {
+    "id": "O114",
+    "set": "outfit",
+    "cat": "カジュアル(秋冬)",
+    "jp": "キルティングジャケット",
+    "tags": "quilted jacket, jacket, pants, autumn"
+  },
+  {
+    "id": "O115",
+    "set": "outfit",
+    "cat": "カジュアル(秋冬)",
+    "jp": "パジャマ(冬)",
+    "tags": "pajamas, long sleeves, pink pajamas, winter"
+  },
+  {
+    "id": "O116",
+    "set": "outfit",
+    "cat": "カジュアル(秋冬)",
+    "jp": "フリースルームウェア",
+    "tags": "fleece, room wear, loungewear, shorts, winter, indoors"
+  },
+  {
+    "id": "O117",
+    "set": "outfit",
+    "cat": "カジュアル(秋冬)",
+    "jp": "こたつでニット",
+    "tags": "sweater, kotatsu, winter, indoors, sitting"
+  },
+  {
+    "id": "O118",
+    "set": "outfit",
+    "cat": "カジュアル(秋冬)",
+    "jp": "雪の日(傘)",
+    "tags": "coat, umbrella, snow, scarf, winter"
+  },
+  {
+    "id": "O119",
+    "set": "outfit",
+    "cat": "カジュアル(秋冬)",
+    "jp": "クリスマスセーター",
+    "tags": "christmas sweater, sweater, red sweater, winter"
+  },
+  {
+    "id": "O120",
+    "set": "outfit",
+    "cat": "カジュアル(秋冬)",
+    "jp": "バレンタイン(エプロン＋ニット)",
+    "tags": "sweater, apron, heart, valentine"
+  },
+  {
+    "id": "O121",
+    "set": "outfit",
+    "cat": "きれいめ・オフィス",
+    "jp": "スーツ(黒)",
+    "tags": "business suit, black jacket, white shirt, pencil skirt, office lady"
+  },
+  {
+    "id": "O122",
+    "set": "outfit",
+    "cat": "きれいめ・オフィス",
+    "jp": "スーツ(グレー・パンツ)",
+    "tags": "business suit, grey jacket, pants, formal, office lady"
+  },
+  {
+    "id": "O123",
+    "set": "outfit",
+    "cat": "きれいめ・オフィス",
+    "jp": "ブラウス＋タイトスカート",
+    "tags": "blouse, white blouse, pencil skirt, black skirt, office lady"
+  },
+  {
+    "id": "O124",
+    "set": "outfit",
+    "cat": "きれいめ・オフィス",
+    "jp": "シャツ＋ベスト",
+    "tags": "collared shirt, vest, black vest, pencil skirt, office lady"
+  },
+  {
+    "id": "O125",
+    "set": "outfit",
+    "cat": "きれいめ・オフィス",
+    "jp": "ブラウス＋リボンタイ",
+    "tags": "blouse, ribbon, bowtie, skirt, office"
+  },
+  {
+    "id": "O126",
+    "set": "outfit",
+    "cat": "きれいめ・オフィス",
+    "jp": "カーディガン＋OL",
+    "tags": "cardigan, blouse, pencil skirt, office lady, lanyard"
+  },
+  {
+    "id": "O127",
+    "set": "outfit",
+    "cat": "きれいめ・オフィス",
+    "jp": "パンツスーツ(白)",
+    "tags": "white suit, pantsuit, formal"
+  },
+  {
+    "id": "O128",
+    "set": "outfit",
+    "cat": "きれいめ・オフィス",
+    "jp": "ジャケット＋ワンピ",
+    "tags": "jacket, dress, office, formal"
+  },
+  {
+    "id": "O129",
+    "set": "outfit",
+    "cat": "きれいめ・オフィス",
+    "jp": "受付(制服)",
+    "tags": "receptionist, uniform, vest, scarf, office"
+  },
+  {
+    "id": "O130",
+    "set": "outfit",
+    "cat": "きれいめ・オフィス",
+    "jp": "就活スーツ",
+    "tags": "business suit, black suit, white shirt, pencil skirt, black hair"
+  },
+  {
+    "id": "O131",
+    "set": "outfit",
+    "cat": "きれいめ・オフィス",
+    "jp": "新人OL(名札)",
+    "tags": "office lady, blouse, name tag, pencil skirt"
+  },
+  {
+    "id": "O132",
+    "set": "outfit",
+    "cat": "きれいめ・オフィス",
+    "jp": "秘書風(眼鏡)",
+    "tags": "secretary, glasses, blouse, pencil skirt, pantyhose"
+  },
+  {
+    "id": "O133",
+    "set": "outfit",
+    "cat": "きれいめ・オフィス",
+    "jp": "シャツ＋スラックス",
+    "tags": "collared shirt, slacks, belt, formal"
+  },
+  {
+    "id": "O134",
+    "set": "outfit",
+    "cat": "きれいめ・オフィス",
+    "jp": "エレガントワンピ",
+    "tags": "elegant, dress, long dress, formal, pearl necklace"
+  },
+  {
+    "id": "O135",
+    "set": "outfit",
+    "cat": "きれいめ・オフィス",
+    "jp": "ニット＋スカート(通勤)",
+    "tags": "sweater, skirt, office, commuting, shoulder bag"
+  },
+  {
+    "id": "O136",
+    "set": "outfit",
+    "cat": "きれいめ・オフィス",
+    "jp": "ブラウス(半袖・クールビズ)",
+    "tags": "blouse, short sleeves, skirt, office, summer"
+  },
+  {
+    "id": "O137",
+    "set": "outfit",
+    "cat": "きれいめ・オフィス",
+    "jp": "トレンチ＋通勤",
+    "tags": "trench coat, office lady, bag, formal"
+  },
+  {
+    "id": "O138",
+    "set": "outfit",
+    "cat": "きれいめ・オフィス",
+    "jp": "大人カジュアル",
+    "tags": "blouse, wide pants, formal, elegant"
+  },
+  {
+    "id": "O139",
+    "set": "outfit",
+    "cat": "きれいめ・オフィス",
+    "jp": "教師(スーツ)",
+    "tags": "teacher, suit, glasses, blouse, pencil skirt"
+  },
+  {
+    "id": "O140",
+    "set": "outfit",
+    "cat": "きれいめ・オフィス",
+    "jp": "ナチュラル(リネン)",
+    "tags": "linen, blouse, long skirt, natural"
+  },
+  {
+    "id": "O141",
+    "set": "outfit",
+    "cat": "きれいめ・オフィス",
+    "jp": "ジャケット＋デニム",
+    "tags": "jacket, jeans, casual, formal"
+  },
+  {
+    "id": "O142",
+    "set": "outfit",
+    "cat": "きれいめ・オフィス",
+    "jp": "キャリアウーマン",
+    "tags": "business suit, high heels, holding briefcase, formal"
+  },
+  {
+    "id": "O143",
+    "set": "outfit",
+    "cat": "きれいめ・オフィス",
+    "jp": "看護師風(白衣パンツ)",
+    "tags": "nurse, scrubs, white uniform, pants"
+  },
+  {
+    "id": "O144",
+    "set": "outfit",
+    "cat": "きれいめ・オフィス",
+    "jp": "アナウンサー",
+    "tags": "news anchor, newscaster, blazer, white blouse, pencil skirt, holding microphone, name tag, formal, standing"
+  },
+  {
+    "id": "O145",
+    "set": "outfit",
+    "cat": "きれいめ・オフィス",
+    "jp": "銀行員",
+    "tags": "uniform, vest, scarf, office, formal"
+  },
+  {
+    "id": "O146",
+    "set": "outfit",
+    "cat": "ドレス・パーティ",
+    "jp": "ウェディングドレス",
+    "tags": "wedding dress, white dress, veil, bridal"
+  },
+  {
+    "id": "O147",
+    "set": "outfit",
+    "cat": "ドレス・パーティ",
+    "jp": "ウェディング(マーメイド)",
+    "tags": "wedding dress, mermaid dress, white dress, bouquet"
+  },
+  {
+    "id": "O148",
+    "set": "outfit",
+    "cat": "ドレス・パーティ",
+    "jp": "イブニングドレス(赤)",
+    "tags": "evening gown, red dress, long dress, elegant"
+  },
+  {
+    "id": "O149",
+    "set": "outfit",
+    "cat": "ドレス・パーティ",
+    "jp": "イブニングドレス(黒)",
+    "tags": "evening gown, black dress, long dress, elegant, side slit"
+  },
+  {
+    "id": "O150",
+    "set": "outfit",
+    "cat": "ドレス・パーティ",
+    "jp": "カクテルドレス",
+    "tags": "cocktail dress, dress, short dress, party"
+  },
+  {
+    "id": "O151",
+    "set": "outfit",
+    "cat": "ドレス・パーティ",
+    "jp": "リトルブラックドレス",
+    "tags": "black dress, short dress, elegant, pearl necklace"
+  },
+  {
+    "id": "O152",
+    "set": "outfit",
+    "cat": "ドレス・パーティ",
+    "jp": "プリンセスドレス",
+    "tags": "princess, ball gown, pink dress, tiara"
+  },
+  {
+    "id": "O153",
+    "set": "outfit",
+    "cat": "ドレス・パーティ",
+    "jp": "ゴシックドレス",
+    "tags": "gothic, black dress, lace, long dress, gothic lolita"
+  },
+  {
+    "id": "O154",
+    "set": "outfit",
+    "cat": "ドレス・パーティ",
+    "jp": "ゴスロリ",
+    "tags": "gothic lolita, black dress, frills, lace, bonnet"
+  },
+  {
+    "id": "O155",
+    "set": "outfit",
+    "cat": "ドレス・パーティ",
+    "jp": "甘ロリ",
+    "tags": "sweet lolita, pink dress, frills, lace, bonnet, lolita fashion"
+  },
+  {
+    "id": "O156",
+    "set": "outfit",
+    "cat": "ドレス・パーティ",
+    "jp": "クラシカルロリータ",
+    "tags": "classic lolita, brown dress, lace, lolita fashion"
+  },
+  {
+    "id": "O157",
+    "set": "outfit",
+    "cat": "ドレス・パーティ",
+    "jp": "チャイナドレス(赤)",
+    "tags": "china dress, red dress, side slit, gold trim"
+  },
+  {
+    "id": "O158",
+    "set": "outfit",
+    "cat": "ドレス・パーティ",
+    "jp": "チャイナドレス(青)",
+    "tags": "china dress, blue dress, floral print, side slit"
+  },
+  {
+    "id": "O159",
+    "set": "outfit",
+    "cat": "ドレス・パーティ",
+    "jp": "ドレス(肩出し)",
+    "tags": "off-shoulder dress, dress, bare shoulders, elegant"
+  },
+  {
+    "id": "O160",
+    "set": "outfit",
+    "cat": "ドレス・パーティ",
+    "jp": "ドレス(背中開き)",
+    "tags": "backless dress, dress, elegant, black dress"
+  },
+  {
+    "id": "O161",
+    "set": "outfit",
+    "cat": "ドレス・パーティ",
+    "jp": "パーティドレス(キラキラ)",
+    "tags": "sequin dress, dress, sparkle, party"
+  },
+  {
+    "id": "O162",
+    "set": "outfit",
+    "cat": "ドレス・パーティ",
+    "jp": "成人式(振袖)",
+    "tags": "furisode, kimono, floral print, obi, formal"
+  },
+  {
+    "id": "O163",
+    "set": "outfit",
+    "cat": "ドレス・パーティ",
+    "jp": "卒業式(袴)",
+    "tags": "hakama, kimono, hakama skirt, graduation"
+  },
+  {
+    "id": "O164",
+    "set": "outfit",
+    "cat": "ドレス・パーティ",
+    "jp": "ナイトドレス",
+    "tags": "slip dress, satin, nightgown, elegant"
+  },
+  {
+    "id": "O165",
+    "set": "outfit",
+    "cat": "ドレス・パーティ",
+    "jp": "ハロウィン(魔女ドレス)",
+    "tags": "witch, witch hat, black dress, halloween"
+  },
+  {
+    "id": "O166",
+    "set": "outfit",
+    "cat": "ドレス・パーティ",
+    "jp": "ハロウィン(小悪魔)",
+    "tags": "demon girl, demon horns, demon tail, black dress, halloween"
+  },
+  {
+    "id": "O167",
+    "set": "outfit",
+    "cat": "ドレス・パーティ",
+    "jp": "ハロウィン(吸血鬼)",
+    "tags": "vampire, cape, black dress, fangs, halloween"
+  },
+  {
+    "id": "O168",
+    "set": "outfit",
+    "cat": "ドレス・パーティ",
+    "jp": "クリスマス(サンタ)",
+    "tags": "santa costume, santa hat, red dress, fur trim, christmas"
+  },
+  {
+    "id": "O169",
+    "set": "outfit",
+    "cat": "ドレス・パーティ",
+    "jp": "クリスマス(トナカイ)",
+    "tags": "reindeer costume, antlers, brown dress, christmas"
+  },
+  {
+    "id": "O170",
+    "set": "outfit",
+    "cat": "ドレス・パーティ",
+    "jp": "バニー(クラシック)",
+    "tags": "playboy bunny, rabbit ears, leotard, black leotard, pantyhose, bowtie"
+  },
+  {
+    "id": "O171",
+    "set": "outfit",
+    "cat": "ドレス・パーティ",
+    "jp": "バニー(白)",
+    "tags": "playboy bunny, rabbit ears, white leotard, fishnets, bowtie"
+  },
+  {
+    "id": "O172",
+    "set": "outfit",
+    "cat": "ドレス・パーティ",
+    "jp": "ドレス(キャバ)",
+    "tags": "dress, tight dress, short dress, cleavage, high heels, glamorous"
+  },
+  {
+    "id": "O173",
+    "set": "outfit",
+    "cat": "ドレス・パーティ",
+    "jp": "ドレス(パーティ・ロング)",
+    "tags": "long dress, blue dress, elegant, gloves, elbow gloves"
+  },
+  {
+    "id": "O174",
+    "set": "outfit",
+    "cat": "ドレス・パーティ",
+    "jp": "舞台衣装(アイドル)",
+    "tags": "idol clothes, frills, mini skirt, ribbon, stage"
+  },
+  {
+    "id": "O175",
+    "set": "outfit",
+    "cat": "ドレス・パーティ",
+    "jp": "ドレス(花柄)",
+    "tags": "floral dress, dress, elegant, party"
+  },
+  {
+    "id": "O176",
+    "set": "outfit",
+    "cat": "和服",
+    "jp": "浴衣(紺・朝顔)",
+    "tags": "yukata, blue kimono, floral print, obi, summer"
+  },
+  {
+    "id": "O177",
+    "set": "outfit",
+    "cat": "和服",
+    "jp": "浴衣(白・金魚)",
+    "tags": "yukata, white kimono, goldfish print, obi, summer"
+  },
+  {
+    "id": "O178",
+    "set": "outfit",
+    "cat": "和服",
+    "jp": "浴衣(赤)",
+    "tags": "yukata, red kimono, floral print, obi"
+  },
+  {
+    "id": "O179",
+    "set": "outfit",
+    "cat": "和服",
+    "jp": "浴衣(花火)",
+    "tags": "yukata, kimono, fireworks, summer festival, obi"
+  },
+  {
+    "id": "O180",
+    "set": "outfit",
+    "cat": "和服",
+    "jp": "着物(振袖)",
+    "tags": "furisode, kimono, long sleeves, floral print, obi"
+  },
+  {
+    "id": "O181",
+    "set": "outfit",
+    "cat": "和服",
+    "jp": "着物(訪問着)",
+    "tags": "kimono, floral print, obi, formal"
+  },
+  {
+    "id": "O182",
+    "set": "outfit",
+    "cat": "和服",
+    "jp": "着物(無地)",
+    "tags": "kimono, plain kimono, obi, elegant"
+  },
+  {
+    "id": "O183",
+    "set": "outfit",
+    "cat": "和服",
+    "jp": "巫女",
+    "tags": "miko, hakama, red hakama, white kimono, shrine maiden"
+  },
+  {
+    "id": "O184",
+    "set": "outfit",
+    "cat": "和服",
+    "jp": "巫女(改)",
+    "tags": "miko, red hakama, detached sleeves, nontraditional miko"
+  },
+  {
+    "id": "O185",
+    "set": "outfit",
+    "cat": "和服",
+    "jp": "袴(大正)",
+    "tags": "hakama, meiji schoolgirl uniform, hakama skirt, taishou roman"
+  },
+  {
+    "id": "O186",
+    "set": "outfit",
+    "cat": "和服",
+    "jp": "大正ロマン(着物＋ブーツ)",
+    "tags": "kimono, hakama, boots, taishou roman"
+  },
+  {
+    "id": "O187",
+    "set": "outfit",
+    "cat": "和服",
+    "jp": "和風メイド",
+    "tags": "wa maid, kimono, maid headdress, apron"
+  },
+  {
+    "id": "O188",
+    "set": "outfit",
+    "cat": "和服",
+    "jp": "忍者",
+    "tags": "ninja, shinobi, black outfit, mask, kunai"
+  },
+  {
+    "id": "O189",
+    "set": "outfit",
+    "cat": "和服",
+    "jp": "くノ一",
+    "tags": "kunoichi, ninja, fishnets, short kimono"
+  },
+  {
+    "id": "O190",
+    "set": "outfit",
+    "cat": "和服",
+    "jp": "剣道着",
+    "tags": "kendo, hakama, dougi, shinai"
+  },
+  {
+    "id": "O191",
+    "set": "outfit",
+    "cat": "和服",
+    "jp": "道着(空手)",
+    "tags": "karate gi, dougi, black belt, martial arts"
+  },
+  {
+    "id": "O192",
+    "set": "outfit",
+    "cat": "和服",
+    "jp": "弓道着",
+    "tags": "kyuudou, hakama, white kimono, holding bow (weapon)"
+  },
+  {
+    "id": "O193",
+    "set": "outfit",
+    "cat": "和服",
+    "jp": "着物(肩出し・崩し)",
+    "tags": "kimono, off-shoulder kimono, bare shoulders, obi"
+  },
+  {
+    "id": "O194",
+    "set": "outfit",
+    "cat": "和服",
+    "jp": "着物(短丈)",
+    "tags": "short kimono, kimono, thighhighs, obi"
+  },
+  {
+    "id": "O195",
+    "set": "outfit",
+    "cat": "和服",
+    "jp": "遊女風",
+    "tags": "oiran, kimono, off-shoulder kimono, kanzashi, elaborate"
+  },
+  {
+    "id": "O196",
+    "set": "outfit",
+    "cat": "和服",
+    "jp": "狐の巫女",
+    "tags": "miko, fox ears, fox tail, red hakama"
+  },
+  {
+    "id": "O197",
+    "set": "outfit",
+    "cat": "和服",
+    "jp": "着物＋傘",
+    "tags": "kimono, oil-paper umbrella, obi, elegant"
+  },
+  {
+    "id": "O198",
+    "set": "outfit",
+    "cat": "和服",
+    "jp": "甚平",
+    "tags": "jinbei, japanese clothes, shorts, summer"
+  },
+  {
+    "id": "O199",
+    "set": "outfit",
+    "cat": "和服",
+    "jp": "半被(祭り)",
+    "tags": "happi, festival, headband, shorts"
+  },
+  {
+    "id": "O200",
+    "set": "outfit",
+    "cat": "和服",
+    "jp": "和装花嫁",
+    "tags": "uchikake, wedding kimono, white kimono, tsunokakushi"
+  },
+  {
+    "id": "O201",
+    "set": "outfit",
+    "cat": "水着",
+    "jp": "ビキニ(白)",
+    "tags": "bikini, white bikini, swimsuit, beach"
+  },
+  {
+    "id": "O202",
+    "set": "outfit",
+    "cat": "水着",
+    "jp": "ビキニ(黒)",
+    "tags": "bikini, black bikini, swimsuit, beach"
+  },
+  {
+    "id": "O203",
+    "set": "outfit",
+    "cat": "水着",
+    "jp": "ビキニ(三角・水色)",
+    "tags": "bikini, light blue bikini, string bikini, swimsuit"
+  },
+  {
+    "id": "O204",
+    "set": "outfit",
+    "cat": "水着",
+    "jp": "ビキニ(花柄)",
+    "tags": "bikini, floral print bikini, swimsuit, beach"
+  },
+  {
+    "id": "O205",
+    "set": "outfit",
+    "cat": "水着",
+    "jp": "ビキニ(ストライプ)",
+    "tags": "bikini, striped bikini, swimsuit"
+  },
+  {
+    "id": "O206",
+    "set": "outfit",
+    "cat": "水着",
+    "jp": "フリルビキニ",
+    "tags": "frilled bikini, bikini, pink bikini, swimsuit"
+  },
+  {
+    "id": "O207",
+    "set": "outfit",
+    "cat": "水着",
+    "jp": "ハイレグ・ワンピース",
+    "tags": "one-piece swimsuit, highleg swimsuit, white swimsuit"
+  },
+  {
+    "id": "O208",
+    "set": "outfit",
+    "cat": "水着",
+    "jp": "競泳水着",
+    "tags": "competition swimsuit, one-piece swimsuit, blue swimsuit"
+  },
+  {
+    "id": "O209",
+    "set": "outfit",
+    "cat": "水着",
+    "jp": "スク水",
+    "tags": "school swimsuit, one-piece swimsuit, blue one-piece swimsuit"
+  },
+  {
+    "id": "O210",
+    "set": "outfit",
+    "cat": "水着",
+    "jp": "スク水(白)",
+    "tags": "school swimsuit, white school swimsuit, one-piece swimsuit"
+  },
+  {
+    "id": "O211",
+    "set": "outfit",
+    "cat": "水着",
+    "jp": "タンキニ",
+    "tags": "tankini, swimsuit, swim shorts"
+  },
+  {
+    "id": "O212",
+    "set": "outfit",
+    "cat": "水着",
+    "jp": "ラッシュガード",
+    "tags": "rash guard, bikini, swimsuit, beach"
+  },
+  {
+    "id": "O213",
+    "set": "outfit",
+    "cat": "水着",
+    "jp": "ホルターネック",
+    "tags": "halterneck, bikini, red bikini, swimsuit"
+  },
+  {
+    "id": "O214",
+    "set": "outfit",
+    "cat": "水着",
+    "jp": "バンドゥビキニ",
+    "tags": "bandeau, bikini, strapless, swimsuit"
+  },
+  {
+    "id": "O215",
+    "set": "outfit",
+    "cat": "水着",
+    "jp": "ハイウエストビキニ",
+    "tags": "high-waist bikini, bikini, retro, swimsuit"
+  },
+  {
+    "id": "O216",
+    "set": "outfit",
+    "cat": "水着",
+    "jp": "モノキニ",
+    "tags": "monokini, swimsuit, black swimsuit, cutout"
+  },
+  {
+    "id": "O217",
+    "set": "outfit",
+    "cat": "水着",
+    "jp": "サイドタイ",
+    "tags": "side-tie bikini bottom, bikini, swimsuit"
+  },
+  {
+    "id": "O218",
+    "set": "outfit",
+    "cat": "水着",
+    "jp": "パレオ",
+    "tags": "sarong, bikini, swimsuit, beach"
+  },
+  {
+    "id": "O219",
+    "set": "outfit",
+    "cat": "水着",
+    "jp": "水着＋パーカー",
+    "tags": "bikini, hoodie, open hoodie, swimsuit, beach"
+  },
+  {
+    "id": "O220",
+    "set": "outfit",
+    "cat": "水着",
+    "jp": "水着＋浮き輪",
+    "tags": "bikini, innertube, swimsuit, pool"
+  },
+  {
+    "id": "O221",
+    "set": "outfit",
+    "cat": "水着",
+    "jp": "スポーツビキニ",
+    "tags": "sports bikini, bikini, swimsuit, athletic"
+  },
+  {
+    "id": "O222",
+    "set": "outfit",
+    "cat": "水着",
+    "jp": "水着(ボーダー)",
+    "tags": "striped swimsuit, one-piece swimsuit, swimsuit"
+  },
+  {
+    "id": "O223",
+    "set": "outfit",
+    "cat": "水着",
+    "jp": "水着(リボン)",
+    "tags": "bikini, bow, ribbon, swimsuit, cute"
+  },
+  {
+    "id": "O224",
+    "set": "outfit",
+    "cat": "水着",
+    "jp": "水着(シースルー)",
+    "tags": "see-through, bikini, swimsuit, cover-up"
+  },
+  {
+    "id": "O225",
+    "set": "outfit",
+    "cat": "水着",
+    "jp": "水着＋麦わら帽子",
+    "tags": "bikini, straw hat, sun hat, swimsuit, beach"
+  },
+  {
+    "id": "O226",
+    "set": "outfit",
+    "cat": "水着",
+    "jp": "ビキニ(紐・黒)",
+    "tags": "string bikini, black bikini, swimsuit"
+  },
+  {
+    "id": "O227",
+    "set": "outfit",
+    "cat": "水着",
+    "jp": "ワンピース(背中開き)",
+    "tags": "one-piece swimsuit, backless swimsuit, swimsuit"
+  },
+  {
+    "id": "O228",
+    "set": "outfit",
+    "cat": "水着",
+    "jp": "水着(サーフ)",
+    "tags": "swimsuit, surfboard, bikini, beach, sporty"
+  },
+  {
+    "id": "O229",
+    "set": "outfit",
+    "cat": "水着",
+    "jp": "水着(スリングショット風・控えめ)",
+    "tags": "slingshot swimsuit, swimsuit, highleg"
+  },
+  {
+    "id": "O230",
+    "set": "outfit",
+    "cat": "水着",
+    "jp": "水着(ウェットスーツ)",
+    "tags": "wetsuit, diving suit, swimsuit, black bodysuit"
+  },
+  {
+    "id": "O231",
+    "set": "outfit",
+    "cat": "水着",
+    "jp": "マイクロビキニ",
+    "tags": "micro bikini, bikini, swimsuit, string bikini"
+  },
+  {
+    "id": "O232",
+    "set": "outfit",
+    "cat": "水着",
+    "jp": "水着(ジッパー)",
+    "tags": "zipper, one-piece swimsuit, front zipper, swimsuit"
+  },
+  {
+    "id": "O233",
+    "set": "outfit",
+    "cat": "水着",
+    "jp": "水着(フリル多め)",
+    "tags": "frilled swimsuit, one-piece swimsuit, pink swimsuit"
+  },
+  {
+    "id": "O234",
+    "set": "outfit",
+    "cat": "水着",
+    "jp": "水着(パーカー風)",
+    "tags": "swimsuit, hooded swimsuit, bikini, cute"
+  },
+  {
+    "id": "O235",
+    "set": "outfit",
+    "cat": "水着",
+    "jp": "水着＋サングラス",
+    "tags": "bikini, sunglasses, swimsuit, beach"
+  },
+  {
+    "id": "O236",
+    "set": "outfit",
+    "cat": "スポーツ・部活",
+    "jp": "テニスウェア",
+    "tags": "tennis uniform, tennis dress, white dress, visor, holding racket"
+  },
+  {
+    "id": "O237",
+    "set": "outfit",
+    "cat": "スポーツ・部活",
+    "jp": "チアリーダー",
+    "tags": "cheerleader, cheerleader uniform, pom pom (cheerleading), pleated skirt"
+  },
+  {
+    "id": "O238",
+    "set": "outfit",
+    "cat": "スポーツ・部活",
+    "jp": "バレー部",
+    "tags": "volleyball uniform, sportswear, shorts, knee pads"
+  },
+  {
+    "id": "O239",
+    "set": "outfit",
+    "cat": "スポーツ・部活",
+    "jp": "バスケ部",
+    "tags": "basketball uniform, jersey, shorts, sneakers"
+  },
+  {
+    "id": "O240",
+    "set": "outfit",
+    "cat": "スポーツ・部活",
+    "jp": "陸上(セパレート)",
+    "tags": "track uniform, sports bra, buruma, athletic"
+  },
+  {
+    "id": "O241",
+    "set": "outfit",
+    "cat": "スポーツ・部活",
+    "jp": "水泳(競泳)",
+    "tags": "competition swimsuit, swim cap, goggles"
+  },
+  {
+    "id": "O242",
+    "set": "outfit",
+    "cat": "スポーツ・部活",
+    "jp": "ヨガウェア",
+    "tags": "yoga pants, sports bra, yoga, yoga mat, barefoot, stretching, standing on one leg"
+  },
+  {
+    "id": "O243",
+    "set": "outfit",
+    "cat": "スポーツ・部活",
+    "jp": "ジムウェア",
+    "tags": "gym uniform, tank top, bike shorts, sneakers, towel around neck, holding dumbbell"
+  },
+  {
+    "id": "O244",
+    "set": "outfit",
+    "cat": "スポーツ・部活",
+    "jp": "サッカー",
+    "tags": "soccer uniform, jersey, shorts, soccer ball"
+  },
+  {
+    "id": "O245",
+    "set": "outfit",
+    "cat": "スポーツ・部活",
+    "jp": "野球(ユニフォーム)",
+    "tags": "baseball uniform, baseball cap, pants"
+  },
+  {
+    "id": "O246",
+    "set": "outfit",
+    "cat": "スポーツ・部活",
+    "jp": "剣道",
+    "tags": "kendo, dougi, hakama, shinai"
+  },
+  {
+    "id": "O247",
+    "set": "outfit",
+    "cat": "スポーツ・部活",
+    "jp": "弓道",
+    "tags": "kyuudou, hakama, holding bow (weapon), single weapon"
+  },
+  {
+    "id": "O248",
+    "set": "outfit",
+    "cat": "スポーツ・部活",
+    "jp": "体操(レオタード)",
+    "tags": "gymnastics, leotard, white leotard, ribbon"
+  },
+  {
+    "id": "O249",
+    "set": "outfit",
+    "cat": "スポーツ・部活",
+    "jp": "新体操",
+    "tags": "rhythmic gymnastics, leotard, holding ribbon baton, ribbon"
+  },
+  {
+    "id": "O250",
+    "set": "outfit",
+    "cat": "スポーツ・部活",
+    "jp": "バドミントン",
+    "tags": "badminton, sportswear, skirt, racket"
+  },
+  {
+    "id": "O251",
+    "set": "outfit",
+    "cat": "スポーツ・部活",
+    "jp": "ゴルフ",
+    "tags": "golf, polo shirt, skirt, visor, golf club"
+  },
+  {
+    "id": "O252",
+    "set": "outfit",
+    "cat": "スポーツ・部活",
+    "jp": "サイクルジャージ",
+    "tags": "cycling jersey, bike shorts, helmet"
+  },
+  {
+    "id": "O253",
+    "set": "outfit",
+    "cat": "スポーツ・部活",
+    "jp": "ランニング",
+    "tags": "running, sportswear, tank top, shorts, sneakers"
+  },
+  {
+    "id": "O254",
+    "set": "outfit",
+    "cat": "スポーツ・部活",
+    "jp": "ボクシング",
+    "tags": "boxing gloves, sports bra, shorts, athletic"
+  },
+  {
+    "id": "O255",
+    "set": "outfit",
+    "cat": "スポーツ・部活",
+    "jp": "スキーウェア",
+    "tags": "ski suit, snow, goggles, winter"
+  },
+  {
+    "id": "O256",
+    "set": "outfit",
+    "cat": "スポーツ・部活",
+    "jp": "スケート(フィギュア)",
+    "tags": "figure skating, leotard, skirt, ice skates"
+  },
+  {
+    "id": "O257",
+    "set": "outfit",
+    "cat": "スポーツ・部活",
+    "jp": "乗馬",
+    "tags": "equestrian, riding boots, riding jacket, riding helmet, riding crop"
+  },
+  {
+    "id": "O258",
+    "set": "outfit",
+    "cat": "スポーツ・部活",
+    "jp": "空手",
+    "tags": "karate gi, dougi, black belt"
+  },
+  {
+    "id": "O259",
+    "set": "outfit",
+    "cat": "スポーツ・部活",
+    "jp": "ラクロス",
+    "tags": "lacrosse, sportswear, skirt, holding lacrosse stick"
+  },
+  {
+    "id": "O260",
+    "set": "outfit",
+    "cat": "スポーツ・部活",
+    "jp": "eスポーツ(ジャージ)",
+    "tags": "gaming, jersey, headphones, casual"
+  },
+  {
+    "id": "O261",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "メイド(クラシック)",
+    "tags": "maid, maid headdress, maid apron, black dress, long dress"
+  },
+  {
+    "id": "O262",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "メイド(ミニ)",
+    "tags": "maid, maid headdress, maid apron, short dress, thighhighs"
+  },
+  {
+    "id": "O263",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "メイド(ピンク)",
+    "tags": "maid, pink dress, maid headdress, frills"
+  },
+  {
+    "id": "O264",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "ナース(白)",
+    "tags": "nurse, nurse cap, white dress, short dress"
+  },
+  {
+    "id": "O265",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "ナース(ピンク)",
+    "tags": "nurse, pink dress, nurse cap, stethoscope"
+  },
+  {
+    "id": "O266",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "警察官",
+    "tags": "police, police uniform, police hat, pencil skirt"
+  },
+  {
+    "id": "O267",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "婦警(ミニ)",
+    "tags": "police uniform, police hat, miniskirt, holding handcuffs"
+  },
+  {
+    "id": "O268",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "キャビンアテンダント",
+    "tags": "flight attendant, uniform, scarf, pencil skirt, hat"
+  },
+  {
+    "id": "O269",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "ウェイトレス",
+    "tags": "waitress, apron, dress, tray"
+  },
+  {
+    "id": "O270",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "バーテンダー",
+    "tags": "bartender, vest, white shirt, bowtie, black pants"
+  },
+  {
+    "id": "O271",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "シェフ",
+    "tags": "chef, chef hat, chef uniform, apron"
+  },
+  {
+    "id": "O272",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "パティシエ",
+    "tags": "patissier, chef hat, white uniform, apron"
+  },
+  {
+    "id": "O273",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "医者(白衣)",
+    "tags": "doctor, labcoat, stethoscope around neck, shirt, pencil skirt"
+  },
+  {
+    "id": "O274",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "研究者(白衣＋眼鏡)",
+    "tags": "labcoat, glasses, turtleneck, scientist"
+  },
+  {
+    "id": "O275",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "教師",
+    "tags": "teacher, blouse, pencil skirt, glasses, pointer"
+  },
+  {
+    "id": "O276",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "保育士",
+    "tags": "childcare worker, apron, t-shirt, pants, name tag"
+  },
+  {
+    "id": "O277",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "図書館司書",
+    "tags": "librarian, cardigan, glasses, long skirt, book"
+  },
+  {
+    "id": "O278",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "駅員",
+    "tags": "train conductor, uniform, hat, white gloves"
+  },
+  {
+    "id": "O279",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "軍服",
+    "tags": "military uniform, military jacket, peaked cap, belt"
+  },
+  {
+    "id": "O280",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "海軍",
+    "tags": "naval uniform, sailor hat, white uniform"
+  },
+  {
+    "id": "O281",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "パイロット",
+    "tags": "pilot, flight jacket, aviator sunglasses, pants"
+  },
+  {
+    "id": "O282",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "消防士",
+    "tags": "firefighter, firefighter jacket, helmet"
+  },
+  {
+    "id": "O283",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "農家(つなぎ)",
+    "tags": "farmer, overalls, straw hat, gloves"
+  },
+  {
+    "id": "O284",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "整備士",
+    "tags": "mechanic, jumpsuit, open jumpsuit, tank top, wrench"
+  },
+  {
+    "id": "O285",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "配達員",
+    "tags": "delivery, uniform, cap, package"
+  },
+  {
+    "id": "O286",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "コンビニ店員",
+    "tags": "convenience store uniform, striped shirt, apron, name tag"
+  },
+  {
+    "id": "O287",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "カフェ店員",
+    "tags": "barista, apron, green apron, shirt"
+  },
+  {
+    "id": "O288",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "花屋",
+    "tags": "florist, apron, flowers, bouquet"
+  },
+  {
+    "id": "O289",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "アイドル",
+    "tags": "idol, idol clothes, frills, ribbon, microphone"
+  },
+  {
+    "id": "O290",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "アナウンサー",
+    "tags": "news anchor, jacket, dress, microphone"
+  },
+  {
+    "id": "O291",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "魔法少女",
+    "tags": "magical girl, frills, ribbon, holding wand, pink dress"
+  },
+  {
+    "id": "O292",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "魔法使い",
+    "tags": "witch, witch hat, cape, staff, long dress"
+  },
+  {
+    "id": "O293",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "シスター",
+    "tags": "nun, habit, nun habit, cross necklace"
+  },
+  {
+    "id": "O294",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "ゴスロリ(コスプレ)",
+    "tags": "gothic lolita, frills, lace, bonnet"
+  },
+  {
+    "id": "O295",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "執事(女)",
+    "tags": "butler, tailcoat, vest, white gloves, bowtie"
+  },
+  {
+    "id": "O296",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "海賊",
+    "tags": "pirate, pirate hat, coat, boots, eyepatch"
+  },
+  {
+    "id": "O297",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "カウガール",
+    "tags": "cowgirl, cowboy hat, denim shorts, boots, plaid shirt"
+  },
+  {
+    "id": "O298",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "ガンマン(西部劇)",
+    "tags": "western, cowboy hat, poncho, boots"
+  },
+  {
+    "id": "O299",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "探偵",
+    "tags": "detective, trench coat, deerstalker, magnifying glass"
+  },
+  {
+    "id": "O300",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "スパイ",
+    "tags": "spy, black bodysuit, catsuit, sunglasses"
+  },
+  {
+    "id": "O301",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "サイバーパンク",
+    "tags": "cyberpunk, jacket, neon, techwear, visor"
+  },
+  {
+    "id": "O302",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "宇宙飛行士",
+    "tags": "astronaut, spacesuit, helmet"
+  },
+  {
+    "id": "O303",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "レースクイーン",
+    "tags": "race queen, racing suit, boots, hand on hip"
+  },
+  {
+    "id": "O304",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "バニーガール(カフェ)",
+    "tags": "bunny girl, rabbit ears, apron, waitress"
+  },
+  {
+    "id": "O305",
+    "set": "outfit",
+    "cat": "職業・コスプレ",
+    "jp": "ネコミミメイド",
+    "tags": "cat ears, maid, maid headdress, apron, cat tail"
+  },
+  {
+    "id": "O306",
+    "set": "outfit",
+    "cat": "ファンタジー",
+    "jp": "勇者(軽装)",
+    "tags": "hero, armor, breastplate, cape, sword"
+  },
+  {
+    "id": "O307",
+    "set": "outfit",
+    "cat": "ファンタジー",
+    "jp": "騎士(フルプレート)",
+    "tags": "knight, full armor, plate armor, helmet off, holding sword"
+  },
+  {
+    "id": "O308",
+    "set": "outfit",
+    "cat": "ファンタジー",
+    "jp": "女騎士",
+    "tags": "female knight, armor, breastplate, skirt armor, holding sword, holding shield"
+  },
+  {
+    "id": "O309",
+    "set": "outfit",
+    "cat": "ファンタジー",
+    "jp": "聖騎士",
+    "tags": "paladin, white armor, cape, holy, sword"
+  },
+  {
+    "id": "O310",
+    "set": "outfit",
+    "cat": "ファンタジー",
+    "jp": "魔術師",
+    "tags": "mage, robe, wizard hat, staff, long robe"
+  },
+  {
+    "id": "O311",
+    "set": "outfit",
+    "cat": "ファンタジー",
+    "jp": "黒魔道士",
+    "tags": "black mage, dark robe, hood, holding staff"
+  },
+  {
+    "id": "O312",
+    "set": "outfit",
+    "cat": "ファンタジー",
+    "jp": "僧侶・ヒーラー",
+    "tags": "priestess, white robe, holding staff, holy"
+  },
+  {
+    "id": "O313",
+    "set": "outfit",
+    "cat": "ファンタジー",
+    "jp": "エルフの弓使い",
+    "tags": "elf, pointy ears, holding bow (weapon), leather armor, cape"
+  },
+  {
+    "id": "O314",
+    "set": "outfit",
+    "cat": "ファンタジー",
+    "jp": "ダークエルフ",
+    "tags": "dark elf, dark skin, pointy ears, white hair, armor"
+  },
+  {
+    "id": "O315",
+    "set": "outfit",
+    "cat": "ファンタジー",
+    "jp": "盗賊",
+    "tags": "thief, hood, leather armor, holding dagger, cloak"
+  },
+  {
+    "id": "O316",
+    "set": "outfit",
+    "cat": "ファンタジー",
+    "jp": "忍者(ファンタジー)",
+    "tags": "ninja, mask, scarf, kunai, dark outfit"
+  },
+  {
+    "id": "O317",
+    "set": "outfit",
+    "cat": "ファンタジー",
+    "jp": "侍",
+    "tags": "samurai, japanese armor, holding katana, hakama"
+  },
+  {
+    "id": "O318",
+    "set": "outfit",
+    "cat": "ファンタジー",
+    "jp": "王女",
+    "tags": "princess, crown, ball gown, elegant"
+  },
+  {
+    "id": "O319",
+    "set": "outfit",
+    "cat": "ファンタジー",
+    "jp": "女王",
+    "tags": "queen, crown, long dress, cape, throne"
+  },
+  {
+    "id": "O320",
+    "set": "outfit",
+    "cat": "ファンタジー",
+    "jp": "魔王(女)",
+    "tags": "demon lord, horns, black dress, cape, crown"
+  },
+  {
+    "id": "O321",
+    "set": "outfit",
+    "cat": "ファンタジー",
+    "jp": "サキュバス(控えめ)",
+    "tags": "succubus, demon horns, demon wings, demon tail, black dress"
+  },
+  {
+    "id": "O322",
+    "set": "outfit",
+    "cat": "ファンタジー",
+    "jp": "天使",
+    "tags": "angel, angel wings, halo, white dress"
+  },
+  {
+    "id": "O323",
+    "set": "outfit",
+    "cat": "ファンタジー",
+    "jp": "堕天使",
+    "tags": "fallen angel, black wings, halo, black dress"
+  },
+  {
+    "id": "O324",
+    "set": "outfit",
+    "cat": "ファンタジー",
+    "jp": "ドラゴン娘",
+    "tags": "dragon girl, dragon horns, dragon tail, scales, armor"
+  },
+  {
+    "id": "O325",
+    "set": "outfit",
+    "cat": "ファンタジー",
+    "jp": "獣人(狼)",
+    "tags": "wolf girl, wolf ears, wolf tail, fur, leather armor"
+  },
+  {
+    "id": "O326",
+    "set": "outfit",
+    "cat": "ファンタジー",
+    "jp": "猫の獣人",
+    "tags": "cat girl, cat ears, cat tail, paw pose, dress"
+  },
+  {
+    "id": "O327",
+    "set": "outfit",
+    "cat": "ファンタジー",
+    "jp": "狐の妖",
+    "tags": "fox girl, fox ears, multiple tails, kimono"
+  },
+  {
+    "id": "O328",
+    "set": "outfit",
+    "cat": "ファンタジー",
+    "jp": "人魚",
+    "tags": "mermaid, fish tail, seashell bra, underwater"
+  },
+  {
+    "id": "O329",
+    "set": "outfit",
+    "cat": "ファンタジー",
+    "jp": "妖精",
+    "tags": "fairy, fairy wings, flower dress, small"
+  },
+  {
+    "id": "O330",
+    "set": "outfit",
+    "cat": "ファンタジー",
+    "jp": "魔女(現代)",
+    "tags": "witch, witch hat, black dress, broom"
+  },
+  {
+    "id": "O331",
+    "set": "outfit",
+    "cat": "ファンタジー",
+    "jp": "錬金術師",
+    "tags": "alchemist, apron, goggles, vial, gloves"
+  },
+  {
+    "id": "O332",
+    "set": "outfit",
+    "cat": "ファンタジー",
+    "jp": "冒険者(初期装備)",
+    "tags": "adventurer, tunic, belt, boots, backpack, holding sword"
+  },
+  {
+    "id": "O333",
+    "set": "outfit",
+    "cat": "ファンタジー",
+    "jp": "剣士(着流し)",
+    "tags": "swordswoman, kimono, holding katana, sarashi"
+  },
+  {
+    "id": "O334",
+    "set": "outfit",
+    "cat": "ファンタジー",
+    "jp": "ヴァルキリー",
+    "tags": "valkyrie, winged helmet, armor, holding spear"
+  },
+  {
+    "id": "O335",
+    "set": "outfit",
+    "cat": "ファンタジー",
+    "jp": "巫女戦士",
+    "tags": "miko, armor, holding naginata, hakama"
+  },
+  {
+    "id": "O336",
+    "set": "outfit",
+    "cat": "ファンタジー",
+    "jp": "メカ娘",
+    "tags": "mecha musume, mechanical parts, armor, headgear, mechanical arms, thighhighs"
+  },
+  {
+    "id": "O337",
+    "set": "outfit",
+    "cat": "ファンタジー",
+    "jp": "SF(ボディスーツ)",
+    "tags": "bodysuit, sci-fi, skin tight, glowing lines"
+  },
+  {
+    "id": "O338",
+    "set": "outfit",
+    "cat": "ファンタジー",
+    "jp": "魔法学園(ローブ)",
+    "tags": "robe, school uniform, wand, striped necktie"
+  },
+  {
+    "id": "O339",
+    "set": "outfit",
+    "cat": "ファンタジー",
+    "jp": "ゴーレム使い",
+    "tags": "mage, book, glowing, robe, hood"
+  },
+  {
+    "id": "O340",
+    "set": "outfit",
+    "cat": "ファンタジー",
+    "jp": "吟遊詩人",
+    "tags": "bard, lute, feather hat, cape"
+  },
+  {
+    "id": "O396",
+    "set": "outfit",
+    "cat": "部屋着・パジャマ",
+    "jp": "パジャマ(ピンク・長袖)",
+    "tags": "pajamas, pink pajamas, long sleeves, buttons"
+  },
+  {
+    "id": "O397",
+    "set": "outfit",
+    "cat": "部屋着・パジャマ",
+    "jp": "パジャマ(水玉)",
+    "tags": "pajamas, polka dot, short sleeves, shorts"
+  },
+  {
+    "id": "O398",
+    "set": "outfit",
+    "cat": "部屋着・パジャマ",
+    "jp": "ネグリジェ風ルームウェア",
+    "tags": "nightgown, white nightgown, long dress, loungewear"
+  },
+  {
+    "id": "O399",
+    "set": "outfit",
+    "cat": "部屋着・パジャマ",
+    "jp": "スウェット上下",
+    "tags": "sweatpants, sweatshirt, grey sweater, loungewear"
+  },
+  {
+    "id": "O400",
+    "set": "outfit",
+    "cat": "部屋着・パジャマ",
+    "jp": "パーカー＋ショートパンツ(部屋着)",
+    "tags": "hoodie, shorts, loungewear, barefoot"
+  },
+  {
+    "id": "O401",
+    "set": "outfit",
+    "cat": "部屋着・パジャマ",
+    "jp": "キャミ＋短パン",
+    "tags": "camisole, shorts, loungewear, barefoot"
+  },
+  {
+    "id": "O402",
+    "set": "outfit",
+    "cat": "部屋着・パジャマ",
+    "jp": "大きなTシャツ",
+    "tags": "oversized t-shirt, bare legs, loungewear"
+  },
+  {
+    "id": "O403",
+    "set": "outfit",
+    "cat": "部屋着・パジャマ",
+    "jp": "ジャージ(部屋着)",
+    "tags": "track suit, loungewear, indoors"
+  },
+  {
+    "id": "O404",
+    "set": "outfit",
+    "cat": "部屋着・パジャマ",
+    "jp": "ルームワンピ",
+    "tags": "loungewear, dress, short dress, soft"
+  },
+  {
+    "id": "O405",
+    "set": "outfit",
+    "cat": "部屋着・パジャマ",
+    "jp": "もこもこルームウェア",
+    "tags": "fleece, fluffy, loungewear, pajamas, animal hood"
+  },
+  {
+    "id": "O406",
+    "set": "outfit",
+    "cat": "部屋着・パジャマ",
+    "jp": "着ぐるみパジャマ(猫)",
+    "tags": "kigurumi, cat costume, pajamas, hood"
+  },
+  {
+    "id": "O407",
+    "set": "outfit",
+    "cat": "部屋着・パジャマ",
+    "jp": "着ぐるみパジャマ(うさぎ)",
+    "tags": "kigurumi, rabbit costume, pajamas, hood"
+  },
+  {
+    "id": "O408",
+    "set": "outfit",
+    "cat": "部屋着・パジャマ",
+    "jp": "バスローブ",
+    "tags": "bathrobe, white robe, towel on head"
+  },
+  {
+    "id": "O409",
+    "set": "outfit",
+    "cat": "部屋着・パジャマ",
+    "jp": "浴衣(寝間着)",
+    "tags": "yukata, sleepwear, loose, indoors"
+  },
+  {
+    "id": "O410",
+    "set": "outfit",
+    "cat": "部屋着・パジャマ",
+    "jp": "タンクトップ＋スウェットパンツ",
+    "tags": "tank top, sweatpants, loungewear"
+  },
+  {
+    "id": "O411",
+    "set": "outfit",
+    "cat": "部屋着・パジャマ",
+    "jp": "ニット＋ショーパン(部屋)",
+    "tags": "sweater, shorts, loungewear, socks"
+  },
+  {
+    "id": "O412",
+    "set": "outfit",
+    "cat": "部屋着・パジャマ",
+    "jp": "エプロン(家事)",
+    "tags": "apron, t-shirt, jeans, housework"
+  },
+  {
+    "id": "O413",
+    "set": "outfit",
+    "cat": "部屋着・パジャマ",
+    "jp": "エプロン(料理)",
+    "tags": "apron, long sleeves, cooking, kitchen"
+  },
+  {
+    "id": "O414",
+    "set": "outfit",
+    "cat": "部屋着・パジャマ",
+    "jp": "ヘアバンド＋部屋着(洗顔)",
+    "tags": "hairband, loungewear, t-shirt, washing face"
+  },
+  {
+    "id": "O415",
+    "set": "outfit",
+    "cat": "部屋着・パジャマ",
+    "jp": "毛布にくるまる",
+    "tags": "blanket, wrapped in blanket, pajamas, indoors"
+  },
+  {
+    "id": "O416",
+    "set": "outfit",
+    "cat": "イベント・季節",
+    "jp": "ハロウィン(かぼちゃ)",
+    "tags": "halloween costume, pumpkin, orange dress, witch hat"
+  },
+  {
+    "id": "O417",
+    "set": "outfit",
+    "cat": "イベント・季節",
+    "jp": "ハロウィン(猫)",
+    "tags": "halloween, cat costume, cat ears, black dress"
+  },
+  {
+    "id": "O418",
+    "set": "outfit",
+    "cat": "イベント・季節",
+    "jp": "ハロウィン(ゾンビナース)",
+    "tags": "halloween, zombie, nurse, torn clothes"
+  },
+  {
+    "id": "O419",
+    "set": "outfit",
+    "cat": "イベント・季節",
+    "jp": "ハロウィン(ミイラ)",
+    "tags": "halloween, mummy costume, bandages"
+  },
+  {
+    "id": "O420",
+    "set": "outfit",
+    "cat": "イベント・季節",
+    "jp": "クリスマス(サンタミニ)",
+    "tags": "santa costume, santa hat, red dress, fur trim, thighhighs"
+  },
+  {
+    "id": "O421",
+    "set": "outfit",
+    "cat": "イベント・季節",
+    "jp": "クリスマス(エルフ)",
+    "tags": "christmas, elf costume, green dress, pointy hat"
+  },
+  {
+    "id": "O422",
+    "set": "outfit",
+    "cat": "イベント・季節",
+    "jp": "クリスマス(ニット＋ケーキ)",
+    "tags": "christmas sweater, cake, winter, indoors"
+  },
+  {
+    "id": "O423",
+    "set": "outfit",
+    "cat": "イベント・季節",
+    "jp": "大晦日(こたつ＋みかん)",
+    "tags": "kotatsu, sweater, mandarin orange, winter"
+  },
+  {
+    "id": "O424",
+    "set": "outfit",
+    "cat": "イベント・季節",
+    "jp": "正月(晴れ着)",
+    "tags": "kimono, furisode, new year, hatsumoude"
+  },
+  {
+    "id": "O425",
+    "set": "outfit",
+    "cat": "イベント・季節",
+    "jp": "正月(巫女・初詣)",
+    "tags": "miko, new year, shrine"
+  },
+  {
+    "id": "O426",
+    "set": "outfit",
+    "cat": "イベント・季節",
+    "jp": "成人式",
+    "tags": "furisode, kimono, formal, ceremony"
+  },
+  {
+    "id": "O427",
+    "set": "outfit",
+    "cat": "イベント・季節",
+    "jp": "節分(鬼)",
+    "tags": "oni costume, oni horns, tiger print, setsubun"
+  },
+  {
+    "id": "O428",
+    "set": "outfit",
+    "cat": "イベント・季節",
+    "jp": "バレンタイン(エプロン＋チョコ)",
+    "tags": "apron, chocolate, valentine, heart"
+  },
+  {
+    "id": "O429",
+    "set": "outfit",
+    "cat": "イベント・季節",
+    "jp": "ひな祭り(十二単風)",
+    "tags": "junihitoe, kimono, hinamatsuri, layered"
+  },
+  {
+    "id": "O430",
+    "set": "outfit",
+    "cat": "イベント・季節",
+    "jp": "入学式(スーツ)",
+    "tags": "suit, formal, entrance ceremony, corsage"
+  },
+  {
+    "id": "O431",
+    "set": "outfit",
+    "cat": "イベント・季節",
+    "jp": "卒業式(袴)",
+    "tags": "hakama, graduation, kimono"
+  },
+  {
+    "id": "O432",
+    "set": "outfit",
+    "cat": "イベント・季節",
+    "jp": "花見(着物＋桜)",
+    "tags": "kimono, cherry blossoms, spring, picnic"
+  },
+  {
+    "id": "O433",
+    "set": "outfit",
+    "cat": "イベント・季節",
+    "jp": "梅雨(レインコート)",
+    "tags": "raincoat, hood up, rain, boots, puddle, water drop"
+  },
+  {
+    "id": "O434",
+    "set": "outfit",
+    "cat": "イベント・季節",
+    "jp": "夏祭り(浴衣＋りんご飴)",
+    "tags": "yukata, candy apple, summer festival"
+  },
+  {
+    "id": "O435",
+    "set": "outfit",
+    "cat": "イベント・季節",
+    "jp": "海(ビキニ＋パレオ)",
+    "tags": "bikini, sarong, beach, summer"
+  },
+  {
+    "id": "O436",
+    "set": "outfit",
+    "cat": "イベント・季節",
+    "jp": "プール(スク水＋浮き輪)",
+    "tags": "school swimsuit, innertube, pool"
+  },
+  {
+    "id": "O437",
+    "set": "outfit",
+    "cat": "イベント・季節",
+    "jp": "運動会(体操服)",
+    "tags": "gym uniform, headband, sports festival"
+  },
+  {
+    "id": "O438",
+    "set": "outfit",
+    "cat": "イベント・季節",
+    "jp": "文化祭(メイド喫茶)",
+    "tags": "maid, school festival, apron"
+  },
+  {
+    "id": "O439",
+    "set": "outfit",
+    "cat": "イベント・季節",
+    "jp": "紅葉(ニット＋ストール)",
+    "tags": "sweater, shawl, autumn leaves, autumn"
+  },
+  {
+    "id": "O440",
+    "set": "outfit",
+    "cat": "イベント・季節",
+    "jp": "スキー場",
+    "tags": "ski suit, goggles, snow, winter"
+  },
+  {
+    "id": "O441",
+    "set": "outfit",
+    "cat": "イベント・季節",
+    "jp": "温泉(浴衣)",
+    "tags": "yukata, onsen, towel, hot spring"
+  },
+  {
+    "id": "O442",
+    "set": "outfit",
+    "cat": "イベント・季節",
+    "jp": "誕生日(ドレス＋ケーキ)",
+    "tags": "party dress, birthday cake, party hat"
+  },
+  {
+    "id": "O443",
+    "set": "outfit",
+    "cat": "イベント・季節",
+    "jp": "結婚式(お呼ばれドレス)",
+    "tags": "party dress, formal, wedding guest"
+  },
+  {
+    "id": "O444",
+    "set": "outfit",
+    "cat": "イベント・季節",
+    "jp": "お祭り(法被)",
+    "tags": "happi, festival, headband, summer festival"
+  },
+  {
+    "id": "O445",
+    "set": "outfit",
+    "cat": "イベント・季節",
+    "jp": "七夕(浴衣＋短冊)",
+    "tags": "yukata, tanabata, bamboo, summer"
+  },
+  {
+    "id": "O446",
+    "set": "outfit",
+    "cat": "アイドル・ステージ",
+    "jp": "アイドル(フリル・ピンク)",
+    "tags": "idol clothes, pink dress, frills, ribbon, stage"
+  },
+  {
+    "id": "O447",
+    "set": "outfit",
+    "cat": "アイドル・ステージ",
+    "jp": "アイドル(白×青)",
+    "tags": "idol clothes, white dress, blue trim, frills"
+  },
+  {
+    "id": "O448",
+    "set": "outfit",
+    "cat": "アイドル・ステージ",
+    "jp": "アイドル(学園風)",
+    "tags": "idol clothes, school uniform, plaid skirt, bow"
+  },
+  {
+    "id": "O449",
+    "set": "outfit",
+    "cat": "アイドル・ステージ",
+    "jp": "アイドル(チア風)",
+    "tags": "idol clothes, cheerleader, pom pom"
+  },
+  {
+    "id": "O450",
+    "set": "outfit",
+    "cat": "アイドル・ステージ",
+    "jp": "アイドル(黒・クール)",
+    "tags": "idol clothes, black dress, silver trim, cool"
+  },
+  {
+    "id": "O451",
+    "set": "outfit",
+    "cat": "アイドル・ステージ",
+    "jp": "アイドル(軍服風)",
+    "tags": "idol clothes, military uniform, peaked cap, mini skirt"
+  },
+  {
+    "id": "O452",
+    "set": "outfit",
+    "cat": "アイドル・ステージ",
+    "jp": "地下アイドル(Tシャツ＋スカート)",
+    "tags": "t-shirt, pleated skirt, idol, stage"
+  },
+  {
+    "id": "O453",
+    "set": "outfit",
+    "cat": "アイドル・ステージ",
+    "jp": "バンド(ギター)",
+    "tags": "holding guitar, electric guitar, playing guitar, leather jacket, shorts, band"
+  },
+  {
+    "id": "O454",
+    "set": "outfit",
+    "cat": "アイドル・ステージ",
+    "jp": "バンド(ドラム)",
+    "tags": "drum, t-shirt, headband, band"
+  },
+  {
+    "id": "O455",
+    "set": "outfit",
+    "cat": "アイドル・ステージ",
+    "jp": "ゴスバンド",
+    "tags": "gothic, black dress, lace, band, holding microphone"
+  },
+  {
+    "id": "O456",
+    "set": "outfit",
+    "cat": "アイドル・ステージ",
+    "jp": "歌手(ロングドレス)",
+    "tags": "evening gown, microphone, stage, singer"
+  },
+  {
+    "id": "O457",
+    "set": "outfit",
+    "cat": "アイドル・ステージ",
+    "jp": "ダンサー(ストリート)",
+    "tags": "streetwear, crop top, cargo pants, dancer"
+  },
+  {
+    "id": "O458",
+    "set": "outfit",
+    "cat": "アイドル・ステージ",
+    "jp": "バレエ(チュチュ)",
+    "tags": "ballet, tutu, leotard, ballet shoes"
+  },
+  {
+    "id": "O459",
+    "set": "outfit",
+    "cat": "アイドル・ステージ",
+    "jp": "チアリーダー(ステージ)",
+    "tags": "cheerleader, pom pom, stage"
+  },
+  {
+    "id": "O460",
+    "set": "outfit",
+    "cat": "アイドル・ステージ",
+    "jp": "マジシャン",
+    "tags": "magician, top hat, tailcoat, playing card"
+  },
+  {
+    "id": "O461",
+    "set": "outfit",
+    "cat": "ゴスロリ・地雷系",
+    "jp": "地雷系(黒×ピンク)",
+    "tags": "jirai kei, black dress, pink ribbon, twintails, thighhighs"
+  },
+  {
+    "id": "O462",
+    "set": "outfit",
+    "cat": "ゴスロリ・地雷系",
+    "jp": "地雷系(白×黒)",
+    "tags": "jirai kei, white blouse, black skirt, ribbon, platform shoes"
+  },
+  {
+    "id": "O463",
+    "set": "outfit",
+    "cat": "ゴスロリ・地雷系",
+    "jp": "量産型(ピンク)",
+    "tags": "ryousangata, pink dress, frills, bow"
+  },
+  {
+    "id": "O464",
+    "set": "outfit",
+    "cat": "ゴスロリ・地雷系",
+    "jp": "量産型(水色)",
+    "tags": "ryousangata, light blue dress, frills, ribbon"
+  },
+  {
+    "id": "O465",
+    "set": "outfit",
+    "cat": "ゴスロリ・地雷系",
+    "jp": "ゴスロリ(黒)",
+    "tags": "gothic lolita, black dress, lace, bonnet"
+  },
+  {
+    "id": "O466",
+    "set": "outfit",
+    "cat": "ゴスロリ・地雷系",
+    "jp": "ゴスロリ(赤)",
+    "tags": "gothic lolita, red dress, black lace, headdress"
+  },
+  {
+    "id": "O467",
+    "set": "outfit",
+    "cat": "ゴスロリ・地雷系",
+    "jp": "甘ロリ(ピンク)",
+    "tags": "sweet lolita, pink dress, frills, bonnet"
+  },
+  {
+    "id": "O468",
+    "set": "outfit",
+    "cat": "ゴスロリ・地雷系",
+    "jp": "クラロリ(茶)",
+    "tags": "classic lolita, brown dress, lace, bow"
+  },
+  {
+    "id": "O469",
+    "set": "outfit",
+    "cat": "ゴスロリ・地雷系",
+    "jp": "パンク",
+    "tags": "punk, leather jacket, plaid skirt, chains"
+  },
+  {
+    "id": "O470",
+    "set": "outfit",
+    "cat": "ゴスロリ・地雷系",
+    "jp": "病みかわ(包帯)",
+    "tags": "yamikawa, bandages, pastel, oversized hoodie"
+  },
+  {
+    "id": "O471",
+    "set": "outfit",
+    "cat": "ゴスロリ・地雷系",
+    "jp": "ゆめかわ",
+    "tags": "yumekawa, pastel colors, frills, star, hairclips"
+  },
+  {
+    "id": "O472",
+    "set": "outfit",
+    "cat": "ゴスロリ・地雷系",
+    "jp": "ファンシー(ユニコーン)",
+    "tags": "pastel, unicorn, frills, hair bow"
+  },
+  {
+    "id": "O473",
+    "set": "outfit",
+    "cat": "ゴスロリ・地雷系",
+    "jp": "ゴシック(ドレス・長)",
+    "tags": "gothic, long dress, black dress, corset, lace"
+  },
+  {
+    "id": "O474",
+    "set": "outfit",
+    "cat": "ゴスロリ・地雷系",
+    "jp": "ロリータ(セーラー)",
+    "tags": "lolita fashion, sailor collar, frills, dress"
+  },
+  {
+    "id": "O475",
+    "set": "outfit",
+    "cat": "ゴスロリ・地雷系",
+    "jp": "地雷系(チャイナ)",
+    "tags": "jirai kei, china dress, black dress, pink trim"
+  },
+  {
+    "id": "O476",
+    "set": "outfit",
+    "cat": "ゴスロリ・地雷系",
+    "jp": "サブカル(ベレー)",
+    "tags": "beret, oversized shirt, suspender skirt, subculture"
+  },
+  {
+    "id": "O477",
+    "set": "outfit",
+    "cat": "ゴスロリ・地雷系",
+    "jp": "V系",
+    "tags": "visual kei, black outfit, lace, chains, dark makeup"
+  },
+  {
+    "id": "O478",
+    "set": "outfit",
+    "cat": "ゴスロリ・地雷系",
+    "jp": "ゴスメイド",
+    "tags": "gothic, maid, black dress, lace, cross"
+  },
+  {
+    "id": "O479",
+    "set": "outfit",
+    "cat": "ゴスロリ・地雷系",
+    "jp": "ロリータ(和風)",
+    "tags": "wa lolita, kimono, frills, lolita fashion"
+  },
+  {
+    "id": "O480",
+    "set": "outfit",
+    "cat": "ゴスロリ・地雷系",
+    "jp": "地雷系(ツインテ＋マスク)",
+    "tags": "jirai kei, twintails, mask, black dress"
+  },
+  {
+    "id": "O481",
+    "set": "outfit",
+    "cat": "ミリタリー・SF",
+    "jp": "軍服(黒・将校)",
+    "tags": "military uniform, black jacket, peaked cap, gloves"
+  },
+  {
+    "id": "O482",
+    "set": "outfit",
+    "cat": "ミリタリー・SF",
+    "jp": "軍服(緑・野戦)",
+    "tags": "military uniform, camouflage, helmet, boots"
+  },
+  {
+    "id": "O483",
+    "set": "outfit",
+    "cat": "ミリタリー・SF",
+    "jp": "海軍(白)",
+    "tags": "naval uniform, white uniform, sailor hat"
+  },
+  {
+    "id": "O484",
+    "set": "outfit",
+    "cat": "ミリタリー・SF",
+    "jp": "空軍パイロット",
+    "tags": "pilot suit, flight jacket, helmet"
+  },
+  {
+    "id": "O485",
+    "set": "outfit",
+    "cat": "ミリタリー・SF",
+    "jp": "特殊部隊",
+    "tags": "tactical gear, bulletproof vest, balaclava"
+  },
+  {
+    "id": "O486",
+    "set": "outfit",
+    "cat": "ミリタリー・SF",
+    "jp": "SFスーツ(白)",
+    "tags": "bodysuit, sci-fi, white bodysuit, glowing lines"
+  },
+  {
+    "id": "O487",
+    "set": "outfit",
+    "cat": "ミリタリー・SF",
+    "jp": "SFスーツ(黒)",
+    "tags": "bodysuit, sci-fi, black bodysuit, armor plates"
+  },
+  {
+    "id": "O488",
+    "set": "outfit",
+    "cat": "ミリタリー・SF",
+    "jp": "宇宙服",
+    "tags": "spacesuit, helmet, space"
+  },
+  {
+    "id": "O489",
+    "set": "outfit",
+    "cat": "ミリタリー・SF",
+    "jp": "サイバーパンク(ジャケット)",
+    "tags": "cyberpunk, jacket, neon, techwear, goggles"
+  },
+  {
+    "id": "O490",
+    "set": "outfit",
+    "cat": "ミリタリー・SF",
+    "jp": "メカ娘(軽装)",
+    "tags": "mecha musume, mechanical parts, light armor, headgear, bodysuit"
+  },
+  {
+    "id": "O491",
+    "set": "outfit",
+    "cat": "ミリタリー・SF",
+    "jp": "アンドロイド",
+    "tags": "android, joints, mechanical parts, bodysuit"
+  },
+  {
+    "id": "O492",
+    "set": "outfit",
+    "cat": "ミリタリー・SF",
+    "jp": "機動兵器パイロット",
+    "tags": "plugsuit, pilot suit, skin tight"
+  },
+  {
+    "id": "O493",
+    "set": "outfit",
+    "cat": "ミリタリー・SF",
+    "jp": "騎士(SF)",
+    "tags": "sci-fi armor, knight, energy sword"
+  },
+  {
+    "id": "O494",
+    "set": "outfit",
+    "cat": "ミリタリー・SF",
+    "jp": "傭兵",
+    "tags": "mercenary, tank top, cargo pants, dog tags"
+  },
+  {
+    "id": "O495",
+    "set": "outfit",
+    "cat": "ミリタリー・SF",
+    "jp": "スナイパー",
+    "tags": "ghillie suit, camouflage, rifle"
+  }
+]

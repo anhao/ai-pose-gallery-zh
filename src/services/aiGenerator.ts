@@ -1,6 +1,6 @@
 import type { ApiConfig, ExtraReferenceImage, ImageProviderId, RecipeState } from '@/types/gallery'
 import { applyWorkflowOverrides, getWorkflowImages, validateReferenceCombinations, workflowIdentity, type ComfyObjectInfo } from '@/lib/comfyWorkflowParameters'
-import { poseImagePath } from '@/lib/recipeImages'
+import { poseImagePath, referenceImageUrl } from '@/lib/recipeImages'
 import flux3KleinWorkflow from '@/workflows/flux3-klein-edit.api.json'
 import qwen2509DepthWorkflow from '@/workflows/qwen-image-edit-2509.api.json'
 import qwen2509ThreeImageWorkflow from '@/workflows/qwen_image_edit_2509_3img.api.json'
@@ -8,6 +8,10 @@ import qwen2509ThreeImageWorkflow from '@/workflows/qwen_image_edit_2509_3img.ap
 export interface ProviderModelOption {
   value: string
   label: string
+}
+
+export interface PreparedComfyGeneration {
+  workflow: Record<string, unknown>
 }
 
 export const PROVIDER_META: Record<
@@ -256,11 +260,7 @@ function loadImage(src: string): Promise<HTMLImageElement> {
     img.crossOrigin = 'anonymous'
     img.onload = () => resolve(img)
     img.onerror = () => reject(new Error(`加载图片失败: ${src}`))
-    if (src.startsWith('data:') || /^https?:\/\//i.test(src) || src.startsWith('/')) {
-      img.src = src
-    } else {
-      img.src = `/${src}`
-    }
+    img.src = referenceImageUrl(src)
   })
 }
 
@@ -774,7 +774,7 @@ export function autoDetectComfyMappings(workflowJson: string): ComfyNodeMappings
 // 网络请求与中文错误
 // ---------------------------------------------------------------------------
 
-function normalizeComfyBase(baseUrl: string): string {
+export function normalizeComfyBase(baseUrl: string): string {
   return (baseUrl.trim() || defaultComfyBaseUrl()).replace(/\/+$/, '')
 }
 
@@ -799,7 +799,7 @@ function describeComfyNetworkError(baseUrl: string, timedOut: boolean): string {
   return `[ComfyUI] 无法连接 ${baseUrl}。可能原因：\n${reasons.join('\n')}`
 }
 
-async function comfyFetch(
+export async function comfyFetch(
   baseUrl: string,
   path: string,
   init: RequestInit = {},
@@ -812,7 +812,8 @@ async function comfyFetch(
   const timer = setTimeout(() => ctrl.abort(), timeoutMs)
   let res: Response
   try {
-    res = await fetch(`${baseUrl}${path}`, { ...init, headers, signal: ctrl.signal })
+    const signal = init.signal ? AbortSignal.any([ctrl.signal, init.signal]) : ctrl.signal
+    res = await fetch(`${baseUrl}${path}`, { ...init, headers, signal })
   } catch (e: any) {
     throw new Error(describeComfyNetworkError(baseUrl, e?.name === 'AbortError'))
   } finally {
@@ -1036,24 +1037,6 @@ function formatComfyPromptError(json: any, wf: ComfyWorkflow, status: number): s
   return `[ComfyUI] 提交工作流失败：\n${parts.join('\n')}`
 }
 
-async function freeComfyMemory(baseUrl: string, apiKey: string): Promise<void> {
-  try {
-    await comfyFetch(
-      baseUrl,
-      '/free',
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ unload_models: true, free_memory: true }),
-      },
-      apiKey,
-      10000
-    )
-  } catch {
-    /* ignore */
-  }
-}
-
 function formatExecutionError(messages: any[], wf: ComfyWorkflow): { text: string; oom: boolean } {
   const errMsg = (messages || []).find((m) => m?.[0] === 'execution_error')?.[1]
   if (errMsg) {
@@ -1112,38 +1095,305 @@ async function uploadImageToComfy(
   return json.subfolder ? `${json.subfolder}/${json.name}` : json.name
 }
 
-function openComfySocket(baseUrl: string, clientId: string, onMessage: (msg: any) => void): WebSocket | null {
-  try {
-    const u = new URL(baseUrl, window.location.href)
-    u.protocol = u.protocol === 'https:' ? 'wss:' : 'ws:'
-    u.pathname = `${u.pathname.replace(/\/+$/, '')}/ws`
-    u.search = `clientId=${encodeURIComponent(clientId)}`
-    const ws = new WebSocket(u.toString())
-    ws.onmessage = (e) => {
-      if (typeof e.data !== 'string') return
-      try {
-        onMessage(JSON.parse(e.data))
-      } catch {
-        /* ignore */
-      }
-    }
-    ws.onerror = () => {
-      /* 进度推送失败不影响结果轮询 */
-    }
-    return ws
-  } catch {
-    return null
+export interface ComfyTaskHandle {
+  promptId: string
+  clientId: string
+  baseUrl: string
+  submittedAt: number
+}
+
+export class ComfyTaskError extends Error {
+  readonly task: ComfyTaskHandle
+  readonly reason: 'auth' | 'failed' | 'timeout' | 'tracking' | 'storage'
+  constructor(message: string, task: ComfyTaskHandle, reason: ComfyTaskError['reason'] = 'tracking') {
+    super(message)
+    this.task = task
+    this.reason = reason
+    this.name = 'ComfyTaskError'
+  }
+}
+
+export class ComfySubmissionRejectedError extends Error {
+  readonly status: number
+  constructor(message: string, status: number) {
+    super(message)
+    this.name = 'ComfySubmissionRejectedError'
+    this.status = status
+  }
+}
+
+export class ComfySubmissionUnknownError extends Error {
+  constructor() {
+    super('[ComfyUI] 提交结果未知：服务端可能已接受任务，请先检查队列与历史记录，勿直接重复提交。')
+    this.name = 'ComfySubmissionUnknownError'
   }
 }
 
 export interface GenerationProgress {
   stage: 'check' | 'upload' | 'queue' | 'running' | 'download'
   message: string
-  /** 0-100，未知时为 undefined */
+  /** 当前节点 0-100，并非整个工作流百分比。 */
   percent?: number
+  connection?: 'connecting' | 'connected' | 'reconnecting' | 'degraded'
 }
 
-const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms))
+type GenerationResult = { imageUrl: string; modelUsed: string; providerUsed: ImageProviderId }
+
+function checkTrackingSignal(signal?: AbortSignal) {
+  if (signal?.aborted) throw new DOMException('已停止跟踪，后台任务继续执行', 'AbortError')
+}
+
+interface ComfySocketSession {
+  connection: NonNullable<GenerationProgress['connection']>
+  onMessage: (msg: any) => void
+  onConnection: (state: NonNullable<GenerationProgress['connection']>) => void
+  close: () => void
+}
+
+function openComfySocket(
+  task: Pick<ComfyTaskHandle, 'baseUrl' | 'clientId'>, apiKey: string,
+): ComfySocketSession {
+  let socket: WebSocket | undefined
+  let stopped = false
+  let failures = 0
+  let reconnectTimer: ReturnType<typeof setTimeout> | undefined
+  let handshakeTimer: ReturnType<typeof setTimeout> | undefined
+  const session: ComfySocketSession = {
+    connection: 'connecting', onMessage: () => {}, onConnection: () => {},
+    close: () => { stopped = true; clearTimeout(reconnectTimer); disconnect() },
+  }
+  const connection = (state: ComfySocketSession['connection']) => {
+    session.connection = state
+    session.onConnection(state)
+  }
+  const disconnect = () => {
+    clearTimeout(handshakeTimer)
+    if (socket) {
+      socket.onopen = socket.onclose = socket.onerror = socket.onmessage = null
+      socket.close()
+      socket = undefined
+    }
+  }
+  const reconnect = () => {
+    disconnect()
+    if (stopped) return
+    failures++
+    connection(failures >= 3 ? 'degraded' : 'reconnecting')
+    reconnectTimer = setTimeout(connect, Math.min(30000, 1000 * 2 ** Math.min(failures - 1, 5)))
+  }
+  const connect = () => {
+    if (stopped) return
+    connection(failures ? 'reconnecting' : 'connecting')
+    try {
+      const u = new URL(task.baseUrl, window.location.href)
+      u.protocol = u.protocol === 'https:' ? 'wss:' : 'ws:'
+      u.pathname = `${u.pathname.replace(/\/+$/, '')}/ws`
+      u.search = new URLSearchParams({ clientId: task.clientId }).toString()
+      u.hash = ''
+      socket = apiKey.trim()
+        ? new WebSocket(u.toString(), ['comfyui', `comfyui-auth.${apiKey.trim()}`])
+        : new WebSocket(u.toString())
+      handshakeTimer = setTimeout(reconnect, 8000)
+      socket.onopen = () => { clearTimeout(handshakeTimer); failures = 0; connection('connected') }
+      socket.onclose = reconnect
+      socket.onerror = reconnect
+      socket.onmessage = (e) => {
+        if (typeof e.data !== 'string') return
+        let msg: any
+        try { msg = JSON.parse(e.data) } catch { return }
+        session.onMessage(msg)
+      }
+    } catch { reconnect() }
+  }
+  connect()
+  return session
+}
+
+export async function resumeComfyTask(params: {
+  task: ComfyTaskHandle
+  apiKey: string
+  timeoutSec: number
+  onProgress?: (p: GenerationProgress) => void
+  signal?: AbortSignal
+}): Promise<GenerationResult> {
+  return trackComfyTask(params)
+}
+
+// WS drives updates; history confirms results and recovers missed events.
+async function trackComfyTask(params: {
+  task: ComfyTaskHandle
+  apiKey: string
+  timeoutSec: number
+  onProgress?: (p: GenerationProgress) => void
+  signal?: AbortSignal
+}, workflow: Record<string, any> = {}, existingSocket?: ComfySocketSession): Promise<GenerationResult> {
+  const { task, apiKey, signal } = params
+  const ctrl = new AbortController()
+  const abort = () => ctrl.abort()
+  signal?.addEventListener('abort', abort, { once: true })
+  if (signal?.aborted) abort()
+  const deadline = setTimeout(abort, Math.max(1, params.timeoutSec || 600) * 1000)
+  let progress: GenerationProgress = { stage: 'queue', message: '正在确认 ComfyUI 任务状态…', connection: 'connecting' }
+  const report = (next: Partial<GenerationProgress>) => {
+    progress = { ...progress, ...next }
+    params.onProgress?.(progress)
+  }
+  let socket = existingSocket
+  let nextHistoryAt = 0
+  let nextQueueAt = 0
+  let queueRequested = true
+  let terminalRetries = 0
+  let terminalFailure: any[] | undefined
+  let wakePending = false
+  let wakeWait: (() => void) | undefined
+  const wake = () => { wakePending = true; wakeWait?.() }
+  const reconcile = () => { nextHistoryAt = 0; queueRequested = true; wake() }
+  const activate = () => { if (document.visibilityState === 'visible') reconcile() }
+  const interval = () => socket?.connection === 'connected' ? 30000 : 3000
+  const wait = (ms: number): Promise<void> => {
+    if (wakePending) { wakePending = false; return Promise.resolve() }
+    return new Promise((resolve, reject) => {
+      const done = () => { clearTimeout(timer); ctrl.signal.removeEventListener('abort', stop); wakeWait = undefined }
+      const finish = () => { done(); wakePending = false; resolve() }
+      const stop = () => { done(); reject(new DOMException('已停止跟踪', 'AbortError')) }
+      const timer = setTimeout(finish, Math.max(0, ms))
+      wakeWait = finish
+      ctrl.signal.addEventListener('abort', stop, { once: true })
+      if (ctrl.signal.aborted) stop()
+    })
+  }
+  // Both per-request and tracking deadlines cover body reads, not only response headers.
+  async function read(path: string, image = false): Promise<any> {
+    const request = new AbortController()
+    const stop = () => request.abort()
+    ctrl.signal.addEventListener('abort', stop, { once: true })
+    if (ctrl.signal.aborted) stop()
+    const timer = setTimeout(stop, image ? 60000 : 15000)
+    try {
+      const headers = new Headers()
+      if (apiKey.trim()) headers.set('Authorization', `Bearer ${apiKey.trim()}`)
+      const res = await fetch(`${task.baseUrl}${path}`, { headers, signal: request.signal })
+      if (res.status === 401 || res.status === 403) throw new ComfyTaskError(`[ComfyUI] 访问被拒绝 (HTTP ${res.status})，请检查凭据和来源后恢复任务。`, task, 'auth')
+      if (!res.ok) throw new Error(`HTTP ${res.status}`)
+      return image ? await res.blob() : await res.json()
+    } finally { clearTimeout(timer); ctrl.signal.removeEventListener('abort', stop) }
+  }
+  try {
+    checkTrackingSignal(ctrl.signal)
+    socket ??= openComfySocket(task, apiKey)
+    socket.onMessage = (msg) => {
+      const d = msg?.data
+      if (msg?.type === 'status') {
+        queueRequested = true
+        wake()
+        return
+      }
+      if (!d || d.prompt_id !== task.promptId) return
+      if (msg.type === 'executing' && d.node) {
+        const title = workflow[d.node]?._meta?.title || workflow[d.node]?.class_type || d.node
+        report({ stage: 'running', message: `正在执行：${title}`, percent: undefined })
+      } else if (msg.type === 'progress' && d.max > 0) {
+        report({ stage: 'running', message: `当前节点（${d.value}/${d.max}）`, percent: Math.round(d.value / d.max * 100) })
+      } else if (msg.type === 'execution_start' || msg.type === 'execution_cached' || msg.type === 'executed') {
+        report({ stage: 'running', message: msg.type === 'execution_cached' ? '正在复用已缓存节点…' : msg.type === 'executed' ? '节点已完成，继续执行工作流…' : 'ComfyUI 开始执行任务…', percent: undefined })
+      }
+      if (['execution_success', 'execution_error', 'execution_interrupted'].includes(msg.type) || (msg.type === 'executing' && d.node === null)) {
+        if (msg.type === 'execution_error' || msg.type === 'execution_interrupted') terminalFailure = [[msg.type, d]]
+        // execution_success precedes the history write; retry briefly while it lands.
+        terminalRetries = 6
+        reconcile()
+      }
+    }
+    socket.onConnection = (connection) => {
+      const wasConnected = progress.connection === 'connected'
+      report({ connection })
+      if (connection === 'connected' || wasConnected) reconcile()
+      else { nextHistoryAt = Math.min(nextHistoryAt, Date.now() + 3000); wake() }
+    }
+    report({ connection: socket.connection })
+    window.addEventListener('online', reconcile)
+    document.addEventListener('visibilitychange', activate)
+    for (;;) {
+      checkTrackingSignal(ctrl.signal)
+      if (Date.now() >= nextHistoryAt) {
+        nextHistoryAt = Date.now() + interval()
+        let item: any
+        try { item = (await read(`/history/${encodeURIComponent(task.promptId)}`))?.[task.promptId] } catch (error) {
+          if (error instanceof ComfyTaskError) throw error
+          checkTrackingSignal(ctrl.signal)
+          report({ message: '任务状态查询暂时失败，正在重试…' })
+          nextHistoryAt = Math.min(nextHistoryAt, Date.now() + 3000)
+        }
+        if (item?.status?.status_str === 'error') throw new ComfyTaskError(formatExecutionError(item.status.messages, workflow).text, task, 'failed')
+        if (!item || (item.status && item.status.completed === false && item.status.status_str !== 'success')) {
+          if (terminalRetries > 0) {
+            terminalRetries--
+            nextHistoryAt = Math.min(nextHistoryAt, Date.now() + 500)
+          } else if (terminalFailure) {
+            throw new ComfyTaskError(formatExecutionError(terminalFailure, workflow).text, task, 'failed')
+          }
+          queueRequested = true
+        } else {
+          let outImg: { filename: string; subfolder?: string; type?: string } | undefined
+          for (const nodeOut of Object.values<any>(item.outputs || {})) {
+            for (const im of nodeOut?.images || []) {
+              if (im?.filename && (!outImg || (im.type === 'output' && outImg.type !== 'output'))) outImg = im
+            }
+          }
+          if (!outImg) {
+            if (item.status?.completed) throw new ComfyTaskError('[ComfyUI] 工作流完成但没有输出图片，请检查 SaveImage 节点。', task, 'failed')
+            nextHistoryAt = Math.min(nextHistoryAt, Date.now() + 3000)
+          } else {
+            report({ stage: 'download', message: '正在获取生成结果…', percent: undefined })
+            const qs = new URLSearchParams({ filename: outImg.filename, subfolder: outImg.subfolder || '', type: outImg.type || 'output' })
+            let blob: Blob | undefined
+            try { blob = await read(`/view?${qs.toString()}`, true) } catch (error) {
+              if (error instanceof ComfyTaskError) throw error
+              checkTrackingSignal(ctrl.signal)
+              report({ message: '图片下载暂时失败，正在重试…' })
+              nextHistoryAt = Math.min(nextHistoryAt, Date.now() + 3000)
+            }
+            if (blob) {
+              if (!blob.size || !blob.type.startsWith('image/')) throw new ComfyTaskError('[ComfyUI] 生成结果不是有效图片，可恢复后重新下载。', task)
+              const imageUrl = await blobToDataUrl(blob)
+              checkTrackingSignal(ctrl.signal)
+              return { imageUrl, modelUsed: 'ComfyUI 工作流', providerUsed: 'comfyui' }
+            }
+          }
+        }
+      }
+      if (queueRequested && Date.now() >= nextQueueAt) {
+        queueRequested = false
+        nextQueueAt = Date.now() + 3000
+        try {
+          const q = await read('/queue')
+          const pending = (q?.queue_pending || []).findIndex((x: any) => x?.[1] === task.promptId)
+          if (pending >= 0) report({ stage: 'queue', message: `排队中，前方还有 ${pending + (q.queue_running?.length || 0)} 个任务`, percent: undefined })
+          else if ((q?.queue_running || []).some((x: any) => x?.[1] === task.promptId)) {
+            if (progress.stage !== 'running') report({ stage: 'running', message: 'ComfyUI 正在执行任务…', percent: undefined })
+          } else report({ message: '暂未在队列或历史中找到任务，继续确认…', percent: undefined })
+        } catch (error) {
+          if (error instanceof ComfyTaskError) throw error
+          checkTrackingSignal(ctrl.signal)
+          report({ message: '队列查询暂时失败，正在等待任务状态…' })
+        }
+      }
+      await wait(Math.min(nextHistoryAt, queueRequested ? nextQueueAt : Infinity) - Date.now())
+    }
+  } catch (error) {
+    if (error instanceof ComfyTaskError) throw error
+    const message = ctrl.signal.aborted
+      ? signal?.aborted ? '[ComfyUI] 已停止跟踪，后台任务继续执行，可恢复查看。' : '[ComfyUI] 等待结果超时，后台任务继续执行，可恢复查看。'
+      : error instanceof Error ? error.message : '[ComfyUI] 跟踪任务失败，可恢复查看。'
+    throw new ComfyTaskError(message, task, ctrl.signal.aborted && !signal?.aborted ? 'timeout' : 'tracking')
+  } finally {
+    socket?.close()
+    clearTimeout(deadline)
+    signal?.removeEventListener('abort', abort)
+    window.removeEventListener('online', reconcile)
+    document.removeEventListener('visibilitychange', activate)
+  }
+}
 
 function pruneUnusedImageSlot(workflow: ComfyWorkflow, loadNodeId: string): void {
   const deleted = new Set<string>([loadNodeId])
@@ -1231,6 +1481,9 @@ async function generateWithComfyUi(params: {
   baseUrl: string
   apiKey: string
   onProgress?: (p: GenerationProgress) => void
+  onSubmitting?: (prepared?: PreparedComfyGeneration) => Promise<void>
+  onSubmitted?: (task: ComfyTaskHandle) => Promise<void>
+  signal?: AbortSignal
 }): Promise<{ imageUrl: string; modelUsed: string; providerUsed: ImageProviderId }> {
   const { recipe, prompt, config, baseUrl, apiKey } = params
   const report = params.onProgress ?? (() => {})
@@ -1361,131 +1614,47 @@ async function generateWithComfyUi(params: {
     }
   }
 
-  // 4. 提交任务到 ComfyUI /prompt，并通过 WebSocket 接收实时进度
-  const clientId = `pose_studio_${Math.random().toString(36).slice(2, 10)}`
-  let promptId = ''
-  let lastNodeTitle = ''
-  const ws = openComfySocket(baseUrl, clientId, (msg) => {
-    const d = msg?.data
-    if (!d || (promptId && d.prompt_id && d.prompt_id !== promptId)) return
-    if (msg.type === 'executing' && d.node) {
-      lastNodeTitle = workflow[d.node]?._meta?.title || workflow[d.node]?.class_type || d.node
-      report({ stage: 'running', message: `正在执行：${lastNodeTitle}` })
-    } else if (msg.type === 'progress' && d.max) {
-      const percent = Math.round((d.value / d.max) * 100)
-      report({ stage: 'running', message: `${lastNodeTitle || '采样中'}（${d.value}/${d.max}）`, percent })
-    }
-  })
-
+  // /prompt is not idempotent: never retry an ambiguous submission.
+  checkTrackingSignal(params.signal)
+  await params.onSubmitting?.({ workflow: JSON.parse(JSON.stringify(workflow)) })
+  checkTrackingSignal(params.signal)
+  const clientId = `pose_studio_${crypto.randomUUID()}`
+  const submittedAt = Date.now()
+  report({ stage: 'queue', message: '正在提交工作流…' })
+  // Subscribe before submission; HTTP reconciliation covers events received before prompt_id is known.
+  const socket = openComfySocket({ baseUrl, clientId }, apiKey)
   try {
-    report({ stage: 'queue', message: '正在提交工作流…' })
-    const promptRes = await comfyFetch(
-      baseUrl,
-      '/prompt',
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+    let promptRes: Response
+    let promptJson: any
+    const submission = new AbortController()
+    const abortSubmission = () => submission.abort()
+    params.signal?.addEventListener('abort', abortSubmission, { once: true })
+    if (params.signal?.aborted) abortSubmission()
+    const submissionTimer = setTimeout(abortSubmission, 60000)
+    try {
+      const headers = new Headers({ 'Content-Type': 'application/json' })
+      if (apiKey.trim()) headers.set('Authorization', `Bearer ${apiKey.trim()}`)
+      promptRes = await fetch(`${baseUrl}/prompt`, {
+        method: 'POST', headers,
         body: JSON.stringify({ prompt: workflow, client_id: clientId }),
-      },
-      apiKey,
-      60000
-    )
-    const promptJson = await readJsonSafe(promptRes)
-    if (!promptRes.ok || !promptJson?.prompt_id) {
-      throw new Error(formatComfyPromptError(promptJson, workflow, promptRes.status))
-    }
-    promptId = promptJson.prompt_id
-    report({ stage: 'queue', message: '已提交，等待 ComfyUI 执行…' })
-
-    // 5. 轮询 /history/{prompt_id} 获取最终结果
-    const startedAt = Date.now()
-    for (let attempt = 0; ; attempt++) {
-      await sleep(1500)
-      if (Date.now() - startedAt > timeoutSec * 1000) {
-        await cancelComfyPrompt(baseUrl, apiKey, promptId)
-        throw new Error(
-          `[ComfyUI] 等待生成结果超时（超过 ${Math.round(timeoutSec / 60)} 分钟），已取消该任务。首次加载模型较慢，可在合成台调大超时时间后重试。`
-        )
-      }
-      let histRes: Response
-      try {
-        histRes = await comfyFetch(baseUrl, `/history/${promptId}`, {}, apiKey, 15000)
-      } catch (e) {
-        if (attempt % 4 === 3) report({ stage: 'running', message: '暂时无法连接 ComfyUI，正在重试…' })
-        if (Date.now() - startedAt > 60000 && attempt % 20 === 19) throw e
-        continue
-      }
-      if (!histRes.ok) continue
-      const item = (await readJsonSafe(histRes))?.[promptId]
-      if (!item) {
-        if (attempt % 3 === 0) {
-          try {
-            const q = await (await comfyFetch(baseUrl, '/queue', {}, apiKey, 10000)).json()
-            const pendingIdx = (q?.queue_pending || []).findIndex((x: any) => x?.[1] === promptId)
-            if (pendingIdx >= 0) {
-              report({ stage: 'queue', message: `排队中，前方还有 ${pendingIdx + (q.queue_running?.length || 0)} 个任务` })
-            }
-          } catch {
-            /* ignore */
-          }
-        }
-        continue
-      }
-
-      if (item.status?.status_str === 'error') {
-        const { text, oom } = formatExecutionError(item.status?.messages, workflow)
-        if (oom) await freeComfyMemory(baseUrl, apiKey)
-        throw new Error(text)
-      }
-      if (item.status && item.status.completed === false && item.status.status_str !== 'success') continue
-
-      let outImg: { filename: string; subfolder?: string; type?: string } | null = null
-      for (const nodeOut of Object.values<any>(item.outputs || {})) {
-        for (const im of nodeOut?.images || []) {
-          if (!outImg || (im?.type === 'output' && outImg.type !== 'output')) outImg = im
-        }
-      }
-      if (!outImg) {
-        if (item.status?.completed) throw new Error('[ComfyUI] 工作流已执行完成，但没有输出图片（请检查是否有 SaveImage 节点）')
-        continue
-      }
-
-      report({ stage: 'download', message: '正在获取生成结果…', percent: 100 })
-      const qs = new URLSearchParams({
-        filename: outImg.filename,
-        subfolder: outImg.subfolder || '',
-        type: outImg.type || 'output',
+        signal: submission.signal,
       })
-      const viewRes = await comfyFetch(baseUrl, `/view?${qs.toString()}`, {}, apiKey, 60000)
-      if (!viewRes.ok) throw new Error(`[ComfyUI] 获取生成图片失败 (HTTP ${viewRes.status})`)
-      const blob = await viewRes.blob()
-      if (!blob.size || !blob.type.startsWith('image/')) {
-        throw new Error('[ComfyUI] 返回的生成结果不是有效图片')
-      }
-      return { imageUrl: await blobToDataUrl(blob), modelUsed: 'ComfyUI 工作流', providerUsed: 'comfyui' }
+      promptJson = await readJsonSafe(promptRes)
+    } catch { throw new ComfySubmissionUnknownError() } finally {
+      clearTimeout(submissionTimer)
+      params.signal?.removeEventListener('abort', abortSubmission)
     }
-  } finally {
-    ws?.close()
-  }
-}
-
-async function cancelComfyPrompt(baseUrl: string, apiKey: string, promptId: string): Promise<void> {
-  try {
-    const q = await (await comfyFetch(baseUrl, '/queue', {}, apiKey, 10000)).json()
-    if ((q?.queue_running || []).some((x: any) => x?.[1] === promptId)) {
-      await comfyFetch(baseUrl, '/interrupt', { method: 'POST' }, apiKey, 10000)
-    } else {
-      await comfyFetch(
-        baseUrl,
-        '/queue',
-        { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ delete: [promptId] }) },
-        apiKey,
-        10000
-      )
+    if (!promptRes.ok) {
+      if (promptRes.status >= 500) throw new ComfySubmissionUnknownError()
+      throw new ComfySubmissionRejectedError(formatComfyPromptError(promptJson, workflow, promptRes.status), promptRes.status)
     }
-  } catch {
-    /* ignore */
-  }
+    if (typeof promptJson?.prompt_id !== 'string' || !promptJson.prompt_id) throw new ComfySubmissionUnknownError()
+    const task: ComfyTaskHandle = { promptId: promptJson.prompt_id, clientId, baseUrl, submittedAt }
+    try { await params.onSubmitted?.(task) } catch {
+      throw new ComfyTaskError('[ComfyUI] 任务已提交，但保存恢复记录失败。请保留任务编号后恢复，勿重复提交。', task, 'storage')
+    }
+    return await trackComfyTask({ task, apiKey, timeoutSec, onProgress: params.onProgress, signal: params.signal }, workflow, socket)
+  } finally { socket.close() }
 }
 
 export async function generateCharacterImage(params: {
@@ -1493,6 +1662,9 @@ export async function generateCharacterImage(params: {
   prompt: string
   config: ApiConfig
   onProgress?: (p: GenerationProgress) => void
+  onSubmitting?: (prepared?: PreparedComfyGeneration) => Promise<void>
+  onSubmitted?: (task: ComfyTaskHandle) => Promise<void>
+  signal?: AbortSignal
 }): Promise<{ imageUrl: string; modelUsed: string; providerUsed: ImageProviderId }> {
   const { recipe, prompt, config, onProgress } = params
   const provider = config.activeProvider
@@ -1524,7 +1696,7 @@ export async function generateCharacterImage(params: {
   const baseUrl = (pCfg.baseUrl.trim() || PROVIDER_META[provider].defaultBaseUrl).replace(/\/+$/, '')
 
   if (provider === 'comfyui') {
-    return generateWithComfyUi({ recipe, prompt, config, baseUrl, apiKey, onProgress })
+    return generateWithComfyUi({ recipe, prompt, config, baseUrl, apiKey, onProgress, onSubmitting: params.onSubmitting, onSubmitted: params.onSubmitted, signal: params.signal })
   }
 
   // 判断当前请求是否需要转换为本地 Base64：

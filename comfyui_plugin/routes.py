@@ -4,7 +4,9 @@
 from __future__ import annotations
 
 import json
+import io
 import logging
+import urllib.request
 from pathlib import Path
 
 logger = logging.getLogger(__name__)
@@ -32,6 +34,10 @@ def load_library(lib: str) -> list[dict]:
             raise FileNotFoundError(f"未找到数据文件: {fp}")
         with open(fp, encoding="utf-8") as f:
             _CACHE[lib] = json.load(f)
+        if lib == "costume":
+            for name in ("costume-anime-zh.json", "costume-gia-anime-zh.json", "costume-shisei-zh.json"):
+                with open(DATA_DIR / name, encoding="utf-8") as f:
+                    _CACHE[lib] += json.load(f)
     return _CACHE[lib]
 
 
@@ -41,7 +47,55 @@ def find_item(lib: str, item_id: str) -> dict:
     for it in items:
         if it.get("id") == clean_id:
             return it
+    if clean_id.startswith(("charadb-", "gia-anime-", "shisei-")):
+        raise ValueError("未知外部来源服装 ID")
     return items[0]
+
+
+def select_costume_view(item: dict, view: str = "front") -> dict:
+    views = item.get("views", [])
+    if not views:
+        return item
+    selected = next((v for v in views if v["id"] == view), None)
+    if selected is None:
+        if view != "front":
+            raise ValueError(f"服装没有该视角: {view}")
+        selected = views[0]
+    return dict(item, selectedView=selected["id"], **{k: selected[k] for k in ("缩略图", "预览图", "原图")})
+
+
+class _NoRedirect(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        raise ValueError("远程图片地址不允许重定向")
+
+
+def open_reference_image(rel_path: str):
+    """本地图保持原行为；远程仅允许已收录 CharaDB / ギア动漫原图，内存读取。"""
+    from PIL import Image
+
+    if not rel_path.startswith("https://"):
+        return Image.open(resolve_safe_image_path(rel_path))
+    allowed = {row["原图"]: ({"JPEG"} if row.get("source") == "charadb" else {"PNG", "WEBP"})
+               for row in load_library("costume") if row.get("source") in ("charadb", "gia-anime")}
+    if rel_path not in allowed:
+        raise ValueError("远程图片不在已收录服装目录中")
+    opener = urllib.request.build_opener(_NoRedirect())
+    request = urllib.request.Request(rel_path, headers={"User-Agent": "ai-pose-gallery/2.0", "Accept": "image/jpeg,image/png,image/webp"})
+    with opener.open(request, timeout=20) as response:
+        content_types = {"JPEG": "image/jpeg", "PNG": "image/png", "WEBP": "image/webp"}
+        if response.status != 200 or response.headers.get_content_type() not in {content_types[f] for f in allowed[rel_path]}:
+            raise ValueError("远程图片类型不符")
+        limit = 10 * 1024 * 1024
+        if int(response.headers.get("Content-Length", 0)) > limit:
+            raise ValueError("远程图片超过10MB")
+        raw = response.read(limit + 1)
+    if len(raw) > limit:
+        raise ValueError("远程图片超过10MB")
+    image = Image.open(io.BytesIO(raw))
+    if image.format not in allowed[rel_path] or image.width * image.height > 20_000_000:
+        raise ValueError("远程图片格式或尺寸不符")
+    image.load()
+    return image
 
 
 def resolve_safe_image_path(rel_path: str) -> Path:
@@ -96,6 +150,8 @@ def register_routes() -> None:
         try:
             if not rel and lib and item_id:
                 item = find_item(lib, item_id)
+                if lib == "costume":
+                    item = select_costume_view(item, request.query.get("view", "front"))
                 rel = item.get("缩略图" if kind == "thumb" else "原图", "")
             if depth:
                 clean_rel = (rel or "").lstrip("/")
@@ -105,6 +161,12 @@ def register_routes() -> None:
                 elif clean_rel.startswith("img/") and not clean_rel.startswith("img/depth/"):
                     stem = clean_rel[len("img/") :].rsplit(".", 1)[0]
                     rel = f"img/depth/{stem}.webp"
+            if rel.startswith("https://"):
+                # Browser reads only catalogue URLs; no arbitrary remote proxy.
+                allowed = {r[k] for r in load_library("costume") if r.get("source") in ("charadb", "gia-anime") for k in ("缩略图", "原图")}
+                if rel not in allowed:
+                    raise ValueError("未知远程图片")
+                raise web.HTTPFound(rel)
             path = resolve_safe_image_path(rel)
             return web.FileResponse(
                 path,
@@ -113,5 +175,7 @@ def register_routes() -> None:
                     "X-Content-Type-Options": "nosniff",
                 },
             )
+        except web.HTTPRedirection:
+            raise
         except Exception as exc:
             return web.json_response({"error": str(exc)}, status=404)

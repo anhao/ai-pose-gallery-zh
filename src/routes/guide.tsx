@@ -13,7 +13,7 @@ function GuidePage() {
     <>
       <PageHeader title="使用指南与免责声明" />
 
-      <Section title="角色合成流程" className="md:grid-cols-3">
+      <Section title="角色合成流程" className="@lg/section:grid-cols-3">
         <div className="rounded-2xl bg-background p-4">
           <Badge>1. 人像</Badge>
           <h3 className="mt-2 text-sm font-semibold">人像颜值库 (1,499)</h3>
@@ -24,9 +24,9 @@ function GuidePage() {
 
         <div className="rounded-2xl bg-background p-4">
           <Badge>2. 服装</Badge>
-          <h3 className="mt-2 text-sm font-semibold">服装穿搭库 (1,407)</h3>
+          <h3 className="mt-2 text-sm font-semibold">服装穿搭库 (3,224)</h3>
           <p className="mt-1 text-xs text-muted-foreground">
-            按分类或标签挑选服饰，自带中英双语生图词条，也支持上传本地服装参考图。
+            按全部 / 现实 / 二次元及来源、分类、标签挑选；含ギア写实 1,407 套、Shisei 中国历代 57 套（227 视角）、ギア动漫 1,320 套与 CharaDB 二次元 440 套。
           </p>
         </div>
 
@@ -39,7 +39,7 @@ function GuidePage() {
         </div>
       </Section>
 
-      <Section title="免责声明与合规使用规范（必读）" className="md:grid-cols-1">
+      <Section title="免责声明与合规使用规范（必读）" className="@lg/section:grid-cols-1">
         <div className="space-y-2.5 rounded-2xl bg-background p-4 text-xs leading-relaxed text-muted-foreground">
           <p>
             <strong className="text-foreground">1. 仅供学习与合法艺术创作（严禁违法）：</strong>
@@ -60,16 +60,20 @@ function GuidePage() {
         </div>
       </Section>
 
-      <Section title="数据来源与版权说明" className="md:grid-cols-1">
+      <Section title="数据来源与版权说明" className="@lg/section:grid-cols-1">
         <div className="space-y-2.5 rounded-2xl bg-background p-4 text-xs leading-relaxed text-muted-foreground">
           <p>
             <strong className="text-foreground">• 原作者版权归属：</strong>
-            本仓库收录的全部姿势（<code>ai-pose-gallery.pages.dev</code>、<code>ai-pose-depth-gallery.pages.dev</code>）、服装（<code>ai-costume-gallery.pages.dev</code>）、人像（<code>ai-portrait-gallery.pages.dev</code>）参考图与原始元数据均源自原作者{' '}
+            本仓库原有姿势（<code>ai-pose-gallery.pages.dev</code>、<code>ai-pose-depth-gallery.pages.dev</code>）、现实服装（<code>ai-costume-gallery.pages.dev</code>）、人像（<code>ai-portrait-gallery.pages.dev</code>）参考图与原始元数据源自原作者{' '}
             <strong className="text-foreground">ギア（@giaaibusi）</strong> 公开站点，著作权归原作者所有。本仓库仅为中文本地化翻译整理与前端工程学习存档，不对原始图片主张任何所有权。
           </p>
           <p>
+            <strong className="text-foreground">• 二次元服装来源：</strong>
+            440 套二次元服装源自 <a className="underline hover:text-foreground" href="https://charadb-2fi.pages.dev/" target="_blank" rel="noopener noreferrer">たき AI · CharaDB</a>（标签与名称遵循 CC0，图片从原站在线加载，仅供学习与生图参考，禁止用于真人/未成年人或将原图二次分发，详见 <a className="underline hover:text-foreground" href="https://github.com/taki-ttt/charadb/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">原作者说明</a>）。
+          </p>
+          <p>
             <strong className="text-foreground">• 使用与分发限制：</strong>
-            人像库遵循 <strong className="text-emerald-600 dark:text-emerald-400">CC0 1.0 协议</strong>；姿势库与服装库免费供个人学习与 AI 生图参考使用，
+            人像库遵循 <strong className="text-emerald-600 dark:text-emerald-400">CC0 1.0 协议</strong>；原有姿势库与现实服装库免费供个人学习与 AI 生图参考使用，
             <strong className="text-foreground">严禁将本图库原始图片打包转售或用于付费分发</strong>。
           </p>
         </div>

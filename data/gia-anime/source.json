@@ -1,0 +1,10 @@
+{
+  "origin": "https://ai-costume-anime-gallery.pages.dev/",
+  "repository": "https://github.com/hongye007/open-pose-costume",
+  "revision": "f08f2e48675caeec85f091dde308cd906582b50f",
+  "path": "data/source/costume-anime.json",
+  "snapshot_sha256": "7a6b353c2a57ed6064863553fb122d6cc732e4f390d6babd46d0e81f14d47f87",
+  "snapshot_git_blob": "ec79027e34b5c1492462f4879b01966d1934b427",
+  "count": 1320,
+  "images": "remote-only; no image mirroring"
+}

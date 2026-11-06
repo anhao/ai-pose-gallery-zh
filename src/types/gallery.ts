@@ -24,8 +24,23 @@ export interface PoseGroup {
   order: PoseItem[]
 }
 
+export interface CostumeView {
+  id: string
+  label: string
+  缩略图: string
+  预览图: string
+  原图: string
+}
+
 export interface CostumeItem {
-  source?: 'upload'
+  source?: 'upload' | 'charadb' | 'gia-anime' | 'shisei'
+  views?: CostumeView[]
+  selectedView?: string
+  一级分类?: '现实' | '二次元'
+  来源?: string
+  来源地址?: string
+  日文名称?: string
+  敏感?: boolean
   id: string
   分类: string
   服装名称: string
@@ -142,20 +157,6 @@ export interface DoubaoParams {
   responseFormat: 'b64_json' | 'url'
 }
 
-/** 地端 ComfyUI 工作流預設參數（供 comfyui.ts 模板輔助函式使用） */
-export interface ComfyuiParams {
-  unet: string
-  clip: string
-  vae: string
-  /** 加速 LoRA；留空代表不使用（請自行調整步數與 cfg） */
-  lora: string
-  width: number
-  height: number
-  steps: number
-  cfg: number
-  negativePrompt: string
-}
-
 export interface ApiConfig {
   activeProvider: ImageProviderId
   imagePassMode: ImagePassMode
@@ -178,4 +179,14 @@ export interface GenerationHistoryItem {
   prompt: string
   imageUrl: string
   recipeSummary: string
+  snapshot?: GenerationSnapshot
+}
+
+
+export interface GenerationSnapshot {
+  recipe: RecipeState
+  prompt: string
+  settings: Omit<ApiConfig, 'providers'>
+  models: Record<ImageProviderId, Pick<ProviderEndpointConfig, 'model' | 'customModel'>>
+  submittedWorkflowJson?: string
 }

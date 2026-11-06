@@ -34,7 +34,7 @@ export const navGroups: NavGroup[] = [
     label: '三大参考图库',
     items: [
       { title: '动作姿势库', to: '/poses', icon: PersonStandingIcon, badge: '1,439' },
-      { title: '服装穿搭库', to: '/costumes', icon: ShirtIcon, badge: '1,407' },
+      { title: '服装穿搭库', to: '/costumes', icon: ShirtIcon, badge: '3,224' },
       { title: '人像颜值库', to: '/portraits', icon: UserRoundIcon, badge: '1,499' },
     ],
   },
