@@ -1,0 +1,23 @@
+services:
+  web:
+    build: .
+    ports:
+      - "${PORT:-8080}:80"
+    volumes:
+      - ./data:/usr/share/nginx/html/data:ro
+      - ./thumbs:/usr/share/nginx/html/thumbs:ro
+      - ./img:/usr/share/nginx/html/img:ro
+    environment:
+      # 你的 ComfyUI 位址；預設為 host 上的 8188
+      COMFYUI_UPSTREAM: ${COMFYUI_UPSTREAM:-http://host.docker.internal:8188}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      - proxy
+    restart: unless-stopped
+
+  proxy:
+    build: ./deploy/proxy
+    environment:
+      PROXY_ALLOWED_ORIGINS: ${PROXY_ALLOWED_ORIGINS:-}
+    restart: unless-stopped

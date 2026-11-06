@@ -1,0 +1,170 @@
+{
+  "1": {
+    "class_type": "UnetLoaderGGUF",
+    "inputs": { "unet_name": "qwen-image-edit/Qwen-Image-Edit-2509-Q4_K_M.gguf" },
+    "_meta": { "title": "加载 Qwen-Image-Edit-2509 GGUF 模型" }
+  },
+  "2": {
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "qwen_2.5_vl_7b_fp8_scaled.safetensors",
+      "type": "qwen_image",
+      "device": "default"
+    },
+    "_meta": { "title": "加载 Qwen2.5-VL 7B 文本编码器" }
+  },
+  "3": {
+    "class_type": "VAELoader",
+    "inputs": { "vae_name": "qwen_image_vae.safetensors" },
+    "_meta": { "title": "加载 Qwen Image VAE" }
+  },
+  "4": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": ["1", 0],
+      "lora_name": "qwen-image-edit/Qwen-Image-Edit-2509-Lightning-4steps-V1.0-bf16.safetensors",
+      "strength_model": 1
+    },
+    "_meta": { "title": "加载 4 步 Lightning 加速 LoRA" }
+  },
+  "5": {
+    "class_type": "ModelSamplingAuraFlow",
+    "inputs": { "model": ["4", 0], "shift": 3 },
+    "_meta": { "title": "ModelSamplingAuraFlow" }
+  },
+  "6": {
+    "class_type": "CFGNorm",
+    "inputs": { "model": ["5", 0], "strength": 1 },
+    "_meta": { "title": "CFGNorm" }
+  },
+  "10": {
+    "class_type": "LoadImage",
+    "inputs": { "image": "image1.png" },
+    "_meta": {
+      "title": "图1：人像参考 (Portrait)",
+      "studio": { "optionalSlot": true }
+    }
+  },
+  "11": {
+    "class_type": "LoadImage",
+    "inputs": { "image": "image2.png" },
+    "_meta": {
+      "title": "图2：服装参考 (Costume)",
+      "studio": { "optionalSlot": true }
+    }
+  },
+  "12": {
+    "class_type": "LoadImage",
+    "inputs": { "image": "image3.png" },
+    "_meta": {
+      "title": "图3：姿势参考 (Pose)",
+      "studio": { "optionalSlot": true }
+    }
+  },
+  "13": {
+    "class_type": "ImageScaleToTotalPixels",
+    "inputs": { "image": ["10", 0], "upscale_method": "lanczos", "megapixels": 1, "resolution_steps": 1 },
+    "_meta": { "title": "人像参考缩放" }
+  },
+  "14": {
+    "class_type": "ImageScaleToTotalPixels",
+    "inputs": { "image": ["11", 0], "upscale_method": "lanczos", "megapixels": 1, "resolution_steps": 1 },
+    "_meta": { "title": "服装参考缩放" }
+  },
+  "15": {
+    "class_type": "ImageScaleToTotalPixels",
+    "inputs": { "image": ["16", 0], "upscale_method": "lanczos", "megapixels": 1, "resolution_steps": 1 },
+    "_meta": { "title": "姿势深度图缩放" }
+  },
+  "16": {
+    "class_type": "DepthAnythingV2Preprocessor",
+    "inputs": {
+      "image": ["12", 0],
+      "ckpt_name": "depth_anything_v2_vitl.pth",
+      "resolution": 768
+    },
+    "_meta": { "title": "姿势 3D 深度轮廓预处理 (DepthAnythingV2)" }
+  },
+  "20": {
+    "class_type": "TextEncodeQwenImageEditPlus",
+    "inputs": {
+      "clip": ["2", 0],
+      "prompt": "{{PROMPT}}",
+      "vae": ["3", 0],
+      "image1": ["13", 0],
+      "image2": ["14", 0],
+      "image3": ["15", 0]
+    },
+    "_meta": { "title": "正向提示词 (Positive Prompt)" }
+  },
+  "21": {
+    "class_type": "TextEncodeQwenImageEditPlus",
+    "inputs": {
+      "clip": ["2", 0],
+      "prompt": "",
+      "vae": ["3", 0],
+      "image1": ["13", 0],
+      "image2": ["14", 0],
+      "image3": ["15", 0]
+    },
+    "_meta": {
+      "title": "反向提示词 (Negative Prompt)",
+      "studio": {
+        "controls": [
+          {
+            "input": "prompt",
+            "label": "反向提示词 (Negative Prompt)",
+            "group": "提示词"
+          }
+        ]
+      }
+    }
+  },
+  "22": {
+    "class_type": "EmptySD3LatentImage",
+    "inputs": { "width": 832, "height": 1216, "batch_size": 1 },
+    "_meta": {
+      "title": "输出画布尺寸 (EmptySD3LatentImage)",
+      "studio": {
+        "controls": [
+          { "input": "width", "label": "输出宽度 (width)", "group": "画布尺寸" },
+          { "input": "height", "label": "输出高度 (height)", "group": "画布尺寸" }
+        ]
+      }
+    }
+  },
+  "23": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": ["6", 0],
+      "positive": ["20", 0],
+      "negative": ["21", 0],
+      "latent_image": ["22", 0],
+      "seed": 0,
+      "steps": 4,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1
+    },
+    "_meta": {
+      "title": "KSampler 采样器 (4 步 Lightning)",
+      "studio": {
+        "controls": [
+          { "input": "steps", "label": "采样步数 (steps)", "group": "采样参数" },
+          { "input": "cfg", "label": "CFG 引导强度", "group": "采样参数" }
+        ]
+      }
+    }
+  },
+  "24": {
+    "class_type": "VAEDecode",
+    "inputs": { "samples": ["23", 0], "vae": ["3", 0] },
+    "_meta": { "title": "VAE 解码" }
+  },
+  "25": {
+    "class_type": "SaveImage",
+    "inputs": { "images": ["24", 0], "filename_prefix": "pose-gallery/studio" },
+    "_meta": { "title": "保存生成结果" }
+  }
+}

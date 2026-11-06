@@ -98,9 +98,9 @@ function localAssetsAndProxyPlugin(): Plugin {
   }
 }
 
-// 本地 ComfyUI 同源代理：浏览器请求 /comfy/* → ComfyUI（默认 Desktop 端口 8000）
-// 这样无需修改 ComfyUI 的 --enable-cors-header 白名单。可用环境变量 COMFYUI_URL 指定其他地址。
-const COMFYUI_URL = process.env.COMFYUI_URL || 'http://127.0.0.1:8000'
+// 本地 ComfyUI 同源代理：浏览器请求 /comfy/* → ComfyUI（默认 8188）
+// 这样无需修改 ComfyUI 的 --enable-cors-header 白名单。可用环境变量 COMFYUI_UPSTREAM 或 COMFYUI_URL 指定其他地址。
+const COMFYUI_URL = process.env.COMFYUI_UPSTREAM || process.env.COMFYUI_URL || 'http://127.0.0.1:8188'
 const comfyProxy = {
   '/comfy': {
     target: COMFYUI_URL,

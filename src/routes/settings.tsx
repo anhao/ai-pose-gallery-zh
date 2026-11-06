@@ -43,7 +43,7 @@ function SettingsPage() {
     try {
       const found = await detectComfyUi(pCfg.baseUrl, pCfg.apiKey)
       if (!found) {
-        toast.error('未找到可用的 ComfyUI（已尝试当前地址、127.0.0.1:8000、127.0.0.1:8188），请确认已启动并检查跨域设置', {
+        toast.error('未找到可用的 ComfyUI（已尝试当前地址、/comfy、127.0.0.1:8188、127.0.0.1:8000），请确认已启动并检查跨域设置', {
           duration: 10000,
         })
         return
@@ -144,7 +144,7 @@ function SettingsPage() {
           label={pid === 'comfyui' ? 'ComfyUI 地址 (Base URL)' : 'Base URL'}
           hint={
             pid === 'comfyui'
-              ? `本地运行本站时填 /comfy（同源代理，无需改跨域设置）；直连时 ComfyUI 需加启动参数 --enable-cors-header "${typeof window !== 'undefined' ? window.location.origin : '*'}"。Desktop 版默认端口 8000，便携版 8188`
+              ? `Docker 或本地开发运行本站时默认填 /comfy（同源代理，Docker 由 nginx 转发到 COMFYUI_UPSTREAM，无需改跨域设置）；浏览器直连时 ComfyUI 需加启动参数 --enable-cors-header "${typeof window !== 'undefined' ? window.location.origin : '*'}"`
               : undefined
           }
         >

@@ -1,6 +1,8 @@
 import type { ApiConfig, ExtraReferenceImage, ImageProviderId, RecipeState } from '@/types/gallery'
 import { applyWorkflowOverrides, getWorkflowImages, validateReferenceCombinations, workflowIdentity, type ComfyObjectInfo } from '@/lib/comfyWorkflowParameters'
 import { poseImagePath, referenceImageUrl } from '@/lib/recipeImages'
+import flux3KleinWorkflow from '@/workflows/flux3-klein-edit.api.json'
+import qwen2509DepthWorkflow from '@/workflows/qwen-image-edit-2509.api.json'
 import qwen2509ThreeImageWorkflow from '@/workflows/qwen_image_edit_2509_3img.api.json'
 
 export interface ProviderModelOption {
@@ -87,11 +89,12 @@ export const PROVIDER_META: Record<
     id: 'comfyui',
     name: '本地 ComfyUI',
     shortName: 'ComfyUI',
-    // 本地开发时走 /comfy 同源代理；线上站点直连 ComfyUI Desktop 默认端口 8000
+    // 本地开发与 Docker 容器均走 /comfy 同源代理；线上静态站点直连本机 ComfyUI
     defaultBaseUrl: defaultComfyBaseUrl(),
     docUrl: 'https://docs.comfy.org/essentials/comfyui_server',
     models: [
-      { value: 'qwen_image_edit_2509', label: 'qwen_image_edit_2509（由工作流决定）' },
+      { value: 'flux3-image-klein', label: 'FLUX 3 Image Klein Distilled（默认推荐）' },
+      { value: 'qwen_image_edit_2509', label: 'Qwen-Image-Edit-2509（由工作流决定）' },
       { value: 'custom', label: '自定义名称（仅用于记录显示）' },
     ],
   },
@@ -196,7 +199,7 @@ export function buildRecipePrompt(recipe: RecipeState, stylePreset = 'realistic'
     clauses.push(
       recipe.pose.source === 'upload'
         ? `• 姿势：按照图${idx}中的人物动作和镜头角度摆姿势；仅参考姿势与构图，不复制图${idx}人物的外观与服装，${body}。`
-        : `• 姿势：按照图${idx}中人体模型的动作和镜头角度摆姿势（${recipe.pose.姿势名称}，${recipe.pose.角度}）；图${idx}只是动作示意，${body}。`
+        : `• 姿势：身体姿态、四肢动作与镜头透视严格遵循图${idx}「${recipe.pose.姿势名称}」（${recipe.pose.角度}）；仅参考图${idx}的立体姿态与空间透视，忽略深度图或素体白模材质，${body}。`
     )
     idx++
   }
@@ -463,10 +466,16 @@ function extractUniversalImage(json: any): string | null {
 // 本地 ComfyUI API 工作流模板与节点解析工具
 // ============================================================================
 
-type ComfyNode = { class_type: string; inputs: Record<string, any>; _meta?: { title?: string; studio?: { imageRole?: string } } }
+type ComfyNode = { class_type: string; inputs: Record<string, any>; _meta?: { title?: string; studio?: { imageRole?: string; optionalSlot?: boolean; hiddenInputs?: string[] } } }
 type ComfyWorkflow = Record<string, ComfyNode>
 
-export type ComfyPresetId = 'qwen2509_3img' | 'qwen2509_2img' | 'qwen21_3img' | 'qwen21_2img'
+export type ComfyPresetId =
+  | 'flux3_klein'
+  | 'qwen2509_depth'
+  | 'qwen2509_3img'
+  | 'qwen2509_2img'
+  | 'qwen21_3img'
+  | 'qwen21_2img'
 
 export interface ComfyNodeMappings {
   promptNodeId: string
@@ -476,28 +485,27 @@ export interface ComfyNodeMappings {
   stitchedNodeId: string
 }
 
-/** 本地开发 / 本地预览时使用的同源代理前缀（见 vite.config.ts），可绕开 ComfyUI 的 CORS 白名单限制 */
+/** 本地开发 / Docker nginx 使用的同源代理前缀，可绕开 ComfyUI 的 CORS 白名单限制 */
 export const COMFY_DEV_PROXY = '/comfy'
 
 export function isLocalDevHost(): boolean {
-  return (
-    typeof window !== 'undefined' &&
-    ['localhost', '127.0.0.1', '[::1]'].includes(window.location.hostname)
-  )
+  if (typeof window === 'undefined') return true
+  const h = window.location.hostname
+  return !h.endsWith('.anhao.app') && !h.endsWith('.pages.dev')
 }
 
-/** ComfyUI Desktop 默认端口 8000；便携版 / 源码版默认 8188 */
+/** 自托管（Docker / Vite dev）默认走 /comfy 同源代理；公共托管静态站直连本机 8188 / 8000 */
 // 注意：PROVIDER_META 在模块初始化时就会调用本函数，这里不能引用后面定义的 const
 export function defaultComfyBaseUrl(): string {
-  return isLocalDevHost() ? '/comfy' : 'http://127.0.0.1:8000'
+  return isLocalDevHost() ? '/comfy' : 'http://127.0.0.1:8188'
 }
 
 export function comfyCandidateUrls(current = ''): string[] {
   const list = [
     current.trim(),
     isLocalDevHost() ? defaultComfyBaseUrl() : '',
-    'http://127.0.0.1:8000',
     'http://127.0.0.1:8188',
+    'http://127.0.0.1:8000',
   ]
     .map((x) => x.replace(/\/+$/, ''))
     .filter(Boolean)
@@ -609,14 +617,24 @@ function buildQwen21Workflow(threeImages: boolean): ComfyWorkflow {
   return wf
 }
 
-export const DEFAULT_COMFY_PRESET: ComfyPresetId = 'qwen2509_3img'
+export const DEFAULT_COMFY_PRESET: ComfyPresetId = 'flux3_klein'
 
 export const COMFYUI_WORKFLOW_TEMPLATES: Record<
   ComfyPresetId,
   { label: string; workflow: ComfyWorkflow; defaults: ComfyNodeMappings }
 > = {
+  flux3_klein: {
+    label: 'FLUX 3 Image Klein Distilled 三图合成（3D 深度姿态）· 默认推荐',
+    workflow: flux3KleinWorkflow as ComfyWorkflow,
+    defaults: { promptNodeId: '20', portraitNodeId: '10', costumeNodeId: '11', poseNodeId: '12', stitchedNodeId: 'none' },
+  },
+  qwen2509_depth: {
+    label: 'Qwen-Image-Edit-2509 三图合成（GGUF + 3D 深度姿态）',
+    workflow: qwen2509DepthWorkflow as ComfyWorkflow,
+    defaults: { promptNodeId: '20', portraitNodeId: '10', costumeNodeId: '11', poseNodeId: '12', stitchedNodeId: 'none' },
+  },
   qwen2509_3img: {
-    label: 'Qwen Image Edit 2509 三图合成（人像+服装+姿势）· 推荐',
+    label: 'Qwen Image Edit 2509 三图合成（FP8 原生直传）',
     workflow: qwen2509ThreeImageWorkflow as ComfyWorkflow,
     defaults: { promptNodeId: '12', portraitNodeId: '1', costumeNodeId: '2', poseNodeId: '3', stitchedNodeId: 'none' },
   },
@@ -674,7 +692,20 @@ export function parseComfyWorkflowNodes(workflowJson: string): ComfyParsedNodes 
       const inputs = node.inputs || {}
 
       if (classType === 'LoadImage' || typeof inputs.image === 'string') {
-        imageNodes.push({ id, title, classType, currentImage: String(inputs.image || ''), ...(classType === 'LoadImageGoohai' ? { emptyValue: '无' } : {}), ...(node._meta?.studio?.imageRole === 'character_sheet' ? { role: 'character_sheet' as const } : {}) })
+        const emptyValue =
+          classType === 'LoadImageGoohai'
+            ? '无'
+            : node._meta?.studio?.optionalSlot
+              ? ''
+              : undefined
+        imageNodes.push({
+          id,
+          title,
+          classType,
+          currentImage: String(inputs.image || ''),
+          ...(emptyValue !== undefined ? { emptyValue } : {}),
+          ...(node._meta?.studio?.imageRole === 'character_sheet' ? { role: 'character_sheet' as const } : {}),
+        })
       }
 
       for (const field of ['prompt', 'text', 'string', 'positive']) {
@@ -1364,6 +1395,85 @@ async function trackComfyTask(params: {
   }
 }
 
+function pruneUnusedImageSlot(workflow: ComfyWorkflow, loadNodeId: string): void {
+  const deleted = new Set<string>([loadNodeId])
+  delete workflow[loadNodeId]
+
+  let changed = true
+  while (changed) {
+    changed = false
+    for (const [nid, node] of Object.entries(workflow)) {
+      if (!node?.inputs) continue
+      if (['DepthAnythingV2Preprocessor', 'ImageScaleToTotalPixels', 'VAEEncode'].includes(node.class_type)) {
+        const ref = node.inputs.image ?? node.inputs.pixels
+        if (Array.isArray(ref) && deleted.has(String(ref[0]))) {
+          deleted.add(nid)
+          delete workflow[nid]
+          changed = true
+        }
+      }
+    }
+  }
+
+  for (const node of Object.values(workflow)) {
+    if (!node?.inputs) continue
+    if (node.class_type === 'ReferenceMultiLatent') {
+      const kept: unknown[] = []
+      const keys = Object.keys(node.inputs)
+        .filter((k) => /^images\.image\d+$/.test(k))
+        .sort((a, b) => Number(a.replace('images.image', '')) - Number(b.replace('images.image', '')))
+      for (const k of keys) {
+        const val = node.inputs[k]
+        if (!Array.isArray(val) || !deleted.has(String(val[0]))) kept.push(val)
+        delete node.inputs[k]
+      }
+      kept.forEach((val, idx) => {
+        node.inputs[`images.image${idx}`] = val
+      })
+    } else if (node.class_type === 'TextEncodeQwenImageEditPlus') {
+      const kept: unknown[] = []
+      for (const k of ['image1', 'image2', 'image3']) {
+        if (!(k in node.inputs)) continue
+        const val = node.inputs[k]
+        if (!Array.isArray(val) || !deleted.has(String(val[0]))) kept.push(val)
+        delete node.inputs[k]
+      }
+      kept.forEach((val, idx) => {
+        node.inputs[`image${idx + 1}`] = val
+      })
+    }
+  }
+}
+
+function bypassPreRenderedPoseDepth(workflowJson: string, poseNodeId: string): string {
+  if (!poseNodeId || poseNodeId === 'none') return workflowJson
+  try {
+    const wf = JSON.parse(workflowJson) as ComfyWorkflow
+    let changed = false
+    for (const [depthId, node] of Object.entries(wf)) {
+      if (
+        node?.class_type === 'DepthAnythingV2Preprocessor' &&
+        Array.isArray(node.inputs?.image) &&
+        String(node.inputs.image[0]) === poseNodeId
+      ) {
+        for (const other of Object.values(wf)) {
+          if (!other?.inputs) continue
+          for (const [k, v] of Object.entries(other.inputs)) {
+            if (Array.isArray(v) && String(v[0]) === depthId) {
+              other.inputs[k] = [poseNodeId, 0]
+            }
+          }
+        }
+        delete wf[depthId]
+        changed = true
+      }
+    }
+    return changed ? JSON.stringify(wf) : workflowJson
+  } catch {
+    return workflowJson
+  }
+}
+
 async function generateWithComfyUi(params: {
   recipe: RecipeState
   prompt: string
@@ -1390,7 +1500,11 @@ async function generateWithComfyUi(params: {
   const schemas = await fetchComfyObjectInfo(baseUrl, apiKey, cp.workflowJson)
   const extraImageNodes = getWorkflowImages(cp.workflowJson, [cp.portraitNodeId, cp.costumeNodeId, cp.poseNodeId, cp.stitchedNodeId], schemas)
   const extraImages = recipe.workflowImagesIdentity === workflowIdentity(cp.workflowJson) ? recipe.workflowImages || {} : {}
-  const selectedJson = applyWorkflowOverrides(cp.workflowJson, cp.parameterOverrides, schemas)
+  const overriddenJson = applyWorkflowOverrides(cp.workflowJson, cp.parameterOverrides, schemas)
+  const selectedJson =
+    recipe.pose?.useDepth && recipe.pose?.source !== 'upload'
+      ? bypassPreRenderedPoseDepth(overriddenJson, cp.poseNodeId)
+      : overriddenJson
   const check = await checkComfyWorkflow(baseUrl, apiKey, selectedJson, [
     cp.portraitNodeId,
     cp.costumeNodeId,
@@ -1443,6 +1557,10 @@ async function generateWithComfyUi(params: {
     if (!slot.nodeId || slot.nodeId === 'none' || !workflow[slot.nodeId]?.inputs) continue
     if (!slot.src) {
       const emptyValue = parsedInfo.imageNodes.find((node) => node.id === slot.nodeId)?.emptyValue
+      if (emptyValue === '') {
+        pruneUnusedImageSlot(workflow, slot.nodeId)
+        continue
+      }
       if (emptyValue !== undefined) {
         workflow[slot.nodeId].inputs.image = emptyValue
         continue
@@ -1451,6 +1569,12 @@ async function generateWithComfyUi(params: {
     }
     report({ stage: 'upload', message: `正在上传${slot.label}参考图…` })
     workflow[slot.nodeId].inputs.image = await uploadImageToComfy(baseUrl, slot.src, slot.prefix, apiKey)
+  }
+
+  // 若包含 ModelSamplingFlux 与画布尺寸节点，同步宽高
+  if (workflow['6']?.class_type === 'ModelSamplingFlux' && workflow['22']?.inputs) {
+    if (typeof workflow['22'].inputs.width === 'number') workflow['6'].inputs.width = workflow['22'].inputs.width
+    if (typeof workflow['22'].inputs.height === 'number') workflow['6'].inputs.height = workflow['22'].inputs.height
   }
 
   for (const node of extraImageNodes) {

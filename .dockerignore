@@ -1,0 +1,10 @@
+.git
+node_modules
+dist
+img
+thumbs
+data
+docs
+backups
+.wrangler
+.tanstack

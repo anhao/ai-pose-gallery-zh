@@ -53,15 +53,15 @@
 - **统一交互体验**：中文关键词实时检索、灯箱高清原图预览与下载、一键「加入合成配方」。
 
 ### 2. AI 角色合成台（`/studio`）
-- **3+N 参考图组合**：3 个核心槽位（人像 / 服装 / 姿势，姿势槽位内置 `[ 白模 | 深度 ]` 实时切换）+ 任意张自定义附加参考图（点击上传、拖拽文件、剪贴板粘贴、填写图片 URL）。
+- **3+N 参考图组合**：3 个核心槽位（人像 / 服装 / 姿势，支持直接上传本地图片，姿势槽位内置 `[ 白模 | 深度 ]` 实时切换）+ 任意张自定义附加参考图（点击上传、拖拽文件、剪贴板粘贴、填写图片 URL）。
 - **参考拼图预览与导出**：弹窗查看三合一高清参考拼图（`1800×1200` Canvas 实时合成），支持一键下载拼图 PNG。
 - **12 种画风预设 & 纯中文结构化提示词**：内置「无预设（跟随参考图）」、写实人像写真、日韩杂志画报、复古胶片写真、2.5D 游戏原画立绘、日系二次元插画、新海诚感动画电影、日式黑白漫画网点、3D 次世代角色渲染、3D 潮玩手办质感、赛博朋克霓虹、角色设定集立绘（纯白底）共 12 种画风，根据已选素材自动组装提示词。
 - **5 大 AI 图像协议与高级参数**：
+  - **本地 ComfyUI（免 API Key）**：内置 **`FLUX 3 Image Klein Distilled (Int8)`（默认推荐）** 与 **`Qwen-Image-Edit-2509`** 等多套工作流模板，自动通过 `DepthAnythingV2` 将白模姿势图转为 3D 深度轮廓图进行多图角色合成，并支持导入/导出通用 `.api.json` 工作流模板与动态高级参数（详见 [`docs/comfyui.md`](docs/comfyui.md)、[docs/comfyui-local.md](docs/comfyui-local.md)、[docs/comfyui-workflow-parameters.md](docs/comfyui-workflow-parameters.md) 与 [docs/comfyui-task-tracking.md](docs/comfyui-task-tracking.md)）
   - **Google Gemini**：`gemini-3.1-flash-image-preview`、`gemini-3-pro-image-preview`、`gemini-2.5-flash-image`（支持宽高比 `aspectRatio`、分辨率 `1K/2K/4K`）
   - **OpenAI GPT Image**：`gpt-image-2.5`、`gpt-image-2`、`gpt-image-1.5`、`gpt-image-1`（支持 `/v1/images/edits` JSON URL 直传 / Multipart 上传、尺寸、质量、背景透明度）
   - **阿里云百炼 Qwen**：`qwen-image-3.0-pro`、`qwen-image-2.1-pro`、`qwen-image-2.0-pro`、`qwen-image-edit-plus`（支持 `multimodal-generation` 多图参考输入、智能改写 `prompt_extend`、水印开关）
   - **字节火山方舟 Doubao**：`doubao-seedream-5-0`、`doubao-seedream-4-5-251128`、`doubao-seedream-4-0-250828`、`doubao-seededit-3-0-i2i-250628`（支持多图融合 `image: [...]`、2K/4K 分辨率）
-  - **本地 ComfyUI 工作流引擎**：支持自动将三合一拼图及单张人像/服装/姿势图上传至本地 ComfyUI（`/upload/image`），注入自定义 API 工作流占位符或自动识别节点提交 `/prompt` 队列并轮询取回成品图；支持导入/导出通用 `.api.json` 工作流模板。
 - **跨页面后台生图 & IndexedDB 历史记录**：切换页面不会中断正在进行的生图请求；生成结果自动存入浏览器 IndexedDB（避免 `localStorage` 容量限制），支持复用提示词与原图下载。
 
 > 本地 ComfyUI 三图合成（Qwen Image Edit 2509）的模型清单、工作流说明和本地运行方法见 [docs/comfyui-local.md](docs/comfyui-local.md)。
@@ -181,6 +181,26 @@ pnpm dev
 # 3. 类型检查 + 生产构建 + 代码规范检查
 pnpm build && pnpm lint
 ```
+
+### Docker 部署与本地 ComfyUI 对接
+
+本项目内置 [`Dockerfile`](Dockerfile)、[`docker-compose.yml`](docker-compose.yml) 与 [`deploy/nginx.conf.template`](deploy/nginx.conf.template)，支持零拷贝挂载本地图库（`data/`、`thumbs/`、`img/`）并将 `/comfy/*`（含 WebSocket 进度流）反向代理至本地 ComfyUI，免配置跨域参数（所需模型与直连下载指令详见 [`docs/comfyui.md`](docs/comfyui.md)）：
+
+```bash
+cp .env.example .env   # 按需调整 PORT (默认 8080) 与 COMFYUI_UPSTREAM (默认 http://host.docker.internal:8188)
+docker compose up -d --build
+```
+
+### 周边开源生态（ComfyUI 容器化 & AI Agent MCP 工具链）
+
+围绕本图库与本地 ComfyUI 多图角色合成，我们开源了一套可独立组合的容器化与 AI Agent (MCP) 配套项目，欢迎使用、Star 或提交 Issue / PR 共同优化：
+
+| 配套项目 | 功能说明 |
+| --- | --- |
+| **[kime541200/comfyui-deploy](https://github.com/kime541200/comfyui-deploy)** | **Docker 化 ComfyUI（Profile 驱动）**：通过 `PROFILE=pose-gallery docker compose up -d --build` 一键启动预装 `comfyui_controlnet_aux`（`DepthAnythingV2`）与 `ComfyUI-GGUF` 的干净 GPU 容器。 |
+| **[kime541200/ai-pose-gallery-mcp](https://github.com/kime541200/ai-pose-gallery-mcp)** | **图库检索与合成 MCP Server**：提供 Streamable HTTP MCP 接口，让 Claude Code / Cursor 等 Agent 用自然语言模糊搜索参考图，并自动上传至 ComfyUI 执行 `FLUX 3 Image Klein` 或 `Qwen-Image-Edit-2509` 多图角色合成。 |
+| **[kime541200/comfyui-agent](https://github.com/kime541200/comfyui-agent)** | **AI Agent 生图工作区**：整合 `ai-pose-gallery-mcp` 与 [kime541200/comfy-mcp](https://github.com/kime541200/comfy-mcp)，内置验证过的 API 工作流模板库与 Agent 操作规范。 |
+| **[kime541200/lora-training](https://github.com/kime541200/lora-training)** | **Docker 化 LoRA 训练环境**：封装 kohya `sd-scripts` 与 WD14 自动打标/清洗脚本，训练产出的角色 LoRA 可直接挂载至 ComfyUI 使用。 |
 
 ### 数据与图片维护脚本（Python 3）
 

@@ -15,7 +15,11 @@ venv/
 download_failed.txt
 verify_failed.txt
 
-# 本地/编辑器
+# 本地/编辑器与环境变量
+.env
+tmp/
+.agents/skills
+skills-lock.json
 .workbuddy/
 .idea/
 .vscode/

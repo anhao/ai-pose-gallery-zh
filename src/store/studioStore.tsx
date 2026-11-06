@@ -135,16 +135,21 @@ const DEFAULT_API_CONFIG: ApiConfig = {
   },
 }
 
-// v1 → v2：旧版默认的 Qwen 2.1 预设引用了本机通常不存在的模型，自动切换为 Qwen Image Edit 2509
+// v1 → v2：旧版默认预设或旧版结构自动迁移为默认 FLUX 3 Image Klein 工作流
 const LEGACY_COMFY_BASE_URLS = ['http://127.0.0.1:8188', 'http://localhost:8188']
 
 function migrateComfy(
   provider: ApiConfig['providers']['comfyui'],
   params: ApiConfig['comfyuiParams']
 ): { provider: ApiConfig['providers']['comfyui']; params: ApiConfig['comfyuiParams'] } {
-  if ((params.configVersion ?? 1) >= COMFY_CONFIG_VERSION) return { provider, params }
+  if ((params.configVersion ?? 1) >= COMFY_CONFIG_VERSION && params.workflowJson) return { provider, params }
   const nextParams = { ...params, configVersion: COMFY_CONFIG_VERSION }
-  if (params.workflowPreset === 'qwen21_3img' || params.workflowPreset === 'qwen21_2img') {
+  if (
+    !params.workflowPreset ||
+    !params.workflowJson ||
+    params.workflowPreset === 'qwen21_3img' ||
+    params.workflowPreset === 'qwen21_2img'
+  ) {
     Object.assign(nextParams, {
       workflowPreset: DEFAULT_COMFY_PRESET,
       workflowJson: JSON.stringify(COMFYUI_WORKFLOW_TEMPLATES[DEFAULT_COMFY_PRESET].workflow, null, 2),
