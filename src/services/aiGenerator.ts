@@ -1,3 +1,4 @@
+import { generateWithPixAi, PIXAI_MODELS, type PixAiTaskHandle, type PreparedPixAiGeneration } from './pixai'
 import type { ApiConfig, ExtraReferenceImage, ImageProviderId, RecipeState } from '@/types/gallery'
 import { applyWorkflowOverrides, getWorkflowImages, validateReferenceCombinations, workflowIdentity, type ComfyObjectInfo } from '@/lib/comfyWorkflowParameters'
 import { poseImagePath, referenceImageUrl } from '@/lib/recipeImages'
@@ -82,6 +83,12 @@ export const PROVIDER_META: Record<
       { value: 'doubao-seededit-3-0-i2i-250628', label: 'doubao-seededit-3-0-i2i-250628' },
       { value: 'custom', label: '自定义模型 ID / Endpoint' },
     ],
+  },
+  pixai: {
+    id: 'pixai', name: 'PixAI', shortName: 'PixAI',
+    defaultBaseUrl: 'https://api.pixai.art',
+    docUrl: 'https://platform.pixai.art/en/docs/api-v2/image/createImage',
+    models: PIXAI_MODELS,
   },
   comfyui: {
     id: 'comfyui',
@@ -1065,6 +1072,7 @@ async function uploadImageToComfy(
 }
 
 export interface ComfyTaskHandle {
+  provider?: 'comfyui'
   promptId: string
   clientId: string
   baseUrl: string
@@ -1525,7 +1533,7 @@ async function generateWithComfyUi(params: {
       throw new ComfySubmissionRejectedError(formatComfyPromptError(promptJson, workflow, promptRes.status), promptRes.status)
     }
     if (typeof promptJson?.prompt_id !== 'string' || !promptJson.prompt_id) throw new ComfySubmissionUnknownError()
-    const task: ComfyTaskHandle = { promptId: promptJson.prompt_id, clientId, baseUrl, submittedAt }
+    const task: ComfyTaskHandle = { provider: 'comfyui', promptId: promptJson.prompt_id, clientId, baseUrl, submittedAt }
     try { await params.onSubmitted?.(task) } catch {
       throw new ComfyTaskError('[ComfyUI] 任务已提交，但保存恢复记录失败。请保留任务编号后恢复，勿重复提交。', task, 'storage')
     }
@@ -1538,8 +1546,8 @@ export async function generateCharacterImage(params: {
   prompt: string
   config: ApiConfig
   onProgress?: (p: GenerationProgress) => void
-  onSubmitting?: (prepared?: PreparedComfyGeneration) => Promise<void>
-  onSubmitted?: (task: ComfyTaskHandle) => Promise<void>
+  onSubmitting?: (prepared?: PreparedComfyGeneration | PreparedPixAiGeneration) => Promise<void>
+  onSubmitted?: (task: ComfyTaskHandle | PixAiTaskHandle) => Promise<void>
   signal?: AbortSignal
 }): Promise<{ imageUrl: string; modelUsed: string; providerUsed: ImageProviderId }> {
   const { recipe, prompt, config, onProgress } = params
@@ -1550,6 +1558,8 @@ export async function generateCharacterImage(params: {
   if (provider !== 'comfyui' && !apiKey) {
     throw new Error(`请先配置 ${PROVIDER_META[provider].name} 的 API Key`)
   }
+
+  if (provider === 'pixai') return generateWithPixAi(params)
 
   const rawSources = [
     recipe.portrait && (recipe.portrait.原图 || recipe.portrait.缩略图),

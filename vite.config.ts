@@ -1,5 +1,7 @@
 import fs from 'node:fs'
+import { handleProxy as forwardProxy } from './functions/api/proxy.ts'
 import path from 'node:path'
+import { Readable } from 'node:stream'
 import tailwindcss from '@tailwindcss/vite'
 import { tanstackRouter } from '@tanstack/router-plugin/vite'
 import react from '@vitejs/plugin-react'
@@ -25,41 +27,20 @@ function localAssetsAndProxyPlugin(): Plugin {
 
   const handleProxy = async (req: any, res: any) => {
     try {
-      const targetUrl = req.headers['x-target-url'] as string | undefined
-      if (!targetUrl || !/^https?:\/\//i.test(targetUrl)) {
-        res.statusCode = 400
-        res.setHeader('Content-Type', 'application/json; charset=utf-8')
-        res.end(JSON.stringify({ error: { message: 'Missing or invalid x-target-url header' } }))
-        return
+      const method = req.method || 'POST'
+      const headers = new Headers()
+      for (const [key, value] of Object.entries(req.headers)) {
+        if (typeof value === 'string') headers.set(key, value)
       }
-
-      const chunks: Buffer[] = []
-      for await (const chunk of req) {
-        chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk))
-      }
-      const rawBody = Buffer.concat(chunks)
-
-      const forwardHeaders: Record<string, string> = {}
-      const contentType = req.headers['content-type']
-      if (contentType) forwardHeaders['Content-Type'] = contentType
-      const auth = req.headers['authorization']
-      if (auth) forwardHeaders['Authorization'] = auth
-      const googKey = req.headers['x-goog-api-key']
-      if (googKey) forwardHeaders['x-goog-api-key'] = googKey as string
-      const dashAsync = req.headers['x-dashscope-async']
-      if (dashAsync) forwardHeaders['X-DashScope-Async'] = dashAsync as string
-
-      const upstream = await fetch(targetUrl, {
-        method: req.method || 'POST',
-        headers: forwardHeaders,
-        body: rawBody.length > 0 ? rawBody : undefined,
-      })
-
+      // Share production validation, body limits, redirects and response headers.
+      const body = method === 'GET' || method === 'HEAD' ? undefined : Readable.toWeb(req) as ReadableStream<Uint8Array>
+      const request = new Request('http://localhost/api/proxy', {
+        method, headers, body, ...(body ? { duplex: 'half' } : {}),
+      } as RequestInit)
+      const upstream = await forwardProxy({ request, env: { PROXY_ALLOWED_ORIGINS: process.env.PROXY_ALLOWED_ORIGINS } })
       res.statusCode = upstream.status
-      const upType = upstream.headers.get('content-type') || 'application/json; charset=utf-8'
-      res.setHeader('Content-Type', upType)
-      const ab = await upstream.arrayBuffer()
-      res.end(Buffer.from(ab))
+      upstream.headers.forEach((value, key) => res.setHeader(key, value))
+      res.end(Buffer.from(await upstream.arrayBuffer()))
     } catch (err: any) {
       res.statusCode = 502
       res.setHeader('Content-Type', 'application/json; charset=utf-8')

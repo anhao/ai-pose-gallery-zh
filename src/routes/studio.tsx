@@ -1,3 +1,4 @@
+import { PIXAI_FLASH_MODEL } from '@/services/pixai'
 import { ReferenceComparisonDialog } from '@/components/common/ReferenceComparisonDialog'
 import { ImageViewer } from '@/components/common/ImageViewer'
 import { useQueryClient } from '@tanstack/react-query'
@@ -70,6 +71,7 @@ import type {
   ImagePassMode,
   ImageProviderId,
   QwenParams,
+  PixAiParams,
 } from '@/types/gallery'
 
 export const Route = createFileRoute('/studio')({
@@ -77,11 +79,11 @@ export const Route = createFileRoute('/studio')({
   component: StudioPage,
 })
 
-const PROVIDER_LIST: ImageProviderId[] = ['gemini', 'gpt', 'qwen', 'doubao', 'comfyui']
+const PROVIDER_LIST: ImageProviderId[] = ['gemini', 'gpt', 'qwen', 'doubao', 'pixai', 'comfyui']
 
 function StudioPage() {
   const {
-    hydrated, activeTask, resumeGeneration, stopTracking,
+    hydrated, activeTask, resumeGeneration, stopTracking, abandonTask, recoverPixAiTask,
     recipe,
     apiConfig,
     history,
@@ -102,6 +104,7 @@ function StudioPage() {
     updateExtraImageName,
     updateApiConfig,
     updateProviderConfig,
+    updatePixAiParams,
     updateGptParams,
     updateGeminiParams,
     updateQwenParams,
@@ -131,8 +134,9 @@ function StudioPage() {
   const providerCfg = apiConfig.providers[activeProvider]
 
   const activeWorkflowImages = activeProvider === 'comfyui' && recipe.workflowImagesIdentity === workflowIdentity(apiConfig.comfyuiParams.workflowJson) ? Object.values(recipe.workflowImages || {}) : []
-  const defaultPrompt = buildRecipePrompt(recipe, apiConfig.stylePreset, activeWorkflowImages)
+  const defaultPrompt = buildRecipePrompt(activeProvider === 'pixai' ? { ...recipe, extraImages: [] } : recipe, apiConfig.stylePreset, activeWorkflowImages)
   const prompt = customPrompt ?? defaultPrompt
+  const [recoveryTaskId, setRecoveryTaskId] = useState('')
   const [showAdvanced, setShowAdvanced] = useState(false)
   const [extraUrlInput, setExtraUrlInput] = useState('')
   const [showUrlInput, setShowUrlInput] = useState(false)
@@ -286,13 +290,14 @@ function StudioPage() {
     { label: '人像', node: apiConfig.comfyuiParams.portraitNodeId, image: recipe.portrait },
     { label: '服装', node: apiConfig.comfyuiParams.costumeNodeId, image: recipe.costume },
     { label: '姿势', node: apiConfig.comfyuiParams.poseNodeId, image: recipe.pose },
-  ].filter((slot) => slot.node && slot.node !== 'none' && parsedComfyNodes.imageNodes.some((node) => node.id === slot.node && node.emptyValue === undefined) && !slot.image).map((slot) => slot.label) : []
+  ].filter((slot) => slot.node && slot.node !== 'none' && parsedComfyNodes.imageNodes.some((node) => node.id === slot.node && node.emptyValue === undefined) && !slot.image).map((slot) => slot.label) : activeProvider === 'pixai' ? [['人像', recipe.portrait], ['服装', recipe.costume], ['姿势', recipe.pose]].filter(([, image]) => !image).map(([label]) => String(label)) : []
 
   const extraImages = recipe.extraImages || []
   const hasStitchRefs = Boolean(recipe.portrait || recipe.costume || recipe.pose || extraImages.length > 0)
   const hasAnyRef = hasStitchRefs || activeWorkflowImages.length > 0
 
   const processFiles = async (files: File[]) => {
+    if (activeProvider === 'pixai') { toast.error('PixAI 仅支持三张独立参考图，请使用各槽位的上传按钮'); return }
     const imgFiles = files.filter((f) => f.type.startsWith('image/'))
     if (!imgFiles.length) return
     try {
@@ -723,7 +728,9 @@ function StudioPage() {
                 </div>
               )}
 
+              {activeProvider === 'pixai' && <p className="text-xs text-muted-foreground">PixAI 需要人像、服装、姿势各一张，按此顺序上传，不发送拼图。{extraImages.length > 0 ? '请先移除上方附加图后生成。' : '附加图已禁用，请使用各槽位的上传按钮。'}</p>}
               {/* 显式虚线上传/拖拽/粘贴提示区 */}
+              {activeProvider !== 'pixai' && <>
               <div
                 onClick={() => fileInputRef.current?.click()}
                 className={`flex cursor-pointer flex-col items-center justify-center gap-1 rounded-xl border border-dashed px-3 py-2.5 text-center transition sm:flex-row sm:justify-between ${
@@ -767,6 +774,7 @@ function StudioPage() {
                   </Button>
                 </div>
               )}
+              </>}
             </div>
           </Section>
 
@@ -950,6 +958,31 @@ function StudioPage() {
                 )}
               </>
             )}
+
+            {activeProvider === 'pixai' && <>
+              <Field label="输出比例">
+                <Select value={apiConfig.pixaiParams.aspectRatio} onValueChange={(value) => updatePixAiParams({ aspectRatio: value as PixAiParams['aspectRatio'] })}>
+                  <SelectTrigger className="w-full"><SelectValue /></SelectTrigger>
+                  <SelectContent>{['1:1', '2:3', '3:2', '3:4', '4:3', '3:5', '5:3', '9:16', '16:9', '1:3', '3:1'].map((value) => <SelectItem key={value} value={value}>{value}</SelectItem>)}</SelectContent>
+                </Select>
+              </Field>
+              <Field label="分辨率">
+                <Select value={apiConfig.pixaiParams.size} onValueChange={(value) => updatePixAiParams({ size: value as PixAiParams['size'] })}>
+                  <SelectTrigger className="w-full"><SelectValue /></SelectTrigger>
+                  <SelectContent>{['1k', '1.5k'].map((value) => <SelectItem key={value} value={value}>{value}</SelectItem>)}</SelectContent>
+                </Select>
+              </Field>
+              <Field label="生成模式" hint="可用模式取决于模型和账号，不支持时会显示接口错误">
+                <Select value={apiConfig.pixaiParams.mode} onValueChange={(value) => updatePixAiParams({ mode: value as PixAiParams['mode'] })}>
+                  <SelectTrigger className="w-full"><SelectValue /></SelectTrigger>
+                  <SelectContent>{(providerCfg.model === PIXAI_FLASH_MODEL ? ['default'] : ['default', 'pro', 'ultra']).map((value) => <SelectItem key={value} value={value}>{value === 'default' ? '模型默认' : value}</SelectItem>)}</SelectContent>
+                </Select>
+              </Field>
+              {showAdvanced && <>
+                {providerCfg.model !== PIXAI_FLASH_MODEL ? <Field label="负向提示词"><Textarea value={apiConfig.pixaiParams.negativePrompt} onChange={(e) => updatePixAiParams({ negativePrompt: e.target.value })} /></Field> : <p className="text-xs text-muted-foreground">Flash 不使用负向提示词。</p>}
+                <Field label="Seed（留空为随机）"><Input type="number" step="1" value={apiConfig.pixaiParams.seed ?? ''} onChange={(e) => updatePixAiParams({ seed: e.target.value === '' ? undefined : Number(e.target.value) })} /></Field>
+              </>}
+            </>}
 
             <Field label="画风预设">
               <Select
@@ -1372,7 +1405,7 @@ function StudioPage() {
                   </>
                 )}
 
-                {activeProvider !== 'comfyui' && (
+                {activeProvider !== 'comfyui' && activeProvider !== 'pixai' && (
                   <>
                     <Field label="图片传参方式">
                       <Select
@@ -1530,10 +1563,15 @@ function StudioPage() {
             </div>
           </Section>
           {activeTask && <Section title="待确认任务" className="@lg/section:grid-cols-1">
-            <p className="break-all text-xs">{activeTask.task ? `任务 ${activeTask.task.promptId}：刷新后查询原任务，不重复提交。` : '提交结果未知或提交前被中断，请核对后端队列；不会自动重试提交。'}</p>
+            <p className="break-all text-xs">{activeTask.task ? `任务 ${(activeTask.task.provider === 'pixai' ? activeTask.task.taskId : activeTask.task.promptId)}：刷新后查询原任务，不重复提交。` : '提交结果未知或提交前被中断，请核对后端队列；不会自动重试提交。'}</p>
+            {!activeTask.task && activeTask.provider === 'pixai' && <div className="flex flex-wrap gap-2">
+              <Input aria-label="PixAI 任务编号" placeholder="已确认的 PixAI 任务编号" value={recoveryTaskId} onChange={(e) => setRecoveryTaskId(e.target.value)} />
+              <Button disabled={isGenerating || !recoveryTaskId.trim()} onClick={() => void recoverPixAiTask(recoveryTaskId)}>按编号恢复（只查询）</Button>
+            </div>}
             <div className="flex flex-wrap gap-2">
               <Button disabled={isGenerating || !activeTask.task} onClick={() => void resumeGeneration()}>恢复跟踪</Button>
-              <Button variant="outline" onClick={() => void stopTracking()}>停止跟踪（不取消后端）</Button>
+              <Button variant="outline" disabled={!isGenerating} onClick={() => void stopTracking()}>暂停跟踪（保留记录）</Button>
+              <Button variant="outline" disabled={isGenerating} onClick={() => void abandonTask()}>放弃记录（不取消服务器任务）</Button>
             </div>
           </Section>}
         </div>
