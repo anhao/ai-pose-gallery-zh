@@ -5,7 +5,7 @@
 - Tsubaki.3：`2024383379556065549`；模型默认档位为 pro，可选 ultra（需账号支持）。
 - Tsubaki.3 Flash：`2050048243034896798`；默认档位为 flash，不发送负向提示词。
 - 两款模型共享三图顺序、比例、分辨率和可选 seed；不支持附加图、拼图、任意模型、LoRA 或批量输出。
-- 图片每边必须小于 4000 px；超尺寸会等比例缩到最长边 3999 px，处理后每图最多 10 MiB。远程素材必须允许浏览器跨域读取，失败时可下载后上传到槽位。
+- 按图片字节识别 PNG、JPEG、WebP、GIF，兼容通用 Content-Type；AVIF 解码后转 PNG 上传。图片每边必须小于 4000 px；超尺寸会等比例缩到最长边 3999 px，处理后每图最多 10 MiB。远程素材必须允许浏览器跨域读取，失败时可下载后上传到槽位。
 - 新任务可能短暂不可查询，提交后首分钟内的 404 会退避重试。正常轮询间隔为 2 秒，网络、429 和服务错误采用退避。
 - 创建任务不会自动重试。提交结果未知时请先核对 PixAI 任务；取得任务编号后可以只查询恢复，或者确认后放弃本地记录。
 - 暂停仅停止本地跟踪并保留记录，不取消服务器任务；暂停状态跨刷新保存。切换渠道后仍按任务原渠道恢复。
@@ -31,3 +31,14 @@
 样图是定性检查：服装主要单品与坐姿可辨认；人像相似度和画风遵循仍有主观性，不能据此保证任意三图效果。未覆盖 ultra、所有比例/分辨率、直连 CORS、真实 ComfyUI 服务回归。Cloudflare 验证针对临时远程预览的代理上传和任务 GET，完整前端生成与保存是在 Vite 浏览器环境完成；没有发布到生产。
 
 参考：[图片生成](https://platform.pixai.art/en/docs/api-v2/image/createImage)、[上传](https://platform.pixai.art/en/docs/api/media/uploadMedia)、[模型列表 API](https://api.pixai.art/v2/generation-model/search?usageType=MODEL&keyword=Tsubaki.3)、[T3 实际模式](https://api.pixai.art/v2/generation-model/2024383379556065549/inference-profiles)、[Flash 实际模式](https://api.pixai.art/v2/generation-model/2050048243034896798/inference-profiles)。
+
+## 手动验收反馈后的修正
+
+此前本地只下载了初次验收使用的三张图库素材，缺失的其他 `/img/` 图片被 Vite SPA 回退成 `200 text/html`，因而出现误导性的格式/CORS 错误。
+
+- 本地素材缺失时明确返回 404，前端分别报告缺图、网页响应、无效图片和远程读取失败。
+- 按实际图片字节识别格式，允许 CDN 返回 application/octet-stream，并将可解码的 AVIF 转为 PNG。
+- 当前开发 worktree 已补齐全部 12022 个仓库内 img/thumbs 文件，核查缺失数为 0。普通完整 checkout 无需此补齐；稀疏 checkout 需包含 data、img 和 thumbs。
+- 更换三张参考图，用此前未下载的服装 `SPR-0002`、人像 `fa66e42698e`、姿势 `full_single_P015_front`，在同一 Vite 浏览器中以真实 Key 生成 Flash 任务 `2077587862473000166`。任务 completed，创建至结束约 38 秒，paidQuota 5500；结果下载为图片 data URL 并写入 IndexedDB，刷新后没有 POST，新历史 ID 唯一。
+- 首次新素材测试仅在首张上传阶段遇到一次连接错误，未调用创建接口；确认未创建任务后重试成功。
+- 新增图片字节识别、HTML/404 错误和 AVIF 转码回归测试；总计 15 项测试通过，build 与 lint 通过。

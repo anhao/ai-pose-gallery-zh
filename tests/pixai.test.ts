@@ -1,10 +1,12 @@
 import { afterEach, test } from 'node:test'
 import assert from 'node:assert/strict'
-import { DEFAULT_PIXAI_PARAMS, PIXAI_MODEL, generateWithPixAi, pixAiBaseUrl, pixAiPayload, pixAiSources, preparePixAiImage, resumePixAiTask, PixAiUnknownError, PixAiTerminalError } from '../src/services/pixai'
+import { DEFAULT_PIXAI_PARAMS, PIXAI_MODEL, generateWithPixAi, pixAiBaseUrl, pixAiPayload, pixAiSources, preparePixAiImage, pixAiImageMime, resumePixAiTask, PixAiUnknownError, PixAiTerminalError } from '../src/services/pixai'
 import { handleProxy } from '../functions/api/proxy'
 import worker from '../worker'
 import type { ApiConfig, RecipeState } from '../src/types/gallery'
 
+const pngHeader = new Uint8Array([137, 80, 78, 71, 13, 10, 26, 10])
+const oversizedPng = () => { const bytes = new Uint8Array(10485761); bytes.set(pngHeader); return bytes }
 const nativeFetch = globalThis.fetch
 const nativeBitmap = globalThis.createImageBitmap
 const nativeReader = globalThis.FileReader
@@ -64,7 +66,7 @@ test('uploads raw bytes in slot order, persists prepared payload before create; 
   let uploads = 0
   let creates = 0
   globalThis.fetch = (async (url, init) => {
-    if (String(url).startsWith('data:')) return new Response(new Uint8Array([0, 1, 2]), { headers: { 'content-type': 'image/png' } })
+    if (String(url).startsWith('data:')) return new Response(pngHeader, { headers: { 'content-type': 'image/png' } })
     const target = new Headers(init?.headers).get('x-target-url')!
     if (target.endsWith('/upload')) { assert.ok(init?.body instanceof Blob); calls.push(`upload${++uploads}`); return json({ id: `media${uploads}` }) }
     creates++; calls.push('create'); throw new TypeError('connection lost')
@@ -80,7 +82,7 @@ test('persistence failure prevents submission, and failed task persistence repor
   bitmap()
   let creates = 0
   globalThis.fetch = (async (url, init) => {
-    if (String(url).startsWith('data:')) return new Response(new Uint8Array([1]), { headers: { 'content-type': 'image/png' } })
+    if (String(url).startsWith('data:')) return new Response(pngHeader, { headers: { 'content-type': 'image/png' } })
     const target = new Headers(init?.headers).get('x-target-url')!
     if (target.endsWith('/upload')) return json({ id: 'media' })
     creates++; return json({ id: 'known-task' })
@@ -110,7 +112,7 @@ test('image preflight rejects unsupported MIME and oversized bytes with slot nam
   globalThis.fetch = (async () => new Response('bad', { headers: { 'content-type': 'text/html' } })) as typeof fetch
   await assert.rejects(preparePixAiImage('/ref', '服装'), /服装读取失败/)
   bitmap()
-  globalThis.fetch = (async () => new Response(new Uint8Array(10485761), { headers: { 'content-type': 'image/png' } })) as typeof fetch
+  globalThis.fetch = (async () => new Response(oversizedPng(), { headers: { 'content-type': 'image/png' } })) as typeof fetch
   await assert.rejects(preparePixAiImage('/ref', '姿势'), /姿势读取失败.*10 MiB/)
 })
 
@@ -180,10 +182,34 @@ test('oversized dimensions shrink both sides below 4000 before upload', async ()
   globalThis.createImageBitmap = (async () => ({ width: 8000, height: 4000, close() {} })) as unknown as typeof createImageBitmap
   const canvas = { width: 0, height: 0, getContext: () => ({ drawImage() {} }), toBlob: (done: (blob: Blob) => void) => done(new Blob(['png'], { type: 'image/png' })) }
   globalThis.document = { createElement: () => canvas } as unknown as Document
-  globalThis.fetch = (async () => new Response('image', { headers: { 'content-type': 'image/png' } })) as typeof fetch
+  globalThis.fetch = (async () => new Response(pngHeader, { headers: { 'content-type': 'image/png' } })) as typeof fetch
   try {
     assert.equal((await preparePixAiImage('/ref', '人像')).type, 'image/png')
     assert.equal(canvas.width, 3999)
     assert.equal(canvas.height, 1999)
+  } finally { globalThis.document = previousDocument }
+})
+
+test('actual raster bytes fix generic CDN MIME and reject spoofed image responses', async () => {
+  bitmap()
+  globalThis.fetch = (async () => new Response(pngHeader, { headers: { 'content-type': 'application/octet-stream' } })) as typeof fetch
+  assert.equal((await preparePixAiImage('/cdn-image', '服装')).type, 'image/png')
+  assert.equal(await pixAiImageMime(new Blob(['<html>fallback</html>'], { type: 'image/png' })), null)
+  globalThis.fetch = (async () => new Response('<html>fallback</html>', { headers: { 'content-type': 'text/html' } })) as typeof fetch
+  await assert.rejects(preparePixAiImage('/missing-image', '服装'), /服装读取失败.*网页而非图片/)
+  globalThis.fetch = (async () => new Response('not found', { status: 404 })) as typeof fetch
+  await assert.rejects(preparePixAiImage('/missing-image', '服装'), /服装读取失败.*素材文件不存在/)
+})
+
+test('AVIF references are converted to a supported upload MIME', async () => {
+  bitmap()
+  const previousDocument = globalThis.document
+  const canvas = { width: 0, height: 0, getContext: () => ({ drawImage() {} }), toBlob: (done: (blob: Blob) => void) => done(new Blob([pngHeader], { type: 'image/png' })) }
+  globalThis.document = { createElement: () => canvas } as unknown as Document
+  const bytes = new Uint8Array([0, 0, 0, 24, ...new TextEncoder().encode('ftypavif')])
+  globalThis.fetch = (async () => new Response(bytes, { headers: { 'content-type': 'image/avif' } })) as typeof fetch
+  try {
+    assert.equal((await preparePixAiImage('/avif-reference', '服装')).type, 'image/png')
+    assert.equal(canvas.width, 100)
   } finally { globalThis.document = previousDocument }
 })

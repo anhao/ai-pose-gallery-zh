@@ -64,25 +64,45 @@ export function pixAiPayload(prompt: string, params: PixAiParams, mediaIds: stri
     ...(params.seed === undefined ? {} : { seed: params.seed }) }
 }
 
+/** Identify the actual raster bytes: some CDNs serve valid images as octet-stream. */
+export async function pixAiImageMime(blob: Blob): Promise<string | null> {
+  const bytes = new Uint8Array(await blob.slice(0, 64).arrayBuffer())
+  const ascii = (start: number, end: number) => String.fromCharCode(...bytes.slice(start, end))
+  if ([137, 80, 78, 71, 13, 10, 26, 10].every((value, i) => bytes[i] === value)) return 'image/png'
+  if (bytes[0] === 255 && bytes[1] === 216 && bytes[2] === 255) return 'image/jpeg'
+  if (['GIF87a', 'GIF89a'].includes(ascii(0, 6))) return 'image/gif'
+  if (ascii(0, 4) === 'RIFF' && ascii(8, 12) === 'WEBP') return 'image/webp'
+  if (ascii(4, 8) === 'ftyp' && /avif|avis/.test(ascii(8, 64))) return 'image/avif'
+  return null
+}
+
 export async function preparePixAiImage(src: string, label: string, signal?: AbortSignal): Promise<Blob> {
   try {
-    const response = await fetch(referenceImageUrl(src), { signal })
-    if (!response.ok) throw new Error(`HTTP ${response.status}`)
+    let response: Response
+    try { response = await fetch(referenceImageUrl(src), { signal }) } catch {
+      signal?.throwIfAborted()
+      throw new Error('无法读取素材；远程图片可能不允许跨域读取，可下载后上传到该槽位')
+    }
+    if (response.status === 404) throw new Error('素材文件不存在，请重新选择或上传图片；本地开发请检查图库素材是否已下载')
+    if (!response.ok) throw new Error(`素材请求失败 HTTP ${response.status}`)
+    if (response.headers.get('content-type')?.toLowerCase().includes('text/html')) throw new Error('素材地址返回了网页而非图片，请检查素材文件是否缺失或地址是否正确')
     const blob = await response.blob()
-    if (!['image/png', 'image/jpeg', 'image/webp', 'image/gif'].includes(blob.type.split(';')[0])) throw new Error('仅支持 PNG、JPEG、WebP、GIF 图片')
-    const bitmap = await createImageBitmap(blob)
-    let output = blob
+    const mime = await pixAiImageMime(blob)
+    if (!mime) throw new Error('未识别到有效的 PNG、JPEG、WebP、GIF 或 AVIF 图片数据')
+    const bitmap = await createImageBitmap(blob.type === mime ? blob : blob.slice(0, blob.size, mime))
+    let output = blob.type === mime ? blob : blob.slice(0, blob.size, mime)
     try {
       if (!bitmap.width || !bitmap.height) throw new Error('图片尺寸无效')
-      if (Math.max(bitmap.width, bitmap.height) >= 4000) {
-        const scale = 3999 / Math.max(bitmap.width, bitmap.height)
+      // AVIF can be read by browsers but is not a PixAI upload MIME; transcode it.
+      if (Math.max(bitmap.width, bitmap.height) >= 4000 || mime === 'image/avif') {
+        const scale = Math.min(1, 3999 / Math.max(bitmap.width, bitmap.height))
         const canvas = document.createElement('canvas')
         canvas.width = Math.max(1, Math.floor(bitmap.width * scale))
         canvas.height = Math.max(1, Math.floor(bitmap.height * scale))
         const ctx = canvas.getContext('2d')
         if (!ctx) throw new Error('无法处理图片')
         ctx.drawImage(bitmap, 0, 0, canvas.width, canvas.height)
-        output = await new Promise<Blob>((resolve, reject) => canvas.toBlob((value) => value ? resolve(value) : reject(new Error('图片缩放失败')), 'image/png'))
+        output = await new Promise<Blob>((resolve, reject) => canvas.toBlob((value) => value ? resolve(value) : reject(new Error('图片转换失败')), 'image/png'))
       }
     } finally { bitmap.close() }
     if (!output.size || output.size > MAX_IMAGE_BYTES) throw new Error('图片须小于等于 10 MiB，请压缩后重试')
@@ -90,7 +110,7 @@ export async function preparePixAiImage(src: string, label: string, signal?: Abo
     return output
   } catch (error) {
     signal?.throwIfAborted()
-    throw new Error(`[PixAI] ${label}读取失败：${error instanceof Error ? error.message : '无法读取图片'}。远程素材需允许跨域读取，可下载后上传到该槽位。`)
+    throw new Error(`[PixAI] ${label}读取失败：${error instanceof Error ? error.message : '无法读取图片'}`)
   }
 }
 

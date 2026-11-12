@@ -14,6 +14,8 @@ const MIME: Record<string, string> = {
   '.jpeg': 'image/jpeg',
   '.png': 'image/png',
   '.webp': 'image/webp',
+  '.gif': 'image/gif',
+  '.avif': 'image/avif',
   '.xml': 'application/xml; charset=utf-8',
   '.txt': 'text/plain; charset=utf-8',
 }
@@ -59,8 +61,11 @@ function localAssetsAndProxyPlugin(): Plugin {
       return next()
     }
     const filePath = path.join(rootDir, decoded)
-    if (!filePath.startsWith(rootDir) || !fs.existsSync(filePath) || fs.statSync(filePath).isDirectory()) {
-      return next()
+    if (!filePath.startsWith(rootDir + path.sep) || !fs.existsSync(filePath) || fs.statSync(filePath).isDirectory()) {
+      res.statusCode = 404
+      res.setHeader('Content-Type', 'text/plain; charset=utf-8')
+      res.end('Asset not found')
+      return
     }
     const ext = path.extname(filePath).toLowerCase()
     res.setHeader('Content-Type', MIME[ext] || 'application/octet-stream')
