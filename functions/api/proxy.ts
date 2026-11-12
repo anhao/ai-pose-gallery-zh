@@ -21,6 +21,7 @@ const DEFAULT_ALLOWED_ORIGINS = [
   'https://ark.cn-beijing.volces.com', // 火山方舟 / Doubao
   'https://generativelanguage.googleapis.com', // Google Gemini
   'https://api.openai.com', // OpenAI
+  'https://api.pixai.art', // PixAI
 ]
 
 function matchOriginRule(target: URL, rawRule: string): boolean {
@@ -92,8 +93,9 @@ const limitBodySize = (body: ReadableStream<Uint8Array> | null, limit: number) =
   )
 }
 
-export const onRequestPost = async (context: { request: Request; env?: ProxyEnv }) => {
+export const handleProxy = async (context: { request: Request; env?: ProxyEnv }) => {
   const { request, env } = context
+  if (!['POST', 'GET'].includes(request.method)) return jsonResponse(405, 'Method Not Allowed')
 
   const targetUrl = request.headers.get('x-target-url')
   if (!targetUrl) return jsonResponse(400, 'Missing x-target-url header')
@@ -106,7 +108,7 @@ export const onRequestPost = async (context: { request: Request; env?: ProxyEnv 
   }
 
   // 只允许白名单（含环境变量 PROXY_ALLOWED_ORIGINS）内的 https 上游，其余一律拒绝
-  if (target.protocol !== 'https:' || !isOriginAllowed(target, env?.PROXY_ALLOWED_ORIGINS)) {
+  if (target.username || target.password || target.protocol !== 'https:' || !isOriginAllowed(target, env?.PROXY_ALLOWED_ORIGINS)) {
     return jsonResponse(403, 'Target origin not allowed')
   }
 
@@ -122,15 +124,29 @@ export const onRequestPost = async (context: { request: Request; env?: ProxyEnv 
   }
 
   try {
+    const limited = request.method === 'GET' ? null : limitBodySize(request.body, MAX_BODY_BYTES)
+    // Workers derives Content-Length from fixed-length values (never a generic stream).
+    // Bound reads before buffering so chunked uploads cannot exhaust memory.
+    const body = target.origin === 'https://api.pixai.art' && limited
+      ? new Uint8Array(await new Response(limited).arrayBuffer())
+      : limited
     const upstream = await fetch(target.toString(), {
-      method: 'POST',
+      method: request.method,
       headers: forwardHeaders,
-      body: limitBodySize(request.body, MAX_BODY_BYTES),
-    })
+      body,
+      redirect: 'manual',
+      ...(body instanceof ReadableStream ? { duplex: 'half' } : {}),
+    } as RequestInit)
+    if (upstream.status >= 300 && upstream.status < 400) {
+      await upstream.body?.cancel()
+      return jsonResponse(502, 'Upstream redirect blocked')
+    }
     return new Response(upstream.body, {
       status: upstream.status,
       headers: {
         'Content-Type': upstream.headers.get('content-type') || 'application/json; charset=utf-8',
+        'Cache-Control': 'no-store',
+        ...(upstream.headers.has('retry-after') ? { 'Retry-After': upstream.headers.get('retry-after')! } : {}),
       },
     })
   } catch (err) {
@@ -140,3 +156,6 @@ export const onRequestPost = async (context: { request: Request; env?: ProxyEnv 
     return jsonResponse(502, err instanceof Error ? err.message : 'Upstream proxy error')
   }
 }
+
+export const onRequestPost = handleProxy
+export const onRequestGet = handleProxy
