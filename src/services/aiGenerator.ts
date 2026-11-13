@@ -1,4 +1,5 @@
 import type { ApiConfig, ExtraReferenceImage, ImageProviderId, RecipeState } from '@/types/gallery'
+import { getGptInputFidelity } from '@/lib/gptImageCapabilities'
 import { applyWorkflowOverrides, getWorkflowImages, validateReferenceCombinations, workflowIdentity, type ComfyObjectInfo } from '@/lib/comfyWorkflowParameters'
 import { poseImagePath, referenceImageUrl } from '@/lib/recipeImages'
 import qwen2509ThreeImageWorkflow from '@/workflows/qwen_image_edit_2509_3img.api.json'
@@ -44,6 +45,8 @@ export const PROVIDER_META: Record<
     defaultBaseUrl: 'https://api.openai.com/v1',
     docUrl: 'https://platform.openai.com/docs/guides/image-generation',
     models: [
+      { value: 'gpt-image-2.6-sunburst', label: 'gpt-image-2.6-sunburst' },
+      { value: 'gpt-image-2.6-flare', label: 'gpt-image-2.6-flare' },
       { value: 'gpt-image-2.5', label: 'gpt-image-2.5' },
       { value: 'gpt-image-2.5-sunburst', label: 'gpt-image-2.5-sunburst' },
       { value: 'gpt-image-2.5-flare', label: 'gpt-image-2.5-flare' },
@@ -1601,6 +1604,7 @@ export async function generateCharacterImage(params: {
   // =========================================================================
   if (provider === 'gpt') {
     const g = config.gptParams
+    const inputFidelity = getGptInputFidelity(model, g.inputFidelity)
     const v1 = baseUrl.endsWith('/v1') ? baseUrl : `${baseUrl}/v1`
 
     if (g.endpointMode === 'images_edits_json') {
@@ -1612,7 +1616,7 @@ export async function generateCharacterImage(params: {
       }
       if (g.size !== 'auto') payload.size = g.size
       if (g.quality !== 'auto') payload.quality = g.quality
-      if (g.inputFidelity) payload.input_fidelity = g.inputFidelity
+      if (inputFidelity) payload.input_fidelity = inputFidelity
       if (g.background !== 'auto') payload.background = g.background
       if (g.outputFormat) payload.output_format = g.outputFormat
       if (g.moderation !== 'auto') payload.moderation = g.moderation
@@ -1640,7 +1644,7 @@ export async function generateCharacterImage(params: {
       })
       if (g.size !== 'auto') fd.append('size', g.size)
       if (g.quality !== 'auto') fd.append('quality', g.quality)
-      if (g.inputFidelity) fd.append('input_fidelity', g.inputFidelity)
+      if (inputFidelity) fd.append('input_fidelity', inputFidelity)
       if (g.background !== 'auto') fd.append('background', g.background)
       if (g.outputFormat) fd.append('output_format', g.outputFormat)
       if (g.moderation !== 'auto') fd.append('moderation', g.moderation)
@@ -1665,7 +1669,7 @@ export async function generateCharacterImage(params: {
       if (g.size !== 'auto') toolCfg.size = g.size
       if (g.quality !== 'auto') toolCfg.quality = g.quality
       if (g.background !== 'auto') toolCfg.background = g.background
-      if (g.inputFidelity) toolCfg.input_fidelity = g.inputFidelity
+      if (inputFidelity) toolCfg.input_fidelity = inputFidelity
       if (g.outputFormat) toolCfg.output_format = g.outputFormat
 
       res = await smartFetch(
