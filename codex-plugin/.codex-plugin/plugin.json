@@ -1,0 +1,19 @@
+{
+  "name": "ai-pose-gallery-zh",
+  "version": "0.7.6",
+  "description": "AI Pose Gallery 中文版：本地浏览、中文姿势检索、多角度参考与原图导出。",
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "AI Pose Gallery 中文版",
+    "shortDescription": "简洁的本地姿势参考图库",
+    "category": "Productivity",
+    "defaultPrompt": [
+      "打开 AI Pose Gallery 中文姿势图库。"
+    ],
+    "brandColor": "#252528",
+    "logo": "./assets/sidebar-icon.png",
+    "composerIcon": "./assets/sidebar-icon.png"
+  },
+  "requires_local_executor": true
+}
