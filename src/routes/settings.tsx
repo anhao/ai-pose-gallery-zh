@@ -27,7 +27,7 @@ export const Route = createFileRoute('/settings')({
   component: SettingsPage,
 })
 
-const PROVIDER_ORDER: ImageProviderId[] = ['gemini', 'gpt', 'qwen', 'doubao', 'comfyui']
+const PROVIDER_ORDER: ImageProviderId[] = ['gemini', 'gpt', 'qwen', 'doubao', 'pixai', 'comfyui']
 
 function SettingsPage() {
   const { apiConfig, updateApiConfig, updateProviderConfig, comfyConnection } = useStudio()
@@ -149,6 +149,7 @@ function SettingsPage() {
           }
         >
           <Input
+            disabled={pid === 'pixai'}
             type={pid === 'comfyui' ? 'text' : 'url'}
             value={pCfg.baseUrl}
             onChange={(e) => updateProviderConfig(pid, { baseUrl: e.target.value })}
@@ -216,9 +217,10 @@ function SettingsPage() {
       )}
 
       {/* 全局传输设置 */}
+      {pid === 'pixai' && <p className="text-sm text-muted-foreground">支持 Tsubaki.3 和 Tsubaki.3 Flash，每次输出一张。人像、服装、姿势各一图，按原始图片上传；默认启用本站代理。Key 随请求发送到本站代理与 PixAI，请仅在可信部署上使用。</p>}
       {pid !== 'comfyui' && (
         <Section title="全局请求选项">
-          <Field label="参考图传参方式">
+          {pid !== 'pixai' && <Field label="参考图传参方式">
             <Select
               value={apiConfig.imagePassMode}
               onValueChange={(v) => updateApiConfig({ imagePassMode: v as ImagePassMode })}
@@ -231,11 +233,11 @@ function SettingsPage() {
                 <SelectItem value="base64">转 Base64 编码传输</SelectItem>
               </SelectContent>
             </Select>
-          </Field>
+          </Field>}
 
           <Field
             label="服务端 CORS 代理 (/api/proxy)"
-            hint="默认关闭（浏览器直连）；切换到阿里云百炼 (Qwen) 或火山方舟 (Doubao) 时会自动开启。仅支持白名单域名（可通过服务端环境变量 PROXY_ALLOWED_ORIGINS 扩展）"
+            hint="默认关闭（浏览器直连）；切换到阿里云百炼 (Qwen)、火山方舟 (Doubao) 或 PixAI 时会自动开启。仅支持白名单域名（可通过服务端环境变量 PROXY_ALLOWED_ORIGINS 扩展）"
           >
             <div className="flex h-9 items-center justify-between rounded-xl border bg-background px-3">
               <span className="text-xs text-muted-foreground">
