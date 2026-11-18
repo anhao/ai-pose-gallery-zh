@@ -4,12 +4,11 @@
   "version": "2.0.0",
   "type": "module",
   "scripts": {
-    "test": "node --test tests/*.test.mjs",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview",
-    "test": "tsx --test tests/*.test.ts"
+    "test": "tsx --test tests/*.test.ts tests/*.test.mjs"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.3.0",
