@@ -116,10 +116,12 @@ ROLE_SUBJECT_PREFIX_RE = re.compile(
     r"^(?:"
     r"(?:(?:left|right|center|centre|middle|front|rear|back|top|bottom|upper|lower|"
     r"first|second|third|fourth|1st|2nd|3rd|4th|other|another|both|each|all)\s+)?"
-    r"(?:girl|girls|boy|boys|woman|women|man|men|female|male|partner|figure|figures|person|people|viewer)"
+    r"(?:girl|girls|boy|boys|woman|women|man|men|female|male|partner|figure|figures|"
+    r"person|people|viewer|creature|creatures|monster|monsters|animal|animals)"
     r"(?:'s|s')?\b"
+    r"|(?:(?:left|right|first|second|third|fourth|1st|2nd|3rd|4th)\s+)?other(?:'s|s')?\b"
     r"|(?:\d+\s*(?:girl|girls|boy|boys|people|person|other|others))\b"
-    r"|(?:solo|solo\s+focus|multiple\s+girls|multiple\s+boys|couple|hetero|yuri|yaoi|"
+    r"|(?:solo|solo\s+focus|multiple\s+girls|multiple\s+boys|multiple\s+others|couple|hetero|yuri|yaoi|"
     r"ffm\s+threesome|mmf\s+threesome|threesome|group)\b"
     r")",
     re.IGNORECASE,
@@ -129,7 +131,8 @@ ROLE_SUBJECT_PREFIX_RE = re.compile(
 _STRIP_ROLE_PREFIX_RE = re.compile(
     r"^(?:(?:(?:left|right|center|centre|middle|front|rear|back|top|bottom|upper|lower|"
     r"first|second|third|fourth|1st|2nd|3rd|4th|other|another|both|each|all)\s+)?"
-    r"(?:girl|girls|boy|boys|woman|women|man|men|female|male|partner|figure|figures)"
+    r"(?:girl|girls|boy|boys|woman|women|man|men|female|male|partner|figure|figures|"
+    r"creature|creatures|monster|monsters|animal|animals)"
     r"(?:\s+figure)?(?:'s|s')?\s+)+",
     re.IGNORECASE,
 )
@@ -151,7 +154,8 @@ _PLURAL_BOYS_PREFIX_RE = re.compile(r"^(?:both\s+)?boys(?:'s|s')?\s+", re.IGNORE
 _EXPLICIT_ROLE_PREFIX_RE = re.compile(
     r"^(?P<mod>left|right|center|centre|middle|front|rear|back|top|bottom|upper|lower|"
     r"first|second|third|fourth|1st|2nd|3rd|4th|other|another|both)?\s*"
-    r"(?P<noun>girl|girls|boy|boys|woman|women|man|men|female|male|figure|figures|viewer)\b",
+    r"(?P<noun>girl|girls|boy|boys|woman|women|man|men|female|male|figure|figures|viewer|"
+    r"creature|creatures|monster|monsters|animal|animals)\b",
     re.IGNORECASE,
 )
 
@@ -169,11 +173,15 @@ _BASE_EXACT_TAGS: set[str] = {
     "2boys",
     "3boys",
     "4boys",
+    "1other",
+    "2others",
+    "3others",
     "2people",
     "3people",
     "4people",
     "multiple girls",
     "multiple boys",
+    "multiple others",
     "couple",
     "hetero",
     "yuri",
@@ -309,10 +317,19 @@ _BASE_EXACT_TAGS: set[str] = {
     "bound",
     "rope",
     "shibari",
+    "crotch rope",
+    "ball gag",
     "vibrator",
+    "egg vibrator",
     "dildo",
+    "double dildo",
     "sex toy",
     "toy",
+    "tentacles",
+    "tentacle sex",
+    "monster",
+    "animal",
+    "creature",
     "dancing",
 }
 
@@ -326,7 +343,7 @@ _EMBEDDED_TARGET_PATTERNS: list[tuple[re.Pattern[str], str]] = [
     (
         re.compile(
             r"\baround\s+(?:both\s+|left\s+|right\s+|first\s+|second\s+|third\s+)?"
-            r"(?:girl|girls|boy|boys|woman|man|female|male|partner)(?:'s|s')?\s+"
+            r"(?:girl|girls|boy|boys|woman|man|female|male|partner|creature|creatures|monster|monsters|animal|animals)(?:'s|s')?\s+"
             r"(neck|waist|shoulders?|hips?|chest)\b",
             re.IGNORECASE,
         ),
@@ -336,7 +353,7 @@ _EMBEDDED_TARGET_PATTERNS: list[tuple[re.Pattern[str], str]] = [
         re.compile(
             r"\b(?:beside|behind|against|over|under|between|toward|towards|into|on)\s+"
             r"(?:both\s+|left\s+|right\s+|first\s+|second\s+|third\s+)?"
-            r"(?:girl|girls|boy|boys|woman|man|female|male|partner)(?:'s|s')?\s+"
+            r"(?:girl|girls|boy|boys|woman|man|female|male|partner|creature|creatures|monster|monsters|animal|animals)(?:'s|s')?\s+"
             r"(?=(?:neck|waist|shoulders?|hips?|chest|thighs?|legs?|knees?|ankles?|calves?|head|heads|chin|face|back|stomach|hands?|wrists?|arms?|eyes?)\b)",
             re.IGNORECASE,
         ),
@@ -346,7 +363,7 @@ _EMBEDDED_TARGET_PATTERNS: list[tuple[re.Pattern[str], str]] = [
         re.compile(
             r"\b(holding|gripping|grabbing|hugging|lifting|caressing|touching|supporting|kissing|licking)\s+"
             r"(?:both\s+|left\s+|right\s+|first\s+|second\s+|third\s+)?"
-            r"(?:girl|girls|boy|boys|woman|man|female|male|partner)(?:'s|s')?\s+",
+            r"(?:girl|girls|boy|boys|woman|man|female|male|partner|creature|creatures|monster|monsters|animal|animals)(?:'s|s')?\s+",
             re.IGNORECASE,
         ),
         r"\1 another's ",
@@ -355,14 +372,14 @@ _EMBEDDED_TARGET_PATTERNS: list[tuple[re.Pattern[str], str]] = [
         re.compile(
             r"\b(facing|straddling|against|behind|beside|hugging|kissing|looking at)\s+"
             r"(?:both\s+|left\s+|right\s+|first\s+|second\s+|third\s+)?"
-            r"(?:girl|girls|boy|boys|woman|man|female|male|partner)s?(?:'s|s')?\b",
+            r"(?:girl|girls|boy|boys|woman|man|female|male|partner|creature|creatures|monster|monsters|animal|animals)s?(?:'s|s')?\b",
             re.IGNORECASE,
         ),
         r"\1 another",
     ),
     (
         re.compile(
-            r"\b(?:girl|boy|woman|man|female|male|partner)(?:'s|s')\b",
+            r"\b(?:girl|boy|woman|man|female|male|partner|creature|monster|animal)(?:'s|s')\b",
             re.IGNORECASE,
         ),
         "another's",
@@ -501,9 +518,10 @@ def _clean_string_list(
     return cleaned
 
 
-def _parse_base_counts(base_tags: list[str]) -> tuple[int, int, int, bool]:
+def _parse_base_counts(base_tags: list[str]) -> tuple[int, int, int, int, bool]:
     n_girls = 0
     n_boys = 0
+    n_others = 0
     n_people = 0
     is_pov = False
     for tag in base_tags:
@@ -519,9 +537,11 @@ def _parse_base_counts(base_tags: list[str]) -> tuple[int, int, int, bool]:
             n_girls = max(n_girls, num)
         elif noun in ("boy", "boys"):
             n_boys = max(n_boys, num)
+        elif noun in ("other", "others"):
+            n_others = max(n_others, num)
         elif noun in ("people", "person"):
             n_people = max(n_people, num)
-    return n_girls, n_boys, n_people, is_pov
+    return n_girls, n_boys, n_others, n_people, is_pov
 
 
 def _validate_roles(
@@ -536,8 +556,10 @@ def _validate_roles(
 
     clean_roles: list[dict[str, Any]] = []
     seen_boy = False
+    seen_other = False
     girl_idx = 0
     boy_idx = 0
+    other_idx = 0
     seen_slots: set[str] = set()
 
     for r_idx, raw_role in enumerate(raw_roles):
@@ -547,19 +569,29 @@ def _validate_roles(
 
         gender_raw = raw_role.get("gender")
         gender = gender_raw.strip().lower() if isinstance(gender_raw, str) else ""
-        if gender not in ("girl", "boy"):
-            errors.append(f"[{item_id}] roles[{r_idx}].gender must be 'girl' or 'boy', got {gender_raw!r}")
+        if gender not in ("girl", "boy", "other"):
+            errors.append(
+                f"[{item_id}] roles[{r_idx}].gender must be 'girl', 'boy', or 'other', got {gender_raw!r}"
+            )
             continue
 
         if gender == "girl":
             if seen_boy:
                 errors.append(f"[{item_id}] roles[{r_idx}] female role must appear before male roles")
+            elif seen_other:
+                errors.append(f"[{item_id}] roles[{r_idx}] female role must appear before other roles")
             girl_idx += 1
             expected_slot = f"girl_{girl_idx}"
-        else:
+        elif gender == "boy":
+            if seen_other:
+                errors.append(f"[{item_id}] roles[{r_idx}] male role must appear before other roles")
             seen_boy = True
             boy_idx += 1
             expected_slot = f"boy_{boy_idx}"
+        else:
+            seen_other = True
+            other_idx += 1
+            expected_slot = f"other_{other_idx}"
 
         slot_raw = raw_role.get("slot")
         slot = slot_raw.strip() if isinstance(slot_raw, str) else ""
@@ -620,7 +652,7 @@ def _validate_roles(
         )
 
     if clean_base_tags and clean_roles:
-        n_girls, n_boys, n_people, is_pov = _parse_base_counts(clean_base_tags)
+        n_girls, n_boys, n_others, n_people, is_pov = _parse_base_counts(clean_base_tags)
         if is_pov:
             if n_girls > 0 and girl_idx != n_girls:
                 errors.append(
@@ -630,14 +662,18 @@ def _validate_roles(
                 errors.append(
                     f"[{item_id}] POV item must only keep viewed subjects in roles, got unexpected boy role(s)"
                 )
-        elif n_girls > 0 or n_boys > 0:
-            if girl_idx != n_girls or boy_idx != n_boys:
+            if other_idx > n_others:
                 errors.append(
-                    f"[{item_id}] roles count ({girl_idx}g/{boy_idx}b) disagrees with base_tags_en ({n_girls}g/{n_boys}b)"
+                    f"[{item_id}] POV roles other count mismatch: expected at most {n_others}, got {other_idx}"
                 )
-        elif n_people > 0 and (girl_idx + boy_idx) != n_people:
+        elif n_girls > 0 or n_boys > 0 or n_others > 0:
+            if girl_idx != n_girls or boy_idx != n_boys or other_idx != n_others:
+                errors.append(
+                    f"[{item_id}] roles count ({girl_idx}g/{boy_idx}b/{other_idx}o) disagrees with base_tags_en ({n_girls}g/{n_boys}b/{n_others}o)"
+                )
+        elif n_people > 0 and (girl_idx + boy_idx + other_idx) != n_people:
             errors.append(
-                f"[{item_id}] roles count ({girl_idx + boy_idx}) disagrees with base_tags_en {n_people}people"
+                f"[{item_id}] roles count ({girl_idx + boy_idx + other_idx}) disagrees with base_tags_en {n_people}people"
             )
 
     return clean_roles
@@ -736,21 +772,23 @@ def _determine_roles_spec(
 ) -> tuple[list[tuple[str, str]], bool]:
     """Determine ordered [(slot, gender), ...] and is_pov flag for an item."""
     is_pov = _is_pov_item(item_id, meta, tags_en)
-    n_girls, n_boys, n_people, _ = _parse_base_counts(tags_en)
+    n_girls, n_boys, n_others, n_people, _ = _parse_base_counts(tags_en)
     tags_low = {t.strip().lower() for t in tags_en}
     cat = str(meta.get("分类") or "")
     sys_name = str(meta.get("体系") or "")
 
     if is_pov:
-        if n_girls == 0 and n_boys == 0:
+        if n_girls == 0 and n_boys == 0 and n_others == 0:
             n_girls = 1
         specs = [(f"girl_{i + 1}", "girl") for i in range(n_girls)]
         specs.extend((f"boy_{i + 1}", "boy") for i in range(n_boys))
+        specs.extend((f"other_{i + 1}", "other") for i in range(n_others))
         return specs, True
 
-    if n_girls > 0 or n_boys > 0:
+    if n_girls > 0 or n_boys > 0 or n_others > 0:
         specs = [(f"girl_{i + 1}", "girl") for i in range(n_girls)]
         specs.extend((f"boy_{i + 1}", "boy") for i in range(n_boys))
+        specs.extend((f"other_{i + 1}", "other") for i in range(n_others))
         return specs, False
 
     if n_people == 2 or ("双人" in sys_name and n_people != 1):
@@ -885,6 +923,8 @@ def _match_tag_target_slots(
         gender_slots = [slot for slot, g in roles_spec if g == "girl"]
     elif noun in ("boy", "boys", "man", "men", "male"):
         gender_slots = [slot for slot, g in roles_spec if g == "boy"]
+    elif noun in ("creature", "creatures", "monster", "monsters", "animal", "animals"):
+        gender_slots = [slot for slot, g in roles_spec if g == "other"]
     else:
         # "figure" / "figures"
         inferred_gender = _infer_figure_side_gender(mod, natural_en, prompt_zh) if mod in ("left", "right") else None
@@ -944,6 +984,11 @@ _CLAUSE_MALE_SUBJ_RE = re.compile(
     r"(?:boy|man|male(?:\s+figure)?|he)\b",
     re.IGNORECASE,
 )
+_CLAUSE_OTHER_SUBJ_RE = re.compile(
+    r"^(?:on\s+the\s+(?:left|right),\s+)?(?:(?:the|a|an)\s+)?(?:(?:left|right|first|second|third|front|rear|lower|upper)\s+)?"
+    r"(?:creature|monster|animal|beast|tentacles?)\b",
+    re.IGNORECASE,
+)
 _OBJ_PRONOUN_RE = re.compile(
     r"\b(?:over|behind|beside|around|against|between|under|toward|towards|into|at|on|atop|along|from|holding|gripping|holds|grips|supporting|pulling|lifting|cupping|facing|kissing|and)\s+(?:her|him|his)\b",
     re.IGNORECASE,
@@ -960,10 +1005,13 @@ def _clause_matches_role(
     low = clause.strip().lower()
     is_fem_subj = bool(_CLAUSE_FEMALE_SUBJ_RE.match(low))
     is_male_subj = bool(_CLAUSE_MALE_SUBJ_RE.match(low))
+    is_other_subj = bool(_CLAUSE_OTHER_SUBJ_RE.match(low))
 
     if is_fem_subj and gender != "girl":
         return 0
     if is_male_subj and gender != "boy":
+        return 0
+    if is_other_subj and gender != "other":
         return 0
 
     # Strip object-position pronouns (e.g. "over her", "gripping her wrist") before counting gender pronouns.
@@ -974,18 +1022,26 @@ def _clause_matches_role(
         score += 10
     elif is_male_subj and gender == "boy":
         score += 10
+    elif is_other_subj and gender == "other":
+        score += 10
     else:
         female_hits = len(re.findall(r"\b(?:girl|woman|female|she|her|hers)\b", subj_view))
         male_hits = len(re.findall(r"\b(?:boy|man|male|he|his)\b", subj_view))
+        other_hits = len(re.findall(r"\b(?:creature|monster|animal|beast|tentacles?)\b", subj_view))
         if gender == "girl":
             if female_hits > 0:
                 score += female_hits * 2
             if male_hits > female_hits and not re.search(r"\b(?:she|her)\b", subj_view):
                 return 0
-        else:
+        elif gender == "boy":
             if male_hits > 0:
                 score += male_hits * 2
             if female_hits > male_hits and not re.search(r"\b(?:he|his)\b", subj_view):
+                return 0
+        else:
+            if other_hits > 0:
+                score += other_hits * 2
+            elif female_hits or male_hits:
                 return 0
 
     if len(gender_slots) > 1:
@@ -1011,7 +1067,7 @@ def _extract_role_clauses(
         result[roles_spec[0][0]] = [natural_en.strip()] if natural_en.strip() else []
         return result
 
-    genders_by_type: dict[str, list[str]] = {"girl": [], "boy": []}
+    genders_by_type: dict[str, list[str]] = {"girl": [], "boy": [], "other": []}
     for slot, g in roles_spec:
         genders_by_type[g].append(slot)
 
@@ -1126,18 +1182,18 @@ _ANATOMY_NOUNS = (
     r"toe|toes|heel|heels|cheek|cheeks|ear|ears|eye|eyes|buttock|buttocks)"
 )
 _POS_LEFT_RE = re.compile(
-    rf"(?:^(?:left|center-left|bottom-left|top-left)\s+(?:girl|boy|woman|man|figure)\b"
+    rf"(?:^(?:left|center-left|bottom-left|top-left)\s+(?:girl|boy|woman|man|figure|creature|monster|animal|other)\b"
     rf"|\b(?:on\s+(?:the\s+)?left(?!\s+{_ANATOMY_NOUNS}\b)|at\s+(?:the\s+)?(?:bottom-left|top-left|left)(?!\s+{_ANATOMY_NOUNS}\b)|center-left|left\s+side)\b)",
     re.IGNORECASE,
 )
 _POS_RIGHT_RE = re.compile(
-    rf"(?:^(?:right|center-right|bottom-right|top-right)\s+(?:girl|boy|woman|man|figure)\b"
+    rf"(?:^(?:right|center-right|bottom-right|top-right)\s+(?:girl|boy|woman|man|figure|creature|monster|animal|other)\b"
     rf"|\b(?:on\s+(?:the\s+)?right(?!\s+{_ANATOMY_NOUNS}\b)|at\s+(?:the\s+)?(?:bottom-right|top-right|right)(?!\s+{_ANATOMY_NOUNS}\b)|center-right|right\s+side)\b)",
     re.IGNORECASE,
 )
 _POS_CENTER_RE = re.compile(
-    r"(?:^(?:girl|boy|woman|man|figure)\s+(?:in\s+)?(?:the\s+)?(?:center|centre|middle)\b"
-    r"|\b(?:in\s+(?:the\s+)?(?:center|centre|middle)|(?:girl|boy)\s+center)\b)(?!-(?:left|right))",
+    r"(?:^(?:girl|boy|woman|man|figure|creature|monster|animal|other)\s+(?:in\s+)?(?:the\s+)?(?:center|centre|middle)\b"
+    r"|\b(?:in\s+(?:the\s+)?(?:center|centre|middle)|(?:girl|boy|other)\s+center)\b)(?!-(?:left|right))",
     re.IGNORECASE,
 )
 

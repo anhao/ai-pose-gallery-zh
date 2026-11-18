@@ -100,15 +100,15 @@
 1. **`id`** (`str`)：原樣保留。
 2. **`source_hash`** (`str`)：必須**原字元保留**，不可更改（`--merge` 會比對原始 SHA-256）。
 3. **`base_tags_en`** (`list[str]`, 非空)：只寫入會進 NAI **`base_prompt`** 的全局標籤：
-   - **人數與組合**：`1girl`, `2girls`, `3girls`, `1boy`, `2boys`, `solo`, `hetero`, `yuri`, `yaoi`, `couple`, `ffm threesome`, `mmf threesome`, `threesome`。
+   - **人數與組合**：`1girl`, `2girls`, `3girls`, `1boy`, `2boys`, `1other`, `2others`, `solo`, `hetero`, `yuri`, `yaoi`, `couple`, `ffm threesome`, `mmf threesome`, `threesome`。
    - **景別與局部焦點**：`full body`, `cowboy shot`, `upper body`, `lower body`, `portrait`, `close-up`, `foot focus`, `ass focus`, `breast focus`。
    - **攝影機視角與透視**：`front view`, `side view`, `from side`, `three-quarter view`, `from behind`, `from above`, `from below`, `straight-on`, `profile`, `high angle`, `low angle`, `dutch angle`, `fisheye`, `foreshortening`, `pov`, `pov hands`, `pov crotch`。
-   - **雙人／多人共用互動與體位總稱**：`facing another`, `face-to-face`, `eye contact`, `hugging`, `hug from behind`, `straddling`, `girl on top`, `cowgirl position`, `reverse cowgirl`, `missionary`, `doggystyle`, `sex from behind`, `spooning`, `fellatio`, `paizuri`, `footjob`, `handjob`, `double penetration`, `spitroast` 等標準詞。
+   - **雙人／多人／道具／非人共用互動與體位總稱**：`facing another`, `face-to-face`, `eye contact`, `hugging`, `hug from behind`, `straddling`, `girl on top`, `cowgirl position`, `reverse cowgirl`, `missionary`, `doggystyle`, `sex from behind`, `spooning`, `fellatio`, `paizuri`, `footjob`, `handjob`, `double penetration`, `spitroast`，以及道具／束縛／純觸手標籤（如 `vibrator`, `dildo`, `sex toy`, `rope`, `bondage`, `bound`, `tentacles`, `tentacle sex`）等標準詞。
 4. **`roles`** (`list[object]`, 非空)：對應 NAI **`v4_prompt.caption.char_captions`**：
-   - **排序**：所有女性角色（`girl_1`, `girl_2`...）**永遠排在前面**，男性角色（`boy_1`, `boy_2`...）排在後面，不可跳號。
+   - **排序**：所有女性角色（`girl_1`, `girl_2`...）**永遠排在最前**，男性角色（`boy_1`, `boy_2`...）居中，非人／動物／魔物角色（`other_1`, `other_2`...）**排在最後**，不可跳號。
    - 每個角色物件必須包含：
-     - **`slot`**：`"girl_1"`, `"girl_2"`, `"boy_1"`, `"boy_2"` 等；
-     - **`gender`**：只能是 `"girl"` 或 `"boy"`；
+     - **`slot`**：`"girl_1"`, `"girl_2"`, `"boy_1"`, `"boy_2"`, `"other_1"`, `"other_2"` 等；
+     - **`gender`**：只能是 `"girl"`、`"boy"` 或 `"other"`（`"other"` 僅用於獨立互動的動物／魔物／非人角色）；
      - **`center`**：`{"x": float, "y": float}`（範圍 `0.00`～`1.00`，代表畫面中該角色軀幹質心位置；單人圖為 `{"x": 0.50, "y": 0.50}`，左/右人物約 `x: 0.30~0.42` 與 `x: 0.58~0.70`）；
      - **`tags_en`**：**純標準 Danbooru 動作／姿勢／重心／視線標籤**（嚴禁帶角色主詞前綴！具體肢體細節請寫到 `natural_en`）；
      - **`natural_en`**：專屬於該角色的詳細英文身體姿態句（在此寫清楚左右手腳、肌肉張力、重心腿、接觸點）。
@@ -117,18 +117,95 @@
    - **`natural_en`** (`str`, 非空)：全體人物互動、體位結構與重心關係的完整英文自然語言描述。
    - **`prompt_zh`** (`str`, 非空)：精準繁體（或簡體，建議簡明直觀）中文動作描述。
 
-### 3.2 `roles` 的 3 條紅線（`--verify` 會程式阻斷）
-1. **人數一致性**：除非是 POV 或單純局部受方畫面，否則當 `base_tags_en` 標記 `1girl, 1boy` 時，`roles` 必須正好有 1 個 `girl` 與 1 個 `boy`；標記 `2girls, 1boy` 時必須有 2 個 `girl` 與 1 個 `boy`。
-2. **POV 與僅局部入鏡規則**：
-   - 若圖為 **第一人稱 POV**（例如 `custom_pov_001`～`010`），`roles` **只列畫面中的被拍攝對象**（`girl_1` 或 `girl_1, girl_2`），不可為鏡頭外的拍攝者（`viewer`）建立 `boy_1` 角色；`pov`, `pov hands`, `pov crotch` 一律放進 `base_tags_en`。
+### 3.2 `roles` 的 4 條紅線（`--verify` 會程式阻斷）
+1. **人數一致性**：除非是 POV 或單純觸手／道具無須建 role 的畫面，否則當 `base_tags_en` 標記 `1girl, 1boy` 時，`roles` 必須正好有 1 個 `girl` 與 1 個 `boy`；標記 `2girls, 1boy` 時必須有 2 個 `girl` 與 1 個 `boy`；標記 `1girl, 1other` 或 `1girl, 2others` 時必須對應建立 1 個或 2 個 `gender: "other"`（`other_1`, `other_2`）角色。
+2. **人＋道具 vs 人＋非人角色區分規則**：
+   - **人＋道具（不建 `other` role）**：震動棒（`vibrator`）、假陽具（`dildo`）、繩索（`rope` / `bondage`）或純背景伸出的觸手（未具獨立完整角色主體時）屬於道具／環境元素，**直接寫進 `base_tags_en` 或受方（如 `girl_1`）動作詞**（例：`using dildo`, `holding vibrator`, `arms bound`），**不得**為道具建立 `role`。
+   - **人＋動物／魔物／非人主體（使用 `gender: "other"`）**：當畫面存在獨立互動的非人角色（如魔物、獸類、具主體性的觸手怪等，`base_tags_en` 含 `1other` / `2others`）時，於 `girl_*` 與 `boy_*` 之後建立 `gender: "other"`, `slot: "other_1"` 角色。
+3. **POV 與僅局部入鏡規則**：
+   - 若圖為 **第一人稱 POV**（例如 `custom_pov_001`～`010`），`roles` **只列畫面中的被拍攝對象**（`girl_1` 或 `girl_1, girl_2`），不可為鏡頭外的拍攝者（`viewer`）建立 `boy_1` 或 `other_1` 角色；`pov`, `pov hands`, `pov crotch` 一律放進 `base_tags_en`。
    - 若圖只有受方女生與局部接觸（無完整男性身軀），`base_tags_en` 僅寫 `1girl`（可附 `disembodied penis` 等局部標籤），`roles` 只留 `girl_1`。
-3. **嚴禁角色主詞前綴 (`ROLE_SUBJECT_PREFIX_RE`)**：
+4. **嚴禁角色主詞前綴 (`ROLE_SUBJECT_PREFIX_RE`)**：
    - `roles[i].tags_en` 內 **禁止任何標籤以以下前綴開頭**：
-     `girl ...`, `boy ...`, `woman ...`, `man ...`, `female ...`, `male ...`, `partner ...`, `figure ...`, `person ...`, `viewer ...`, `left boy ...`, `right girl ...`, `first girl ...`, `second boy ...`, `1girl`, `1boy`, `solo`, `hetero`, `ffm threesome`, `mmf threesome`。
+     `girl ...`, `boy ...`, `woman ...`, `man ...`, `female ...`, `male ...`, `partner ...`, `figure ...`, `person ...`, `viewer ...`, `creature ...`, `monster ...`, `animal ...`, `left boy ...`, `right girl ...`, `first girl ...`, `second boy ...`, `1girl`, `1boy`, `1other`, `2others`, `solo`, `hetero`, `ffm threesome`, `mmf threesome`。
    - 正確寫法範例：
      - 錯：`girl arms around boy neck` → 對：`arms around neck`（放進 `girl_1.tags_en`）
      - 錯：`boy hands on girl hips` → 對：`hands on another's hips`（放進 `boy_1.tags_en`）
+     - 錯：`creature coiling around girl` → 對：`coiling`, `grabbing`（放進 `other_1.tags_en`）
      - 錯：`right hand on right hip`（非標準詞） → 對：`hand on own hip`（標準 Danbooru 詞放進 `tags_en`；「右手扶右胯」寫入 `natural_en` 與 `prompt_zh`）
+
+### 3.3 人＋道具與人＋非人（`other`）範例
+
+#### 範例 A：人＋道具（不建 `other` role，道具寫入 `base_tags_en` 與受方動作詞）
+
+```json
+{
+  "id": "custom_toy_001",
+  "base_tags_en": [
+    "1girl", "solo", "lower body", "close-up", "front view",
+    "masturbation", "sex toy", "dildo"
+  ],
+  "roles": [
+    {
+      "slot": "girl_1",
+      "gender": "girl",
+      "center": {"x": 0.50, "y": 0.50},
+      "tags_en": [
+        "lying", "on back", "spread legs", "using dildo", "looking at viewer"
+      ],
+      "natural_en": "Lying on her back with legs spread wide, holding a dildo with her right hand and looking at the viewer."
+    }
+  ],
+  "tags_en": [
+    "1girl", "solo", "lower body", "close-up", "front view",
+    "masturbation", "sex toy", "dildo", "lying", "on back",
+    "spread legs", "using dildo", "looking at viewer"
+  ],
+  "natural_en": "Lower-body close-up front view lying on the back with legs spread, using a dildo while looking at the viewer.",
+  "prompt_zh": "正面下半身特寫，仰臥張開雙腿手持道具互動並直視鏡頭。",
+  "source_hash": "<64-char sha256 from shard>"
+}
+```
+
+#### 範例 B：人＋動物／魔物／非人角色（使用 `gender: "other"`, `slot: "other_1"`）
+
+```json
+{
+  "id": "custom_other_example",
+  "base_tags_en": [
+    "1girl", "1other", "full body", "three-quarter view",
+    "tentacles", "tentacle sex"
+  ],
+  "roles": [
+    {
+      "slot": "girl_1",
+      "gender": "girl",
+      "center": {"x": 0.48, "y": 0.54},
+      "tags_en": [
+        "bound", "spread legs", "arched back"
+      ],
+      "natural_en": "Bound mid-air with legs spread and back arched."
+    },
+    {
+      "slot": "other_1",
+      "gender": "other",
+      "center": {"x": 0.62, "y": 0.50},
+      "tags_en": [
+        "tentacles", "coiling", "grabbing"
+      ],
+      "natural_en": "Non-human tentacled creature coiling around her torso and grabbing her thighs."
+    }
+  ],
+  "tags_en": [
+    "1girl", "1other", "full body", "three-quarter view",
+    "tentacles", "tentacle sex", "bound", "spread legs",
+    "arched back", "coiling", "grabbing"
+  ],
+  "natural_en": "Three-quarter full-body view of a girl restrained by a tentacled creature coiling around her torso and legs.",
+  "prompt_zh": "斜側全身，女性後仰張腿受縛，右側非人觸手主體纏繞其腰腿。",
+  "source_hash": "<64-char sha256 from shard>"
+}
+```
 
 ---
 
@@ -207,12 +284,13 @@ For each entry in the provided JSON shard, inspect the actual image file at `/Vo
 2. Put **ONLY verified, real Danbooru tags** (written with spaces, e.g. `"standing on one leg"`, `"hand on own hip"`, `"all fours"`, `"sex from behind"`) inside `base_tags_en`, `roles[i].tags_en`, and top-level `tags_en`.
    - NEVER put full natural-language sentences or invented phrases (like `"weight on straight right leg"`, `"right hip jutted out"`, `"girl left arm around partner neck"`) inside `tags_en`. Put exact left/right anatomical details, weight distribution, and contact points inside `roles[i].natural_en`, top-level `natural_en`, and `prompt_zh` instead.
 3. Split cleanly into `base_tags_en` (for NAI `base_prompt`) and `roles` (for NAI `char_captions`):
-   - `base_tags_en`: ONLY global count/pairing (`1girl`, `1boy`, `solo`, `hetero`, `yuri`, `couple`, `ffm threesome`, `mmf threesome`), framing/focus (`full body`, `cowboy shot`, `upper body`, `lower body`, `close-up`, `foot focus`, `breast focus`, `ass focus`), camera/POV (`front view`, `side view`, `from side`, `three-quarter view`, `from behind`, `from above`, `from below`, `high angle`, `low angle`, `dutch angle`, `fisheye`, `foreshortening`, `pov`, `pov hands`, `pov crotch`), and shared multi-character interaction/position tags (`face-to-face`, `facing another`, `eye contact`, `hugging`, `hug from behind`, `straddling`, `cowgirl position`, `reverse cowgirl`, `missionary`, `doggystyle`, `sex from behind`, `spooning`, `fellatio`, `paizuri`, `footjob`, `handjob`, `double penetration`, `spitroast`).
-   - `roles`: list every visible character with females first (`girl_1`, `girl_2`, ...) followed by males (`boy_1`, `boy_2`, ...). Each role object has:
-     `{"slot": "girl_1", "gender": "girl", "center": {"x": 0.50, "y": 0.50}, "tags_en": [...], "natural_en": "..."}`.
+   - `base_tags_en`: ONLY global count/pairing (`1girl`, `1boy`, `1other`, `2others`, `solo`, `hetero`, `yuri`, `couple`, `ffm threesome`, `mmf threesome`), framing/focus (`full body`, `cowboy shot`, `upper body`, `lower body`, `close-up`, `foot focus`, `breast focus`, `ass focus`), camera/POV (`front view`, `side view`, `from side`, `three-quarter view`, `from behind`, `from above`, `from below`, `high angle`, `low angle`, `dutch angle`, `fisheye`, `foreshortening`, `pov`, `pov hands`, `pov crotch`), props/restraints/tentacles (`vibrator`, `dildo`, `sex toy`, `rope`, `bondage`, `tentacles`, `tentacle sex`), and shared multi-character interaction/position tags (`face-to-face`, `facing another`, `eye contact`, `hugging`, `hug from behind`, `straddling`, `cowgirl position`, `reverse cowgirl`, `missionary`, `doggystyle`, `sex from behind`, `spooning`, `fellatio`, `paizuri`, `footjob`, `handjob`, `double penetration`, `spitroast`).
+   - `roles`: list every visible character with females first (`girl_1`, `girl_2`, ...), males next (`boy_1`, `boy_2`, ...), and non-human/animal/monster entities last (`other_1`, `other_2`, ..., `gender: "other"`). Each role object has:
+     `{"slot": "girl_1", "gender": "girl"|"boy"|"other", "center": {"x": 0.50, "y": 0.50}, "tags_en": [...], "natural_en": "..."}`.
+   - Do NOT create a role for inanimate props (vibrator, dildo, rope) or disembodied tentacles without a distinct creature entity; put props in `base_tags_en` and recipient actions in the subject's `roles[i]`.
    - Estimate normalized torso `center` (`x`, `y` in `[0.00, 1.00]`) accurately from the image (for solo: `0.50, 0.50`; for left/right figures: avoid overlapping centers).
    - For first-person POV images (e.g. `pov`, `pov hands`), include ONLY the visible subject(s) in `roles`; NEVER create a role for the camera/viewer.
-   - Inside `roles[i].tags_en`, NEVER start any tag with subject prefixes or counts (`girl ...`, `boy ...`, `woman ...`, `man ...`, `left boy ...`, `right girl ...`, `first girl ...`, `viewer ...`, `1girl`, `1boy`, `solo`, `hetero`).
+   - Inside `roles[i].tags_en`, NEVER start any tag with subject prefixes or counts (`girl ...`, `boy ...`, `woman ...`, `man ...`, `creature ...`, `monster ...`, `animal ...`, `left boy ...`, `right girl ...`, `first girl ...`, `viewer ...`, `1girl`, `1boy`, `1other`, `2others`, `solo`, `hetero`).
 4. For explicit/NSFW/close-up categories (`足部姿态`, `手部姿态`, `口部姿态`, `肛门姿态`, `阴道姿态`, `胸部姿态`, `臀部姿态`, `捆绑姿态`, `双人NSFW`, `三人/多人NSFW`), annotate anatomically and accurately in neutral Danbooru terminology based on the visual image without euphemisms or omissions.
 5. BANNED non-pose terms in ALL English fields: style/medium (`anime`, `3d`, `sketch`, `monochrome`, `realistic`, etc.), clothing (`bikini`, `dress`, `skirt`, `shirt`, `pants`, `underwear`, `stockings`, `thighhighs`, etc.), hair/eye colors/lengths (`long hair`, `short hair`, `blonde hair`, `blue eyes`, etc.), and environment (`background`, `outdoors`, `indoors`, `bedroom`, `classroom`, `sunlight`, etc.).
 6. Output ONLY a valid JSON Array containing the updated entries (keeping the original `source_hash` verbatim).

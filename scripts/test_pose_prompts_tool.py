@@ -48,9 +48,11 @@ class ValidateSchemaV2Tests(unittest.TestCase):
         self.entry_solo = _make_source_entry("solo_001")
         self.entry_pair = _make_source_entry("pair_001", system="双人缠绵", category="立位")
         self.entry_pov = _make_source_entry("custom_pov_001", system="POV第一人称视角", category="POV视角")
+        self.entry_other = _make_source_entry("custom_other_001", system="单人局部・五官与肢体特写", category="触手互动")
+        self.entry_toy = _make_source_entry("custom_toy_001", system="单人局部・五官与肢体特写", category="玩具姿态")
         self.hashes = {
             e["id"]: ppt.compute_source_hash(e)
-            for e in (self.entry_solo, self.entry_pair, self.entry_pov)
+            for e in (self.entry_solo, self.entry_pair, self.entry_pov, self.entry_other, self.entry_toy)
         }
 
     def _valid_pair_v2(self) -> dict:
@@ -95,7 +97,12 @@ class ValidateSchemaV2Tests(unittest.TestCase):
             "woman facing left",
             "man standing",
             "viewer hands on hips",
+            "creature coiling",
+            "monster grabbing",
+            "animal mounting",
             "1girl",
+            "1other",
+            "2others",
             "solo",
             "2people",
         ]
@@ -183,6 +190,133 @@ class ValidateSchemaV2Tests(unittest.TestCase):
         }
         _, errs = ppt.validate_item("custom_pov_001", item, self.hashes)
         self.assertTrue(any("POV item must only keep viewed subjects" in e for e in errs))
+
+    def test_valid_other_role_and_ordering(self) -> None:
+        item = {
+            "base_tags_en": ["1girl", "1boy", "1other", "full body", "three-quarter view", "tentacles", "tentacle sex"],
+            "roles": [
+                {
+                    "slot": "girl_1",
+                    "gender": "girl",
+                    "center": {"x": 0.45, "y": 0.54},
+                    "tags_en": ["bound", "spread legs", "arched back"],
+                    "natural_en": "Girl bound with legs spread and back arched.",
+                },
+                {
+                    "slot": "boy_1",
+                    "gender": "boy",
+                    "center": {"x": 0.25, "y": 0.50},
+                    "tags_en": ["standing", "looking at another"],
+                    "natural_en": "Boy standing to the left looking toward her.",
+                },
+                {
+                    "slot": "other_1",
+                    "gender": "other",
+                    "center": {"x": 0.72, "y": 0.50},
+                    "tags_en": ["tentacles", "coiling", "grabbing"],
+                    "natural_en": "Non-human tentacled creature coiling around her.",
+                },
+            ],
+            "tags_en": ["1girl", "1boy", "1other", "tentacles", "tentacle sex", "bound", "coiling"],
+            "natural_en": "Girl, boy, and non-human tentacled creature.",
+            "prompt_zh": "一女一男與觸手非人角色互動。",
+            "source_hash": self.hashes["custom_other_001"],
+        }
+        clean, errs = ppt.validate_item("custom_other_001", item, self.hashes)
+        self.assertEqual(errs, [])
+        self.assertIsNotNone(clean)
+        self.assertEqual([r["slot"] for r in clean["roles"]], ["girl_1", "boy_1", "other_1"])
+
+        # Reject other before girl or boy
+        bad_order = json.loads(json.dumps(item))
+        bad_order["roles"] = [bad_order["roles"][2], bad_order["roles"][0], bad_order["roles"][1]]
+        _, order_errs = ppt.validate_item("custom_other_001", bad_order, self.hashes)
+        self.assertTrue(order_errs)
+
+        # Reject boy after other
+        bad_order2 = json.loads(json.dumps(item))
+        bad_order2["roles"] = [bad_order2["roles"][0], bad_order2["roles"][2], bad_order2["roles"][1]]
+        _, order_errs2 = ppt.validate_item("custom_other_001", bad_order2, self.hashes)
+        self.assertTrue(any("male role must appear before other roles" in e for e in order_errs2))
+
+    def test_other_count_mismatch_and_props_without_other_role(self) -> None:
+        # 1other / 2others must match other roles count
+        bad_count = {
+            "base_tags_en": ["1girl", "2others", "full body", "monster"],
+            "roles": [
+                {
+                    "slot": "girl_1",
+                    "gender": "girl",
+                    "center": {"x": 0.5, "y": 0.5},
+                    "tags_en": ["bound", "spread legs"],
+                    "natural_en": "Girl bound with legs spread.",
+                },
+                {
+                    "slot": "other_1",
+                    "gender": "other",
+                    "center": {"x": 0.7, "y": 0.5},
+                    "tags_en": ["grabbing"],
+                    "natural_en": "Monster grabbing.",
+                },
+            ],
+            "tags_en": ["1girl", "2others", "full body", "monster", "bound"],
+            "natural_en": "Girl with two monsters.",
+            "prompt_zh": "一女與兩隻魔物。",
+            "source_hash": self.hashes["custom_other_001"],
+        }
+        _, errs = ppt.validate_item("custom_other_001", bad_count, self.hashes)
+        self.assertTrue(any("disagrees with base_tags_en" in e for e in errs))
+
+        # Props / pure tentacles without 1other do NOT need an other role
+        props_item = {
+            "base_tags_en": ["1girl", "solo", "lower body", "close-up", "masturbation", "sex toy", "vibrator", "tentacles"],
+            "roles": [
+                {
+                    "slot": "girl_1",
+                    "gender": "girl",
+                    "center": {"x": 0.5, "y": 0.5},
+                    "tags_en": ["lying", "on back", "spread legs", "holding vibrator", "looking at viewer"],
+                    "natural_en": "Lying on back with legs spread holding a vibrator.",
+                }
+            ],
+            "tags_en": ["1girl", "solo", "lower body", "close-up", "masturbation", "sex toy", "vibrator", "lying", "spread legs"],
+            "natural_en": "Girl using vibrator.",
+            "prompt_zh": "單人道具互動。",
+            "source_hash": self.hashes["custom_toy_001"],
+        }
+        clean, prop_errs = ppt.validate_item("custom_toy_001", props_item, self.hashes)
+        self.assertEqual(prop_errs, [])
+        self.assertEqual(len(clean["roles"]), 1)
+
+    def test_bootstrap_v2_supports_other_and_props(self) -> None:
+        meta = self.entry_other
+        raw = {
+            "tags_en": [
+                "1girl",
+                "1other",
+                "full body",
+                "three-quarter view",
+                "tentacles",
+                "tentacle sex",
+                "girl bound",
+                "girl spread legs",
+                "creature coiling",
+                "creature grabbing",
+            ],
+            "natural_en": (
+                "Three-quarter view of a girl bound on the left with legs spread, "
+                "while a tentacled creature on the right coils around her torso."
+            ),
+            "prompt_zh": "女性與非人觸手主體互動。",
+            "source_hash": self.hashes["custom_other_001"],
+        }
+        v2 = ppt.bootstrap_item_to_v2("custom_other_001", raw, meta)
+        clean, errs = ppt.validate_item("custom_other_001", v2, self.hashes)
+        self.assertEqual(errs, [], msg=f"Unexpected errors: {errs}")
+        self.assertEqual([r["slot"] for r in clean["roles"]], ["girl_1", "other_1"])
+        self.assertEqual(clean["roles"][1]["gender"], "other")
+        self.assertEqual(clean["roles"][1]["tags_en"], ["coiling", "grabbing"])
+        self.assertLess(clean["roles"][0]["center"]["x"], clean["roles"][1]["center"]["x"])
 
 
 class BootstrapV2Tests(unittest.TestCase):
