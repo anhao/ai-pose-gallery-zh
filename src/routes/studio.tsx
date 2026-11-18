@@ -59,6 +59,7 @@ import {
 } from '@/services/aiGenerator'
 import { poseImagePath, poseThumbPath, referenceImageUrl, uploadedReferences } from '@/lib/recipeImages'
 import { useStudio } from '@/store/studioStore'
+import { getGptInputFidelity } from '@/lib/gptImageCapabilities'
 import type { RandomScope, ReferenceSlot } from '@/lib/randomRecipe'
 import { selectCostumeView } from '@/lib/costumeSources'
 import type {
@@ -129,6 +130,9 @@ function StudioPage() {
   const activeProvider = apiConfig.activeProvider
   const providerMeta = PROVIDER_META[activeProvider]
   const providerCfg = apiConfig.providers[activeProvider]
+  const gptCfg = apiConfig.providers.gpt
+  const gptModel = gptCfg.model === 'custom' ? gptCfg.customModel.trim() : gptCfg.model
+  const supportsInputFidelity = Boolean(getGptInputFidelity(gptModel, 'high') || getGptInputFidelity(gptModel, 'low'))
 
   const activeWorkflowImages = activeProvider === 'comfyui' && recipe.workflowImagesIdentity === workflowIdentity(apiConfig.comfyuiParams.workflowJson) ? Object.values(recipe.workflowImages || {}) : []
   const defaultPrompt = buildRecipePrompt(recipe, apiConfig.stylePreset, activeWorkflowImages)
@@ -1171,8 +1175,9 @@ function StudioPage() {
                         </SelectContent>
                       </Select>
                     </Field>
-                    <Field label="参考还原度 (input_fidelity)">
+                    <Field label="参考还原度 (input_fidelity)" hint={supportsInputFidelity ? undefined : '当前模型使用默认参考还原度，无需设置此参数。'}>
                       <Select
+                        disabled={!supportsInputFidelity}
                         value={apiConfig.gptParams.inputFidelity}
                         onValueChange={(v) =>
                           updateGptParams({ inputFidelity: v as GptParams['inputFidelity'] })
