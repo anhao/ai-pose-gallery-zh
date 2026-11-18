@@ -1,4 +1,6 @@
+import { generateWithPixAi, PIXAI_MODELS, type PixAiTaskHandle, type PreparedPixAiGeneration } from './pixai'
 import type { ApiConfig, ExtraReferenceImage, ImageProviderId, RecipeState } from '@/types/gallery'
+import { getGptInputFidelity } from '@/lib/gptImageCapabilities'
 import { applyWorkflowOverrides, getWorkflowImages, validateReferenceCombinations, workflowIdentity, type ComfyObjectInfo } from '@/lib/comfyWorkflowParameters'
 import { poseImagePath, referenceImageUrl } from '@/lib/recipeImages'
 import qwen2509ThreeImageWorkflow from '@/workflows/qwen_image_edit_2509_3img.api.json'
@@ -44,6 +46,8 @@ export const PROVIDER_META: Record<
     defaultBaseUrl: 'https://api.openai.com/v1',
     docUrl: 'https://platform.openai.com/docs/guides/image-generation',
     models: [
+      { value: 'gpt-image-2.6-sunburst', label: 'gpt-image-2.6-sunburst' },
+      { value: 'gpt-image-2.6-flare', label: 'gpt-image-2.6-flare' },
       { value: 'gpt-image-2.5', label: 'gpt-image-2.5' },
       { value: 'gpt-image-2.5-sunburst', label: 'gpt-image-2.5-sunburst' },
       { value: 'gpt-image-2.5-flare', label: 'gpt-image-2.5-flare' },
@@ -82,6 +86,12 @@ export const PROVIDER_META: Record<
       { value: 'doubao-seededit-3-0-i2i-250628', label: 'doubao-seededit-3-0-i2i-250628' },
       { value: 'custom', label: '自定义模型 ID / Endpoint' },
     ],
+  },
+  pixai: {
+    id: 'pixai', name: 'PixAI', shortName: 'PixAI',
+    defaultBaseUrl: 'https://api.pixai.art',
+    docUrl: 'https://platform.pixai.art/en/docs/api-v2/image/createImage',
+    models: PIXAI_MODELS,
   },
   comfyui: {
     id: 'comfyui',
@@ -1065,6 +1075,7 @@ async function uploadImageToComfy(
 }
 
 export interface ComfyTaskHandle {
+  provider?: 'comfyui'
   promptId: string
   clientId: string
   baseUrl: string
@@ -1525,7 +1536,7 @@ async function generateWithComfyUi(params: {
       throw new ComfySubmissionRejectedError(formatComfyPromptError(promptJson, workflow, promptRes.status), promptRes.status)
     }
     if (typeof promptJson?.prompt_id !== 'string' || !promptJson.prompt_id) throw new ComfySubmissionUnknownError()
-    const task: ComfyTaskHandle = { promptId: promptJson.prompt_id, clientId, baseUrl, submittedAt }
+    const task: ComfyTaskHandle = { provider: 'comfyui', promptId: promptJson.prompt_id, clientId, baseUrl, submittedAt }
     try { await params.onSubmitted?.(task) } catch {
       throw new ComfyTaskError('[ComfyUI] 任务已提交，但保存恢复记录失败。请保留任务编号后恢复，勿重复提交。', task, 'storage')
     }
@@ -1538,8 +1549,8 @@ export async function generateCharacterImage(params: {
   prompt: string
   config: ApiConfig
   onProgress?: (p: GenerationProgress) => void
-  onSubmitting?: (prepared?: PreparedComfyGeneration) => Promise<void>
-  onSubmitted?: (task: ComfyTaskHandle) => Promise<void>
+  onSubmitting?: (prepared?: PreparedComfyGeneration | PreparedPixAiGeneration) => Promise<void>
+  onSubmitted?: (task: ComfyTaskHandle | PixAiTaskHandle) => Promise<void>
   signal?: AbortSignal
 }): Promise<{ imageUrl: string; modelUsed: string; providerUsed: ImageProviderId }> {
   const { recipe, prompt, config, onProgress } = params
@@ -1550,6 +1561,8 @@ export async function generateCharacterImage(params: {
   if (provider !== 'comfyui' && !apiKey) {
     throw new Error(`请先配置 ${PROVIDER_META[provider].name} 的 API Key`)
   }
+
+  if (provider === 'pixai') return generateWithPixAi(params)
 
   const rawSources = [
     recipe.portrait && (recipe.portrait.原图 || recipe.portrait.缩略图),
@@ -1601,6 +1614,7 @@ export async function generateCharacterImage(params: {
   // =========================================================================
   if (provider === 'gpt') {
     const g = config.gptParams
+    const inputFidelity = getGptInputFidelity(model, g.inputFidelity)
     const v1 = baseUrl.endsWith('/v1') ? baseUrl : `${baseUrl}/v1`
 
     if (g.endpointMode === 'images_edits_json') {
@@ -1612,7 +1626,7 @@ export async function generateCharacterImage(params: {
       }
       if (g.size !== 'auto') payload.size = g.size
       if (g.quality !== 'auto') payload.quality = g.quality
-      if (g.inputFidelity) payload.input_fidelity = g.inputFidelity
+      if (inputFidelity) payload.input_fidelity = inputFidelity
       if (g.background !== 'auto') payload.background = g.background
       if (g.outputFormat) payload.output_format = g.outputFormat
       if (g.moderation !== 'auto') payload.moderation = g.moderation
@@ -1640,7 +1654,7 @@ export async function generateCharacterImage(params: {
       })
       if (g.size !== 'auto') fd.append('size', g.size)
       if (g.quality !== 'auto') fd.append('quality', g.quality)
-      if (g.inputFidelity) fd.append('input_fidelity', g.inputFidelity)
+      if (inputFidelity) fd.append('input_fidelity', inputFidelity)
       if (g.background !== 'auto') fd.append('background', g.background)
       if (g.outputFormat) fd.append('output_format', g.outputFormat)
       if (g.moderation !== 'auto') fd.append('moderation', g.moderation)
@@ -1665,7 +1679,7 @@ export async function generateCharacterImage(params: {
       if (g.size !== 'auto') toolCfg.size = g.size
       if (g.quality !== 'auto') toolCfg.quality = g.quality
       if (g.background !== 'auto') toolCfg.background = g.background
-      if (g.inputFidelity) toolCfg.input_fidelity = g.inputFidelity
+      if (inputFidelity) toolCfg.input_fidelity = inputFidelity
       if (g.outputFormat) toolCfg.output_format = g.outputFormat
 
       res = await smartFetch(

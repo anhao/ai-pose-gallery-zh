@@ -1,12 +1,12 @@
 import type { CostumeItem, PortraitItem, PoseItem, RecipeState } from '@/types/gallery'
 
 export function referenceImageUrl(src: string): string {
-  return /^(data:|https?:\/\/|\/)/i.test(src) ? src : `/${src}`
+  return /^(data:|blob:|https?:\/\/|\/)/i.test(src) ? src : `/${src}`
 }
 
 export function poseThumbPath(pose: PoseItem, useDepth = Boolean(pose.useDepth)): string {
   const raw = pose.缩略图
-  if (pose.source === 'upload' || !useDepth || /^(data:|https?:\/\/)/i.test(raw)) return raw
+  if (pose.source === 'upload' || !useDepth || /^(data:|blob:|https?:\/\/)/i.test(raw)) return raw
   const clean = raw.replace(/^\/+/, '')
   if (clean.startsWith('thumbs/depth/')) return raw
   if (clean.startsWith('thumbs/')) {
@@ -17,7 +17,7 @@ export function poseThumbPath(pose: PoseItem, useDepth = Boolean(pose.useDepth))
 
 export function poseImagePath(pose: PoseItem, useDepth = Boolean(pose.useDepth)): string {
   const raw = pose.原图 || pose.缩略图
-  if (pose.source === 'upload' || !useDepth || /^(data:|https?:\/\/)/i.test(raw)) return raw
+  if (pose.source === 'upload' || !useDepth || /^(data:|blob:|https?:\/\/)/i.test(raw)) return raw
   const clean = raw.replace(/^\/+/, '')
   if (clean.startsWith('img/depth/')) return raw
   if (clean.startsWith('img/')) {
