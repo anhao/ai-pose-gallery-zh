@@ -291,19 +291,22 @@
   "id": "door_gap_prone_sex_side",
   "category": "06_pov_special_cameras",
   "subcategory": "偷窺遮擋與敘事前景",
-  "title_zh": "門縫窺見俯趴壓背・側面全身",
+  "title_zh": "門縫窺見俯趴後入・門框前景・側面",
   "pattern": "geometry_dispatch",
   "default_canvas": "3:4",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
-   "full body",
    "side view",
    "from side",
-   "door",
-   "peeking"
+   "pov doorway",
+   "doorway",
+   "open door",
+   "blurry foreground"
   ],
   "shared_pose_tags": [
+   "voyeurism",
+   "peeking",
    "prone bone",
    "sex from behind"
   ],
@@ -312,8 +315,8 @@
     "label_zh": "承受方（左側俯趴在床上）",
     "requires": "pussy",
     "center": {
-     "x": 0.46,
-     "y": 0.62
+     "x": 0.56,
+     "y": 0.64
     },
     "tags": [
      "lying",
@@ -328,8 +331,8 @@
     "label_zh": "施與方（右側跪姿壓背扶胯）",
     "requires": "penis_or_strapon_or_nonhuman",
     "center": {
-     "x": 0.7,
-     "y": 0.52
+     "x": 0.78,
+     "y": 0.54
     },
     "tags": [
      "kneeling",
@@ -382,8 +385,8 @@
     "giver": []
    }
   },
-  "natural_en": "Full-body side view seen through a narrow gap in a door: a door panel fills the left edge of the frame, and through the opening a receiver lies face down on the left with legs spread and back arched, looking back, while a giver kneels behind on the right, leaning forward and gripping the receiver's hips.",
-  "prompt_zh": "側面全身、門縫偷窺視角：門板佔據畫面左緣，僅透過門縫看見房內一對人；承受方居左俯趴在床上張腿拱腰回頭，施與方居右跪於身後前傾扶胯。"
+  "natural_en": "Voyeur view through a half-open doorway: the blurred door edge and frame fill the left third of the foreground, and through the gap the receiver lies face down on the bed in the middle of the frame while the giver kneels behind on the right, leaning over the receiver's back and gripping the hips.",
+  "prompt_zh": "門縫偷窺：半開的門邊與門框模糊地佔據畫面左側前景，從門縫看進去，承受方俯趴在床上居中，施與方跪在右後方前傾壓背扶胯。"
  },
  {
   "id": "voyeur_window_frame_lying_front",

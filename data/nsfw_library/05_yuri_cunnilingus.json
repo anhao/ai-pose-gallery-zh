@@ -274,7 +274,7 @@
   "id": "tribadism_side_lying_scissoring_side",
   "category": "05_yuri_cunnilingus",
   "subcategory": "雙女磨豆腐 tribadism",
-  "title_zh": "側臥剪刀式磨豆腐・側面全身",
+  "title_zh": "側臥剪刀式磨豆腐・下體相貼・側面全身",
   "pattern": "organ_bound",
   "default_canvas": "3:4",
   "default_facing": "left",
@@ -286,40 +286,41 @@
   ],
   "shared_pose_tags": [
    "tribadism",
-   "sex"
+   "crotch rub"
   ],
   "slots": {
    "partner_a": {
     "label_zh": "左方（側臥面向對方）",
     "requires": "pussy",
     "center": {
-     "x": 0.38,
-     "y": 0.58
+     "x": 0.42,
+     "y": 0.6
     },
     "tags": [
      "lying",
      "on side",
-     "spread legs",
+     "leg up",
+     "leg between thighs",
      "arched back",
      "looking at another"
     ],
-    "natural_en": "Lying on her side on the left, facing the partner, with legs spread and crossed over the partner's hips, back arched, looking at the partner."
+    "natural_en": "Lying on her side with her head toward the left edge, one leg raised and hooked over the partner's hip, the other leg slid between the partner's thighs so their crotches press together, back arched, looking at the partner."
    },
    "partner_b": {
     "label_zh": "右方（側臥面向對方）",
     "requires": "pussy",
     "center": {
-     "x": 0.64,
-     "y": 0.58
+     "x": 0.58,
+     "y": 0.6
     },
     "tags": [
      "lying",
      "on side",
+     "leg between thighs",
      "spread legs",
-     "legs up",
      "looking at another"
     ],
-    "natural_en": "Lying on her side on the right, facing the partner, with legs spread and crossed over the partner's hips, one leg raised over the partner, looking at the partner."
+    "natural_en": "Lying on her side with her head toward the right edge, legs open with one leg between the partner's thighs, crotch pressed against the partner's crotch, looking at the partner."
    }
   },
   "pairing_tags": {
@@ -331,8 +332,8 @@
     ]
    }
   },
-  "natural_en": "Full-body side view of tribadism: two women lie on their sides facing each other, legs spread and scissored together with hips pressed close, both looking at each other.",
-  "prompt_zh": "側面全身磨豆腐：雙女側臥面對面，雙腿張開交疊剪刀式相扣、臀部相貼，互相注視對方。"
+  "natural_en": "Full-body side view of scissoring tribadism: two women lie on their sides with heads at opposite ends, legs interlocked so that each has a leg between the other's thighs and their crotches press and grind together at the center of the frame.",
+  "prompt_zh": "側面全身剪刀式磨豆腐：雙女側臥、頭朝相反方向，雙腿交叉相扣、各有一腿夾在對方兩腿間，下體在畫面中央相貼磨蹭。"
  },
  {
   "id": "yuri_tribadism_prone_on_top_side",
