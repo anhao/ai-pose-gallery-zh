@@ -1,0 +1,1340 @@
+[
+ {
+  "id": "solo_lying_raised_legs_soles_closeup",
+  "category": "01_solo_closeup",
+  "subcategory": "足部特寫",
+  "title_zh": "仰躺抬腳・腳底對鏡頭特寫",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "close-up",
+   "from below"
+  ],
+  "shared_pose_tags": [
+   "foot focus",
+   "presenting foot",
+   "soles"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（仰躺抬腳展示腳底）",
+    "requires": "any",
+    "center": {
+     "x": 0.5,
+     "y": 0.42
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "legs up"
+    ],
+    "natural_en": "Lying on the back with both legs raised toward the camera and feet pointed, presenting both soles in a close foreground view."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "A low-angle closeup of an adult subject lying on their back with legs raised toward the camera, feet pointed and both soles presented in the foreground.",
+  "prompt_zh": "低角度近距離特寫：仰躺者雙腿朝鏡頭上舉、腳尖朝前，兩隻腳底在前景對準鏡頭。"
+ },
+ {
+  "id": "pos_solo_sitting_soles_foreshortening",
+  "category": "01_solo_closeup",
+  "subcategory": "足部與腳底純展示",
+  "title_zh": "坐姿雙腳底貼近鏡頭・透視特寫",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "foreshortening",
+   "close-up",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "presenting foot",
+   "foot focus",
+   "soles"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（坐姿雙腳底貼近鏡頭）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "sitting",
+     "legs up",
+     "feet up",
+     "soles",
+     "looking at viewer"
+    ],
+    "natural_en": "Sitting with both legs raised toward the camera, knees bent, the soles of both feet turned toward the viewer and brought close to the lens, looking at the viewer."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Close-up foreshortened view of a seated adult woman holding both legs up toward the camera, the soles of both feet filling the foreground and facing the viewer, knees bent and feet close to the lens.",
+  "prompt_zh": "坐姿雙腳底貼近鏡頭透視特寫：坐著雙腿抬起，雙腳底朝向鏡頭貼近，腳底與腳趾清晰可見。"
+ },
+ {
+  "id": "pos_solo_prone_legs_up_soles",
+  "category": "01_solo_closeup",
+  "subcategory": "足部與腳底純展示",
+  "title_zh": "俯趴曲膝翹雙腳・腳底展示",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "back",
+  "mirrorable": true,
+  "camera_tags": [
+   "from behind",
+   "full body"
+  ],
+  "shared_pose_tags": [
+   "presenting foot",
+   "foot focus",
+   "soles"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（俯趴曲膝翹腳）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "lying",
+     "on stomach",
+     "legs up",
+     "feet up",
+     "looking back"
+    ],
+    "natural_en": "Lying face down on the stomach with knees bent and both lower legs raised up behind, soles turned toward the camera, looking back over the shoulder."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Full-body view from behind of an adult woman lying face down with knees bent and both feet raised up, soles presented toward the camera, looking back.",
+  "prompt_zh": "背面全身俯趴：曲膝翹起雙腳，腳底朝向鏡頭展示，回頭看向鏡頭。"
+ },
+ {
+  "id": "pos_solo_sitting_leg_up_arch_focus",
+  "category": "01_solo_closeup",
+  "subcategory": "足部與腳底純展示",
+  "title_zh": "坐姿單腿高抬・足弓展示",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "close-up",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "presenting foot",
+   "foot focus",
+   "soles"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（坐姿單腿高抬展示足弓）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "sitting",
+     "leg up",
+     "barefoot",
+     "toes",
+     "looking at viewer"
+    ],
+    "natural_en": "Sitting with one leg raised high toward the camera, the raised foot turned to show the sole and the curve of the arch, the other leg folded beneath the body, looking at the viewer."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Close-up front view of a seated adult woman raising one leg high to present the sole and arch of her bare foot toward the camera.",
+  "prompt_zh": "坐姿單腿高抬足弓特寫：坐著將一條腿高高抬起向鏡頭，展示腳底與足弓曲線，另一條腿收在身下，赤足，看向鏡頭。"
+ },
+ {
+  "id": "pos_solo_bed_edge_single_leg_forward_soles",
+  "category": "01_solo_closeup",
+  "subcategory": "足部與腳底純展示",
+  "title_zh": "坐床緣伸單腳向前・腳底展示",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "close-up",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "presenting foot",
+   "foot focus",
+   "soles"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（坐床緣伸單腳向前展示腳底）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "sitting",
+     "on bed",
+     "leg up",
+     "barefoot",
+     "soles",
+     "looking at viewer"
+    ],
+    "natural_en": "Sitting on the edge of the bed with one leg extended straight forward toward the viewer, the bare sole facing the camera, while the other leg stays bent down with the foot resting on the floor."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Close-up front view of a woman sitting on the edge of the bed, one bare leg extended straight forward with the sole facing the viewer, the other leg bent down.",
+  "prompt_zh": "坐床緣伸單腳向前展示腳底：單腿伸直朝向鏡頭，腳底正對觀者，另一腿屈膝垂下踩地。"
+ },
+ {
+  "id": "pos_solo_seiza_soles_back_view",
+  "category": "01_solo_closeup",
+  "subcategory": "足部與腳底純展示",
+  "title_zh": "跪坐後視腳底展示",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "back",
+  "mirrorable": true,
+  "camera_tags": [
+   "close-up",
+   "from behind"
+  ],
+  "shared_pose_tags": [
+   "presenting foot",
+   "foot focus",
+   "soles"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（跪坐背對鏡頭展示腳底）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "kneeling",
+     "seiza",
+     "barefoot",
+     "soles",
+     "looking back"
+    ],
+    "natural_en": "Kneeling in seiza with legs folded beneath the body, back to the camera, bare soles turned toward the viewer, looking back over the shoulder."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Close-up rear view of a woman kneeling in seiza, back to the camera, presenting the bare soles of her feet toward the viewer while looking back over her shoulder.",
+  "prompt_zh": "後視近景跪坐展示腳底：背對鏡頭跪坐，雙足併攏藏於身下、腳底朝向鏡頭，回頭看向觀者。"
+ },
+ {
+  "id": "pos_solo_standing_low_angle_soles",
+  "category": "01_solo_closeup",
+  "subcategory": "足部與腳底純展示",
+  "title_zh": "低角仰視立姿・腳底展示",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "from below",
+   "full body"
+  ],
+  "shared_pose_tags": [
+   "presenting foot",
+   "foot focus",
+   "soles"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（立姿低角展示腳底）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "standing",
+     "leg up",
+     "barefoot",
+     "soles",
+     "toes",
+     "looking down"
+    ],
+    "natural_en": "Standing with one bare leg raised toward the camera, sole facing the viewer, toes visible, looking down toward the camera."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Low-angle full-body view from below of a standing adult woman lifting one bare foot toward the camera to show the sole, looking down toward the viewer.",
+  "prompt_zh": "低角度仰視全身立姿：主體站立抬起一隻赤足朝向鏡頭展示腳底，低頭看向鏡頭。"
+ },
+ {
+  "id": "pos_solo_crosslegged_holding_ankle_soles",
+  "category": "01_solo_closeup",
+  "subcategory": "足部與腳底純展示",
+  "title_zh": "盤坐自捧足踝・腳底展示",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "close-up",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "presenting foot",
+   "foot focus",
+   "soles"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（盤坐自捧足踝展示腳底）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "sitting",
+     "leg up",
+     "holding own foot",
+     "barefoot",
+     "soles",
+     "toes",
+     "looking at viewer"
+    ],
+    "natural_en": "Sitting cross-legged facing the camera, holding one bare foot up by the ankle with both hands to present the sole toward the viewer, toes visible, looking at the viewer."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Close-up front view of a seated adult woman sitting cross-legged, holding one foot up by the ankle with both hands to present the bare sole toward the camera.",
+  "prompt_zh": "正面近景盤坐展示腳底：主體盤腿坐姿，雙手捧起一隻腳踝將腳底朝向鏡頭，赤足、腳趾可見，看向鏡頭。"
+ },
+ {
+  "id": "pos_solo_crouching_toes_extreme_closeup",
+  "category": "01_solo_closeup",
+  "subcategory": "足部與腳底純展示",
+  "title_zh": "蹲姿雙足趾尖極近特寫",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "close-up",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "foot focus",
+   "toes",
+   "barefoot"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（蹲姿雙足趾尖貼近鏡頭）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "squatting",
+     "on floor",
+     "barefoot",
+     "toes"
+    ],
+    "natural_en": "Crouching low on the floor with both bare feet in the extreme foreground, the balls of the feet and toes pressed against the surface with heels lifted, toes spread and curled slightly, the rest of the body falling away behind the feet."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Extreme close-up of both bare feet in a low crouch: the balls of the feet and toes fill the foreground, pressed against the floor with heels lifted, with the rest of the body falling away behind them.",
+  "prompt_zh": "雙足趾尖極近特寫：蹲姿低伏，雙足前腳掌與腳趾貼地、腳跟抬起，趾尖撐開佔滿前景，身體退到後方。"
+ },
+ {
+  "id": "pos_solo_lying_back_spread_legs_display",
+  "category": "01_solo_closeup",
+  "subcategory": "撩人全身／半身展示",
+  "title_zh": "仰躺開腿展示",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "spread legs"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（仰躺開腿展示）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs",
+     "knees up",
+     "looking at viewer"
+    ],
+    "natural_en": "Lying on her back in the center of the frame with knees raised and legs spread wide apart, looking at the viewer."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Full-body front view of a woman lying on her back with knees raised and legs spread wide, looking at the viewer.",
+  "prompt_zh": "全身正面仰躺開腿展示：屈膝張腿，望向鏡頭。"
+ },
+ {
+  "id": "pos_solo_kneeling_leaning_forward_display",
+  "category": "01_solo_closeup",
+  "subcategory": "撩人全身／半身展示",
+  "title_zh": "跪坐前傾展示",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "kneeling",
+   "leaning forward"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（跪坐前傾展示）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "kneeling",
+     "seiza",
+     "leaning forward",
+     "looking at viewer"
+    ],
+    "natural_en": "Kneeling in seiza in the center of the frame, leaning forward with her chest pushed forward and both hands resting on her thighs, looking at the viewer."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Full-body front view of a woman kneeling in seiza in the center of the frame, leaning forward with her chest pushed forward and hands resting on her thighs, looking at the viewer.",
+  "prompt_zh": "正面全身跪坐前傾展示：主體居中跪坐，前傾挺胸、雙手扶住大腿，看向鏡頭。"
+ },
+ {
+  "id": "pos_solo_prone_ass_up_display",
+  "category": "01_solo_closeup",
+  "subcategory": "撩人全身／半身展示",
+  "title_zh": "俯趴翹臀展示",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "back",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from behind"
+  ],
+  "shared_pose_tags": [
+   "ass focus"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（俯趴翹臀展示）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "lying",
+     "on stomach",
+     "ass up",
+     "arched back",
+     "looking back"
+    ],
+    "natural_en": "Lying prone in the center of the frame with hips raised high and back deeply arched, head turned to look back toward the viewer."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Full-body rear view of a woman lying prone with hips raised high and back arched, looking back toward the viewer.",
+  "prompt_zh": "全身後視俯趴翹臀展示，趴伏於畫面中央並高高翹起臀部，腰背深深拱起，回頭看向鏡頭。"
+ },
+ {
+  "id": "pos_solo_standing_bent_over_looking_back",
+  "category": "01_solo_closeup",
+  "subcategory": "撩人全身／半身展示",
+  "title_zh": "站姿彎腰回眸",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "back",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from behind"
+  ],
+  "shared_pose_tags": [
+   "bent over",
+   "ass focus"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（站姿彎腰回眸）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "standing",
+     "bent over",
+     "arched back",
+     "looking back"
+    ],
+    "natural_en": "Standing with her back to the viewer, bent forward at the waist with an arched back and hips raised, looking back over her shoulder toward the camera."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Full-body rear view of a standing woman bent forward at the waist with an arched back, looking back over her shoulder toward the viewer.",
+  "prompt_zh": "全身後視站姿彎腰回眸：背對鏡頭彎腰前傾、塌腰挺臀，回頭看向鏡頭。"
+ },
+ {
+  "id": "pos_solo_side_lying_curve_display",
+  "category": "01_solo_closeup",
+  "subcategory": "撩人全身／半身展示",
+  "title_zh": "側臥展現曲線",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "lying",
+   "hip focus"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（側臥展現曲線）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "lying",
+     "on side",
+     "arched back",
+     "leg up",
+     "looking at viewer"
+    ],
+    "natural_en": "Lying on her side in the center of the frame, back arched to show the curve of waist and hips, top leg bent and raised, head turned toward the viewer."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Full-body front view of a woman lying on her side, back arched, top leg raised, looking at the viewer, the curve of her waist and hips on display.",
+  "prompt_zh": "正面全身側臥：主體側躺居中、塌腰展現腰臀曲線，上方腿屈起抬高，轉頭看向鏡頭。"
+ },
+ {
+  "id": "pos_solo_standing_arms_behind_head_armpit_display",
+  "category": "01_solo_closeup",
+  "subcategory": "腋下展示",
+  "title_zh": "雙手抱腦後・腋下展示",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "presenting armpit"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（站姿雙手抱腦後展示腋下）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "standing",
+     "arms behind head",
+     "looking at viewer"
+    ],
+    "natural_en": "Standing in the center of the frame facing the viewer with both arms raised and hands clasped behind the head, elbows spread wide to present both armpits."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Front full-body view of an adult woman standing with both hands clasped behind her head and elbows spread wide, presenting her armpits to the viewer.",
+  "prompt_zh": "正面全身：站姿雙手抱腦後、手肘向外張開，展示腋下。"
+ },
+ {
+  "id": "pos_solo_standing_one_arm_raised_side_armpit_display",
+  "category": "01_solo_closeup",
+  "subcategory": "腋下展示",
+  "title_zh": "單手高舉側身・腋下展示",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view"
+  ],
+  "shared_pose_tags": [
+   "presenting armpit"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（站姿側身單手高舉展示腋下）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "standing",
+     "arm up",
+     "looking at viewer"
+    ],
+    "natural_en": "Standing in profile in the center of the frame with one arm raised above the head, exposing the armpit, the other arm resting relaxed at the side, looking at the viewer."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of a woman standing in profile in the center of the frame, one arm raised above her head to present the armpit, looking at the viewer.",
+  "prompt_zh": "側面全身：站姿側身居中，單手高舉過頭展示腋下，另一手自然垂放，看向鏡頭。"
+ },
+ {
+  "id": "pos_solo_prone_arm_raised_armpit_display",
+  "category": "01_solo_closeup",
+  "subcategory": "腋下展示",
+  "title_zh": "趴臥抬臂・腋下展示",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "presenting armpit"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（俯趴抬臂展示腋下）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "lying",
+     "on stomach",
+     "arm up",
+     "arched back",
+     "looking at viewer"
+    ],
+    "natural_en": "Lying prone in the center of the frame with one arm raised up beside the head, back slightly arched, exposing the armpit, looking at the viewer."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Full-body front view of a woman lying prone with one arm raised up beside her head, presenting her armpit to the viewer.",
+  "prompt_zh": "正面全身俯趴展示：主體俯臥中央，單臂高舉貼近頭側露出腋下，微拱背並看向鏡頭。"
+ },
+ {
+  "id": "pos_solo_sitting_back_looking_back",
+  "category": "01_solo_closeup",
+  "subcategory": "美背與腰臀大腿線條展示",
+  "title_zh": "背對坐姿回眸",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "back",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from behind"
+  ],
+  "shared_pose_tags": [
+   "ass focus",
+   "hip focus"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（背對坐姿回眸）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "sitting",
+     "arched back",
+     "looking back"
+    ],
+    "natural_en": "Sitting with her back to the viewer, back arched to show the line from shoulders through waist, hips and thighs, turning to look back over her shoulder."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Full-body view from behind of a seated adult woman with her back to the viewer, arched to show the curve of her back, waist, hips and thighs, looking back over her shoulder.",
+  "prompt_zh": "背面全身坐姿回眸：背對鏡頭坐著，塌腰展現背部、腰臀與大腿線條，回頭看向鏡頭。"
+ },
+ {
+  "id": "pos_solo_standing_back_waist_hip_curve",
+  "category": "01_solo_closeup",
+  "subcategory": "美背與腰臀大腿線條展示",
+  "title_zh": "站姿背腰臀曲線",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "back",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from behind"
+  ],
+  "shared_pose_tags": [
+   "ass focus",
+   "hip focus"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（站姿背對展示背腰臀曲線）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "standing",
+     "arched back",
+     "looking back"
+    ],
+    "natural_en": "Standing with her back to the viewer in the center of the frame, back arched to show the curve from shoulders through waist to hips and thighs, head turned to look back over her shoulder."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Full-body rear view of a standing adult woman with her back to the viewer, back arched to emphasize the curve of her back, waist, hips and thighs, looking back over her shoulder.",
+  "prompt_zh": "全身背後站姿：背對鏡頭站立，塌腰挺臀展現背、腰、臀與大腿曲線，回頭望向鏡頭。"
+ },
+ {
+  "id": "pos_solo_sitting_thigh_closeup",
+  "category": "01_solo_closeup",
+  "subcategory": "美背與腰臀大腿線條展示",
+  "title_zh": "坐姿大腿特寫",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "back",
+  "mirrorable": true,
+  "camera_tags": [
+   "cowboy shot",
+   "from behind"
+  ],
+  "shared_pose_tags": [
+   "thigh focus",
+   "hip focus"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（背對鏡頭坐椅雙腿交疊展示大腿線條）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "sitting",
+     "on chair",
+     "crossed legs",
+     "arched back",
+     "looking back"
+    ],
+    "natural_en": "Sitting on a chair with her back to the viewer, back arched, legs crossed to show the curve of the thigh and hip, looking back over her shoulder."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Cowboy shot from behind of a seated adult woman on a chair with an arched back and crossed legs, showing the curve of the thigh and hip, looking back over her shoulder.",
+  "prompt_zh": "背面腰臀大腿坐姿特寫：主體背對鏡頭坐在椅上、塌腰拱背，雙腿交疊展示大腿與臀部線條並回頭。"
+ },
+ {
+  "id": "pos_solo_bent_over_back_view_thigh_hip_line",
+  "category": "01_solo_closeup",
+  "subcategory": "美背與腰臀大腿線條展示",
+  "title_zh": "彎腰後視大腿與臀線",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "back",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from behind"
+  ],
+  "shared_pose_tags": [
+   "ass focus",
+   "hip focus",
+   "thigh focus"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（後視弓步前膝彎曲展示臀腿線條）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "standing",
+     "bent over",
+     "arched back",
+     "ass up",
+     "looking back"
+    ],
+    "natural_en": "Standing in a lunge with her back to the viewer, front knee deeply bent with her weight on the front leg and the back leg extended straight behind her, back arched and hips pushed back to show the line of the thighs and hips, head turned to look back toward the viewer."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Full-body rear view of a woman in a lunge, front knee deeply bent with her weight on the front leg and the back leg extended straight behind her, back arched and hips pushed back to show the line of the thighs and hips, looking back toward the viewer.",
+  "prompt_zh": "後視弓步全身：背對鏡頭弓步站立，前膝彎曲、重心落在前腿，後腿向後伸直，塌腰挺臀展示大腿與臀部線條並回頭看向鏡頭。"
+ },
+ {
+  "id": "pos_solo_standing_lean_forward_chest_closeup",
+  "category": "01_solo_closeup",
+  "subcategory": "胸部特寫展示",
+  "title_zh": "站姿前傾・胸部特寫",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "upper body",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "breast focus"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（站姿前傾展示胸部）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "standing",
+     "leaning forward",
+     "arms behind back",
+     "looking at viewer"
+    ],
+    "natural_en": "Standing in the center of the frame leaning forward toward the viewer with both arms held behind the back, chest pushed forward and clearly in focus, looking at the viewer."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Upper-body front view of a standing adult woman leaning forward toward the viewer with her arms behind her back, chest in close focus.",
+  "prompt_zh": "上半身正面胸部特寫：站姿前傾貼近鏡頭，雙手背在身後，胸部向前挺出並清晰對焦。"
+ },
+ {
+  "id": "pos_solo_lying_arched_chest_closeup",
+  "category": "01_solo_closeup",
+  "subcategory": "胸部特寫展示",
+  "title_zh": "仰躺拱背・胸部特寫",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "upper body",
+   "from above"
+  ],
+  "shared_pose_tags": [
+   "breast focus"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（仰躺拱背展示胸部）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "arched back",
+     "arms behind head",
+     "looking at viewer"
+    ],
+    "natural_en": "Lying on her back in the center of the frame, back arched to lift the chest toward the camera, arms tucked behind the head, looking at the viewer."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "High-angle upper-body view of a woman lying on her back with an arched back, chest lifted toward the camera, arms behind her head.",
+  "prompt_zh": "高角度上半身胸部特寫：仰躺拱背將胸部挺向鏡頭，雙手枕於腦後、看向鏡頭。"
+ },
+ {
+  "id": "pos_solo_kneeling_upright_chest_closeup",
+  "category": "01_solo_closeup",
+  "subcategory": "胸部特寫展示",
+  "title_zh": "跪姿挺胸・胸部特寫",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "upper body",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "breast focus"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（跪姿挺胸展示胸部）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "kneeling",
+     "arched back",
+     "arms behind back",
+     "looking at viewer"
+    ],
+    "natural_en": "Kneeling upright in the center of the frame, chest pushed forward with back arched, both arms held behind the back, looking at the viewer."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Front upper-body view of a kneeling adult woman with chest pushed forward, back arched and arms held behind her back.",
+  "prompt_zh": "正面半身胸部特寫：跪姿挺胸、拱背，雙手背於身後看向鏡頭。"
+ },
+ {
+  "id": "pos_solo_allfours_ass_closeup",
+  "category": "01_solo_closeup",
+  "subcategory": "臀部特寫展示",
+  "title_zh": "四肢著地挺臀・臀部特寫",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "back",
+  "mirrorable": true,
+  "camera_tags": [
+   "close-up",
+   "from behind"
+  ],
+  "shared_pose_tags": [
+   "ass focus",
+   "hip focus"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（四肢著地挺臀展示臀部）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "all fours",
+     "arched back",
+     "ass up",
+     "looking back"
+    ],
+    "natural_en": "On all fours in the center of the frame with her back to the viewer, back deeply arched and hips raised high toward the camera, both hands flat on the surface, looking back over her shoulder."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Close-up view from behind of an adult woman on all fours in the center of the frame, back arched with hips raised high toward the camera, looking back over her shoulder.",
+  "prompt_zh": "後視近景臀部特寫：主體居中四肢著地、塌腰挺臀向鏡頭，雙手撐地並回頭。"
+ },
+ {
+  "id": "pos_solo_crouching_ass_closeup",
+  "category": "01_solo_closeup",
+  "subcategory": "臀部特寫展示",
+  "title_zh": "深蹲翹臀・臀部特寫",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "back",
+  "mirrorable": true,
+  "camera_tags": [
+   "close-up",
+   "from behind"
+  ],
+  "shared_pose_tags": [
+   "ass focus",
+   "hip focus"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（深蹲翹臀展示臀部）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "crouching",
+     "arched back",
+     "ass up",
+     "looking back"
+    ],
+    "natural_en": "Crouching low in the center of the frame with her back to the viewer, knees deeply bent and back arched with hips raised toward the camera, looking back over her shoulder."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Close-up rear view of a crouching adult woman with her back to the viewer, back arched and hips raised toward the camera, looking back.",
+  "prompt_zh": "後視臀部特寫：深蹲屈膝、塌腰挺臀朝向鏡頭並回頭。"
+ },
+ {
+  "id": "pos_solo_crouching_spread_pussy_closeup",
+  "category": "01_solo_closeup",
+  "subcategory": "私處展示特寫",
+  "title_zh": "蹲姿大開腿・私處特寫",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "close-up",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "pussy focus"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（蹲姿大開腿展示私處）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "crouching",
+     "spread legs",
+     "knees up",
+     "arched back",
+     "looking at viewer"
+    ],
+    "natural_en": "Crouching low in the center of the frame with legs spread wide and knees bent outward, back arched, looking at the viewer while presenting her pussy toward the camera."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Close-up front view of a squatting adult woman in the center of the frame with legs spread wide and knees raised, back arched, looking at the viewer, presenting her pussy to the camera.",
+  "prompt_zh": "正面近拍特寫：蹲姿居中大開腿、屈膝外張並拱腰，面向鏡頭展示私處。"
+ },
+ {
+  "id": "pos_solo_kneeling_tongue_closeup",
+  "category": "01_solo_closeup",
+  "subcategory": "口舌特寫",
+  "title_zh": "跪姿前傾・口舌特寫",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "close-up",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "tongue out",
+   "mouth focus"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（跪姿前傾口舌特寫）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "tongue out",
+     "open mouth",
+     "looking at viewer"
+    ],
+    "natural_en": "Kneeling upright in the center of the frame, leaning slightly forward toward the camera with mouth open and tongue extended, looking at the viewer."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Close-up front view of a kneeling adult woman leaning forward, mouth open with tongue extended toward the camera.",
+  "prompt_zh": "正面口舌特寫：跪姿前傾貼近鏡頭，張口伸舌，注視觀者。"
+ },
+ {
+  "id": "pos_solo_lying_tongue_closeup",
+  "category": "01_solo_closeup",
+  "subcategory": "口舌特寫",
+  "title_zh": "仰躺後仰・口舌特寫",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "close-up",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "tongue out",
+   "mouth focus"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（仰躺後仰口舌特寫）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "head back",
+     "tongue out",
+     "open mouth"
+    ],
+    "natural_en": "Lying on her back in the center of the frame with her head tilted back, mouth open and tongue out toward the camera."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Close-up front view of a woman lying on her back with her head tilted back, mouth open and tongue extended toward the camera.",
+  "prompt_zh": "仰躺後仰口舌特寫，頭向後仰張口伸舌對鏡頭。"
+ },
+ {
+  "id": "solo_sitting_spread_pussy_closeup",
+  "category": "01_solo_closeup",
+  "subcategory": "私處展示特寫",
+  "title_zh": "坐姿開腿・私處特寫・正面",
+  "pattern": "solo_or_pov",
+  "default_canvas": 184,
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "close-up",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "pussy focus"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（坐姿開腿展示私處）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.5,
+     "y": 0.52
+    },
+    "tags": [
+     "sitting",
+     "spread legs",
+     "knees up",
+     "arched back",
+     "looking at viewer"
+    ],
+    "natural_en": "Sitting in the center of the frame with legs spread wide and knees raised, leaning back on both hands, back arched, looking at the viewer while presenting her pussy toward the camera."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Close-up front view of a sitting adult woman in the center of the frame with legs spread wide and knees raised, leaning back on her hands with an arched back, looking at the viewer and presenting her pussy to the camera.",
+  "prompt_zh": "正面近拍特寫：坐姿居中大開腿、屈膝外張，雙手撐地後仰並拱腰，面向鏡頭展示私處。"
+ }
+]

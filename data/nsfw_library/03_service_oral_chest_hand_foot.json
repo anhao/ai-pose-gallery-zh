@@ -1,0 +1,1761 @@
+[
+ {
+  "id": "pos_fellatio_kneeling_upward_stand",
+  "category": "03_service_oral_chest_hand_foot",
+  "subcategory": "口交",
+  "title_zh": "站立張腿跪姿仰望口交・側面",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "fellatio",
+   "oral"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（站立張腿）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.38,
+     "y": 0.42
+    },
+    "tags": [
+     "standing",
+     "legs apart",
+     "hand on another's head",
+     "looking down"
+    ],
+    "natural_en": "Standing on the left side of the frame with legs apart, looking down at the kneeling partner, one hand resting on the partner's head."
+   },
+   "giver": {
+    "label_zh": "施與方（跪姿仰望）",
+    "requires": "any",
+    "center": {
+     "x": 0.62,
+     "y": 0.72
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "hands on another's thighs",
+     "tongue out",
+     "looking up"
+    ],
+    "natural_en": "Kneeling between the partner's parted legs on the right side of the frame, leaning in with both hands on the thighs and looking up."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of standing fellatio: the receiver stands on the left with legs apart and one hand on the giver's head, while the giver kneels between the legs on the right, looking up.",
+  "prompt_zh": "側面全身站立口交：承受方居左站立張腿、一手扶對方頭部並低視；施與方居右跪於腿間，雙手扶大腿並仰望。"
+ },
+ {
+  "id": "paizuri_front_kneeling_facing_viewer",
+  "category": "03_service_oral_chest_hand_foot",
+  "subcategory": "乳交",
+  "title_zh": "正面跪姿乳交・面向鏡頭俯身夾住",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "front view",
+   "from above"
+  ],
+  "shared_pose_tags": [
+   "paizuri",
+   "between breasts"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（仰躺張腿）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.5,
+     "y": 0.32
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs",
+     "knees up",
+     "looking up"
+    ],
+    "natural_en": "Lying on the back with legs spread wide and knees raised, head toward the top of the frame and looking up toward the giver."
+   },
+   "giver": {
+    "label_zh": "施與方（跪於大腿上俯身托胸）",
+    "requires": "breasts",
+    "center": {
+     "x": 0.5,
+     "y": 0.68
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "breasts squeezed together",
+     "looking down"
+    ],
+    "natural_en": "Kneeling astride the partner's thighs and facing the viewer, leaning forward with both hands squeezing the breasts together around the penis, looking down at the contact point."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ],
+    "receiver": [
+     "strap-on"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   }
+  },
+  "natural_en": "Front view of paizuri: the receiver lies on the back with legs spread wide and knees raised, while the giver kneels astride the thighs facing the viewer, leaning forward with both hands squeezing the breasts together around the penis.",
+  "prompt_zh": "正面乳交：承受方仰躺張腿、屈膝；施與方跪於大腿上、面向鏡頭俯身，雙手托胸夾住對方下體。"
+ },
+ {
+  "id": "pos_oral_deepthroat_sitting_front",
+  "category": "03_service_oral_chest_hand_foot",
+  "subcategory": "口部侍奉 fellatio",
+  "title_zh": "坐姿張腿深喉・正面",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "fellatio",
+   "deepthroat",
+   "oral"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（坐姿張腿）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.5,
+     "y": 0.4
+    },
+    "tags": [
+     "sitting",
+     "spread legs",
+     "knees up",
+     "hand on another's head",
+     "looking down"
+    ],
+    "natural_en": "Sitting with legs spread wide and knees raised, one hand resting on the partner's head while looking down toward the partner kneeling between the thighs."
+   },
+   "giver": {
+    "label_zh": "施與方（跪姿俯身深喉）",
+    "requires": "any",
+    "center": {
+     "x": 0.5,
+     "y": 0.7
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "open mouth",
+     "hands on another's thighs"
+    ],
+    "natural_en": "Kneeling between the partner's spread thighs and leaning forward with the head lowered deep, mouth open, both hands gripping the partner's thighs."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "fellatio",
+     "deepthroat"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "fellatio",
+     "deepthroat"
+    ],
+    "receiver": [
+     "strap-on"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi",
+     "fellatio",
+     "deepthroat"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "fellatio",
+     "deepthroat"
+    ],
+    "receiver": [
+     "futanari",
+     "penis"
+    ]
+   }
+  },
+  "natural_en": "Front view of deepthroat fellatio with the receiver sitting and legs spread while the giver kneels between the thighs, leaning forward with the head lowered deep and hands on the thighs.",
+  "prompt_zh": "正面全身深喉口交，承受方坐姿張腿並扶住對方頭部，施與方跪於腿間俯身深含，雙手扶住大腿。"
+ },
+ {
+  "id": "pos_oral_side_licking_sitting_side",
+  "category": "03_service_oral_chest_hand_foot",
+  "subcategory": "口部侍奉 fellatio",
+  "title_zh": "坐姿側舔口交・側面",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "fellatio",
+   "oral"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（坐姿張腿）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.38,
+     "y": 0.52
+    },
+    "tags": [
+     "sitting",
+     "spread legs",
+     "knees up",
+     "hand on another's head",
+     "looking down"
+    ],
+    "natural_en": "Sitting on the left side of the frame with legs spread apart and knees raised, one hand resting on the partner's head, looking down toward the partner kneeling at the side."
+   },
+   "giver": {
+    "label_zh": "施與方（跪姿側舔）",
+    "requires": "any",
+    "center": {
+     "x": 0.65,
+     "y": 0.68
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "tongue out",
+     "licking",
+     "looking up"
+    ],
+    "natural_en": "Kneeling on the right side of the frame beside the partner, leaning forward with tongue out, licking the side of the penis while looking up."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ],
+    "receiver": [
+     "dildo"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari"
+    ],
+    "receiver": [
+     "futanari",
+     "penis"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of fellatio from the side: the receiver sits on the left with legs spread and knees raised, one hand on the giver's head and looking down, while the giver kneels on the right beside the receiver, leaning forward with tongue out to lick the side of the penis.",
+  "prompt_zh": "側面全身側舔口交：承受方居左坐姿張腿屈膝，一手扶住對方頭部低頭看向身側；施與方居右跪於身側，前傾伸舌側舔。"
+ },
+ {
+  "id": "pos_oral_fellatio_both_hands_hips_sitting_front",
+  "category": "03_service_oral_chest_hand_foot",
+  "subcategory": "口部侍奉 fellatio",
+  "title_zh": "坐姿雙手扶胯口交・正面",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "fellatio",
+   "oral"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（坐姿張腿）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.5,
+     "y": 0.48
+    },
+    "tags": [
+     "sitting",
+     "spread legs",
+     "knees up",
+     "looking down"
+    ],
+    "natural_en": "Sitting facing the camera with legs spread apart and knees raised, looking down toward the partner kneeling in front."
+   },
+   "giver": {
+    "label_zh": "施與方（跪姿雙手扶胯）",
+    "requires": "any",
+    "center": {
+     "x": 0.5,
+     "y": 0.72
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "hands on another's hips",
+     "looking up"
+    ],
+    "natural_en": "Kneeling directly in front of the partner, leaning forward with both hands gripping the partner's hips, mouth at the partner's crotch."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari"
+    ],
+    "receiver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ],
+    "receiver": [
+     "strap-on"
+    ]
+   }
+  },
+  "natural_en": "Front view of fellatio: the receiver sits facing the camera with legs spread while the giver kneels in front, leaning forward and holding the receiver's hips with both hands.",
+  "prompt_zh": "正面全身口交：承受方坐姿張腿面向鏡頭低頭；施與方跪於前方前傾，雙手扶住對方胯部貼近。"
+ },
+ {
+  "id": "pos_oral_lying_inverted_front",
+  "category": "03_service_oral_chest_hand_foot",
+  "subcategory": "口部侍奉 fellatio",
+  "title_zh": "仰躺倒口・站姿跨臉・正面",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "fellatio",
+   "oral"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（站姿跨立於臉部上方）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.5,
+     "y": 0.32
+    },
+    "tags": [
+     "standing",
+     "spread legs",
+     "looking down"
+    ],
+    "natural_en": "Standing with legs spread apart over the partner's face, looking down toward the partner lying below."
+   },
+   "giver": {
+    "label_zh": "施與方（仰躺倒頭含入口中）",
+    "requires": "any",
+    "center": {
+     "x": 0.5,
+     "y": 0.68
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "head back",
+     "open mouth"
+    ],
+    "natural_en": "Lying on the back with the head tilted far back, mouth open upward toward the partner standing above."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "fellatio"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "fellatio"
+    ],
+    "receiver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "fellatio"
+    ],
+    "receiver": [
+     "dildo"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi",
+     "fellatio"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   }
+  },
+  "natural_en": "Front full-body view of inverted oral: the receiver stands with legs spread over the giver's face, while the giver lies on the back below with the head tilted back and mouth open upward.",
+  "prompt_zh": "正面全身仰躺倒口：承受方站姿張腿跨立於臉部上方、低頭向下；施與方仰躺於下方、頭向後仰、張口向上含入。"
+ },
+ {
+  "id": "pos_oral_fellatio_lying_overhead",
+  "category": "03_service_oral_chest_hand_foot",
+  "subcategory": "口部侍奉 fellatio",
+  "title_zh": "仰躺張腿口交・俯視全身",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from above"
+  ],
+  "shared_pose_tags": [
+   "fellatio",
+   "oral"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（仰躺張腿）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.5,
+     "y": 0.38
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs",
+     "knees up",
+     "looking up"
+    ],
+    "natural_en": "Lying on the back in the upper part of the frame with legs spread wide and knees raised, looking up toward the camera while the partner kneels between the legs."
+   },
+   "giver": {
+    "label_zh": "施與方（腿間跪姿俯身）",
+    "requires": "any",
+    "center": {
+     "x": 0.5,
+     "y": 0.7
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "looking down"
+    ],
+    "natural_en": "Kneeling between the partner's spread legs in the lower part of the frame, leaning forward with the head lowered to the partner's groin, looking down."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ],
+    "receiver": [
+     "strap-on"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari"
+    ],
+    "receiver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   }
+  },
+  "natural_en": "High-angle full-body top-down view of fellatio: the receiver lies on the back with spread legs in the upper part of the frame, while the giver kneels between the legs below, leaning forward to perform oral.",
+  "prompt_zh": "俯視全身口交：承受方仰躺在畫面上方張腿屈膝；施與方跪於下方腿間俯身貼近口交。"
+ },
+ {
+  "id": "pos_paizuri_lying_overhead",
+  "category": "03_service_oral_chest_hand_foot",
+  "subcategory": "乳交 paizuri",
+  "title_zh": "仰躺乳交・俯視全身",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from above"
+  ],
+  "shared_pose_tags": [
+   "paizuri"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（仰躺）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.5,
+     "y": 0.6
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs",
+     "looking up"
+    ],
+    "natural_en": "Lying on the back in the lower part of the frame with legs spread, looking up at the partner kneeling over the chest."
+   },
+   "giver": {
+    "label_zh": "施與方（跪姿俯身夾住）",
+    "requires": "breasts",
+    "center": {
+     "x": 0.5,
+     "y": 0.35
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "looking down"
+    ],
+    "natural_en": "Kneeling over the partner's chest in the upper part of the frame, leaning forward with breasts pressed together around the penis, looking down."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "paizuri"
+    ],
+    "receiver": [
+     "penis"
+    ],
+    "giver": [
+     "breasts"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "paizuri"
+    ],
+    "receiver": [
+     "futanari",
+     "penis"
+    ],
+    "giver": [
+     "breasts"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "paizuri"
+    ],
+    "receiver": [
+     "strap-on"
+    ],
+    "giver": [
+     "breasts"
+    ]
+   }
+  },
+  "natural_en": "High-angle full-body view of paizuri: the receiver lies on the back with legs spread, looking up, while the giver kneels over the chest, leaning forward and pressing breasts together around the penis.",
+  "prompt_zh": "俯視全身乳交：承受方仰躺張腿向上看；施與方跪於其胸前俯身，雙乳夾住陽具。"
+ },
+ {
+  "id": "pos_paizuri_straddle_front",
+  "category": "03_service_oral_chest_hand_foot",
+  "subcategory": "乳交 paizuri",
+  "title_zh": "跨坐乳交・正面",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "paizuri"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（仰躺張腿）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.5,
+     "y": 0.62
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs",
+     "looking up"
+    ],
+    "natural_en": "Lying on the back with legs spread wide, looking up toward the partner sitting astride the hips."
+   },
+   "giver": {
+    "label_zh": "施與方（跨坐俯身）",
+    "requires": "breasts",
+    "center": {
+     "x": 0.5,
+     "y": 0.42
+    },
+    "tags": [
+     "sitting",
+     "sitting on person",
+     "leaning forward",
+     "looking down"
+    ],
+    "natural_en": "Sitting astride the partner's hips, leaning forward with breasts pressed around the partner's penis, looking down."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari"
+    ],
+    "receiver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ],
+    "receiver": [
+     "strap-on"
+    ]
+   }
+  },
+  "natural_en": "Front full-body view of paizuri with the giver straddling the receiver: the receiver lies on his back with legs spread while the giver sits astride his hips, leaning forward to press her breasts around his penis.",
+  "prompt_zh": "正面全身跨坐乳交：承受方仰躺張腿；施與方跨坐於其胯部，前傾以胸部夾住陽具。"
+ },
+ {
+  "id": "pos_paizuri_straddling_lying_side",
+  "category": "03_service_oral_chest_hand_foot",
+  "subcategory": "乳交 paizuri",
+  "title_zh": "仰躺跨坐乳交・側面",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "paizuri"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（仰躺張腿）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.42,
+     "y": 0.6
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs",
+     "looking up"
+    ],
+    "natural_en": "Lying on the back on the left side of the frame with legs spread apart, looking up toward the partner straddling the hips."
+   },
+   "giver": {
+    "label_zh": "施與方（跨坐髖部前傾）",
+    "requires": "breasts",
+    "center": {
+     "x": 0.65,
+     "y": 0.48
+    },
+    "tags": [
+     "straddling",
+     "leaning forward",
+     "looking down"
+    ],
+    "natural_en": "Straddling the partner's hips on the right side of the frame, leaning forward over the partner with breasts pressed together around the partner, looking down."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of paizuri: the receiver lies on the back on the left with legs spread, looking up, while the giver straddles the hips on the right, leaning forward with breasts pressed together around the receiver.",
+  "prompt_zh": "側面全身乳交：承受方居左仰躺張腿、抬頭看向對方；施與方居右跨坐於其髖部，前傾以雙乳夾住。"
+ },
+ {
+  "id": "pos_paizuri_tongue_licking_side_lying_side",
+  "category": "03_service_oral_chest_hand_foot",
+  "subcategory": "乳交 paizuri",
+  "title_zh": "側躺相對乳交舌舔・側面",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "paizuri"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（側躺張腿）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.38,
+     "y": 0.58
+    },
+    "tags": [
+     "lying",
+     "on side",
+     "spread legs",
+     "looking at another"
+    ],
+    "natural_en": "Lying on the side on the left side of the frame, facing the partner, with legs spread apart."
+   },
+   "giver": {
+    "label_zh": "施與方（側躺相對俯身舌舔）",
+    "requires": "breasts",
+    "center": {
+     "x": 0.66,
+     "y": 0.52
+    },
+    "tags": [
+     "lying",
+     "on side",
+     "leaning forward",
+     "tongue out",
+     "licking",
+     "looking at another"
+    ],
+    "natural_en": "Lying on the side facing the partner, leaning forward with breasts pressed together around the penis, tongue out licking the tip."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex"
+    ],
+    "receiver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex"
+    ],
+    "receiver": [
+     "strap-on"
+    ]
+   }
+  },
+  "natural_en": "Side view of paizuri with tongue licking: both partners lie on their sides facing each other, the receiver on the left with legs spread, while the giver on the right presses breasts together around the penis and licks the tip with tongue out.",
+  "prompt_zh": "側面側躺相對乳交舌舔：雙方側躺面對面，承受方居左張腿；施與方居右俯身以雙乳夾住並伸舌舔舐。"
+ },
+ {
+  "id": "pos_handjob_sitting_side_by_side_front",
+  "category": "03_service_oral_chest_hand_foot",
+  "subcategory": "手部侍奉 handjob",
+  "title_zh": "並排坐姿手交・正面",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "handjob"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側坐姿張腿）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.35,
+     "y": 0.55
+    },
+    "tags": [
+     "sitting",
+     "spread legs",
+     "knees up",
+     "looking down"
+    ],
+    "natural_en": "Sitting facing the camera on the left side of the frame with legs spread wide and knees raised, looking down toward the partner sitting beside."
+   },
+   "giver": {
+    "label_zh": "施與方（右側坐姿俯身手交）",
+    "requires": "any",
+    "center": {
+     "x": 0.68,
+     "y": 0.55
+    },
+    "tags": [
+     "sitting",
+     "leaning forward",
+     "looking down"
+    ],
+    "natural_en": "Sitting beside the partner on the right side of the frame, leaning toward the partner and reaching across with one hand to stroke up and down while looking down."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "handjob"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "handjob"
+    ],
+    "receiver": [
+     "strap-on"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "handjob"
+    ],
+    "receiver": [
+     "futanari",
+     "penis"
+    ]
+   }
+  },
+  "natural_en": "Full-body front view of a handjob: the receiver sits on the left facing the camera with legs spread wide and knees raised, while the giver sits beside on the right, leaning in and stroking with one hand.",
+  "prompt_zh": "正面全身並排坐姿手交：承受方居左坐姿張腿屈膝，低頭看向身旁；施與方居右並排而坐，側身俯向對方，伸手握住上下撫弄。"
+ },
+ {
+  "id": "pos_handjob_both_standing_behind_side",
+  "category": "03_service_oral_chest_hand_foot",
+  "subcategory": "手部侍奉 handjob",
+  "title_zh": "雙人站姿背後手交・側面",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "handjob"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（前方站姿張腿）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.38,
+     "y": 0.45
+    },
+    "tags": [
+     "standing",
+     "spread legs",
+     "looking down"
+    ],
+    "natural_en": "Standing on the left side of the frame with legs spread apart, facing the same direction as the partner standing close behind, looking down."
+   },
+   "giver": {
+    "label_zh": "施與方（後方站姿伸手）",
+    "requires": "any",
+    "center": {
+     "x": 0.62,
+     "y": 0.48
+    },
+    "tags": [
+     "standing",
+     "leaning forward",
+     "looking down"
+    ],
+    "natural_en": "Standing directly behind the partner on the right side of the frame, leaning forward and reaching around the partner with one hand, looking down."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ],
+    "receiver": [
+     "strap-on"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of a handjob between two standing partners facing the same direction: the receiver stands in front on the left with legs spread and looks down, while the giver stands close behind on the right, leaning forward and reaching around with one hand.",
+  "prompt_zh": "側面全身站姿背後手交：兩人同向站立，承受方居前張腿低頭；施與方緊貼身後，前傾伸手繞前侍奉。"
+ },
+ {
+  "yamlid": null,
+  "id": "pos_footjob_both_feet_lying_sitting_side",
+  "category": "03_service_oral_chest_hand_foot",
+  "subcategory": "足部侍奉 footjob",
+  "title_zh": "仰躺張腿雙腳夾・側面",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "footjob"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側仰躺張腿）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.38,
+     "y": 0.58
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs",
+     "looking up"
+    ],
+    "natural_en": "Lying on the back on the left side of the frame with legs spread wide, looking up toward the partner."
+   },
+   "giver": {
+    "label_zh": "施與方（右側坐姿雙腳夾）",
+    "requires": "any",
+    "center": {
+     "x": 0.68,
+     "y": 0.5
+    },
+    "tags": [
+     "sitting",
+     "leg up",
+     "looking down"
+    ],
+    "natural_en": "Sitting on the right side of the frame facing the receiver, both legs stretched out toward the receiver with both feet together around the penis, looking down at the feet."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ],
+    "receiver": [
+     "strap-on"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of a footjob: the receiver lies on the back on the left with legs spread, while the giver sits on the right with both legs stretched out, clamping the penis between both feet.",
+  "prompt_zh": "側面全身雙腳夾足交：承受方居左仰躺張腿；施與方居右坐姿，雙腿向前伸直，雙腳併攏夾住陽具。"
+ },
+ {
+  "id": "pos_footjob_single_foot_step_lying_side",
+  "category": "03_service_oral_chest_hand_foot",
+  "subcategory": "足部侍奉 footjob",
+  "title_zh": "仰躺張腿單腳踩・側面",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "footjob"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（仰躺張腿）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.38,
+     "y": 0.58
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs",
+     "looking up"
+    ],
+    "natural_en": "Lying on the back on the left side of the frame with legs spread wide, looking up toward the partner standing beside."
+   },
+   "giver": {
+    "label_zh": "施與方（站姿單腳踩踏）",
+    "requires": "any",
+    "center": {
+     "x": 0.68,
+     "y": 0.45
+    },
+    "tags": [
+     "standing",
+     "leg up",
+     "looking down"
+    ],
+    "natural_en": "Standing on the right side of the frame with one leg raised, pressing the sole of one foot down onto the receiver, looking down."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ],
+    "receiver": [
+     "strap-on"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of a footjob: the receiver lies on the back on the left with legs spread, while the giver stands on the right with one leg raised, stepping with one foot onto the receiver.",
+  "prompt_zh": "側面全身足交：承受方居左仰躺張腿；施與方居右站立，抬起單腿用腳底踩住對方。"
+ },
+ {
+  "id": "pos_footjob_soles_from_below",
+  "category": "03_service_oral_chest_hand_foot",
+  "subcategory": "足部侍奉 footjob",
+  "title_zh": "仰躺張腿雙腳夾・仰視腳底",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "from below"
+  ],
+  "shared_pose_tags": [
+   "footjob",
+   "foot focus",
+   "soles"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（仰躺張腿）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.5,
+     "y": 0.38
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs",
+     "knees up",
+     "looking down"
+    ],
+    "natural_en": "Lying on the back facing the camera with legs spread wide and knees raised, looking down toward the feet pressing against the groin."
+   },
+   "giver": {
+    "label_zh": "施與方（坐姿雙腳夾）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.68
+    },
+    "tags": [
+     "sitting",
+     "legs up",
+     "soles",
+     "looking down"
+    ],
+    "natural_en": "Sitting facing the camera with both legs raised and soles turned toward the viewer, pressing both feet together around the penis."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari"
+    ]
+   }
+  },
+  "natural_en": "Low-angle view from below of a footjob: the receiver lies back with spread legs while the giver sits facing the camera with legs raised, both soles turned toward the viewer and pressing together around the penis.",
+  "prompt_zh": "低角度仰視腳底足交：承受方仰躺張腿屈膝；施與方坐姿抬起雙腿，腳底朝向鏡頭，雙腳夾住性器上下磨蹭。"
+ },
+ {
+  "id": "pos_footjob_under_table_sitting_side",
+  "category": "03_service_oral_chest_hand_foot",
+  "subcategory": "足部侍奉 footjob",
+  "title_zh": "坐椅桌下足交・側面",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "footjob",
+   "foot focus"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（坐椅張腿）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.35,
+     "y": 0.48
+    },
+    "tags": [
+     "sitting",
+     "spread legs",
+     "looking down"
+    ],
+    "natural_en": "Sitting on a chair on the left side of the frame with legs spread, leaning slightly forward and looking down toward the feet under the table."
+   },
+   "giver": {
+    "label_zh": "施與方（桌下仰躺抬腿）",
+    "requires": "any",
+    "center": {
+     "x": 0.68,
+     "y": 0.62
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "leg up",
+     "looking up"
+    ],
+    "natural_en": "Lying on the back under the table on the right side of the frame, legs raised up with both feet pressed against the partner, looking up."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of footjob under a table: the receiver sits on a chair on the left with legs spread, looking down, while the giver lies on the back under the table on the right with legs raised, pressing both feet against the receiver.",
+  "prompt_zh": "側面全身桌下足交：承受方居左坐椅張腿、低頭看向桌下；施與方居右仰躺於桌下、抬腿以雙腳夾住踩弄。"
+ },
+ {
+  "id": "pos_footjob_kneeling_reverse_side",
+  "category": "03_service_oral_chest_hand_foot",
+  "subcategory": "足部侍奉",
+  "title_zh": "跪姿背對反足交・側面",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "footjob"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側跪姿，性器夾於對方足底）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.36,
+     "y": 0.56
+    },
+    "tags": [
+     "kneeling",
+     "looking down"
+    ],
+    "natural_en": "Kneeling on the left side of the frame facing the partner's feet, leaning slightly forward and looking down at the soles pressed against him."
+   },
+   "giver": {
+    "label_zh": "施與方（右側背對跪姿，雙足向後伸）",
+    "requires": "female",
+    "center": {
+     "x": 0.68,
+     "y": 0.54
+    },
+    "tags": [
+     "kneeling",
+     "soles",
+     "arched back",
+     "looking away"
+    ],
+    "natural_en": "Kneeling on the right side of the frame with her back to the partner, knees on the ground and both feet stretched back behind her with soles facing the partner, back slightly arched, looking away."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari"
+    ],
+    "receiver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ],
+    "receiver": [
+     "strap-on"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of a reverse kneeling footjob: the receiver kneels on the left facing the giver's feet, while the giver kneels on the right with her back to him, both feet stretched back behind her with soles pressed against him.",
+  "prompt_zh": "側面全身跪姿反足交：承受方居左跪姿面對對方足底；施與方居右背對跪姿，雙足向後伸、足底夾住性器。"
+ },
+ {
+  "id": "pos_footjob_from_behind_stool_single_foot_side",
+  "category": "03_service_oral_chest_hand_foot",
+  "subcategory": "足部侍奉 footjob",
+  "title_zh": "站姿張腿後方高凳單腳踩・側面",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "footjob",
+   "foot focus"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（前方站姿張腿）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.38,
+     "y": 0.42
+    },
+    "tags": [
+     "standing",
+     "spread legs",
+     "looking down"
+    ],
+    "natural_en": "Standing on the left side of the frame with legs spread wide, looking down toward the partner behind."
+   },
+   "giver": {
+    "label_zh": "施與方（後方高凳坐姿抬腳）",
+    "requires": "any",
+    "center": {
+     "x": 0.68,
+     "y": 0.5
+    },
+    "tags": [
+     "sitting",
+     "on chair",
+     "leg up",
+     "leaning forward",
+     "looking down"
+    ],
+    "natural_en": "Sitting on a high stool behind the partner on the right side of the frame, leaning forward with one leg raised, foot pressed down from above onto the partner's penis."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ],
+    "receiver": [
+     "strap-on"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of footjob from behind: the receiver stands on the left with legs spread, while the giver sits on a high stool behind on the right, leaning forward with one leg raised and foot stepping down from above onto the receiver's penis.",
+  "prompt_zh": "側面全身後方足交：承受方居左站姿張腿；施與方居右坐於高凳上，抬起一腳從上方踩住性器。"
+ },
+ {
+  "id": "pos_footjob_sitting_face_close_side",
+  "category": "03_service_oral_chest_hand_foot",
+  "subcategory": "足部侍奉 footjob",
+  "title_zh": "坐姿張腿足交・臉近距離側面",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "close-up",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "footjob",
+   "foot focus"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（坐姿張腿）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.36,
+     "y": 0.48
+    },
+    "tags": [
+     "sitting",
+     "spread legs",
+     "leaning back",
+     "looking down"
+    ],
+    "natural_en": "Sitting on the left side of the frame with legs spread wide, leaning back, looking down toward the foot on the lap."
+   },
+   "giver": {
+    "label_zh": "施與方（跪姿前傾、臉貼近足部）",
+    "requires": "female",
+    "center": {
+     "x": 0.68,
+     "y": 0.58
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "looking down"
+    ],
+    "natural_en": "Kneeling on the right side of the frame, leaning forward with one foot placed on the partner, face close to the foot, looking down at the foot."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "footjob"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "footjob"
+    ],
+    "receiver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "footjob"
+    ],
+    "receiver": [
+     "strap-on"
+    ]
+   }
+  },
+  "natural_en": "Close-up side view of a footjob: the receiver sits on the left with legs spread and leans back, while the giver kneels on the right, leaning forward with one foot on the receiver and her face close to the foot, looking down.",
+  "prompt_zh": "側面近距離足交：承受方居左坐姿張腿、向後靠；施與方居右跪姿前傾，單腳踩在對方身上、臉貼近足部低頭看著。"
+ },
+ {
+  "id": "pos_handjob_kneeling_beside_lying_side",
+  "category": "03_service_oral_chest_hand_foot",
+  "subcategory": "手部侍奉 handjob",
+  "title_zh": "仰躺跪姿旁側手交・側面",
+  "pattern": "organ_bound",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "handjob"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側仰躺張腿）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.38,
+     "y": 0.55
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs",
+     "knees up",
+     "looking at another"
+    ],
+    "natural_en": "Lying on the back on the left side of the frame with legs spread wide and knees raised, looking toward the partner kneeling beside."
+   },
+   "giver": {
+    "label_zh": "施與方（右側跪姿俯身手交）",
+    "requires": "any",
+    "center": {
+     "x": 0.66,
+     "y": 0.52
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "looking down"
+    ],
+    "natural_en": "Kneeling beside the partner on the right side of the frame, leaning forward over the partner's hips and stroking up and down with one hand while looking down."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "handjob"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "handjob"
+    ],
+    "receiver": [
+     "strap-on"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "handjob"
+    ],
+    "receiver": [
+     "futanari",
+     "penis"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of a handjob: the receiver lies on the back on the left with legs spread wide and knees raised, while the giver kneels beside on the right, leaning forward and stroking with one hand.",
+  "prompt_zh": "側面全身仰躺手交：承受方居左仰躺張腿屈膝，看向身旁；施與方居右跪於身側，俯身貼近胯部，伸手握住上下撫弄。"
+ },
+ {
+  "id": "pos_handjob_standing_face_to_face_front",
+  "category": "03_service_oral_chest_hand_foot",
+  "subcategory": "手部侍奉 handjob",
+  "title_zh": "站姿面對面手交・正面",
+  "pattern": "organ_bound",
+  "default_canvas": 184,
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "handjob"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側站姿張腿）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.38,
+     "y": 0.45
+    },
+    "tags": [
+     "standing",
+     "legs apart",
+     "looking at another"
+    ],
+    "natural_en": "Standing on the left side of the frame facing the partner with legs apart, looking at the partner."
+   },
+   "giver": {
+    "label_zh": "施與方（右側站姿伸手手交）",
+    "requires": "any",
+    "center": {
+     "x": 0.64,
+     "y": 0.45
+    },
+    "tags": [
+     "standing",
+     "leaning forward",
+     "looking at another"
+    ],
+    "natural_en": "Standing on the right side of the frame facing the partner, leaning in close and reaching across with one hand to stroke up and down while looking at the partner."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "handjob"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "handjob"
+    ],
+    "receiver": [
+     "strap-on"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "handjob"
+    ],
+    "receiver": [
+     "futanari",
+     "penis"
+    ]
+   }
+  },
+  "natural_en": "Full-body front view of a standing handjob: the receiver stands on the left facing the partner with legs apart, while the giver stands on the right facing the partner, leaning in and stroking with one hand.",
+  "prompt_zh": "正面全身站姿面對面手交：承受方居左站立張腿面向對方；施與方居右站姿貼近，伸手握住上下撫弄，兩人互相注視。"
+ }
+]
