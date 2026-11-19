@@ -1,0 +1,1184 @@
+[
+ {
+  "id": "group_ffm_double_fellatio_standing_front",
+  "category": "07_group_ffm_mmf",
+  "subcategory": "2女1男",
+  "title_zh": "2女1男雙人同時口交・站立正面全身",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "double fellatio",
+   "fellatio"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（站立被口交）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.5,
+     "y": 0.36
+    },
+    "tags": [
+     "standing",
+     "spread legs",
+     "looking down"
+    ],
+    "natural_en": "Standing in the center of the frame facing the camera with his legs apart while two partners kneel at his crotch."
+   },
+   "giver_left": {
+    "label_zh": "左側口交方（跪姿）",
+    "requires": "female",
+    "center": {
+     "x": 0.24,
+     "y": 0.72
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "tongue out",
+     "looking up"
+    ],
+    "natural_en": "Kneeling at the lower left side of the frame, leaning forward with her face close to the standing partner's crotch and tongue out."
+   },
+   "giver_right": {
+    "label_zh": "右側口交方（跪姿）",
+    "requires": "female",
+    "center": {
+     "x": 0.76,
+     "y": 0.72
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "tongue out",
+     "looking up"
+    ],
+    "natural_en": "Kneeling at the lower right side of the frame, leaning forward with her face close to the standing partner's crotch and tongue out."
+   }
+  },
+  "pairing_tags": {
+   "ffm": {
+    "base": [
+     "ffm threesome",
+     "group sex",
+     "threesome",
+     "fellatio"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   }
+  },
+  "natural_en": "Full-body front view of a 2-girl-1-boy group: the man stands in the center with his legs apart while two women kneel on either side of his crotch, both giving oral at the same time.",
+  "prompt_zh": "正面全身 2女1男：男性站立居中並張腿，兩名女性分列下左與下右跪姿同時口交。"
+ },
+ {
+  "id": "group_ffm_double_paizuri_lying_above",
+  "category": "07_group_ffm_mmf",
+  "subcategory": "2女1男 FFM",
+  "title_zh": "仰躺雙人乳交・俯視全身",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from above"
+  ],
+  "shared_pose_tags": [
+   "paizuri",
+   "group sex",
+   "threesome"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（居中仰躺）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.5,
+     "y": 0.58
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs",
+     "looking up"
+    ],
+    "natural_en": "Lying on his back in the middle of the frame with legs spread apart, looking up at the two partners kneeling beside him."
+   },
+   "giver_left": {
+    "label_zh": "施與方（左側跪姿乳交）",
+    "requires": "breasts",
+    "center": {
+     "x": 0.3,
+     "y": 0.55
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "looking down"
+    ],
+    "natural_en": "Kneeling on the left side of the frame beside the man, leaning forward over his body with both breasts pressed together around him, looking down."
+   },
+   "giver_right": {
+    "label_zh": "施與方（右側跪姿乳交）",
+    "requires": "breasts",
+    "center": {
+     "x": 0.7,
+     "y": 0.55
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "looking down"
+    ],
+    "natural_en": "Kneeling on the right side of the frame beside the man, leaning forward over his body with both breasts pressed together around him, looking down."
+   }
+  },
+  "pairing_tags": {
+   "ffm": {
+    "base": [
+     "ffm threesome",
+     "hetero",
+     "paizuri"
+    ],
+    "receiver": [
+     "penis"
+    ],
+    "giver_left": [
+     "breasts"
+    ],
+    "giver_right": [
+     "breasts"
+    ]
+   }
+  },
+  "natural_en": "High-angle full-body view of double paizuri: the man lies on his back in the middle with legs spread, while a woman kneels on each side of him, both leaning forward and pressing their breasts together around him.",
+  "prompt_zh": "俯視全身雙人乳交：男子居中仰躺張腿，兩名女子分跪左右兩側，同時前傾以胸部合夾侍奉。"
+ },
+ {
+  "id": "group_ffm_lying_ride_beside_kiss_front",
+  "category": "07_group_ffm_mmf",
+  "subcategory": "多人包圍與輪替",
+  "title_zh": "仰躺居中雙女包圍・一人騎乘一人俯身親吻・正面全身",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "group sex",
+   "threesome",
+   "cowgirl position",
+   "sex",
+   "vaginal"
+  ],
+  "slots": {
+   "center_subject": {
+    "label_zh": "居中（仰躺）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.5,
+     "y": 0.58
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs",
+     "looking up"
+    ],
+    "natural_en": "Lying on his back in the middle of the frame with legs spread, looking up at the woman riding him."
+   },
+   "riding_partner": {
+    "label_zh": "騎乘方（跨坐仰躺者）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.5,
+     "y": 0.38
+    },
+    "tags": [
+     "sitting",
+     "girl on top",
+     "leaning forward",
+     "hands on another's chest",
+     "looking down"
+    ],
+    "natural_en": "Sitting astride the man in the middle, leaning forward with both hands on his chest, looking down at him."
+   },
+   "side_partner": {
+    "label_zh": "側面（跪姿俯身親吻）",
+    "requires": "female",
+    "center": {
+     "x": 0.8,
+     "y": 0.52
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "kissing",
+     "hand on another's shoulder"
+    ],
+    "natural_en": "Kneeling at the right side of the frame, leaning forward over the man's chest and kissing him, one hand on his shoulder."
+   }
+  },
+  "pairing_tags": {
+   "ffm": {
+    "base": [
+     "ffm threesome",
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "center_subject": [
+     "penis"
+    ]
+   }
+  },
+  "natural_en": "Front full-body view of a threesome surrounding a man lying on his back: one woman rides him facing the camera while a second woman kneels beside him, leaning over his chest and kissing him.",
+  "prompt_zh": "正面全身雙女包圍仰躺男子：一人跨坐騎乘前傾扶胸，另一人跪於側面俯身親吻其胸口。"
+ },
+ {
+  "id": "group_mmmf_ring_fellatio_double_handjob_above",
+  "category": "07_group_ffm_mmf",
+  "subcategory": "多人包圍與輪替",
+  "title_zh": "高角俯視環形包圍・跪姿口交雙手侍奉",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from above"
+  ],
+  "shared_pose_tags": [
+   "group sex",
+   "foursome",
+   "fellatio",
+   "double handjob"
+  ],
+  "slots": {
+   "center_subject": {
+    "label_zh": "中間（跪姿，口交兼雙手侍奉）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.55
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "open mouth",
+     "double handjob",
+     "looking up"
+    ],
+    "natural_en": "Kneeling in the center of the ring, leaning forward toward the man in front, mouth open around him, both hands stroking the men standing on either side."
+   },
+   "front_partner": {
+    "label_zh": "前方（跪姿，受口交）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.5,
+     "y": 0.22
+    },
+    "tags": [
+     "kneeling",
+     "looking down"
+    ],
+    "natural_en": "Kneeling at the top of the frame in front of the woman, leaning toward her mouth, looking down at her."
+   },
+   "left_partner": {
+    "label_zh": "左側（站立，受手交侍奉）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.2,
+     "y": 0.58
+    },
+    "tags": [
+     "standing",
+     "looking down"
+    ],
+    "natural_en": "Standing at the left side of the ring, looking down toward the hand stroking him."
+   },
+   "right_partner": {
+    "label_zh": "右側（站立，受手交侍奉）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.8,
+     "y": 0.58
+    },
+    "tags": [
+     "standing",
+     "looking down"
+    ],
+    "natural_en": "Standing at the right side of the ring, looking down toward the hand stroking him."
+   }
+  },
+  "pairing_tags": {
+   "mmmf": {
+    "base": [
+     "group sex",
+     "hetero",
+     "sex",
+     "fellatio"
+    ],
+    "front_partner": [
+     "penis"
+    ],
+    "left_partner": [
+     "penis"
+    ],
+    "right_partner": [
+     "penis"
+    ]
+   }
+  },
+  "natural_en": "High-angle full-body view of a foursome in a ring: a woman kneels in the center giving oral to the man kneeling in front of her while stroking the two men standing on either side with both hands.",
+  "prompt_zh": "高角俯視全身：三名男子環形包圍中間跪姿女子，前方跪姿者受口交，左右兩側站立者各受一手侍奉，輪替包圍構圖。"
+ },
+ {
+  "id": "pos_ffm_double_footjob_lying_above",
+  "category": "07_group_ffm_mmf",
+  "subcategory": "2女1男",
+  "title_zh": "雙人足交・仰躺夾腳・俯視全身",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from above"
+  ],
+  "shared_pose_tags": [
+   "footjob",
+   "group sex",
+   "threesome"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "男方（仰躺中央）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.5,
+     "y": 0.42
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs",
+     "looking up"
+    ],
+    "natural_en": "Lying on his back in the center of the frame with legs spread apart, looking up at the two partners sitting beside him."
+   },
+   "giver_left": {
+    "label_zh": "左方女方（坐姿伸腳夾磨）",
+    "requires": "female",
+    "center": {
+     "x": 0.24,
+     "y": 0.68
+    },
+    "tags": [
+     "sitting",
+     "leg up",
+     "looking down"
+    ],
+    "natural_en": "Sitting beside the man on one side with one leg raised and extended toward the center, foot pressed against him, looking down."
+   },
+   "giver_right": {
+    "label_zh": "右方女方（坐姿伸腳夾磨）",
+    "requires": "female",
+    "center": {
+     "x": 0.76,
+     "y": 0.68
+    },
+    "tags": [
+     "sitting",
+     "leg up",
+     "looking down"
+    ],
+    "natural_en": "Sitting beside the man on the other side with one leg raised and extended toward the center, foot pressed against him, looking down."
+   }
+  },
+  "pairing_tags": {
+   "ffm": {
+    "base": [
+     "ffm threesome",
+     "hetero",
+     "sex"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   }
+  },
+  "natural_en": "High-angle full-body view of a double footjob in a threesome. A man lies on his back in the center with legs spread while a woman sits on each side, both extending one foot toward the center to rub him together.",
+  "prompt_zh": "俯視全身雙人足交：男方仰躺居中張腿，兩名女方分坐兩側，各伸一腳向中央夾磨。"
+ },
+ {
+  "id": "group_ffm_lying_double_service_above",
+  "category": "07_group_ffm_mmf",
+  "subcategory": "多人包圍與輪替",
+  "title_zh": "仰躺居中雙人侍奉・一口一手・俯視全身",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from above"
+  ],
+  "shared_pose_tags": [
+   "group sex",
+   "threesome",
+   "fellatio",
+   "handjob"
+  ],
+  "slots": {
+   "center_subject": {
+    "label_zh": "中間（仰躺張腿）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs",
+     "looking down"
+    ],
+    "natural_en": "Lying on his back in the center of the frame with legs spread apart, head toward the top of the frame, looking down toward the partners at his sides."
+   },
+   "left_partner": {
+    "label_zh": "左側（跪姿口交）",
+    "requires": "female",
+    "center": {
+     "x": 0.27,
+     "y": 0.68
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "fellatio",
+     "looking at another"
+    ],
+    "natural_en": "Kneeling on the left side of the frame beside the central partner, leaning forward and in toward the center with mouth open, looking toward the central partner."
+   },
+   "right_partner": {
+    "label_zh": "右側（跪姿手交）",
+    "requires": "female",
+    "center": {
+     "x": 0.76,
+     "y": 0.68
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "handjob",
+     "looking at another"
+    ],
+    "natural_en": "Kneeling on the right side of the frame beside the central partner, leaning forward and in toward the center, one hand reaching toward the central partner, looking toward the central partner."
+   }
+  },
+  "pairing_tags": {
+   "ffm": {
+    "base": [
+     "ffm threesome",
+     "hetero",
+     "sex"
+    ],
+    "center_subject": [
+     "penis"
+    ]
+   }
+  },
+  "natural_en": "High-angle full-body view of a threesome service scene: a man lies on his back in the center with legs spread, while a woman kneels on each side, the one on the left giving oral and the one on the right giving a handjob.",
+  "prompt_zh": "俯視全身：男方居中仰躺張腿，雙女左右跪姿包圍，左側口交、右側手交。"
+ },
+ {
+  "id": "group_ffm_sandwich_kiss_front",
+  "category": "07_group_ffm_mmf",
+  "subcategory": "2女1男 FFM",
+  "title_zh": "左右夾吻・站立正面全身",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "kissing",
+   "group sex",
+   "threesome"
+  ],
+  "slots": {
+   "left_partner": {
+    "label_zh": "左側女子（站立俯身親吻左頰）",
+    "requires": "female",
+    "center": {
+     "x": 0.28,
+     "y": 0.5
+    },
+    "tags": [
+     "standing",
+     "leaning forward",
+     "kissing",
+     "closed eyes"
+    ],
+    "natural_en": "Standing on the left side of the frame, leaning forward and in toward the man in the middle, kissing his left cheek with eyes closed, one arm around his shoulder."
+   },
+   "center_subject": {
+    "label_zh": "中間男子（站立居中面向鏡頭）",
+    "requires": "any",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "standing",
+     "hug",
+     "looking at viewer"
+    ],
+    "natural_en": "Standing in the middle of the frame between the two women, facing the camera and looking at the viewer while they kiss his cheeks from both sides, arms around their waists."
+   },
+   "right_partner": {
+    "label_zh": "右側女子（站立俯身親吻右頰）",
+    "requires": "female",
+    "center": {
+     "x": 0.72,
+     "y": 0.5
+    },
+    "tags": [
+     "standing",
+     "leaning forward",
+     "kissing",
+     "closed eyes"
+    ],
+    "natural_en": "Standing on the right side of the frame, leaning forward and in toward the man in the middle, kissing his right cheek with eyes closed, one arm around his shoulder."
+   }
+  },
+  "pairing_tags": {
+   "ffm": {
+    "base": [
+     "ffm threesome",
+     "hetero",
+     "kissing",
+     "group sex"
+    ]
+   }
+  },
+  "natural_en": "Full-body front view of a flanking double kiss, a man stands in the middle facing the camera while a woman on each side leans in and kisses his cheek, eyes closed, and he holds both women around the waist.",
+  "prompt_zh": "正面全身左右夾吻，男子居中站立面向鏡頭，左右兩名女子分別俯身親吻他左右臉頰，雙眼輕閉，男子雙手環住兩人腰部。"
+ },
+ {
+  "id": "group_mmf_double_penetration_straddle_side",
+  "category": "07_group_ffm_mmf",
+  "subcategory": "1女2男 MMF",
+  "title_zh": "跨坐仰躺者雙重插入・側面全身",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "double penetration",
+   "group sex",
+   "threesome"
+  ],
+  "slots": {
+   "bottom_partner": {
+    "label_zh": "下方（仰躺）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.35,
+     "y": 0.7
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "hands on another's thighs",
+     "looking up"
+    ],
+    "natural_en": "Lying on his back at the lower left, head toward the left edge, with the receiver straddling his hips and both hands resting on her thighs, looking up at her."
+   },
+   "center_subject": {
+    "label_zh": "中間（跨坐，雙重插入承受方）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.52,
+     "y": 0.45
+    },
+    "tags": [
+     "sitting",
+     "straddling",
+     "spread legs",
+     "arched back",
+     "looking back"
+    ],
+    "natural_en": "Sitting upright astride the partner lying beneath her, legs spread wide around his hips, back arched, looking back toward the partner kneeling behind her."
+   },
+   "behind_partner": {
+    "label_zh": "後方（跪姿，後庭插入）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.8,
+     "y": 0.5
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "hands on another's hips",
+     "looking down"
+    ],
+    "natural_en": "Kneeling behind the receiver on the right side of the frame, leaning forward over her back and gripping both hips while looking down."
+   }
+  },
+  "pairing_tags": {
+   "mmf": {
+    "base": [
+     "mmf threesome",
+     "hetero",
+     "sex",
+     "vaginal",
+     "anal"
+    ],
+    "bottom_partner": [
+     "penis"
+    ],
+    "behind_partner": [
+     "penis"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of double penetration: the receiver sits astride the partner lying on his back below her, while the partner kneeling behind her on the right leans forward and grips her hips.",
+  "prompt_zh": "側面全身雙重插入：承受方跨坐於下方仰躺者身上、雙腿張開拱背回頭；後方跪姿者居右前傾扶胯，同時進行陰道與後庭插入。"
+ },
+ {
+  "id": "group_mmf_hand_mouth_both_sides_front",
+  "category": "07_group_ffm_mmf",
+  "subcategory": "1女2男",
+  "title_zh": "左右手口侍奉・跪姿居中正面",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "group sex",
+   "threesome",
+   "fellatio",
+   "handjob"
+  ],
+  "slots": {
+   "center_subject": {
+    "label_zh": "中間（跪姿，左右手口侍奉）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.62
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "open mouth",
+     "handjob",
+     "looking up"
+    ],
+    "natural_en": "Kneeling in the middle of the frame between the two standing partners, leaning toward the partner on the left with her mouth on him, while her hand reaches to the partner on the right, looking up."
+   },
+   "left_partner": {
+    "label_zh": "左方（站立，受口交）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.3,
+     "y": 0.42
+    },
+    "tags": [
+     "standing",
+     "hand on another's head",
+     "looking down"
+    ],
+    "natural_en": "Standing at the left side facing the kneeling partner, one hand resting on her head, looking down at her."
+   },
+   "right_partner": {
+    "label_zh": "右方（站立，受手交）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.7,
+     "y": 0.42
+    },
+    "tags": [
+     "standing",
+     "hand on own hip",
+     "looking down"
+    ],
+    "natural_en": "Standing at the right side facing the kneeling partner, one hand on his own hip, looking down at her hand on him."
+   }
+  },
+  "pairing_tags": {
+   "mmf": {
+    "base": [
+     "mmf threesome",
+     "hetero",
+     "sex"
+    ],
+    "left_partner": [
+     "penis"
+    ],
+    "right_partner": [
+     "penis"
+    ]
+   }
+  },
+  "natural_en": "Full-body front view of a threesome: a woman kneels in the middle between two standing men, giving oral to the man on the left while her hand serves the man on the right, both men looking down at her.",
+  "prompt_zh": "正面全身三人：女子居中跪姿，左側站立男子受口交並扶其頭，右側站立男子受手交。"
+ },
+ {
+  "id": "group_mmf_lying_double_oral_above",
+  "category": "07_group_ffm_mmf",
+  "subcategory": "多人包圍與輪替",
+  "title_zh": "仰躺居中雙重口交侍奉・俯視全身",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from above"
+  ],
+  "shared_pose_tags": [
+   "group sex",
+   "threesome",
+   "cunnilingus",
+   "fellatio",
+   "oral"
+  ],
+  "slots": {
+   "center_subject": {
+    "label_zh": "中間（仰躺居中，頭向左）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.5,
+     "y": 0.55
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs",
+     "knees up",
+     "arched back",
+     "open mouth",
+     "looking up"
+    ],
+    "natural_en": "Lying on her back in the middle of the frame with her head toward the left edge, legs spread wide with knees raised, back slightly arched, mouth open toward the partner at her head."
+   },
+   "head_partner": {
+    "label_zh": "頭側（跪姿，受口交）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.15,
+     "y": 0.35
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "looking down"
+    ],
+    "natural_en": "Kneeling at the head end on the left, leaning forward over the middle partner's face, looking down."
+   },
+   "leg_partner": {
+    "label_zh": "腿側（跪於腿間，舔陰）",
+    "requires": "any",
+    "center": {
+     "x": 0.85,
+     "y": 0.55
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "tongue out",
+     "licking",
+     "hands on another's thighs",
+     "looking down"
+    ],
+    "natural_en": "Kneeling between the middle partner's spread legs on the right, leaning in closely with both hands on the thighs, tongue out, looking down."
+   }
+  },
+  "pairing_tags": {
+   "mmf": {
+    "base": [
+     "mmf threesome",
+     "hetero",
+     "oral",
+     "cunnilingus",
+     "fellatio"
+    ],
+    "head_partner": [
+     "penis"
+    ]
+   }
+  },
+  "natural_en": "High-angle full-body view of two men serving one woman lying in the middle: the man kneeling at her head on the left receives oral while the man kneeling between her spread legs on the right performs cunnilingus.",
+  "prompt_zh": "俯視全身：女子仰躺居中、頭向左、屈膝張腿；左側男子跪於頭側受口交，右側男子跪於腿間俯身舔陰，兩人同時侍奉。"
+ },
+ {
+  "id": "group_mmf_spitroast_standing_side",
+  "category": "07_group_ffm_mmf",
+  "subcategory": "1女2男 MMF",
+  "title_zh": "站立前後串燒・側面全身",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "spitroast",
+   "group sex",
+   "threesome",
+   "doggystyle",
+   "fellatio",
+   "sex from behind"
+  ],
+  "slots": {
+   "center_subject": {
+    "label_zh": "中間（站立前傾，前口後入）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.5,
+     "y": 0.55
+    },
+    "tags": [
+     "standing",
+     "bent over",
+     "fellatio",
+     "open mouth",
+     "looking up"
+    ],
+    "natural_en": "Standing bent over in the middle of the frame, head toward the left partner, mouth open around the front partner while the partner behind enters from behind."
+   },
+   "front_partner": {
+    "label_zh": "前方（站立，受口交）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.22,
+     "y": 0.48
+    },
+    "tags": [
+     "standing",
+     "fellatio",
+     "hand on another's head",
+     "looking down"
+    ],
+    "natural_en": "Standing at the left edge facing the middle partner, one hand resting on the middle partner's head while receiving oral sex, looking down."
+   },
+   "behind_partner": {
+    "label_zh": "後方（站立，後入扶胯）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.78,
+     "y": 0.48
+    },
+    "tags": [
+     "standing",
+     "leaning forward",
+     "sex from behind",
+     "hands on another's hips",
+     "looking down"
+    ],
+    "natural_en": "Standing behind the middle partner at the right edge, leaning forward and gripping both hips while entering from behind, looking down."
+   }
+  },
+  "pairing_tags": {
+   "mmf": {
+    "base": [
+     "mmf threesome",
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "front_partner": [
+     "penis"
+    ],
+    "behind_partner": [
+     "penis"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of a standing spitroast: the middle partner stands bent over in the center, giving oral to the partner standing in front on the left while the partner standing behind on the right enters from behind, gripping the hips.",
+  "prompt_zh": "側面全身站立前後串燒：中間者站立前傾，居中為前方者口交；前方站立者居左受口交並扶其頭；後方站立者居右從背後進入並扶胯。"
+ },
+ {
+  "id": "group_mmf_front_back_allfours_side",
+  "category": "07_group_ffm_mmf",
+  "subcategory": "1女2男 MMF",
+  "title_zh": "四肢前後串燒・側面全身",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "spitroast",
+   "group sex",
+   "threesome",
+   "doggystyle",
+   "fellatio"
+  ],
+  "slots": {
+   "center_subject": {
+    "label_zh": "中間（四肢著地，前口交後插入）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.48,
+     "y": 0.6
+    },
+    "tags": [
+     "all fours",
+     "arched back",
+     "fellatio",
+     "open mouth",
+     "looking up"
+    ],
+    "natural_en": "On all fours in the middle of the frame, head toward the left edge, back arched, mouth open around the partner in front while being entered from behind."
+   },
+   "front_partner": {
+    "label_zh": "前方（跪姿，受口交）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.2,
+     "y": 0.45
+    },
+    "tags": [
+     "kneeling",
+     "fellatio",
+     "hand on another's head",
+     "looking down"
+    ],
+    "natural_en": "Kneeling at the left edge facing the middle partner, receiving oral sex, one hand resting on the middle partner's head, looking down."
+   },
+   "behind_partner": {
+    "label_zh": "後方（跪姿，後入扶胯）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.78,
+     "y": 0.48
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "sex from behind",
+     "hands on another's hips",
+     "looking down"
+    ],
+    "natural_en": "Kneeling behind the middle partner at the right edge, leaning forward and entering from behind while gripping both hips, looking down."
+   }
+  },
+  "pairing_tags": {
+   "mmf": {
+    "base": [
+     "mmf threesome",
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "front_partner": [
+     "penis"
+    ],
+    "behind_partner": [
+     "penis"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of a spitroast: the middle partner is on all fours, giving oral to the partner kneeling in front on the left while the partner kneeling behind on the right enters from behind and grips the hips.",
+  "prompt_zh": "側面全身前後串燒：中間者四肢著地，口交前方跪姿者，後方跪姿者居右從背後進入並扶胯。"
+ },
+ {
+  "id": "group_ffm_turntaking_fellatio_sitting_front",
+  "category": "07_group_ffm_mmf",
+  "subcategory": "2女1男 FFM",
+  "title_zh": "坐姿輪流口交・正面全身",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "fellatio",
+   "oral",
+   "group sex",
+   "threesome"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（坐姿後仰張腿）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.5,
+     "y": 0.42
+    },
+    "tags": [
+     "sitting",
+     "leaning back",
+     "spread legs",
+     "looking down"
+    ],
+    "natural_en": "Sitting on the floor in the middle of the frame, leaning back on both hands with legs spread apart toward the camera, looking down toward the partner between his legs."
+   },
+   "active_giver": {
+    "label_zh": "輪值施與方（腿間跪姿口交）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.78
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "hands on another's thighs"
+    ],
+    "natural_en": "Kneeling between the receiver's spread legs at the bottom of the frame, leaning forward with both hands on his thighs, mouth on his penis."
+   },
+   "waiting_giver": {
+    "label_zh": "等候施與方（身側跪姿等候）",
+    "requires": "female",
+    "center": {
+     "x": 0.82,
+     "y": 0.52
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "hand on another's shoulder",
+     "looking down"
+    ],
+    "natural_en": "Kneeling beside the receiver's torso on the side of the frame, leaning in slightly with one hand on his shoulder, looking down at the pair while waiting her turn."
+   }
+  },
+  "pairing_tags": {
+   "ffm": {
+    "base": [
+     "hetero",
+     "fellatio",
+     "threesome"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   }
+  },
+  "natural_en": "Front full-body view of a threesome taking turns: a man sits on the floor leaning back on his hands with legs spread, while one woman kneels between his legs giving oral sex, and the second woman kneels beside him with one hand on his shoulder waiting her turn.",
+  "prompt_zh": "正面全身輪流侍奉：男方坐地後仰撐手張腿居中，一女跪於腿間口交，另一女跪在身側一手扶肩等候輪替。"
+ },
+ {
+  "id": "group_ffm_cowgirl_facesitting_side",
+  "category": "07_group_ffm_mmf",
+  "subcategory": "2女1男 FFM",
+  "title_zh": "雙女騎乘加坐臉・側面全身",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "cowgirl position",
+   "facesitting",
+   "group sex",
+   "threesome"
+  ],
+  "slots": {
+   "male_subject": {
+    "label_zh": "男方（仰躺）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.5,
+     "y": 0.7
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs",
+     "looking up"
+    ],
+    "natural_en": "Lying on his back in the middle of the frame, head toward the left edge and legs toward the right, looking up at the partner sitting on his face."
+   },
+   "rider": {
+    "label_zh": "騎乘方（跨坐胯部）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.68,
+     "y": 0.38
+    },
+    "tags": [
+     "kneeling",
+     "straddling",
+     "arched back",
+     "looking down"
+    ],
+    "natural_en": "Kneeling astride the man's hips on the right side of the frame, upright with her back arched, facing toward his head and looking down at him."
+   },
+   "facesitter": {
+    "label_zh": "坐臉方（跨坐臉部）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.2,
+     "y": 0.38
+    },
+    "tags": [
+     "kneeling",
+     "straddling",
+     "leaning forward",
+     "looking down"
+    ],
+    "natural_en": "Kneeling astride the man's face at the left edge of the frame, leaning slightly forward toward the other woman, looking down."
+   }
+  },
+  "pairing_tags": {
+   "ffm": {
+    "base": [
+     "ffm threesome",
+     "hetero",
+     "sex",
+     "vaginal",
+     "cunnilingus"
+    ],
+    "male_subject": [
+     "penis"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of a threesome: a man lies on his back in the middle, one woman kneels astride his hips riding him on the right, while the other woman kneels astride his face on the left.",
+  "prompt_zh": "側面全身雙女一男：男方居中仰躺，一女居右跨坐胯部騎乘，另一女居左跨坐臉部坐臉。"
+ }
+]

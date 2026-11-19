@@ -1,0 +1,993 @@
+[
+ {
+  "id": "pov_fellatio_kneeling_from_above",
+  "category": "06_pov_special_cameras",
+  "subcategory": "第一人稱",
+  "title_zh": "第一人稱俯視跪姿口交・胯下機位",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "pov",
+   "from above",
+   "pov crotch"
+  ],
+  "shared_pose_tags": [
+   "fellatio",
+   "oral"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（跪姿口交）",
+    "requires": "any",
+    "center": {
+     "x": 0.5,
+     "y": 0.62
+    },
+    "tags": [
+     "kneeling",
+     "looking at viewer",
+     "open mouth",
+     "hands on another's thighs"
+    ],
+    "natural_en": "Kneeling in the lower center of the frame and facing upward toward the camera with an open mouth, both hands resting on the viewer's thighs."
+   }
+  },
+  "pairing_tags": {
+   "pov": {
+    "base": [
+     "hetero",
+     "penis",
+     "fellatio"
+    ]
+   }
+  },
+  "natural_en": "First-person crotch-level high-angle view looking down at a kneeling adult giving fellatio, facing upward with an open mouth and both hands on the viewer's thighs.",
+  "prompt_zh": "第一人稱胯下俯視：跪姿者面向鏡頭仰頭張口進行口交，雙手扶住觀看者大腿；機位從上方往下看。"
+ },
+ {
+  "id": "pov_cowgirl_straddle_from_below",
+  "category": "06_pov_special_cameras",
+  "subcategory": "第一人稱（模式 C，姿勢詞寫完整）",
+  "title_zh": "第一人稱仰視跨坐・俯身貼近",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "pov",
+   "from below"
+  ],
+  "shared_pose_tags": [
+   "cowgirl position",
+   "sex"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（跨坐在鏡頭上方）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.5,
+     "y": 0.45
+    },
+    "tags": [
+     "straddling",
+     "kneeling",
+     "spread legs",
+     "leaning forward",
+     "looking down"
+    ],
+    "natural_en": "Sitting astride the viewer with knees bent on either side, legs spread wide, leaning forward over the viewer and looking down at the camera."
+   }
+  },
+  "pairing_tags": {
+   "pov": {
+    "base": [
+     "hetero",
+     "penis",
+     "sex",
+     "vaginal"
+    ]
+   }
+  },
+  "natural_en": "First-person view from below of an adult woman straddling the viewer, sitting astride with knees bent on either side and legs spread, leaning forward and looking down at the camera.",
+  "prompt_zh": "第一人稱仰視跨坐：主體跨坐在鏡頭上方，屈膝張腿、俯身貼近並低頭看向鏡頭。"
+ },
+ {
+  "id": "pov_breast_fondling_kneeling_front",
+  "category": "06_pov_special_cameras",
+  "subcategory": "第一人稱（模式 C，姿勢詞寫完整）",
+  "title_zh": "第一人稱伸手揉胸・跪姿正面",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "pov",
+   "pov hands",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "breast fondling"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（跪姿面向鏡頭）",
+    "requires": "breasts",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "arched back",
+     "looking at viewer"
+    ],
+    "natural_en": "Kneeling facing the camera with the back arched and the chest pushed forward, looking at the viewer, while hands from the camera reach in to fondle the breasts."
+   }
+  },
+  "pairing_tags": {
+   "pov": {
+    "base": [
+     "hetero",
+     "breast fondling"
+    ]
+   }
+  },
+  "natural_en": "First-person view of breast fondling: the subject kneels facing the camera with an arched back and chest forward, looking at the viewer, while a pair of hands reaches in from the camera to fondle both breasts.",
+  "prompt_zh": "第一人稱視角伸手揉胸：對方跪姿面向鏡頭、前傾挺胸；鏡頭外雙手伸前揉捏胸部。"
+ },
+ {
+  "id": "pov_doggystyle_hands_on_hips_from_behind",
+  "category": "06_pov_special_cameras",
+  "subcategory": "第一人稱（模式 C，姿勢詞寫完整）",
+  "title_zh": "第一人稱後入扶臀・四肢著地背對鏡頭",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "back",
+  "mirrorable": true,
+  "camera_tags": [
+   "pov",
+   "pov hands",
+   "from behind"
+  ],
+  "shared_pose_tags": [
+   "doggystyle",
+   "sex from behind",
+   "hands on another's hips"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（四肢著地後入，背對鏡頭）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.5,
+     "y": 0.55
+    },
+    "tags": [
+     "all fours",
+     "arched back",
+     "ass up",
+     "top-down bottom-up",
+     "looking back"
+    ],
+    "natural_en": "On all fours with her back to the camera, back deeply arched and hips raised high, head turned to look back toward the viewer."
+   }
+  },
+  "pairing_tags": {
+   "pov": {
+    "base": [
+     "hetero",
+     "penis",
+     "sex",
+     "vaginal"
+    ]
+   }
+  },
+  "natural_en": "First-person view from behind: the subject is on all fours with an arched back and raised hips, looking back, while the viewer's hands grip her hips.",
+  "prompt_zh": "第一人稱後入扶臀：主體四肢著地背對鏡頭、塌腰挺臀並回頭；畫面外的雙手扶住其胯部。"
+ },
+ {
+  "id": "pov_missionary_legs_up_front",
+  "category": "06_pov_special_cameras",
+  "subcategory": "第一人稱（模式 C，姿勢詞寫完整）",
+  "title_zh": "第一人稱正常位抬腿・仰躺面向鏡頭",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "pov",
+   "from above",
+   "full body"
+  ],
+  "shared_pose_tags": [
+   "missionary",
+   "sex"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（仰躺抬腿，面向鏡頭）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.5,
+     "y": 0.55
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "legs up",
+     "spread legs",
+     "arched back",
+     "looking at viewer"
+    ],
+    "natural_en": "Lying on the back facing the viewer with both legs raised up toward the viewer and spread apart, back arched, looking up at the viewer."
+   }
+  },
+  "pairing_tags": {
+   "pov": {
+    "base": [
+     "hetero",
+     "penis",
+     "sex",
+     "vaginal"
+    ]
+   }
+  },
+  "natural_en": "First-person view of missionary with legs raised: the subject lies on her back facing the viewer with legs lifted up and spread apart, back arched, looking at the viewer while the viewer is positioned above her.",
+  "prompt_zh": "第一人稱正常位抬腿：主體仰躺面向鏡頭，雙腿高抬張開、腰背微拱並看向鏡頭；鏡頭位於上方俯視。"
+ },
+ {
+  "id": "pov_trampling_standing_from_below",
+  "category": "06_pov_special_cameras",
+  "subcategory": "第一人稱（模式 C，姿勢詞寫完整）",
+  "title_zh": "第一人稱仰視踩踏・站立俯視單腳下壓",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "pov",
+   "foot focus",
+   "from below"
+  ],
+  "shared_pose_tags": [
+   "trampling",
+   "foot focus"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（站立俯視踩踏）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.45
+    },
+    "tags": [
+     "standing",
+     "leg up",
+     "barefoot",
+     "soles",
+     "looking down"
+    ],
+    "natural_en": "Standing directly over the camera with one leg raised and the bare sole of the raised foot turned toward the lens, looking down at the viewer."
+   }
+  },
+  "pairing_tags": {
+   "pov": {
+    "base": [
+     "hetero",
+     "dominant female",
+     "trampling"
+    ]
+   }
+  },
+  "natural_en": "First-person view from below: a woman stands over the viewer with one bare foot raised and its sole facing the camera, looking down while pressing the foot toward the viewer.",
+  "prompt_zh": "第一人稱仰視踩踏：站立者居於鏡頭上方俯視，一隻赤足高抬，腳底朝向鏡頭向下壓近。"
+ },
+ {
+  "id": "door_gap_prone_sex_side",
+  "category": "06_pov_special_cameras",
+  "subcategory": "偷窺遮擋與敘事前景",
+  "title_zh": "門縫窺見俯趴壓背・側面全身",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side",
+   "door",
+   "peeking"
+  ],
+  "shared_pose_tags": [
+   "prone bone",
+   "sex from behind"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側俯趴在床上）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.46,
+     "y": 0.62
+    },
+    "tags": [
+     "lying",
+     "on stomach",
+     "spread legs",
+     "arched back",
+     "looking back"
+    ],
+    "natural_en": "Lying face down on the left side of the bed, legs spread, back arched, head turned to look back toward the partner behind."
+   },
+   "giver": {
+    "label_zh": "施與方（右側跪姿壓背扶胯）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.7,
+     "y": 0.52
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "hands on another's hips",
+     "looking down"
+    ],
+    "natural_en": "Kneeling behind the partner on the right, leaning forward over the partner's back and gripping both hips while looking down."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Full-body side view seen through a narrow gap in a door: a door panel fills the left edge of the frame, and through the opening a receiver lies face down on the left with legs spread and back arched, looking back, while a giver kneels behind on the right, leaning forward and gripping the receiver's hips.",
+  "prompt_zh": "側面全身、門縫偷窺視角：門板佔據畫面左緣，僅透過門縫看見房內一對人；承受方居左俯趴在床上張腿拱腰回頭，施與方居右跪於身後前傾扶胯。"
+ },
+ {
+  "id": "voyeur_window_frame_lying_front",
+  "category": "06_pov_special_cameras",
+  "subcategory": "偷窺遮擋與敘事前景",
+  "title_zh": "窗框前景偷窺・仰躺張腿正面",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "window"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（窗內仰躺張腿）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.52
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs",
+     "knees up",
+     "arched back",
+     "looking away"
+    ],
+    "natural_en": "Lying on her back inside the room, seen through a window frame in the foreground, legs spread wide with knees raised and back arched, looking away and unaware of being watched."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Front full-body view framed by a window in the foreground, looking in from outside: an adult woman lies on her back inside, legs spread wide with knees raised and back arched, looking away.",
+  "prompt_zh": "窗框前景偷窺：隔窗正面全身，窗內仰躺張腿、屈膝拱腰，視線移開未察覺窗外。"
+ },
+ {
+  "id": "voyeur_under_table_allfours_side",
+  "category": "06_pov_special_cameras",
+  "subcategory": "偷窺遮擋與敘事前景",
+  "title_zh": "桌下偷窺・四肢著地探頭・側面全身",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "under table",
+   "peeking"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（桌下四肢著地探頭）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.58
+    },
+    "tags": [
+     "all fours",
+     "arched back",
+     "spread legs",
+     "looking back"
+    ],
+    "natural_en": "On all fours under a table in the middle of the frame, head toward the left edge, back arched with hips raised and legs spread, looking back toward the viewer from beneath the tabletop."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view from beneath a table: an adult woman is on all fours under the table with an arched back and spread legs, head toward the left edge, looking back toward the viewer.",
+  "prompt_zh": "側面全身桌下偷窺：主體在桌下四肢著地、塌腰挺臀張腿，頭朝左側邊緣並回頭看向鏡頭。"
+ },
+ {
+  "id": "voyeur_overhead_prone_sex_above",
+  "category": "06_pov_special_cameras",
+  "subcategory": "偷窺遮擋與敘事前景",
+  "title_zh": "高處俯拍・俯趴後入・俯視全身",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from above"
+  ],
+  "shared_pose_tags": [
+   "prone bone",
+   "sex from behind"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（前方俯趴在地）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.38,
+     "y": 0.6
+    },
+    "tags": [
+     "lying",
+     "on stomach",
+     "spread legs",
+     "arched back",
+     "looking back"
+    ],
+    "natural_en": "Lying face down on the left side of the frame with legs spread apart and back arched, head turned back toward the partner behind."
+   },
+   "giver": {
+    "label_zh": "施與方（後方跪姿扶胯）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.68,
+     "y": 0.48
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "hands on another's hips",
+     "looking down"
+    ],
+    "natural_en": "Kneeling directly behind the partner on the right side of the frame, leaning forward over the partner's lower back and gripping both hips while looking down."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ]
+   }
+  },
+  "natural_en": "High-angle full-body view from a high vantage point looking down at prone sex: the receiver lies face down on the left with legs spread and back arched, looking back, while the giver kneels behind on the right, leaning forward and gripping the receiver's hips.",
+  "prompt_zh": "高處俯拍全身：承受方居左俯趴在地、張腿拱腰並回頭；施與方居右跪於身後，前傾雙手扶住胯部。"
+ },
+ {
+  "id": "voyeur_behind_curtain_peeking_standing_front",
+  "category": "06_pov_special_cameras",
+  "subcategory": "偷窺遮擋與敘事前景",
+  "title_zh": "簾後遮擋・站姿探頭窺視・正面全身",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "curtains",
+   "peeking"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（站於簾後探頭窺視）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "standing",
+     "spread legs",
+     "looking at viewer"
+    ],
+    "natural_en": "Standing behind a curtain in the center of the frame, half hidden by the curtain, legs spread apart, one hand holding the curtain aside, peeking out and looking at the viewer."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Full-body front view of a woman standing behind a curtain, half hidden by the curtain with legs spread, holding the curtain aside with one hand and peeking out at the viewer.",
+  "prompt_zh": "正面全身簾後窺視：主體站於簾後居中，半身藏於簾後、雙腿張開，一手撥開簾子探頭看向鏡頭。"
+ },
+ {
+  "id": "solo_corner_peek_standing_masturbation_side",
+  "category": "06_pov_special_cameras",
+  "subcategory": "偷窺遮擋與敘事前景",
+  "title_zh": "站姿轉角偷窺自慰・側面全身",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "masturbation",
+   "peeking"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（站姿轉角偷窺自慰）",
+    "requires": "female",
+    "center": {
+     "x": 0.58,
+     "y": 0.5
+    },
+    "tags": [
+     "standing",
+     "leaning forward",
+     "against wall",
+     "hand between legs",
+     "looking at another"
+    ],
+    "natural_en": "Standing in profile at the corner, leaning forward around the wall edge, her body against the wall, one hand braced on the wall edge and the other hand between her legs, looking toward the unseen scene beyond the corner."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of an adult woman standing at a corner, leaning forward around the wall edge and peeking toward the scene beyond it, one hand braced against the wall and the other hand between her legs.",
+  "prompt_zh": "側面全身站姿轉角偷窺：成年女性站在牆角邊緣，前傾探身向轉角另一側窺看，一手撐牆，另一手放在腿間自慰。"
+ },
+ {
+  "id": "voyeur_third_person_back_cowgirl_side",
+  "category": "06_pov_special_cameras",
+  "subcategory": "偷窺遮擋與敘事前景",
+  "title_zh": "第三者背影前景・跨坐仰望・側面全身",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "sex",
+   "girl on top"
+  ],
+  "slots": {
+   "observer": {
+    "label_zh": "前景第三者（站立背對鏡頭觀看）",
+    "requires": "any",
+    "center": {
+     "x": 0.2,
+     "y": 0.52
+    },
+    "tags": [
+     "standing",
+     "from behind",
+     "looking at another"
+    ],
+    "natural_en": "Standing in the left foreground with back to the camera, watching the couple in the background."
+   },
+   "receiver": {
+    "label_zh": "承受方（跨坐於仰躺者身上）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.68,
+     "y": 0.4
+    },
+    "tags": [
+     "sitting",
+     "leaning forward",
+     "looking down"
+    ],
+    "natural_en": "Sitting on top of the partner lying below, leaning forward with both hands on the partner's chest, looking down at the partner."
+   },
+   "giver": {
+    "label_zh": "施與方（仰躺被跨坐）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.74,
+     "y": 0.64
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "hands on another's hips",
+     "looking up"
+    ],
+    "natural_en": "Lying on the back on the right side of the frame, looking up at the partner sitting on top, both hands gripping the partner's hips."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view with a third person standing in the left foreground, back to the camera, watching a couple in the background: the receiver sits on top of the giver lying on the right, leaning forward with hands on the giver's chest while the giver holds the receiver's hips.",
+  "prompt_zh": "側面全身：左前景第三者站立背對鏡頭，望向右後方的一對伴侶；承受方跨坐在仰躺的施與方身上，前傾雙手扶住對方胸口，施與方仰望並雙手扶住承受方的胯部。"
+ },
+ {
+  "yamlid": null,
+  "id": "pov_keyhole_sitting_masturbation_front",
+  "category": "06_pov_special_cameras",
+  "subcategory": "偷窺遮擋與敘事前景",
+  "title_zh": "鑰匙孔窺視・坐姿張腿自慰・正面全身",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view",
+   "pov",
+   "peeking"
+  ],
+  "shared_pose_tags": [
+   "masturbation"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（坐姿張腿自慰，被鑰匙孔窺視）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "sitting",
+     "spread legs",
+     "hand between legs",
+     "looking at viewer"
+    ],
+    "natural_en": "Sitting in the center of the frame facing the camera, legs spread wide, one hand between the legs, looking directly toward the viewer through the keyhole."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Front full-body view as seen through a keyhole: a woman sits in the center of the frame facing the camera with legs spread wide, one hand between her legs, looking directly toward the viewer.",
+  "prompt_zh": "鑰匙孔窺視視角，正面全身：女子居中坐姿面向鏡頭，雙腿張開，一手置於腿間自慰，直視鏡頭。"
+ },
+ {
+  "yamlid": null,
+  "id": "solo_mirror_reflection_standing_back",
+  "category": "06_pov_special_cameras",
+  "subcategory": "特殊透視",
+  "title_zh": "鏡面倒影・站姿背面全身",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "back",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from behind"
+  ],
+  "shared_pose_tags": [
+   "mirror",
+   "reflection"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（背對鏡頭站於鏡前）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "standing",
+     "from behind",
+     "hand on own hip"
+    ],
+    "natural_en": "Standing with her back to the viewer in front of a large mirror, one hand resting on her hip, her front visible only as a reflection in the mirror facing the viewer."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Full-body rear view of an adult woman standing before a mirror, her back facing the camera with one hand on her hip, while the mirror reflects her front toward the viewer.",
+  "prompt_zh": "全身背面鏡面倒影，主體背對鏡頭站於鏡前，一手扶胯，鏡中倒影正面朝向觀者。"
+ },
+ {
+  "id": "pos_fisheye_crawl_closeup_front",
+  "category": "06_pov_special_cameras",
+  "subcategory": "特殊透視",
+  "title_zh": "魚眼近迫・四肢著地爬向鏡頭",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "close-up",
+   "fisheye",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "crawling",
+   "all fours"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（四肢著地爬向鏡頭）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.55
+    },
+    "tags": [
+     "all fours",
+     "arched back",
+     "crawling",
+     "looking at viewer"
+    ],
+    "natural_en": "On all fours very close to the lens, head and shoulders looming large in the foreground through the fisheye distortion, back deeply arched with hips raised, crawling forward toward the viewer."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Fisheye close-up front view of an adult woman on all fours crawling toward the camera, her face very close to the lens and enlarged by the fisheye distortion, back arched and hips raised as she moves forward.",
+  "prompt_zh": "魚眼近迫正面特寫：主體四肢著地爬向鏡頭，臉部貼近鏡頭因魚眼變形而放大，塌腰挺臀向前爬行並直視鏡頭。"
+ },
+ {
+  "yamlid": null,
+  "id": "special_crotch_extreme_low_angle_standing",
+  "category": "06_pov_special_cameras",
+  "subcategory": "特殊透視",
+  "title_zh": "胯下極端仰視・站姿張腿俯視鏡頭",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "from below"
+  ],
+  "shared_pose_tags": [
+   "spread legs"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（站姿張腿俯視）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.45
+    },
+    "tags": [
+     "standing",
+     "spread legs",
+     "leaning forward",
+     "looking down"
+    ],
+    "natural_en": "Standing with legs spread wide apart, leaning forward slightly with both hands resting on the thighs, looking down toward the camera positioned below between the legs."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Extreme low-angle view from directly underneath a standing adult, looking up between the widely spread legs toward the torso looming overhead, the subject leaning forward slightly and looking down toward the camera.",
+  "prompt_zh": "胯下極端仰視：站姿張腿，鏡頭置於雙腿之間由下往上拍，身體前傾俯視鏡頭。"
+ },
+ {
+  "yamlid": null,
+  "id": "solo_dutch_angle_kneeling_leanback",
+  "category": "06_pov_special_cameras",
+  "subcategory": "特殊透視",
+  "title_zh": "荷蘭角・跪姿後仰全身",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "dutch angle"
+  ],
+  "shared_pose_tags": [
+   "kneeling",
+   "arched back"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（跪姿後仰展示）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.52
+    },
+    "tags": [
+     "kneeling",
+     "leaning back",
+     "arched back",
+     "arms behind head",
+     "spread legs",
+     "looking at viewer"
+    ],
+    "natural_en": "Kneeling upright in the center of the frame with the torso leaning back and the back deeply arched, both arms behind the head, knees apart with legs spread, looking at the viewer while the tilted camera places the body on a diagonal across the frame."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Dutch angle full-body view of a kneeling adult woman leaning back with an arched back, both arms behind her head and legs spread, looking at the viewer as her body runs diagonally across the tilted frame.",
+  "prompt_zh": "荷蘭角斜拍全身，主體居中跪姿後仰、塌腰挺胸，雙手抱腦後，屈膝張腿面向鏡頭，身體沿斜線橫貫畫面。"
+ }
+]

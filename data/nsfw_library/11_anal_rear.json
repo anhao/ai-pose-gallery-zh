@@ -1,0 +1,1259 @@
+[
+ {
+  "id": "anal_rear_allfours_side",
+  "category": "11_anal_rear",
+  "subcategory": "後入四肢",
+  "title_zh": "四肢著地後庭後入・側面扶腿",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view"
+  ],
+  "shared_pose_tags": [
+   "anal",
+   "doggystyle"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（前方四肢著地）",
+    "requires": "any",
+    "center": {
+     "x": 0.36,
+     "y": 0.62
+    },
+    "tags": [
+     "all fours",
+     "ass up"
+    ],
+    "natural_en": "In front of the frame and toward the left edge, low on all fours with both palms flat on the surface and hips raised high."
+   },
+   "giver": {
+    "label_zh": "施與方（後方跪姿扶腿）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.68,
+     "y": 0.52
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "hands on another's thighs"
+    ],
+    "natural_en": "Directly behind the receiver and toward the right edge, kneeling and leaning forward while gripping both thighs."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "anal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi",
+     "anal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of anal doggystyle: the receiver is low on all fours toward the left with hips raised and hands flat, while the giver kneels behind toward the right, leaning forward and gripping both thighs.",
+  "prompt_zh": "側面全身後庭四肢著地後入：承受方居左低伏、雙手撐住支撐面並高抬臀部；施與方居右跪於身後，前傾雙手扶住對方大腿。"
+ },
+ {
+  "id": "anal_rear_bed_edge_prone_side",
+  "category": "11_anal_rear",
+  "subcategory": "後入四肢與俯趴（機位側面）",
+  "title_zh": "床緣趴伏後庭・側面",
+  "pattern": "geometry_dispatch",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "anal",
+   "doggystyle"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側床緣俯趴）",
+    "requires": "any",
+    "center": {
+     "x": 0.38,
+     "y": 0.58
+    },
+    "tags": [
+     "lying",
+     "on stomach",
+     "on bed",
+     "spread legs",
+     "ass up"
+    ],
+    "natural_en": "Lying face down on the edge of the bed on the left side of the frame with legs spread and hips raised over the edge, looking back toward the partner standing behind."
+   },
+   "giver": {
+    "label_zh": "施與方（右側站姿後入）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.68,
+     "y": 0.5
+    },
+    "tags": [
+     "standing",
+     "leaning forward",
+     "hands on another's hips",
+     "looking down"
+    ],
+    "natural_en": "Standing behind the bed on the right side of the frame, leaning forward over the partner's raised hips and gripping both hips while thrusting into the ass."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "anal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi",
+     "anal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "anal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "anal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of anal doggystyle at the edge of the bed: the receiver lies face down on the bed edge on the left with hips raised, while the giver stands behind the bed on the right, leaning forward and gripping the hips.",
+  "prompt_zh": "側面全身床緣後庭：承受方居左俯趴於床緣、雙腿張開臀部懸出床邊；施與方居右站於床後，前傾雙手扶胯後入。"
+ },
+ {
+  "id": "anal_fingering_lying_side",
+  "category": "11_anal_rear",
+  "subcategory": "後庭指交／道具擴張與雙重插入",
+  "title_zh": "後庭指交・仰躺抬腿側面",
+  "pattern": "organ_bound",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "anal",
+   "fingering"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側仰躺抬腿）",
+    "requires": "any",
+    "center": {
+     "x": 0.38,
+     "y": 0.55
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs",
+     "legs up"
+    ],
+    "natural_en": "Lying on the back on the left side of the frame with legs raised and spread wide while the partner kneels between the legs and fingers the ass."
+   },
+   "giver": {
+    "label_zh": "施與方（右側跪姿指交）",
+    "requires": "any",
+    "center": {
+     "x": 0.68,
+     "y": 0.48
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "looking down"
+    ],
+    "natural_en": "Kneeling between the partner's raised legs on the right side of the frame, leaning forward with fingers inside the partner's ass while looking down."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "anal",
+     "fingering"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi",
+     "anal",
+     "fingering"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "anal",
+     "fingering"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of anal fingering: the receiver lies on the back on the left with legs raised and spread wide, while the giver kneels between the legs on the right, leaning forward with fingers inside the ass.",
+  "prompt_zh": "側面全身後庭指交：承受方居左仰躺抬腿張開；施與方居右跪於腿間前傾，手指伸入對方後庭。"
+ },
+ {
+  "id": "anal_rear_cowgirl_front",
+  "category": "11_anal_rear",
+  "subcategory": "騎乘與反向騎乘",
+  "title_zh": "正向騎乘後庭・正面",
+  "pattern": "geometry_dispatch",
+  "default_canvas": 184,
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "anal",
+   "cowgirl position",
+   "sex"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（上方正向騎乘）",
+    "requires": "any",
+    "center": {
+     "x": 0.5,
+     "y": 0.45
+    },
+    "tags": [
+     "sitting",
+     "spread legs",
+     "leaning forward",
+     "looking down"
+    ],
+    "natural_en": "Sitting astride the partner facing forward with legs spread wide, leaning forward over the partner and looking down while riding the ass onto the partner."
+   },
+   "giver": {
+    "label_zh": "施與方（下方仰躺）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.5,
+     "y": 0.68
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "looking up"
+    ],
+    "natural_en": "Lying on the back below the rider, looking up at the rider sitting astride facing forward."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "anal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi",
+     "anal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "anal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "anal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   }
+  },
+  "natural_en": "Full-body front view of anal cowgirl: the receiver sits astride facing forward with legs spread wide, leaning forward, while the giver lies on the back below looking up.",
+  "prompt_zh": "正面全身正向騎乘後庭：承受方正面跨坐、雙腿張開前傾；施與方仰躺在下，仰望騎乘者。"
+ },
+ {
+  "id": "anal_rear_allfours_arm_pull_side",
+  "category": "11_anal_rear",
+  "subcategory": "後入四肢與俯趴（機位側面）",
+  "title_zh": "四肢著地拉臂後庭・側面",
+  "pattern": "geometry_dispatch",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "anal",
+   "doggystyle",
+   "arm grab"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側四肢著地、單臂被拉）",
+    "requires": "any",
+    "center": {
+     "x": 0.36,
+     "y": 0.6
+    },
+    "tags": [
+     "all fours",
+     "arched back",
+     "looking back",
+     "arms behind back"
+    ],
+    "natural_en": "On all fours on the left side of the frame with the back arched, one arm pulled back by the partner behind, looking back over the shoulder."
+   },
+   "giver": {
+    "label_zh": "施與方（右側跪姿拉臂後入）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.68,
+     "y": 0.48
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "looking down"
+    ],
+    "natural_en": "Kneeling behind the partner on the right side of the frame, leaning forward with one hand gripping the partner's pulled-back arm and the other hand on the hip, thrusting into the ass."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "anal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi",
+     "anal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "anal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "anal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of anal doggystyle with an arm pull: the receiver is on all fours on the left with an arched back and one arm pulled back, while the giver kneels behind on the right, leaning forward and holding the pulled arm.",
+  "prompt_zh": "側面全身拉臂後庭：承受方居左四肢著地、單臂被向後拉起並回頭；施與方居右跪於身後前傾，一手拉臂、一手扶胯後入。"
+ },
+ {
+  "id": "anal_rear_spooning_side",
+  "category": "11_anal_rear",
+  "subcategory": "站立與側臥",
+  "title_zh": "側臥湯匙後庭・側面",
+  "pattern": "geometry_dispatch",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "anal",
+   "sex"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側側臥在前）",
+    "requires": "any",
+    "center": {
+     "x": 0.36,
+     "y": 0.58
+    },
+    "tags": [
+     "lying",
+     "on side",
+     "spread legs",
+     "looking at another"
+    ],
+    "natural_en": "Lying on one side on the left side of the frame facing away from the camera, legs slightly spread, while the partner spoons in close behind and thrusts into the ass."
+   },
+   "giver": {
+    "label_zh": "施與方（右側側臥貼背）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.66,
+     "y": 0.58
+    },
+    "tags": [
+     "lying",
+     "on side",
+     "leaning forward",
+     "hands on another's hips",
+     "looking at another"
+    ],
+    "natural_en": "Lying on one side on the right side of the frame spooned close behind the partner, leaning forward with one hand on the partner's hip while thrusting into the ass."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "anal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi",
+     "anal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "anal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "anal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of spooning anal: the receiver lies on one side on the left, while the giver lies on one side on the right spooned close behind, leaning forward with a hand on the hip.",
+  "prompt_zh": "側面全身側臥湯匙後庭：承受方居左側臥在前；施與方居右側臥貼背相擁，前傾一手扶胯後入。"
+ },
+ {
+  "id": "anal_rear_lying_single_leg_up_side",
+  "category": "11_anal_rear",
+  "subcategory": "仰躺抬腿與折疊壓制",
+  "title_zh": "仰躺單腿高抬後庭・側面",
+  "pattern": "geometry_dispatch",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "anal",
+   "sex"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側仰躺單腿高抬）",
+    "requires": "any",
+    "center": {
+     "x": 0.38,
+     "y": 0.55
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "leg up",
+     "arched back"
+    ],
+    "natural_en": "Lying on the back on the left side of the frame with one leg raised high and the other resting bent, back arched, while the partner holds the raised leg and thrusts into the ass."
+   },
+   "giver": {
+    "label_zh": "施與方（右側跪姿扶抬腿）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.68,
+     "y": 0.48
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "hands on another's thighs",
+     "looking down"
+    ],
+    "natural_en": "Kneeling on the right side of the frame, leaning forward and holding the partner's raised leg with both hands while thrusting into the ass."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "anal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi",
+     "anal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "anal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "anal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of anal missionary with one leg raised: the receiver lies on the back on the left with one leg raised high, while the giver kneels on the right holding the raised leg.",
+  "prompt_zh": "側面全身單腿高抬後庭：承受方居左仰躺、單腿高抬另一腿屈放並拱腰；施與方居右跪姿前傾，雙手扶住抬起的大腿後入。"
+ },
+ {
+  "id": "anal_rear_cowgirl_squatting_side",
+  "category": "11_anal_rear",
+  "subcategory": "騎乘與反向騎乘",
+  "title_zh": "蹲姿騎乘後庭・側面",
+  "pattern": "geometry_dispatch",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "anal",
+   "cowgirl position",
+   "sex"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側上方蹲姿騎乘）",
+    "requires": "any",
+    "center": {
+     "x": 0.4,
+     "y": 0.42
+    },
+    "tags": [
+     "crouching",
+     "spread legs",
+     "leaning forward",
+     "looking down"
+    ],
+    "natural_en": "Squatting astride the partner on the left side of the frame with legs spread wide and knees bent, leaning forward over the partner and looking down while riding the ass onto the partner."
+   },
+   "giver": {
+    "label_zh": "施與方（右側下方仰躺）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.58,
+     "y": 0.62
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "looking up"
+    ],
+    "natural_en": "Lying on the back on the right side of the frame with the head toward the right edge, looking up at the rider squatting astride."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "anal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi",
+     "anal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "anal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "anal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of anal cowgirl in a squat: the receiver squats astride on the left with legs spread wide, leaning forward, while the giver lies on the back on the right, head toward the right edge.",
+  "prompt_zh": "側面全身蹲姿騎乘後庭：承受方居左蹲姿跨坐、雙腿張開前傾；施與方居右仰躺頭朝右側，仰望騎乘者。"
+ },
+ {
+  "id": "anal_rear_standing_side",
+  "category": "11_anal_rear",
+  "subcategory": "站立與側臥",
+  "title_zh": "站立後入後庭・側面",
+  "pattern": "geometry_dispatch",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "anal",
+   "sex from behind"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側站姿前彎）",
+    "requires": "any",
+    "center": {
+     "x": 0.38,
+     "y": 0.5
+    },
+    "tags": [
+     "standing",
+     "leaning forward",
+     "ass up",
+     "looking back"
+    ],
+    "natural_en": "Standing on the left side of the frame bent forward at the waist with hips raised, looking back over the shoulder while the partner thrusts into the ass from behind."
+   },
+   "giver": {
+    "label_zh": "施與方（右側站姿後入）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.66,
+     "y": 0.48
+    },
+    "tags": [
+     "standing",
+     "leaning forward",
+     "hands on another's hips",
+     "looking down"
+    ],
+    "natural_en": "Standing directly behind the partner on the right side of the frame, leaning forward and gripping both hips while thrusting into the ass."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "anal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi",
+     "anal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "anal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "anal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of standing anal from behind: the receiver stands on the left bent forward with hips raised, looking back, while the giver stands behind on the right, leaning forward and gripping the hips.",
+  "prompt_zh": "側面全身站立後庭：承受方居左站姿前彎、高抬臀部並回頭；施與方居右站於身後，前傾雙手扶胯後入。"
+ },
+ {
+  "id": "anal_rear_lying_legs_up_side",
+  "category": "11_anal_rear",
+  "subcategory": "仰躺抬腿與折疊壓制",
+  "title_zh": "仰躺抬腿後庭・側面",
+  "pattern": "geometry_dispatch",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "anal",
+   "sex"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側仰躺抬腿）",
+    "requires": "any",
+    "center": {
+     "x": 0.38,
+     "y": 0.55
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs",
+     "legs up",
+     "arched back"
+    ],
+    "natural_en": "Lying on the back on the left side of the frame with legs raised high and spread wide, back arched, while the partner kneels between the legs and thrusts into the ass."
+   },
+   "giver": {
+    "label_zh": "施與方（右側跪姿前傾）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.68,
+     "y": 0.48
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "hands on another's thighs",
+     "looking down"
+    ],
+    "natural_en": "Kneeling between the partner's raised legs on the right side of the frame, leaning forward and holding both thighs while thrusting into the ass."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "anal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi",
+     "anal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "anal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "anal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of anal missionary with legs up: the receiver lies on the back on the left with legs raised high and spread wide, while the giver kneels between the legs on the right, leaning forward and holding the thighs.",
+  "prompt_zh": "側面全身仰躺抬腿後庭：承受方居左仰躺、雙腿高抬張開並拱腰；施與方居右跪於腿間前傾，雙手扶住大腿後入。"
+ },
+ {
+  "id": "anal_rear_reverse_cowgirl_side",
+  "category": "11_anal_rear",
+  "subcategory": "騎乘與反向騎乘",
+  "title_zh": "反向騎乘後庭・側面",
+  "pattern": "geometry_dispatch",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "anal",
+   "reverse cowgirl position",
+   "sex"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側上方反向騎乘）",
+    "requires": "any",
+    "center": {
+     "x": 0.4,
+     "y": 0.42
+    },
+    "tags": [
+     "sitting",
+     "spread legs",
+     "leaning forward",
+     "looking down"
+    ],
+    "natural_en": "Sitting astride the partner with the back turned toward the partner's head on the left side of the frame, legs spread wide, leaning forward and looking down while riding the ass onto the partner."
+   },
+   "giver": {
+    "label_zh": "施與方（右側下方仰躺）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.58,
+     "y": 0.62
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "looking up"
+    ],
+    "natural_en": "Lying on the back on the right side of the frame with the head toward the right edge, looking up at the rider sitting astride with their back turned."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "anal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi",
+     "anal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "anal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "anal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of anal reverse cowgirl: the receiver sits astride on the left with the back turned toward the partner's head, legs spread wide, while the giver lies on the back on the right, head toward the right edge.",
+  "prompt_zh": "側面全身反向騎乘後庭：承受方居左背向跨坐、雙腿張開前傾；施與方居右仰躺頭朝右側，仰望騎乘者。"
+ },
+ {
+  "id": "anal_double_penetration_allfours_side",
+  "category": "11_anal_rear",
+  "subcategory": "後庭指交／道具擴張與雙重插入",
+  "title_zh": "雙重插入・四肢著地上下夾擊側面",
+  "pattern": "organ_bound",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "anal",
+   "sex",
+   "double penetration"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "中央（四肢著地居上，雙重插入承受方）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.48,
+     "y": 0.48
+    },
+    "tags": [
+     "all fours",
+     "arched back",
+     "looking down"
+    ],
+    "natural_en": "On all fours arched directly over the lying partner below while receiving from behind as well."
+   },
+   "front_partner": {
+    "label_zh": "下方（仰躺於身下正向結合）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.48,
+     "y": 0.74
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "hands on another's hips",
+     "looking up"
+    ],
+    "natural_en": "Lying on back directly underneath the partner on all fours, gripping hips and looking upward."
+   },
+   "behind_partner": {
+    "label_zh": "後方（跪姿後庭插入）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.78,
+     "y": 0.52
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "hands on another's hips",
+     "looking down"
+    ],
+    "natural_en": "Kneeling behind the middle partner at the right edge of the frame, leaning forward and gripping both hips while thrusting anally."
+   }
+  },
+  "pairing_tags": {
+   "mmf": {
+    "base": [
+     "mmf threesome",
+     "hetero",
+     "sex",
+     "vaginal",
+     "anal"
+    ],
+    "front_partner": [
+     "penis"
+    ],
+    "behind_partner": [
+     "penis"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of double insertion on all fours: receiver is on all fours directly above front_partner lying on back underneath, while behind_partner kneels behind gripping the hips.",
+  "prompt_zh": "側面全身四肢著地雙重插入：中央承受方四肢著地居上，下方者仰躺於其身下正向結合，後方跪姿者居右從後進入並扶胯。"
+ },
+ {
+  "id": "anal_rear_prone_side",
+  "category": "11_anal_rear",
+  "subcategory": "後入四肢與俯趴（機位側面）",
+  "title_zh": "俯趴後庭後入・側面",
+  "pattern": "geometry_dispatch",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "anal",
+   "doggystyle"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側俯趴）",
+    "requires": "any",
+    "center": {
+     "x": 0.38,
+     "y": 0.6
+    },
+    "tags": [
+     "lying",
+     "on stomach",
+     "spread legs",
+     "ass up"
+    ],
+    "natural_en": "Lying face down on the left side of the frame with legs spread and hips raised, pressed flat while the partner thrusts from behind."
+   },
+   "giver": {
+    "label_zh": "施與方（右側俯壓後入）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.68,
+     "y": 0.5
+    },
+    "tags": [
+     "lying",
+     "leaning forward",
+     "hands on another's hips",
+     "looking down"
+    ],
+    "natural_en": "Lying on top of the partner on the right side of the frame, leaning forward and gripping both hips while thrusting into the ass from behind."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "anal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi",
+     "anal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "anal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "anal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of prone anal doggystyle: the receiver lies face down on the left with legs spread and hips raised, while the giver lies on top on the right, leaning forward and gripping the hips.",
+  "prompt_zh": "側面全身俯趴後庭：承受方居左俯趴張腿、高抬臀部；施與方居右整個壓在對方背上，前傾雙手扶胯後入。"
+ },
+ {
+  "id": "anal_rear_folded_press_side",
+  "category": "11_anal_rear",
+  "subcategory": "仰躺抬腿與折疊壓制",
+  "title_zh": "折疊壓制後庭・側面",
+  "pattern": "geometry_dispatch",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "anal",
+   "sex",
+   "folded",
+   "mating press"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側仰躺折疊壓腿）",
+    "requires": "any",
+    "center": {
+     "x": 0.36,
+     "y": 0.55
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs",
+     "knees up",
+     "legs up"
+    ],
+    "natural_en": "Lying on the back on the left side of the frame folded in half with knees pressed up against the chest and legs spread, while the partner kneels and presses down over the folded legs to thrust into the ass."
+   },
+   "giver": {
+    "label_zh": "施與方（右側跪姿俯壓）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.68,
+     "y": 0.45
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "hands on another's thighs",
+     "looking down"
+    ],
+    "natural_en": "Kneeling on the right side of the frame, leaning forward and pressing down over the partner's folded legs, holding both thighs while thrusting into the ass."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "anal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi",
+     "anal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "anal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "anal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of folded anal missionary: the receiver lies on the back on the left folded in half with knees pressed to the chest, while the giver kneels on the right pressing down over the folded legs.",
+  "prompt_zh": "側面全身折疊壓制後庭：承受方居左仰躺對折、雙膝壓向胸口張開；施與方居右跪姿俯壓在折疊的雙腿上，雙手扶住大腿後入。"
+ }
+]

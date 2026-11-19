@@ -1,0 +1,1703 @@
+[
+ {
+  "id": "armpit_sex_seated_arm_up_side",
+  "category": "12_nonpenetrative_oil",
+  "subcategory": "腋下互動",
+  "title_zh": "坐姿抬臂腋下互動・側面",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "armpit sex"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（坐姿抬臂露出腋下）",
+    "requires": "any",
+    "center": {
+     "x": 0.34,
+     "y": 0.62
+    },
+    "tags": [
+     "sitting",
+     "on floor",
+     "arm up",
+     "presenting armpit",
+     "looking at another"
+    ],
+    "natural_en": "Seated on the floor on the left side of the frame, one arm raised overhead to present the armpit, body angled toward the partner."
+   },
+   "giver": {
+    "label_zh": "施與方（跪姿俯身進入腋下）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.68,
+     "y": 0.56
+    },
+    "tags": [
+     "kneeling",
+     "on floor",
+     "leaning forward",
+     "looking at another"
+    ],
+    "natural_en": "Kneeling on the right side of the frame, leaning forward toward the partner's raised armpit and pressing close to the exposed armpit."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "armpit sex"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi",
+     "armpit sex"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "armpit sex"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "armpit sex"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of armpit sex: the receiver sits on the floor on the left with one arm raised to present the armpit, while the giver kneels on the right and leans forward into that armpit.",
+  "prompt_zh": "側面全身腋下互動：承受方居左坐姿於地面、單臂高舉露出腋下；施與方居右跪姿俯身，以陽具或穿戴式假陽具貼近並進入對方腋下。"
+ },
+ {
+  "id": "buttjob_prone_side",
+  "category": "12_nonpenetrative_oil",
+  "subcategory": "臀部摩擦 buttjob",
+  "title_zh": "臀部摩擦俯趴・側面",
+  "pattern": "organ_bound",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "buttjob",
+   "sex"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側俯趴）",
+    "requires": "any",
+    "center": {
+     "x": 0.38,
+     "y": 0.6
+    },
+    "tags": [
+     "lying",
+     "on stomach",
+     "ass up"
+    ],
+    "natural_en": "Lying face down on the left side of the frame with hips raised and buttocks pressed together, while the partner lies on top and thrusts between the buttocks."
+   },
+   "giver": {
+    "label_zh": "施與方（右側俯壓臀磨）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.64,
+     "y": 0.5
+    },
+    "tags": [
+     "lying",
+     "leaning forward",
+     "looking down"
+    ],
+    "natural_en": "Lying on top of the partner on the right side of the frame, leaning forward with the penis clasped between the partner's pressed-together buttocks, thrusting while looking down."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "buttjob"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi",
+     "buttjob"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "buttjob"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "buttjob"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of buttjob prone: the receiver lies face down on the left with hips raised and buttocks pressed together, while the giver lies on top on the right thrusting between the buttocks.",
+  "prompt_zh": "側面全身臀部摩擦俯趴：承受方居左俯趴、高抬臀部併攏；施與方居右俯壓在上，於臀縫之間摩擦。"
+ },
+ {
+  "id": "oil_massage_straddle_back_side",
+  "category": "12_nonpenetrative_oil",
+  "subcategory": "油壓塗抹與貼身滑磨",
+  "title_zh": "跨坐腰背按摩・側面",
+  "pattern": "organ_bound",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "massage",
+   "oil",
+   "oiled"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側俯趴受按）",
+    "requires": "any",
+    "center": {
+     "x": 0.44,
+     "y": 0.64
+    },
+    "tags": [
+     "lying",
+     "on stomach"
+    ],
+    "natural_en": "Lying face down on the left side of the frame with the oiled back exposed while the partner sits astride the lower back and massages upward."
+   },
+   "giver": {
+    "label_zh": "施與方（右側跨坐腰背推按）",
+    "requires": "any",
+    "center": {
+     "x": 0.52,
+     "y": 0.42
+    },
+    "tags": [
+     "sitting",
+     "leaning forward",
+     "looking down",
+     "straddling"
+    ],
+    "natural_en": "Sitting astride the partner's lower back on the right side of the frame, leaning forward with both oiled hands pressing and sliding along the partner's back while looking down."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "massage",
+     "oil"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "massage",
+     "oil"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi",
+     "massage",
+     "oil"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of an oil massage from astride: the receiver lies face down on the left with an oiled back, while the giver sits astride the lower back on the right leaning forward, both hands pressing along the back.",
+  "prompt_zh": "側面全身跨坐腰背按摩：承受方居左俯趴，背部塗滿油；施與方居右跨坐在對方腰背上前傾，雙手沾油沿背推按。"
+ },
+ {
+  "id": "nursing_handjob_sitting_embrace_side",
+  "category": "12_nonpenetrative_oil",
+  "subcategory": "複合胸手侍奉 nursing handjob",
+  "title_zh": "懷抱胸手侍奉・坐姿懷抱側面",
+  "pattern": "organ_bound",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "nursing handjob",
+   "handjob"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側坐姿張腿）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.38,
+     "y": 0.58
+    },
+    "tags": [
+     "sitting",
+     "spread legs",
+     "knees up",
+     "looking at another"
+    ],
+    "natural_en": "Sitting on the left side of the frame facing forward with legs spread wide and knees raised, leaning back into the partner embracing from behind, looking toward the partner."
+   },
+   "giver": {
+    "label_zh": "施與方（右側坐姿懷抱貼胸）",
+    "requires": "breasts",
+    "center": {
+     "x": 0.66,
+     "y": 0.55
+    },
+    "tags": [
+     "sitting",
+     "leaning forward",
+     "looking at another"
+    ],
+    "natural_en": "Sitting close behind the partner on the right side of the frame, wrapping arms around the partner with breasts pressed against the partner's back, one hand reaching around to stroke while looking at the partner."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "nursing handjob"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "nursing handjob"
+    ],
+    "receiver": [
+     "strap-on"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "nursing handjob"
+    ],
+    "receiver": [
+     "futanari",
+     "penis"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of nursing handjob in an embrace: the receiver sits on the left with legs spread wide and knees raised, leaning back, while the giver sits close behind on the right with breasts pressed to the receiver's back, one hand reaching around to stroke.",
+  "prompt_zh": "側面全身懷抱胸手侍奉：承受方居左坐姿張腿屈膝、向後靠入對方懷中；施與方居右坐姿環抱，胸部貼住對方背部，一手繞前撫弄。"
+ },
+ {
+  "id": "nursing_handjob_standing_close_side",
+  "category": "12_nonpenetrative_oil",
+  "subcategory": "複合胸手侍奉 nursing handjob",
+  "title_zh": "站姿貼身胸手侍奉・側面近景",
+  "pattern": "organ_bound",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "nursing handjob",
+   "handjob"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側站姿貼近）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.38,
+     "y": 0.48
+    },
+    "tags": [
+     "standing",
+     "legs apart",
+     "looking at another"
+    ],
+    "natural_en": "Standing on the left side facing the partner closely."
+   },
+   "giver": {
+    "label_zh": "施與方（右側站姿貼胸侍奉）",
+    "requires": "breasts",
+    "center": {
+     "x": 0.62,
+     "y": 0.48
+    },
+    "tags": [
+     "standing",
+     "leaning forward",
+     "hug",
+     "looking at another"
+    ],
+    "natural_en": "Standing close on the right, leaning in with chest pressed near the partner while performing manual service."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "nursing handjob"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "nursing handjob"
+    ],
+    "receiver": [
+     "strap-on"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "nursing handjob"
+    ],
+    "receiver": [
+     "futanari",
+     "penis"
+    ]
+   }
+  },
+  "natural_en": "Close side view of standing chest-and-hand service: both stand closely face-to-face on left and right.",
+  "prompt_zh": "側面近景站姿胸手侍奉：承受方居左站立，施與方居右站姿相擁貼近，與坐姿 R017 骨架區隔。"
+ },
+ {
+  "id": "oil_pouring_chest_back_side",
+  "category": "12_nonpenetrative_oil",
+  "subcategory": "油壓塗抹與貼身滑磨",
+  "title_zh": "舉瓶淋油至胸背・側面",
+  "pattern": "organ_bound",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "massage",
+   "oil",
+   "oiled",
+   "bottle"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側仰躺受淋）",
+    "requires": "any",
+    "center": {
+     "x": 0.4,
+     "y": 0.6
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "arched back"
+    ],
+    "natural_en": "Lying on the back on the left side of the frame with the chest raised and back arched while the partner kneels beside pouring oil from a bottle onto the chest and stomach."
+   },
+   "giver": {
+    "label_zh": "施與方（右側跪姿舉瓶淋油）",
+    "requires": "any",
+    "center": {
+     "x": 0.68,
+     "y": 0.5
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "looking down",
+     "holding bottle",
+     "pouring"
+    ],
+    "natural_en": "Kneeling beside the partner on the right side of the frame, leaning forward and holding a bottle overhead, pouring a stream of oil onto the partner's chest and stomach while looking down."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "massage",
+     "oil"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "massage",
+     "oil"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi",
+     "massage",
+     "oil"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of oil being poured: the receiver lies on the back on the left with chest raised, while the giver kneels beside on the right holding a bottle overhead and pouring oil onto the chest and stomach.",
+  "prompt_zh": "側面全身舉瓶淋油：承受方居左仰躺挺胸拱腰；施與方居右跪於身側，高舉油瓶將油淋到對方胸口與腹部。"
+ },
+ {
+  "id": "oil_body_slide_close_side",
+  "category": "12_nonpenetrative_oil",
+  "subcategory": "油壓塗抹與貼身滑磨",
+  "title_zh": "潤滑緊貼滑磨・側面",
+  "pattern": "organ_bound",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "massage",
+   "oil",
+   "oiled"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側仰躺）",
+    "requires": "any",
+    "center": {
+     "x": 0.4,
+     "y": 0.6
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs"
+    ],
+    "natural_en": "Lying on the back on the left side of the frame with legs spread, skin slick with oil, while the partner lies on top and slides their oiled body against the receiver."
+   },
+   "giver": {
+    "label_zh": "施與方（右側俯壓滑磨）",
+    "requires": "any",
+    "center": {
+     "x": 0.62,
+     "y": 0.5
+    },
+    "tags": [
+     "lying",
+     "leaning forward",
+     "looking at another"
+    ],
+    "natural_en": "Lying on top of the partner on the right side of the frame, leaning forward with the whole oiled body pressed close and sliding slowly against the partner while looking at the partner."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "massage",
+     "oil"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "massage",
+     "oil"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi",
+     "massage",
+     "oil"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of an oiled body slide: the receiver lies on the back on the left with legs spread and oil-slick skin, while the giver lies on top on the right pressing their whole oiled body close and sliding against the receiver.",
+  "prompt_zh": "側面全身潤滑緊貼滑磨：承受方居左仰躺張腿，全身塗滿油；施與方居右俯壓在上，以塗油的身體緊貼對方緩緩滑磨。"
+ },
+ {
+  "id": "thigh_sex_lying_clasp_side",
+  "category": "12_nonpenetrative_oil",
+  "subcategory": "素股與大腿摩擦 thigh sex",
+  "title_zh": "素股仰躺夾磨・側面",
+  "pattern": "organ_bound",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "thigh sex",
+   "sex"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側仰躺張腿）",
+    "requires": "any",
+    "center": {
+     "x": 0.38,
+     "y": 0.58
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "knees up",
+     "looking at another",
+     "legs together"
+    ],
+    "natural_en": "Lying on the back on the left side of the frame with legs spread wide and knees raised, thighs pressed together around the partner lying on top, looking at the partner."
+   },
+   "giver": {
+    "label_zh": "施與方（右側俯壓夾磨）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.62,
+     "y": 0.5
+    },
+    "tags": [
+     "lying",
+     "leaning forward",
+     "looking down"
+    ],
+    "natural_en": "Lying on top of the partner on the right side of the frame, leaning forward with the penis clasped between the partner's pressed-together thighs, thrusting while looking down."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "thigh sex"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi",
+     "thigh sex"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "thigh sex"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "thigh sex"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of thigh sex: the receiver lies on the back on the left with legs spread wide and knees raised, thighs pressed together, while the giver lies on top on the right thrusting between the thighs.",
+  "prompt_zh": "側面全身素股仰躺夾磨：承受方居左仰躺張腿屈膝，雙腿併攏夾緊；施與方居右俯壓在上，於大腿之間摩擦。"
+ },
+ {
+  "id": "thigh_sex_prone_clasp_side",
+  "category": "12_nonpenetrative_oil",
+  "subcategory": "素股與大腿摩擦 thigh sex",
+  "title_zh": "素股俯趴夾磨・側面",
+  "pattern": "organ_bound",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "thigh sex",
+   "sex"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側俯趴張腿）",
+    "requires": "any",
+    "center": {
+     "x": 0.38,
+     "y": 0.6
+    },
+    "tags": [
+     "lying",
+     "on stomach",
+     "ass up",
+     "legs together"
+    ],
+    "natural_en": "Lying face down on the left side of the frame with legs spread and hips raised, thighs pressed together around the partner lying on top."
+   },
+   "giver": {
+    "label_zh": "施與方（右側俯壓夾磨）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.64,
+     "y": 0.5
+    },
+    "tags": [
+     "lying",
+     "leaning forward",
+     "looking down"
+    ],
+    "natural_en": "Lying on top of the partner on the right side of the frame, leaning forward with the penis clasped between the partner's pressed-together thighs, thrusting while looking down."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "thigh sex"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi",
+     "thigh sex"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "thigh sex"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "thigh sex"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of prone thigh sex: the receiver lies face down on the left with legs spread and hips raised, thighs pressed together, while the giver lies on top on the right thrusting between the thighs.",
+  "prompt_zh": "側面全身素股俯趴夾磨：承受方居左俯趴張腿、高抬臀部，雙腿併攏夾緊；施與方居右俯壓在上，於大腿之間摩擦。"
+ },
+ {
+  "id": "oil_massage_lying_caress_side",
+  "category": "12_nonpenetrative_oil",
+  "subcategory": "油壓塗抹與貼身滑磨",
+  "title_zh": "仰躺塗油愛撫・側面",
+  "pattern": "organ_bound",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "massage",
+   "oil",
+   "oiled"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側仰躺受撫）",
+    "requires": "any",
+    "center": {
+     "x": 0.4,
+     "y": 0.58
+    },
+    "tags": [
+     "lying",
+     "on back"
+    ],
+    "natural_en": "Lying on the back on the left side of the frame with the chest and stomach slick with oil while the partner sits beside and caresses the oiled skin with both hands."
+   },
+   "giver": {
+    "label_zh": "施與方（右側坐姿塗油愛撫）",
+    "requires": "any",
+    "center": {
+     "x": 0.68,
+     "y": 0.52
+    },
+    "tags": [
+     "sitting",
+     "leaning forward",
+     "looking down"
+    ],
+    "natural_en": "Sitting beside the partner on the right side of the frame, leaning forward with both oiled hands caressing slowly across the partner's chest and stomach while looking down."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "massage",
+     "oil"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "massage",
+     "oil"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi",
+     "massage",
+     "oil"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of an oil caress: the receiver lies on the back on the left with chest and stomach slick with oil, while the giver sits beside on the right leaning forward, both oiled hands caressing slowly across the chest and stomach.",
+  "prompt_zh": "側面全身仰躺塗油愛撫：承受方居左仰躺，胸腹塗滿油；施與方居右坐於身側前傾，雙手沾油在對方胸腹上緩緩愛撫。"
+ },
+ {
+  "id": "thigh_sex_behind_clasp_side",
+  "category": "12_nonpenetrative_oil",
+  "subcategory": "素股與大腿摩擦 thigh sex",
+  "title_zh": "素股背後夾磨・側面",
+  "pattern": "organ_bound",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "thigh sex",
+   "sex"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側站姿前傾）",
+    "requires": "any",
+    "center": {
+     "x": 0.38,
+     "y": 0.5
+    },
+    "tags": [
+     "standing",
+     "leaning forward",
+     "looking back",
+     "legs together"
+    ],
+    "natural_en": "Standing on the left side of the frame leaning forward with thighs pressed together, looking back toward the partner standing behind."
+   },
+   "giver": {
+    "label_zh": "施與方（右側站姿背後夾磨）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.66,
+     "y": 0.48
+    },
+    "tags": [
+     "standing",
+     "leaning forward",
+     "hands on another's hips",
+     "looking down"
+    ],
+    "natural_en": "Standing directly behind the partner on the right side of the frame, leaning forward and gripping both hips with the penis clasped between the partner's pressed-together thighs, thrusting while looking down."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "thigh sex"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi",
+     "thigh sex"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "thigh sex"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "thigh sex"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of thigh sex from behind: the receiver stands on the left leaning forward with thighs pressed together, looking back, while the giver stands behind on the right gripping the hips and thrusting between the thighs.",
+  "prompt_zh": "側面全身素股背後夾磨：承受方居左站姿前傾、雙腿併攏夾緊並回頭；施與方居右站於身後，雙手扶胯於大腿之間摩擦。"
+ },
+ {
+  "id": "nursing_handjob_on_top_press_side",
+  "category": "12_nonpenetrative_oil",
+  "subcategory": "複合胸手侍奉 nursing handjob",
+  "title_zh": "上位俯壓胸手侍奉・側面",
+  "pattern": "organ_bound",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "nursing handjob",
+   "handjob"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側仰躺張腿）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.4,
+     "y": 0.6
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs",
+     "looking at another"
+    ],
+    "natural_en": "Lying on the back on the left side of the frame with legs spread wide, looking toward the partner lying on top."
+   },
+   "giver": {
+    "label_zh": "施與方（右側上位俯壓貼胸）",
+    "requires": "breasts",
+    "center": {
+     "x": 0.62,
+     "y": 0.5
+    },
+    "tags": [
+     "lying",
+     "leaning forward",
+     "looking down"
+    ],
+    "natural_en": "Lying on top of the partner on the right side of the frame, pressing breasts against the partner's chest and leaning forward, one hand stroking below while looking down."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "nursing handjob"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "nursing handjob"
+    ],
+    "receiver": [
+     "strap-on"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "nursing handjob"
+    ],
+    "receiver": [
+     "futanari",
+     "penis"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of nursing handjob from on top: the receiver lies on the back on the left with legs spread wide, while the giver lies on top on the right pressing breasts to the receiver's chest, one hand stroking below.",
+  "prompt_zh": "側面全身 上位俯壓胸手侍奉：承受方居左仰躺張腿；施與方居右俯壓在上，胸部貼住對方胸口，一手向下撫弄。"
+ },
+ {
+  "id": "buttjob_kneeling_clasp_side",
+  "category": "12_nonpenetrative_oil",
+  "subcategory": "臀部摩擦 buttjob",
+  "title_zh": "臀部摩擦跪姿・側面",
+  "pattern": "organ_bound",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "buttjob",
+   "sex"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側跪姿前彎）",
+    "requires": "any",
+    "center": {
+     "x": 0.38,
+     "y": 0.55
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "ass up"
+    ],
+    "natural_en": "Kneeling on the left side of the frame bent forward with hips raised and buttocks pressed together, while the partner kneels behind and thrusts between the buttocks."
+   },
+   "giver": {
+    "label_zh": "施與方（右側跪姿臀磨）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.68,
+     "y": 0.5
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "hands on another's hips",
+     "looking down"
+    ],
+    "natural_en": "Kneeling behind the partner on the right side of the frame, leaning forward and gripping both hips with the penis clasped between the partner's pressed-together buttocks, thrusting while looking down."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "buttjob"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi",
+     "buttjob"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "buttjob"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "buttjob"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of buttjob kneeling: the receiver kneels on the left bent forward with hips raised and buttocks pressed together, while the giver kneels behind on the right gripping the hips and thrusting between the buttocks.",
+  "prompt_zh": "側面全身臀部摩擦跪姿：承受方居左跪姿前彎、高抬臀部併攏；施與方居右跪於身後扶胯，於臀縫之間摩擦。"
+ },
+ {
+  "id": "thigh_sex_sitting_clasp_side",
+  "category": "12_nonpenetrative_oil",
+  "subcategory": "素股與大腿摩擦 thigh sex",
+  "title_zh": "素股坐姿夾磨・側面",
+  "pattern": "organ_bound",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "thigh sex",
+   "sex"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側坐姿張腿）",
+    "requires": "any",
+    "center": {
+     "x": 0.38,
+     "y": 0.58
+    },
+    "tags": [
+     "sitting",
+     "knees up",
+     "looking at another",
+     "legs together"
+    ],
+    "natural_en": "Sitting on the left side of the frame facing the partner with legs spread wide and knees raised, thighs pressed together around the partner sitting close in front."
+   },
+   "giver": {
+    "label_zh": "施與方（右側坐姿夾磨）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.66,
+     "y": 0.55
+    },
+    "tags": [
+     "sitting",
+     "leaning forward",
+     "looking at another"
+    ],
+    "natural_en": "Sitting close in front of the partner on the right side of the frame, leaning forward with the penis clasped between the partner's pressed-together thighs, thrusting while looking at the partner."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "thigh sex"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi",
+     "thigh sex"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "thigh sex"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "thigh sex"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of sitting thigh sex: the receiver sits on the left facing the partner with legs spread wide and knees raised, thighs pressed together, while the giver sits close in front on the right thrusting between the thighs.",
+  "prompt_zh": "側面全身素股坐姿夾磨：承受方居左坐姿張腿屈膝面向對方，雙腿併攏夾緊；施與方居右坐姿貼近，於大腿之間摩擦。"
+ },
+ {
+  "id": "nursing_handjob_lying_chest_press_side",
+  "category": "12_nonpenetrative_oil",
+  "subcategory": "複合胸手侍奉 nursing handjob",
+  "title_zh": "仰躺貼胸胸手侍奉・側面",
+  "pattern": "organ_bound",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "nursing handjob",
+   "handjob"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側仰躺張腿）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.38,
+     "y": 0.58
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs",
+     "looking at another"
+    ],
+    "natural_en": "Lying on the back on the left side of the frame with legs spread wide, looking toward the partner sitting beside and leaning over."
+   },
+   "giver": {
+    "label_zh": "施與方（右側坐姿側身貼胸）",
+    "requires": "breasts",
+    "center": {
+     "x": 0.66,
+     "y": 0.55
+    },
+    "tags": [
+     "sitting",
+     "leaning forward",
+     "looking down"
+    ],
+    "natural_en": "Sitting beside the partner on the right side of the frame, leaning sideways over the partner with breasts pressed against the partner's chest, one hand stroking below while looking down."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "nursing handjob"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "nursing handjob"
+    ],
+    "receiver": [
+     "strap-on"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "nursing handjob"
+    ],
+    "receiver": [
+     "futanari",
+     "penis"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of nursing handjob lying down: the receiver lies on the back on the left with legs spread wide, while the giver sits beside on the right leaning sideways over, breasts pressed to the receiver's chest, one hand stroking below.",
+  "prompt_zh": "側面全身仰躺貼胸胸手侍奉：承受方居左仰躺張腿；施與方居右坐於身側，側身俯下以胸部貼住對方胸口，一手向下撫弄。"
+ },
+ {
+  "id": "oil_massage_legs_slide_side",
+  "category": "12_nonpenetrative_oil",
+  "subcategory": "油壓塗抹與貼身滑磨",
+  "title_zh": "油壓腿部推滑・側面",
+  "pattern": "organ_bound",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "massage",
+   "oil",
+   "oiled"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側仰躺抬腿）",
+    "requires": "any",
+    "center": {
+     "x": 0.38,
+     "y": 0.55
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "legs up"
+    ],
+    "natural_en": "Lying on the back on the left side of the frame with legs raised, skin slick with oil, while the partner kneels at the legs and massages upward along the oiled legs."
+   },
+   "giver": {
+    "label_zh": "施與方（右側跪姿腿部推滑）",
+    "requires": "any",
+    "center": {
+     "x": 0.68,
+     "y": 0.48
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "looking down"
+    ],
+    "natural_en": "Kneeling at the partner's legs on the right side of the frame, leaning forward with both oiled hands pressing and sliding upward along the partner's raised legs while looking down."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "massage",
+     "oil"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "massage",
+     "oil"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi",
+     "massage",
+     "oil"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of an oil leg massage: the receiver lies on the back on the left with legs raised and oil-slick skin, while the giver kneels at the legs on the right leaning forward, both hands pressing and sliding upward along the legs.",
+  "prompt_zh": "側面全身油壓腿部推滑：承受方居左仰躺抬腿，雙腿塗滿油；施與方居右跪於腿邊前傾，雙手沾油沿大腿向上推滑。"
+ },
+ {
+  "id": "thigh_sex_overhead_closeup",
+  "category": "12_nonpenetrative_oil",
+  "subcategory": "素股與大腿摩擦 thigh sex",
+  "title_zh": "素股俯視特寫・俯視近拍",
+  "pattern": "organ_bound",
+  "default_canvas": 184,
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "close-up",
+   "from above"
+  ],
+  "shared_pose_tags": [
+   "thigh sex",
+   "sex"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（下方仰躺張腿）",
+    "requires": "any",
+    "center": {
+     "x": 0.5,
+     "y": 0.62
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "legs together"
+    ],
+    "natural_en": "Lying on the back at the bottom of the frame with legs spread wide and thighs pressed together around the partner kneeling above."
+   },
+   "giver": {
+    "label_zh": "施與方（上方跪姿夾磨）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.5,
+     "y": 0.35
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "looking down"
+    ],
+    "natural_en": "Kneeling at the top of the frame, leaning forward over the partner's pressed-together thighs and thrusting between them while looking down."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "thigh sex"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi",
+     "thigh sex"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "thigh sex"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "thigh sex"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   }
+  },
+  "natural_en": "Overhead close-up of thigh sex: the receiver lies on the back at the bottom of the frame with legs spread and thighs pressed together, while the giver kneels at the top leaning forward and thrusting between the thighs.",
+  "prompt_zh": "俯視近拍素股特寫：承受方在下仰躺張腿、雙腿併攏夾緊；施與方在上跪姿前傾，於大腿之間摩擦。"
+ },
+ {
+  "id": "oil_massage_prone_back_rub_side",
+  "category": "12_nonpenetrative_oil",
+  "subcategory": "油壓塗抹與貼身滑磨",
+  "title_zh": "俯趴推背油壓・側面",
+  "pattern": "organ_bound",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "massage",
+   "oil",
+   "oiled"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側俯趴受按）",
+    "requires": "any",
+    "center": {
+     "x": 0.4,
+     "y": 0.62
+    },
+    "tags": [
+     "lying",
+     "on stomach"
+    ],
+    "natural_en": "Lying face down on the left side of the frame with the oiled back exposed, arms resting slack at the sides while the partner kneels beside and massages the back."
+   },
+   "giver": {
+    "label_zh": "施與方（右側跪姿推背）",
+    "requires": "any",
+    "center": {
+     "x": 0.68,
+     "y": 0.52
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "looking down"
+    ],
+    "natural_en": "Kneeling beside the partner on the right side of the frame, leaning forward with both oiled hands pressing and sliding along the partner's back while looking down."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "massage",
+     "oil"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "massage",
+     "oil"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi",
+     "massage",
+     "oil"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of an oil back massage: the receiver lies face down on the left with an oiled back, while the giver kneels beside on the right leaning forward, both hands pressing and sliding along the back.",
+  "prompt_zh": "側面全身俯趴推背油壓：承受方居左俯趴，背部塗滿油；施與方居右跪於身側前傾，雙手沾油在背上推滑按摩。"
+ },
+ {
+  "id": "armpit_sex_lying_arm_up_side",
+  "category": "12_nonpenetrative_oil",
+  "subcategory": "腋下互動 armpit sex",
+  "title_zh": "仰躺抬臂腋下互動・側面",
+  "pattern": "organ_bound",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "armpit sex"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側仰躺抬臂露出腋下）",
+    "requires": "any",
+    "center": {
+     "x": 0.38,
+     "y": 0.58
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "arm up",
+     "presenting armpit",
+     "looking at another"
+    ],
+    "natural_en": "Lying on the back on the left side of the frame with one arm raised overhead to present the armpit, looking toward the partner kneeling beside."
+   },
+   "giver": {
+    "label_zh": "施與方（右側跪姿俯身進入腋下）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.68,
+     "y": 0.55
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "looking at another"
+    ],
+    "natural_en": "Kneeling beside the partner on the right side of the frame, leaning forward toward the raised armpit and pressing close to the exposed armpit."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "armpit sex"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi",
+     "armpit sex"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "armpit sex"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "armpit sex"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of armpit sex lying down: the receiver lies on the back on the left with one arm raised to present the armpit, while the giver kneels beside on the right and leans forward into that armpit.",
+  "prompt_zh": "側面全身仰躺腋下互動：承受方居左仰躺、單臂高舉露出腋下；施與方居右跪於身側俯身，以陽具或穿戴式假陽具貼近並進入對方腋下。"
+ },
+ {
+  "id": "armpit_sex_standing_arm_up_side",
+  "category": "12_nonpenetrative_oil",
+  "subcategory": "腋下互動 armpit sex",
+  "title_zh": "站姿抬臂腋下互動・側面",
+  "pattern": "organ_bound",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "armpit sex"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側站姿抬臂露出腋下）",
+    "requires": "any",
+    "center": {
+     "x": 0.38,
+     "y": 0.45
+    },
+    "tags": [
+     "standing",
+     "arm up",
+     "presenting armpit",
+     "looking at another"
+    ],
+    "natural_en": "Standing on the left side of the frame with one arm raised overhead to present the armpit, body angled toward the partner standing close beside."
+   },
+   "giver": {
+    "label_zh": "施與方（右側站姿貼近腋下）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.66,
+     "y": 0.48
+    },
+    "tags": [
+     "standing",
+     "leaning forward",
+     "looking at another"
+    ],
+    "natural_en": "Standing close beside the partner on the right side of the frame, leaning forward toward the raised armpit and pressing close to the exposed armpit."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "armpit sex"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi",
+     "armpit sex"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "armpit sex"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "armpit sex"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of armpit sex standing: the receiver stands on the left with one arm raised to present the armpit, while the giver stands close beside on the right and leans forward into that armpit.",
+  "prompt_zh": "側面全身站姿腋下互動：承受方居左站姿、單臂高舉露出腋下；施與方居右站姿貼近俯身，以陽具或穿戴式假陽具貼近並進入對方腋下。"
+ }
+]

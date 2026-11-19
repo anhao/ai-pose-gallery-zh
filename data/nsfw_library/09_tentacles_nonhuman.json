@@ -1,0 +1,554 @@
+[
+ {
+  "id": "tentacle_restraint_lying_above",
+  "category": "09_tentacles_nonhuman",
+  "subcategory": "純觸手（模式 C，不建角色槽位）",
+  "title_zh": "觸手拘束仰躺・俯視全身",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from above"
+  ],
+  "shared_pose_tags": [
+   "tentacles",
+   "bondage"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（仰躺被觸手拘束）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.52
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "bound wrists",
+     "bound ankles",
+     "spread legs",
+     "arched back",
+     "head back"
+    ],
+    "natural_en": "Lying on her back with wrists tied together in front of her body and ankles bound apart, legs spread wide, back arched and head tilted back, thick tentacles coiling around her wrists, ankles and torso to hold her in place."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "High-angle full-body view of an adult woman lying on her back, wrists and ankles bound by coiling tentacles, legs spread and back arched.",
+  "prompt_zh": "高角度俯視全身：仰躺女子雙腕綁在身前、雙踝分開綁住，張腿拱腰，粗觸手纏住手腕、腳踝與軀幹固定全身。"
+ },
+ {
+  "id": "tentacle_suspended_entanglement_front",
+  "category": "09_tentacles_nonhuman",
+  "subcategory": "純觸手（模式 C，不建角色槽位）",
+  "title_zh": "觸手懸空纏繞・正面全身",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "tentacles",
+   "suspension"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（懸空被觸手纏繞）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "floating",
+     "arms up",
+     "spread legs",
+     "arched back",
+     "looking up"
+    ],
+    "natural_en": "Floating in mid-air with both arms raised above her head, legs spread apart and back deeply arched, looking up, her whole body wrapped and lifted by several thick tentacles coiling around her torso, thighs and arms."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Front full-body view of an adult woman suspended in mid-air by tentacles, arms raised, legs spread and back arched, looking up.",
+  "prompt_zh": "正面全身：女子懸空被多條粗觸手纏住軀幹、大腿與手臂吊起，雙手高舉、張腿拱腰仰望。"
+ },
+ {
+  "id": "tentacle_multi_point_penetration_lying",
+  "category": "09_tentacles_nonhuman",
+  "subcategory": "純觸手（模式 C，不建角色槽位）",
+  "title_zh": "觸手多點入侵仰躺・低角度正面",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from below"
+  ],
+  "shared_pose_tags": [
+   "tentacles",
+   "penetration",
+   "double penetration"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（仰躺被觸手多點入侵）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.52
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs",
+     "knees up",
+     "open mouth",
+     "arched back"
+    ],
+    "natural_en": "Lying on her back with knees raised and legs spread wide, mouth open and back arched, tentacles pressing into her mouth and lower body at the same time while more tentacles coil around her thighs."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Low-angle full-body front view of an adult woman lying on her back with knees up and legs spread, mouth open, penetrated at the mouth and lower body by tentacles at the same time.",
+  "prompt_zh": "低角度正面全身：仰躺女子屈膝張腿、張口拱腰，觸手同時侵入口部與下身，另有觸手纏住大腿。"
+ },
+ {
+  "id": "tentacle_pool_submerged_lying",
+  "category": "09_tentacles_nonhuman",
+  "subcategory": "純觸手（模式 C，不建角色槽位）",
+  "title_zh": "觸手池仰躺・俯視全身",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from above"
+  ],
+  "shared_pose_tags": [
+   "tentacles",
+   "submerged"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（躺在觸手池中）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.52
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs",
+     "arms up",
+     "looking up"
+    ],
+    "natural_en": "Lying on her back in a pool filled with writhing tentacles, arms raised above her head, legs spread apart and looking up, tentacles rising out of the pool around her and coiling over her torso and thighs."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "High-angle full-body view of an adult woman lying on her back in a pool of tentacles, arms raised, legs spread and looking up, tentacles rising around her body.",
+  "prompt_zh": "高角度俯視全身：女子仰躺在滿是觸手的池中，雙手高舉、張腿仰望，觸手自池中升起纏住軀幹與大腿。"
+ },
+ {
+  "id": "nonhuman_doggystyle_pinning_side",
+  "category": "09_tentacles_nonhuman",
+  "subcategory": "非人／魔物／動物互動",
+  "title_zh": "後背壓制・四肢著地側面",
+  "pattern": "geometry_dispatch",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "doggystyle",
+   "sex from behind"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（前方四肢著地）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.36,
+     "y": 0.6
+    },
+    "tags": [
+     "all fours",
+     "arched back",
+     "looking back"
+    ],
+    "natural_en": "On all fours on the left side of the frame with the back deeply arched and hips raised, looking back toward the nonhuman partner pinning from behind."
+   },
+   "giver": {
+    "label_zh": "施與方（後方非人跪姿壓制）",
+    "requires": "nonhuman",
+    "center": {
+     "x": 0.68,
+     "y": 0.5
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "hands on another's hips",
+     "looking down"
+    ],
+    "natural_en": "Kneeling directly behind the partner on the right side of the frame, a nonhuman creature leaning forward and pinning the partner down by gripping both hips while looking down."
+   }
+  },
+  "pairing_tags": {
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Full-body side view of doggystyle with a nonhuman partner: the receiver is on all fours on the left with an arched back, while the nonhuman partner kneels behind on the right, leaning forward and pinning the hips.",
+  "prompt_zh": "側面全身非人後背壓制：承受方居左四肢著地、塌腰挺臀並回頭；非人施與方居右跪於身後，前傾雙手壓住胯部。"
+ },
+ {
+  "id": "tentacle_kneeling_oral_coil_front",
+  "category": "09_tentacles_nonhuman",
+  "subcategory": "純觸手（模式 C，不建角色槽位）",
+  "title_zh": "觸手纏身跪姿口含・正面",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "cowboy shot",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "tentacles",
+   "oral"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（跪姿被觸手纏身口含）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.55
+    },
+    "tags": [
+     "kneeling",
+     "open mouth",
+     "tongue out",
+     "arched back",
+     "looking up"
+    ],
+    "natural_en": "Kneeling upright with back arched and looking up, mouth open with tongue out, thick tentacles coiling tightly around her torso and waist, one tentacle tip pressed against her open mouth."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Front view of an adult woman kneeling upright, back arched and looking up, mouth open with tongue out, tentacles coiling around her torso with one tip at her mouth.",
+  "prompt_zh": "正面：女子跪姿挺直、拱腰仰望，張口伸舌，粗觸手緊纏軀幹與腰部，一條觸手尖端貼住口部。"
+ },
+ {
+  "id": "nonhuman_surrounded_lying_side",
+  "category": "09_tentacles_nonhuman",
+  "subcategory": "非人／魔物／動物互動",
+  "title_zh": "被包圍・仰躺夾擊側面",
+  "pattern": "organ_bound",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "sex",
+   "group sex"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "中央（仰躺張腿被包圍）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.5,
+     "y": 0.6
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs",
+     "knees up",
+     "looking at another"
+    ],
+    "natural_en": "Lying on the back in the middle of the frame with legs spread wide and knees raised, surrounded by nonhuman partners closing in from both sides, looking toward the partner on the left."
+   },
+   "partner_left": {
+    "label_zh": "左側非人（跪姿貼近）",
+    "requires": "nonhuman",
+    "center": {
+     "x": 0.22,
+     "y": 0.5
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "looking down"
+    ],
+    "natural_en": "Kneeling at the left edge of the frame, a nonhuman creature leaning forward over the middle partner, looking down."
+   },
+   "partner_right": {
+    "label_zh": "右側非人（跪姿貼近）",
+    "requires": "nonhuman",
+    "center": {
+     "x": 0.78,
+     "y": 0.48
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "looking down"
+    ],
+    "natural_en": "Kneeling at the right edge of the frame, a nonhuman creature leaning forward over the middle partner, looking down."
+   }
+  },
+  "pairing_tags": {
+   "group": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of a woman surrounded by nonhuman partners: she lies on her back in the middle with legs spread wide and knees raised, while a nonhuman creature kneels and leans in from each side.",
+  "prompt_zh": "側面全身非人包圍：中央承受方仰躺張腿屈膝，被左右兩側的非人包圍貼近，兩邊非人皆跪姿前傾低頭。"
+ },
+ {
+  "id": "nonhuman_prone_on_top_side",
+  "category": "09_tentacles_nonhuman",
+  "subcategory": "非人／魔物／動物互動",
+  "title_zh": "俯趴・非人壓背側面",
+  "pattern": "geometry_dispatch",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "sex",
+   "prone bone"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（下方俯趴）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.4,
+     "y": 0.62
+    },
+    "tags": [
+     "lying",
+     "on stomach",
+     "spread legs",
+     "ass up"
+    ],
+    "natural_en": "Lying face down on the left side of the frame with legs spread and hips raised, pressed flat under the weight of the nonhuman partner on top."
+   },
+   "giver": {
+    "label_zh": "施與方（上方非人俯壓）",
+    "requires": "nonhuman",
+    "center": {
+     "x": 0.66,
+     "y": 0.5
+    },
+    "tags": [
+     "lying",
+     "leaning forward",
+     "looking down"
+    ],
+    "natural_en": "Lying on top of the partner on the right side of the frame, a nonhuman creature pressing the partner flat with its full weight while looking down."
+   }
+  },
+  "pairing_tags": {
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Full-body side view of prone bone with a nonhuman partner: the receiver lies face down on the left with legs spread, while the nonhuman partner lies on top on the right, pressing down with its full weight.",
+  "prompt_zh": "側面全身非人俯趴壓背：承受方居左俯趴張腿、高抬臀部被壓平；非人施與方居右整個壓在對方背上，低頭向下看。"
+ },
+ {
+  "id": "nonhuman_cowgirl_straddle_side",
+  "category": "09_tentacles_nonhuman",
+  "subcategory": "非人／魔物／動物互動",
+  "title_zh": "跨坐・騎乘非人側面",
+  "pattern": "geometry_dispatch",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "cowgirl position",
+   "sex"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（上方騎乘）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.4,
+     "y": 0.42
+    },
+    "tags": [
+     "sitting",
+     "spread legs",
+     "leaning forward",
+     "looking down"
+    ],
+    "natural_en": "Sitting astride the nonhuman partner on the left side of the frame with legs spread wide, leaning forward over the partner and looking down."
+   },
+   "giver": {
+    "label_zh": "施與方（下方非人仰躺）",
+    "requires": "nonhuman",
+    "center": {
+     "x": 0.58,
+     "y": 0.62
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "looking up"
+    ],
+    "natural_en": "Lying on the back on the right side of the frame, a nonhuman creature with its head toward the right edge, looking up at the rider sitting astride."
+   }
+  },
+  "pairing_tags": {
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Full-body side view of cowgirl with a nonhuman partner: the receiver sits astride on the left with legs spread wide, leaning forward, while the nonhuman partner lies on its back on the right, head toward the right edge.",
+  "prompt_zh": "側面全身騎乘非人：承受方居左跨坐於非人身上、雙腿張開前傾；非人施與方居右仰躺，頭朝右側邊緣，仰望騎乘者。"
+ },
+ {
+  "id": "nonhuman_fellatio_kneeling_side",
+  "category": "09_tentacles_nonhuman",
+  "subcategory": "非人／魔物／動物互動",
+  "title_zh": "侍奉・跪姿口交側面",
+  "pattern": "organ_bound",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "fellatio",
+   "oral"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側非人站立）",
+    "requires": "nonhuman",
+    "center": {
+     "x": 0.36,
+     "y": 0.42
+    },
+    "tags": [
+     "standing",
+     "legs apart",
+     "looking down"
+    ],
+    "natural_en": "Standing on the left side of the frame, a nonhuman creature with legs apart, looking down at the partner kneeling between its legs."
+   },
+   "giver": {
+    "label_zh": "施與方（右側跪姿口交）",
+    "requires": "any",
+    "center": {
+     "x": 0.64,
+     "y": 0.7
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "tongue out",
+     "looking up"
+    ],
+    "natural_en": "Kneeling between the partner's parted legs on the right side of the frame, leaning in with tongue out and looking up while servicing the nonhuman partner."
+   }
+  },
+  "pairing_tags": {
+   "female_other": {
+    "base": [
+     "fellatio",
+     "interspecies"
+    ],
+    "receiver": []
+   }
+  },
+  "natural_en": "Full-body side view of fellatio on a nonhuman partner: the nonhuman receiver stands on the left with legs apart, while the giver kneels between the legs on the right, leaning in with tongue out and looking up.",
+  "prompt_zh": "側面全身非人口交侍奉：非人承受方居左站立張腿、低視下方；施與方居右跪於腿間，俯身伸舌仰望。"
+ }
+]
