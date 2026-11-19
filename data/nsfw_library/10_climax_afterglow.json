@@ -383,7 +383,7 @@
   "subcategory": "事後溢出特寫與癱軟仰躺／雙人相擁平復",
   "title_zh": "雙人仰躺相擁・俯視全身",
   "pattern": "organ_bound",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "front",
   "mirrorable": true,
   "camera_tags": [
@@ -392,11 +392,12 @@
   ],
   "shared_pose_tags": [
    "after sex",
-   "hug"
+   "cuddling",
+   "on bed"
   ],
   "slots": {
    "partner_a": {
-    "label_zh": "左方（仰躺相擁）",
+    "label_zh": "左方（枕在對方胸前相擁）",
     "requires": "any",
     "center": {
      "x": 0.4,
@@ -404,14 +405,14 @@
     },
     "tags": [
      "lying",
-     "on back",
-     "looking at another",
-     "hug"
+     "lying on person",
+     "head on chest",
+     "looking at another"
     ],
-    "natural_en": "Lying on the back on the left side of the frame with one arm draped over the partner beside, heads close together after climax, looking toward the partner."
+    "natural_en": "Lying on the left side of the frame with the head resting on the partner's chest, one arm draped across the partner, looking toward the partner."
    },
    "partner_b": {
-    "label_zh": "右方（仰躺相擁）",
+    "label_zh": "右方（仰躺被枕著相擁）",
     "requires": "any",
     "center": {
      "x": 0.62,
@@ -420,10 +421,9 @@
     "tags": [
      "lying",
      "on back",
-     "looking at another",
-     "hug"
+     "looking at another"
     ],
-    "natural_en": "Lying on the back on the right side of the frame with one arm draped over the partner beside, heads close together after climax, looking toward the partner."
+    "natural_en": "Lying on the back on the right side of the frame with the partner's head resting on the chest, one arm around the partner, looking toward the partner."
    }
   },
   "pairing_tags": {
@@ -443,8 +443,8 @@
     ]
    }
   },
-  "natural_en": "High-angle full-body view of a couple lying on their backs side by side after climax, arms draped over each other with heads close together.",
-  "prompt_zh": "高角度俯視全身：雙人仰躺並肩，互相搭臂、頭靠著頭，平復事後餘韻。"
+  "natural_en": "High-angle full-body view of a couple lying on a bed after sex, one partner lying on the other with the head resting on the chest, arms around each other, heads close together.",
+  "prompt_zh": "高角度俯視全身：雙人躺在床上相擁平復，一方枕在另一方胸前、一方仰躺環抱，頭靠著頭。"
  },
  {
   "id": "climax_cum_on_body_lying",

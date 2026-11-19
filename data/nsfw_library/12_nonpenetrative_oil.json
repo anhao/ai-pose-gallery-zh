@@ -262,9 +262,9 @@
   "id": "nursing_handjob_sitting_embrace_side",
   "category": "12_nonpenetrative_oil",
   "subcategory": "複合胸手侍奉 nursing handjob",
-  "title_zh": "懷抱胸手侍奉・坐姿懷抱側面",
+  "title_zh": "含乳懷抱胸手侍奉・坐姿懷抱側面",
   "pattern": "organ_bound",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -278,33 +278,36 @@
   ],
   "slots": {
    "receiver": {
-    "label_zh": "承受方（左側坐姿張腿）",
+    "label_zh": "承受方（左側坐姿仰頭含乳）",
     "requires": "penis_or_dildo",
     "center": {
-     "x": 0.38,
-     "y": 0.58
+     "x": 0.44,
+     "y": 0.6
     },
     "tags": [
      "sitting",
      "spread legs",
      "knees up",
-     "looking at another"
+     "breast sucking",
+     "looking up"
     ],
-    "natural_en": "Sitting on the left side of the frame facing forward with legs spread wide and knees raised, leaning back into the partner embracing from behind, looking toward the partner."
+    "natural_en": "Sitting with legs apart, leaning sideways into the partner's chest, head held by the partner, mouth on the partner's breast, looking up."
    },
    "giver": {
-    "label_zh": "施與方（右側坐姿懷抱貼胸）",
+    "label_zh": "施與方（右側坐姿環抱）",
     "requires": "breasts",
     "center": {
-     "x": 0.66,
-     "y": 0.55
+     "x": 0.58,
+     "y": 0.52
     },
     "tags": [
      "sitting",
      "leaning forward",
-     "looking at another"
+     "hand on another's head",
+     "handjob",
+     "looking down"
     ],
-    "natural_en": "Sitting close behind the partner on the right side of the frame, wrapping arms around the partner with breasts pressed against the partner's back, one hand reaching around to stroke while looking at the partner."
+    "natural_en": "Sitting beside the partner and holding them close from the side, one hand cradling their head against the breast while the other hand strokes their penis."
    }
   },
   "pairing_tags": {
@@ -338,8 +341,8 @@
     ]
    }
   },
-  "natural_en": "Full-body side view of nursing handjob in an embrace: the receiver sits on the left with legs spread wide and knees raised, leaning back, while the giver sits close behind on the right with breasts pressed to the receiver's back, one hand reaching around to stroke.",
-  "prompt_zh": "側面全身懷抱胸手侍奉：承受方居左坐姿張腿屈膝、向後靠入對方懷中；施與方居右坐姿環抱，胸部貼住對方背部，一手繞前撫弄。"
+  "natural_en": "Side view of a nursing handjob: the receiver sits leaning sideways into the giver's chest and sucks on the giver's breast, while the giver embraces them from the side, holding their head with one hand and giving a handjob with the other.",
+  "prompt_zh": "側面懷抱胸手侍奉：受侍奉方坐著側身靠在對方胸前，含住乳頭；侍奉方從側邊環抱，一手扶住對方的頭，一手替其手交。"
  },
  {
   "id": "nursing_handjob_standing_close_side",
@@ -580,9 +583,9 @@
   "id": "thigh_sex_lying_clasp_side",
   "category": "12_nonpenetrative_oil",
   "subcategory": "素股與大腿摩擦 thigh sex",
-  "title_zh": "素股仰躺夾磨・側面",
+  "title_zh": "素股仰躺抬腿夾磨・側面",
   "pattern": "organ_bound",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -592,38 +595,39 @@
   ],
   "shared_pose_tags": [
    "thigh sex",
-   "sex"
+   "penis between thighs"
   ],
   "slots": {
    "receiver": {
-    "label_zh": "承受方（左側仰躺張腿）",
+    "label_zh": "承受方（左側仰躺，雙腿併攏抬高）",
     "requires": "any",
     "center": {
-     "x": 0.38,
-     "y": 0.58
+     "x": 0.36,
+     "y": 0.6
     },
     "tags": [
      "lying",
      "on back",
-     "knees up",
-     "looking at another",
-     "legs together"
+     "legs together",
+     "leg up",
+     "looking at another"
     ],
-    "natural_en": "Lying on the back on the left side of the frame with legs spread wide and knees raised, thighs pressed together around the partner lying on top, looking at the partner."
+    "natural_en": "Lying on the back on the left side of the frame with both legs raised together and pressed tightly against each other, thighs clasped around the partner, looking at the partner."
    },
    "giver": {
-    "label_zh": "施與方（右側俯壓夾磨）",
+    "label_zh": "施與方（右側跪姿，於抬高的大腿之間摩擦）",
     "requires": "penis_or_dildo",
     "center": {
-     "x": 0.62,
-     "y": 0.5
+     "x": 0.68,
+     "y": 0.52
     },
     "tags": [
-     "lying",
+     "kneeling",
      "leaning forward",
+     "hands on another's thighs",
      "looking down"
     ],
-    "natural_en": "Lying on top of the partner on the right side of the frame, leaning forward with the penis clasped between the partner's pressed-together thighs, thrusting while looking down."
+    "natural_en": "Kneeling on the right side of the frame facing the raised legs, leaning forward and holding both thighs together with both hands, thrusting between the pressed-together thighs while looking down."
    }
   },
   "pairing_tags": {
@@ -666,8 +670,8 @@
     ]
    }
   },
-  "natural_en": "Full-body side view of thigh sex: the receiver lies on the back on the left with legs spread wide and knees raised, thighs pressed together, while the giver lies on top on the right thrusting between the thighs.",
-  "prompt_zh": "側面全身素股仰躺夾磨：承受方居左仰躺張腿屈膝，雙腿併攏夾緊；施與方居右俯壓在上，於大腿之間摩擦。"
+  "natural_en": "Full-body side view of thigh sex: the receiver lies on the back on the left with both legs raised together and thighs pressed tightly around the penis, while the giver kneels on the right holding the thighs and thrusting between them.",
+  "prompt_zh": "側面全身素股仰躺抬腿夾磨：承受方居左仰躺，雙腿併攏抬高夾緊；施與方居右跪姿，雙手扶住大腿，於大腿之間摩擦。"
  },
  {
   "id": "thigh_sex_prone_clasp_side",
