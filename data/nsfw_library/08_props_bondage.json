@@ -165,12 +165,14 @@
      "y": 0.52
     },
     "tags": [
-     "kneeling",
+     "seiza",
      "bound wrists",
+     "own hands together",
+     "hands on lap",
      "arched back",
      "looking at viewer"
     ],
-    "natural_en": "Kneeling upright with both wrists tied together in front of her chest, back arched, looking at the viewer."
+    "natural_en": "Sitting in seiza with both wrists tied together low in front of her body, hands together and resting on her lap, back arched, looking at the viewer."
    }
   },
   "pairing_tags": {
@@ -180,8 +182,8 @@
     ]
    }
   },
-  "natural_en": "Front full-body view of a woman kneeling with both wrists bound together in front of her, back arched.",
-  "prompt_zh": "正面全身：跪姿挺身，雙腕以繩綁在身前，拱腰直視鏡頭。"
+  "natural_en": "Front full-body view of a woman sitting in seiza with both wrists bound together in front of her and resting low on her lap, hands together, back arched.",
+  "prompt_zh": "正面全身：跪坐姿勢，雙腕以繩綁在一起、雙手合攏低放在腿上身前，拱腰直視鏡頭。"
  },
  {
   "id": "bondage_multi_point_shibari_allfours_side",
