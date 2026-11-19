@@ -1,0 +1,1071 @@
+[
+ {
+  "id": "size_diff_suspended_lift_side",
+  "category": "14_domination_size_diff",
+  "subcategory": "體型差",
+  "title_zh": "顯著體型差・懸空抱起・側面",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view"
+  ],
+  "shared_pose_tags": [
+   "size difference",
+   "height difference"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "被抱起者（懸空）",
+    "requires": "any",
+    "center": {
+     "x": 0.42,
+     "y": 0.35
+    },
+    "tags": [
+     "arms around neck",
+     "knees up"
+    ],
+    "natural_en": "Held off the ground on the left side of the frame, body suspended in a side profile, arms wrapped around the larger partner's neck, knees bent and feet clear of the surface."
+   },
+   "giver": {
+    "label_zh": "抱起者（站立支撐）",
+    "requires": "any",
+    "center": {
+     "x": 0.58,
+     "y": 0.62
+    },
+    "tags": [
+     "standing",
+     "leg hold"
+    ],
+    "natural_en": "Standing on the right side of the frame in a larger body type, supporting the smaller partner under the thighs and buttocks with both arms, head tilted upward toward them."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of a significant size difference suspended lift: the smaller partner is held off the ground on the left with arms around the larger partner's neck and knees bent, while the larger partner stands on the right, supporting under the thighs and buttocks.",
+  "prompt_zh": "側面全身顯著體型差懸空抱起：較小者居左被托起離地，雙臂環住對方頸部、屈膝；較大者居右站立，自大腿與臀下支撐。"
+ },
+ {
+  "id": "femdom_neck_grip_kneeling_side",
+  "category": "14_domination_size_diff",
+  "subcategory": "女方上位主導",
+  "title_zh": "抓頸壓制・跪姿側面",
+  "pattern": "organ_bound",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "dominant female",
+   "choking"
+  ],
+  "slots": {
+   "dominant": {
+    "label_zh": "主導方（右側站姿抓頸）",
+    "requires": "female",
+    "center": {
+     "x": 0.64,
+     "y": 0.45
+    },
+    "tags": [
+     "standing",
+     "leaning forward",
+     "looking down",
+     "hand on another's shoulder"
+    ],
+    "natural_en": "Standing on the right side of the frame, leaning forward with one hand gripping the kneeling partner's neck and shoulder, looking down at the submissive partner."
+   },
+   "submissive": {
+    "label_zh": "臣服方（左側跪姿被壓）",
+    "requires": "any",
+    "center": {
+     "x": 0.38,
+     "y": 0.6
+    },
+    "tags": [
+     "kneeling",
+     "looking up"
+    ],
+    "natural_en": "Kneeling on the left side of the frame with the dominant partner's hand gripping the neck and shoulder, looking up at the dominant partner."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of dominant neck-grip control: the dominant partner stands on the right leaning forward with one hand gripping the kneeling partner's neck, while the submissive partner kneels on the left looking up.",
+  "prompt_zh": "側面全身抓頸壓制：主導方居右站姿前傾，單手抓住對方頸部與肩膀向下俯視；臣服方居左跪姿被壓，仰望主導方。"
+ },
+ {
+  "id": "femdom_facesitting_side",
+  "category": "14_domination_size_diff",
+  "subcategory": "女方上位主導",
+  "title_zh": "顏面跨坐・側面全身",
+  "pattern": "organ_bound",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "facesitting",
+   "dominant female",
+   "cunnilingus"
+  ],
+  "slots": {
+   "top": {
+    "label_zh": "上方（跨坐壓面主導）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.5,
+     "y": 0.42
+    },
+    "tags": [
+     "sitting",
+     "spread legs",
+     "leaning forward",
+     "looking down"
+    ],
+    "natural_en": "Sitting on the partner's face on the upper part of the frame with legs spread wide, leaning forward and pressing down with full weight, looking down at the partner pinned beneath."
+   },
+   "bottom": {
+    "label_zh": "下方（仰躺被坐臉）",
+    "requires": "any",
+    "center": {
+     "x": 0.5,
+     "y": 0.68
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "looking up"
+    ],
+    "natural_en": "Lying on the back below the sitter, face covered by the sitter pressing down, looking up while servicing the sitter."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "facesitting"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "facesitting"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of dominant facesitting: the dominant partner sits on the other's face with legs spread wide, leaning forward and pressing down with full weight, while the partner below lies on the back servicing her.",
+  "prompt_zh": "側面全身顏面跨坐：主導方跨坐在對方臉上、雙腿張開前傾，以全身重量壓住下方；下方仰躺被坐臉，仰望侍奉。"
+ },
+ {
+  "id": "femdom_leash_kneeling_front",
+  "category": "14_domination_size_diff",
+  "subcategory": "女方上位主導",
+  "title_zh": "跪地牽引・正面全身",
+  "pattern": "organ_bound",
+  "default_canvas": 184,
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "dominant female",
+   "collar",
+   "leash"
+  ],
+  "slots": {
+   "dominant": {
+    "label_zh": "主導方（右側站姿持繩）",
+    "requires": "female",
+    "center": {
+     "x": 0.6,
+     "y": 0.42
+    },
+    "tags": [
+     "standing",
+     "looking down"
+    ],
+    "natural_en": "Standing on the right side of the frame holding the leash attached to the kneeling partner's collar, looking down at the submissive partner."
+   },
+   "submissive": {
+    "label_zh": "臣服方（左側跪姿戴項圈）",
+    "requires": "any",
+    "center": {
+     "x": 0.4,
+     "y": 0.62
+    },
+    "tags": [
+     "kneeling",
+     "collar",
+     "looking up"
+    ],
+    "natural_en": "Kneeling upright on the left side of the frame wearing a collar with the leash held by the dominant partner standing beside, looking up at the dominant partner."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ]
+   }
+  },
+  "natural_en": "Full-body front view of dominant leash leading: the submissive partner kneels upright on the left wearing a collar, while the dominant partner stands on the right holding the leash and looking down.",
+  "prompt_zh": "正面全身跪地牽引：臣服方居左跪姿挺身戴著項圈、仰望；主導方居右站姿手持牽繩，向下俯視對方。"
+ },
+ {
+  "id": "femdom_cowgirl_pinning_side",
+  "category": "14_domination_size_diff",
+  "subcategory": "女方上位主導",
+  "title_zh": "上位騎乘支配・側面全身",
+  "pattern": "geometry_dispatch",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "cowgirl position",
+   "dominant female",
+   "sex"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側上方騎乘支配）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.4,
+     "y": 0.42
+    },
+    "tags": [
+     "sitting",
+     "spread legs",
+     "leaning forward",
+     "looking down"
+    ],
+    "natural_en": "Sitting astride the partner on the left side of the frame with legs spread wide, leaning forward and pinning the partner's wrists to the surface, looking down at the partner beneath."
+   },
+   "giver": {
+    "label_zh": "施與方（右側下方仰躺被壓）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.58,
+     "y": 0.62
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "looking up"
+    ],
+    "natural_en": "Lying on the back on the right side of the frame with the head toward the right edge, wrists pinned by the rider sitting astride, looking up at the dominant rider."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Full-body side view of dominant cowgirl: the receiver sits astride on the left with legs spread wide, leaning forward and pinning the partner's wrists, while the giver lies on the back on the right, head toward the right edge.",
+  "prompt_zh": "側面全身 上位騎乘支配：承受方居左跨坐、雙腿張開前傾，雙手壓住對方手腕；施與方居右仰躺頭朝右側，手腕被壓住並仰望騎乘者。"
+ },
+ {
+  "id": "size_diff_one_arm_lift_side",
+  "category": "14_domination_size_diff",
+  "subcategory": "顯著體型與身高差",
+  "title_zh": "單手提壓・側面全身",
+  "pattern": "geometry_dispatch",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "sex",
+   "size difference",
+   "height difference"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側被單手提抱）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.4,
+     "y": 0.48
+    },
+    "tags": [
+     "spread legs",
+     "legs up",
+     "looking at another"
+    ],
+    "natural_en": "Held up in the air on the left side of the frame, much smaller than the partner, legs spread and raised, supported by the partner's single arm under the thighs, looking at the partner."
+   },
+   "giver": {
+    "label_zh": "施與方（右側站姿單手提抱）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.64,
+     "y": 0.48
+    },
+    "tags": [
+     "standing",
+     "leaning forward",
+     "looking at another"
+    ],
+    "natural_en": "Standing on the right side of the frame, much taller and larger, lifting the smaller partner into the air with a single arm under the thighs and pressing close, looking at the partner."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Full-body side view of a one-arm lift with a striking size difference: the much smaller receiver is held up in the air on the left with legs spread and raised, while the much taller giver stands on the right lifting the receiver with a single arm under the thighs.",
+  "prompt_zh": "側面全身單手提壓：承受方居左矮小許多，被單手提抱在半空、雙腿張開上抬；施與方居右高大站立，單臂托住對方大腿將人提起貼近。"
+ },
+ {
+  "id": "size_diff_looming_behind_side",
+  "category": "14_domination_size_diff",
+  "subcategory": "顯著體型與身高差",
+  "title_zh": "高大後方完全籠罩・側面全身",
+  "pattern": "geometry_dispatch",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "doggystyle",
+   "size difference",
+   "height difference",
+   "sex"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側矮小四肢著地）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.34,
+     "y": 0.6
+    },
+    "tags": [
+     "all fours",
+     "arched back",
+     "looking back"
+    ],
+    "natural_en": "On all fours on the left side of the frame, much smaller than the partner, with the back arched and hips raised, looking back up toward the much taller partner looming behind."
+   },
+   "giver": {
+    "label_zh": "施與方（右側高大跪姿籠罩）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.68,
+     "y": 0.45
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "hands on another's hips",
+     "looking down"
+    ],
+    "natural_en": "Kneeling behind the partner on the right side of the frame, much taller and larger, leaning forward and completely looming over the smaller partner, gripping both hips while looking down."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Full-body side view of doggystyle with a striking size difference: the much smaller receiver is on all fours on the left with an arched back, while the much taller giver kneels behind on the right, leaning forward and completely looming over the receiver.",
+  "prompt_zh": "側面全身高大後方籠罩：承受方居左矮小四肢著地、塌腰挺臀並回頭仰望；施與方居右高大許多，跪於身後前傾，整個身形完全籠罩對方並扶胯。"
+ },
+ {
+  "id": "femdom_foot_press_chest_side",
+  "category": "14_domination_size_diff",
+  "subcategory": "女方上位主導",
+  "title_zh": "單腳踩踏壓制・側面全身",
+  "pattern": "organ_bound",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "trampling",
+   "dominant female"
+  ],
+  "slots": {
+   "dominant": {
+    "label_zh": "主導方（右側站姿踩踏）",
+    "requires": "female",
+    "center": {
+     "x": 0.62,
+     "y": 0.42
+    },
+    "tags": [
+     "standing",
+     "leg up",
+     "looking down"
+    ],
+    "natural_en": "Standing on the right side of the frame with one foot raised and pressed down onto the chest of the partner lying below, looking down at the submissive partner."
+   },
+   "submissive": {
+    "label_zh": "臣服方（左側仰躺被踩）",
+    "requires": "any",
+    "center": {
+     "x": 0.38,
+     "y": 0.62
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "looking up"
+    ],
+    "natural_en": "Lying on the back on the left side of the frame with the dominant partner's foot pressed onto the chest, looking up at the dominant partner."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "trampling"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "trampling"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of dominant trampling: the dominant partner stands on the right with one foot pressed onto the chest of the partner lying on the back on the left, looking down at them.",
+  "prompt_zh": "側面全身單腳踩踏壓制：主導方居右站姿，單腳抬起踩在對方胸口上並向下俯視；臣服方居左仰躺被踩，仰望主導方。"
+ },
+ {
+  "id": "femdom_wrist_pin_lying_side",
+  "category": "14_domination_size_diff",
+  "subcategory": "女方上位主導",
+  "title_zh": "俯身壓腕・仰躺側面",
+  "pattern": "organ_bound",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "dominant female",
+   "arm grab"
+  ],
+  "slots": {
+   "dominant": {
+    "label_zh": "主導方（右側跪姿俯身壓腕）",
+    "requires": "female",
+    "center": {
+     "x": 0.62,
+     "y": 0.45
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "looking down"
+    ],
+    "natural_en": "Kneeling over the partner on the right side of the frame, leaning forward with both hands pinning the partner's wrists to the surface, looking down at the submissive partner."
+   },
+   "submissive": {
+    "label_zh": "臣服方（左側仰躺被壓腕）",
+    "requires": "any",
+    "center": {
+     "x": 0.38,
+     "y": 0.58
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "looking up",
+     "arms up"
+    ],
+    "natural_en": "Lying on the back on the left side of the frame with wrists pinned to the surface by the dominant partner kneeling over, looking up at the dominant partner."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of dominant wrist pinning: the dominant partner kneels over the partner on the right leaning forward, both hands pinning the wrists, while the submissive partner lies on the back on the left looking up.",
+  "prompt_zh": "側面全身俯身壓腕：主導方居右跪姿俯身，雙手將對方手腕壓在地面並向下俯視；臣服方居左仰躺，手腕被壓住並仰望主導方。"
+ },
+ {
+  "id": "size_diff_overhead_press_side",
+  "category": "14_domination_size_diff",
+  "subcategory": "顯著體型與身高差",
+  "title_zh": "俯視壓制・側面全身",
+  "pattern": "geometry_dispatch",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "sex",
+   "size difference",
+   "height difference"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側矮小仰躺）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.38,
+     "y": 0.58
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs",
+     "looking up"
+    ],
+    "natural_en": "Lying on the back on the left side of the frame, much smaller than the partner, with legs spread wide, looking up at the much taller partner looming above."
+   },
+   "giver": {
+    "label_zh": "施與方（右側高大跪姿俯壓）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.66,
+     "y": 0.42
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "hands on another's hips",
+     "looking down"
+    ],
+    "natural_en": "Kneeling above the partner on the right side of the frame, much taller and larger, leaning forward and completely looming over the smaller partner, gripping both hips while looking down."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Full-body side view of missionary with a striking size difference: the much smaller receiver lies on the back on the left with legs spread wide, while the much taller giver kneels above on the right, leaning forward and completely looming over the receiver.",
+  "prompt_zh": "側面全身俯視壓制：承受方居左矮小仰躺張腿，仰望上方；施與方居右高大許多，跪姿俯壓在上，整個身形完全籠罩對方並扶胯。"
+ },
+ {
+  "id": "size_diff_lap_envelop_side",
+  "category": "14_domination_size_diff",
+  "subcategory": "顯著體型與身高差",
+  "title_zh": "坐懷包裹・側面全身",
+  "pattern": "geometry_dispatch",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "sex",
+   "size difference",
+   "height difference"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側矮小坐懷）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.42,
+     "y": 0.55
+    },
+    "tags": [
+     "sitting",
+     "spread legs",
+     "leaning forward",
+     "looking at another"
+    ],
+    "natural_en": "Sitting in the much larger partner's lap on the left side of the frame, much smaller, with legs spread wide and leaning forward, completely enveloped by the partner's body, looking at the partner."
+   },
+   "giver": {
+    "label_zh": "施與方（右側高大坐姿懷抱）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.64,
+     "y": 0.55
+    },
+    "tags": [
+     "sitting",
+     "leaning forward",
+     "looking at another"
+    ],
+    "natural_en": "Sitting on the right side of the frame, much taller and larger, holding the smaller partner in the lap with arms wrapped around them, leaning forward while thrusting."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Full-body side view of lap sitting with a striking size difference: the much smaller receiver sits in the partner's lap on the left with legs spread wide, completely enveloped by the partner's body, while the much taller giver sits on the right holding the receiver close.",
+  "prompt_zh": "側面全身坐懷包裹：承受方居左矮小許多，坐在對方懷中、雙腿張開前傾，整個身體被對方包裹；施與方居右高大坐姿，雙臂環抱住懷中的對方。"
+ },
+ {
+  "id": "size_diff_standing_service_side",
+  "category": "14_domination_size_diff",
+  "subcategory": "顯著體型與身高差",
+  "title_zh": "站姿身高差侍奉・側面全身",
+  "pattern": "organ_bound",
+  "default_canvas": 184,
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "fellatio",
+   "size difference",
+   "height difference",
+   "oral"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側高大站姿）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.38,
+     "y": 0.4
+    },
+    "tags": [
+     "standing",
+     "legs apart",
+     "looking down"
+    ],
+    "natural_en": "Standing tall on the left side of the frame with legs apart, towering over the much shorter partner kneeling below, looking down at the partner."
+   },
+   "giver": {
+    "label_zh": "施與方（右側矮小跪姿侍奉）",
+    "requires": "any",
+    "center": {
+     "x": 0.64,
+     "y": 0.7
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "tongue out",
+     "looking up"
+    ],
+    "natural_en": "Kneeling on the right side of the frame, much shorter than the standing partner, leaning in between the partner's parted legs with tongue out and looking up while servicing the partner."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of fellatio with a striking height difference: the tall receiver stands on the left with legs apart towering over the partner, while the much shorter giver kneels on the right leaning in with tongue out and looking up.",
+  "prompt_zh": "側面全身站姿身高差侍奉：承受方居左高大站立張腿，居高臨下低視；施與方居右矮小許多，跪於腿間俯身伸舌仰望。"
+ },
+ {
+  "id": "femdom_foot_looming_below",
+  "category": "14_domination_size_diff",
+  "subcategory": "女方上位主導",
+  "title_zh": "腳部仰視壓迫・仰視近景",
+  "pattern": "organ_bound",
+  "default_canvas": 184,
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "from below"
+  ],
+  "shared_pose_tags": [
+   "dominant female",
+   "foot focus",
+   "soles"
+  ],
+  "slots": {
+   "dominant": {
+    "label_zh": "主導方（上方坐姿伸腳壓迫）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.36
+    },
+    "tags": [
+     "sitting",
+     "leg up",
+     "soles",
+     "looking down"
+    ],
+    "natural_en": "Sitting elevated in the upper frame, extending a bare sole downward toward the submissive partner while looking down."
+   },
+   "submissive": {
+    "label_zh": "臣服方（下方跪姿仰視腳底）",
+    "requires": "any",
+    "center": {
+     "x": 0.5,
+     "y": 0.72
+    },
+    "tags": [
+     "kneeling",
+     "looking up"
+    ],
+    "natural_en": "Kneeling in the lower frame looking up directly at the looming sole above."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ]
+   }
+  },
+  "natural_en": "Low-angle view of foot domination: the dominant partner sits above extending a sole downward toward the kneeling submissive looking up.",
+  "prompt_zh": "仰視近景腳部壓迫：主導方居上坐姿伸出腳底俯視壓迫，臣服方居下跪姿仰望逼近的腳底，與站姿踩胸 R068 骨架區隔。"
+ },
+ {
+  "id": "femdom_facesitting_squatting_above",
+  "category": "14_domination_size_diff",
+  "subcategory": "女方上位主導",
+  "title_zh": "蹲姿坐臉俯視・俯視全身",
+  "pattern": "organ_bound",
+  "default_canvas": 184,
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from above"
+  ],
+  "shared_pose_tags": [
+   "facesitting",
+   "dominant female",
+   "cunnilingus"
+  ],
+  "slots": {
+   "top": {
+    "label_zh": "上方（蹲姿跨臉俯視主導）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.5,
+     "y": 0.45
+    },
+    "tags": [
+     "crouching",
+     "spread legs",
+     "arched back",
+     "looking down"
+    ],
+    "natural_en": "Crouching over the partner's face in overhead view with legs spread and arched back, looking straight down."
+   },
+   "bottom": {
+    "label_zh": "下方（仰躺被坐臉）",
+    "requires": "any",
+    "center": {
+     "x": 0.5,
+     "y": 0.65
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "arms up",
+     "looking up"
+    ],
+    "natural_en": "Lying on the back below the sitter seen from above, face covered by the sitter pressing down, looking up while servicing the sitter."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "facesitting"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "facesitting"
+    ]
+   }
+  },
+  "natural_en": "Overhead full-body view of dominant facesitting: the top partner crouches astride over the lying partner's face looking straight down.",
+  "prompt_zh": "高角度俯視蹲姿坐臉：主導方以蹲姿跨於對方臉部上方拱背俯視，與側面坐姿 R022 形成不同骨架。"
+ }
+]
