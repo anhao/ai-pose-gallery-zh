@@ -826,20 +826,22 @@
   "id": "bondage_chair_tied_sitting_3q",
   "category": "08_props_bondage",
   "subcategory": "進階拘束與受困情境",
-  "title_zh": "木椅坐姿全縛・斜側全身",
+  "title_zh": "木椅坐姿全縛・正面全身",
   "pattern": "solo_or_pov",
   "default_canvas": "3:4",
-  "default_facing": "three_quarter_left",
+  "default_facing": "front",
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "three-quarter view"
+   "front view"
   ],
   "shared_pose_tags": [
    "bondage",
    "rope",
-   "on chair",
-   "chair"
+   "tied to chair",
+   "bound torso",
+   "wooden chair",
+   "on chair"
   ],
   "slots": {
    "subject": {
@@ -851,14 +853,13 @@
     },
     "tags": [
      "sitting",
-     "on chair",
      "arms behind back",
      "bound wrists",
      "bound ankles",
      "spread legs",
      "looking at viewer"
     ],
-    "natural_en": "Seated upright tied to a wooden chair with rope binding her torso to the chair back, wrists tied behind the backrest, and each ankle lashed separately to the front chair legs."
+    "natural_en": "Seated upright facing the camera, tied to a wooden chair with rope around her torso, wrists bound behind the backrest, and each ankle tied to a front chair leg so her legs stay apart."
    }
   },
   "pairing_tags": {
@@ -868,14 +869,14 @@
     ]
    }
   },
-  "natural_en": "Three-quarter full-body view of an adult woman bound to a wooden chair, wrists tied behind the backrest, rope across her torso, and ankles tied apart to the front chair legs.",
-  "prompt_zh": "斜側全身木椅拘束：坐於木椅上，軀幹以繩固定於椅背、雙腕反綁於椅背後側，雙踝分別綁在前椅腳使雙腿微張。"
+  "natural_en": "Front full-body view of an adult woman tied to a wooden chair: rope binds her torso to the chair, her wrists are tied behind the backrest, and her ankles are tied apart to the front chair legs.",
+  "prompt_zh": "正面全身木椅拘束：面向鏡頭坐於木椅，軀幹以繩綁於椅上，雙腕反綁於椅背後側，雙踝分別綁在前椅腳使雙腿張開，直視鏡頭。"
  },
  {
   "id": "bondage_bedpost_wrists_lying_above",
   "category": "08_props_bondage",
   "subcategory": "進階拘束與受困情境",
-  "title_zh": "床頭柱高舉綁腕仰躺・俯視橫構圖",
+  "title_zh": "床頭固定高舉綁腕仰躺・俯視橫構圖",
   "pattern": "solo_or_pov",
   "default_canvas": "4:3",
   "default_facing": "front",
@@ -888,7 +889,8 @@
    "bondage",
    "rope",
    "on bed",
-   "bound wrists"
+   "stationary restraints",
+   "headboard"
   ],
   "slots": {
    "subject": {
@@ -901,14 +903,13 @@
     "tags": [
      "lying",
      "on back",
-     "on bed",
      "arms up",
      "bound wrists",
      "knees up",
      "spread legs",
      "looking up"
     ],
-    "natural_en": "Lying supine on a bed with both arms stretched overhead and wrists lashed to the bed headboard bars, knees bent and parted while looking up toward the camera."
+    "natural_en": "Lying on her back on a bed with both arms raised overhead and her bound wrists tied to the headboard, knees bent and parted, looking up toward the camera."
    }
   },
   "pairing_tags": {
@@ -918,8 +919,8 @@
     ]
    }
   },
-  "natural_en": "High-angle 4:3 view of an adult woman lying on a bed with wrists tied upward to the headboard posts, arms extended above her head and knees bent apart.",
-  "prompt_zh": "4:3 俯視全身床頭拘束：仰躺於床上，雙臂伸直過頭將雙腕綁在床頭欄杆上，雙膝屈起微張仰望鏡頭。"
+  "natural_en": "High-angle 4:3 view of an adult woman lying on her back on a bed, arms raised overhead with her bound wrists tied to the headboard, knees bent and apart.",
+  "prompt_zh": "4:3 俯視全身床頭拘束：仰躺於床上，雙臂高舉過頭，被綁住的雙腕固定在床頭板上，雙膝屈起張開，仰望鏡頭。"
  },
  {
   "id": "bondage_suspension_side_recline_below",
@@ -968,55 +969,6 @@
   },
   "natural_en": "Wide 16:9 low-angle three-quarter view of horizontal aerial shibari suspension: an adult woman hangs sideways across midair supported by vertical ropes around her torso and thighs.",
   "prompt_zh": "16:9 寬幅低角度仰視水平懸吊：多條垂降麻繩分別吊住胸腰與大腿，使身體橫向懸浮於半空並大幅拱背。"
- },
- {
-  "id": "bondage_wrists_collar_closeup_upper",
-  "category": "08_props_bondage",
-  "subcategory": "感官與牽引調教",
-  "title_zh": "項圈牽繩與舉腕綁縛・上半身特寫方構圖",
-  "pattern": "solo_or_pov",
-  "default_canvas": "1:1",
-  "default_facing": "front",
-  "mirrorable": true,
-  "camera_tags": [
-   "upper body",
-   "close-up",
-   "front view"
-  ],
-  "shared_pose_tags": [
-   "bondage",
-   "collar",
-   "leash",
-   "rope",
-   "bound wrists"
-  ],
-  "slots": {
-   "subject": {
-    "label_zh": "主體（上半身特寫戴項圈舉起綁腕）",
-    "requires": "female",
-    "center": {
-     "x": 0.5,
-     "y": 0.52
-    },
-    "tags": [
-     "bound wrists",
-     "own hands together",
-     "collar",
-     "head tilt",
-     "looking at viewer"
-    ],
-    "natural_en": "Close upper-body portrait wearing a fitted leather collar with a taut leash extending out of frame, raising her rope-bound wrists near her collarbone while gazing straight at the viewer."
-   }
-  },
-  "pairing_tags": {
-   "solo": {
-    "base": [
-     "solo"
-    ]
-   }
-  },
-  "natural_en": "Square upper-body close-up of an adult woman wearing a collar and taut leash, lifting her rope-bound wrists near her chest with a slight head tilt.",
-  "prompt_zh": "1:1 正面上半身特寫：頸戴皮革項圈與拉緊牽繩，被麻繩綁緊的雙腕舉至鎖骨前，歪頭直視鏡頭。"
  },
  {
   "id": "solo_vibrator_seated_closeup_above",
@@ -1116,7 +1068,7 @@
   "id": "bondage_partner_tying_behind_3q",
   "category": "08_props_bondage",
   "subcategory": "繩縛",
-  "title_zh": "身後親手綁縛收繩・雙人斜側全身",
+  "title_zh": "跪姿反縛・身後貼近・雙人斜側全身",
   "pattern": "geometry_dispatch",
   "default_canvas": "3:4",
   "default_facing": "three_quarter_left",
@@ -1133,7 +1085,7 @@
   ],
   "slots": {
    "bound_subject": {
-    "label_zh": "受縛方（跪姿挺胸雙手反背）",
+    "label_zh": "受縛方（跪姿前傾挺胸雙臂反縛）",
     "requires": "female",
     "center": {
      "x": 0.42,
@@ -1142,14 +1094,13 @@
     "tags": [
      "kneeling",
      "arms behind back",
-     "bound wrists",
      "arched back",
-     "looking at viewer"
+     "looking away"
     ],
-    "natural_en": "Kneeling upright in the left foreground with arms held behind her back as rope loops tighten around her shoulders and wrists."
+    "natural_en": "Kneeling at lower left with her chest pushed forward, rope wrapped around her chest and upper arms and her arms tied behind her back, mouth open and eyes turned away to the side."
    },
    "rigger": {
-    "label_zh": "施縛方（身後單膝跪姿拉緊繩結）",
+    "label_zh": "施縛方（身後跪姿低頭貼近）",
     "requires": "any",
     "center": {
      "x": 0.64,
@@ -1160,7 +1111,7 @@
      "leaning forward",
      "looking down"
     ],
-    "natural_en": "Kneeling closely behind the bound partner at upper right, leaning forward to pull the shibari rope taut and knot it securely behind her shoulders."
+    "natural_en": "Kneeling close behind her at upper right, head lowered beside hers; his hands are hidden behind her body."
    }
   },
   "pairing_tags": {
@@ -1177,14 +1128,14 @@
     ]
    }
   },
-  "natural_en": "Three-quarter full-body view of a partner tying shibari rope: the kneeling woman at lower left arches her back with arms behind her while the partner behind at upper right pulls the rope tight.",
-  "prompt_zh": "斜側全身雙人綁縛：受縛方居左下跪姿挺胸反手，施縛方居右上跪於身後前傾拉緊麻繩並打結固定。"
+  "natural_en": "Three-quarter full-body view of two kneeling figures: the woman at lower left leans forward with rope around her chest and upper arms and her arms tied behind her back, while the partner kneels close behind her at upper right with his head lowered beside hers.",
+  "prompt_zh": "斜側全身雙人：受縛方居左下跪姿前傾挺胸，胸前與上臂纏繩、雙臂反綁於背後，張口側目望向一旁；施縛方居右上跪於其身後，低頭貼近其頭側，雙手被其身體遮住。"
  },
  {
   "id": "bondage_partner_overhead_restraint_above",
   "category": "08_props_bondage",
   "subcategory": "進階拘束與受困情境",
-  "title_zh": "床頭綁腕壓制交合・正上方俯視全身",
+  "title_zh": "床頭固定高舉綁腕交合・正上方俯視全身",
   "pattern": "geometry_dispatch",
   "default_canvas": "4:3",
   "default_facing": "front",
@@ -1197,12 +1148,14 @@
    "bondage",
    "rope",
    "bound wrists",
+   "stationary restraints",
+   "headboard",
    "missionary",
    "on bed"
   ],
   "slots": {
    "receiver": {
-    "label_zh": "受縛承受方（仰躺雙腕綁於床頭）",
+    "label_zh": "受縛承受方（仰躺雙腕固定於床頭）",
     "requires": "pussy",
     "center": {
      "x": 0.46,
@@ -1211,16 +1164,14 @@
     "tags": [
      "lying",
      "on back",
-     "on bed",
      "arms up",
-     "bound wrists",
      "spread legs",
      "looking up"
     ],
-    "natural_en": "Lying supine on the bed in the upper half of the frame with wrists lashed overhead to the bedpost, legs spread apart beneath the partner."
+    "natural_en": "Lying on her back on the bed in the upper half of the frame, arms raised overhead with her bound wrists tied to the headboard, legs spread wide."
    },
    "giver": {
-    "label_zh": "施與方（跪於腿間俯身壓入）",
+    "label_zh": "施與方（跪於腿間扶腰插入）",
     "requires": "penis_or_strapon_or_nonhuman",
     "center": {
      "x": 0.54,
@@ -1228,12 +1179,10 @@
     },
     "tags": [
      "kneeling",
-     "on bed",
-     "leaning forward",
      "hands on another's waist",
      "looking down"
     ],
-    "natural_en": "Kneeling between the bound partner's thighs in the lower half of the frame, leaning over her hips with hands gripping her waist."
+    "natural_en": "Kneeling upright between her spread thighs in the lower half of the frame, hands holding her waist while penetrating."
    }
   },
   "pairing_tags": {
@@ -1282,7 +1231,263 @@
     "giver": []
    }
   },
-  "natural_en": "Overhead 4:3 full-body view on a bed: the receiver lies supine with wrists tied overhead to the headboard while the giver kneels between her spread legs leaning down over her.",
-  "prompt_zh": "4:3 正上方俯視全身床頭綁縛交合：承受方仰躺於上方雙腕高綁床頭，施與方跪於下方腿間前傾扶腰壓入。"
+  "natural_en": "Overhead 4:3 full-body view on a bed: the receiver lies on her back with her bound wrists tied overhead to the headboard and legs spread, while the giver kneels upright between her legs holding her waist during penetration.",
+  "prompt_zh": "4:3 正上方俯視全身床頭綁縛交合：承受方仰躺於上方，雙臂高舉、被綁的雙腕固定在床頭板上，雙腿張開；施與方跪於下方腿間，雙手扶腰插入。"
+ },
+ {
+  "id": "bondage_frogtie_kneeling_front",
+  "category": "08_props_bondage",
+  "subcategory": "繩縛",
+  "title_zh": "蛙縛・跪姿雙膝大開後縛正面",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "bondage",
+   "rope",
+   "frogtie",
+   "shibari"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（跪姿蛙縛、雙膝大開、雙臂後縛）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.56
+    },
+    "tags": [
+     "kneeling",
+     "spread legs",
+     "bound legs",
+     "arms behind back",
+     "bound arms",
+     "looking at viewer"
+    ],
+    "natural_en": "Kneeling upright in the center of the frame with each leg folded tight and the calf roped against the thigh, knees spread wide apart on the floor, arms tied behind the back, looking at the viewer."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Full-body front view of a kneeling frogtie: an adult woman kneels upright with each leg folded and the calf bound to the thigh by rope, knees spread wide apart, her arms tied behind her back, looking at the viewer.",
+  "prompt_zh": "正面全身跪姿蛙縛：跪直於畫面中央，雙腿各自折起、繩索將小腿與大腿綁在一起，雙膝向兩側大開著地，雙臂反綁於背後，看向鏡頭。"
+ },
+ {
+  "id": "bondage_spreader_bar_standing_front",
+  "category": "08_props_bondage",
+  "subcategory": "進階拘束與受困情境",
+  "title_zh": "開腳棒・站姿雙腳撐開後縛正面",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "bondage",
+   "spreader bar",
+   "cuffs"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（站姿、腳踝固定於開腳棒、雙手後縛）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.52
+    },
+    "tags": [
+     "standing",
+     "spread legs",
+     "arms behind back",
+     "bound arms",
+     "looking at viewer"
+    ],
+    "natural_en": "Standing in the center of the frame with feet forced wide apart by a rigid spreader bar cuffed between the ankles and visible across the bottom of the frame, arms restrained behind the back, looking at the viewer."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Full-body front view of an adult woman standing with a spreader bar cuffed between her ankles holding her legs wide apart, arms restrained behind her back, looking at the viewer.",
+  "prompt_zh": "正面全身開腳棒拘束：站立於畫面中央，雙腳踝以銬環固定在一根硬棒兩端，使雙腿被撐得大開，硬棒橫在腳邊清楚可見，雙手反扣於背後，看向鏡頭。"
+ },
+ {
+  "id": "solo_sex_machine_all_fours_side",
+  "category": "08_props_bondage",
+  "subcategory": "單人自慰與震動棒／假陽具",
+  "title_zh": "四肢著地後方炮機・側面全身",
+  "pattern": "solo_or_pov",
+  "default_canvas": "4:3",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "sex machine",
+   "dildo",
+   "vaginal object insertion",
+   "sex toy"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（四肢著地、後方炮機抽插）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.42,
+     "y": 0.58
+    },
+    "tags": [
+     "all fours",
+     "arched back",
+     "looking back"
+    ],
+    "natural_en": "On all fours on the left side of the frame with back arched and hips pushed back toward a motorized sex machine on the right whose rod-mounted dildo penetrates her pussy from behind, looking back over her shoulder."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of an adult woman on all fours with her back arched, hips pushed back toward a sex machine on the right whose dildo penetrates her from behind, looking back over her shoulder.",
+  "prompt_zh": "側面全身炮機：四肢著地居左，腰背下壓、臀部向後迎向右側的電動炮機，機械推桿前端的假陽具從後方插入私處，回頭望向後方。"
+ },
+ {
+  "id": "solo_dildo_riding_kneeling_side",
+  "category": "08_props_bondage",
+  "subcategory": "單人自慰與震動棒／假陽具",
+  "title_zh": "跪跨騎乘假陽具・後仰側面全身",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "dildo riding",
+   "dildo",
+   "vaginal object insertion",
+   "sex toy",
+   "female masturbation"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（跪跨在立式假陽具上騎乘）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.5,
+     "y": 0.52
+    },
+    "tags": [
+     "kneeling",
+     "straddling",
+     "spread legs",
+     "arched back",
+     "head back"
+    ],
+    "natural_en": "Kneeling with knees spread wide astride a dildo standing upright on its suction base in the center of the frame, lowering her hips onto it, torso leaning back with an arched back and head tilted back."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of an adult woman riding a dildo: she kneels astride a dildo suctioned upright to the surface with her knees spread, sinking her hips onto it while leaning back with her back arched and head tilted back.",
+  "prompt_zh": "側面全身騎乘假陽具：雙膝大開跪跨在吸附直立的假陽具上，臀部下沉將其納入，上身後仰、腰背拱起並仰頭。"
+ },
+ {
+  "id": "spanking_over_the_knee_side",
+  "category": "08_props_bondage",
+  "subcategory": "感官與牽引調教",
+  "title_zh": "盤腿膝上打屁股・趴伏對方腿上側面",
+  "pattern": "organ_bound",
+  "default_canvas": "4:3",
+  "default_facing": "right",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "spanking",
+   "over the knee",
+   "lying on lap"
+  ],
+  "slots": {
+   "spanked": {
+    "label_zh": "受罰方（橫趴在對方盤起的雙腿上、頭朝右、回頭）",
+    "requires": "female",
+    "center": {
+     "x": 0.4,
+     "y": 0.6
+    },
+    "tags": [
+     "lying",
+     "on stomach",
+     "ass focus",
+     "looking back"
+    ],
+    "natural_en": "Lying face down across the cross-legged partner's lap, stretched horizontally with the chest over the lap, the head on the right side of the frame and the legs extending to the left, buttocks reddened just past the lap, looking back over the shoulder toward the camera."
+   },
+   "spanker": {
+    "label_zh": "施罰方（盤腿坐地、舉起單手在臀部旁）",
+    "requires": "any",
+    "center": {
+     "x": 0.6,
+     "y": 0.45
+    },
+    "tags": [
+     "sitting",
+     "hand up",
+     "looking down"
+    ],
+    "natural_en": "Sitting cross-legged on the floor behind the partner with the partner draped across the lap, one open hand raised beside the partner's buttocks to spank, looking down."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "spanking"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "spanking"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of over-the-knee spanking on the floor: one partner sits cross-legged while the other lies face down across their lap with the chest over the crossed legs, head toward the right and legs extending to the left; the seated partner raises one open hand beside the reddened buttocks, and the spanked partner looks back at the camera.",
+  "prompt_zh": "側面全身膝上打屁股：施罰方盤腿坐在地上，受罰方橫趴在其盤起的雙腿上、胸口壓在腿上、頭朝右、雙腿向左伸直，回頭看向鏡頭；施罰方舉起一隻張開的手停在泛紅的臀部旁，低頭俯視。"
  }
 ]

@@ -1708,78 +1708,71 @@
   "id": "oil_nuru_fullbody_glide_overhead_wide",
   "category": "12_nonpenetrative_oil",
   "subcategory": "油壓塗抹與貼身滑磨",
-  "title_zh": "塗油背貼胸全身滑磨・16:9 高空俯視",
+  "title_zh": "塗油俯趴・單臂雙膝撐起覆於上方・16:9 側面",
   "pattern": "organ_bound",
   "default_canvas": "16:9",
-  "default_facing": "front",
+  "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "from above"
+   "side view",
+   "from side"
   ],
   "shared_pose_tags": [
-   "massage",
    "oil",
    "oiled"
   ],
   "slots": {
    "receiver": {
-    "label_zh": "承受方（下方俯趴伸展塗油全身）",
+    "label_zh": "承受方（下方俯趴、一臂前伸、一腿屈起上抬、全身塗油）",
     "requires": "any",
     "center": {
-     "x": 0.48,
-     "y": 0.58
+     "x": 0.44,
+     "y": 0.62
     },
     "tags": [
      "lying",
      "on stomach",
-     "oiled",
-     "outstretched arms"
+     "oiled"
     ],
-    "natural_en": "Lying flat face down across the widescreen mat, arms extended forward with glistening oiled back and legs."
+    "natural_en": "Lying face down across the wide frame with one arm stretched forward and one lower leg bent up behind, the body glossy with oil, looking toward the viewer."
    },
    "giver": {
-    "label_zh": "施與方（上方胸腹貼背滑動）",
+    "label_zh": "施與方（上方以一臂撐地與雙膝跪地撐起、胸口離開背部）",
     "requires": "any",
     "center": {
-     "x": 0.52,
-     "y": 0.42
+     "x": 0.56,
+     "y": 0.5
     },
     "tags": [
-     "lying",
-     "on stomach",
-     "on top",
      "oiled",
      "looking down"
     ],
-    "natural_en": "Stretched full-body atop the partner's oiled back, sliding smoothly torso-against-back across the horizontal frame."
+    "natural_en": "Kneeling behind on both knees with one straight arm braced on the floor beside the partner's chest, torso held up above the oiled back without chest contact, head lowered near the partner's head."
    }
   },
   "pairing_tags": {
    "female_male": {
     "base": [
      "hetero",
-     "massage",
      "oil"
     ]
    },
    "female_female": {
     "base": [
      "yuri",
-     "massage",
      "oil"
     ]
    },
    "male_male": {
     "base": [
      "yaoi",
-     "massage",
      "oil"
     ]
    }
   },
-  "natural_en": "Widescreen top-down full-body view of full-body oiled sliding: the receiver lies flat face down while the giver stretches full-length over their back, gliding smoothly along the glossy skin.",
-  "prompt_zh": "16:9 寬畫幅正上方高空俯視：承受方俯趴舒展全身覆油；施與方以胸腹與全身緊貼對方背部上下滑磨。"
+  "natural_en": "Widescreen side view of oiled bodies: the receiver lies face down with one arm stretched forward and one lower leg raised, while the giver kneels over the receiver propped on one straight arm, torso held up above the glossy back.",
+  "prompt_zh": "16:9 寬畫幅側面全身塗油：承受方俯趴，一臂向前伸、一腿小腿屈起上抬，全身覆油並望向鏡頭；施與方覆於其上方，以雙膝跪地、一臂伸直撐地撐起身體，胸口懸於背部上方、低頭靠近對方頭側。"
  },
  {
   "id": "oil_pouring_prone_back_rear_high",
@@ -1865,52 +1858,51 @@
   "id": "thigh_sex_standing_front_lift_low_angle",
   "category": "12_nonpenetrative_oil",
   "subcategory": "素股與大腿摩擦 thigh sex",
-  "title_zh": "正面站立貼靠大腿夾磨・正面低角仰視",
+  "title_zh": "面對面站立擁抱夾腿素股・側面",
   "pattern": "organ_bound",
   "default_canvas": "3:4",
-  "default_facing": "front",
+  "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "front view",
-   "from below"
+   "side view",
+   "from side"
   ],
   "shared_pose_tags": [
    "thigh sex",
    "standing",
-   "against wall"
+   "face-to-face",
+   "hug"
   ],
   "slots": {
    "receiver": {
-    "label_zh": "承受方（靠牆正面站立併緊雙腿）",
+    "label_zh": "承受方（左側面向對方站立、併腿、雙臂環頸）",
     "requires": "any",
     "center": {
      "x": 0.44,
-     "y": 0.48
-    },
-    "tags": [
-     "standing",
-     "against wall",
-     "legs together",
-     "arms around neck",
-     "looking at another"
-    ],
-    "natural_en": "Braced against the wall facing obliquely forward with thighs pressed closely together and arms around the partner's shoulders."
-   },
-   "giver": {
-    "label_zh": "施與方（正面緊貼站姿扶腰）",
-    "requires": "penis_or_dildo",
-    "center": {
-     "x": 0.56,
      "y": 0.5
     },
     "tags": [
      "standing",
-     "leaning forward",
+     "legs together",
+     "arms around neck",
+     "looking at another"
+    ],
+    "natural_en": "Standing on the left facing the partner, thighs pressed together, both arms around the partner's neck."
+   },
+   "giver": {
+    "label_zh": "施與方（右側面向對方站立扶腰）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.56,
+     "y": 0.48
+    },
+    "tags": [
+     "standing",
      "hands on another's hips",
      "looking at another"
     ],
-    "natural_en": "Standing tightly pressed face-to-face in low-angle frontal view, gripping both hips tightly during close thigh contact."
+    "natural_en": "Standing on the right face to face with the receiver, holding the hips and pressing in between the closed thighs."
    }
   },
   "pairing_tags": {
@@ -1953,22 +1945,21 @@
     ]
    }
   },
-  "natural_en": "Low-angle frontal full-body view of standing face-to-face thigh sex: the receiver braces against the wall with thighs pressed tightly together while the giver leans closely in holding both hips.",
-  "prompt_zh": "正面低角仰視站姿面對面素股：承受方背靠牆面併緊雙腿並環肩；施與方正面貼近扶胯緊密互動。"
+  "natural_en": "Side full-body view of standing face-to-face thigh sex: the receiver stands on the left with thighs together and arms around the giver's neck, while the giver stands facing them holding the hips.",
+  "prompt_zh": "側面全身站姿面對面素股：承受方居左面向對方站立，併攏雙腿、雙臂環住對方頸部；施與方居右面對面站立，雙手扶腰貼近。"
  },
  {
   "id": "thigh_sex_cowgirl_straddle_front_low",
   "category": "12_nonpenetrative_oil",
   "subcategory": "素股與大腿摩擦 thigh sex",
-  "title_zh": "女上位仰躺夾腿素股・正面低角仰視",
+  "title_zh": "上位跨坐併腿素股・正上方俯視",
   "pattern": "organ_bound",
   "default_canvas": "3:4",
   "default_facing": "front",
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "front view",
-   "from below"
+   "from above"
   ],
   "shared_pose_tags": [
    "thigh sex",
@@ -1976,7 +1967,7 @@
   ],
   "slots": {
    "receiver": {
-    "label_zh": "承受方（上方併腿跨坐挺胸俯視）",
+    "label_zh": "承受方（上方跨坐於對方腹部、併攏雙膝）",
     "requires": "any",
     "center": {
      "x": 0.5,
@@ -1986,13 +1977,12 @@
      "straddling",
      "sitting",
      "legs together",
-     "hands on another's chest",
      "looking down"
     ],
-    "natural_en": "Positioned atop the reclining partner with knees drawn snug together, palms resting on the partner's chest while looking down."
+    "natural_en": "Sitting upright astride the partner's lower torso with knees and thighs pressed together, the penis held between the thighs, looking down."
    },
    "giver": {
-    "label_zh": "施與方（下方仰躺雙手扶胯仰望）",
+    "label_zh": "施與方（下方仰躺、頭朝畫面下緣、雙手扶腰）",
     "requires": "penis_or_dildo",
     "center": {
      "x": 0.5,
@@ -2004,7 +1994,7 @@
      "hands on another's hips",
      "looking up"
     ],
-    "natural_en": "Lying on the back beneath the partner in low-angle frontal perspective, gripping both hips and gazing upward."
+    "natural_en": "Lying on the back with the head at the bottom edge of the frame, both hands on the rider's hips."
    }
   },
   "pairing_tags": {
@@ -2047,8 +2037,8 @@
     ]
    }
   },
-  "natural_en": "Low-angle frontal full-body view of straddling thigh sex: the giver reclines below gripping the hips while the receiver sits atop with thighs pressed close, hands braced on the chest.",
-  "prompt_zh": "正面低角仰視上位素股：施與方居下仰躺扶胯仰望；承受方居上併攏大腿跨坐、雙掌按胸低視。"
+  "natural_en": "Top-down full-body view of straddling thigh sex: the giver lies on the back with the head toward the bottom of the frame, holding the hips of the receiver, who sits astride the lower torso with thighs pressed together around the penis.",
+  "prompt_zh": "正上方俯視上位素股：施與方仰躺，頭朝畫面下緣，雙手扶住承受方腰側；承受方跨坐於對方下腹，併攏雙膝與大腿夾住陰莖並向下看。"
  },
  {
   "id": "buttjob_standing_against_wall_rear_low",
@@ -2236,7 +2226,7 @@
   "id": "nursing_handjob_reclining_bed_over_shoulder",
   "category": "12_nonpenetrative_oil",
   "subcategory": "複合胸手侍奉 nursing handjob",
-  "title_zh": "床面側臥環抱胸手侍奉・4:3 過肩四分之三",
+  "title_zh": "床上半躺含乳手交・4:3 斜側",
   "pattern": "organ_bound",
   "default_canvas": "4:3",
   "default_facing": "three_quarter_left",
@@ -2252,37 +2242,35 @@
   ],
   "slots": {
    "receiver": {
-    "label_zh": "承受方（左側床面側躺倚靠胸懷）",
+    "label_zh": "承受方（左側床上半躺、含乳閉眼）",
     "requires": "penis_or_dildo",
     "center": {
      "x": 0.4,
      "y": 0.58
     },
     "tags": [
-     "lying",
-     "on side",
+     "reclining",
      "on bed",
      "breast sucking",
      "closed eyes"
     ],
-    "natural_en": "Reclining on one side on the left facing into the partner's warm embrace on the bed."
+    "natural_en": "Half-reclining on the bed on the left, propped on one elbow, sucking the partner's breast with eyes closed."
    },
    "giver": {
-    "label_zh": "施與方（右側側臥溫柔環抱扶頭）",
+    "label_zh": "施與方（右側坐於身旁、扶頭手交）",
     "requires": "breasts",
     "center": {
      "x": 0.62,
      "y": 0.48
     },
     "tags": [
-     "lying",
-     "on side",
+     "sitting",
      "on bed",
      "hand on another's head",
      "handjob",
      "looking down"
     ],
-    "natural_en": "Lying closely on the opposite side framed past the partner's shoulder, cradling the head tenderly while stroking below."
+    "natural_en": "Sitting upright beside the partner on the right, one hand cradling the head against the breast and the other stroking below."
    }
   },
   "pairing_tags": {
@@ -2316,8 +2304,8 @@
     ]
    }
   },
-  "natural_en": "Horizontal over-the-shoulder three-quarter full-body view on a bed: both partners recline side-by-side in a gentle chest embrace with intimate manual service.",
-  "prompt_zh": "4:3 過肩四分之三床面側臥胸手侍奉：兩人於床面側臥相擁，越過肩線展現溫柔環抱與手部侍奉。"
+  "natural_en": "Horizontal three-quarter full-body view on a bed: the receiver half-reclines on the left sucking the breast while the giver sits upright beside them, holding the head and stroking with the other hand.",
+  "prompt_zh": "4:3 斜側床上胸手侍奉：承受方居左半躺於床、含乳閉眼；施與方居右坐在身旁，一手扶住對方頭部，一手手交。"
  },
  {
   "id": "armpit_sex_front_behind_embrace_low",
@@ -2413,100 +2401,5 @@
   },
   "natural_en": "Low-angle frontal full-body view: the receiver kneels in front with both hands behind the head raising both shoulders while the giver kneels closely behind along the vertical centerline.",
   "prompt_zh": "正面低角縱疊全身腋下互動：承受方居前景正跪、雙手抱腦後高抬手肘；施與方居正後方高跪前傾貼近肩腋。"
- },
- {
-  "id": "armpit_sex_reclining_overhead_wide",
-  "category": "12_nonpenetrative_oil",
-  "subcategory": "腋下互動 armpit sex",
-  "title_zh": "寬床雙手枕頭腋下互動・16:9 高空俯視",
-  "pattern": "organ_bound",
-  "default_canvas": "16:9",
-  "default_facing": "front",
-  "mirrorable": true,
-  "camera_tags": [
-   "full body",
-   "from above"
-  ],
-  "shared_pose_tags": [
-   "armpit sex",
-   "presenting armpit",
-   "on bed"
-  ],
-  "slots": {
-   "receiver": {
-    "label_zh": "承受方（左側仰躺雙手枕腦後）",
-    "requires": "any",
-    "center": {
-     "x": 0.36,
-     "y": 0.54
-    },
-    "tags": [
-     "lying",
-     "on back",
-     "on bed",
-     "arms behind head",
-     "presenting armpit",
-     "looking up"
-    ],
-    "natural_en": "Stretched diagonally across the left half of the widescreen bed with both hands tucked behind the head, exposing the shoulders and armpits upward."
-   },
-   "giver": {
-    "label_zh": "施與方（右側跪伏靠向肩側）",
-    "requires": "penis_or_dildo",
-    "center": {
-     "x": 0.66,
-     "y": 0.46
-    },
-    "tags": [
-     "kneeling",
-     "on bed",
-     "leaning forward",
-     "looking down"
-    ],
-    "natural_en": "Kneeling beside the partner's upper torso on the right side of the bed in top-down perspective, leaning inward closely."
-   }
-  },
-  "pairing_tags": {
-   "female_male": {
-    "base": [
-     "hetero",
-     "armpit sex"
-    ],
-    "giver": [
-     "penis"
-    ]
-   },
-   "male_male": {
-    "base": [
-     "yaoi",
-     "armpit sex"
-    ],
-    "giver": [
-     "penis"
-    ]
-   },
-   "female_futa": {
-    "base": [
-     "yuri",
-     "futanari",
-     "armpit sex"
-    ],
-    "giver": [
-     "futanari",
-     "penis"
-    ]
-   },
-   "female_female": {
-    "base": [
-     "yuri",
-     "armpit sex"
-    ],
-    "giver": [
-     "strap-on"
-    ]
-   }
-  },
-  "natural_en": "Widescreen top-down full-body view on a bed: the receiver reclines across the left half with hands clasped behind the head while the giver kneels at the shoulder on the right leaning in.",
-  "prompt_zh": "16:9 寬畫幅正上方高空俯視床面腋下互動：承受方居左仰躺雙手枕於腦後；施與方居右跪於肩側俯身貼近。"
  }
 ]

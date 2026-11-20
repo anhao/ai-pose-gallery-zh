@@ -1260,7 +1260,7 @@
   "id": "anal_mating_press_overhead_front",
   "category": "11_anal_rear",
   "subcategory": "仰躺抬腿與折疊壓制",
-  "title_zh": "仰躺提踝折疊壓制後庭・橫構圖斜側俯視",
+  "title_zh": "仰躺抬臀劈腿後庭・橫構圖斜側俯視",
   "pattern": "geometry_dispatch",
   "default_canvas": "4:3",
   "default_facing": "three_quarter_left",
@@ -1272,14 +1272,11 @@
   ],
   "shared_pose_tags": [
    "anal",
-   "mating press",
-   "folded",
-   "legs up",
    "sex"
   ],
   "slots": {
    "receiver": {
-    "label_zh": "承受方（左下仰躺雙踝被高提張開、雙臂舉向枕側）",
+    "label_zh": "承受方（左下仰躺抬臀、雙腿大幅劈開、雙臂舉至頭側）",
     "requires": "any",
     "center": {
      "x": 0.4,
@@ -1288,15 +1285,13 @@
     "tags": [
      "lying",
      "on back",
-     "legs up",
      "spread legs",
-     "arms up",
-     "head back"
+     "arms up"
     ],
-    "natural_en": "Lying folded on the back along the lower-left diagonal with ankles lifted high and spread wide apart, arms flung above the head on the mattress."
+    "natural_en": "Lying on the back along the lower left with the hips raised, legs split wide with one leg stretched out to the upper left and the other reaching down past the head, both arms raised beside the head."
    },
    "giver": {
-    "label_zh": "施與方（右上跪立握踝深壓後庭）",
+    "label_zh": "施與方（右上跪姿前傾、雙手握住對方大腿插入後庭）",
     "requires": "penis_or_strapon_or_nonhuman",
     "center": {
      "x": 0.62,
@@ -1308,7 +1303,7 @@
      "holding another's legs",
      "looking down"
     ],
-    "natural_en": "Kneeling high at upper right gripping both raised ankles to pull the receiver's hips up into a deep folded anal angle."
+    "natural_en": "Kneeling at upper right and leaning over the raised hips, one hand gripping the thigh of the outstretched leg and the other holding the hip while entering anally from above."
    }
   },
   "pairing_tags": {
@@ -1358,14 +1353,14 @@
     "giver": []
    }
   },
-  "natural_en": "Horizontal high-angle three-quarter overhead view of folded anal mating press: the receiver lies along lower left with arms flung up and ankles lifted wide apart, while the giver kneels high at upper right gripping both ankles.",
-  "prompt_zh": "橫構圖高角斜側提踝折疊後庭（4:3）：承受方居左下仰躺、雙臂攤向頭側、雙腿被高高提起大開；施與方居右上跪立緊握雙踝深壓後庭。"
+  "natural_en": "Horizontal high-angle three-quarter full-body view of anal sex: the receiver lies on the back at lower left with arms up beside the head, hips raised and legs split wide (one out to the upper left, one down past the head), while the giver kneels at upper right gripping the thighs and entering from above.",
+  "prompt_zh": "橫構圖高角斜側後庭（4:3）：承受方居左下仰躺，臀部抬起，雙腿大幅劈開——一腿伸向左上、一腿向下越過頭側，雙臂舉至頭旁；施與方居右上跪姿前傾，雙手握住大腿與臀側由上插入後庭。"
  },
  {
   "id": "anal_piledriver_inverted_front",
   "category": "11_anal_rear",
   "subcategory": "仰躺抬腿與折疊壓制",
-  "title_zh": "倒立撐地折疊後庭・方構圖高角斜側透視",
+  "title_zh": "倒立劈腿打樁後庭・方構圖斜側俯視",
   "pattern": "geometry_dispatch",
   "default_canvas": "1:1",
   "default_facing": "three_quarter_left",
@@ -1373,34 +1368,28 @@
   "camera_tags": [
    "full body",
    "from above",
-   "three-quarter view",
-   "foreshortening"
+   "three-quarter view"
   ],
   "shared_pose_tags": [
    "anal",
    "piledriver (sex)",
-   "folded",
    "sex"
   ],
   "slots": {
    "receiver": {
-    "label_zh": "承受方（左下肩背倒立、雙掌撐地穩住腰臀）",
+    "label_zh": "承受方（左下肩背著地倒立、臀部朝上、雙腿劈開）",
     "requires": "any",
     "center": {
      "x": 0.4,
-     "y": 0.66
+     "y": 0.64
     },
     "tags": [
-     "shoulder stand",
-     "upside-down",
-     "legs up",
-     "hand on ground",
-     "arched back"
+     "upside-down"
     ],
-    "natural_en": "Balanced inverted on neck and shoulders at lower left with palms braced flat on the floor behind the head for leverage and legs hooked over the partner's shoulders."
+    "natural_en": "Inverted on the shoulders and upper back at lower left with the hips raised straight up, legs split with one stretched out horizontally to the left and the other reaching down past the head, arms tucked at the sides."
    },
    "giver": {
-    "label_zh": "施與方（右上屈蹲扶胯垂直深壓）",
+    "label_zh": "施與方（右上屈蹲、扶臀垂直壓入後庭）",
     "requires": "penis_or_strapon_or_nonhuman",
     "center": {
      "x": 0.62,
@@ -1412,7 +1401,7 @@
      "hands on another's hips",
      "looking down"
     ],
-    "natural_en": "Crouching steeply at upper right in foreshortened overhead perspective, gripping the inverted hips and driving straight down anally."
+    "natural_en": "Squatting above at upper right with knees spread, one hand on the raised hip and the other on the thigh, driving straight down anally while looking down."
    }
   },
   "pairing_tags": {
@@ -1462,60 +1451,52 @@
     "giver": []
    }
   },
-  "natural_en": "Square foreshortened high-angle three-quarter view of an anal piledriver: the receiver balances inverted at lower left with palms braced on the floor and legs hooked over the giver's shoulders, while the giver crouches steeply from upper right.",
-  "prompt_zh": "方構圖高角斜側透視倒立後庭（1:1）：以強烈俯視透視呈現對角張力，承受方居左下肩背倒立、雙掌撐地穩身並將雙腿搭上對方肩頭；施與方居右上屈蹲扣胯垂直壓入。"
+  "natural_en": "Square high-angle three-quarter full-body view of an anal piledriver: the receiver is inverted on the shoulders at lower left with hips raised and legs split (one out to the left, one down past the head), while the giver squats above at upper right holding the hips and driving straight down.",
+  "prompt_zh": "方構圖高角斜側全身倒立後庭（1:1）：承受方居左下以肩背著地倒立、臀部垂直上抬，雙腿劈開——一腿向左平伸、一腿向下越過頭側，雙臂收於身側；施與方居右上張膝屈蹲，扶住臀部與大腿由上垂直壓入。"
  },
  {
   "id": "anal_cowgirl_reverse_low_three_quarter",
   "category": "11_anal_rear",
   "subcategory": "騎乘與反向騎乘",
-  "title_zh": "反向騎乘後庭・低角斜側回眸",
+  "title_zh": "背向坐懷後庭・正面全身",
   "pattern": "geometry_dispatch",
   "default_canvas": "3:4",
-  "default_facing": "three_quarter_right",
+  "default_facing": "front",
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "three-quarter view",
-   "from below"
+   "front view"
   ],
   "shared_pose_tags": [
    "anal",
-   "reverse cowgirl position",
-   "cowgirl position",
    "sex"
   ],
   "slots": {
    "receiver": {
-    "label_zh": "承受方（右上反向跨坐前撐回眸）",
+    "label_zh": "承受方（前方背貼對方坐於胯上、面向鏡頭、雙膝向兩側屈開）",
     "requires": "any",
     "center": {
-     "x": 0.54,
-     "y": 0.38
+     "x": 0.46,
+     "y": 0.36
     },
     "tags": [
-     "sitting",
      "straddling",
-     "arched back",
      "spread legs",
-     "looking back"
+     "looking at viewer"
     ],
-    "natural_en": "Straddling facing away at upper right in a low three-quarter view, back deeply arched with hands braced on the partner's thighs and glancing back."
+    "natural_en": "Sitting upright on the seated partner's lap with the back to the partner's chest and facing the camera, knees bent out wide to both sides, arms down at the sides, looking at the viewer."
    },
    "giver": {
-    "label_zh": "施與方（左下仰躺扶腰仰望）",
+    "label_zh": "施與方（後方直身坐著、頭在對方肩後、雙腿前伸、雙手扶腰）",
     "requires": "penis_or_strapon_or_nonhuman",
     "center": {
-     "x": 0.44,
-     "y": 0.68
+     "x": 0.56,
+     "y": 0.66
     },
     "tags": [
-     "lying",
-     "on back",
-     "hands on another's hips",
-     "looking up"
+     "hands on another's hips"
     ],
-    "natural_en": "Lying on the back below toward lower left gripping the rider's hips and watching the arched spine above."
+    "natural_en": "Sitting upright behind the rider with the head hidden behind the rider's shoulder, legs stretched forward toward the camera and both hands holding the rider's hips."
    }
   },
   "pairing_tags": {
@@ -1565,62 +1546,57 @@
     "giver": []
    }
   },
-  "natural_en": "Low-angle three-quarter full-body view of reverse anal cowgirl: the rider straddles facing away toward upper right with an arched back and over-shoulder gaze, while the giver lies below at lower left gripping the hips.",
-  "prompt_zh": "低角斜側反向騎乘後庭：由床側低機位仰拍，承受方居右上背向跨坐、塌腰前撐並回頭望向施與方，施與方居左下仰躺扶胯。"
+  "natural_en": "Eye-level frontal full-body view of back-to-chest seated anal sex: the receiver sits upright on the seated partner's lap facing the camera with knees bent out wide, while the partner sits behind with legs stretched toward the viewer and both hands on the receiver's hips.",
+  "prompt_zh": "正面平視背向坐懷後庭：承受方背貼對方、面向鏡頭直身坐於其胯上，雙膝向兩側屈開、雙臂垂於身側並望向鏡頭；施與方於後方直身坐著，頭部藏在對方肩後，雙腿朝鏡頭前伸，雙手扶住對方腰側。"
  },
  {
   "id": "anal_standing_carry_back_to_chest_front",
   "category": "11_anal_rear",
   "subcategory": "站立與側臥",
-  "title_zh": "背後懸空抵牆抱起後庭・斜側荷蘭角",
+  "title_zh": "背後懸空抱起後庭・正面",
   "pattern": "geometry_dispatch",
   "default_canvas": "3:4",
-  "default_facing": "three_quarter_right",
+  "default_facing": "front",
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "three-quarter view",
-   "dutch angle",
    "front view"
   ],
   "shared_pose_tags": [
    "anal",
    "standing sex",
-   "suspended congress",
-   "sex from behind",
-   "against wall"
+   "reverse suspended congress",
+   "sex from behind"
   ],
   "slots": {
    "receiver": {
-    "label_zh": "承受方（右側被托離地、一手撐牆一手回勾頸部）",
+    "label_zh": "承受方（前方被托起離地、面向鏡頭、單臂回勾頸部）",
     "requires": "any",
     "center": {
-     "x": 0.58,
+     "x": 0.54,
      "y": 0.52
     },
     "tags": [
-     "against wall",
      "spread legs",
      "legs up",
      "arm around neck",
-     "looking back"
+     "looking at viewer"
     ],
-    "natural_en": "Suspended off the ground at right with legs hoisted wide, one hand bracing against the nearby wall and the other arm reaching back around the partner's neck while glancing back."
+    "natural_en": "Held off the ground in front of the partner with the back against their chest, facing the camera with legs lifted and spread, one arm hooked back around the partner's neck."
    },
    "giver": {
-    "label_zh": "施與方（左側斜向站立穿膝托舉後入）",
+    "label_zh": "施與方（後方站立托膝後入）",
     "requires": "penis_or_strapon_or_nonhuman",
     "center": {
-     "x": 0.4,
-     "y": 0.42
+     "x": 0.42,
+     "y": 0.4
     },
     "tags": [
      "standing",
      "leg hold",
-     "leaning forward",
      "looking down"
     ],
-    "natural_en": "Standing angled on the left hooking forearms beneath the receiver's bent thighs, pressing forward into rear anal entry in a tilted three-quarter frame."
+    "natural_en": "Standing behind the receiver, hooking the arms under the receiver's thighs to hold them up while entering from behind."
    }
   },
   "pairing_tags": {
@@ -1670,8 +1646,8 @@
     "giver": []
    }
   },
-  "natural_en": "Tilted dutch-angle three-quarter view of wall-braced rear suspended anal carry: the giver stands on the left hoisting the receiver's bent thighs aloft while the receiver hangs at right bracing one hand on the wall and hooking the other behind the giver's neck.",
-  "prompt_zh": "斜側荷蘭角背後懸空抵牆後庭：傾斜構圖強化懸空感，施與方居左站立穿過膝彎托舉前壓，承受方居右完全離地大開雙腿、一手撐牆一手回勾對方頸部並回眸。"
+  "natural_en": "Frontal full-body view of a reverse suspended anal carry: the giver stands behind holding the receiver's thighs up, while the receiver faces the camera with legs spread and one arm hooked back around the giver's neck.",
+  "prompt_zh": "正面背後懸空抱起後庭：施與方站在後方，雙臂托住承受方大腿後入；承受方背貼對方胸口、面向鏡頭，雙腿抬起張開，一手回勾對方頸部。"
  },
  {
   "id": "anal_toy_dilation_rear_quarter",

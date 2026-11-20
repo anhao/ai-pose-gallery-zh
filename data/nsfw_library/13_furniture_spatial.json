@@ -1755,25 +1755,24 @@
   "id": "bath_vanity_mirror_lift_3q",
   "category": "13_furniture_spatial",
   "subcategory": "浴室與淋浴",
-  "title_zh": "洗手台鏡前坐台纏腿・斜側全身",
+  "title_zh": "洗手台鏡前坐檯纏腿摟頸・斜側構圖",
   "pattern": "geometry_dispatch",
   "default_canvas": "4:3",
   "default_facing": "three_quarter_left",
   "mirrorable": true,
   "camera_tags": [
-   "full body",
    "three-quarter view"
   ],
   "shared_pose_tags": [
    "sex",
    "bathroom",
+   "sink",
    "mirror",
-   "reflection",
-   "sitting"
+   "reflection"
   ],
   "slots": {
    "receiver": {
-    "label_zh": "承受方（坐洗手台邊緣雙腿纏腰）",
+    "label_zh": "承受方（坐洗手台邊緣、雙臂摟頸、雙腿鬆鬆纏在對方身上）",
     "requires": "pussy",
     "center": {
      "x": 0.36,
@@ -1781,15 +1780,13 @@
     },
     "tags": [
      "sitting",
-     "spread legs",
-     "legs up",
      "arms around neck",
      "looking at another"
     ],
-    "natural_en": "Seated atop the bathroom vanity counter beside the mirror, leaning back slightly with ankles hooked around the standing partner's waist and arms around the neck."
+    "natural_en": "Seated on the edge of the bathroom sink counter in front of the mirror, which shows her reflection, arms wrapped around the standing partner's neck, one leg draped over the partner's hip and the other extended past the partner's back."
    },
    "giver": {
-    "label_zh": "施與方（台前站立貼近托臀）",
+    "label_zh": "施與方（台前站立、背對鏡頭斜側、一手扶腰貼近）",
     "requires": "penis_or_strapon_or_nonhuman",
     "center": {
      "x": 0.66,
@@ -1798,10 +1795,10 @@
     "tags": [
      "standing",
      "leaning forward",
-     "hands on another's thighs",
+     "hands on another's hips",
      "looking at another"
     ],
-    "natural_en": "Standing close in front of the bathroom vanity between the partner's parted thighs, leaning in while gripping beneath her hips, both reflected in the mirror."
+    "natural_en": "Standing close in front of the sink counter between the partner's legs, seen in three-quarter from behind, leaning in with one hand on the partner's hip; framed down to the thighs."
    }
   },
   "pairing_tags": {
@@ -1846,8 +1843,8 @@
     "giver": []
    }
   },
-  "natural_en": "Three-quarter 4:3 full-body view in front of a bathroom vanity mirror: the receiver sits perched on the sink counter with legs wrapped around the standing giver's waist.",
-  "prompt_zh": "4:3 斜側全身洗手台交合：承受方坐於浴室洗手台檯面雙腿勾腰摟頸，施與方立於台前托腿貼近，鏡面映出雙人側影。"
+  "natural_en": "Three-quarter 4:3 view at a bathroom sink with a mirror, framed down to the giver's thighs: the receiver sits on the counter edge with arms around the standing giver's neck and legs loosely wrapped, one over the hip and one past the back, while the giver holds the receiver's hip.",
+  "prompt_zh": "4:3 斜側洗手台交合（畫面裁至施與方大腿）：承受方坐於浴室洗手台檯緣，背後鏡面映出其身影，雙臂摟住對方頸部，雙腿鬆鬆纏繞——一腿搭在對方腰側、一腿越過對方背後；施與方立於台前，一手扶腰貼近。"
  },
  {
   "id": "bed_edge_standing_missionary_3q",
@@ -2047,14 +2044,15 @@
   "id": "stairs_railing_lean_3q",
   "category": "13_furniture_spatial",
   "subcategory": "樓梯與欄杆",
-  "title_zh": "樓梯扶手背靠抬腿立交・斜側全身",
+  "title_zh": "樓梯扶手背靠抬腿立交・俯視斜側全身",
   "pattern": "geometry_dispatch",
   "default_canvas": "4:3",
   "default_facing": "three_quarter_left",
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "three-quarter view"
+   "three-quarter view",
+   "from above"
   ],
   "shared_pose_tags": [
    "sex",
@@ -2064,23 +2062,23 @@
   ],
   "slots": {
    "receiver": {
-    "label_zh": "承受方（背靠樓梯扶手抬起單腿）",
+    "label_zh": "承受方（背靠樓梯扶手單腳站立抬腿）",
     "requires": "pussy",
     "center": {
      "x": 0.36,
      "y": 0.48
     },
     "tags": [
-     "standing",
+     "standing on one leg",
      "leaning back",
+     "against railing",
      "leg up",
-     "arms around neck",
      "looking at another"
     ],
-    "natural_en": "Pressed back against a staircase handrail on the landing, gripping the rail with one hand while hoisting one leg high against the partner's hip."
+    "natural_en": "Leaning back against the staircase railing on one leg, the other leg lifted high beside the partner."
    },
    "giver": {
-    "label_zh": "施與方（面對面站立托起大腿）",
+    "label_zh": "施與方（面對面站立托住大腿）",
     "requires": "penis_or_strapon_or_nonhuman",
     "center": {
      "x": 0.66,
@@ -2089,10 +2087,10 @@
     "tags": [
      "standing",
      "leaning forward",
-     "hands on another's thighs",
+     "holding another's leg",
      "looking at another"
     ],
-    "natural_en": "Standing close on the staircase landing leaning forward into the receiver, lifting her raised thigh while steadying her against the railing."
+    "natural_en": "Standing close and facing the receiver, leaning in while holding her thigh against the railing."
    }
   },
   "pairing_tags": {
@@ -2137,58 +2135,58 @@
     "giver": []
    }
   },
-  "natural_en": "Three-quarter 4:3 full-body view along a staircase railing: the receiver leans back against the banister with one leg lifted while the giver stands close supporting her thigh.",
-  "prompt_zh": "4:3 斜側全身樓梯扶手立交：承受方背靠階梯欄杆微後仰並抬起單腿摟頸，施與方立於轉角台階托腿貼近結合。"
+  "natural_en": "Three-quarter 4:3 full-body view from slightly above at a staircase railing: the receiver leans back against the rail on one leg with the other leg raised while the giver stands facing her holding her thigh.",
+  "prompt_zh": "4:3 俯視斜側全身樓梯扶手立交：承受方背靠樓梯欄杆單腳站立、另一腿高抬，施與方面對面站立托住其大腿貼近結合。"
  },
  {
   "id": "stairs_seated_step_oral_above",
   "category": "13_furniture_spatial",
   "subcategory": "樓梯與欄杆",
-  "title_zh": "階梯上下高差口交侍奉・俯視正面全身",
+  "title_zh": "階梯坐姿高差跪姿口交・側面全身",
   "pattern": "organ_bound",
-  "default_canvas": "3:4",
-  "default_facing": "front",
+  "default_canvas": "4:3",
+  "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "from above"
+   "side view",
+   "from side"
   ],
   "shared_pose_tags": [
    "fellatio",
    "oral",
-   "stairs"
+   "stairs",
+   "on stairs"
   ],
   "slots": {
    "receiver": {
-    "label_zh": "承受方（高階坐姿後仰張腿）",
+    "label_zh": "承受方（高階坐姿張腿扶頭）",
     "requires": "penis_or_dildo",
     "center": {
-     "x": 0.5,
-     "y": 0.3
+     "x": 0.36,
+     "y": 0.4
     },
     "tags": [
-     "sitting",
-     "leaning back",
+     "sitting on stairs",
      "spread legs",
      "hand on another's head",
      "looking down"
     ],
-    "natural_en": "Seated high on an upper stair step leaning back on one elbow with legs spread down the steps, resting one hand on the kneeling partner's head."
+    "natural_en": "Seated on an upper stair step with legs spread, one hand resting on the kneeling partner's head, looking down."
    },
    "giver": {
-    "label_zh": "施與方（低階跪姿仰望口交）",
+    "label_zh": "施與方（低階跪姿前傾口交）",
     "requires": "any",
     "center": {
-     "x": 0.5,
-     "y": 0.72
+     "x": 0.64,
+     "y": 0.62
     },
     "tags": [
      "kneeling",
      "leaning forward",
-     "tongue out",
      "looking up"
     ],
-    "natural_en": "Kneeling two steps below between the seated partner's spread knees, leaning upward with eyes raised to meet the partner's gaze."
+    "natural_en": "Kneeling on a lower step between the seated partner's knees, leaning forward to give oral while looking up."
    }
   },
   "pairing_tags": {
@@ -2209,8 +2207,8 @@
     ]
    }
   },
-  "natural_en": "High-angle front full-body view down a staircase: the receiver sits elevated on an upper tread leaning back with legs spread while the giver kneels lower down between the legs giving oral.",
-  "prompt_zh": "高角俯視正面全身階梯口交：利用樓梯垂直落差，承受方高坐上階後仰張腿扶頭，施與方跪於下方低階仰望侍奉。"
+  "natural_en": "Side 4:3 full-body view on a staircase: the receiver sits on an upper step with legs spread while the giver kneels on a lower step leaning in to give oral.",
+  "prompt_zh": "4:3 側面全身階梯口交：承受方坐於上階張腿並扶住對方頭部，施與方跪於下階前傾口交並仰望。"
  },
  {
   "id": "kitchen_counter_seated_front",
@@ -2313,25 +2311,26 @@
   "id": "kitchen_barstool_rear_3q",
   "category": "13_furniture_spatial",
   "subcategory": "廚房與吧台",
-  "title_zh": "吧台俯伏單膝跪凳後入・斜側全身",
+  "title_zh": "高腳桌俯身後勾單腿立位後入・側面全身",
   "pattern": "geometry_dispatch",
   "default_canvas": "4:3",
-  "default_facing": "three_quarter_left",
+  "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "three-quarter view"
+   "side view",
+   "from side"
   ],
   "shared_pose_tags": [
    "sex",
-   "doggystyle",
+   "standing sex",
    "sex from behind",
-   "bar counter",
+   "table",
    "stool"
   ],
   "slots": {
    "receiver": {
-    "label_zh": "承受方（上身伏於吧台、一膝撐高腳凳）",
+    "label_zh": "承受方（前臂伏於高腳桌、一腿屈膝後勾）",
     "requires": "pussy",
     "center": {
      "x": 0.36,
@@ -2339,14 +2338,13 @@
     },
     "tags": [
      "bent over",
-     "ass up",
-     "leg up",
-     "looking back"
+     "arched back",
+     "leg up"
     ],
-    "natural_en": "Bent forward with elbows resting on the high bar counter and one knee perched on a tall barstool for balance, back arched and glancing back."
+    "natural_en": "Bent forward with both forearms resting on a tall round bar table, standing on one leg with the other knee bent and the foot lifted back toward the partner; a bar stool stands empty beside her."
    },
    "giver": {
-    "label_zh": "施與方（吧台側站立扶胯前傾）",
+    "label_zh": "施與方（身後站立扶胯前傾）",
     "requires": "penis_or_strapon_or_nonhuman",
     "center": {
      "x": 0.68,
@@ -2358,7 +2356,7 @@
      "hands on another's hips",
      "looking down"
     ],
-    "natural_en": "Standing firmly beside the barstool directly behind the receiver, gripping both hips and leaning over her arched back."
+    "natural_en": "Standing directly behind the receiver, one hand on her hip, leaning slightly forward and looking down."
    }
   },
   "pairing_tags": {
@@ -2403,8 +2401,8 @@
     "giver": []
    }
   },
-  "natural_en": "Three-quarter 4:3 full-body view at a bar counter: the receiver leans forward across the bar top with one knee resting on a barstool while the giver stands behind gripping her hips.",
-  "prompt_zh": "4:3 斜側全身吧台後入：承受方肘撐吧台面、一膝搭在高腳凳上塌腰回望，施與方站於後方前傾扶胯後入。"
+  "natural_en": "Side 4:3 full-body view at a tall bar table: the receiver bends forward on her forearms with one knee bent and lifted behind her while the giver stands behind holding her hip; an empty bar stool stands beside them.",
+  "prompt_zh": "4:3 側面全身高腳桌立位後入：承受方前臂伏於高腳圓桌、單腳站立另一腿屈膝向後勾起，施與方站於身後扶胯後入，旁邊放著一張空高腳凳。"
  },
  {
   "id": "kitchen_island_side_recline_side",
@@ -2802,43 +2800,46 @@
   "id": "window_sill_leaning_out_behind",
   "category": "13_furniture_spatial",
   "subcategory": "窗邊與陽台",
-  "title_zh": "逆光窗台撐手俯身後入・背面全身",
+  "title_zh": "窗台撐手俯身後入・側面全身",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
-  "default_facing": "three_quarter_left",
+  "default_canvas": "4:3",
+  "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "three-quarter view"
+   "side view",
+   "from side"
   ],
   "shared_pose_tags": [
    "sex",
    "standing doggystyle",
    "sex from behind",
-   "window"
+   "window",
+   "windowsill"
   ],
   "slots": {
    "receiver": {
-    "label_zh": "承受方（雙手撐窗台俯身望窗外）",
+    "label_zh": "承受方（雙手撐窗台俯身回望）",
     "requires": "pussy",
     "center": {
-     "x": 0.48,
-     "y": 0.44
+     "x": 0.38,
+     "y": 0.5
     },
     "tags": [
      "standing",
      "bent over",
+     "leaning on object",
      "arched back",
      "looking back"
     ],
-    "natural_en": "Standing silhouetted in front of a bright open window with palms braced on the windowsill, leaning slightly forward and glancing back."
+    "natural_en": "Standing bent forward at a window with both hands braced on the windowsill, back arched, glancing back."
    },
    "giver": {
-    "label_zh": "施與方（窗前站立扶胯貼近）",
+    "label_zh": "施與方（身後站立扶胯前傾）",
     "requires": "penis_or_strapon_or_nonhuman",
     "center": {
-     "x": 0.54,
-     "y": 0.58
+     "x": 0.62,
+     "y": 0.46
     },
     "tags": [
      "standing",
@@ -2846,7 +2847,7 @@
      "hands on another's hips",
      "looking down"
     ],
-    "natural_en": "Standing closely behind against the sunlit window frame, gripping both hips and leaning over the receiver's arched back."
+    "natural_en": "Standing close behind, gripping both hips and leaning over the receiver's arched back."
    }
   },
   "pairing_tags": {
@@ -2891,8 +2892,8 @@
     "giver": []
    }
   },
-  "natural_en": "Backlit rear full-body view at a large window: the receiver bends forward bracing her hands on the windowsill while the giver stands directly behind gripping her hips.",
-  "prompt_zh": "背面全身逆光窗台後入：大面採光窗前，承受方雙手撐住窗台前彎挺臀回望，施與方逆光立於身後扶胯壓入。"
+  "natural_en": "Side 4:3 full-body view at a window: the receiver bends forward bracing her hands on the windowsill while the giver stands behind gripping her hips.",
+  "prompt_zh": "4:3 側面全身窗台後入：承受方於窗前雙手撐住窗台前彎挺臀回望，施與方立於身後扶胯貼近。"
  },
  {
   "id": "balcony_railing_embrace_3q",
@@ -3088,5 +3089,782 @@
   },
   "natural_en": "Low-angle Dutch-tilt three-quarter full-body view down a dim corridor: the receiver is pressed into a hallway corner with one leg hooked up while the giver shields her closely.",
   "prompt_zh": "低角度傾斜斜側全身走廊暗角：幽暗長廊轉角處，承受方貼牆抬腿摟頸，施與方以身軀貼近遮掩並撐牆托腿結合。"
+ },
+ {
+  "id": "onsen_lap_upright_straddle_side",
+  "category": "13_furniture_spatial",
+  "subcategory": "溫泉與露天浴池",
+  "title_zh": "溫泉池邊石緣面對面跨坐・側面橫構圖",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "4:3",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "sex",
+   "upright straddle",
+   "sitting on lap",
+   "onsen",
+   "steam"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側面對面跨坐腿上、雙臂環頸）",
+    "center": {
+     "x": 0.43,
+     "y": 0.46
+    },
+    "tags": [
+     "straddling",
+     "arms around neck",
+     "looking at another"
+    ],
+    "natural_en": "Straddling the partner's lap face to face on the left, on the stone rim of the hot spring above the water with one foot touching the surface, arms wrapped around the partner's neck, looking at the partner.",
+    "requires": "pussy"
+   },
+   "giver": {
+    "label_zh": "施與方（右側坐於池邊石緣、扶腰）",
+    "center": {
+     "x": 0.58,
+     "y": 0.56
+    },
+    "tags": [
+     "sitting",
+     "hands on another's hips",
+     "looking at another"
+    ],
+    "natural_en": "Sitting on the stone rim of the hot spring on the right with the lower legs in the water, holding the rider's waist and looking at the rider.",
+    "requires": "penis_or_strapon_or_nonhuman"
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal",
+     "mixed-sex bathing"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Side 4:3 view at a hot spring: the giver sits on the stone rim on the right with the lower legs in the water, holding the receiver's waist, while the receiver straddles the lap face to face on the left above the water, arms around the neck; faint steam rises from the water.",
+  "prompt_zh": "4:3 側面溫泉池邊面對面跨坐：施與方居右坐在池邊石緣、小腿浸入水中並扶住對方腰部；承受方居左面對面跨坐其腿上、身體在水面之上僅腳尖觸水，雙臂環頸對視；水面有淡淡熱氣。"
+ },
+ {
+  "id": "school_desk_bent_over_arm_hold_side",
+  "category": "13_furniture_spatial",
+  "subcategory": "書桌與餐桌",
+  "title_zh": "課桌俯身拉臂後入・側面橫構圖",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "4:3",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "sex",
+   "bent over",
+   "sex from behind",
+   "standing sex",
+   "school desk",
+   "arm held back"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側俯身趴上課桌）",
+    "center": {
+     "x": 0.36,
+     "y": 0.55
+    },
+    "tags": [
+     "standing",
+     "bent over",
+     "arms behind back",
+     "looking back"
+    ],
+    "natural_en": "Standing on the left and bent forward at the waist over the school desk, chest close to the desktop, both arms drawn back behind the body, looking back.",
+    "requires": "pussy"
+   },
+   "giver": {
+    "label_zh": "施與方（右側站立拉住雙臂）",
+    "center": {
+     "x": 0.64,
+     "y": 0.46
+    },
+    "tags": [
+     "standing",
+     "holding another's arm",
+     "looking down"
+    ],
+    "natural_en": "Standing behind on the right, pulling the receiver's arms back by the forearms while thrusting from behind.",
+    "requires": "penis_or_strapon_or_nonhuman"
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Side 4:3 view of bent-over sex at a school desk: the receiver bends over the desk on the left with both arms drawn behind the back, while the giver stands behind on the right holding the arms.",
+  "prompt_zh": "4:3 側面課桌俯身後入：承受方居左站立俯身趴向課桌、雙臂被向後拉並回頭；施與方居右站於身後抓住雙臂後入。"
+ },
+ {
+  "id": "train_strap_standing_rear_side",
+  "category": "13_furniture_spatial",
+  "subcategory": "車內與狹小空間",
+  "title_zh": "電車拉吊環站立後入・側面全身",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "sex",
+   "standing sex",
+   "sex from behind",
+   "train interior"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側直立拉住吊環）",
+    "center": {
+     "x": 0.42,
+     "y": 0.5
+    },
+    "tags": [
+     "standing",
+     "holding strap",
+     "arm up",
+     "closed eyes"
+    ],
+    "natural_en": "Standing upright on the left inside the train car, one arm raised gripping the hanging strap, back toward the partner, eyes closed.",
+    "requires": "pussy"
+   },
+   "giver": {
+    "label_zh": "施與方（右側貼身站立後入）",
+    "center": {
+     "x": 0.6,
+     "y": 0.48
+    },
+    "tags": [
+     "standing",
+     "hand on another's hip",
+     "grabbing another's breast",
+     "grabbing from behind"
+    ],
+    "natural_en": "Standing pressed against the receiver's back on the right, one hand on the hip and the other cupping a breast from behind.",
+    "requires": "penis_or_strapon_or_nonhuman"
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Side full-body view inside a train car: the receiver stands upright on the left holding a hanging strap overhead while the giver stands close behind on the right, one hand on the hip and one on a breast.",
+  "prompt_zh": "側面全身電車站立後入：承受方居左直立、單手高舉拉住吊環並閉眼；施與方居右緊貼其背後站立，一手扶胯一手握胸。"
+ },
+ {
+  "id": "locker_bench_squatting_cowgirl_3q",
+  "category": "13_furniture_spatial",
+  "subcategory": "更衣室長椅",
+  "title_zh": "更衣室長椅蹲姿騎乘・斜側橫構圖",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "4:3",
+  "default_facing": "three_quarter_left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "three-quarter view"
+  ],
+  "shared_pose_tags": [
+   "sex",
+   "squatting cowgirl position",
+   "on bench",
+   "locker room",
+   "locker"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（長椅上蹲姿騎乘）",
+    "center": {
+     "x": 0.44,
+     "y": 0.4
+    },
+    "tags": [
+     "squatting",
+     "spread legs",
+     "hands on own knees",
+     "looking down"
+    ],
+    "natural_en": "Squatting astride the partner's hips on the bench with feet planted on the seat and knees spread, hands on the knees, looking down.",
+    "requires": "pussy"
+   },
+   "giver": {
+    "label_zh": "施與方（仰躺長椅扶腰）",
+    "center": {
+     "x": 0.56,
+     "y": 0.64
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "hands on another's hips",
+     "looking up"
+    ],
+    "natural_en": "Lying on the back along the narrow locker-room bench, holding the rider's hips and looking up.",
+    "requires": "penis_or_strapon_or_nonhuman"
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Three-quarter 4:3 view on a locker-room bench: the giver lies on the back along the bench while the receiver squats astride with knees spread and hands on the knees.",
+  "prompt_zh": "4:3 斜側更衣室長椅蹲姿騎乘：施與方仰躺於長椅上扶腰仰望；承受方雙腳踩在椅面蹲坐其胯上、張開雙膝、雙手扶膝俯視。"
+ },
+ {
+  "id": "office_desk_edge_leg_lock_side",
+  "category": "13_furniture_spatial",
+  "subcategory": "書桌與餐桌",
+  "title_zh": "辦公桌緣坐檯抬腿正面交合・側面橫構圖",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "4:3",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "sex",
+   "on desk",
+   "office",
+   "desk"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側坐桌緣、單手撐桌、雙腿伸向對方身後）",
+    "center": {
+     "x": 0.4,
+     "y": 0.52
+    },
+    "tags": [
+     "sitting",
+     "arm support",
+     "looking at another"
+    ],
+    "natural_en": "Sitting upright on the edge of the office desk on the left, one hand braced on the desktop behind, the near leg raised over the partner's arm and the far leg passing behind the partner's hips, both feet hanging loosely behind the partner, facing the partner.",
+    "requires": "pussy"
+   },
+   "giver": {
+    "label_zh": "施與方（右側站在雙腿間、單手扶大腿）",
+    "center": {
+     "x": 0.6,
+     "y": 0.47
+    },
+    "tags": [
+     "standing",
+     "hands on another's thighs",
+     "looking at another"
+    ],
+    "natural_en": "Standing at the desk edge on the right between the receiver's legs, one hand holding the raised thigh, facing the receiver.",
+    "requires": "penis_or_strapon_or_nonhuman"
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Side 4:3 view at an office desk with a monitor: the receiver sits upright on the desk edge on the left with one hand braced behind on the desktop, the near leg raised over the giver's arm and the far leg passing behind the giver's hips, feet hanging loose; the giver stands between the legs on the right holding the raised thigh, and they face each other.",
+  "prompt_zh": "4:3 側面辦公桌緣交合（桌上有螢幕）：承受方居左直坐於桌緣、單手向後撐桌，近側腿抬起掛在對方手臂上、遠側腿繞過對方腰後，雙腳鬆垂於對方身後；施與方居右站在兩腿之間、單手扶住抬起的大腿，兩人相對。"
+ },
+ {
+  "id": "alley_brick_wall_leg_lift_3q",
+  "category": "13_furniture_spatial",
+  "subcategory": "牆面壓制與立姿",
+  "title_zh": "巷弄磚牆抬腿面對面立交・斜側全身",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "three_quarter_left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "three-quarter view"
+  ],
+  "shared_pose_tags": [
+   "sex",
+   "standing sex",
+   "leg lift",
+   "against wall",
+   "brick wall",
+   "alley"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側背貼磚牆單腳站立）",
+    "center": {
+     "x": 0.42,
+     "y": 0.5
+    },
+    "tags": [
+     "standing on one leg",
+     "leg up",
+     "hand on another's shoulder",
+     "looking at another"
+    ],
+    "natural_en": "Standing on one leg with the back against the brick wall on the left, the other leg lifted high, one hand on the partner's shoulder.",
+    "requires": "pussy"
+   },
+   "giver": {
+    "label_zh": "施與方（右側托起大腿貼近）",
+    "center": {
+     "x": 0.6,
+     "y": 0.48
+    },
+    "tags": [
+     "standing",
+     "holding another's leg",
+     "looking at another"
+    ],
+    "natural_en": "Standing face to face on the right, holding the receiver's raised leg up under the knee and pressing close toward the wall.",
+    "requires": "penis_or_strapon_or_nonhuman"
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Three-quarter full-body view in a narrow alley: the receiver stands on one leg with the back to a brick wall on the left, the other leg lifted, while the giver faces her on the right holding the raised leg.",
+  "prompt_zh": "斜側全身巷弄磚牆立交：承受方居左背貼磚牆單腳站立、另一腿高抬並扶住對方肩膀；施與方居右面對面托起其抬起的腿貼近牆面。"
+ },
+ {
+  "id": "toilet_stall_reverse_lap_front",
+  "category": "13_furniture_spatial",
+  "subcategory": "廁所隔間",
+  "title_zh": "廁所隔間背向坐腿開腿・正面全身",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "sex",
+   "reverse cowgirl position",
+   "sitting on lap",
+   "toilet stall",
+   "on toilet",
+   "toilet"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（背向坐在對方腿上張腿）",
+    "center": {
+     "x": 0.5,
+     "y": 0.58
+    },
+    "tags": [
+     "sitting",
+     "spread legs",
+     "leaning back",
+     "looking at viewer"
+    ],
+    "natural_en": "Sitting on the partner's lap facing away from the partner and toward the camera, leaning back against the partner's chest with legs spread wide.",
+    "requires": "pussy"
+   },
+   "giver": {
+    "label_zh": "施與方（坐馬桶從後撐開大腿）",
+    "center": {
+     "x": 0.5,
+     "y": 0.36
+    },
+    "tags": [
+     "sitting",
+     "hands on another's thighs",
+     "looking down"
+    ],
+    "natural_en": "Sitting on the toilet seat behind the receiver, holding both of the receiver's thighs apart from behind and looking down over the shoulder.",
+    "requires": "penis_or_strapon_or_nonhuman"
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Front full-body view inside a toilet stall: the giver sits on the toilet seat while the receiver sits on the lap facing away toward the camera, leaning back with legs held apart by the giver's hands.",
+  "prompt_zh": "正面全身廁所隔間背向坐腿：施與方坐在馬桶上，從後方雙手撐開承受方大腿並俯視；承受方背向對方坐在腿上、後仰靠胸、張開雙腿望向鏡頭。"
+ },
+ {
+  "id": "shower_glass_breasts_press_rear_side",
+  "category": "13_furniture_spatial",
+  "subcategory": "浴室與淋浴",
+  "title_zh": "淋浴間胸貼玻璃直立後入・側面全身",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "sex",
+   "standing sex",
+   "sex from behind",
+   "against glass",
+   "breasts on glass",
+   "shower (place)",
+   "showering"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側胸口貼玻璃直立）",
+    "center": {
+     "x": 0.36,
+     "y": 0.48
+    },
+    "tags": [
+     "standing",
+     "hand on glass",
+     "breast press",
+     "closed eyes"
+    ],
+    "natural_en": "Standing upright on the left facing the shower glass, chest and both palms pressed flat against the glass, eyes closed.",
+    "requires": "pussy"
+   },
+   "giver": {
+    "label_zh": "施與方（右側貼背直立後入）",
+    "center": {
+     "x": 0.56,
+     "y": 0.47
+    },
+    "tags": [
+     "standing",
+     "hug from behind",
+     "looking down"
+    ],
+    "natural_en": "Standing upright close behind on the right, arms wrapped around the receiver's waist from behind, pressing the receiver against the glass.",
+    "requires": "penis_or_strapon_or_nonhuman"
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Side full-body view in a shower: the receiver stands upright on the left with chest and palms pressed flat against the glass, while the giver stands behind on the right hugging the waist and pressing close.",
+  "prompt_zh": "側面全身淋浴間直立後入：承受方居左直立面向淋浴玻璃，胸口與雙掌平貼玻璃並閉眼；施與方居右緊貼其背後直立，從後環抱腰部壓向玻璃。"
  }
 ]

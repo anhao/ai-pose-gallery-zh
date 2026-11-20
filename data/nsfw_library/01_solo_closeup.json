@@ -1387,7 +1387,7 @@
   "id": "pos_solo_reclining_stretch_wide_overhead",
   "category": "01_solo_closeup",
   "subcategory": "撩人全身／半身展示",
-  "title_zh": "大字斜臥伸展・16:9 高空俯視",
+  "title_zh": "斜躺仰臥雙膝立起・16:9 高空俯視",
   "pattern": "solo_or_pov",
   "default_canvas": "16:9",
   "default_facing": "front",
@@ -1402,7 +1402,7 @@
   ],
   "slots": {
    "subject": {
-    "label_zh": "主體（斜角仰躺舒展全身）",
+    "label_zh": "主體（斜向仰躺、雙膝立起、單臂伸向側邊）",
     "requires": "female",
     "center": {
      "x": 0.5,
@@ -1413,11 +1413,11 @@
      "on back",
      "on bed",
      "arms up",
-     "knee up",
+     "knees up",
      "arched back",
      "looking up"
     ],
-    "natural_en": "Sprawled diagonally across a wide bed on her back, arms reaching above her head, one leg extended long and the other knee raised to create an asymmetric diagonal silhouette."
+    "natural_en": "Lying diagonally on her back across a wide bed, one arm bent beside her head and the other extended out to the side, both knees bent and raised, looking up at the camera."
    }
   },
   "pairing_tags": {
@@ -1427,21 +1427,21 @@
     ]
    }
   },
-  "natural_en": "Widescreen top-down view of a woman reclining diagonally on her back, arms stretched overhead with one leg extended and one knee bent up, looking upward at the camera.",
-  "prompt_zh": "16:9 寬畫幅高空俯視：斜向仰躺於床面，雙臂過頭伸展、一腿伸直一膝曲起形成對角線舒展構圖，仰望鏡頭。"
+  "natural_en": "Widescreen top-down full-body view of a woman lying diagonally on her back on a bed, one arm bent beside her head and the other extended out to the side, both knees bent up, looking up at the camera.",
+  "prompt_zh": "16:9 寬畫幅高空俯視全身：斜向仰躺於床面，一臂彎曲置於頭側、另一臂向側邊伸出，雙膝曲起立於床上，仰望鏡頭。"
  },
  {
   "id": "pos_solo_mirror_seated_over_shoulder",
   "category": "01_solo_closeup",
   "subcategory": "撩人全身／半身展示",
-  "title_zh": "鏡前坐姿倒影・過肩四分之三",
+  "title_zh": "鏡框內跪坐撩髮・正面全身",
   "pattern": "solo_or_pov",
   "default_canvas": "3:4",
-  "default_facing": "three_quarter_right",
+  "default_facing": "front",
   "mirrorable": true,
   "camera_tags": [
-   "cowboy shot",
-   "three-quarter view"
+   "full body",
+   "front view"
   ],
   "shared_pose_tags": [
    "mirror",
@@ -1449,10 +1449,10 @@
   ],
   "slots": {
    "subject": {
-    "label_zh": "主體（鏡前坐姿回眸倒影）",
+    "label_zh": "主體（鏡中正面跪坐撩髮）",
     "requires": "female",
     "center": {
-     "x": 0.44,
+     "x": 0.5,
      "y": 0.54
     },
     "tags": [
@@ -1462,7 +1462,7 @@
      "hand in own hair",
      "looking at viewer"
     ],
-    "natural_en": "Seated obliquely in front of a tall mirror, one hand lifting hair off her neck while both her rear shoulder contour and frontal reflection appear in the frame."
+    "natural_en": "Kneeling with her legs folded beneath her on a bed, shown frontally inside an ornate full-length mirror frame, one hand lifting hair at the side of her head and the other touching a lock of hair near her chest, looking at the viewer."
    }
   },
   "pairing_tags": {
@@ -1472,31 +1472,29 @@
     ]
    }
   },
-  "natural_en": "Over-the-shoulder three-quarter shot of a seated adult woman facing a mirror, lifting her hair from her nape so both her back curve and mirrored front gaze are visible.",
-  "prompt_zh": "過肩四分之三七分身：於全身鏡前斜坐，單手撩起頸側長髮，同時呈現肩背輪廓與鏡中正面神態。"
+  "natural_en": "Frontal full-body view of a woman kneeling with legs folded under her on a bed, framed inside an ornate standing mirror as a single reflection, one hand lifting her hair beside her head and the other holding hair near her chest, looking at the viewer.",
+  "prompt_zh": "正面全身：雙腿向後折跪坐於床上，整個人呈現在華麗立鏡框內如同鏡中倒影；一手於頭側撩起長髮、另一手捏著胸前髮絲，看向鏡頭。"
  },
  {
   "id": "pos_solo_selfie_high_angle_kneeling",
   "category": "01_solo_closeup",
   "subcategory": "撩人全身／半身展示",
-  "title_zh": "高角度近鏡俯拍・跪姿自拍視角",
+  "title_zh": "高角俯拍・跪姿前傾伸手向鏡頭",
   "pattern": "solo_or_pov",
   "default_canvas": "3:4",
   "default_facing": "front",
   "mirrorable": true,
   "camera_tags": [
-   "upper body",
-   "from above",
-   "foreshortening",
-   "dutch angle"
+   "cowboy shot",
+   "from above"
   ],
   "shared_pose_tags": [
    "leaning forward",
-   "looking up"
+   "reaching towards viewer"
   ],
   "slots": {
    "subject": {
-    "label_zh": "主體（高角傾斜前傾看向鏡頭）",
+    "label_zh": "主體（跪姿前傾、單臂伸向鏡頭）",
     "requires": "female",
     "center": {
      "x": 0.52,
@@ -1505,10 +1503,11 @@
     "tags": [
      "kneeling",
      "leaning forward",
-     "arm up",
+     "outstretched arm",
+     "reaching towards viewer",
      "looking at viewer"
     ],
-    "natural_en": "Kneeling below a tilted high camera, extending one arm upward toward the lens edge while leaning forward with her collarbones and face framed in foreshortened perspective."
+    "natural_en": "Kneeling below a high camera and leaning forward, one arm extended up toward the lens, looking up at the viewer."
    }
   },
   "pairing_tags": {
@@ -1518,22 +1517,21 @@
     ]
    }
   },
-  "natural_en": "High-angle tilted upper-body shot with foreshortening: a kneeling woman reaches one arm toward the high camera and leans in while gazing upward.",
-  "prompt_zh": "高角傾斜透視半身：跪姿位於鏡頭下方，單臂朝高處鏡頭伸出、身體前傾並仰望，營造親密自拍感。"
+  "natural_en": "High-angle cowboy shot of a kneeling woman leaning forward and reaching one arm toward the camera above her, looking up at the viewer.",
+  "prompt_zh": "高角俯拍七分身：跪姿位於鏡頭下方並前傾，單臂伸直朝上方鏡頭伸出，抬眼看向鏡頭。"
  },
  {
   "id": "pos_solo_chair_perched_three_quarter_low",
   "category": "01_solo_closeup",
   "subcategory": "美背與腰臀大腿線條展示",
-  "title_zh": "反坐椅背跨腿・低角四分之三",
+  "title_zh": "反坐椅背跨腿・正面全身",
   "pattern": "solo_or_pov",
   "default_canvas": "3:4",
-  "default_facing": "three_quarter_left",
+  "default_facing": "front",
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "three-quarter view",
-   "from below"
+   "front view"
   ],
   "shared_pose_tags": [
    "hip focus",
@@ -1541,21 +1539,23 @@
   ],
   "slots": {
    "subject": {
-    "label_zh": "主體（反跨坐椅面靠伏椅背）",
+    "label_zh": "主體（反跨坐椅面、雙臂交疊椅背）",
     "requires": "female",
     "center": {
-     "x": 0.52,
-     "y": 0.52
+     "x": 0.5,
+     "y": 0.54
     },
     "tags": [
      "sitting",
      "on chair",
-     "straddling",
-     "leaning forward",
      "sitting backwards",
+     "straddling",
+     "spread legs",
+     "leaning forward",
+     "head rest",
      "looking at viewer"
     ],
-    "natural_en": "Straddling a chair backwards at a three-quarter angle, forearms draped across the chair back, hips angled toward the camera to emphasize thigh and waist lines."
+    "natural_en": "Sitting backwards astride a chair facing the camera, one leg on each side of the seat, forearms folded on top of the backrest with her chin resting on them, leaning forward slightly."
    }
   },
   "pairing_tags": {
@@ -1565,14 +1565,14 @@
     ]
    }
   },
-  "natural_en": "Low-angle three-quarter full-body shot of a woman sitting backwards astride a chair, resting her arms over the backrest while angling her hips and thighs toward the lens.",
-  "prompt_zh": "低角四分之三全身：反跨坐於椅面、雙臂交疊靠在椅背上，臀腿斜對鏡頭展現修長比例。"
+  "natural_en": "Frontal full-body shot of a woman sitting backwards astride a chair, legs spread on either side of the seat behind the backrest, arms folded over the backrest with her chin resting on them.",
+  "prompt_zh": "正面全身：反向跨坐椅面、雙腿分跨椅座兩側，雙臂交疊擱在椅背上方並將下巴枕於其上，身體微微前傾看向鏡頭。"
  },
  {
   "id": "pos_solo_reclining_back_curve_horizontal",
   "category": "01_solo_closeup",
   "subcategory": "美背與腰臀大腿線條展示",
-  "title_zh": "側臥美背與腰線・4:3 橫構圖後視",
+  "title_zh": "背向側臥屈膝回眸・4:3 橫構圖後視",
   "pattern": "solo_or_pov",
   "default_canvas": "4:3",
   "default_facing": "back",
@@ -1587,7 +1587,7 @@
   ],
   "slots": {
    "subject": {
-    "label_zh": "主體（背向側臥呈現脊背與腰臀線）",
+    "label_zh": "主體（背向側臥、雙膝曲起、回頭）",
     "requires": "female",
     "center": {
      "x": 0.5,
@@ -1599,7 +1599,7 @@
      "arched back",
      "looking back"
     ],
-    "natural_en": "Lying horizontally on her side with her back facing the camera, upper shoulder dropped slightly and hips elevated in a smooth wave from nape through waist to thighs, turning her chin back."
+    "natural_en": "Lying on her side with her back and buttocks toward the camera, both knees drawn up and bent, upper body twisted so one breast shows at her side, one arm raised to her head, turning her head back toward the viewer."
    }
   },
   "pairing_tags": {
@@ -1609,8 +1609,8 @@
     ]
    }
   },
-  "natural_en": "Horizontal full-body rear view of a woman lying on her side, showcasing the unbroken silhouette of her spine, narrow waist, hip curve, and extended legs while glancing back.",
-  "prompt_zh": "4:3 橫構圖過肩後視全身：背向鏡頭側臥舒展，從肩胛、細腰至胯部與長腿連成柔和波浪弧線，微轉臉回眸。"
+  "natural_en": "Horizontal full-body view from behind of a woman lying on her side on a bed, back and buttocks toward the camera, both knees drawn up, torso twisted with one breast visible, looking back at the viewer.",
+  "prompt_zh": "4:3 橫構圖後視全身：側臥於床面、背與臀部朝向鏡頭，雙膝曲起收向身前，上身扭轉露出側邊胸部，一手扶頭並回頭看向鏡頭。"
  },
  {
   "id": "pos_solo_collarbone_chest_dutch_closeup",
@@ -1658,54 +1658,10 @@
   "prompt_zh": "1:1 方框荷蘭斜角局部特寫：四分之三角度緊湊構圖，一手輕撫鎖骨，突出肩頸與胸線立體輪廓。"
  },
  {
-  "id": "pos_solo_leaning_over_lens_low_angle",
-  "category": "01_solo_closeup",
-  "subcategory": "胸部特寫展示",
-  "title_zh": "俯身壓近鏡頭・低角仰視透視",
-  "pattern": "solo_or_pov",
-  "default_canvas": "3:4",
-  "default_facing": "front",
-  "mirrorable": true,
-  "camera_tags": [
-   "upper body",
-   "from below",
-   "foreshortening"
-  ],
-  "shared_pose_tags": [
-   "breast focus",
-   "leaning forward"
-  ],
-  "slots": {
-   "subject": {
-    "label_zh": "主體（俯身雙手撐前壓近鏡頭）",
-    "requires": "breasts",
-    "center": {
-     "x": 0.5,
-     "y": 0.44
-    },
-    "tags": [
-     "leaning forward",
-     "hands on floor",
-     "looking down"
-    ],
-    "natural_en": "Leaning directly over a low floor-level camera with both hands planted on either side of the frame, torso and chest looming forward in strong foreshortening while looking down."
-   }
-  },
-  "pairing_tags": {
-   "solo": {
-    "base": [
-     "solo"
-    ]
-   }
-  },
-  "natural_en": "Dramatic low-angle foreshortened upper-body view looking up at an adult woman leaning directly over the camera on both hands, gazing straight down at the viewer.",
-  "prompt_zh": "低角仰視強透視半身：雙手撐於畫面兩側俯身壓近鏡頭，由下而上突出胸廓與居高臨下凝視。"
- },
- {
   "id": "pos_solo_seated_arm_stretch_overhead",
   "category": "01_solo_closeup",
   "subcategory": "腋下展示",
-  "title_zh": "靠枕斜倚舉臂・高角俯視腋下展示",
+  "title_zh": "坐地後仰雙臂枕頭・高角俯視腋下展示",
   "pattern": "solo_or_pov",
   "default_canvas": "4:3",
   "default_facing": "three_quarter_left",
@@ -1721,7 +1677,7 @@
   ],
   "slots": {
    "subject": {
-    "label_zh": "主體（靠坐斜倚高舉單臂）",
+    "label_zh": "主體（坐姿後仰、雙臂枕於腦後）",
     "requires": "female",
     "center": {
      "x": 0.52,
@@ -1730,11 +1686,11 @@
     "tags": [
      "sitting",
      "leaning back",
-     "arm behind head",
+     "arms behind head",
      "legs folded",
      "looking up"
     ],
-    "natural_en": "Lounging back obliquely with one arm folded behind her head and elbow lifted high toward the upper corner, exposing the side ribs and armpit to a high-angle camera."
+    "natural_en": "Seated on the floor leaning back with knees drawn up, both arms folded behind her head so both armpits and the side of her torso are exposed, eyes turned up toward a high camera."
    }
   },
   "pairing_tags": {
@@ -1744,54 +1700,8 @@
     ]
    }
   },
-  "natural_en": "Horizontal high-angle three-quarter shot of a woman lounging back with one arm folded behind her head, exposing her armpit and torso curve while looking up.",
-  "prompt_zh": "4:3 高角俯視四分之三：半靠後仰斜倚，單臂枕於腦後抬高手肘展示腋下與側腰線條，抬眼仰望鏡頭。"
- },
- {
-  "id": "pos_solo_kneeling_rear_three_quarter_high",
-  "category": "01_solo_closeup",
-  "subcategory": "臀部特寫展示",
-  "title_zh": "跪伏斜後高角・臀腿曲線特寫",
-  "pattern": "solo_or_pov",
-  "default_canvas": "3:4",
-  "default_facing": "back",
-  "mirrorable": true,
-  "camera_tags": [
-   "cowboy shot",
-   "from behind",
-   "from above"
-  ],
-  "shared_pose_tags": [
-   "ass focus",
-   "hip focus"
-  ],
-  "slots": {
-   "subject": {
-    "label_zh": "主體（跪姿前伏高抬臀部）",
-    "requires": "female",
-    "center": {
-     "x": 0.46,
-     "y": 0.58
-    },
-    "tags": [
-     "kneeling",
-     "leaning forward",
-     "ass up",
-     "arched back",
-     "looking back"
-    ],
-    "natural_en": "Kneeling with chest lowered onto folded forearms and hips raised at a three-quarter rear diagonal, looking back up toward a high camera."
-   }
-  },
-  "pairing_tags": {
-   "solo": {
-    "base": [
-     "solo"
-    ]
-   }
-  },
-  "natural_en": "High-angle three-quarter rear cowboy shot of a kneeling woman resting on her elbows with hips raised and back deeply arched, glancing back up at the camera.",
-  "prompt_zh": "高角俯視四分之三後景：跪姿雙肘伏地、臀部高翹與背脊形成俐落斜角曲線，回眸仰視鏡頭。"
+  "natural_en": "Horizontal high-angle three-quarter shot of a woman seated on the floor leaning back with knees drawn up, both arms folded behind her head to expose her armpits, looking up at the camera.",
+  "prompt_zh": "4:3 高角俯視四分之三：坐於地面上身後仰、雙膝曲起，雙臂交疊枕於腦後露出兩側腋下與側腰，抬眼望向鏡頭。"
  },
  {
   "id": "pos_solo_reclining_diagonal_overhead_focus",
@@ -1841,37 +1751,39 @@
   "prompt_zh": "4:3 高角荷蘭斜角俯拍：對角仰躺屈膝外展，雙手輕扶大腿內側朝向高處鏡頭展示，抬眼回望。"
  },
  {
-  "id": "pos_solo_over_shoulder_tongue_closeup",
+  "id": "solo_sitting_m_legs_spreading_pussy_front",
   "category": "01_solo_closeup",
-  "subcategory": "口舌特寫",
-  "title_zh": "回眸過肩伸舌・1:1 側轉近拍",
+  "subcategory": "私處展示特寫",
+  "title_zh": "M字坐姿單手掰穴展示・正面全身",
   "pattern": "solo_or_pov",
-  "default_canvas": "1:1",
-  "default_facing": "three_quarter_right",
+  "default_canvas": "3:4",
+  "default_facing": "front",
   "mirrorable": true,
   "camera_tags": [
-   "close-up",
-   "three-quarter view"
+   "full body",
+   "front view"
   ],
   "shared_pose_tags": [
-   "tongue out",
-   "mouth focus"
+   "spread pussy",
+   "spreading own pussy",
+   "m legs",
+   "pussy"
   ],
   "slots": {
    "subject": {
-    "label_zh": "主體（過肩回眸張口伸舌特寫）",
-    "requires": "female",
+    "label_zh": "主體（坐姿M字開腿、單手掰開私處）",
+    "requires": "pussy",
     "center": {
-     "x": 0.48,
-     "y": 0.48
+     "x": 0.5,
+     "y": 0.55
     },
     "tags": [
-     "looking back",
-     "head tilt",
-     "open mouth",
-     "tongue out"
+     "sitting",
+     "spread legs",
+     "knees up",
+     "looking at viewer"
     ],
-    "natural_en": "Tight square close-up over one bare shoulder as she turns her head into a three-quarter profile, lips parted and tongue playfully extended toward the camera."
+    "natural_en": "Sitting on a bed in the center of the frame with knees raised and spread wide in an M shape, one hand between the thighs spreading her pussy open toward the camera, the other hand resting on the bed beside the hip, looking at the viewer."
    }
   },
   "pairing_tags": {
@@ -1881,7 +1793,94 @@
     ]
    }
   },
-  "natural_en": "Square over-the-shoulder close-up of a woman glancing back in three-quarter view with lips parted and tongue out toward the viewer.",
-  "prompt_zh": "1:1 方框過肩特寫：越過肩線拍攝回眸四分之三側臉，微張雙唇伸舌望向鏡頭。"
+  "natural_en": "Full-body front view of an adult woman sitting on a bed with her knees raised and spread in an M shape, using one hand to spread her pussy open toward the camera while the other hand rests on the bed, looking at the viewer.",
+  "prompt_zh": "正面全身：坐在床上居中，雙膝抬起並向外張成M字，一手伸到腿間以手指將私處掰開朝向鏡頭，另一手撐放在臀側床面，看向鏡頭。"
+ },
+ {
+  "id": "solo_jack_o_challenge_three_quarter",
+  "category": "01_solo_closeup",
+  "subcategory": "撩人全身／半身展示",
+  "title_zh": "胸貼地大開腿翹臀・正面全身",
+  "pattern": "solo_or_pov",
+  "default_canvas": "4:3",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "top-down bottom-up"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（胸臉貼地、前臂收在臉下、雙腿大開翹臀）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.58
+    },
+    "tags": [
+     "spread legs",
+     "arched back",
+     "looking at viewer"
+    ],
+    "natural_en": "Chest and face lowered to the floor in the center of the frame, facing the camera, forearms bent and folded forward under the face, legs straight and spread wide with the hips raised as the highest point, back arched, looking at the viewer."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Full-body front view from the head side, slightly above: an adult woman lowers her chest and face to the floor with her forearms folded forward under her face, legs straight and spread wide so her hips are the highest point, back arched, looking at the viewer.",
+  "prompt_zh": "正面全身（從頭部一側略高處拍攝）：胸口與臉貼近地面、面向鏡頭，雙前臂向前收在臉下，雙腿伸直大幅張開使臀部成為最高點，腰背拱起，看向鏡頭。"
+ },
+ {
+  "id": "solo_top_down_bottom_up_side",
+  "category": "01_solo_closeup",
+  "subcategory": "撩人全身／半身展示",
+  "title_zh": "趴胸翹臀・膝跪胸貼地側面全身",
+  "pattern": "solo_or_pov",
+  "default_canvas": "4:3",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "top-down bottom-up",
+   "ass focus"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（跪伏胸貼地、臀部高翹）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.6
+    },
+    "tags": [
+     "kneeling",
+     "outstretched arms",
+     "arched back",
+     "looking at viewer"
+    ],
+    "natural_en": "Kneeling in the center of the frame with knees under the hips, chest and cheek resting on the surface, arms stretched forward past the head, hips raised high and back deeply arched, eyes turned toward the viewer."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of a solo top-down bottom-up pose: an adult woman kneels with her knees under her hips, chest lowered flat to the surface and arms stretched forward, hips raised high with a deep arch in the back, looking at the viewer.",
+  "prompt_zh": "側面全身趴胸翹臀：雙膝跪於臀部正下方，胸口與臉頰貼平床面，雙臂向前伸過頭頂，臀部高高翹起、腰背深拱，目光看向鏡頭。"
  }
 ]

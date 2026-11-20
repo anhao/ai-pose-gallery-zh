@@ -1044,7 +1044,7 @@
   "id": "pov_doggy_prone_press_above",
   "category": "06_pov_special_cameras",
   "subcategory": "第一人稱",
-  "title_zh": "第一人稱俯壓平趴・高角俯瞰",
+  "title_zh": "第一人稱後入俯趴・低角抓臀回眸",
   "pattern": "solo_or_pov",
   "default_canvas": "4:3",
   "default_facing": "back",
@@ -1052,17 +1052,17 @@
   "camera_tags": [
    "pov",
    "pov hands",
-   "from above",
    "from behind"
   ],
   "shared_pose_tags": [
    "prone bone",
    "sex from behind",
-   "on bed"
+   "on bed",
+   "grabbing another's ass"
   ],
   "slots": {
    "subject": {
-    "label_zh": "主體（床面俯趴伸臂回頭）",
+    "label_zh": "主體（床面俯趴微抬臀單腿翹起回頭）",
     "requires": "pussy",
     "center": {
      "x": 0.5,
@@ -1071,11 +1071,10 @@
     "tags": [
      "lying",
      "on stomach",
-     "spread legs",
-     "arched back",
+     "leg up",
      "looking back"
     ],
-    "natural_en": "Pressed flat on her stomach across the bed with arms stretched forward onto the pillow and legs slightly parted, cheek turned to look back up at the viewer."
+    "natural_en": "Lying on her stomach on the bed with hips slightly lifted, propped on one elbow, one lower leg bent up into the air, turning her head back to look at the viewer."
    }
   },
   "pairing_tags": {
@@ -1088,8 +1087,8 @@
     ]
    }
   },
-  "natural_en": "Horizontal first-person overhead rear view of prone bone: looking down along the subject's back as she lies flat on the bed beneath the viewer's hands, turning her head back toward the lens.",
-  "prompt_zh": "第一人稱橫構圖俯壓平趴：自上方俯視被壓平在床面的主體背部與伸展雙臂，觀看者雙手按在腰背兩側，主體轉頭回看鏡頭。"
+  "natural_en": "Horizontal first-person rear view near hip level of penetration from behind: the subject lies on her stomach on the bed with hips slightly raised and one lower leg kicked up, the viewer's hands gripping her buttocks while she looks back at the lens.",
+  "prompt_zh": "第一人稱橫構圖後入俯趴：鏡頭接近臀部高度自後方平視，主體俯趴床上、臀部微抬、單側小腿向上翹起並以手肘撐身，觀看者雙手抓住臀部，主體轉頭回看鏡頭。"
  },
  {
   "id": "pov_footjob_lying_front",
@@ -1144,125 +1143,26 @@
   "prompt_zh": "第一人稱橫構圖足交：主體仰倚於床面面向鏡頭，雙腿前伸將赤足腳底送至畫面前景夾持侍奉，眼神勾人直視。"
  },
  {
-  "id": "special_under_glass_floor_doggy",
-  "category": "06_pov_special_cameras",
-  "subcategory": "特殊透視",
-  "title_zh": "透明玻璃地板正下方仰拍・後背位寬景",
-  "pattern": "geometry_dispatch",
-  "default_canvas": "16:9",
-  "default_facing": "front",
-  "mirrorable": true,
-  "camera_tags": [
-   "full body",
-   "from below",
-   "foreshortening"
-  ],
-  "shared_pose_tags": [
-   "doggystyle",
-   "sex from behind",
-   "glass",
-   "against glass"
-  ],
-  "slots": {
-   "receiver": {
-    "label_zh": "承受方（左側趴撐於透明玻璃面上）",
-    "requires": "pussy",
-    "center": {
-     "x": 0.38,
-     "y": 0.52
-    },
-    "tags": [
-     "all fours",
-     "arched back",
-     "looking down",
-     "spread legs"
-    ],
-    "natural_en": "Pressed on all fours atop a clear transparent glass floor at left, palms, knees, and underside flattened visibly against the glass surface while looking down through it."
-   },
-   "giver": {
-    "label_zh": "施與方（右側跪撐透明玻璃面後入）",
-    "requires": "penis_or_strapon_or_nonhuman",
-    "center": {
-     "x": 0.64,
-     "y": 0.48
-    },
-    "tags": [
-     "kneeling",
-     "leaning forward",
-     "hands on another's hips",
-     "looking down"
-    ],
-    "natural_en": "Kneeling on the clear glass floor behind the partner at right, gripping the receiver's hips while seen completely from beneath the glass."
-   }
-  },
-  "pairing_tags": {
-   "female_male": {
-    "base": [
-     "hetero",
-     "sex",
-     "vaginal"
-    ],
-    "giver": [
-     "penis"
-    ]
-   },
-   "female_futa": {
-    "base": [
-     "yuri",
-     "futanari",
-     "sex",
-     "vaginal"
-    ],
-    "giver": [
-     "futanari",
-     "penis"
-    ]
-   },
-   "female_female": {
-    "base": [
-     "yuri",
-     "sex",
-     "vaginal"
-    ],
-    "giver": [
-     "strap-on"
-    ]
-   },
-   "female_other": {
-    "base": [
-     "sex",
-     "vaginal",
-     "interspecies"
-    ],
-    "giver": []
-   }
-  },
-  "natural_en": "Wide 16:9 extreme low-angle view from directly underneath a clear glass floor: the receiver braces palms and knees flat against the glass at left while the giver kneels behind at right in doggystyle, both bodies dramatically foreshortened from below.",
-  "prompt_zh": "透明玻璃地板正下方仰拍（16:9寬景）：鏡頭置於透明玻璃正下方垂直上拍，承受方居左四肢壓貼玻璃表面，施與方居右跪於玻璃上從後進入。"
- },
- {
   "id": "special_under_glass_solo_squat",
   "category": "06_pov_special_cameras",
   "subcategory": "特殊透視",
-  "title_zh": "透明玻璃正下方仰拍・單人深蹲壓掌",
+  "title_zh": "單人深蹲張腿雙手抱頭・正面低角仰視",
   "pattern": "solo_or_pov",
   "default_canvas": "1:1",
   "default_facing": "front",
   "mirrorable": true,
   "camera_tags": [
+   "front view",
    "from below",
-   "close-up",
    "foreshortening"
   ],
   "shared_pose_tags": [
-   "glass",
-   "against glass",
    "squatting",
    "spread legs"
   ],
   "slots": {
    "subject": {
-    "label_zh": "主體（單人深蹲壓貼於透明玻璃上）",
+    "label_zh": "主體（正中深蹲大開腿、雙手抱頭）",
     "requires": "female",
     "center": {
      "x": 0.5,
@@ -1271,11 +1171,10 @@
     "tags": [
      "squatting",
      "spread legs",
-     "soles",
-     "barefoot",
-     "looking down"
+     "arms behind head",
+     "looking at viewer"
     ],
-    "natural_en": "Crouching directly atop a transparent glass sheet centered over the lens, bare soles and palms pressed flat against the glass as she stares down toward the camera."
+    "natural_en": "Squatting deeply at center with knees spread wide toward both sides, both hands raised behind her head, looking down at the low camera."
    }
   },
   "pairing_tags": {
@@ -1285,8 +1184,8 @@
     ]
    }
   },
-  "natural_en": "Square extreme low-angle view from straight beneath a clear glass surface: an adult woman squats centered directly over the lens pressing bare soles and palms flat against the glass while peering downward.",
-  "prompt_zh": "透明玻璃正下方單人仰拍（1:1方構圖）：主體正中深蹲於玻璃板上，赤足腳底與雙掌緊貼透明玻璃表面，低頭直視正下方鏡頭。"
+  "natural_en": "Square low-angle front view of an adult woman in a deep wide squat at center: knees spread wide, hands behind her head, thighs foreshortened toward the lens as she looks down at the viewer.",
+  "prompt_zh": "單人正面低角仰視（1:1方構圖）：主體正中深蹲、雙膝向兩側大開，雙手抱於腦後，大腿朝鏡頭透視前伸，低頭看向下方鏡頭。"
  },
  {
   "id": "special_mirror_double_angle_doggy",
@@ -1388,14 +1287,13 @@
   "id": "special_through_legs_framing_missionary",
   "category": "06_pov_special_cameras",
   "subcategory": "特殊透視",
-  "title_zh": "穿過腿間拱框透視・正常位低角前景",
+  "title_zh": "正常位後方低角・施與方背影與腳底前景",
   "pattern": "geometry_dispatch",
   "default_canvas": "3:4",
-  "default_facing": "front",
+  "default_facing": "back",
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "front view",
    "from below",
    "foreshortening"
   ],
@@ -1405,7 +1303,7 @@
   ],
   "slots": {
    "receiver": {
-    "label_zh": "承受方（深景仰躺被腿間構圖框住）",
+    "label_zh": "承受方（仰躺雙腿高舉、雙手環肩）",
     "requires": "pussy",
     "center": {
      "x": 0.5,
@@ -1416,12 +1314,12 @@
      "on back",
      "spread legs",
      "legs up",
-     "looking at viewer"
+     "hands on another's shoulders"
     ],
-    "natural_en": "Lying on the back seen cleanly through the arch formed by the giver's parted knees and thighs in the foreground, gaze reaching toward the lens."
+    "natural_en": "Lying on her back beneath the partner, legs raised straight up on both sides of him, hands resting on his shoulders; her face and torso are hidden behind his back."
    },
    "giver": {
-    "label_zh": "施與方（前景跪姿雙腿形成框架）",
+    "label_zh": "施與方（前景背對鏡頭跪壓、腳底朝鏡頭）",
     "requires": "penis_or_strapon_or_nonhuman",
     "center": {
      "x": 0.5,
@@ -1431,9 +1329,10 @@
      "kneeling",
      "from behind",
      "spread legs",
-     "leaning forward"
+     "leaning forward",
+     "soles"
     ],
-    "natural_en": "Kneeling in the immediate lower foreground with knees spread wide so the camera shoots straight between the thighs toward the receiver beyond."
+    "natural_en": "Kneeling between the receiver's raised legs with his back to the camera, knees spread and leaning forward over her, buttocks and soles in the lower foreground."
    }
   },
   "pairing_tags": {
@@ -1478,21 +1377,20 @@
     "giver": []
    }
   },
-  "natural_en": "Foreshortened low-angle through-legs framing of missionary: the camera looks forward right between the kneeling giver's spread thighs in the foreground to frame the receiver lying back beyond.",
-  "prompt_zh": "穿過腿間拱框透視正常位：低角機位設於前景施與方大開的跪姿雙腿之間，以雙腿構成天然畫框，直視深處仰躺張腿的承受方。"
+  "natural_en": "Low rear view of missionary from behind the giver: his back, buttocks and soles fill the lower foreground as he kneels forward between the receiver's legs, which rise straight up on both sides while her hands rest on his shoulders.",
+  "prompt_zh": "正常位後方低角：鏡頭位於施與方身後下方，前景是其背部、臀部與朝向鏡頭的腳底；施與方跪姿前傾壓在承受方雙腿之間，承受方雙腿向上高舉、雙手搭在其肩上，臉與上身被遮住。"
  },
  {
   "id": "special_foreshortened_dutch_cowgirl",
   "category": "06_pov_special_cameras",
   "subcategory": "特殊透視",
-  "title_zh": "廣角荷蘭角強烈透視・仰拍騎乘位",
+  "title_zh": "仰拍騎乘位・施與方頭部前景縱深",
   "pattern": "geometry_dispatch",
   "default_canvas": "3:4",
-  "default_facing": "three_quarter_right",
+  "default_facing": "front",
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "dutch angle",
    "from below",
    "foreshortening"
   ],
@@ -1504,27 +1402,26 @@
   ],
   "slots": {
    "receiver": {
-    "label_zh": "承受方（右上高聳跨坐、廣角拉長身形）",
+    "label_zh": "承受方（上方正中直立跨坐、雙手抱頭）",
     "requires": "pussy",
     "center": {
-     "x": 0.54,
-     "y": 0.34
+     "x": 0.5,
+     "y": 0.32
     },
     "tags": [
      "sitting",
      "straddling",
-     "arched back",
-     "arms up",
+     "arms behind head",
      "looking down"
     ],
-    "natural_en": "Towering diagonally toward upper right astride the partner, foreshortened by a steep wide-angle tilt with torso arched and hands lifted."
+    "natural_en": "Sitting upright astride the partner at upper center, hands raised behind her head, looking down toward the camera."
    },
    "giver": {
-    "label_zh": "施與方（左下低處仰躺撐大前景透視）",
+    "label_zh": "施與方（下方正中仰躺、頭部在前景）",
     "requires": "penis_or_strapon_or_nonhuman",
     "center": {
-     "x": 0.44,
-     "y": 0.7
+     "x": 0.5,
+     "y": 0.72
     },
     "tags": [
      "lying",
@@ -1532,7 +1429,7 @@
      "hands on another's hips",
      "looking up"
     ],
-    "natural_en": "Lying stretched toward lower left in dramatic foreshortened foreground perspective, gripping the rider's hips and staring upward."
+    "natural_en": "Lying on his back along the vertical center with the back of his head in the lower foreground, hands on the rider's hips."
    }
   },
   "pairing_tags": {
@@ -1577,48 +1474,50 @@
     "giver": []
    }
   },
-  "natural_en": "Dramatic foreshortened dutch-angle low view of cowgirl: tilted wide optics make the straddling receiver tower diagonally toward upper right while the lying giver anchors the lower-left foreground.",
-  "prompt_zh": "強烈透視荷蘭角仰拍騎乘位：大傾角與低機位廣角誇張透視縱深，承受方沿對角線高聳跨坐於右上，施與方仰躺於左下前景扶胯。"
+  "natural_en": "Symmetric low-angle cowgirl seen from just above the lying giver's head: his head and torso run up the lower half of the frame in foreshortened perspective while the receiver sits upright astride him at upper center with her hands behind her head.",
+  "prompt_zh": "仰拍騎乘位縱深構圖：鏡頭位於仰躺施與方頭頂後方，其頭部與上身沿畫面中軸向上透視延伸並雙手扶胯；承受方於上方正中直立跨坐，雙手抱於腦後，低頭俯視。"
  },
  {
   "id": "voyeur_mirror_hallway_couple_wide",
   "category": "06_pov_special_cameras",
   "subcategory": "偷窺遮擋與敘事前景",
-  "title_zh": "走廊牆角窺視鏡中雙人・寬景前景遮擋",
+  "title_zh": "門縫窺視站姿撐牆後入・寬景側面",
   "pattern": "geometry_dispatch",
   "default_canvas": "16:9",
-  "default_facing": "three_quarter_right",
+  "default_facing": "right",
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "three-quarter view",
+   "side view",
+   "from side",
    "blurry foreground"
   ],
   "shared_pose_tags": [
    "voyeurism",
    "peeking",
+   "doorway",
    "mirror",
-   "reflection",
    "standing sex"
   ],
   "slots": {
    "receiver": {
-    "label_zh": "承受方（鏡中右側抵牆站立）",
+    "label_zh": "承受方（右側前傾雙手撐牆）",
     "requires": "pussy",
     "center": {
-     "x": 0.74,
+     "x": 0.72,
      "y": 0.5
     },
     "tags": [
      "standing",
      "against wall",
+     "hand on wall",
      "bent over",
-     "looking back"
+     "looking at viewer"
     ],
-    "natural_en": "Seen reflected in a hallway wall mirror on the right, pressed forward against the wall with an arched back while glancing toward the glass."
+    "natural_en": "Standing at right bent forward at the hips with both hands on the wall, seen in side profile, face turned toward the viewer."
    },
    "giver": {
-    "label_zh": "施與方（鏡中偏右站於身後扶胯）",
+    "label_zh": "施與方（中間偏右站於身後扶胯）",
     "requires": "penis_or_strapon_or_nonhuman",
     "center": {
      "x": 0.56,
@@ -1628,9 +1527,9 @@
      "standing",
      "leaning forward",
      "hands on another's hips",
-     "looking at another"
+     "looking down"
     ],
-    "natural_en": "Standing directly behind the receiver inside the mirror reflection at center-right, leaning in and gripping both hips."
+    "natural_en": "Standing directly behind the receiver in side profile, leaning in and gripping her hips."
    }
   },
   "pairing_tags": {
@@ -1675,7 +1574,7 @@
     "giver": []
    }
   },
-  "natural_en": "Wide 16:9 voyeur shot past a blurred hallway wall corner on the left into a large mirror on the right: reflected inside the mirror, the couple engages in standing sex against the wall unaware of the unseen observer.",
-  "prompt_zh": "寬景走廊鏡面偷窺（16:9）：左側以虛化的牆角門柱作為偷窺前景遮擋，視線投向右側大鏡，映出鏡中靠牆站立後入的一對伴侶。"
+  "natural_en": "Wide 16:9 voyeur shot through a doorway gap with blurred door jambs on both sides: in the room beyond, seen in side profile, the receiver bends forward with both hands on the wall while the giver stands behind her; a standing mirror with hanging clothes is at the left of the room.",
+  "prompt_zh": "寬景門縫偷窺（16:9）：兩側為虛化的門框前景，門內房間中一對伴侶以側面呈現站姿撐牆後入；承受方居右前傾雙手撐牆，施與方於其身後站立扶胯，房間左側有一面立鏡與掛衣。"
  }
 ]
