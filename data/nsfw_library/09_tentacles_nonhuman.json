@@ -555,23 +555,24 @@
   "id": "tentacle_wall_pinned_standing_3q",
   "category": "09_tentacles_nonhuman",
   "subcategory": "純觸手",
-  "title_zh": "觸手壁壓高舉固定・斜側全身",
+  "title_zh": "觸手壁壓高舉固定・正面全身",
   "pattern": "solo_or_pov",
   "default_canvas": "3:4",
-  "default_facing": "three_quarter_left",
+  "default_facing": "front",
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "three-quarter view"
+   "front view"
   ],
   "shared_pose_tags": [
    "tentacles",
-   "bondage",
+   "tentacle grab",
+   "restrained",
    "against wall"
   ],
   "slots": {
    "subject": {
-    "label_zh": "主體（背貼牆面被觸手拉開四肢）",
+    "label_zh": "主體（背貼牆面直立被觸手固定四肢）",
     "requires": "female",
     "center": {
      "x": 0.48,
@@ -579,14 +580,14 @@
     },
     "tags": [
      "standing",
-     "against wall",
      "arms up",
      "bound wrists",
-     "spread legs",
+     "bound ankles",
+     "legs apart",
      "arched back",
      "looking at viewer"
     ],
-    "natural_en": "Standing pinned flat against a stone wall in three-quarter view as thick tentacles wrap her raised wrists overhead and hold her ankles wide apart."
+    "natural_en": "Standing upright with her back against a stone wall, facing the camera, as tentacles hold her raised wrists overhead and grip her ankles apart."
    }
   },
   "pairing_tags": {
@@ -596,107 +597,14 @@
     ]
    }
   },
-  "natural_en": "Three-quarter full-body view of an adult woman pinned upright against a wall by coiling tentacles binding her overhead wrists and parted legs.",
-  "prompt_zh": "斜側全身觸手壁壓：女子背貼牆面站立，粗觸手自牆際伸出纏住高舉的雙腕與張開的雙踝，拱背望向鏡頭。"
- },
- {
-  "id": "tentacle_cocoon_upright_closeup_upper",
-  "category": "09_tentacles_nonhuman",
-  "subcategory": "純觸手",
-  "title_zh": "觸手緊裹上半身纏繭・正面特寫方構圖",
-  "pattern": "solo_or_pov",
-  "default_canvas": "1:1",
-  "default_facing": "front",
-  "mirrorable": true,
-  "camera_tags": [
-   "upper body",
-   "close-up",
-   "front view"
-  ],
-  "shared_pose_tags": [
-   "tentacles",
-   "bondage"
-  ],
-  "slots": {
-   "subject": {
-    "label_zh": "主體（上半身被觸手層層纏繞仰頭）",
-    "requires": "female",
-    "center": {
-     "x": 0.5,
-     "y": 0.52
-    },
-    "tags": [
-     "bound arms",
-     "arched back",
-     "head back",
-     "open mouth"
-    ],
-    "natural_en": "Close square upper-body framing of an adult woman wrapped tightly across her arms, shoulders, and torso in glossy coiling tentacles, head tilted back."
-   }
-  },
-  "pairing_tags": {
-   "solo": {
-    "base": [
-     "solo"
-    ]
-   }
-  },
-  "natural_en": "Square front upper-body close-up of an adult woman tightly cocooned across her torso and arms by layered coiling tentacles, head tilted back.",
-  "prompt_zh": "1:1 正面上半身特寫：層層光澤觸手緊裹雙臂、肩頸與軀幹如繭，頭微後仰張口直視鏡頭。"
- },
- {
-  "id": "tentacle_throne_seated_spread_front",
-  "category": "09_tentacles_nonhuman",
-  "subcategory": "純觸手",
-  "title_zh": "觸手王座坐姿抬腿展開・高角正面全身",
-  "pattern": "solo_or_pov",
-  "default_canvas": "3:4",
-  "default_facing": "front",
-  "mirrorable": true,
-  "camera_tags": [
-   "full body",
-   "from above",
-   "front view"
-  ],
-  "shared_pose_tags": [
-   "tentacles",
-   "bondage",
-   "sitting"
-  ],
-  "slots": {
-   "subject": {
-    "label_zh": "主體（坐於觸手堆上被拉開雙腿）",
-    "requires": "female",
-    "center": {
-     "x": 0.5,
-     "y": 0.48
-    },
-    "tags": [
-     "sitting",
-     "leaning back",
-     "legs up",
-     "spread legs",
-     "arms up",
-     "looking up"
-    ],
-    "natural_en": "Seated atop a coiled mound of thick tentacles forming an organic throne, leaning back while twin tendrils loop under her knees to hold her legs raised wide open."
-   }
-  },
-  "pairing_tags": {
-   "solo": {
-    "base": [
-     "solo"
-    ]
-   }
-  },
-  "natural_en": "High-angle front full-body view of an adult woman seated on a coiled throne of tentacles, leaning back with both legs hoisted wide apart by curling tendrils.",
-  "prompt_zh": "高角正面全身觸手王座：女子坐於盤結隆起的粗觸手座上微後仰，兩側觸手勾起膝彎將雙腿高抬張開。"
+  "natural_en": "Front full-body view of an adult woman standing upright against a wall, held in place by tentacles around her raised wrists and her ankles, legs apart.",
+  "prompt_zh": "正面全身觸手壁壓：女子背貼牆面直立，觸手纏住高舉的雙腕並抓住分開的雙踝，拱背直視鏡頭。"
  },
  {
   "id": "tentacle_horizontal_carry_side",
   "category": "09_tentacles_nonhuman",
   "subcategory": "純觸手",
-  "title_zh": "觸手橫向半空托舉搬運・寬幅側面全身",
+  "title_zh": "觸手纏身懸空後仰垂首・寬幅側面全身",
   "pattern": "solo_or_pov",
   "default_canvas": "16:9",
   "default_facing": "left",
@@ -713,7 +621,7 @@
   ],
   "slots": {
    "subject": {
-    "label_zh": "主體（水平橫向懸空被觸手托運）",
+    "label_zh": "主體（水平懸空深度後仰、頭與雙臂垂下）",
     "requires": "female",
     "center": {
      "x": 0.5,
@@ -727,7 +635,7 @@
      "spread legs",
      "head back"
     ],
-    "natural_en": "Suspended horizontally across the wide 16:9 frame in a cradle of thick writhing tentacles supporting her back, shoulders, and lifted legs."
+    "natural_en": "Floating roughly horizontally in a deep backward arch, head tipped back and both arms hanging limply downward, held up from below by tentacles coiled around her chest, waist, thighs and ankles."
    }
   },
   "pairing_tags": {
@@ -737,65 +645,16 @@
     ]
    }
   },
-  "natural_en": "Wide 16:9 side-view full-body shot of an adult woman carried horizontally through midair in a cradle of thick tentacles with arched back and lifted legs.",
-  "prompt_zh": "16:9 寬幅側面全身觸手橫舉：多條粗觸手如搖籃般從下方托起背部、肩頸與雙腿，使身體水平橫浮於半空。"
- },
- {
-  "id": "tentacle_pov_approaching_legs_below",
-  "category": "09_tentacles_nonhuman",
-  "subcategory": "純觸手",
-  "title_zh": "第一人稱觸手托臀逼近・低角度仰視",
-  "pattern": "solo_or_pov",
-  "default_canvas": "4:3",
-  "default_facing": "front",
-  "mirrorable": true,
-  "camera_tags": [
-   "full body",
-   "pov",
-   "from below",
-   "foreshortening"
-  ],
-  "shared_pose_tags": [
-   "tentacles",
-   "bondage",
-   "suspension"
-  ],
-  "slots": {
-   "subject": {
-    "label_zh": "主體（被觸手托起面向第一人稱鏡頭）",
-    "requires": "female",
-    "center": {
-     "x": 0.5,
-     "y": 0.44
-    },
-    "tags": [
-     "floating",
-     "spread legs",
-     "legs up",
-     "arched back",
-     "looking at viewer"
-    ],
-    "natural_en": "Held aloft facing a low-angle first-person perspective with thighs hoisted apart by glossy tendrils reaching forward from the foreground edges."
-   }
-  },
-  "pairing_tags": {
-   "pov": {
-    "base": [
-     "tentacles",
-     "bondage"
-    ]
-   }
-  },
-  "natural_en": "Low-angle POV 4:3 view with foreshortening as tentacles reach forward from the viewer's perspective to hoist an adult woman's hips and parted legs.",
-  "prompt_zh": "4:3 第一人稱低角度仰視透視：觸手自鏡頭前景伸出，將前方女子臀部與雙腿高高托起張開，直視觀眾。"
+  "natural_en": "Wide 16:9 side-view full-body shot of an adult woman floating horizontally in a deep back arch with head and arms hanging down, held aloft by tentacles wrapped around her chest, waist and legs.",
+  "prompt_zh": "16:9 寬幅側面全身觸手懸空後仰：女子近乎水平浮於半空、深度拱背，頭部後仰、雙臂自然下垂；觸手自下方纏繞胸、腰、大腿與腳踝將身體撐起。"
  },
  {
   "id": "nonhuman_mating_press_overhead_above",
   "category": "09_tentacles_nonhuman",
   "subcategory": "非人／魔物／動物互動",
-  "title_zh": "非人種付折疊壓制・正上方俯視全身",
+  "title_zh": "非人抬腿V字正常位握小腿・正上方俯視全身",
   "pattern": "geometry_dispatch",
-  "default_canvas": "4:3",
+  "default_canvas": "3:4",
   "default_facing": "front",
   "mirrorable": true,
   "camera_tags": [
@@ -803,41 +662,34 @@
    "from above"
   ],
   "shared_pose_tags": [
-   "sex",
-   "mating press",
-   "missionary"
+   "sex"
   ],
   "slots": {
    "receiver": {
-    "label_zh": "承受方（上方仰躺雙腿高舉折疊）",
+    "label_zh": "承受方（上方仰躺、雙腿高抬呈V字張開）",
     "requires": "pussy",
     "center": {
      "x": 0.5,
-     "y": 0.36
+     "y": 0.34
     },
     "tags": [
      "lying",
      "on back",
-     "legs up",
-     "spread legs",
-     "looking up"
+     "legs up"
     ],
-    "natural_en": "Lying flat on her back in the upper half of the frame with both legs folded high toward her shoulders beneath the large nonhuman fantasy partner."
+    "natural_en": "Lying on her back in the upper part of the frame, both legs raised high and spread in a wide V, calves held by the partner between them, hands at her collar."
    },
    "giver": {
-    "label_zh": "施與方（下方非人魔物壓身前傾）",
+    "label_zh": "施與方（下方灰色尖耳人形位於腿間握小腿）",
     "requires": "nonhuman",
     "center": {
      "x": 0.5,
-     "y": 0.68
+     "y": 0.64
     },
     "tags": [
-     "kneeling",
-     "leaning forward",
-     "hands on another's legs",
-     "looking down"
+     "leg grab"
     ],
-    "natural_en": "A large nonhuman fantasy creature kneeling in the lower half of the frame, pressing the receiver's raised ankles back while leaning heavily downward."
+    "natural_en": "A grey humanoid creature with pointed ears between her legs in the lower part of the frame, seen from above with the top of its head toward the bottom edge, gripping both of her raised calves."
    }
   },
   "pairing_tags": {
@@ -850,56 +702,57 @@
     "giver": []
    }
   },
-  "natural_en": "Overhead 4:3 full-body view of a mating press with a nonhuman fantasy creature: the receiver lies supine at upper center with legs folded back while the larger nonhuman partner presses down from lower center.",
-  "prompt_zh": "4:3 正上方俯視全身非人折疊壓制：承受方仰躺於畫面上半、雙腿高折張開，大型非人魔物居下方腿間俯身壓下。"
+  "natural_en": "Overhead 3:4 full-body view of sex with a grey humanoid creature: the receiver lies on her back at upper center with both legs raised in a wide V, while the partner is between her legs below, gripping her calves.",
+  "prompt_zh": "3:4 正上方俯視全身非人抬腿正常位：承受方仰躺於畫面上部、雙腿高抬呈V字大張、雙手置於頸前，灰色尖耳人形位於下方腿間、頭頂朝畫面下緣，雙手握住其小腿。"
  },
  {
   "id": "nonhuman_standing_lift_carry_below",
   "category": "09_tentacles_nonhuman",
   "subcategory": "非人／魔物／動物互動",
-  "title_zh": "非人站立高舉托抱・低角度仰視全身",
+  "title_zh": "非人站立面對面托腿抱起・側面全身",
   "pattern": "geometry_dispatch",
   "default_canvas": "3:4",
-  "default_facing": "front",
+  "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "from below"
+   "side view",
+   "from side"
   ],
   "shared_pose_tags": [
    "sex",
    "standing sex",
-   "suspended congress"
+   "suspended congress",
+   "face-to-face"
   ],
   "slots": {
    "receiver": {
-    "label_zh": "承受方（高位懸空盤腿抱頸）",
+    "label_zh": "承受方（面對面懸空、抱頸，一腿搭在對方前臂上）",
     "requires": "pussy",
     "center": {
-     "x": 0.46,
-     "y": 0.38
+     "x": 0.42,
+     "y": 0.4
     },
     "tags": [
-     "legs up",
-     "spread legs",
      "arms around neck",
-     "looking down"
+     "looking at another"
     ],
-    "natural_en": "Lifted high off the floor with arms clung tightly around the towering nonhuman partner's broad shoulders and legs hooked around its waist."
+    "natural_en": "Held off the ground facing the nonhuman partner, arms wrapped around its neck, one bent leg hooked over its forearm and the other bent around its far hip."
    },
    "giver": {
-    "label_zh": "施與方（高大非人站姿雙臂托臀）",
+    "label_zh": "施與方（高大有角非人站姿，單手托住大腿）",
     "requires": "nonhuman",
     "center": {
-     "x": 0.54,
+     "x": 0.58,
      "y": 0.52
     },
     "tags": [
      "standing",
      "legs apart",
-     "looking up"
+     "carrying",
+     "hands on another's thighs"
     ],
-    "natural_en": "A towering nonhuman fantasy partner standing firmly in low-angle perspective, supporting the receiver effortlessly in midair with massive hands beneath her thighs."
+    "natural_en": "A tall horned nonhuman partner standing with legs apart, carrying the receiver against its chest with one hand under her thigh."
    }
   },
   "pairing_tags": {
@@ -912,8 +765,8 @@
     "giver": []
    }
   },
-  "natural_en": "Dramatic low-angle full-body shot emphasizing size difference: a towering nonhuman fantasy partner stands holding the receiver aloft with her legs wrapped around its waist.",
-  "prompt_zh": "低角度仰視全身非人托抱：高大非人魔物穩立畫面中軸，雙手輕鬆托起女子臀腿使之懸空盤腰抱頸，體型差鮮明。"
+  "natural_en": "Side-view full-body shot of face-to-face standing sex with a tall horned nonhuman partner, who carries the receiver with one hand under her thigh while she clings with her arms around its neck.",
+  "prompt_zh": "側面全身非人面對面托抱：高大有角非人魔物雙腿張開站立，單手托住女子大腿將其抱離地面；女子正面貼向對方、雙臂環頸，一腿屈起搭在其前臂上。"
  },
  {
   "id": "nonhuman_rear_standing_wall_behind",
@@ -983,7 +836,7 @@
   "id": "nonhuman_reverse_cowgirl_3q",
   "category": "09_tentacles_nonhuman",
   "subcategory": "非人／魔物／動物互動",
-  "title_zh": "反向騎乘非人俯身支撐・斜側全身",
+  "title_zh": "橫向跨坐非人直立面向鏡頭・斜側全身",
   "pattern": "geometry_dispatch",
   "default_canvas": "4:3",
   "default_facing": "three_quarter_left",
@@ -993,32 +846,26 @@
    "three-quarter view"
   ],
   "shared_pose_tags": [
-   "sex",
-   "reverse cowgirl position"
+   "sex"
   ],
   "slots": {
    "receiver": {
-    "label_zh": "承受方（上方背向跨坐前傾）",
+    "label_zh": "承受方（上方橫向跨坐、上身直立面向鏡頭）",
     "requires": "pussy",
     "center": {
-     "x": 0.44,
-     "y": 0.38
+     "x": 0.46,
+     "y": 0.4
     },
     "tags": [
-     "sitting",
-     "straddling",
-     "spread legs",
-     "leaning forward",
-     "arched back",
-     "looking back"
+     "straddling"
     ],
-    "natural_en": "Straddling the reclining nonhuman partner facing toward its legs, hands braced down on its knees with back arched and head turned back."
+    "natural_en": "Straddling the reclining nonhuman partner crosswise, torso upright and facing the viewer, one hand on her thigh and the other resting on the partner's body."
    },
    "giver": {
-    "label_zh": "施與方（下方仰躺非人扶腰）",
+    "label_zh": "施與方（下方仰躺有角非人扶胯）",
     "requires": "nonhuman",
     "center": {
-     "x": 0.6,
+     "x": 0.58,
      "y": 0.64
     },
     "tags": [
@@ -1027,7 +874,7 @@
      "hands on another's hips",
      "looking up"
     ],
-    "natural_en": "A nonhuman fantasy partner reclining supine at lower right, propping itself slightly while gripping the rider's hips."
+    "natural_en": "A horned nonhuman partner lying on its back below the rider, one hand gripping her hip."
    }
   },
   "pairing_tags": {
@@ -1040,8 +887,8 @@
     "giver": []
    }
   },
-  "natural_en": "Three-quarter 4:3 full-body view of reverse cowgirl on a nonhuman fantasy partner: the receiver straddles facing away with arched back looking back over her shoulder while the nonhuman partner reclines below.",
-  "prompt_zh": "4:3 斜側全身反向騎乘非人：承受方居左上背對跨坐、雙手撐膝拱背回望，下方非人魔物仰靠扶胯。"
+  "natural_en": "Three-quarter 4:3 full-body view of a woman straddling a horned nonhuman partner lying on its back: she sits upright crosswise on it, facing the viewer with one hand on her thigh and the other on the partner, while the partner grips her hip.",
+  "prompt_zh": "4:3 斜側全身橫向跨坐非人：承受方橫跨在仰躺的有角非人魔物身上，上身直立面向鏡頭、一手放在大腿上、另一手扶在對方身上，下方非人單手扶住其胯部。"
  },
  {
   "id": "nonhuman_seated_lap_embrace_front",
