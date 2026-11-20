@@ -210,7 +210,7 @@
   "subcategory": "透視／剖面表現格",
   "title_zh": "剖面騎乘位・側面剖面",
   "pattern": "geometry_dispatch",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -306,7 +306,7 @@
   "subcategory": "不同落點射精構圖",
   "title_zh": "射胸・仰躺承接側面",
   "pattern": "organ_bound",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -452,7 +452,7 @@
   "subcategory": "不同落點射精構圖",
   "title_zh": "全身・仰躺全身承接側面",
   "pattern": "organ_bound",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -539,7 +539,7 @@
   "subcategory": "透視／剖面表現格",
   "title_zh": "透視正常位・側面剖面",
   "pattern": "geometry_dispatch",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -636,7 +636,7 @@
   "subcategory": "不同落點射精構圖",
   "title_zh": "射臀・四肢著地側面",
   "pattern": "organ_bound",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -722,7 +722,7 @@
   "subcategory": "不同落點射精構圖",
   "title_zh": "顏射・跪姿仰面正面",
   "pattern": "organ_bound",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "front",
   "mirrorable": true,
   "camera_tags": [
@@ -796,7 +796,7 @@
   "subcategory": "透視／剖面表現格",
   "title_zh": "透視後背位・側面剖面",
   "pattern": "geometry_dispatch",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -892,7 +892,7 @@
   "subcategory": "事後溢出特寫與癱軟仰躺／雙人相擁平復",
   "title_zh": "雙人相擁平復・側臥側面",
   "pattern": "organ_bound",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -962,7 +962,7 @@
   "subcategory": "事後溢出特寫與癱軟仰躺／雙人相擁平復",
   "title_zh": "事後溢出特寫・低角度近拍",
   "pattern": "solo_or_pov",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "front",
   "mirrorable": true,
   "camera_tags": [
@@ -1096,7 +1096,7 @@
   "subcategory": "事後溢出特寫與癱軟仰躺／雙人相擁平復",
   "title_zh": "癱軟仰躺・俯視全身",
   "pattern": "solo_or_pov",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "front",
   "mirrorable": true,
   "camera_tags": [

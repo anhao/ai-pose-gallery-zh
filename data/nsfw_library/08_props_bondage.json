@@ -191,7 +191,7 @@
   "subcategory": "進階拘束與受困情境",
   "title_zh": "多點拘束・四肢著地繩縛側面",
   "pattern": "solo_or_pov",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -238,7 +238,7 @@
   "subcategory": "進階拘束與受困情境",
   "title_zh": "牆體受困・下半身穿牆正面",
   "pattern": "solo_or_pov",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "front",
   "mirrorable": true,
   "camera_tags": [
@@ -282,7 +282,7 @@
   "subcategory": "進階拘束與受困情境",
   "title_zh": "跨騎道具・坐姿跨坐側面",
   "pattern": "solo_or_pov",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -329,7 +329,7 @@
   "subcategory": "進階拘束與受困情境",
   "title_zh": "懸吊・繩索吊掛正面",
   "pattern": "solo_or_pov",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "front",
   "mirrorable": true,
   "camera_tags": [
@@ -373,7 +373,7 @@
   "subcategory": "繩縛",
   "title_zh": "綁腳・坐姿伸腿正面",
   "pattern": "solo_or_pov",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "front",
   "mirrorable": true,
   "camera_tags": [
@@ -418,7 +418,7 @@
   "subcategory": "進階拘束與受困情境",
   "title_zh": "四肢固定・仰躺大字俯視",
   "pattern": "solo_or_pov",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "front",
   "mirrorable": true,
   "camera_tags": [
@@ -464,7 +464,7 @@
   "subcategory": "感官與牽引調教",
   "title_zh": "蒙眼・跪姿正面全身",
   "pattern": "solo_or_pov",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "front",
   "mirrorable": true,
   "camera_tags": [
@@ -553,7 +553,7 @@
   "subcategory": "繩縛",
   "title_zh": "M字開腿綁縛・仰躺俯視",
   "pattern": "solo_or_pov",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "front",
   "mirrorable": true,
   "camera_tags": [
@@ -599,7 +599,7 @@
   "subcategory": "進階拘束與受困情境",
   "title_zh": "受困情境・蝦縛俯趴側面",
   "pattern": "solo_or_pov",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -647,7 +647,7 @@
   "subcategory": "感官與牽引調教",
   "title_zh": "項圈牽引・四肢著地側面",
   "pattern": "organ_bound",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -714,7 +714,7 @@
   "subcategory": "感官與牽引調教",
   "title_zh": "口球與對方持道具・跪姿側面",
   "pattern": "organ_bound",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [

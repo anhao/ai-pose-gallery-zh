@@ -76,7 +76,7 @@
   "subcategory": "女方上位主導",
   "title_zh": "抓頸壓制・跪姿側面",
   "pattern": "organ_bound",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -139,7 +139,7 @@
   "subcategory": "女方上位主導",
   "title_zh": "顏面跨坐・側面全身",
   "pattern": "organ_bound",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -206,7 +206,7 @@
   "subcategory": "女方上位主導",
   "title_zh": "跪地牽引・正面全身",
   "pattern": "organ_bound",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "front",
   "mirrorable": true,
   "camera_tags": [
@@ -268,7 +268,7 @@
   "subcategory": "女方上位主導",
   "title_zh": "上位騎乘支配・側面全身",
   "pattern": "geometry_dispatch",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -363,7 +363,7 @@
   "subcategory": "顯著體型與身高差",
   "title_zh": "單手提壓・側面全身",
   "pattern": "geometry_dispatch",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -457,7 +457,7 @@
   "subcategory": "顯著體型與身高差",
   "title_zh": "高大後方完全籠罩・側面全身",
   "pattern": "geometry_dispatch",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -553,7 +553,7 @@
   "subcategory": "女方上位主導",
   "title_zh": "單腳踩踏壓制・側面全身",
   "pattern": "organ_bound",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -618,7 +618,7 @@
   "subcategory": "女方上位主導",
   "title_zh": "俯身壓腕・仰躺側面",
   "pattern": "organ_bound",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -682,7 +682,7 @@
   "subcategory": "顯著體型與身高差",
   "title_zh": "俯視壓制・側面全身",
   "pattern": "geometry_dispatch",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -778,7 +778,7 @@
   "subcategory": "顯著體型與身高差",
   "title_zh": "坐懷包裹・側面全身",
   "pattern": "geometry_dispatch",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -873,7 +873,7 @@
   "subcategory": "顯著體型與身高差",
   "title_zh": "站姿身高差侍奉・側面全身",
   "pattern": "organ_bound",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -945,7 +945,7 @@
   "subcategory": "女方上位主導",
   "title_zh": "腳部仰視壓迫・仰視近景",
   "pattern": "organ_bound",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "front",
   "mirrorable": true,
   "camera_tags": [
@@ -1007,7 +1007,7 @@
   "subcategory": "女方上位主導",
   "title_zh": "蹲姿坐臉俯視・俯視全身",
   "pattern": "organ_bound",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "front",
   "mirrorable": true,
   "camera_tags": [
