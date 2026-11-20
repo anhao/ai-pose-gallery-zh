@@ -1132,5 +1132,680 @@
   },
   "natural_en": "High-angle full-body view of an adult woman lying flat on her back after climax, limbs limp, legs spread, head tilted back with eyes closed.",
   "prompt_zh": "高角度俯視全身：仰躺癱軟，四肢放鬆無力，雙腿張開、頭後仰閉眼，平復高潮餘韻。"
+ },
+ {
+  "id": "climax_mating_press_creampie_overhead",
+  "category": "10_climax_afterglow",
+  "subcategory": "高潮拱背與體內射精瞬間",
+  "title_zh": "深折疊壓制高潮內射・正上方俯視",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from above"
+  ],
+  "shared_pose_tags": [
+   "mating press",
+   "sex",
+   "orgasm",
+   "cum in pussy"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（下方對折高潮、趾尖蜷曲）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.5,
+     "y": 0.62
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "legs up",
+     "knees up",
+     "arched back",
+     "ahegao",
+     "toe scrunch"
+    ],
+    "natural_en": "Folded deeply on the back at lower center with knees pinned up beside the shoulders, toes curled tightly and head pressed into the pillow in climax."
+   },
+   "giver": {
+    "label_zh": "施與方（上方深蹲壓身內射）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.5,
+     "y": 0.36
+    },
+    "tags": [
+     "squatting",
+     "leaning forward",
+     "hands on another's legs",
+     "looking down"
+    ],
+    "natural_en": "Squatting heavily over the folded receiver from upper center, pinning both thighs down while thrusting fully inside at ejaculation."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal",
+     "internal cumshot"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal",
+     "internal cumshot"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies",
+     "internal cumshot"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Overhead high-angle full-body view of a mating press internal climax: the receiver lies folded below with curled toes and head pressed back in orgasm while the giver presses full weight downward from above.",
+  "prompt_zh": "正上方俯視深折疊壓制高潮內射：承受方居下對折張腿、腳趾緊蜷仰面高潮；施與方居上深蹲壓腿深頂內射。"
+ },
+ {
+  "id": "climax_standing_carry_arch_low",
+  "category": "10_climax_afterglow",
+  "subcategory": "高潮拱背與體內射精瞬間",
+  "title_zh": "懸空抱起後仰高潮・正面低角",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view",
+   "from below"
+  ],
+  "shared_pose_tags": [
+   "standing sex",
+   "suspended congress",
+   "orgasm",
+   "cum in pussy"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（懸空高潮後仰、緊攀對方）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.5,
+     "y": 0.4
+    },
+    "tags": [
+     "arms around neck",
+     "spread legs",
+     "arched back",
+     "head back",
+     "open mouth"
+    ],
+    "natural_en": "Suspended high off the ground in the upper frame, torso arching backward with head thrown back and mouth open in climax while legs lock around the partner."
+   },
+   "giver": {
+    "label_zh": "施與方（站立托臀緊壓內射）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.5,
+     "y": 0.58
+    },
+    "tags": [
+     "standing",
+     "leg hold",
+     "looking up"
+    ],
+    "natural_en": "Standing braced in the lower frame gripping the receiver's buttocks and thighs tightly, pressing upward during internal ejaculation."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal",
+     "internal cumshot"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal",
+     "internal cumshot"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies",
+     "internal cumshot"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Low-angle front full-body view of a suspended standing climax: the giver stands holding the receiver aloft while the receiver arches backward with head thrown back in peak orgasm.",
+  "prompt_zh": "正面低角懸空抱起高潮內射：施與方居下站穩托緊臀腿上頂，承受方居上完全離地大幅反弓、仰頭張口攀頸高潮。"
+ },
+ {
+  "id": "climax_reverse_cowgirl_orgasm_rear",
+  "category": "10_climax_afterglow",
+  "subcategory": "高潮拱背與體內射精瞬間",
+  "title_zh": "反向騎乘拱背高潮・背面低角",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "back",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from below"
+  ],
+  "shared_pose_tags": [
+   "reverse cowgirl position",
+   "cowgirl position",
+   "orgasm",
+   "cum in pussy"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（上方背向跨坐大幅反弓高潮）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.5,
+     "y": 0.38
+    },
+    "tags": [
+     "sitting",
+     "straddling",
+     "arched back",
+     "head back",
+     "spread legs"
+    ],
+    "natural_en": "Straddling facing away at upper center, spine trembling in a steep arch with head thrown far back and hands clutching the partner's thighs at climax."
+   },
+   "giver": {
+    "label_zh": "施與方（下方仰躺緊扣胯部內射）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.5,
+     "y": 0.68
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "hands on another's hips",
+     "looking up"
+    ],
+    "natural_en": "Lying flat beneath at lower center pulling the rider tightly downward by both hips at the moment of internal ejaculation."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal",
+     "internal cumshot"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal",
+     "internal cumshot"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies",
+     "internal cumshot"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Low-angle rear full-body view of a reverse cowgirl internal climax: seen from behind as the rider arches sharply with head thrown back above the lying giver who pulls her hips down.",
+  "prompt_zh": "背面低角反向騎乘高潮內射：自騎乘者背後低角仰拍，承受方居上背向跨坐、脊背強烈反弓仰頭，施與方居下緊扣胯部下壓內射。"
+ },
+ {
+  "id": "climax_cum_in_mouth_closeup_solo",
+  "category": "10_climax_afterglow",
+  "subcategory": "不同落點射精構圖",
+  "title_zh": "口內承接展示・高角正面特寫",
+  "pattern": "solo_or_pov",
+  "default_canvas": "1:1",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "from above",
+   "close-up",
+   "front view",
+   "pov"
+  ],
+  "shared_pose_tags": [
+   "cum in mouth",
+   "cum on tongue",
+   "ejaculation"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（跪姿仰視鏡頭張口展示）",
+    "requires": "any",
+    "center": {
+     "x": 0.5,
+     "y": 0.54
+    },
+    "tags": [
+     "kneeling",
+     "looking at viewer",
+     "open mouth",
+     "tongue out"
+    ],
+    "natural_en": "Kneeling close below the camera tilting her face upward with mouth open and tongue extended, holding ejaculate on the tongue while gazing at the viewer."
+   }
+  },
+  "pairing_tags": {
+   "pov": {
+    "base": [
+     "hetero",
+     "penis",
+     "cum in mouth",
+     "ejaculation"
+    ]
+   }
+  },
+  "natural_en": "Square high-angle front close-up of oral climax: the kneeling subject looks straight up at the camera with open mouth and extended tongue showing cum held inside.",
+  "prompt_zh": "高角正面特寫口內承接（1:1）：主體跪姿仰面直視鏡頭，張口伸舌展示承接於口內的射精畫面。"
+ },
+ {
+  "id": "climax_cum_on_stomach_overhead",
+  "category": "10_climax_afterglow",
+  "subcategory": "不同落點射精構圖",
+  "title_zh": "射腹・仰躺拱腰俯視橫構圖",
+  "pattern": "organ_bound",
+  "default_canvas": "4:3",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from above"
+  ],
+  "shared_pose_tags": [
+   "cum on stomach",
+   "ejaculation",
+   "sex"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（仰躺展開腹部承接）",
+    "requires": "any",
+    "center": {
+     "x": 0.44,
+     "y": 0.48
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs",
+     "arched back",
+     "looking up"
+    ],
+    "natural_en": "Lying flat on the back across the mattress with torso exposed and hands resting on own thighs, receiving ejaculation across the stomach."
+   },
+   "giver": {
+    "label_zh": "施與方（跪於腿側前傾射腹）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.64,
+     "y": 0.66
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "looking down"
+    ],
+    "natural_en": "Kneeling beside the partner's thighs at lower right leaning over the exposed belly while ejaculating onto the stomach."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "cum on stomach"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi",
+     "sex",
+     "cum on stomach"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "cum on stomach"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   }
+  },
+  "natural_en": "Horizontal overhead full-body view of ejaculation onto the stomach: the receiver lies back with open posture across the center-left while the giver kneels beside the thighs at lower right ejaculating onto the belly.",
+  "prompt_zh": "橫構圖高角俯視射腹：承受方居左中仰躺微拱腰露出小腹，施與方居右下跪於大腿外側前傾，將精液射向腹部。"
+ },
+ {
+  "id": "climax_afterglow_spooning_bed_wide",
+  "category": "10_climax_afterglow",
+  "subcategory": "事後溢出特寫與癱軟仰躺／雙人相擁平復",
+  "title_zh": "事後湯匙蜷擁平復・寬景俯視",
+  "pattern": "organ_bound",
+  "default_canvas": "16:9",
+  "default_facing": "three_quarter_left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from above"
+  ],
+  "shared_pose_tags": [
+   "after sex",
+   "spooning",
+   "cuddling",
+   "on bed"
+  ],
+  "slots": {
+   "partner_a": {
+    "label_zh": "前方者（側臥蜷縮於懷中平復呼吸）",
+    "requires": "any",
+    "center": {
+     "x": 0.42,
+     "y": 0.56
+    },
+    "tags": [
+     "lying",
+     "on side",
+     "closed eyes",
+     "relaxing"
+    ],
+    "natural_en": "Curled softly on one side in the lower-left center of the wide rumpled bed with eyes closed and breathing slow in post-climax warmth."
+   },
+   "partner_b": {
+    "label_zh": "後方者（緊貼背後環腰相擁）",
+    "requires": "any",
+    "center": {
+     "x": 0.58,
+     "y": 0.46
+    },
+    "tags": [
+     "lying",
+     "on side",
+     "hug from behind",
+     "closed eyes"
+    ],
+    "natural_en": "Lying curled tightly behind the partner at upper right with one arm draped gently across the partner's waist and forehead resting near the neck."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi"
+    ]
+   }
+  },
+  "natural_en": "Wide 16:9 overhead view of post-climax spooning on rumpled sheets: both partners lie curled softly on their sides spooned together catching their breath with eyes closed.",
+  "prompt_zh": "寬景俯視事後湯匙相擁（16:9）：凌亂床單上兩人側臥蜷縮相貼，後方者環抱前方者腰腹，閉眼靜靜平復餘韻。"
+ },
+ {
+  "id": "climax_afterglow_lying_collapse_doggy_rear",
+  "category": "10_climax_afterglow",
+  "subcategory": "事後溢出特寫與癱軟仰躺／雙人相擁平復",
+  "title_zh": "事後伏床癱軟溢出・背面低角近景",
+  "pattern": "solo_or_pov",
+  "default_canvas": "4:3",
+  "default_facing": "back",
+  "mirrorable": true,
+  "camera_tags": [
+   "close-up",
+   "from behind",
+   "from below"
+  ],
+  "shared_pose_tags": [
+   "after sex",
+   "cum",
+   "cumdrip",
+   "ass focus"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（事後伏枕癱軟、臀部微抬溢出）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.5,
+     "y": 0.54
+    },
+    "tags": [
+     "lying",
+     "on stomach",
+     "ass up",
+     "spread legs",
+     "exhausted"
+    ],
+    "natural_en": "Collapsed face-down onto the bed after climax with shoulders limp on the pillows and hips still slightly elevated, cum slowly overflowing down the inner thighs."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Horizontal low-angle rear close-up of post-climax collapse: an adult woman lies exhausted face-down on the mattress with hips softly lifted and cum dripping down her inner thighs.",
+  "prompt_zh": "背面低角近景事後癱軟溢出（4:3）：主體高潮後無力伏倒在枕間、臀部仍微微抬起，精液自私處緩緩溢出沿大腿內側滑落。"
+ },
+ {
+  "id": "climax_afterglow_sitting_lap_rest_three_quarter",
+  "category": "10_climax_afterglow",
+  "subcategory": "事後溢出特寫與癱軟仰躺／雙人相擁平復",
+  "title_zh": "事後坐懷倚靠平復・斜側全身",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "three_quarter_right",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "three-quarter view"
+  ],
+  "shared_pose_tags": [
+   "after sex",
+   "cuddling",
+   "sitting on lap"
+  ],
+  "slots": {
+   "partner_a": {
+    "label_zh": "倚靠方（無力後倚在對方胸膛）",
+    "requires": "any",
+    "center": {
+     "x": 0.54,
+     "y": 0.52
+    },
+    "tags": [
+     "sitting",
+     "leaning back",
+     "closed eyes",
+     "relaxing"
+    ],
+    "natural_en": "Sitting limp in the partner's lap on the right with head tilted softly back against the partner's shoulder and legs draped slackly."
+   },
+   "partner_b": {
+    "label_zh": "承托方（坐姿環抱輕撫平復）",
+    "requires": "any",
+    "center": {
+     "x": 0.44,
+     "y": 0.46
+    },
+    "tags": [
+     "sitting",
+     "hug",
+     "looking at another"
+    ],
+    "natural_en": "Seated upright behind on the left cradling the exhausted partner gently against the chest with arms wrapped securely around the waist."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi"
+    ]
+   }
+  },
+  "natural_en": "Three-quarter full-body view of quiet post-sex lap rest: one partner slumps softly back against the seated other's chest in a tender embrace while both catch their breath.",
+  "prompt_zh": "斜側全身事後坐懷倚靠：一方高潮後無力癱靠於對方懷中閉眼歇息、雙腿放鬆垂落；另一方居左坐姿溫柔環抱承托。"
+ },
+ {
+  "id": "pov_facial_kneeling_closeup_above",
+  "category": "10_climax_afterglow",
+  "subcategory": "不同落點射精構圖",
+  "title_zh": "第一人稱俯視顏射特寫・跪姿張口仰面",
+  "pattern": "solo_or_pov",
+  "default_canvas": "1:1",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "pov",
+   "pov crotch",
+   "from above",
+   "close-up"
+  ],
+  "shared_pose_tags": [
+   "facial",
+   "ejaculation"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（跪姿仰面張口承接特寫）",
+    "requires": "any",
+    "center": {
+     "x": 0.5,
+     "y": 0.56
+    },
+    "tags": [
+     "kneeling",
+     "looking at viewer",
+     "open mouth",
+     "tongue out"
+    ],
+    "natural_en": "Kneeling directly underneath the lens with face tilted straight up, mouth open and tongue slightly out receiving ejaculation across the cheeks and lips."
+   }
+  },
+  "pairing_tags": {
+   "pov": {
+    "base": [
+     "hetero",
+     "penis",
+     "facial"
+    ]
+   }
+  },
+  "natural_en": "Square first-person high-angle close-up of a facial: looking straight down onto the kneeling subject's upturned open-mouthed face as ejaculation lands across it.",
+  "prompt_zh": "第一人稱方構圖俯視顏射特寫：近距離由正上方俯拍跪姿主體仰起張口吐舌的臉龐，承接自上方落下的射精瞬間。"
  }
 ]

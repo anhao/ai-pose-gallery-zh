@@ -265,7 +265,7 @@
  {
   "id": "pos_foreplay_wall_pin_kiss_leg_up_side",
   "category": "02_foreplay",
-  "subcategory": "壁咚與壓制親吻（不插入）",
+  "subcategory": "壁咚與壓制親吻",
   "title_zh": "站姿壁咚抬腿壓制親吻・側面",
   "pattern": "geometry_dispatch",
   "default_canvas": "3:4",
@@ -337,7 +337,7 @@
  {
   "id": "pos_foreplay_wall_pin_kiss_sitting_floor_side",
   "category": "02_foreplay",
-  "subcategory": "壁咚與壓制親吻（不插入）",
+  "subcategory": "壁咚與壓制親吻",
   "title_zh": "坐地靠牆壁咚親吻・側面",
   "pattern": "geometry_dispatch",
   "default_canvas": "3:4",
@@ -1290,5 +1290,843 @@
   },
   "natural_en": "Full-body side view of a paused moment before entry: the receiver lies on the side on the left with knees drawn up and back toward the partner, looking back, while the giver kneels behind on the right, leaning forward and holding the receiver's hips to guide positioning.",
   "prompt_zh": "側面全身進入前停頓：承受方居左側臥屈膝、背對施與方並回頭；施與方居右跪於身後，前傾雙手扶住胯部引導定位。"
+ },
+ {
+  "id": "pos_foreplay_lap_sit_behind_embrace_front",
+  "category": "02_foreplay",
+  "subcategory": "背後環抱揉胸",
+  "title_zh": "坐懷跨腿背後環抱・正面全身",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "sitting on lap",
+   "hug from behind",
+   "grabbing another's breast"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（坐於對方腿上面向鏡頭）",
+    "requires": "breasts",
+    "center": {
+     "x": 0.5,
+     "y": 0.58
+    },
+    "tags": [
+     "sitting",
+     "sitting on lap",
+     "spread legs",
+     "head back",
+     "arched back"
+    ],
+    "natural_en": "Seated upright on the partner's lap facing the camera with knees open, leaning shoulders back and tilting head against the partner's cheek."
+   },
+   "giver": {
+    "label_zh": "施與方（後方坐椅環抱胸前）",
+    "requires": "any",
+    "center": {
+     "x": 0.5,
+     "y": 0.42
+    },
+    "tags": [
+     "sitting",
+     "on chair",
+     "hug from behind",
+     "grabbing another's breast",
+     "looking down"
+    ],
+    "natural_en": "Seated on a chair directly behind in vertical alignment, legs supporting the partner while wrapping both arms around the front to cup the chest."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari"
+    ]
+   }
+  },
+  "natural_en": "Front full-body view of a lap-sitting embrace from behind: the giver sits on a chair behind while the receiver sits on the giver's lap facing forward, leaning back as the giver's arms wrap around the chest.",
+  "prompt_zh": "正面全身坐懷背後環抱：施與方居後坐於椅上；承受方坐於其大腿上面向鏡頭微開腿並仰頭後靠，後方雙臂環抱胸前。"
+ },
+ {
+  "id": "pos_foreplay_behind_embrace_mirror_over_shoulder",
+  "category": "02_foreplay",
+  "subcategory": "背後環抱揉胸",
+  "title_zh": "鏡前站姿背後環抱・過肩四分之三",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "three_quarter_left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "three-quarter view"
+  ],
+  "shared_pose_tags": [
+   "hug from behind",
+   "grabbing another's breast",
+   "mirror"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（前方對鏡站立被環抱）",
+    "requires": "breasts",
+    "center": {
+     "x": 0.44,
+     "y": 0.52
+    },
+    "tags": [
+     "standing",
+     "arched back",
+     "looking at mirror",
+     "hand on wall"
+    ],
+    "natural_en": "Standing in front of a large mirror at a three-quarter rear angle, resting palms forward while the reflection shows the frontal embrace."
+   },
+   "giver": {
+    "label_zh": "施與方（身後貼近過肩環抱）",
+    "requires": "any",
+    "center": {
+     "x": 0.56,
+     "y": 0.46
+    },
+    "tags": [
+     "standing",
+     "hug from behind",
+     "grabbing another's breast",
+     "looking at mirror"
+    ],
+    "natural_en": "Standing close behind on the right, leaning chin over the partner's shoulder while both arms wrap forward in front of the mirror."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ]
+   }
+  },
+  "natural_en": "Over-the-shoulder three-quarter rear full-body view before a mirror: the giver embraces the receiver from behind, both gazes meeting in the mirrored reflection.",
+  "prompt_zh": "過肩四分之三後視全身：兩人站立於全身鏡前，承受方居前微撐鏡面；施與方貼身環抱胸前並靠肩共視鏡中倒影。"
+ },
+ {
+  "id": "pos_foreplay_bed_pin_kiss_overhead",
+  "category": "02_foreplay",
+  "subcategory": "壁咚與壓制親吻",
+  "title_zh": "床面壓制深吻・4:3 正上方俯視",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "4:3",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from above"
+  ],
+  "shared_pose_tags": [
+   "kiss",
+   "pinned",
+   "on bed"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（仰躺床面雙手過頭）",
+    "requires": "any",
+    "center": {
+     "x": 0.5,
+     "y": 0.58
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "on bed",
+     "arms up",
+     "knees up",
+     "looking up"
+    ],
+    "natural_en": "Lying flat on the back across the bed with both arms raised above the head and knees bent upward beneath the partner."
+   },
+   "giver": {
+    "label_zh": "施與方（俯撐上方壓制親吻）",
+    "requires": "any",
+    "center": {
+     "x": 0.5,
+     "y": 0.38
+    },
+    "tags": [
+     "on top",
+     "leaning forward",
+     "arm support",
+     "kiss",
+     "looking down"
+    ],
+    "natural_en": "Hovering closely on top with arms braced beside the partner's shoulders, leaning down for an intense kiss."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari"
+    ]
+   }
+  },
+  "natural_en": "Horizontal top-down full-body view of a bed-pin kiss: the receiver lies on the back with arms stretched overhead while the giver hovers closely above on braced arms, leaning down to kiss.",
+  "prompt_zh": "4:3 正上方高空俯視全身：承受方仰躺床面、雙手高舉過頭；施與方俯撐於上方壓近親吻，形成上下疊影構圖。"
+ },
+ {
+  "id": "pos_foreplay_standing_kneel_pull_kiss_low",
+  "category": "02_foreplay",
+  "subcategory": "壁咚與壓制親吻",
+  "title_zh": "站跪高低差拉近親吻・低角四分之三",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "three_quarter_left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from below",
+   "three-quarter view"
+  ],
+  "shared_pose_tags": [
+   "kiss",
+   "height difference"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左下跪姿抬頭仰吻）",
+    "requires": "any",
+    "center": {
+     "x": 0.4,
+     "y": 0.68
+    },
+    "tags": [
+     "kneeling",
+     "hands on another's waist",
+     "looking up"
+    ],
+    "natural_en": "Kneeling low on the lower left, tilting the chin high while gripping the standing partner's hips to draw closer."
+   },
+   "giver": {
+    "label_zh": "施與方（右上站立俯身捧臉親吻）",
+    "requires": "any",
+    "center": {
+     "x": 0.6,
+     "y": 0.38
+    },
+    "tags": [
+     "standing",
+     "bent over",
+     "hand on another's face",
+     "looking down"
+    ],
+    "natural_en": "Standing tall on the upper right, bending deeply at the waist to cup the kneeling partner's face and kiss downward."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi"
+    ]
+   }
+  },
+  "natural_en": "Low-angle three-quarter full-body view highlighting dramatic height contrast: one partner stands tall bending deeply to cup the face of the kneeling partner below for a kiss.",
+  "prompt_zh": "低角四分之三全身站跪高度差：承受方居左下跪姿仰頭扶腰；施與方居右上站姿深深俯身捧臉親吻。"
+ },
+ {
+  "id": "pos_foreplay_lap_straddle_neck_kiss_three_quarter",
+  "category": "02_foreplay",
+  "subcategory": "耳頸親吻與撫摸腰腿",
+  "title_zh": "面對面跨坐膝上吻頸・四分之三",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "three_quarter_left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "three-quarter view"
+  ],
+  "shared_pose_tags": [
+   "sitting on lap",
+   "straddling",
+   "kissing neck"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（上方跨坐環頸仰頭）",
+    "requires": "any",
+    "center": {
+     "x": 0.48,
+     "y": 0.44
+    },
+    "tags": [
+     "straddling",
+     "sitting on lap",
+     "arms around neck",
+     "head back",
+     "arched back"
+    ],
+    "natural_en": "Straddling face-to-face across the seated partner's lap, looping both arms around the neck and tilting the head back as the collarbone is kissed."
+   },
+   "giver": {
+    "label_zh": "施與方（下方坐姿扶腰吻頸）",
+    "requires": "any",
+    "center": {
+     "x": 0.52,
+     "y": 0.6
+    },
+    "tags": [
+     "sitting",
+     "hands on another's hips",
+     "leaning forward",
+     "kissing neck"
+    ],
+    "natural_en": "Seated beneath supporting the partner's weight, hands gripping waist and thighs while burying lips along the exposed side of the neck."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari"
+    ]
+   }
+  },
+  "natural_en": "Three-quarter full-body view of a face-to-face lap straddle: the receiver sits astride the giver's lap with arms around the neck and head tilted back while the giver holds the hips and kisses the neck.",
+  "prompt_zh": "四分之三全身面對面跨坐吻頸：施與方居下坐穩扶腰；承受方居上跨坐膝上雙臂環頸仰頭，讓對方貼近親吻耳頸。"
+ },
+ {
+  "id": "pos_foreplay_prone_back_caress_neck_kiss_overhead",
+  "category": "02_foreplay",
+  "subcategory": "耳頸親吻與撫摸腰腿",
+  "title_zh": "俯趴背吻撫腰・16:9 寬畫幅俯視",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "16:9",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from above"
+  ],
+  "shared_pose_tags": [
+   "kissing neck",
+   "on bed",
+   "lying"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（俯趴床面側臉回望）",
+    "requires": "any",
+    "center": {
+     "x": 0.44,
+     "y": 0.58
+    },
+    "tags": [
+     "lying",
+     "on stomach",
+     "on bed",
+     "turning head",
+     "arched back"
+    ],
+    "natural_en": "Lying face down across the widescreen bed with cheek resting on folded hands, back arched gently under the partner's touch."
+   },
+   "giver": {
+    "label_zh": "施與方（側上方俯身輕吻後頸）",
+    "requires": "any",
+    "center": {
+     "x": 0.58,
+     "y": 0.44
+    },
+    "tags": [
+     "lying",
+     "leaning forward",
+     "hand on another's hip",
+     "looking down"
+    ],
+    "natural_en": "Leaning diagonally over the prone partner's back from the upper right, pressing lips to the nape while one hand glides down the waist and hip."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi"
+    ]
+   }
+  },
+  "natural_en": "Widescreen overhead full-body view: the receiver lies prone across the bed while the giver leans diagonally over the back, kissing the nape and tracing a hand along the waist and hip.",
+  "prompt_zh": "16:9 寬畫幅高空俯視：承受方俯趴床面、側臉枕手微拱背；施與方自右上斜伏於背側輕吻後頸，單手沿腰臀緩緩撫摸。"
+ },
+ {
+  "id": "pos_foreplay_both_wrists_pinned_overhead_lying",
+  "category": "02_foreplay",
+  "subcategory": "抓手腕／抬下巴／拉手臂等拉扯互動",
+  "title_zh": "仰躺雙腕舉過頭壓制・荷蘭斜角俯視",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "three_quarter_left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from above",
+   "dutch angle"
+  ],
+  "shared_pose_tags": [
+   "holding another's wrist",
+   "pinned",
+   "on bed"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（下方仰躺雙腕被扣於頭頂）",
+    "requires": "any",
+    "center": {
+     "x": 0.42,
+     "y": 0.66
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "arms up",
+     "spread legs",
+     "looking up"
+    ],
+    "natural_en": "Lying flat on the back in the lower half with both wrists gathered above the head and pinned to the mattress, gazing up."
+   },
+   "giver": {
+    "label_zh": "施與方（上方俯撐單手扣腕俯視）",
+    "requires": "any",
+    "center": {
+     "x": 0.58,
+     "y": 0.34
+    },
+    "tags": [
+     "on top",
+     "kneeling",
+     "leaning forward",
+     "holding another's wrist",
+     "looking down"
+    ],
+    "natural_en": "Kneeling astride the partner's waist in the upper half, pinning both wrists overhead with one hand while bracing down close to lock eyes."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari"
+    ]
+   }
+  },
+  "natural_en": "Horizontal overhead full-body view: the receiver lies on the back with both wrists pinned above the head while the giver kneels astride from above, holding the wrists down and looking straight down.",
+  "prompt_zh": "4:3 俯視全身雙腕壓制：承受方仰躺下方、雙臂高舉過頭被扣住並仰望；施與方自上方跪跨壓近，單手扣腕居高凝視。"
+ },
+ {
+  "id": "pos_foreplay_collar_pull_leaning_over_low_angle",
+  "category": "02_foreplay",
+  "subcategory": "抓手腕／抬下巴／拉手臂等拉扯互動",
+  "title_zh": "坐姿反拉衣領拉近・低角荷蘭斜角",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "three_quarter_left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from below",
+   "dutch angle"
+  ],
+  "shared_pose_tags": [
+   "face-to-face",
+   "grabbing"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（上方俯身被拉近）",
+    "requires": "any",
+    "center": {
+     "x": 0.42,
+     "y": 0.38
+    },
+    "tags": [
+     "standing",
+     "bent over",
+     "arm support",
+     "looking down"
+    ],
+    "natural_en": "Standing and bent forward from the upper left, pulled off-balance toward the seated partner while bracing one hand beside the seat."
+   },
+   "giver": {
+    "label_zh": "施與方（下方坐姿反拉對方俯近）",
+    "requires": "any",
+    "center": {
+     "x": 0.58,
+     "y": 0.66
+    },
+    "tags": [
+     "sitting",
+     "leaning back",
+     "clothes grab",
+     "looking up"
+    ],
+    "natural_en": "Seated low on the lower right, gripping the standing partner's collar or lapel to pull them down into close eye contact."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi"
+    ]
+   }
+  },
+  "natural_en": "Low-angle tilted full-body shot of a playful power pull: the seated partner on the lower right tugs the standing partner's collar from above, drawing their faces together across a steep diagonal.",
+  "prompt_zh": "低角荷蘭斜角全身：施與方居右下坐姿反手拉住衣領將人拽近；承受方居左上俯身撐前被拉近四目相對。"
+ },
+ {
+  "id": "pos_foreplay_bed_edge_standing_caress_low",
+  "category": "02_foreplay",
+  "subcategory": "指交與下體愛撫",
+  "title_zh": "坐床緣低跪愛撫・低角四分之三",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "three_quarter_left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from below",
+   "three-quarter view"
+  ],
+  "shared_pose_tags": [
+   "fingering",
+   "on bed"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（上方坐床緣後撐開腿）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.44,
+     "y": 0.38
+    },
+    "tags": [
+     "sitting",
+     "on bed",
+     "leaning back",
+     "arm support",
+     "spread legs",
+     "looking down"
+    ],
+    "natural_en": "Perched high on the edge of the bed leaning back on both hands, thighs parted wide while looking down at the kneeling partner."
+   },
+   "giver": {
+    "label_zh": "施與方（下方地毯低跪仰視愛撫）",
+    "requires": "any",
+    "center": {
+     "x": 0.58,
+     "y": 0.7
+    },
+    "tags": [
+     "kneeling",
+     "on floor",
+     "leaning forward",
+     "looking up"
+    ],
+    "natural_en": "Kneeling low on the floor before the bed edge, gazing upward while reaching between the elevated thighs."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari"
+    ]
+   }
+  },
+  "natural_en": "Low-angle three-quarter full-body view with vertical staging: the receiver sits elevated on a bed edge leaning back on both arms while the giver kneels low on the floor looking up during intimate caress.",
+  "prompt_zh": "低角四分之三全身床緣高低差：承受方居高坐於床緣雙手撐後開腿低視；施與方居下跪於床邊地毯仰視伸手愛撫。"
+ },
+ {
+  "id": "pos_foreplay_straddle_hover_pause_low_angle",
+  "category": "02_foreplay",
+  "subcategory": "進入前臨界／引導定位／吻後停頓過渡格",
+  "title_zh": "跨坐懸停臨界對視・正面低角仰視",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view",
+   "from below"
+  ],
+  "shared_pose_tags": [
+   "foreplay",
+   "straddling"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（上方跨跪懸停低視）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.5,
+     "y": 0.38
+    },
+    "tags": [
+     "straddling",
+     "kneeling",
+     "hands on another's chest",
+     "arched back",
+     "looking down"
+    ],
+    "natural_en": "Kneeling astride above the reclining partner with hips raised slightly in a poised pause, hands planted on the partner's chest while gazing straight down."
+   },
+   "giver": {
+    "label_zh": "施與方（下方仰躺扶腰仰望）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.5,
+     "y": 0.66
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "hands on another's hips",
+     "looking up"
+    ],
+    "natural_en": "Lying on the back beneath the partner, hands gripping the hips to steady the paused hovering moment while looking up."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "foreplay"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "foreplay"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "foreplay"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "interspecies",
+     "foreplay"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Low-angle frontal full-body view of a poised straddling pause before contact: the receiver hovers kneeling above the reclining giver, hands braced on the chest while the giver holds the hips looking up.",
+  "prompt_zh": "正面低角仰視全身臨界懸停：承受方居上跨跪於對方腰胯上方微微懸停、雙手按胸低視；施與方居下仰躺雙手扶胯對視。"
+ },
+ {
+  "id": "pos_foreplay_allfours_behind_hover_rear",
+  "category": "02_foreplay",
+  "subcategory": "進入前臨界／引導定位／吻後停頓過渡格",
+  "title_zh": "四肢著地身後對位懸停・4:3 後視低角",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "4:3",
+  "default_facing": "back",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from below"
+  ],
+  "shared_pose_tags": [
+   "foreplay",
+   "all fours"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（下方四肢著地回眸待入）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.5,
+     "y": 0.6
+    },
+    "tags": [
+     "all fours",
+     "arched back",
+     "ass up",
+     "looking back"
+    ],
+    "natural_en": "On all fours in the lower foreground with spine curved and hips lifted, turning to glance back in anticipation."
+   },
+   "giver": {
+    "label_zh": "施與方（上方跪於身後雙手扶胯對位）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.5,
+     "y": 0.38
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "hands on another's hips",
+     "looking down"
+    ],
+    "natural_en": "Kneeling behind in vertical depth, gripping both hips tightly and pausing in alignment directly behind the receiver."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "foreplay"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "foreplay"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "foreplay"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "interspecies",
+     "foreplay"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Horizontal low-angle rear full-body view of a paused pre-entry alignment from behind: the receiver stays on all fours looking back while the giver kneels behind gripping both hips.",
+  "prompt_zh": "4:3 後視低角全身進入前對位：承受方居下四肢著地塌腰回望；施與方居上跪於正後方雙手扶胯貼近懸停。"
  }
 ]

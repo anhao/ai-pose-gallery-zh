@@ -2,7 +2,7 @@
  {
   "id": "facesitting_cunnilingus_straddle_low_angle",
   "category": "05_yuri_cunnilingus",
-  "subcategory": "舔陰",
+  "subcategory": "舔陰 cunnilingus",
   "title_zh": "顏面騎乘舔陰・仰躺低角度正面",
   "pattern": "organ_bound",
   "default_canvas": "3:4",
@@ -777,5 +777,920 @@
   },
   "natural_en": "Full-body side view of tribadism: two women sit on the floor facing each other, legs spread and threaded between each other's legs so their thighs interlock, hips pressed close and grinding together, both looking at each other.",
   "prompt_zh": "側面全身磨豆腐：雙女坐地錯身面對面，雙腿張開互相交腿穿插、臀部相貼磨擦，一人前傾、一人微仰，互相注視對方。"
+ },
+ {
+  "id": "yuri_cunnilingus_bed_edge_kneeling_three_quarter",
+  "category": "05_yuri_cunnilingus",
+  "subcategory": "舔陰 cunnilingus",
+  "title_zh": "坐床緣低跪侍奉・低角四分之三",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "three_quarter_left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "three-quarter view",
+   "from below"
+  ],
+  "shared_pose_tags": [
+   "cunnilingus",
+   "oral",
+   "on bed"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（上方坐床緣後仰開腿）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.42,
+     "y": 0.38
+    },
+    "tags": [
+     "sitting",
+     "on bed",
+     "leaning back",
+     "arm support",
+     "spread legs",
+     "head back"
+    ],
+    "natural_en": "Seated high on the edge of the bed leaning back on both hands with legs open wide and head tipped back."
+   },
+   "giver": {
+    "label_zh": "施與方（下方地毯跪姿俯貼）",
+    "requires": "any",
+    "center": {
+     "x": 0.58,
+     "y": 0.7
+    },
+    "tags": [
+     "kneeling",
+     "on floor",
+     "leaning forward",
+     "hands on another's thighs",
+     "looking up"
+    ],
+    "natural_en": "Kneeling low on the floor before the bed edge, holding both thighs steady while leaning forward and looking upward."
+   }
+  },
+  "pairing_tags": {
+   "female_female": {
+    "base": [
+     "yuri"
+    ]
+   },
+   "female_male": {
+    "base": [
+     "hetero"
+    ]
+   }
+  },
+  "natural_en": "Low-angle three-quarter full-body view with bed-edge height contrast: the receiver sits elevated on the bed edge leaning back while the giver kneels low on the floor between the thighs.",
+  "prompt_zh": "低角四分之三全身床緣高低差：承受方居左上坐床緣撐手後仰開腿；施與方居右下跪於地面扶腿仰望。"
+ },
+ {
+  "id": "yuri_cunnilingus_overhead_lying_spread",
+  "category": "05_yuri_cunnilingus",
+  "subcategory": "舔陰 cunnilingus",
+  "title_zh": "仰躺開腿舔陰・4:3 正上方俯視",
+  "pattern": "organ_bound",
+  "default_canvas": "4:3",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from above"
+  ],
+  "shared_pose_tags": [
+   "cunnilingus",
+   "oral",
+   "on bed"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（上方仰躺屈膝張開）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.5,
+     "y": 0.34
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "on bed",
+     "spread legs",
+     "knees up",
+     "arched back",
+     "hand on another's head"
+    ],
+    "natural_en": "Lying flat on the bed in the upper half with knees bent wide apart, fingers resting lightly in the partner's hair."
+   },
+   "giver": {
+    "label_zh": "施與方（下方俯趴腿間）",
+    "requires": "any",
+    "center": {
+     "x": 0.5,
+     "y": 0.68
+    },
+    "tags": [
+     "lying",
+     "on stomach",
+     "on bed",
+     "hands on another's thighs",
+     "looking up"
+    ],
+    "natural_en": "Lying prone between the receiver's spread legs in the lower half of the top-down frame, gripping the thighs."
+   }
+  },
+  "pairing_tags": {
+   "female_female": {
+    "base": [
+     "yuri"
+    ]
+   },
+   "female_male": {
+    "base": [
+     "hetero"
+    ]
+   }
+  },
+  "natural_en": "Horizontal top-down full-body view on a bed: the receiver lies supine at the top with open knees while the giver lies prone between the thighs below.",
+  "prompt_zh": "4:3 正上方高空俯視全身：承受方居上方仰躺屈膝外張、輕扶對方髮絲；施與方居下方俯趴於腿間貼近互動。"
+ },
+ {
+  "id": "yuri_cunnilingus_from_behind_allfours_rear",
+  "category": "05_yuri_cunnilingus",
+  "subcategory": "舔陰 cunnilingus",
+  "title_zh": "四肢著地後方低跪舔陰・4:3 低角後視",
+  "pattern": "organ_bound",
+  "default_canvas": "4:3",
+  "default_facing": "three_quarter_left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "three-quarter view",
+   "from below"
+  ],
+  "shared_pose_tags": [
+   "cunnilingus",
+   "oral",
+   "all fours"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（前方伏身抬臀回眸）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.44,
+     "y": 0.44
+    },
+    "tags": [
+     "all fours",
+     "ass up",
+     "arched back",
+     "looking back"
+    ],
+    "natural_en": "Braced on forearms and knees angled away on the upper left, hips lifted and head turned back to glance over the shoulder."
+   },
+   "giver": {
+    "label_zh": "施與方（後方低跪扶胯前傾）",
+    "requires": "any",
+    "center": {
+     "x": 0.58,
+     "y": 0.66
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "hands on another's hips",
+     "looking up"
+    ],
+    "natural_en": "Kneeling low behind on the lower right, gripping both hips and ducking forward behind the receiver."
+   }
+  },
+  "pairing_tags": {
+   "female_female": {
+    "base": [
+     "yuri"
+    ]
+   },
+   "female_male": {
+    "base": [
+     "hetero"
+    ]
+   }
+  },
+  "natural_en": "Horizontal low-angle rear full-body view: the receiver kneels low on elbows with hips lifted looking back while the giver kneels closely behind gripping both hips.",
+  "prompt_zh": "4:3 後視低角全身：承受方居左上雙肘伏地挺臀回望；施與方居右下低跪於身後雙手扶胯前傾貼近。"
+ },
+ {
+  "id": "yuri_cunnilingus_69_side_lying_wide",
+  "category": "05_yuri_cunnilingus",
+  "subcategory": "舔陰 cunnilingus",
+  "title_zh": "側臥水平 69 互舔・16:9 寬畫幅俯視",
+  "pattern": "organ_bound",
+  "default_canvas": "16:9",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from above"
+  ],
+  "shared_pose_tags": [
+   "cunnilingus",
+   "oral",
+   "69"
+  ],
+  "slots": {
+   "partner_a": {
+    "label_zh": "上方（側臥頭向左曲腿）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.46,
+     "y": 0.4
+    },
+    "tags": [
+     "lying",
+     "on side",
+     "knees up",
+     "leg up",
+     "arched back"
+    ],
+    "natural_en": "Lying on her side across the upper half with head toward the left and top leg bent open."
+   },
+   "partner_b": {
+    "label_zh": "下方（反向側臥頭向右曲腿）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.54,
+     "y": 0.62
+    },
+    "tags": [
+     "lying",
+     "on side",
+     "knees up",
+     "leg up",
+     "arched back"
+    ],
+    "natural_en": "Lying on her side across the lower half facing opposite with head toward the right, curving closely into a horizontal yin-yang symmetry."
+   }
+  },
+  "pairing_tags": {
+   "female_female": {
+    "base": [
+     "yuri",
+     "69"
+    ]
+   }
+  },
+  "natural_en": "Widescreen top-down full-body view of side-lying mutual 69: two women lie curled on their sides head-to-foot across the wide frame in balanced horizontal symmetry.",
+  "prompt_zh": "16:9 寬畫幅正上方俯視側臥 69：兩名女性頭尾反向側躺曲腿，構成平衡流暢的水平太極對稱構圖。"
+ },
+ {
+  "id": "yuri_tribadism_cowgirl_straddle_low_angle",
+  "category": "05_yuri_cunnilingus",
+  "subcategory": "雙女磨豆腐 tribadism",
+  "title_zh": "高位跨坐騎乘磨豆腐・正面低角仰視",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view",
+   "from below"
+  ],
+  "shared_pose_tags": [
+   "tribadism",
+   "straddling",
+   "sex"
+  ],
+  "slots": {
+   "bottom": {
+    "label_zh": "下方（仰躺抬臀扶腰）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.5,
+     "y": 0.68
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs",
+     "hands on another's waist",
+     "looking up"
+    ],
+    "natural_en": "Lying on her back in the lower foreground with hands gripping the upper partner's waist while looking up."
+   },
+   "top": {
+    "label_zh": "上方（高身位跨坐拱背俯視）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.5,
+     "y": 0.36
+    },
+    "tags": [
+     "straddling",
+     "sitting",
+     "arched back",
+     "hands on another's chest",
+     "looking down"
+    ],
+    "natural_en": "Sitting upright astride the lower partner's thigh and hips in dramatic low-angle frontal perspective, hands braced on the partner's chest."
+   }
+  },
+  "pairing_tags": {
+   "female_female": {
+    "base": [
+     "yuri",
+     "tribadism",
+     "sex"
+    ]
+   }
+  },
+  "natural_en": "Low-angle frontal full-body view: the top partner straddles upright with back arched and palms braced on the supine partner's chest below.",
+  "prompt_zh": "正面低角仰視全身：下方仰躺扶腰仰望；上方高身位跨坐挺胸拱背、雙掌撐於對方胸前俯視。"
+ },
+ {
+  "id": "yuri_tribadism_reclining_hooked_legs_three_quarter",
+  "category": "05_yuri_cunnilingus",
+  "subcategory": "雙女磨豆腐 tribadism",
+  "title_zh": "雙腿高勾斜臥磨豆腐・4:3 四分之三",
+  "pattern": "organ_bound",
+  "default_canvas": "4:3",
+  "default_facing": "three_quarter_right",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from above",
+   "three-quarter view"
+  ],
+  "shared_pose_tags": [
+   "tribadism",
+   "crotch rub",
+   "on bed"
+  ],
+  "slots": {
+   "partner_a": {
+    "label_zh": "左方（仰躺雙腿上舉勾繞）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.34,
+     "y": 0.58
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "on bed",
+     "legs up",
+     "arched back",
+     "looking at another"
+    ],
+    "natural_en": "Reclining on the left side of the bed with one leg hoisted high over the partner's hip and head tilted back."
+   },
+   "partner_b": {
+    "label_zh": "右方（跪坐撐手前傾貼合）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.64,
+     "y": 0.46
+    },
+    "tags": [
+     "sitting",
+     "on bed",
+     "leaning back",
+     "arm support",
+     "spread legs",
+     "looking at another"
+    ],
+    "natural_en": "Leaning back on one arm on the right diagonal while lifting hips close against the partner's open thighs."
+   }
+  },
+  "pairing_tags": {
+   "female_female": {
+    "base": [
+     "yuri",
+     "tribadism",
+     "sex"
+    ]
+   }
+  },
+  "natural_en": "Horizontal high-angle three-quarter full-body view on a bed: two women angle diagonally toward each other with raised legs hooked high across each other's hips.",
+  "prompt_zh": "4:3 高角四分之三床面構圖：兩人沿對角線斜臥相對，高抬腿互相勾掛腰側並以臀部緊密貼合。"
+ },
+ {
+  "id": "yuri_tribadism_chair_lap_grinding_front",
+  "category": "05_yuri_cunnilingus",
+  "subcategory": "雙女磨豆腐 tribadism",
+  "title_zh": "坐椅面對面跨腿磨蹭・正面低角",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view",
+   "from below"
+  ],
+  "shared_pose_tags": [
+   "tribadism",
+   "sitting on lap",
+   "on chair"
+  ],
+  "slots": {
+   "bottom": {
+    "label_zh": "下方（坐椅仰靠扶腰）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.5,
+     "y": 0.58
+    },
+    "tags": [
+     "sitting",
+     "on chair",
+     "spread legs",
+     "hands on another's hips",
+     "looking up"
+    ],
+    "natural_en": "Seated deeply on an armchair facing forward with hands gripping the straddling partner's hips."
+   },
+   "top": {
+    "label_zh": "上方（面對面跨坐環頸）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.5,
+     "y": 0.42
+    },
+    "tags": [
+     "straddling",
+     "sitting on lap",
+     "arms around neck",
+     "arched back",
+     "looking down"
+    ],
+    "natural_en": "Straddling upright on the partner's lap with knees framing the chair seat, arms looped around the neck."
+   }
+  },
+  "pairing_tags": {
+   "female_female": {
+    "base": [
+     "yuri",
+     "tribadism",
+     "sex"
+    ]
+   }
+  },
+  "natural_en": "Low-angle frontal full-body view on a chair: one woman sits back gripping the hips of the partner straddling face-to-face across her lap.",
+  "prompt_zh": "正面低角全身坐椅跨腿：下方坐穩椅面雙手扶胯；上方居高面對面跨坐膝上、雙臂環頸貼身磨蹭。"
+ },
+ {
+  "id": "yuri_tribadism_standing_wall_leg_lift_three_quarter",
+  "category": "05_yuri_cunnilingus",
+  "subcategory": "雙女磨豆腐 tribadism",
+  "title_zh": "站姿靠牆抬腿磨蹭・荷蘭斜角四分之三",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "three_quarter_left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "three-quarter view",
+   "dutch angle"
+  ],
+  "shared_pose_tags": [
+   "tribadism",
+   "against wall",
+   "standing"
+  ],
+  "slots": {
+   "partner_a": {
+    "label_zh": "左方（靠牆單腳站立抬腿）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.4,
+     "y": 0.48
+    },
+    "tags": [
+     "standing",
+     "against wall",
+     "leg up",
+     "arms around neck",
+     "head back"
+    ],
+    "natural_en": "Braced against the wall on the left with one leg hoisted high around the partner's waist and head tilted back."
+   },
+   "partner_b": {
+    "label_zh": "右方（站姿托腿貼近壓合）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.6,
+     "y": 0.52
+    },
+    "tags": [
+     "standing",
+     "leaning forward",
+     "holding another's leg",
+     "looking at another"
+    ],
+    "natural_en": "Standing tightly pressed forward on the right in a dynamic tilted frame, holding up the partner's raised thigh."
+   }
+  },
+  "pairing_tags": {
+   "female_female": {
+    "base": [
+     "yuri",
+     "tribadism",
+     "sex"
+    ]
+   }
+  },
+  "natural_en": "Dutch-angle three-quarter full-body view against a wall: one woman braces her back to the wall with one leg hooked high while her partner stands pressed closely in, supporting the lifted thigh.",
+  "prompt_zh": "荷蘭斜角四分之三站姿靠牆磨蹭：左方背貼牆面高抬單腿環肩仰頭；右方緊貼前壓並托住抬起的大腿。"
+ },
+ {
+  "id": "yuri_embrace_lying_bed_overhead_wide",
+  "category": "05_yuri_cunnilingus",
+  "subcategory": "雙女互相愛撫揉胸與深吻",
+  "title_zh": "床面側臥交腿相擁深吻・16:9 寬畫幅俯視",
+  "pattern": "organ_bound",
+  "default_canvas": "16:9",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from above"
+  ],
+  "shared_pose_tags": [
+   "kiss",
+   "grabbing another's breast",
+   "on bed",
+   "hug"
+  ],
+  "slots": {
+   "partner_a": {
+    "label_zh": "左方（側臥伸臂擁抱深吻）",
+    "requires": "female",
+    "center": {
+     "x": 0.38,
+     "y": 0.52
+    },
+    "tags": [
+     "lying",
+     "on side",
+     "on bed",
+     "grabbing another's breast",
+     "leg up",
+     "closed eyes"
+    ],
+    "natural_en": "Lying across the left side of the bed facing inward, draping one leg over the partner's thigh while embracing and kissing."
+   },
+   "partner_b": {
+    "label_zh": "右方（仰側臥回擁互撫）",
+    "requires": "female",
+    "center": {
+     "x": 0.62,
+     "y": 0.5
+    },
+    "tags": [
+     "lying",
+     "on side",
+     "on bed",
+     "grabbing another's breast",
+     "closed eyes",
+     "hug"
+    ],
+    "natural_en": "Lying opposite across the right side of the bed, curving closely inward with arms entwined and legs tangled."
+   }
+  },
+  "pairing_tags": {
+   "female_female": {
+    "base": [
+     "yuri"
+    ]
+   }
+  },
+  "natural_en": "Widescreen top-down full-body view of two women reclining face-to-face across a wide bed, legs intertwined in a lingering kiss and mutual embrace.",
+  "prompt_zh": "16:9 寬畫幅高空俯視床面相擁：兩人左右相對側臥交腿纏綿，閉眼深吻並互撫胸前。"
+ },
+ {
+  "id": "yuri_behind_embrace_standing_front_view",
+  "category": "05_yuri_cunnilingus",
+  "subcategory": "雙女互相愛撫揉胸與深吻",
+  "title_zh": "站姿背後環抱側臉親吻・斜正面錯位",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "three_quarter_left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view",
+   "three-quarter view"
+  ],
+  "shared_pose_tags": [
+   "hug from behind",
+   "grabbing another's breast",
+   "kiss"
+  ],
+  "slots": {
+   "partner_a": {
+    "label_zh": "前方（正面站立側首回吻）",
+    "requires": "female",
+    "center": {
+     "x": 0.46,
+     "y": 0.56
+    },
+    "tags": [
+     "standing",
+     "arched back",
+     "turning head",
+     "closed eyes"
+    ],
+    "natural_en": "Standing in the foreground facing forward, turning her cheek back into the partner's kiss while arching softly."
+   },
+   "partner_b": {
+    "label_zh": "後方（貼背高身位環抱胸前）",
+    "requires": "female",
+    "center": {
+     "x": 0.56,
+     "y": 0.42
+    },
+    "tags": [
+     "standing",
+     "hug from behind",
+     "grabbing another's breast",
+     "leaning forward",
+     "closed eyes"
+    ],
+    "natural_en": "Standing directly behind in vertical depth, wrapping both arms forward around the chest and kissing over the shoulder."
+   }
+  },
+  "pairing_tags": {
+   "female_female": {
+    "base": [
+     "yuri"
+    ]
+   }
+  },
+  "natural_en": "Low-angle frontal full-body view of a standing embrace from behind: both women stack along the center line, sharing a cheek-to-cheek kiss as the rear partner wraps both arms forward.",
+  "prompt_zh": "正面低角縱向重疊全身：前方站立側首閉眼回吻；後方貼背環抱胸前並由肩側吻上。"
+ },
+ {
+  "id": "yuri_lap_straddle_deep_kiss_over_shoulder",
+  "category": "05_yuri_cunnilingus",
+  "subcategory": "雙女互相愛撫揉胸與深吻",
+  "title_zh": "跨坐膝上環頸深吻・過肩四分之三",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "three_quarter_right",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "three-quarter view"
+  ],
+  "shared_pose_tags": [
+   "sitting on lap",
+   "kiss",
+   "grabbing another's breast"
+  ],
+  "slots": {
+   "partner_a": {
+    "label_zh": "下方（坐姿後靠環腰撫胸）",
+    "requires": "female",
+    "center": {
+     "x": 0.46,
+     "y": 0.6
+    },
+    "tags": [
+     "sitting",
+     "leaning back",
+     "grabbing another's breast",
+     "closed eyes"
+    ],
+    "natural_en": "Seated beneath leaning slightly back while drawing the straddling partner close by the waist and chest."
+   },
+   "partner_b": {
+    "label_zh": "上方（跨坐膝上俯身深吻）",
+    "requires": "female",
+    "center": {
+     "x": 0.54,
+     "y": 0.42
+    },
+    "tags": [
+     "straddling",
+     "sitting on lap",
+     "arms around neck",
+     "leaning forward",
+     "closed eyes"
+    ],
+    "natural_en": "Straddling face-to-face across the lap, looping arms around the shoulders and leaning into a deep kiss."
+   }
+  },
+  "pairing_tags": {
+   "female_female": {
+    "base": [
+     "yuri"
+    ]
+   }
+  },
+  "natural_en": "Over-the-shoulder three-quarter full-body view of a lap-straddle kiss: one woman sits beneath supporting the hips while the other straddles high on her lap leaning into a deep kiss.",
+  "prompt_zh": "過肩四分之三全身跨坐深吻：下方坐姿後靠扶胸環腰；上方跨坐大腿雙臂勾頸前傾深吻。"
+ },
+ {
+  "id": "yuri_strapon_cowgirl_straddle_front_low",
+  "category": "05_yuri_cunnilingus",
+  "subcategory": "雙女穿戴式／雙頭道具與體位變體",
+  "title_zh": "仰躺穿戴式反向騎乘・4:3 高角斜後",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "4:3",
+  "default_facing": "three_quarter_right",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from above",
+   "three-quarter view"
+  ],
+  "shared_pose_tags": [
+   "reverse cowgirl position",
+   "sex"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（右上反向跨坐拱背回眸）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.56,
+     "y": 0.4
+    },
+    "tags": [
+     "straddling",
+     "sitting",
+     "arched back",
+     "hands on another's thighs",
+     "looking back"
+    ],
+    "natural_en": "Straddling in reverse facing away toward the upper right, palms braced on the lying partner's thighs with spine deeply arched while glancing back over the shoulder."
+   },
+   "giver": {
+    "label_zh": "施與方（左下仰躺佩戴穿戴式扶胯）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.42,
+     "y": 0.66
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "hands on another's hips",
+     "looking up"
+    ],
+    "natural_en": "Lying supine along the lower left diagonal wearing a strap-on, gripping the straddling partner's hips while looking up."
+   }
+  },
+  "pairing_tags": {
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   }
+  },
+  "natural_en": "Horizontal high-angle three-quarter rear full-body view of reverse cowgirl strap-on sex: the giver lies supine on the lower left gripping the hips while the receiver straddles facing away on the upper right, arching her back and looking back.",
+  "prompt_zh": "4:3 高角斜後四分之三穿戴式反騎：施與方居左下仰躺佩戴穿戴式扶胯；承受方居右上背向跨坐、撐住對方大腿並塌腰回眸。"
+ },
+ {
+  "id": "yuri_double_dildo_reclining_overhead",
+  "category": "05_yuri_cunnilingus",
+  "subcategory": "雙女穿戴式／雙頭道具與體位變體",
+  "title_zh": "相對開腿雙頭道具・16:9 正上方俯視",
+  "pattern": "organ_bound",
+  "default_canvas": "16:9",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from above"
+  ],
+  "shared_pose_tags": [
+   "double dildo",
+   "dildo",
+   "sex"
+  ],
+  "slots": {
+   "partner_a": {
+    "label_zh": "左方（仰臥屈膝開腿面向右側）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.32,
+     "y": 0.52
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs",
+     "knees up",
+     "arched back",
+     "looking at another"
+    ],
+    "natural_en": "Reclining supine on the left half of the widescreen canvas with knees bent wide toward the center."
+   },
+   "partner_b": {
+    "label_zh": "右方（仰臥屈膝開腿面向左側）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.68,
+     "y": 0.52
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs",
+     "knees up",
+     "arched back",
+     "looking at another"
+    ],
+    "natural_en": "Reclining supine symmetrically on the right half facing the partner, knees open toward the shared center point."
+   }
+  },
+  "pairing_tags": {
+   "female_female": {
+    "base": [
+     "yuri",
+     "double dildo",
+     "sex"
+    ]
+   }
+  },
+  "natural_en": "Widescreen top-down full-body view of symmetrical reclining double-dildo intimacy: two women lie opposite each other across the horizontal canvas with knees raised wide toward the center.",
+  "prompt_zh": "16:9 寬畫幅正上方俯視對稱構圖：雙女分躺畫面左右兩端、屈膝開腿朝向中央共用雙頭道具，形成鏡像平衡輪廓。"
+ },
+ {
+  "id": "yuri_strapon_standing_wall_rear_three_quarter",
+  "category": "05_yuri_cunnilingus",
+  "subcategory": "雙女穿戴式／雙頭道具與體位變體",
+  "title_zh": "站姿撐牆穿戴式後入・斜後四分之三",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "three_quarter_left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "three-quarter view"
+  ],
+  "shared_pose_tags": [
+   "sex from behind",
+   "against wall",
+   "standing"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（前方站立雙手撐牆塌腰）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.42,
+     "y": 0.5
+    },
+    "tags": [
+     "standing",
+     "against wall",
+     "hand on wall",
+     "bent over",
+     "arched back",
+     "looking back"
+    ],
+    "natural_en": "Standing angled toward the left bracing both palms against the wall, spine deeply arched while turning to look back."
+   },
+   "giver": {
+    "label_zh": "施與方（右後站姿緊貼扶腰）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.58,
+     "y": 0.48
+    },
+    "tags": [
+     "standing",
+     "leaning forward",
+     "hands on another's hips",
+     "looking down"
+    ],
+    "natural_en": "Standing closely behind on the right wearing a strap-on, holding both hips firmly in three-quarter rear perspective."
+   }
+  },
+  "pairing_tags": {
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   }
+  },
+  "natural_en": "Three-quarter rear full-body view of standing strap-on sex against a wall: the receiver braces both palms on the wall arching her back and looking back while the giver stands tightly behind gripping her hips.",
+  "prompt_zh": "斜後四分之三站姿撐牆穿戴式後入：承受方居左雙掌撐牆、塌腰挺臀回眸；施與方居右後站立緊貼扶胯。"
  }
 ]
