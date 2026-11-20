@@ -91,7 +91,7 @@
   "subcategory": "貼玻璃／鏡面壓制",
   "title_zh": "鏡面跪姿倒影特寫・正面近景",
   "pattern": "geometry_dispatch",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -185,7 +185,7 @@
   "subcategory": "書桌與餐桌",
   "title_zh": "仰躺桌緣・側面全身",
   "pattern": "geometry_dispatch",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -281,7 +281,7 @@
   "subcategory": "椅子與沙發",
   "title_zh": "沙發側臥・側面全身",
   "pattern": "geometry_dispatch",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -379,7 +379,7 @@
   "subcategory": "牆面壓制與立姿",
   "title_zh": "壁咚近距・正面近景",
   "pattern": "geometry_dispatch",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "front",
   "mirrorable": true,
   "camera_tags": [
@@ -471,7 +471,7 @@
   "subcategory": "牆面壓制與立姿",
   "title_zh": "背後貼牆抱起・側面全身",
   "pattern": "geometry_dispatch",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -564,7 +564,7 @@
   "subcategory": "椅子與沙發",
   "title_zh": "沙發仰躺壓制・側面全身",
   "pattern": "geometry_dispatch",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -661,7 +661,7 @@
   "subcategory": "書桌與餐桌",
   "title_zh": "坐桌抬腿・側面全身",
   "pattern": "geometry_dispatch",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -757,7 +757,7 @@
   "subcategory": "貼玻璃／鏡面壓制",
   "title_zh": "側面壓牆角面對面・側面全身",
   "pattern": "geometry_dispatch",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -851,7 +851,7 @@
   "subcategory": "貼玻璃／鏡面壓制",
   "title_zh": "背面貼玻璃後入・側面全身",
   "pattern": "geometry_dispatch",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -946,7 +946,7 @@
   "subcategory": "椅子與沙發",
   "title_zh": "正向跨坐椅子・正面全身",
   "pattern": "geometry_dispatch",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "front",
   "mirrorable": true,
   "camera_tags": [
@@ -1041,7 +1041,7 @@
   "subcategory": "椅子與沙發",
   "title_zh": "靠背扶腰後入・側面全身",
   "pattern": "geometry_dispatch",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -1137,7 +1137,7 @@
   "subcategory": "牆面壓制與立姿",
   "title_zh": "抬單腿壁壓・側面全身",
   "pattern": "geometry_dispatch",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -1232,7 +1232,7 @@
   "subcategory": "椅子與沙發",
   "title_zh": "反向跨坐椅子・側面全身",
   "pattern": "geometry_dispatch",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -1328,7 +1328,7 @@
   "subcategory": "牆面壓制與立姿",
   "title_zh": "雙手撐牆後入・側面全身",
   "pattern": "geometry_dispatch",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -1424,7 +1424,7 @@
   "subcategory": "貼玻璃／鏡面壓制",
   "title_zh": "正面按胸貼玻璃・正面全身",
   "pattern": "geometry_dispatch",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "front",
   "mirrorable": true,
   "camera_tags": [
@@ -1515,7 +1515,7 @@
   "subcategory": "椅子與沙發",
   "title_zh": "沙發跪姿侍奉・側面全身",
   "pattern": "organ_bound",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -1587,7 +1587,7 @@
   "subcategory": "書桌與餐桌",
   "title_zh": "桌前侍奉・正面全身",
   "pattern": "organ_bound",
-  "default_canvas": 184,
+  "default_canvas": "3:4",
   "default_facing": "front",
   "mirrorable": true,
   "camera_tags": [
