@@ -2,7 +2,7 @@
  {
   "id": "size_diff_suspended_lift_side",
   "category": "14_domination_size_diff",
-  "subcategory": "體型差",
+  "subcategory": "顯著體型與身高差",
   "title_zh": "顯著體型差・懸空抱起・側面",
   "pattern": "geometry_dispatch",
   "default_canvas": "3:4",
@@ -1067,5 +1067,301 @@
   },
   "natural_en": "Overhead full-body view of dominant facesitting: the top partner crouches astride over the lying partner's face looking straight down.",
   "prompt_zh": "高角度俯視蹲姿坐臉：主導方以蹲姿跨於對方臉部上方拱背俯視，與側面坐姿 R022 形成不同骨架。"
+ },
+ {
+  "id": "femdom_throne_foot_worship_low",
+  "category": "14_domination_size_diff",
+  "subcategory": "女方上位主導",
+  "title_zh": "高座賜足崇拜・正面低角仰視",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view",
+   "from below"
+  ],
+  "shared_pose_tags": [
+   "femdom",
+   "foot worship",
+   "soles",
+   "sitting"
+  ],
+  "slots": {
+   "dominant": {
+    "label_zh": "主導方（上方高座翹腿伸足俯視）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.36
+    },
+    "tags": [
+     "sitting",
+     "on chair",
+     "crossed legs",
+     "barefoot",
+     "soles",
+     "looking down"
+    ],
+    "natural_en": "Seated high on an armchair or throne in upper center with legs crossed, extending one bare foot downward while looking down with cool authority."
+   },
+   "submissive": {
+    "label_zh": "臣服方（下方低跪捧足親吻）",
+    "requires": "any",
+    "center": {
+     "x": 0.5,
+     "y": 0.74
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "looking up"
+    ],
+    "natural_en": "Kneeling low on the floor at bottom center cradling the dominant's extended foot with both hands and pressing lips toward the toes."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ]
+   }
+  },
+  "natural_en": "Low-angle front full-body view of throne foot worship: the dominant woman sits elevated on a chair in upper center extending a bare foot downward while the submissive kneels low at the floor worshipping the foot.",
+  "prompt_zh": "正面低角高座賜足崇拜：主導方居上高坐椅背翹腿伸出赤足冷眼俯視，臣服方居下低跪於地雙手捧足親吻。"
+ },
+ {
+  "id": "femdom_standing_collar_pull_rear_quarter",
+  "category": "14_domination_size_diff",
+  "subcategory": "女方上位主導",
+  "title_zh": "牽繩拉行爬姿・寬景低角斜側",
+  "pattern": "organ_bound",
+  "default_canvas": "16:9",
+  "default_facing": "three_quarter_left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "three-quarter view",
+   "from below"
+  ],
+  "shared_pose_tags": [
+   "femdom",
+   "collar",
+   "leash",
+   "crawling"
+  ],
+  "slots": {
+   "dominant": {
+    "label_zh": "主導方（右側大步站立牽緊項圈繩）",
+    "requires": "female",
+    "center": {
+     "x": 0.68,
+     "y": 0.4
+    },
+    "tags": [
+     "standing",
+     "looking back",
+     "hand on own hip"
+    ],
+    "natural_en": "Standing tall in a commanding stride on the right holding a taut leash pulled backward while glancing down over the shoulder."
+   },
+   "submissive": {
+    "label_zh": "臣服方（左側四肢爬行隨繩仰視）",
+    "requires": "any",
+    "center": {
+     "x": 0.32,
+     "y": 0.66
+    },
+    "tags": [
+     "all fours",
+     "crawling",
+     "collar",
+     "looking up"
+    ],
+    "natural_en": "Crawling on all fours on the left wearing a collar pulled taut by the leash, head tilted upward following the dominant."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ]
+   }
+  },
+  "natural_en": "Wide 16:9 low-angle three-quarter view of dominant leash-leading: the standing dominant strides tall on the right pulling a taut leash while the collared submissive crawls on all fours along the left.",
+  "prompt_zh": "寬景低角牽繩拉行（16:9）：主導方居右昂然站立牽緊拉繩回眸俯視，臣服方居左戴著項圈四肢著地匍匐跟隨。"
+ },
+ {
+  "id": "femdom_face_slap_chin_lift_dutch",
+  "category": "14_domination_size_diff",
+  "subcategory": "女方上位主導",
+  "title_zh": "挑顎俯視震懾・荷蘭角仰拍",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "three_quarter_right",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "dutch angle",
+   "from below",
+   "three-quarter view"
+  ],
+  "shared_pose_tags": [
+   "femdom",
+   "grabbing another's chin",
+   "height difference"
+  ],
+  "slots": {
+   "dominant": {
+    "label_zh": "主導方（右上俯身單手挑起對方下巴）",
+    "requires": "female",
+    "center": {
+     "x": 0.58,
+     "y": 0.38
+    },
+    "tags": [
+     "standing",
+     "leaning forward",
+     "looking down"
+    ],
+    "natural_en": "Standing tall at upper right leaning down with one hand lifting the kneeling submissive's chin firmly to force eye contact."
+   },
+   "submissive": {
+    "label_zh": "臣服方（左下跪姿被挑顎仰視）",
+    "requires": "any",
+    "center": {
+     "x": 0.4,
+     "y": 0.68
+    },
+    "tags": [
+     "kneeling",
+     "arms behind back",
+     "looking up"
+    ],
+    "natural_en": "Kneeling upright at lower left with hands tucked behind the back and chin lifted upward under the dominant's fingers."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ]
+   }
+  },
+  "natural_en": "Tilted dutch-angle low view of dominant chin-lift intimidation: the standing dominant looms at upper right lifting the kneeling submissive's chin from below to command eye contact.",
+  "prompt_zh": "荷蘭角仰拍挑顎震懾：傾斜低角強化權力反差，主導方居右上俯身單手挑起對方下巴冷峻下視，臣服方居左下背手跪立被迫仰視。"
+ },
+ {
+  "id": "size_diff_full_nelson_carry_front",
+  "category": "14_domination_size_diff",
+  "subcategory": "顯著體型與身高差",
+  "title_zh": "體型差全鎖抱舉 full nelson・正面低角",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view",
+   "from below"
+  ],
+  "shared_pose_tags": [
+   "size difference",
+   "height difference",
+   "full nelson",
+   "suspended congress",
+   "sex from behind"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（前景矮小被完全懸空折舉張腿）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.5,
+     "y": 0.56
+    },
+    "tags": [
+     "spread legs",
+     "legs up",
+     "knees up",
+     "head down"
+    ],
+    "natural_en": "Much smaller and held entirely suspended facing the camera with knees hooked high over the giant partner's forearms and head pushed forward."
+   },
+   "giver": {
+    "label_zh": "施與方（後方高大站立穿膝扣頸全鎖）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.5,
+     "y": 0.36
+    },
+    "tags": [
+     "standing",
+     "full nelson",
+     "looking down"
+    ],
+    "natural_en": "Towering massively behind the smaller partner, threading huge arms under the receiver's bent thighs to clasp behind the neck in a complete full-nelson hold."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Low-angle front full-body view of a size-difference full-nelson carry: the towering giver stands behind threading huge arms under the much smaller receiver's knees and clasping behind the neck, suspending her open toward the camera.",
+  "prompt_zh": "正面低角體型差全鎖抱舉：高大施與方居後站立，雙臂穿過矮小承受方膝彎並扣鎖於其頸後，將承受方完全懸空大開雙腿朝向鏡頭。"
  }
 ]

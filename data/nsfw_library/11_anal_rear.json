@@ -2,7 +2,7 @@
  {
   "id": "anal_rear_allfours_side",
   "category": "11_anal_rear",
-  "subcategory": "後入四肢",
+  "subcategory": "後入四肢與俯趴",
   "title_zh": "四肢著地後庭後入・側面扶腿",
   "pattern": "geometry_dispatch",
   "default_canvas": "3:4",
@@ -71,7 +71,7 @@
  {
   "id": "anal_rear_bed_edge_prone_side",
   "category": "11_anal_rear",
-  "subcategory": "後入四肢與俯趴（機位側面）",
+  "subcategory": "後入四肢與俯趴",
   "title_zh": "床緣趴伏後庭・側面",
   "pattern": "geometry_dispatch",
   "default_canvas": "3:4",
@@ -332,7 +332,7 @@
  {
   "id": "anal_rear_allfours_arm_pull_side",
   "category": "11_anal_rear",
-  "subcategory": "後入四肢與俯趴（機位側面）",
+  "subcategory": "後入四肢與俯趴",
   "title_zh": "四肢著地拉臂後庭・側面",
   "pattern": "geometry_dispatch",
   "default_canvas": "3:4",
@@ -1070,7 +1070,7 @@
  {
   "id": "anal_rear_prone_side",
   "category": "11_anal_rear",
-  "subcategory": "後入四肢與俯趴（機位側面）",
+  "subcategory": "後入四肢與俯趴",
   "title_zh": "俯趴後庭後入・側面",
   "pattern": "geometry_dispatch",
   "default_canvas": "3:4",
@@ -1255,5 +1255,508 @@
   },
   "natural_en": "Full-body side view of folded anal missionary: the receiver lies on the back on the left folded in half with knees pressed to the chest, while the giver kneels on the right pressing down over the folded legs.",
   "prompt_zh": "側面全身折疊壓制後庭：承受方居左仰躺對折、雙膝壓向胸口張開；施與方居右跪姿俯壓在折疊的雙腿上，雙手扶住大腿後入。"
+ },
+ {
+  "id": "anal_mating_press_overhead_front",
+  "category": "11_anal_rear",
+  "subcategory": "仰躺抬腿與折疊壓制",
+  "title_zh": "仰躺提踝折疊壓制後庭・橫構圖斜側俯視",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "4:3",
+  "default_facing": "three_quarter_left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from above",
+   "three-quarter view"
+  ],
+  "shared_pose_tags": [
+   "anal",
+   "mating press",
+   "folded",
+   "legs up",
+   "sex"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左下仰躺雙踝被高提張開、雙臂舉向枕側）",
+    "requires": "any",
+    "center": {
+     "x": 0.4,
+     "y": 0.64
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "legs up",
+     "spread legs",
+     "arms up",
+     "head back"
+    ],
+    "natural_en": "Lying folded on the back along the lower-left diagonal with ankles lifted high and spread wide apart, arms flung above the head on the mattress."
+   },
+   "giver": {
+    "label_zh": "施與方（右上跪立握踝深壓後庭）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.62,
+     "y": 0.38
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "holding another's legs",
+     "looking down"
+    ],
+    "natural_en": "Kneeling high at upper right gripping both raised ankles to pull the receiver's hips up into a deep folded anal angle."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "anal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi",
+     "anal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "anal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "anal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "anal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Horizontal high-angle three-quarter overhead view of folded anal mating press: the receiver lies along lower left with arms flung up and ankles lifted wide apart, while the giver kneels high at upper right gripping both ankles.",
+  "prompt_zh": "橫構圖高角斜側提踝折疊後庭（4:3）：承受方居左下仰躺、雙臂攤向頭側、雙腿被高高提起大開；施與方居右上跪立緊握雙踝深壓後庭。"
+ },
+ {
+  "id": "anal_piledriver_inverted_front",
+  "category": "11_anal_rear",
+  "subcategory": "仰躺抬腿與折疊壓制",
+  "title_zh": "倒立撐地折疊後庭・方構圖高角斜側透視",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "1:1",
+  "default_facing": "three_quarter_left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from above",
+   "three-quarter view",
+   "foreshortening"
+  ],
+  "shared_pose_tags": [
+   "anal",
+   "piledriver (sex)",
+   "folded",
+   "sex"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左下肩背倒立、雙掌撐地穩住腰臀）",
+    "requires": "any",
+    "center": {
+     "x": 0.4,
+     "y": 0.66
+    },
+    "tags": [
+     "shoulder stand",
+     "upside-down",
+     "legs up",
+     "hand on ground",
+     "arched back"
+    ],
+    "natural_en": "Balanced inverted on neck and shoulders at lower left with palms braced flat on the floor behind the head for leverage and legs hooked over the partner's shoulders."
+   },
+   "giver": {
+    "label_zh": "施與方（右上屈蹲扶胯垂直深壓）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.62,
+     "y": 0.34
+    },
+    "tags": [
+     "squatting",
+     "leaning forward",
+     "hands on another's hips",
+     "looking down"
+    ],
+    "natural_en": "Crouching steeply at upper right in foreshortened overhead perspective, gripping the inverted hips and driving straight down anally."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "anal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi",
+     "anal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "anal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "anal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "anal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Square foreshortened high-angle three-quarter view of an anal piledriver: the receiver balances inverted at lower left with palms braced on the floor and legs hooked over the giver's shoulders, while the giver crouches steeply from upper right.",
+  "prompt_zh": "方構圖高角斜側透視倒立後庭（1:1）：以強烈俯視透視呈現對角張力，承受方居左下肩背倒立、雙掌撐地穩身並將雙腿搭上對方肩頭；施與方居右上屈蹲扣胯垂直壓入。"
+ },
+ {
+  "id": "anal_cowgirl_reverse_low_three_quarter",
+  "category": "11_anal_rear",
+  "subcategory": "騎乘與反向騎乘",
+  "title_zh": "反向騎乘後庭・低角斜側回眸",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "three_quarter_right",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "three-quarter view",
+   "from below"
+  ],
+  "shared_pose_tags": [
+   "anal",
+   "reverse cowgirl position",
+   "cowgirl position",
+   "sex"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（右上反向跨坐前撐回眸）",
+    "requires": "any",
+    "center": {
+     "x": 0.54,
+     "y": 0.38
+    },
+    "tags": [
+     "sitting",
+     "straddling",
+     "arched back",
+     "spread legs",
+     "looking back"
+    ],
+    "natural_en": "Straddling facing away at upper right in a low three-quarter view, back deeply arched with hands braced on the partner's thighs and glancing back."
+   },
+   "giver": {
+    "label_zh": "施與方（左下仰躺扶腰仰望）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.44,
+     "y": 0.68
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "hands on another's hips",
+     "looking up"
+    ],
+    "natural_en": "Lying on the back below toward lower left gripping the rider's hips and watching the arched spine above."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "anal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi",
+     "anal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "anal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "anal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "anal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Low-angle three-quarter full-body view of reverse anal cowgirl: the rider straddles facing away toward upper right with an arched back and over-shoulder gaze, while the giver lies below at lower left gripping the hips.",
+  "prompt_zh": "低角斜側反向騎乘後庭：由床側低機位仰拍，承受方居右上背向跨坐、塌腰前撐並回頭望向施與方，施與方居左下仰躺扶胯。"
+ },
+ {
+  "id": "anal_standing_carry_back_to_chest_front",
+  "category": "11_anal_rear",
+  "subcategory": "站立與側臥",
+  "title_zh": "背後懸空抵牆抱起後庭・斜側荷蘭角",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "three_quarter_right",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "three-quarter view",
+   "dutch angle",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "anal",
+   "standing sex",
+   "suspended congress",
+   "sex from behind",
+   "against wall"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（右側被托離地、一手撐牆一手回勾頸部）",
+    "requires": "any",
+    "center": {
+     "x": 0.58,
+     "y": 0.52
+    },
+    "tags": [
+     "against wall",
+     "spread legs",
+     "legs up",
+     "arm around neck",
+     "looking back"
+    ],
+    "natural_en": "Suspended off the ground at right with legs hoisted wide, one hand bracing against the nearby wall and the other arm reaching back around the partner's neck while glancing back."
+   },
+   "giver": {
+    "label_zh": "施與方（左側斜向站立穿膝托舉後入）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.4,
+     "y": 0.42
+    },
+    "tags": [
+     "standing",
+     "leg hold",
+     "leaning forward",
+     "looking down"
+    ],
+    "natural_en": "Standing angled on the left hooking forearms beneath the receiver's bent thighs, pressing forward into rear anal entry in a tilted three-quarter frame."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "anal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi",
+     "anal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "anal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "anal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "anal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Tilted dutch-angle three-quarter view of wall-braced rear suspended anal carry: the giver stands on the left hoisting the receiver's bent thighs aloft while the receiver hangs at right bracing one hand on the wall and hooking the other behind the giver's neck.",
+  "prompt_zh": "斜側荷蘭角背後懸空抵牆後庭：傾斜構圖強化懸空感，施與方居左站立穿過膝彎托舉前壓，承受方居右完全離地大開雙腿、一手撐牆一手回勾對方頸部並回眸。"
+ },
+ {
+  "id": "anal_toy_dilation_rear_quarter",
+  "category": "11_anal_rear",
+  "subcategory": "後庭指交／道具擴張與雙重插入",
+  "title_zh": "後庭道具擴張・四肢著地後斜側",
+  "pattern": "organ_bound",
+  "default_canvas": "4:3",
+  "default_facing": "three_quarter_left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "three-quarter view"
+  ],
+  "shared_pose_tags": [
+   "anal",
+   "anal object insertion",
+   "sex toy",
+   "ass focus"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側四肢著地翹臀回眸）",
+    "requires": "any",
+    "center": {
+     "x": 0.38,
+     "y": 0.6
+    },
+    "tags": [
+     "all fours",
+     "arched back",
+     "ass up",
+     "spread legs",
+     "looking back"
+    ],
+    "natural_en": "On all fours at lower left with hips raised high and back arched, looking back nervously while the partner guides an anal toy."
+   },
+   "giver": {
+    "label_zh": "施與方（右側跪姿手持道具擴張）",
+    "requires": "any",
+    "center": {
+     "x": 0.66,
+     "y": 0.48
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "holding object",
+     "looking down"
+    ],
+    "natural_en": "Kneeling behind at right leaning closely over the raised hips, one hand steadying the cheek while the other slowly inserts an anal toy."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "anal",
+     "anal object insertion"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi",
+     "anal",
+     "anal object insertion"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "anal",
+     "anal object insertion"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "anal",
+     "anal object insertion"
+    ]
+   }
+  },
+  "natural_en": "Horizontal rear three-quarter full-body view of anal toy dilation: the receiver stays on all fours at lower left with hips elevated and looks back while the giver kneels behind at right guiding an anal toy.",
+  "prompt_zh": "橫構圖後斜側後庭道具擴張：承受方居左下四肢著地高翹臀部並回頭；施與方居右跪於身後前傾，一手扶臀一手持道具緩慢擴張。"
  }
 ]

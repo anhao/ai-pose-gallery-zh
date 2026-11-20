@@ -3054,5 +3054,1953 @@
   },
   "natural_en": "Full-body side view of a reverse upright straddle: the giver kneels upright on the right with a straight torso, while the receiver sits on the left with the back turned, straddling the giver's legs and leaning forward with hands braced on the own knees.",
   "prompt_zh": "側面全身反向直立跨坐：施與方居右跪立、上身直立；承受方居左背對施與方跨坐在其腿上，上身前傾、雙手撐在自己膝上。"
+ },
+ {
+  "id": "pos_doggy_front_low_looking_back",
+  "category": "04_main_positions",
+  "subcategory": "後背位",
+  "title_zh": "前臂撐地後背位・正面低角直視",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "4:3",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view",
+   "from below"
+  ],
+  "shared_pose_tags": [
+   "doggystyle",
+   "sex from behind"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（前景前臂撐地面向鏡頭）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.46,
+     "y": 0.62
+    },
+    "tags": [
+     "all fours",
+     "arched back",
+     "looking at viewer",
+     "spread legs"
+    ],
+    "natural_en": "Resting low on elbows and knees in the foreground facing toward the camera, shoulders dropped and hips lifted high behind, staring toward the lens."
+   },
+   "giver": {
+    "label_zh": "施與方（後方高位跪姿扶腰）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.56,
+     "y": 0.38
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "hands on another's hips",
+     "looking down"
+    ],
+    "natural_en": "Kneeling behind the receiver in the upper background towering over the arched back, gripping the waist and leaning forward."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Low-angle front full-body view of doggystyle: the receiver rests on forearms in the foreground facing toward the viewer while the giver looms higher behind gripping the raised hips.",
+  "prompt_zh": "正面低角全身後背位：承受方居前景以前臂撐地、低胸挺臀直視鏡頭；施與方居後方高位跪姿扶腰，形成強烈前後景深壓迫。"
+ },
+ {
+  "id": "pos_doggy_hair_pull_dutch_three_quarter",
+  "category": "04_main_positions",
+  "subcategory": "後背位",
+  "title_zh": "拉髮提腰後背位・斜側荷蘭角",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "three_quarter_left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "three-quarter view",
+   "dutch angle"
+  ],
+  "shared_pose_tags": [
+   "doggystyle",
+   "sex from behind",
+   "grabbing another's hair"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左下跪姿被拉髮抬首）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.38,
+     "y": 0.62
+    },
+    "tags": [
+     "all fours",
+     "arched back",
+     "head back",
+     "open mouth"
+    ],
+    "natural_en": "On all fours at lower left with one hand braced on the floor while head and chest are pulled upward by the hair, back sharply arched."
+   },
+   "giver": {
+    "label_zh": "施與方（右上跪立拉髮扶胯）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.64,
+     "y": 0.4
+    },
+    "tags": [
+     "kneeling",
+     "grabbing another's hair",
+     "hand on another's hip",
+     "looking down"
+    ],
+    "natural_en": "Kneeling upright behind at upper right, one hand pulling the receiver's hair back and the other gripping the hip while looking down."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Tilted dutch-angle three-quarter full-body view of doggystyle with hair pulling: the giver kneels tall at upper right pulling the receiver's hair upward while the receiver arches dramatically on all fours at lower left.",
+  "prompt_zh": "斜側荷蘭角全身拉髮後背位：畫面微傾，施與方居右上挺身跪立、一手抓髮拉高對方上身一手扶胯；承受方居左下四肢著地大幅反弓仰頭。"
+ },
+ {
+  "id": "pos_doggy_desk_bent_over_rear_quarter",
+  "category": "04_main_positions",
+  "subcategory": "後背位",
+  "title_zh": "伏桌前彎後背位・後斜側橫構圖",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "4:3",
+  "default_facing": "three_quarter_left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "three-quarter view"
+  ],
+  "shared_pose_tags": [
+   "doggystyle",
+   "sex from behind",
+   "standing sex",
+   "bent over"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側雙手撐桌前彎）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.38,
+     "y": 0.56
+    },
+    "tags": [
+     "standing",
+     "bent over",
+     "arched back",
+     "ass up",
+     "looking back"
+    ],
+    "natural_en": "Standing bent ninety degrees over a desk edge at left, palms flat on the tabletop and hips thrust back, turning head to glance back."
+   },
+   "giver": {
+    "label_zh": "施與方（右側站立扶胯進入）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.66,
+     "y": 0.46
+    },
+    "tags": [
+     "standing",
+     "leaning forward",
+     "hands on another's hips",
+     "looking down"
+    ],
+    "natural_en": "Standing tightly behind the receiver at right, leaning over the arched back and gripping both hips."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Horizontal rear three-quarter full-body view of standing doggystyle over a desk: the receiver bends flat over the table edge on the left with palms braced and hips thrust back, while the giver stands behind on the right gripping the hips.",
+  "prompt_zh": "橫構圖後斜側伏桌後背位：承受方居左俯身前彎貼在桌緣、雙掌撐桌翹臀回頭；施與方居右站立身後前傾扶胯。"
+ },
+ {
+  "id": "pos_doggy_knees_together_face_down_overhead",
+  "category": "04_main_positions",
+  "subcategory": "後背位",
+  "title_zh": "伏胸高臀後背位・高角斜側",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "4:3",
+  "default_facing": "three_quarter_right",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from above",
+   "three-quarter view"
+  ],
+  "shared_pose_tags": [
+   "doggystyle",
+   "sex from behind",
+   "top-down bottom-up"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（右下伏胸枕面、高翹臀部）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.6,
+     "y": 0.58
+    },
+    "tags": [
+     "top-down bottom-up",
+     "arched back",
+     "ass up",
+     "kneeling",
+     "face down"
+    ],
+    "natural_en": "Chest and cheek pressed flat against the bed on the right while hips peak steeply upward with knees tucked underneath."
+   },
+   "giver": {
+    "label_zh": "施與方（左上高位跪姿壓腰）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.34,
+     "y": 0.44
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "hands on another's hips",
+     "looking down"
+    ],
+    "natural_en": "Kneeling behind on the upper left, gripping the steeply raised hips and leaning forward over the downward-sloping spine."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "High-angle three-quarter view of face-down, ass-up doggystyle: the receiver presses chest and cheek flat to the mattress on the right with hips peaked sharply upward, while the giver kneels behind on the upper left gripping the raised hips.",
+  "prompt_zh": "高角斜側伏胸高臀後背位：承受方居右下胸臉貼床、雙膝收攏將臀部高高翹起形成陡峭三角；施與方居左上高位跪姿扶胯進入。"
+ },
+ {
+  "id": "pos_missionary_ankles_on_shoulders_front",
+  "category": "04_main_positions",
+  "subcategory": "正常位",
+  "title_zh": "正常位・雙踝搭肩・高角正面",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from above",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "missionary",
+   "sex",
+   "legs up"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（下方仰躺伸直雙腿搭肩）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.5,
+     "y": 0.66
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "legs up",
+     "spread legs",
+     "arched back",
+     "looking up"
+    ],
+    "natural_en": "Lying on the back in the lower frame with both straightened legs lifted high and ankles resting across the partner's shoulders."
+   },
+   "giver": {
+    "label_zh": "施與方（上方挺身跪姿扶小腿）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.5,
+     "y": 0.38
+    },
+    "tags": [
+     "kneeling",
+     "hands on another's legs",
+     "looking down"
+    ],
+    "natural_en": "Kneeling upright above in the upper frame with the receiver's calves resting on both shoulders, gripping the ankles and leaning in."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "High-angle front full-body view of ankles-on-shoulders missionary: the receiver lies below with straight legs lifted high onto the giver's shoulders, while the giver kneels upright above holding the calves.",
+  "prompt_zh": "高角正面雙踝搭肩正常位：承受方居下仰躺、雙腿高舉伸直搭在對方肩頭；施與方居上挺身跪姿扶住小腿下壓。"
+ },
+ {
+  "id": "pos_missionary_embrace_chest_press_wide",
+  "category": "04_main_positions",
+  "subcategory": "正常位",
+  "title_zh": "正常位・緊擁貼胸・寬景俯視",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "16:9",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from above"
+  ],
+  "shared_pose_tags": [
+   "missionary",
+   "sex",
+   "hug",
+   "on bed"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（仰躺伸展緊擁對方）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.44,
+     "y": 0.56
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs",
+     "arms around neck",
+     "hug",
+     "looking at another"
+    ],
+    "natural_en": "Lying stretched horizontally across the bed wrapping both arms around the partner's neck and hooking calves around the partner's thighs."
+   },
+   "giver": {
+    "label_zh": "施與方（覆身緊貼相擁）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.56,
+     "y": 0.46
+    },
+    "tags": [
+     "lying",
+     "on top",
+     "hug",
+     "looking at another"
+    ],
+    "natural_en": "Lying chest-to-chest directly atop the receiver across the wide bed, elbows braced beside the receiver's head in an intimate embrace."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Wide 16:9 overhead full-body view of an intimate chest-to-chest missionary embrace on a bed: both partners lie stretched horizontally entangled arm-in-arm and leg-in-leg.",
+  "prompt_zh": "寬景俯視緊擁正常位：16:9俯拍床面，承受方水平仰躺以雙臂環頸、雙腿勾住對方腰側；施與方覆身胸貼胸緊密相擁。"
+ },
+ {
+  "id": "pos_missionary_over_shoulder_giver",
+  "category": "04_main_positions",
+  "subcategory": "正常位",
+  "title_zh": "正常位・越肩視角俯看",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "three_quarter_left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from above",
+   "three-quarter view"
+  ],
+  "shared_pose_tags": [
+   "missionary",
+   "sex"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（下方仰躺面向施與方）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.44,
+     "y": 0.56
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs",
+     "knees up",
+     "arched back",
+     "looking up"
+    ],
+    "natural_en": "Lying on the back in the center-left lower frame framed past the partner's shoulder, legs spread and knees drawn up, gazing intensely upward."
+   },
+   "giver": {
+    "label_zh": "施與方（右前景背肩俯壓）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.68,
+     "y": 0.4
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "from behind",
+     "looking down"
+    ],
+    "natural_en": "Positioned in the upper-right foreground seen over the shoulder, leaning down over the receiver with hands braced beside the receiver's shoulders."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Over-the-shoulder high-angle full-body view of missionary: framed past the giver's shoulder in the upper-right foreground down onto the receiver lying below with spread legs and upturned gaze.",
+  "prompt_zh": "越肩視角正常位：鏡頭自施與方右上肩後俯看，前景帶出施與方肩背線條，聚焦下方仰躺張腿並仰望的承受方全身。"
+ },
+ {
+  "id": "pos_cowgirl_front_upright_hands_on_chest",
+  "category": "04_main_positions",
+  "subcategory": "騎乘位",
+  "title_zh": "騎乘位・直立撐胸・正面全身",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "cowgirl position",
+   "girl on top",
+   "straddling",
+   "sex"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（上方直立跨坐撐胸）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.5,
+     "y": 0.36
+    },
+    "tags": [
+     "sitting",
+     "straddling",
+     "spread legs",
+     "hands on another's chest",
+     "looking down"
+    ],
+    "natural_en": "Sitting tall and upright astride the lying partner facing straight forward, palms braced on the partner's chest, hips seated deeply."
+   },
+   "giver": {
+    "label_zh": "施與方（下方仰躺雙手扶腰）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.5,
+     "y": 0.68
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "hands on another's hips",
+     "looking up"
+    ],
+    "natural_en": "Lying flat on the back directly below in the lower frame, gripping the rider's hips while looking straight upward."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Straight-on front full-body view of upright cowgirl: the receiver sits tall astride facing the camera with both hands planted on the lying giver's chest, while the giver grips the rider's hips from below.",
+  "prompt_zh": "正面全身直立撐胸騎乘位：承受方居中上方挺直腰背正面跨坐、雙掌撐在對方胸口；施與方居下仰躺雙手扶胯仰望。"
+ },
+ {
+  "id": "pos_cowgirl_reverse_front_facing_camera",
+  "category": "04_main_positions",
+  "subcategory": "騎乘位",
+  "title_zh": "騎乘位・反向背騎面向鏡頭・正面低角",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view",
+   "from below"
+  ],
+  "shared_pose_tags": [
+   "reverse cowgirl position",
+   "cowgirl position",
+   "girl on top",
+   "sex"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（上方背對對方、正面朝向鏡頭）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.5,
+     "y": 0.4
+    },
+    "tags": [
+     "sitting",
+     "straddling",
+     "spread legs",
+     "leaning forward",
+     "looking at viewer"
+    ],
+    "natural_en": "Sitting astride facing toward the camera and toward the partner's feet, knees splayed outside the partner's legs, hands resting on the partner's thighs while gazing at the viewer."
+   },
+   "giver": {
+    "label_zh": "施與方（下方仰躺伸腿朝向鏡頭）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.5,
+     "y": 0.68
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "hands on another's hips",
+     "looking up"
+    ],
+    "natural_en": "Lying on the back behind the rider with legs extending toward the foreground, hands reaching up to grip the rider's waist from behind."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Low-angle front full-body view of reverse cowgirl seen from the foot of the bed: the rider faces directly toward the camera straddling the lying partner's legs, while the partner lies behind gripping the hips.",
+  "prompt_zh": "正面低角反向騎乘（騎乘者面向鏡頭）：機位設於床尾低角，承受方背對伴侶而正面朝向鏡頭跨坐前傾、雙手撐於對方大腿；施與方仰躺於後扶腰。"
+ },
+ {
+  "id": "pos_cowgirl_reverse_overhead",
+  "category": "04_main_positions",
+  "subcategory": "騎乘位",
+  "title_zh": "騎乘位・反向背騎・正上方俯視",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "1:1",
+  "default_facing": "back",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from above"
+  ],
+  "shared_pose_tags": [
+   "reverse cowgirl position",
+   "cowgirl position",
+   "girl on top",
+   "sex"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（上方反向跨坐前傾）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.5,
+     "y": 0.44
+    },
+    "tags": [
+     "sitting",
+     "straddling",
+     "spread legs",
+     "arched back",
+     "leaning forward"
+    ],
+    "natural_en": "Straddling atop the lying partner facing toward the bottom of the frame, back arched and palms braced on the partner's knees."
+   },
+   "giver": {
+    "label_zh": "施與方（下方仰躺呈縱向展開）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.5,
+     "y": 0.6
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "hands on another's hips",
+     "looking up"
+    ],
+    "natural_en": "Lying flat on the back underneath along the vertical centerline, head near the top and hands gripping the rider's hips."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Square overhead full-body view of reverse cowgirl: looking straight down as the rider faces the lying partner's feet with knees spread wide, forming a crisp vertical X-shaped silhouette.",
+  "prompt_zh": "正上方俯視反向騎乘（1:1方構圖）：自頂部垂直俯拍，承受方背對伴侶頭端跨坐前傾、雙膝大開，與仰躺的施與方交織出鮮明交叉幾何。"
+ },
+ {
+  "id": "pos_cowgirl_chair_straddle_front",
+  "category": "04_main_positions",
+  "subcategory": "騎乘位",
+  "title_zh": "椅上跨坐騎乘・正面仰角",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view",
+   "from below"
+  ],
+  "shared_pose_tags": [
+   "cowgirl position",
+   "sitting",
+   "straddling",
+   "sex"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（面對面跨坐於椅上對方腿間）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.5,
+     "y": 0.44
+    },
+    "tags": [
+     "sitting",
+     "straddling",
+     "spread legs",
+     "arms around neck",
+     "arched back"
+    ],
+    "natural_en": "Straddling face-to-face atop the partner seated in a chair, knees hooking over the chair seat and arms wrapped tightly around the partner's neck."
+   },
+   "giver": {
+    "label_zh": "施與方（坐於椅上環抱托臀）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.5,
+     "y": 0.56
+    },
+    "tags": [
+     "sitting",
+     "on chair",
+     "hand on another's ass",
+     "looking up"
+    ],
+    "natural_en": "Seated upright in a sturdy chair with feet planted on the floor, cradling the straddling partner's hips and buttocks."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Low-angle front full-body view of chair straddling: the giver sits upright in a chair while the receiver straddles face-to-face on the lap with arms around the neck and back arched.",
+  "prompt_zh": "正面仰角椅上跨坐騎乘：施與方正坐於椅上雙腳踩地並托住對方臀部；承受方正面跨坐懷中雙臂環頸、微拱腰背。"
+ },
+ {
+  "id": "pos_ekiben_back_to_chest_front",
+  "category": "04_main_positions",
+  "subcategory": "立位與抱起",
+  "title_zh": "背後懸空抱起（背後火車便當）・正面張腿",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view",
+   "from below"
+  ],
+  "shared_pose_tags": [
+   "standing sex",
+   "reverse suspended congress",
+   "sex from behind",
+   "leg hold"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（前景背貼對方胸膛、懸空大開雙腿）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.5,
+     "y": 0.54
+    },
+    "tags": [
+     "spread legs",
+     "legs up",
+     "knees up",
+     "arched back",
+     "head back"
+    ],
+    "natural_en": "Suspended completely off the floor with back pressed against the standing partner's chest, facing the camera with both bent legs hoisted wide open."
+   },
+   "giver": {
+    "label_zh": "施與方（後方站立雙臂穿膝彎托起）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.5,
+     "y": 0.38
+    },
+    "tags": [
+     "standing",
+     "leg hold",
+     "looking down"
+    ],
+    "natural_en": "Standing tall directly behind the receiver, hooking both arms beneath the receiver's bent thighs to hold the legs spread wide toward the front."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Low-angle front full-body view of back-to-chest suspended carry: the giver stands tall behind hooking arms beneath the receiver's knees so the receiver hangs facing the camera with legs hoisted wide apart.",
+  "prompt_zh": "正面低角背後懸空抱起：施與方居後站立、雙臂穿過對方膝彎將承受方完全托離地面；承受方背貼對方胸口、面向鏡頭大幅張開雙腿並後仰頭頸。"
+ },
+ {
+  "id": "pos_standing_wall_pin_one_leg_front_quarter",
+  "category": "04_main_positions",
+  "subcategory": "立位與抱起",
+  "title_zh": "壁咚立位單腿高抬・斜側仰角",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "three_quarter_right",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "three-quarter view",
+   "from below"
+  ],
+  "shared_pose_tags": [
+   "standing sex",
+   "against wall",
+   "leg up",
+   "sex"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（右側背抵牆面單腿勾腰）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.62,
+     "y": 0.48
+    },
+    "tags": [
+     "standing",
+     "against wall",
+     "leg up",
+     "arms around neck",
+     "looking at another"
+    ],
+    "natural_en": "Pressed with back flat against a wall on the right, standing on one tiptoe while the other leg is lifted high around the partner's waist."
+   },
+   "giver": {
+    "label_zh": "施與方（左側貼近壓牆托腿）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.38,
+     "y": 0.52
+    },
+    "tags": [
+     "standing",
+     "leaning forward",
+     "leg hold",
+     "looking at another"
+    ],
+    "natural_en": "Standing close on the left pinning the receiver to the wall, one hand braced against the wall beside the receiver's head and the other lifting the raised thigh."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Low-angle three-quarter full-body view of wall-pinned standing sex: the receiver is pressed against the wall on the right with one leg hoisted high around the giver's waist, while the giver pins close from the left.",
+  "prompt_zh": "斜側仰角壁咚立位單腿高抬：承受方居右背貼牆面踮腳站立、一腿高勾於對方腰側並環頸；施與方居左貼近，一手撐牆一手托起大腿。"
+ },
+ {
+  "id": "pos_standing_split_lift_dutch",
+  "category": "04_main_positions",
+  "subcategory": "立位與抱起",
+  "title_zh": "站立一字馬高抬腿・荷蘭角正面",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view",
+   "dutch angle"
+  ],
+  "shared_pose_tags": [
+   "standing sex",
+   "standing split",
+   "leg up",
+   "sex"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側單腳支撐垂直劈腿）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.42,
+     "y": 0.52
+    },
+    "tags": [
+     "standing",
+     "standing split",
+     "leg up",
+     "arched back",
+     "looking at another"
+    ],
+    "natural_en": "Standing on one straight leg at left while the other leg is hoisted vertically beside the partner's head in an athletic standing split."
+   },
+   "giver": {
+    "label_zh": "施與方（右側站立托舉高抬腿）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.58,
+     "y": 0.48
+    },
+    "tags": [
+     "standing",
+     "holding another",
+     "looking at another"
+    ],
+    "natural_en": "Standing close on the right gripping the receiver's vertically raised ankle with one hand and steadying the waist with the other."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Dutch-angle front full-body view of standing split sex: the receiver balances on one leg on the left with the other leg raised straight up vertically, held by the standing giver on the right.",
+  "prompt_zh": "荷蘭角正面站立一字馬立位：承受方居左單腳支撐、另一腿筆直高舉至對方肩頭形成垂直劈腿線條；施與方居右扶踝穩腰貼近。"
+ },
+ {
+  "id": "pos_seated_sofa_recline_three_quarter",
+  "category": "04_main_positions",
+  "subcategory": "側臥與坐位",
+  "title_zh": "沙發斜倚跨坐・高角斜側",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "4:3",
+  "default_facing": "three_quarter_right",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from above",
+   "three-quarter view"
+  ],
+  "shared_pose_tags": [
+   "sitting",
+   "straddling",
+   "cowgirl position",
+   "sex"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（右上跨坐於斜倚伴侶腿上）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.54,
+     "y": 0.44
+    },
+    "tags": [
+     "sitting",
+     "straddling",
+     "spread legs",
+     "leaning forward",
+     "looking down"
+    ],
+    "natural_en": "Straddling face-to-face over the reclined partner on a sofa at upper right, gripping the sofa backrest behind the partner's shoulders."
+   },
+   "giver": {
+    "label_zh": "施與方（左下斜倚沙發扶腰）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.44,
+     "y": 0.58
+    },
+    "tags": [
+     "sitting",
+     "leaning back",
+     "hands on another's hips",
+     "looking up"
+    ],
+    "natural_en": "Reclining comfortably back against the sofa cushions at lower left, gripping the rider's hips while looking up."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "High-angle three-quarter horizontal view of reclined sofa lap riding: the giver leans back against the couch cushions at lower left gripping the hips, while the receiver straddles above gripping the backrest.",
+  "prompt_zh": "高角斜側沙發斜倚跨坐：施與方居左下慵懶斜靠沙發背墊並扶胯仰望；承受方居右上跨坐前傾、雙手扶住沙發靠背。"
+ },
+ {
+  "id": "pos_spooning_leg_raised_from_behind",
+  "category": "04_main_positions",
+  "subcategory": "側臥與坐位",
+  "title_zh": "側臥抬腿湯匙・後方低角橫構圖",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "4:3",
+  "default_facing": "three_quarter_left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "three-quarter view",
+   "from below"
+  ],
+  "shared_pose_tags": [
+   "spooning",
+   "sex from behind",
+   "leg up",
+   "sex"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側側臥高抬上腿）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.42,
+     "y": 0.54
+    },
+    "tags": [
+     "lying",
+     "on side",
+     "leg up",
+     "arched back",
+     "looking back"
+    ],
+    "natural_en": "Lying on one side toward the left facing away from the camera with the upper leg lifted high and held open, glancing back over the shoulder."
+   },
+   "giver": {
+    "label_zh": "施與方（右側貼背側臥托舉上腿）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.6,
+     "y": 0.5
+    },
+    "tags": [
+     "lying",
+     "on side",
+     "leg hold",
+     "looking at another"
+    ],
+    "natural_en": "Lying on one side nested behind the receiver on the right, gripping and lifting the receiver's upper thigh to open the angle."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Low-angle horizontal rear view of spooning with the top leg hoisted: seen from behind near mattress level as the giver spoons behind on the right and lifts the receiver's upper leg high.",
+  "prompt_zh": "後方低角橫構圖抬腿湯匙側臥：自床面低角從身後拍攝，承受方居左側臥回頭、上方大腿被高高托起打開角度，施與方居右貼背側臥扶腿。"
+ },
+ {
+  "id": "pos_amazon_position_three_quarter",
+  "category": "04_main_positions",
+  "subcategory": "高辨識度進階幾何",
+  "title_zh": "亞馬遜女上位壓腿 amazon position・高角斜側",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "4:3",
+  "default_facing": "three_quarter_right",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from above",
+   "three-quarter view"
+  ],
+  "shared_pose_tags": [
+   "amazon position",
+   "girl on top",
+   "sex",
+   "legs up"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（右上上位蹲騎壓腿）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.62,
+     "y": 0.42
+    },
+    "tags": [
+     "squatting",
+     "straddling",
+     "leaning forward",
+     "hands on another's legs",
+     "looking down"
+    ],
+    "natural_en": "Positioned on top at upper right in a deep forward squat over the partner's lifted hips, gripping and pushing the partner's raised knees back toward the chest."
+   },
+   "giver": {
+    "label_zh": "施與方（左下仰躺被抬腿折疊）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.36,
+     "y": 0.64
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "legs up",
+     "knees up",
+     "spread legs",
+     "looking up"
+    ],
+    "natural_en": "Lying on the back at lower left with both legs raised high and bent back toward the chest while the partner squats astride from above."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "High-angle three-quarter horizontal view of the amazon position: roles reversed from missionary, the giver lies on the back at lower left with knees raised high while the receiver squats astride on top at upper right pressing the giver's thighs back.",
+  "prompt_zh": "高角斜側亞馬遜女上位壓腿：與傳統上下位反轉，施與方居左下仰躺並將雙腿高抬屈向胸前；承受方居右上蹲騎在上方俯身壓住對方大腿主導節奏。"
+ },
+ {
+  "id": "pos_piledriver_high_fold_front",
+  "category": "04_main_positions",
+  "subcategory": "高辨識度進階幾何",
+  "title_zh": "倒立折疊打樁式 piledriver・正面低角",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view",
+   "from below"
+  ],
+  "shared_pose_tags": [
+   "piledriver (sex)",
+   "folded",
+   "sex",
+   "spread legs"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（下方肩背撐床、臀部垂直倒折）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.5,
+     "y": 0.64
+    },
+    "tags": [
+     "on back",
+     "shoulder stand",
+     "legs up",
+     "spread legs",
+     "upside-down"
+    ],
+    "natural_en": "Balanced steeply on shoulders and upper back in the lower center with hips inverted vertically into the air and legs spread wide around the partner."
+   },
+   "giver": {
+    "label_zh": "施與方（上方深蹲跨立垂直下壓）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.5,
+     "y": 0.34
+    },
+    "tags": [
+     "squatting",
+     "leaning forward",
+     "hands on another's hips",
+     "looking down"
+    ],
+    "natural_en": "Squatting high above the inverted receiver, gripping the raised hips and thrusting vertically downward."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Low-angle front full-body view of the piledriver position: the receiver balances on shoulders below with hips inverted steeply upward and legs spread wide, while the giver squats overhead gripping the raised hips.",
+  "prompt_zh": "正面低角倒立折疊打樁式：承受方居下以肩背撐床、臀腿大幅倒立垂直抬高張開；施與方居上深蹲扶住倒立的胯部垂直壓入。"
+ },
+ {
+  "id": "pos_arched_bridge_kneeling_side",
+  "category": "04_main_positions",
+  "subcategory": "高辨識度進階幾何",
+  "title_zh": "拱橋反弓式・右側側面橫構圖",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "4:3",
+  "default_facing": "right",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "arched back",
+   "sex",
+   "bridge"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（右側掌腳撐地反弓拱橋）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.58,
+     "y": 0.56
+    },
+    "tags": [
+     "arched back",
+     "head back",
+     "spread legs",
+     "hand on ground"
+    ],
+    "natural_en": "Elevated off the floor on the right in a dramatic back-bridge supported by palms behind the head and planted feet, torso curving upward like a bow."
+   },
+   "giver": {
+    "label_zh": "施與方（左側跪姿托腰進入）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.36,
+     "y": 0.5
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "hands on another's hips",
+     "looking down"
+    ],
+    "natural_en": "Kneeling between the bridging receiver's knees on the left, holding both hips suspended at the apex of the arch."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Horizontal right-facing side view of an arched bridge position: the receiver arches upward off the surface on palms and feet on the right forming a clean bow silhouette, while the giver kneels on the left supporting the elevated hips.",
+  "prompt_zh": "右側橫構圖拱橋反弓式：承受方居右以雙掌與雙腳撐地向上撐起大幅拱橋弧線；施與方居左跪於腿間托住懸空的腰胯。"
+ },
+ {
+  "id": "pos_anvil_legs_crossed_overhead",
+  "category": "04_main_positions",
+  "subcategory": "高辨識度進階幾何",
+  "title_zh": "鐵砧側肩併腿深壓・俯視荷蘭角",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "4:3",
+  "default_facing": "three_quarter_right",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from above",
+   "dutch angle"
+  ],
+  "shared_pose_tags": [
+   "missionary",
+   "folded",
+   "sex",
+   "legs together"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（右下仰躺併腿斜壓向對方單肩）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.6,
+     "y": 0.6
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "legs up",
+     "legs together",
+     "twisted torso",
+     "looking up"
+    ],
+    "natural_en": "Lying on the back at lower right with both legs kept together and lifted diagonally over one of the partner's shoulders, hips tilted tightly."
+   },
+   "giver": {
+    "label_zh": "施與方（左上高位側身壓腿進入）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.38,
+     "y": 0.42
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "hands on another's legs",
+     "looking down"
+    ],
+    "natural_en": "Kneeling deeply at upper left with both of the receiver's closed legs resting across one shoulder, leaning down heavily to lock the angle."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Tilted overhead view of the anvil position: the receiver lies on the back at lower right with both closed legs hoisted diagonally onto one of the giver's shoulders, while the giver presses in steeply from upper left.",
+  "prompt_zh": "俯視荷蘭角鐵砧併腿深壓：承受方居右下仰躺、雙腿併攏斜高舉搭在對方單側肩上；施與方居左上高位側傾深壓，形成強烈對角折疊線條。"
  }
 ]
