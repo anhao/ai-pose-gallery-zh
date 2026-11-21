@@ -123,6 +123,13 @@ git clone --depth 1 https://github.com/anhao/ai-pose-gallery-zh.git
 2. 打开本工作台 **「接口配置」** 页面 → 切换到 **「本地 ComfyUI」** → 点击「检测连接」（默认 `http://127.0.0.1:8188`）；
 3. 可直接导入您在 ComfyUI 中通过 `工作流 -> 导出 (API)` 保存的 `.json` 文件（支持 `{{prompt}}`、`{{seed}}`、`{{width}}`、`{{height}}`、`{{composite_image}}`、`{{portrait_image}}`、`{{costume_image}}`、`{{pose_image}}` 占位符，或由系统自动匹配 `CLIPTextEncode` / `KSampler` / `LoadImage` 节点），也可在 **「合成台」** 一键导出内置通用工作流模板。
 
+## 在 stable-diffusion.cpp 中使用
+
+1. 安装并启动 [SD.cpp（biaggii fork）](https://github.com/biaggii/stable-diffusion.cpp) 的 `sd-server`，默认地址为 `http://127.0.0.1:1234`。
+2. 按照 [SD.cpp 模型说明](docs/stable-diffusion-cpp.md) 下载 H3 / P-H3 模型组件及 Character Swap LoRA，并放入对应模型目录。
+3. 在「API 配置」选择 **SD.cpp**、填写 Server URL 并检测连接；回到合成台选择 MiniMax H3 Image 或 P-H3-Image。
+4. 选择人像、服装与姿势后按 **Generate**；Studio 会自动加载 Built-in Recipe、套用 LoRA，并按 H3 所需顺序发送参考图。
+
 ---
 
 ## 技术栈与目录结构
