@@ -165,7 +165,6 @@
     "tags": [
      "sitting",
      "leg up",
-     "barefoot",
      "toes",
      "looking at viewer"
     ],
@@ -212,7 +211,6 @@
      "sitting",
      "on bed",
      "leg up",
-     "barefoot",
      "soles",
      "looking at viewer"
     ],
@@ -258,7 +256,6 @@
     "tags": [
      "kneeling",
      "seiza",
-     "barefoot",
      "soles",
      "looking back"
     ],
@@ -304,7 +301,6 @@
     "tags": [
      "standing",
      "leg up",
-     "barefoot",
      "soles",
      "toes",
      "looking down"
@@ -352,7 +348,6 @@
      "sitting",
      "leg up",
      "holding own foot",
-     "barefoot",
      "soles",
      "toes",
      "looking at viewer"
@@ -385,8 +380,7 @@
   ],
   "shared_pose_tags": [
    "foot focus",
-   "toes",
-   "barefoot"
+   "toes"
   ],
   "slots": {
    "subject": {
@@ -399,7 +393,6 @@
     "tags": [
      "squatting",
      "on floor",
-     "barefoot",
      "toes"
     ],
     "natural_en": "Crouching low on the floor with both bare feet in the extreme foreground, the balls of the feet and toes pressed against the surface with heels lifted, toes spread and curled slightly, the rest of the body falling away behind the feet."
