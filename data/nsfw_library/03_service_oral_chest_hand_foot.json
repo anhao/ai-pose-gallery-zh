@@ -1040,6 +1040,8 @@
     "tags": [
      "sitting",
      "leg up",
+     "barefoot",
+     "soles",
      "looking down"
     ],
     "natural_en": "Sitting on the right side of the frame facing the receiver, both legs stretched out toward the receiver with both feet together around the penis, looking down at the feet."
@@ -1117,6 +1119,8 @@
     "tags": [
      "standing",
      "leg up",
+     "barefoot",
+     "soles",
      "looking down"
     ],
     "natural_en": "Standing on the right side of the frame with one leg raised, pressing the sole of one foot down onto the receiver, looking down."
@@ -1266,6 +1270,8 @@
      "lying",
      "on back",
      "leg up",
+     "barefoot",
+     "soles",
      "looking up"
     ],
     "natural_en": "Lying on the back under the table on the right side of the frame, legs raised up with both feet pressed against the partner, looking up."
@@ -1409,6 +1415,8 @@
      "on chair",
      "leg up",
      "leaning forward",
+     "barefoot",
+     "soles",
      "looking down"
     ],
     "natural_en": "Sitting on a high stool behind the partner on the right side of the frame, leaning forward with one leg raised, foot pressed down from above onto the partner's penis."
@@ -4536,5 +4544,565 @@
   },
   "natural_en": "Full-body side view of anilingus: the receiver stands bent over on the left with legs apart and both hands on the knees, looking back, while the giver kneels behind on the right, spreading the buttocks with both hands and licking between them.",
   "prompt_zh": "側面全身舔肛：承受方居左站立張腿，彎腰雙手撐膝並回頭看；施與方居右跪於其後方，臉部與臀部同高，雙手掰開臀部伸舌舔舐。"
+ },
+ {
+  "id": "pos_footjob_table_lying_standing_receiver_side",
+  "category": "03_service_oral_chest_hand_foot",
+  "subcategory": "足部侍奉 footjob",
+  "title_zh": "仰躺桌面伸足・站姿承受足交・4:3 側面",
+  "pattern": "organ_bound",
+  "default_canvas": "4:3",
+  "default_facing": "right",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "footjob",
+   "foot focus"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（站於桌緣）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.72,
+     "y": 0.5
+    },
+    "tags": [
+     "standing",
+     "looking down"
+    ],
+    "natural_en": "Standing at the right edge of the table facing the partner, looking down at the feet pressed against him."
+   },
+   "giver": {
+    "label_zh": "施與方（仰躺桌面，雙腿伸向桌外）",
+    "requires": "female",
+    "center": {
+     "x": 0.36,
+     "y": 0.52
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "on table",
+     "legs up",
+     "barefoot",
+     "soles",
+     "looking at another"
+    ],
+    "natural_en": "Lying on her back along a table on the left, propped on her elbows, both legs extended off the table edge with the bare soles pressed around the partner's penis."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari"
+    ],
+    "receiver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ],
+    "receiver": [
+     "strap-on"
+    ]
+   }
+  },
+  "natural_en": "Horizontal full-body side view of a footjob: the giver lies on her back on a table at the left with legs extended off the edge, while the receiver stands at the table edge on the right with her soles around his penis.",
+  "prompt_zh": "側面全身橫構圖足交：施與方居左仰躺於桌面，以手肘撐起上身，雙腿伸出桌緣；承受方居右站在桌邊，性器被雙足腳底夾住。"
+ },
+ {
+  "id": "pos_footjob_table_kneeling_reverse_standing_side",
+  "category": "03_service_oral_chest_hand_foot",
+  "subcategory": "足部侍奉 footjob",
+  "title_zh": "跪於桌面背對・站姿後方反足交・側面",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "right",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "footjob",
+   "soles"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（站於桌緣後方）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.7,
+     "y": 0.52
+    },
+    "tags": [
+     "standing",
+     "looking down"
+    ],
+    "natural_en": "Standing behind the partner at the right edge of the table, hips level with her feet, looking down."
+   },
+   "giver": {
+    "label_zh": "施與方（跪在桌面上背對，雙足伸出桌緣向後夾）",
+    "requires": "female",
+    "center": {
+     "x": 0.36,
+     "y": 0.44
+    },
+    "tags": [
+     "kneeling",
+     "on table",
+     "barefoot",
+     "soles",
+     "arched back",
+     "looking back"
+    ],
+    "natural_en": "Kneeling on a table on the left with her back to the partner, knees near the edge and both feet reaching back off the table so the soles grip the partner's penis, back arched, looking back over her shoulder."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari"
+    ],
+    "receiver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ],
+    "receiver": [
+     "strap-on"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of a reverse footjob on a table: the giver kneels on the tabletop at the left facing away, both feet stretched back off the edge, while the receiver stands behind her at the right with her soles around his penis.",
+  "prompt_zh": "側面全身反足交：施與方居左跪在桌面上背對，雙足伸出桌緣向後夾持，腰背微弓並回頭；承受方居右站在桌緣後方，低頭俯視。"
+ },
+ {
+  "id": "pos_footjob_from_behind_legs_wrap_front",
+  "category": "03_service_oral_chest_hand_foot",
+  "subcategory": "足部侍奉 footjob",
+  "title_zh": "背後環抱雙腳繞前足交・正面",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": false,
+  "camera_tags": [
+   "full body",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "footjob",
+   "two-footed footjob",
+   "hug from behind"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（前方坐姿張腿）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.5,
+     "y": 0.6
+    },
+    "tags": [
+     "sitting",
+     "spread legs",
+     "looking down"
+    ],
+    "natural_en": "Sitting in front facing the viewer with legs apart, leaning back against the partner behind him."
+   },
+   "giver": {
+    "label_zh": "施與方（坐在後方環抱，雙腿自兩側繞到前方）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.36
+    },
+    "tags": [
+     "sitting",
+     "hugging from behind",
+     "legs around another",
+     "barefoot",
+     "soles",
+     "looking at another"
+    ],
+    "natural_en": "Sitting directly behind the partner with her arms around his chest, her face over his shoulder, both legs wrapped forward around his hips so her bare feet meet around his penis in front."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari"
+    ],
+    "receiver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ],
+    "receiver": [
+     "strap-on"
+    ]
+   }
+  },
+  "natural_en": "Full-body front view of a footjob from behind: the receiver sits facing the camera with legs apart, while the giver sits behind him hugging his chest, her legs wrapped around his hips and both bare feet working his penis in front.",
+  "prompt_zh": "正面全身足交：承受方在前方面向鏡頭張腿而坐；施與方坐在其身後環抱胸口，臉自肩後探出，雙腿由兩側繞到前方，以雙足夾住性器。"
+ },
+ {
+  "id": "pos_footjob_facesitting_forward_front",
+  "category": "03_service_oral_chest_hand_foot",
+  "subcategory": "足部侍奉 footjob",
+  "title_zh": "坐臉足交・面向腳端雙足前伸・正面",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": false,
+  "camera_tags": [
+   "full body",
+   "front view",
+   "from above"
+  ],
+  "shared_pose_tags": [
+   "footjob",
+   "two-footed footjob",
+   "facesitting"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（仰躺，頭朝鏡頭）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.5,
+     "y": 0.72
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs"
+    ],
+    "natural_en": "Lying on his back with his head toward the viewer and legs extended away, face covered by the partner sitting on it."
+   },
+   "giver": {
+    "label_zh": "施與方（跨坐於臉上面向腳端，雙足前伸）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.34
+    },
+    "tags": [
+     "sitting",
+     "sitting on face",
+     "barefoot",
+     "soles",
+     "hands on own knees",
+     "looking down"
+    ],
+    "natural_en": "Sitting upright on the partner's face, facing his legs, both legs stretched forward along his torso so her bare feet grip his penis, looking down at her own feet."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari"
+    ],
+    "receiver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ],
+    "receiver": [
+     "strap-on"
+    ]
+   }
+  },
+  "natural_en": "Full-body front view from slightly above of a facesitting footjob: the receiver lies on his back with his head toward the camera, while the giver sits on his face facing his legs and works his penis with both bare feet.",
+  "prompt_zh": "正面略俯視全身坐臉足交：承受方仰躺、頭朝鏡頭；施與方跨坐在其臉上面向腳端，雙腿沿對方軀幹前伸，以雙足夾住性器。"
+ },
+ {
+  "id": "pos_footjob_high_seat_single_foot_standing_side",
+  "category": "03_service_oral_chest_hand_foot",
+  "subcategory": "足部侍奉 footjob",
+  "title_zh": "坐高處後仰單腳足交・站姿承受・側面",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "right",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "footjob",
+   "foot focus"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（站於正前方）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.7,
+     "y": 0.5
+    },
+    "tags": [
+     "standing",
+     "looking down"
+    ],
+    "natural_en": "Standing on the right facing the partner, arms at his sides, looking down at the foot pressed against him."
+   },
+   "giver": {
+    "label_zh": "施與方（坐在箱子或檯面上後仰，單腿伸直）",
+    "requires": "female",
+    "center": {
+     "x": 0.34,
+     "y": 0.5
+    },
+    "tags": [
+     "sitting",
+     "leaning back",
+     "leg up",
+     "arm support",
+     "barefoot",
+     "soles",
+     "looking at another"
+    ],
+    "natural_en": "Sitting on a crate or counter on the left, leaning back on one arm, one leg extended straight toward the partner with the bare sole rubbing his penis, the other leg hanging down."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari"
+    ],
+    "receiver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ],
+    "receiver": [
+     "strap-on"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of a one-footed footjob: the giver sits on a raised surface at the left leaning back on one arm, one leg extended so her bare sole rubs the penis of the receiver standing on the right.",
+  "prompt_zh": "側面全身單腳足交：施與方居左坐在箱子或檯面上，單手後撐後仰，一腿伸直以腳底摩擦，另一腿自然垂下；承受方居右站立低頭。"
+ },
+ {
+  "id": "pos_kneepit_sex_sitting_standing_side",
+  "category": "03_service_oral_chest_hand_foot",
+  "subcategory": "足部侍奉 footjob",
+  "title_zh": "膝窩夾持・坐姿曲膝・站姿承受・側面",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "right",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "kneepit sex"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（站於側前方）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.68,
+     "y": 0.48
+    },
+    "tags": [
+     "standing",
+     "looking down"
+    ],
+    "natural_en": "Standing on the right close to the partner's raised leg, hips level with her knee, looking down."
+   },
+   "giver": {
+    "label_zh": "施與方（坐姿單腿抬起曲膝夾住）",
+    "requires": "female",
+    "center": {
+     "x": 0.36,
+     "y": 0.54
+    },
+    "tags": [
+     "sitting",
+     "leg up",
+     "knees up",
+     "barefoot",
+     "hand on own knee",
+     "looking at another"
+    ],
+    "natural_en": "Sitting on the left with one leg raised and bent sharply at the knee so the partner's penis is held in the fold behind the knee, one hand on her own knee to tighten the grip."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari"
+    ],
+    "receiver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ],
+    "receiver": [
+     "strap-on"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of kneepit sex: the giver sits at the left with one leg raised and bent, holding the receiver's penis in the fold behind her knee, while the receiver stands close on the right.",
+  "prompt_zh": "側面全身膝窩夾持：施與方居左坐著，單腿抬起並用力曲膝，將性器夾在膝窩之間，一手按住自己的膝蓋；承受方居右貼近站立。"
+ },
+ {
+  "id": "pos_foot_worship_standing_holding_foot_side",
+  "category": "03_service_oral_chest_hand_foot",
+  "subcategory": "足部侍奉 footjob",
+  "title_zh": "捧足舔舐・仰躺抬腿・站姿捧腳・側面",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "foot worship",
+   "foot focus"
+  ],
+  "slots": {
+   "owner": {
+    "label_zh": "被崇拜方（仰躺單腿高舉）",
+    "requires": "female",
+    "center": {
+     "x": 0.34,
+     "y": 0.68
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "leg up",
+     "barefoot",
+     "soles",
+     "toes",
+     "arms up",
+     "looking at another"
+    ],
+    "natural_en": "Lying on her back on the left with one leg raised straight up into the partner's hands, the other leg relaxed, arms resting above her head, watching him."
+   },
+   "worshipper": {
+    "label_zh": "崇拜方（站立雙手捧足舔舐）",
+    "requires": "any",
+    "center": {
+     "x": 0.66,
+     "y": 0.42
+    },
+    "tags": [
+     "standing",
+     "holding another's foot",
+     "licking",
+     "tongue out",
+     "closed eyes"
+    ],
+    "natural_en": "Standing on the right, holding the partner's raised foot in both hands at face height and licking along the sole with eyes closed."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ]
+   }
+  },
+  "natural_en": "Full-body side view of foot worship: one partner lies on her back at the left with one leg raised, while the other stands at the right holding her foot at face height and licking the sole.",
+  "prompt_zh": "側面全身捧足舔舐：被崇拜方居左仰躺，單腿高舉；崇拜方居右站立，雙手將對方的腳捧至臉前，閉眼舔舐腳底。"
  }
 ]
