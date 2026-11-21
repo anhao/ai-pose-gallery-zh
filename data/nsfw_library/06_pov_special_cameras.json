@@ -1576,5 +1576,375 @@
   },
   "natural_en": "Wide 16:9 voyeur shot through a doorway gap with blurred door jambs on both sides: in the room beyond, seen in side profile, the receiver bends forward with both hands on the wall while the giver stands behind her; a standing mirror with hanging clothes is at the left of the room.",
   "prompt_zh": "寬景門縫偷窺（16:9）：兩側為虛化的門框前景，門內房間中一對伴侶以側面呈現站姿撐牆後入；承受方居右前傾雙手撐牆，施與方於其身後站立扶胯，房間左側有一面立鏡與掛衣。"
+ },
+ {
+  "id": "pov_footjob_sitting_m_legs_front",
+  "category": "06_pov_special_cameras",
+  "subcategory": "第一人稱",
+  "title_zh": "第一人稱足交・坐姿張腿雙足合夾・正面全身",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "pov",
+   "pov crotch",
+   "front view",
+   "full body"
+  ],
+  "shared_pose_tags": [
+   "footjob",
+   "two-footed footjob",
+   "barefoot"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（面向鏡頭坐姿張腿，雙足在前景合夾）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.42
+    },
+    "tags": [
+     "sitting",
+     "spread legs",
+     "m legs",
+     "knees up",
+     "barefoot",
+     "soles",
+     "toes",
+     "looking at viewer"
+    ],
+    "natural_en": "Sitting upright facing the viewer with knees raised and spread wide, both bare feet brought together in the lower foreground with the soles pressed around the viewer's shaft, face and torso fully visible above the feet."
+   }
+  },
+  "pairing_tags": {
+   "pov": {
+    "base": [
+     "hetero",
+     "penis",
+     "footjob"
+    ]
+   }
+  },
+  "natural_en": "First-person view of a footjob: the subject sits facing the camera with legs spread in an M shape, both bare soles pressed together around the viewer's penis in the lower foreground, her face and whole body visible.",
+  "prompt_zh": "第一人稱足交：主體面向鏡頭坐著，雙膝抬起向兩側張開成 M 字，雙足在畫面下方前景以腳底合夾，臉與全身完整入鏡。"
+ },
+ {
+  "id": "pov_footjob_stacked_feet_front",
+  "category": "06_pov_special_cameras",
+  "subcategory": "第一人稱",
+  "title_zh": "第一人稱足交・雙足上下交疊夾持・正面",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "pov",
+   "pov crotch",
+   "front view",
+   "foot focus"
+  ],
+  "shared_pose_tags": [
+   "footjob",
+   "two-footed footjob",
+   "barefoot"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（後仰坐姿，一足在上一足在下交疊夾持）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.4
+    },
+    "tags": [
+     "sitting",
+     "leaning back",
+     "legs up",
+     "barefoot",
+     "soles",
+     "toes",
+     "looking at viewer"
+    ],
+    "natural_en": "Leaning back facing the viewer with both legs extended forward, one bare foot stacked above the other so the shaft is held between the upper sole and the lower instep in the foreground."
+   }
+  },
+  "pairing_tags": {
+   "pov": {
+    "base": [
+     "hetero",
+     "penis",
+     "footjob"
+    ]
+   }
+  },
+  "natural_en": "First-person view of a footjob with stacked feet: the subject leans back facing the camera, one bare foot above and one below the viewer's penis, holding it between the two feet in the foreground.",
+  "prompt_zh": "第一人稱足交：主體面向鏡頭後仰而坐，雙腿前伸，一足在上、一足在下交疊，以上方腳底與下方腳背夾住，雙足位於前景中央。"
+ },
+ {
+  "id": "pov_footjob_prone_reverse_soles",
+  "category": "06_pov_special_cameras",
+  "subcategory": "第一人稱",
+  "title_zh": "第一人稱反足交・俯趴背對曲膝・腳底朝鏡頭",
+  "pattern": "solo_or_pov",
+  "default_canvas": "4:3",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "pov",
+   "pov crotch",
+   "from behind",
+   "foot focus"
+  ],
+  "shared_pose_tags": [
+   "footjob",
+   "two-footed footjob",
+   "soles",
+   "barefoot"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（俯趴背對鏡頭，小腿向後曲起，腳底朝鏡頭夾持）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.4
+    },
+    "tags": [
+     "lying",
+     "on stomach",
+     "legs up",
+     "barefoot",
+     "soles",
+     "toes",
+     "ass",
+     "looking back"
+    ],
+    "natural_en": "Lying on her stomach facing away from the viewer with both lower legs bent back, the bare soles turned toward the camera and pressed together around the viewer's shaft in the foreground, glancing back over her shoulder."
+   }
+  },
+  "pairing_tags": {
+   "pov": {
+    "base": [
+     "hetero",
+     "penis",
+     "footjob"
+    ]
+   }
+  },
+  "natural_en": "Horizontal first-person view of a reverse footjob: the subject lies prone facing away, lower legs bent back so both soles face the camera and grip the viewer's penis, her back and hips receding into the frame.",
+  "prompt_zh": "第一人稱橫構圖反足交：主體背對鏡頭俯趴，小腿向後曲起，雙足腳底朝向鏡頭在前景夾持，背與臀向畫面深處延伸，回頭看向鏡頭。"
+ },
+ {
+  "id": "pov_footjob_all_fours_reverse_from_behind",
+  "category": "06_pov_special_cameras",
+  "subcategory": "第一人稱",
+  "title_zh": "第一人稱反足交・四肢著地背對・雙足向後夾",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "pov",
+   "pov crotch",
+   "from behind"
+  ],
+  "shared_pose_tags": [
+   "footjob",
+   "two-footed footjob",
+   "soles",
+   "barefoot"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（四肢著地背對鏡頭，雙足向後併攏夾持）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.38
+    },
+    "tags": [
+     "all fours",
+     "barefoot",
+     "soles",
+     "ass",
+     "arched back",
+     "looking back"
+    ],
+    "natural_en": "On all fours facing away from the viewer, hips raised, both feet drawn back together behind her so the soles press around the viewer's shaft in the lower foreground, looking back over her shoulder."
+   }
+  },
+  "pairing_tags": {
+   "pov": {
+    "base": [
+     "hetero",
+     "penis",
+     "footjob"
+    ]
+   }
+  },
+  "natural_en": "First-person view from behind of a reverse footjob: the subject is on all fours facing away, both soles pressed together around the viewer's penis in the lower foreground, hips and back above.",
+  "prompt_zh": "第一人稱後方視角反足交：主體背對鏡頭四肢著地，臀部抬高，雙足向後併攏，腳底在畫面下方前景夾持，回頭看向鏡頭。"
+ },
+ {
+  "id": "pov_footjob_table_edge_from_below",
+  "category": "06_pov_special_cameras",
+  "subcategory": "第一人稱",
+  "title_zh": "第一人稱仰視足交・坐於桌緣雙足由上踩下",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "pov",
+   "pov crotch",
+   "from below",
+   "foreshortening"
+  ],
+  "shared_pose_tags": [
+   "footjob",
+   "two-footed footjob",
+   "barefoot"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（坐在高處邊緣，雙足垂下由上方夾持）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.3
+    },
+    "tags": [
+     "sitting",
+     "on table",
+     "legs apart",
+     "barefoot",
+     "soles",
+     "toes",
+     "looking down"
+    ],
+    "natural_en": "Sitting on the edge of a table above the viewer with legs hanging down and apart, both bare feet lowered onto the viewer's shaft from above, looking down between her knees."
+   }
+  },
+  "pairing_tags": {
+   "pov": {
+    "base": [
+     "hetero",
+     "penis",
+     "footjob"
+    ]
+   }
+  },
+  "natural_en": "First-person low-angle view of a footjob: the subject sits on a table edge above the camera, both legs coming down toward the lens with the bare feet pressing the viewer's penis from above.",
+  "prompt_zh": "第一人稱仰視足交：主體坐在高於鏡頭的桌緣，雙腿自上方垂下分開，雙足由上往下踩夾，低頭自雙膝之間俯視鏡頭。"
+ },
+ {
+  "id": "pov_footjob_soles_extreme_closeup",
+  "category": "06_pov_special_cameras",
+  "subcategory": "第一人稱",
+  "title_zh": "第一人稱足交・雙腳底貼近鏡頭特寫・臉在兩足之間",
+  "pattern": "solo_or_pov",
+  "default_canvas": "4:3",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "pov",
+   "pov crotch",
+   "close-up",
+   "foot focus",
+   "foreshortening"
+  ],
+  "shared_pose_tags": [
+   "footjob",
+   "two-footed footjob",
+   "soles",
+   "barefoot"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（仰躺，雙腳底佔滿前景，臉自兩足之間露出）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.45
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "legs up",
+     "barefoot",
+     "soles",
+     "toes",
+     "spread toes",
+     "looking at viewer"
+    ],
+    "natural_en": "Lying on her back with both legs raised toward the viewer, the two bare soles filling most of the foreground with toes spread and the shaft held between the heels, her face visible in the gap between the feet."
+   }
+  },
+  "pairing_tags": {
+   "pov": {
+    "base": [
+     "hetero",
+     "penis",
+     "footjob"
+    ]
+   }
+  },
+  "natural_en": "Horizontal first-person close-up of a footjob: both bare soles fill the foreground with strong foreshortening, the viewer's penis held between them, the subject's face seen small between her feet.",
+  "prompt_zh": "第一人稱橫構圖足交特寫：雙腳底以強烈透視佔滿前景，腳趾張開，以足跟夾持，主體的臉自兩足之間的縫隙露出，直視鏡頭。"
+ },
+ {
+  "id": "pov_footjob_sofa_high_seat_low_angle",
+  "category": "06_pov_special_cameras",
+  "subcategory": "第一人稱",
+  "title_zh": "第一人稱足交・沙發高坐伸足・低角正面",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "pov",
+   "pov crotch",
+   "front view",
+   "from below",
+   "full body"
+  ],
+  "shared_pose_tags": [
+   "footjob",
+   "two-footed footjob",
+   "barefoot"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（坐在沙發上身體前傾，雙腿向下前伸夾持）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.36
+    },
+    "tags": [
+     "sitting",
+     "on couch",
+     "legs apart",
+     "barefoot",
+     "soles",
+     "toes",
+     "looking down"
+    ],
+    "natural_en": "Sitting on a sofa above the viewer's eye level with legs stretched down and forward, both bare feet meeting around the viewer's shaft in the lower foreground, hands resting on the cushion, looking down at the viewer."
+   }
+  },
+  "pairing_tags": {
+   "pov": {
+    "base": [
+     "hetero",
+     "penis",
+     "footjob"
+    ]
+   }
+  },
+  "natural_en": "First-person low-angle view of a footjob: the subject sits on a sofa higher than the camera, legs extended down toward the lens with both feet around the viewer's penis, her whole body visible above.",
+  "prompt_zh": "第一人稱低角足交：主體坐在高於鏡頭的沙發上，雙腿向下前伸，雙足在畫面下方前景夾持，雙手撐在坐墊上，低頭俯視鏡頭，全身入鏡。"
  }
 ]
