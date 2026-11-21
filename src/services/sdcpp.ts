@@ -22,7 +22,7 @@ async function requestJson(baseUrl: string, path: string, init: RequestInit = {}
   try { data = text ? JSON.parse(text) : {} } catch { data = { error: text.slice(0, 500) } }
   if (!response.ok) {
     const message = data?.error?.message || data?.error || data?.message || `HTTP ${response.status}`
-    throw new Error(`[stable-diffusion.cpp] ${message}`)
+    throw new Error(`[SD.cpp] ${message}`)
   }
   return data
 }
@@ -187,11 +187,11 @@ export async function generateWithSdCpp(params: {
   if (!recipe.pose || !recipe.costume || !recipe.portrait) {
     throw new Error('H3 Character Swap 需要完整三張參考圖：人像、服裝及姿勢。Studio 順序保持不變，API 會自動改為 Pose → Costume → Portrait。')
   }
-  if (refs.length > 16) throw new Error('stable-diffusion.cpp 最多接受 16 張參考圖片')
+  if (refs.length > 16) throw new Error('SD.cpp 最多接受 16 張參考圖片')
   if (!prompt.trim() || prompt.startsWith('請先選擇或上傳')) throw new Error('請先選擇參考素材，或輸入自訂 Prompt')
   signal?.throwIfAborted()
 
-  onProgress?.({ stage: 'check', message: '檢查 stable-diffusion.cpp Server…' })
+  onProgress?.({ stage: 'check', message: '檢查 SD.cpp Server…' })
   const recipeId = provider.model === 'p-h3-image' ? 'p-h3-image' : 'minimax-h3-image'
   await ensureSdCppModelLoaded(baseUrl, apiKey, recipeId, signal, onProgress)
   const capabilities = await requestJson(baseUrl, '/sdcpp/v1/capabilities', { signal }, apiKey)
@@ -230,7 +230,7 @@ export async function generateWithSdCpp(params: {
     preview: 'none',
   }
 
-  onProgress?.({ stage: 'queue', message: '提交 stable-diffusion.cpp 生圖任務…' })
+  onProgress?.({ stage: 'queue', message: '提交 SD.cpp 生圖任務…' })
   const submitted = await requestJson(baseUrl, '/sdcpp/v1/img_gen', {
     method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body), signal,
   }, apiKey)
@@ -249,7 +249,7 @@ export async function generateWithSdCpp(params: {
       signal?.throwIfAborted()
       if (Date.now() - startedAt > settings.timeoutSec * 1000) {
         cancel()
-        throw new Error(`stable-diffusion.cpp 生成超時（${settings.timeoutSec} 秒）`)
+        throw new Error(`SD.cpp 生成超時（${settings.timeoutSec} 秒）`)
       }
       const job = await requestJson(baseUrl, jobUrl, {}, apiKey)
       const status = String(job.status || 'queued')
@@ -261,7 +261,7 @@ export async function generateWithSdCpp(params: {
         onProgress?.({ stage: 'download', message: '接收生成圖片…' })
         return { imageUrl: `data:image/${job.result?.output_format || 'png'};base64,${image}`, modelUsed: recipeId || provider.model, providerUsed: 'sdcpp' }
       }
-      if (status === 'failed') throw new Error(job.error?.message || 'stable-diffusion.cpp 生成失敗')
+      if (status === 'failed') throw new Error(job.error?.message || 'SD.cpp 生成失敗')
       if (status === 'cancelled') throw new DOMException('生成任務已取消', 'AbortError')
       await new Promise<void>((resolve, reject) => {
         const timer = setTimeout(() => { signal?.removeEventListener('abort', onAbort); resolve() }, 1000)

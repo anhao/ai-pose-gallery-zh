@@ -114,7 +114,7 @@ export function SdCppModelManager({ baseUrl, apiKey, preferredRecipe, onLoaded }
     </div>
     <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogContent className="max-h-[90vh] overflow-y-auto sm:max-w-3xl">
-        <DialogHeader><DialogTitle>stable-diffusion.cpp · Model</DialogTitle></DialogHeader>
+        <DialogHeader><DialogTitle>SD.cpp · Model</DialogTitle></DialogHeader>
         <div className="space-y-4">
           <div className="text-xs text-muted-foreground">目前狀態：{runtime.state || 'unknown'} · {runtime.recipe || 'No model loaded'}</div>
           <div className="space-y-2">

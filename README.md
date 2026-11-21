@@ -39,7 +39,7 @@
 3. **三合一 AI 角色合成工作台（Web Studio）** —— 基于 **React 19 + Tailwind CSS 4 + TypeScript 7 + shadcn/ui + TanStack Router** 构建的响应式多页面应用（兼容 PC / 平板 / 手机）：
    - 从三大图库任意挑选 **人像 + 服装 + 姿势（支持素体白模 / 深度图一键切换）** 组合配方，或一键随机捏人；
    - 支持拖拽、剪贴板粘贴（`Cmd+V` / `Ctrl+V`）或 URL 添加多张自定义附加参考图；
-   - 内置 **7 大 AI 图像协议直连**（Google Gemini、OpenAI GPT Image、阿里云百炼 Qwen、字节火山方舟 Doubao、PixAI、**本地 ComfyUI**、**stable-diffusion.cpp**），生成记录通过 **IndexedDB** 本地持久化保存。
+   - 内置 **7 大 AI 图像协议直连**（Google Gemini、OpenAI GPT Image、阿里云百炼 Qwen、字节火山方舟 Doubao、PixAI、**本地 ComfyUI**、**SD.cpp**），生成记录通过 **IndexedDB** 本地持久化保存。
 4. **原生 ComfyUI 自定义节点插件（`custom_nodes`）** —— 本仓库同时是一个即插即用的 ComfyUI 插件！直接 `git clone` 到 `ComfyUI/custom_nodes/` 即可在 ComfyUI 画布内使用 **姿势 / 服装 / 人像 / 三合一角色配方** 4 个自定义节点（姿势与配方节点内置 `use_depth` 深度图切换，可直接接入 ControlNet Depth）与内置的 **6,162 条中文可视化弹窗选图器**。
 
 ---
@@ -62,12 +62,12 @@
   - **阿里云百炼 Qwen**：`qwen-image-3.0-pro`、`qwen-image-2.1-pro`、`qwen-image-2.0-pro`、`qwen-image-edit-plus`（支持 `multimodal-generation` 多图参考输入、智能改写 `prompt_extend`、水印开关）
   - **字节火山方舟 Doubao**：`doubao-seedream-5-0`、`doubao-seedream-4-5-251128`、`doubao-seedream-4-0-250828`、`doubao-seededit-3-0-i2i-250628`（支持多图融合 `image: [...]`、2K/4K 分辨率）
   - **本地 ComfyUI 工作流引擎**：支持自动将三合一拼图及单张人像/服装/姿势图上传至本地 ComfyUI（`/upload/image`），注入自定义 API 工作流占位符或自动识别节点提交 `/prompt` 队列并轮询取回成品图；支持导入/导出通用 `.api.json` 工作流模板。
-  - **stable-diffusion.cpp**：独立 Provider，使用 `sd-server` 原生 `/sdcpp/v1/*` API；支持 MiniMax H3 Image / P-H3-Image Built-in Recipe、模型檔案選擇與載入、最多 16 張獨立參考圖、非同步 Job 輪詢及取消；內建 LCM、CFG 1 與 H3 extra sample args。
+  - **SD.cpp**：独立 Provider，使用 `sd-server` 原生 `/sdcpp/v1/*` API；支持 MiniMax H3 Image / P-H3-Image Built-in Recipe、模型檔案選擇與載入、最多 16 張獨立參考圖、非同步 Job 輪詢及取消；內建 LCM、CFG 1 與 H3 extra sample args。
 - **跨页面后台生图 & IndexedDB 历史记录**：切换页面不会中断正在进行的生图请求；生成结果自动存入浏览器 IndexedDB（避免 `localStorage` 容量限制），支持复用提示词与原图下载。
 
 > 本地 ComfyUI 三图合成（Qwen Image Edit 2509）的模型清单、工作流说明和本地运行方法见 [docs/comfyui-local.md](docs/comfyui-local.md)。
 
-> stable-diffusion.cpp（MiniMax H3 Image / P-H3-Image）的 Server API、模型載入與參數設定見 [docs/stable-diffusion-cpp.md](docs/stable-diffusion-cpp.md)。
+> SD.cpp（MiniMax H3 Image / P-H3-Image）的 Server API、模型載入與參數設定見 [docs/stable-diffusion-cpp.md](docs/stable-diffusion-cpp.md)。
 
 > 导入 API 后的动态高级参数、设定集参考上传与可选显示声明见 [ComfyUI 工作流高级参数](docs/comfyui-workflow-parameters.md)。
 

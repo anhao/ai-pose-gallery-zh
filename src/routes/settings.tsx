@@ -238,7 +238,48 @@ function SettingsPage() {
         {pid === 'comfyui' && (
           <p className="text-sm text-muted-foreground">模型由工作流决定。请返回合成台导入工作流，并设置人像、服装和姿势节点。</p>
         )}
-        {pid === 'sdcpp' && <div className="text-sm text-muted-foreground">{sdCppInfo || '模型與權重由 sd-server 管理。Studio 在按下 Generate 時會自動尋找相容權重並載入所選 H3 Built-in Recipe；也可在合成台 Model 視窗手動指定權重。'}</div>}
+        {pid === 'sdcpp' && (
+          <div className="rounded-xl border bg-card/60 p-4 sm:p-5" aria-label="SD.cpp model resources">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <div className="text-base font-semibold">SD.cpp · MiniMax H3 Image / P-H3-Image</div>
+              <a className="inline-flex items-center gap-1.5 text-sm text-primary underline-offset-4 hover:underline" href="https://github.com/biaggii/stable-diffusion.cpp" target="_blank" rel="noreferrer">
+                SD.cpp GitHub <ExternalLinkIcon className="size-3.5" />
+              </a>
+            </div>
+            <p className="mt-1 text-xs text-muted-foreground">模型與權重由 sd-server 管理。Studio 在 Generate 時會自動尋找相容權重並載入所選 H3 Built-in Recipe。</p>
+            <div className="mt-4 grid gap-4 sm:grid-cols-2">
+              <div className="space-y-1.5">
+                <div className="text-sm font-medium">Diffusion Model</div>
+                <p className="text-xs text-muted-foreground">Model 24GB · INT8 16–8GB · W4A8</p>
+                <a className="inline-flex items-center gap-1 text-sm text-primary underline-offset-4 hover:underline" href="https://huggingface.co/Comfy-Org/MiniMax-H3-Image/tree/main/diffusion_models" target="_blank" rel="noreferrer">
+                  MiniMax H3 Image · diffusion_models <ExternalLinkIcon className="size-3" />
+                </a>
+              </div>
+              <div className="space-y-1.5">
+                <div className="text-sm font-medium">VAE</div>
+                <p className="text-xs text-muted-foreground">MiniMax H3 Image 2D VAE · FP16</p>
+                <a className="inline-flex items-center gap-1 text-sm text-primary underline-offset-4 hover:underline break-all" href="https://huggingface.co/Comfy-Org/MiniMax-H3-Image/resolve/main/vae/minimax_h3_image_vae_fp16.safetensors" target="_blank" rel="noreferrer">
+                  minimax_h3_image_vae_fp16.safetensors <ExternalLinkIcon className="size-3 shrink-0" />
+                </a>
+              </div>
+              <div className="space-y-1.5">
+                <div className="text-sm font-medium">Text Encoder</div>
+                <p className="text-xs text-muted-foreground">Model 24GB · INT8 16–8GB · W4A8</p>
+                <a className="inline-flex items-center gap-1 text-sm text-primary underline-offset-4 hover:underline break-all" href="https://huggingface.co/PrunaAI/P-Image-OSS-Comfy/resolve/main/text_encoders/p-h3-image_text_encoder_int8_convrot.safetensors" target="_blank" rel="noreferrer">
+                  p-h3-image_text_encoder_int8_convrot.safetensors <ExternalLinkIcon className="size-3 shrink-0" />
+                </a>
+              </div>
+              <div className="space-y-1.5">
+                <div className="text-sm font-medium">Character Swap LoRA</div>
+                <p className="text-xs text-muted-foreground">MiniMax H3 Image / P-H3-Image · default strength 1.0</p>
+                <a className="inline-flex items-center gap-1 text-sm text-primary underline-offset-4 hover:underline break-all" href="https://huggingface.co/akatz-ai/MiniMax-H3-Image-Character-Swap-LoRA/resolve/main/h3_image_character_swap_v1.safetensors" target="_blank" rel="noreferrer">
+                  h3_image_character_swap_v1.safetensors <ExternalLinkIcon className="size-3 shrink-0" />
+                </a>
+              </div>
+            </div>
+            {sdCppInfo && <p className="mt-4 border-t pt-3 text-sm text-muted-foreground" role="status">{sdCppInfo}</p>}
+          </div>
+        )}
 
       {/* 全局传输设置 */}
       {pid === 'pixai' && <p className="text-sm text-muted-foreground">支持 Tsubaki.3 和 Tsubaki.3 Flash，每次输出一张。人像、服装、姿势各一图，按原始图片上传；默认启用本站代理。Key 随请求发送到本站代理与 PixAI，请仅在可信部署上使用。</p>}

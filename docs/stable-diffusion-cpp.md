@@ -1,11 +1,11 @@
-# stable-diffusion.cpp：MiniMax H3 Image / P-H3-Image
+# SD.cpp：MiniMax H3 Image / P-H3-Image
 
 AI Pose Gallery 以獨立 Provider 連接 `sd-server`，不經過 ComfyUI，也不需要在瀏覽器執行 CLI。
 
 ## Server 連線
 
 1. 啟動 `sd-server`，例如監聽 `0.0.0.0:1234`。
-2. 在 AI Pose Gallery「API 配置」選擇 **stable-diffusion.cpp**。
+2. 在 AI Pose Gallery「API 配置」選擇 **SD.cpp**。
 3. 本機瀏覽器建議填 `http://127.0.0.1:1234`。`0.0.0.0` 是 Server 的監聽位址，不是建議的客戶端目的位址。
 4. 點擊「檢測連線」。Studio 使用 `GET /sdcpp/v1/capabilities` 與 `GET /sdcpp/v1/models/status` 檢查 Server。
 

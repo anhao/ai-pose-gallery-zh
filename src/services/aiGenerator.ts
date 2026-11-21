@@ -109,10 +109,12 @@ export const PROVIDER_META: Record<
   },
   sdcpp: {
     id: 'sdcpp',
-    name: 'stable-diffusion.cpp',
+    // Display the short product name in the provider switcher and settings;
+    // keep the internal provider ID `sdcpp` for backwards-compatible config.
+    name: 'SD.cpp',
     shortName: 'SD.cpp',
     defaultBaseUrl: 'http://127.0.0.1:1234',
-    docUrl: 'https://github.com/leejet/stable-diffusion.cpp/tree/master/examples/server',
+    docUrl: 'https://github.com/biaggii/stable-diffusion.cpp',
     models: [
       { value: 'minimax-h3-image', label: 'MiniMax H3 Image · Built-in' },
       { value: 'p-h3-image', label: 'P-H3-Image · Built-in' },
