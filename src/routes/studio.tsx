@@ -34,6 +34,7 @@ import { costumesQuery, portraitsQuery, posesQuery } from '@/api/gallery'
 import { Field, Section } from '@/components/common/FormSection'
 import { ComfyConnectionStatus } from '@/components/studio/ComfyConnectionStatus'
 import { WorkflowParameters } from '@/components/studio/WorkflowParameters'
+import { SdCppModelManager } from '@/components/studio/SdCppModelManager'
 import { applyWorkflowOverrides, validateReferenceCombinations, workflowIdentity } from '@/lib/comfyWorkflowParameters'
 import { PageHeader } from '@/components/common/PageHeader'
 import { Badge } from '@/components/ui/badge'
@@ -46,6 +47,7 @@ import { Textarea } from '@/components/ui/textarea'
 import {
   autoDetectComfyMappings,
   buildRecipePrompt,
+  buildH3RecipePrompt,
   type ComfyCheckResult,
   type ComfyPresetId,
   checkComfyWorkflow,
@@ -73,6 +75,7 @@ import type {
   ImageProviderId,
   QwenParams,
   PixAiParams,
+  SdCppParams,
 } from '@/types/gallery'
 
 export const Route = createFileRoute('/studio')({
@@ -80,7 +83,7 @@ export const Route = createFileRoute('/studio')({
   component: StudioPage,
 })
 
-const PROVIDER_LIST: ImageProviderId[] = ['gemini', 'gpt', 'qwen', 'doubao', 'pixai', 'comfyui']
+const PROVIDER_LIST: ImageProviderId[] = ['gemini', 'gpt', 'qwen', 'doubao', 'pixai', 'comfyui', 'sdcpp']
 
 function StudioPage() {
   const {
@@ -111,6 +114,7 @@ function StudioPage() {
     updateQwenParams,
     updateDoubaoParams,
     updateComfyUiParams,
+    updateSdCppParams,
     randomizeRecipe,
     randomizeSlot,
     removeHistoryItem,
@@ -138,7 +142,9 @@ function StudioPage() {
   const supportsInputFidelity = Boolean(getGptInputFidelity(gptModel, 'high') || getGptInputFidelity(gptModel, 'low'))
 
   const activeWorkflowImages = activeProvider === 'comfyui' && recipe.workflowImagesIdentity === workflowIdentity(apiConfig.comfyuiParams.workflowJson) ? Object.values(recipe.workflowImages || {}) : []
-  const defaultPrompt = buildRecipePrompt(activeProvider === 'pixai' ? { ...recipe, extraImages: [] } : recipe, apiConfig.stylePreset, activeWorkflowImages)
+  const defaultPrompt = activeProvider === 'sdcpp'
+    ? buildH3RecipePrompt(recipe, apiConfig.stylePreset)
+    : buildRecipePrompt(activeProvider === 'pixai' ? { ...recipe, extraImages: [] } : recipe, apiConfig.stylePreset, activeWorkflowImages)
   const prompt = customPrompt ?? defaultPrompt
   const [recoveryTaskId, setRecoveryTaskId] = useState('')
   const [showAdvanced, setShowAdvanced] = useState(false)
@@ -155,6 +161,10 @@ function StudioPage() {
     () => parseComfyWorkflowNodes(apiConfig.comfyuiParams.workflowJson),
     [apiConfig.comfyuiParams.workflowJson]
   )
+
+  const updateSdCppDimensions = (patch: Pick<Partial<SdCppParams>, 'aspectRatio' | 'resolution'>) => {
+    updateSdCppParams(patch)
+  }
 
   const handleSelectComfyPreset = (preset: ComfyUiParams['workflowPreset']) => {
     setComfyCheck(null)
@@ -814,6 +824,69 @@ function StudioPage() {
                 </SelectContent>
               </Select>
             </Field>
+
+            {activeProvider === 'sdcpp' && (
+              <>
+                <SdCppModelManager
+                  baseUrl={providerCfg.baseUrl}
+                  apiKey={providerCfg.apiKey}
+                  preferredRecipe={providerCfg.model}
+                  onLoaded={(model) => updateProviderConfig('sdcpp', { model })}
+                />
+                <div className="rounded-xl border bg-card/60 p-3">
+                  <div className="grid gap-3 sm:grid-cols-[minmax(0,1fr)_140px] sm:items-end">
+                    <div className="min-w-0">
+                      <div className="text-sm font-medium">H3 Character Swap LoRA</div>
+                      <p className="text-xs text-muted-foreground">h3_image_character_swap_v1.safetensors · MiniMax H3 Image / P-H3-Image 自動套用</p>
+                    </div>
+                    <Field label="Strength">
+                      <Input type="number" min={0} max={2} step={0.05} value={apiConfig.sdcppParams.loraStrength} onChange={(e) => updateSdCppParams({ loraStrength: Math.min(2, Math.max(0, Number(e.target.value) || 0)) })} />
+                    </Field>
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                  <Field label="Aspect Ratio">
+                    <Select value={apiConfig.sdcppParams.aspectRatio} onValueChange={(v) => updateSdCppDimensions({ aspectRatio: v as SdCppParams['aspectRatio'] })}>
+                      <SelectTrigger className="w-full"><SelectValue /></SelectTrigger>
+                      <SelectContent>
+                        {['1:1', '16:9', '9:16', '4:3', '3:4', '3:2', '2:3'].map((ratio) => <SelectItem key={ratio} value={ratio}>{ratio}</SelectItem>)}
+                      </SelectContent>
+                    </Select>
+                  </Field>
+                  <Field label="Resolution">
+                    <Select value={apiConfig.sdcppParams.resolution} onValueChange={(v) => updateSdCppDimensions({ resolution: v as SdCppParams['resolution'] })}>
+                      <SelectTrigger className="w-full"><SelectValue /></SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="1">1 MP</SelectItem>
+                        <SelectItem value="2">2 MP</SelectItem>
+                        <SelectItem value="4">4 MP · Default</SelectItem>
+                        <SelectItem value="6">6 MP</SelectItem>
+                        <SelectItem value="8">8 MP</SelectItem>
+                        <SelectItem value="12">12 MP</SelectItem>
+                        <SelectItem value="16">16 MP · Maximum</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </Field>
+                </div>
+                <p className="text-xs text-muted-foreground">支援 1–16 MP。尺寸依比例換算並對齊 32 px；實際上限受 sd-server 回報的最大寬高限制。</p>
+                {showAdvanced && (
+                  <>
+                    <Field label="Sampling Method">
+                      <Select value={apiConfig.sdcppParams.sampleMethod} onValueChange={(v) => updateSdCppParams({ sampleMethod: v as 'lcm' | 'euler' })}>
+                        <SelectTrigger className="w-full"><SelectValue /></SelectTrigger>
+                        <SelectContent><SelectItem value="lcm">lcm</SelectItem><SelectItem value="euler">euler</SelectItem></SelectContent>
+                      </Select>
+                    </Field>
+                    <Field label="Extra Sample Args" hint="H3 預設：noise_scale_start=1.1,noise_scale_end=0.9,noise_clip_std=0">
+                      <Input value={apiConfig.sdcppParams.extraSampleArgs} onChange={(e) => updateSdCppParams({ extraSampleArgs: e.target.value })} className="font-mono text-xs" />
+                    </Field>
+                    <Field label="最長等待時間（秒）">
+                      <Input type="number" min={60} step={60} value={apiConfig.sdcppParams.timeoutSec} onChange={(e) => updateSdCppParams({ timeoutSec: Math.max(60, Number(e.target.value) || 1800) })} />
+                    </Field>
+                  </>
+                )}
+              </>
+            )}
 
             {activeProvider === 'comfyui' ? (
               <Field label="工作流模板 (API 格式)">

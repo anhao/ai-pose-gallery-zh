@@ -1,6 +1,6 @@
 # AI 角色参考与合成工作台 · 中文版（3合1）
 
-> **姿势库（1,439 张素体白模 + 1,439 张深度图 Depth） + 服装库（3,224 套：ギア写实 1,407 + Shisei 中国历代 57 套/227 视角 + ギア动漫 1,320 + CharaDB 二次元 440） + 人像库（1,499 位） = 6,162 条全中文参考数据 / 12,022 张本地高清图，另有 1,760 张来源站点参考图**，集成 **5 大 AI 图像协议直连工作台** 与 **原生 ComfyUI 自定义节点插件（`custom_nodes`）**。
+> **姿势库（1,439 张素体白模 + 1,439 张深度图 Depth） + 服装库（3,224 套：ギア写实 1,407 + Shisei 中国历代 57 套/227 视角 + ギア动漫 1,320 + CharaDB 二次元 440） + 人像库（1,499 位） = 6,162 条全中文参考数据 / 12,022 张本地高清图，另有 1,760 张来源站点参考图**，集成 **7 大 AI 图像协议直连工作台** 与 **原生 ComfyUI 自定义节点插件（`custom_nodes`）**。
 
 ![画廊总览预览](docs/preview.jpg)
 
@@ -39,7 +39,7 @@
 3. **三合一 AI 角色合成工作台（Web Studio）** —— 基于 **React 19 + Tailwind CSS 4 + TypeScript 7 + shadcn/ui + TanStack Router** 构建的响应式多页面应用（兼容 PC / 平板 / 手机）：
    - 从三大图库任意挑选 **人像 + 服装 + 姿势（支持素体白模 / 深度图一键切换）** 组合配方，或一键随机捏人；
    - 支持拖拽、剪贴板粘贴（`Cmd+V` / `Ctrl+V`）或 URL 添加多张自定义附加参考图；
-   - 内置 **5 大 AI 图像协议直连**（Google Gemini、OpenAI GPT Image、阿里云百炼 Qwen、字节火山方舟 Doubao、**本地 ComfyUI**），生成记录通过 **IndexedDB** 本地持久化保存。
+   - 内置 **7 大 AI 图像协议直连**（Google Gemini、OpenAI GPT Image、阿里云百炼 Qwen、字节火山方舟 Doubao、PixAI、**本地 ComfyUI**、**SD.cpp**），生成记录通过 **IndexedDB** 本地持久化保存。
 4. **原生 ComfyUI 自定义节点插件（`custom_nodes`）** —— 本仓库同时是一个即插即用的 ComfyUI 插件！直接 `git clone` 到 `ComfyUI/custom_nodes/` 即可在 ComfyUI 画布内使用 **姿势 / 服装 / 人像 / 三合一角色配方** 4 个自定义节点（姿势与配方节点内置 `use_depth` 深度图切换，可直接接入 ControlNet Depth）与内置的 **6,162 条中文可视化弹窗选图器**。
 
 ---
@@ -56,15 +56,18 @@
 - **3+N 参考图组合**：3 个核心槽位（人像 / 服装 / 姿势，姿势槽位内置 `[ 白模 | 深度 ]` 实时切换）+ 任意张自定义附加参考图（点击上传、拖拽文件、剪贴板粘贴、填写图片 URL）。
 - **参考拼图预览与导出**：弹窗查看三合一高清参考拼图（`1800×1200` Canvas 实时合成），支持一键下载拼图 PNG。
 - **12 种画风预设 & 纯中文结构化提示词**：内置「无预设（跟随参考图）」、写实人像写真、日韩杂志画报、复古胶片写真、2.5D 游戏原画立绘、日系二次元插画、新海诚感动画电影、日式黑白漫画网点、3D 次世代角色渲染、3D 潮玩手办质感、赛博朋克霓虹、角色设定集立绘（纯白底）共 12 种画风，根据已选素材自动组装提示词。
-- **5 大 AI 图像协议与高级参数**：
+- **7 大 AI 图像协议与高级参数**：
   - **Google Gemini**：`gemini-3.1-flash-image-preview`、`gemini-3-pro-image-preview`、`gemini-2.5-flash-image`（支持宽高比 `aspectRatio`、分辨率 `1K/2K/4K`）
   - **OpenAI GPT Image**：`gpt-image-2.5`、`gpt-image-2`、`gpt-image-1.5`、`gpt-image-1`（支持 `/v1/images/edits` JSON URL 直传 / Multipart 上传、尺寸、质量、背景透明度）
   - **阿里云百炼 Qwen**：`qwen-image-3.0-pro`、`qwen-image-2.1-pro`、`qwen-image-2.0-pro`、`qwen-image-edit-plus`（支持 `multimodal-generation` 多图参考输入、智能改写 `prompt_extend`、水印开关）
   - **字节火山方舟 Doubao**：`doubao-seedream-5-0`、`doubao-seedream-4-5-251128`、`doubao-seedream-4-0-250828`、`doubao-seededit-3-0-i2i-250628`（支持多图融合 `image: [...]`、2K/4K 分辨率）
   - **本地 ComfyUI 工作流引擎**：支持自动将三合一拼图及单张人像/服装/姿势图上传至本地 ComfyUI（`/upload/image`），注入自定义 API 工作流占位符或自动识别节点提交 `/prompt` 队列并轮询取回成品图；支持导入/导出通用 `.api.json` 工作流模板。
+  - **SD.cpp**：独立 Provider，使用 `sd-server` 原生 `/sdcpp/v1/*` API；支持 MiniMax H3 Image / P-H3-Image Built-in Recipe、模型檔案選擇與載入、最多 16 張獨立參考圖、非同步 Job 輪詢及取消；內建 LCM、CFG 1 與 H3 extra sample args。
 - **跨页面后台生图 & IndexedDB 历史记录**：切换页面不会中断正在进行的生图请求；生成结果自动存入浏览器 IndexedDB（避免 `localStorage` 容量限制），支持复用提示词与原图下载。
 
 > 本地 ComfyUI 三图合成（Qwen Image Edit 2509）的模型清单、工作流说明和本地运行方法见 [docs/comfyui-local.md](docs/comfyui-local.md)。
+
+> SD.cpp（MiniMax H3 Image / P-H3-Image）的 Server API、模型載入與參數設定見 [docs/stable-diffusion-cpp.md](docs/stable-diffusion-cpp.md)。
 
 > 导入 API 后的动态高级参数、设定集参考上传与可选显示声明见 [ComfyUI 工作流高级参数](docs/comfyui-workflow-parameters.md)。
 
@@ -120,6 +123,13 @@ git clone --depth 1 https://github.com/anhao/ai-pose-gallery-zh.git
 2. 打开本工作台 **「接口配置」** 页面 → 切换到 **「本地 ComfyUI」** → 点击「检测连接」（默认 `http://127.0.0.1:8188`）；
 3. 可直接导入您在 ComfyUI 中通过 `工作流 -> 导出 (API)` 保存的 `.json` 文件（支持 `{{prompt}}`、`{{seed}}`、`{{width}}`、`{{height}}`、`{{composite_image}}`、`{{portrait_image}}`、`{{costume_image}}`、`{{pose_image}}` 占位符，或由系统自动匹配 `CLIPTextEncode` / `KSampler` / `LoadImage` 节点），也可在 **「合成台」** 一键导出内置通用工作流模板。
 
+## 在 stable-diffusion.cpp 中使用
+
+1. 安装并启动 [SD.cpp（biaggii fork）](https://github.com/biaggii/stable-diffusion.cpp) 的 `sd-server`，默认地址为 `http://127.0.0.1:1234`。
+2. 按照 [SD.cpp 模型说明](docs/stable-diffusion-cpp.md) 下载 H3 / P-H3 模型组件及 Character Swap LoRA，并放入对应模型目录。
+3. 在「API 配置」选择 **SD.cpp**、填写 Server URL 并检测连接；回到合成台选择 MiniMax H3 Image 或 P-H3-Image。
+4. 选择人像、服装与姿势后按 **Generate**；Studio 会自动加载 Built-in Recipe、套用 LoRA，并按 H3 所需顺序发送参考图。
+
 ---
 
 ## 技术栈与目录结构
@@ -140,10 +150,10 @@ git clone --depth 1 https://github.com/anhao/ai-pose-gallery-zh.git
 ├── src/
 │   ├── components/         # 通用组件、AppLayout 响应式导航、GalleryLightbox 灯箱、RecipeDock
 │   ├── routes/             # 页面路由：概览(index)、姿势(poses)、服装(costumes)、人像(portraits)、合成台(studio)、配置(settings)、指南(guide)
-│   ├── services/           # 5 大 AI 图像协议客户端 (aiGenerator.ts) 与 Canvas 拼图合成 (canvasComposer.ts)
+│   ├── services/           # AI 图像协议客户端 (aiGenerator.ts / sdcpp.ts) 与 Canvas 拼图合成 (canvasComposer.ts)
 │   ├── store/              # 全局配方、生图状态与 IndexedDB 历史管理 (studioStore.tsx)
 │   ├── lib/                # 数据加载器 (dataLoader.ts) 与 IndexedDB 工具 (idbStorage.ts)
-│   └── types/              # 三库数据结构与 5 大 AI 协议类型定义 (gallery.ts)
+│   └── types/              # 三库数据结构与 AI 协议类型定义 (gallery.ts)
 ├── functions/api/proxy.ts  # Cloudflare Pages Functions / Workers 同源 CORS 代理 (/api/proxy)
 ├── worker.ts               # Cloudflare Workers 入口（静态资源 ASSETS + /api/proxy 路由）
 ├── wrangler.jsonc          # Cloudflare Workers 配置文件

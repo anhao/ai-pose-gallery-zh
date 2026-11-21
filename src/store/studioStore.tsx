@@ -22,6 +22,7 @@ import { recipeBackup } from '@/lib/recipeImages'
 import { randomSlot, type RandomScope, type ReferencePools, type ReferenceSlot } from '@/lib/randomRecipe'
 import {
   buildRecipePrompt,
+  buildH3RecipePrompt,
   generateCharacterImage,
   resumeComfyTask,
   ComfyTaskError,
@@ -43,6 +44,7 @@ import type {
   PortraitItem,
   PoseItem,
   PixAiParams,
+  SdCppParams,
   ProviderEndpointConfig,
   QwenParams,
   RecipeState,
@@ -105,6 +107,7 @@ interface StudioContextValue {
   updateQwenParams: (patch: Partial<QwenParams>) => void
   updateDoubaoParams: (patch: Partial<DoubaoParams>) => void
   updateComfyUiParams: (patch: Partial<ComfyUiParams>) => void
+  updateSdCppParams: (patch: Partial<SdCppParams>) => void
   addHistory: (item: Omit<GenerationHistoryItem, 'id' | 'createdAt'>) => void
   removeHistoryItem: (id: string) => void
   clearHistory: () => void
@@ -410,6 +413,7 @@ export function StudioProvider({ children }: { children: ReactNode }) {
   }
 
   const updateApiConfig = (patch: Partial<ApiConfig>) => {
+    if (patch.activeProvider && patch.activeProvider !== apiConfig.activeProvider) setCustomPrompt(null)
     setApiConfig((prev) => {
       const next = { ...prev, ...patch }
       if (patch.activeProvider && patch.useProxy === undefined) {
@@ -455,6 +459,10 @@ export function StudioProvider({ children }: { children: ReactNode }) {
 
   const updateComfyUiParams = (patch: Partial<ComfyUiParams>) => {
     setApiConfig((prev) => ({ ...prev, comfyuiParams: { ...prev.comfyuiParams, ...patch } }))
+  }
+
+  const updateSdCppParams = (patch: Partial<SdCppParams>) => {
+    setApiConfig((prev) => ({ ...prev, sdcppParams: { ...prev.sdcppParams, ...patch } }))
   }
 
   const persistHistory = (update: (current: GenerationHistoryItem[]) => GenerationHistoryItem[]) => {
@@ -567,7 +575,10 @@ export function StudioProvider({ children }: { children: ReactNode }) {
     if (activeTaskRef.current) { toast.error('存在待确认任务，请先恢复或明确放弃记录'); return }
     const configSnapshot = apiConfig
     const recipeSnapshot = apiConfig.activeProvider === 'pixai' ? { ...recipe, workflowImages: {}, workflowImagesIdentity: undefined } : recipe
-    const finalPrompt = overridePrompt ?? customPrompt ?? buildRecipePrompt(recipeSnapshot, configSnapshot.stylePreset, configSnapshot.activeProvider === 'comfyui' && recipeSnapshot.workflowImagesIdentity === workflowIdentity(configSnapshot.comfyuiParams.workflowJson) ? Object.values(recipeSnapshot.workflowImages || {}) : [])
+    const defaultPrompt = configSnapshot.activeProvider === 'sdcpp'
+      ? buildH3RecipePrompt(recipeSnapshot, configSnapshot.stylePreset)
+      : buildRecipePrompt(recipeSnapshot, configSnapshot.stylePreset, configSnapshot.activeProvider === 'comfyui' && recipeSnapshot.workflowImagesIdentity === workflowIdentity(configSnapshot.comfyuiParams.workflowJson) ? Object.values(recipeSnapshot.workflowImages || {}) : [])
+    const finalPrompt = overridePrompt ?? customPrompt ?? defaultPrompt
     let record: ActiveTask = { provider: configSnapshot.activeProvider, baseUrl: configSnapshot.providers[configSnapshot.activeProvider].baseUrl, prompt: finalPrompt, summary: [recipeSnapshot.portrait?.发型名称, recipeSnapshot.costume?.服装名称, recipeSnapshot.pose?.姿势名称].filter(Boolean).join(' + ') || '自定义合成' }
     isGeneratingRef.current = true
     setIsGenerating(true)
@@ -656,6 +667,7 @@ export function StudioProvider({ children }: { children: ReactNode }) {
         updateQwenParams,
         updateDoubaoParams,
         updateComfyUiParams,
+        updateSdCppParams,
         addHistory,
         removeHistoryItem,
         clearHistory,

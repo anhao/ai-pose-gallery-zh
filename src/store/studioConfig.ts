@@ -45,6 +45,12 @@ export const DEFAULT_API_CONFIG: ApiConfig = {
       model: PROVIDER_META.comfyui.models[0].value,
       customModel: '',
     },
+    sdcpp: {
+      baseUrl: 'http://127.0.0.1:1234',
+      apiKey: '',
+      model: 'minimax-h3-image',
+      customModel: '',
+    },
   },
   pixaiParams: { ...DEFAULT_PIXAI_PARAMS },
   gptParams: {
@@ -82,6 +88,16 @@ export const DEFAULT_API_CONFIG: ApiConfig = {
     timeoutSec: 600,
     configVersion: COMFY_CONFIG_VERSION,
   },
+  sdcppParams: {
+    aspectRatio: '9:16',
+    resolution: '4',
+    width: 1024,
+    height: 1024,
+    timeoutSec: 1800,
+    sampleMethod: 'lcm',
+    extraSampleArgs: 'noise_scale_start=1.1,noise_scale_end=0.9,noise_clip_std=0',
+    loraStrength: 1,
+  },
 }
 
 // v1 → v2：旧版默认的 Qwen 2.1 预设引用了本机通常不存在的模型，自动切换为 Qwen Image Edit 2509
@@ -118,6 +134,13 @@ export function mergeStoredConfig(raw: unknown): ApiConfig {
     { ...DEFAULT_API_CONFIG.providers.comfyui, ...obj.providers?.comfyui },
     { ...DEFAULT_API_CONFIG.comfyuiParams, configVersion: 1, ...obj.comfyuiParams }
   )
+  // Migrate the previous SD.cpp defaults (model-default square) to the new
+  // portrait-first 4 MP preset. Preserve explicit non-legacy user selections.
+  const storedSdCppParams = { ...DEFAULT_API_CONFIG.sdcppParams, ...obj.sdcppParams }
+  if (storedSdCppParams.resolution === 'model') {
+    storedSdCppParams.resolution = '4'
+    if (storedSdCppParams.aspectRatio === '1:1') storedSdCppParams.aspectRatio = '9:16'
+  }
   const activeProvider = obj.activeProvider ?? DEFAULT_API_CONFIG.activeProvider
   // v3 起服务端 CORS 代理默认关闭，仅在切换到 Qwen / Doubao 时自动关联开启
   const useProxy =
@@ -136,6 +159,7 @@ export function mergeStoredConfig(raw: unknown): ApiConfig {
       doubao: { ...DEFAULT_API_CONFIG.providers.doubao, ...obj.providers?.doubao },
       pixai: { ...DEFAULT_API_CONFIG.providers.pixai, ...obj.providers?.pixai, model: PIXAI_MODELS.some((entry) => entry.value === obj.providers?.pixai?.model) ? obj.providers!.pixai.model : PIXAI_MODEL, customModel: '' },
       comfyui: comfy.provider,
+      sdcpp: { ...DEFAULT_API_CONFIG.providers.sdcpp, ...obj.providers?.sdcpp },
     },
     gptParams: { ...DEFAULT_API_CONFIG.gptParams, ...obj.gptParams },
     geminiParams: { ...DEFAULT_API_CONFIG.geminiParams, ...obj.geminiParams },
@@ -143,6 +167,7 @@ export function mergeStoredConfig(raw: unknown): ApiConfig {
     doubaoParams: { ...DEFAULT_API_CONFIG.doubaoParams, ...obj.doubaoParams },
     pixaiParams: { ...DEFAULT_PIXAI_PARAMS, ...obj.pixaiParams, mode: obj.providers?.pixai?.model !== '2050048243034896798' && ['default', 'pro', 'ultra'].includes(obj.pixaiParams?.mode || '') ? obj.pixaiParams!.mode : 'default' },
     comfyuiParams: comfy.params,
+    sdcppParams: storedSdCppParams,
   }
 }
 

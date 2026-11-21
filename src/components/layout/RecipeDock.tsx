@@ -6,7 +6,7 @@ import { costumesQuery, portraitsQuery, posesQuery } from '@/api/gallery'
 import { poseThumbPath, referenceImageUrl } from '@/lib/recipeImages'
 import { workflowIdentity } from '@/lib/comfyWorkflowParameters'
 import { Button } from '@/components/ui/button'
-import { buildRecipePrompt } from '@/services/aiGenerator'
+import { buildH3RecipePrompt, buildRecipePrompt } from '@/services/aiGenerator'
 import { useStudio } from '@/store/studioStore'
 
 export function RecipeDock() {
@@ -36,7 +36,9 @@ export function RecipeDock() {
   }
 
   const handleCopyPrompt = async () => {
-    const text = buildRecipePrompt(recipe, apiConfig.stylePreset, workflowImages)
+    const text = apiConfig.activeProvider === 'sdcpp'
+      ? buildH3RecipePrompt(recipe, apiConfig.stylePreset)
+      : buildRecipePrompt(recipe, apiConfig.stylePreset, workflowImages)
     await navigator.clipboard.writeText(text)
     toast.success('已复制提示词')
   }
