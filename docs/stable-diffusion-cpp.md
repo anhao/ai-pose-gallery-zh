@@ -36,7 +36,8 @@ Studio 仍保留 Model 視窗，供手動切換 Recipe、選擇其他量化檔�
 |---|---:|---:|
 | Built-in Recipe steps | 6 | 8 |
 | CFG | 1 | 1 |
-| 初始尺寸基準 | 約 1 MP | 約 1 MP |
+| Studio 預設輸出 | 4 MP · 9:16 | 4 MP · 9:16 |
+| 可選像素預算 | 1 / 2 / 4 / 6 / 8 / 12 / 16 MP | 1 / 2 / 4 / 6 / 8 / 12 / 16 MP |
 | 尺寸倍數 | 32 px | 32 px |
 | Reference Images | 最多 16 張 | 最多 16 張 |
 
@@ -52,8 +53,9 @@ Studio 預設使用以下取樣設定：
 ### 比例與解析度
 
 - 比例：`1:1`、`16:9`、`9:16`、`4:3`、`3:4`、`3:2`、`2:3`。
-- 解析度：Model default、`0.25 MP`、`1 MP`、`2.25 MP`、`4 MP`。
-- Studio 依比例與像素預算計算寬高，並對齊 32 px。
+- 解析度：`1 MP`、`2 MP`、`4 MP`、`6 MP`、`8 MP`、`12 MP`、`16 MP`。
+- 預設為 `9:16` + `4 MP`。
+- Studio 依比例與像素預算計算寬高，並對齊 32 px；若超過 Server 回報的最大寬高，會按比例縮小並顯示實際輸出像素。
 
 ## 參考圖順序
 
@@ -66,21 +68,28 @@ Studio 畫面中的素材槽順序不變：人像、服裝、姿勢。送往 sd-
 3. Picture 3：人像。
 4. Picture 4–16：附加參考圖，依加入順序排列。
 
-Prompt 也會依同一順序標記 Picture 編號。沒有參考圖時可使用自訂 Prompt 進行 text-to-image。
+固定 Character Swap Prompt 的 Picture 編號與 API 圖片順序一致。H3 Character Swap 需要完整的人像、服裝及姿勢三張基本參考圖；不提供三張素材時，Studio 會阻止提交，以免錯置 Picture 角色。
 
 ## H3 專用 Prompt
 
-MiniMax H3 Image 與 P-H3-Image 共用 `src/services/h3Prompt.ts` 的 H3 Prompt Builder。它把原專案的角色、服裝、姿勢與風格資訊轉寫成英文、完整的 reference-editing prose：先依上傳順序定義 `<Picture N>` 與對應的 `<Subject N>`，再說明最終畫面及每個 Subject 的作用，並清楚區分身份保留、服裝移植、姿勢借用與附加元素。風格預設也轉成可見的光線、材質、色彩與媒介描述。
+MiniMax H3 Image 與 P-H3-Image 共用 `src/services/h3Prompt.ts` 的固定 Character Swap Prompt。Prompt 原文直接使用使用者提供的英文文字，不做自動改寫；`<Picture 1>` 對應姿勢、`<Picture 2>` 對應服裝、`<Picture 3>` 對應人像。
 
 其他 Provider 仍使用 `buildRecipePrompt()` 原有中文條列 Prompt，不會套用 H3 改寫。切換 Provider 時會清除前一 Provider 的手動 Prompt 覆寫，讓新 Provider 顯示其原生預設 Prompt；在同一 Provider 內編輯的自訂 Prompt 則會正常保留。
 
 H3 Character Swap 使用 Studio 指定的固定 Prompt，並將 Pose / Costume / Portrait 分別對應 `<Picture 1>` / `<Picture 2>` / `<Picture 3>`。兩個 Built-in Recipe 都會自動附加 `h3_image_character_swap_v1.safetensors`，預設 multiplier 為 `1.0`，使用原生 `lora: [{path, multiplier, is_high_noise}]` 欄位，不使用 Prompt LoRA tag。LoRA 必須出現在 sd-server 的 `/sdcpp/v1/capabilities` 清單中。
 
-H3 Prompt 寫作依據 MiniMax 官方 `h3-image-prompt-writing` Skill：
 
-- [Prompt Writing Skill](https://github.com/MiniMax-AI/MiniMax-H3-Image/tree/main/skills/h3-image-prompt-writing)
-- [Reference-image edit guide](https://github.com/MiniMax-AI/MiniMax-H3-Image/blob/main/skills/h3-image-prompt-writing/references/edit-en.txt)
-- [Text-to-image guide](https://github.com/MiniMax-AI/MiniMax-H3-Image/blob/main/skills/h3-image-prompt-writing/references/t2i-en.txt)
+## 模型與權重下載
+
+- SD.cpp fork：<https://github.com/biaggii/stable-diffusion.cpp>
+- Diffusion model（MiniMax H3 Image）：<https://huggingface.co/Comfy-Org/MiniMax-H3-Image/tree/main/diffusion_models>
+  - 建議先確認 24 GB 原始權重與 INT8（約 16–8 GB）/ W4A8 量化版本的顯存需求，再下載相容版本。
+- VAE：<https://huggingface.co/Comfy-Org/MiniMax-H3-Image/resolve/main/vae/minimax_h3_image_vae_fp16.safetensors>
+- Text encoder（P-H3 INT8 ConvRot）：<https://huggingface.co/PrunaAI/P-Image-OSS-Comfy/resolve/main/text_encoders/p-h3-image_text_encoder_int8_convrot.safetensors>
+  - 原始模型約 24 GB；INT8 量化版本約 16–8 GB，W4A8 需求依實際量化檔而異。
+- Character Swap LoRA：<https://huggingface.co/akatz-ai/MiniMax-H3-Image-Character-Swap-LoRA/resolve/main/h3_image_character_swap_v1.safetensors>
+
+LoRA 會在 H3 生圖請求中自動套用，預設 strength `1.0`。
 
 ## 任務處理
 

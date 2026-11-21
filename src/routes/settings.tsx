@@ -233,11 +233,6 @@ function SettingsPage() {
             />
           </Field>
         )}
-      </Section>
-
-        {pid === 'comfyui' && (
-          <p className="text-sm text-muted-foreground">模型由工作流决定。请返回合成台导入工作流，并设置人像、服装和姿势节点。</p>
-        )}
         {pid === 'sdcpp' && (
           <div className="rounded-xl border bg-card/60 p-4 sm:p-5" aria-label="SD.cpp model resources">
             <div className="flex flex-wrap items-center justify-between gap-2">
@@ -280,6 +275,12 @@ function SettingsPage() {
             {sdCppInfo && <p className="mt-4 border-t pt-3 text-sm text-muted-foreground" role="status">{sdCppInfo}</p>}
           </div>
         )}
+      </Section>
+
+        {pid === 'comfyui' && (
+          <p className="text-sm text-muted-foreground">模型由工作流决定。请返回合成台导入工作流，并设置人像、服装和姿势节点。</p>
+        )}
+
 
       {/* 全局传输设置 */}
       {pid === 'pixai' && <p className="text-sm text-muted-foreground">支持 Tsubaki.3 和 Tsubaki.3 Flash，每次输出一张。人像、服装、姿势各一图，按原始图片上传；默认启用本站代理。Key 随请求发送到本站代理与 PixAI，请仅在可信部署上使用。</p>}
