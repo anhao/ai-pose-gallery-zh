@@ -4,6 +4,8 @@ import { getGptInputFidelity } from '@/lib/gptImageCapabilities'
 import { applyWorkflowOverrides, getWorkflowImages, validateReferenceCombinations, workflowIdentity, type ComfyObjectInfo } from '@/lib/comfyWorkflowParameters'
 import { poseImagePath, referenceImageUrl } from '@/lib/recipeImages'
 import qwen2509ThreeImageWorkflow from '@/workflows/qwen_image_edit_2509_3img.api.json'
+import { generateWithSdCpp } from './sdcpp'
+export { buildH3RecipePrompt } from './h3Prompt'
 
 export interface ProviderModelOption {
   value: string
@@ -103,6 +105,17 @@ export const PROVIDER_META: Record<
     models: [
       { value: 'qwen_image_edit_2509', label: 'qwen_image_edit_2509（由工作流决定）' },
       { value: 'custom', label: '自定义名称（仅用于记录显示）' },
+    ],
+  },
+  sdcpp: {
+    id: 'sdcpp',
+    name: 'stable-diffusion.cpp',
+    shortName: 'SD.cpp',
+    defaultBaseUrl: 'http://127.0.0.1:1234',
+    docUrl: 'https://github.com/leejet/stable-diffusion.cpp/tree/master/examples/server',
+    models: [
+      { value: 'minimax-h3-image', label: 'MiniMax H3 Image · Built-in' },
+      { value: 'p-h3-image', label: 'P-H3-Image · Built-in' },
     ],
   },
 }
@@ -1558,7 +1571,7 @@ export async function generateCharacterImage(params: {
   const pCfg = config.providers[provider]
   const apiKey = pCfg.apiKey.trim()
 
-  if (provider !== 'comfyui' && !apiKey) {
+  if (provider !== 'comfyui' && provider !== 'sdcpp' && !apiKey) {
     throw new Error(`请先配置 ${PROVIDER_META[provider].name} 的 API Key`)
   }
 
@@ -1573,7 +1586,7 @@ export async function generateCharacterImage(params: {
       ? Object.values(recipe.workflowImages || {}).map((image) => image.url) : []),
   ].filter(Boolean) as string[]
 
-  if (!rawSources.length) {
+  if (!rawSources.length && provider !== 'sdcpp') {
     throw new Error('请先选择或上传至少 1 张参考图')
   }
 
@@ -1587,6 +1600,7 @@ export async function generateCharacterImage(params: {
   if (provider === 'comfyui') {
     return generateWithComfyUi({ recipe, prompt, config, baseUrl, apiKey, onProgress, onSubmitting: params.onSubmitting, onSubmitted: params.onSubmitted, signal: params.signal })
   }
+  if (provider === 'sdcpp') return generateWithSdCpp({ recipe, prompt, config, onProgress, signal: params.signal })
 
   // 判断当前请求是否需要转换为本地 Base64：
   // 1) 用户显式选择了 base64 模式

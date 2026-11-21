@@ -85,7 +85,7 @@ export interface RecipeState {
   extraImages?: ExtraReferenceImage[]
 }
 
-export type ImageProviderId = 'gemini' | 'gpt' | 'qwen' | 'doubao' | 'comfyui' | 'pixai'
+export type ImageProviderId = 'gemini' | 'gpt' | 'qwen' | 'doubao' | 'comfyui' | 'pixai' | 'sdcpp'
 
 export interface ProviderEndpointConfig {
   baseUrl: string
@@ -117,6 +117,18 @@ export interface ComfyUiParams {
   timeoutSec: number
   /** 配置结构版本，用于迁移旧版默认值 */
   configVersion?: number
+}
+
+export interface SdCppParams {
+  aspectRatio: '1:1' | '16:9' | '9:16' | '4:3' | '3:4' | '3:2' | '2:3'
+  /** Target megapixels. `model` is retained only to migrate older saved settings. */
+  resolution: 'model' | '1' | '2' | '4' | '6' | '8' | '12' | '16'
+  width: number
+  height: number
+  timeoutSec: number
+  sampleMethod: 'lcm' | 'euler'
+  extraSampleArgs: string
+  loraStrength: number
 }
 
 export interface GptParams {
@@ -171,6 +183,7 @@ export interface ApiConfig {
   doubaoParams: DoubaoParams
   pixaiParams: PixAiParams
   comfyuiParams: ComfyUiParams
+  sdcppParams: SdCppParams
 }
 
 export interface GenerationHistoryItem {

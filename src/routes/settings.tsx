@@ -17,6 +17,7 @@ import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Switch } from '@/components/ui/switch'
 import { detectComfyUi, PROVIDER_META } from '@/services/aiGenerator'
+import { testSdCppConnection } from '@/services/sdcpp'
 import { useStudio } from '@/store/studioStore'
 import type { ImagePassMode, ImageProviderId } from '@/types/gallery'
 import { ComfyConnectionStatus } from '@/components/studio/ComfyConnectionStatus'
@@ -27,12 +28,14 @@ export const Route = createFileRoute('/settings')({
   component: SettingsPage,
 })
 
-const PROVIDER_ORDER: ImageProviderId[] = ['gemini', 'gpt', 'qwen', 'doubao', 'pixai', 'comfyui']
+const PROVIDER_ORDER: ImageProviderId[] = ['gemini', 'gpt', 'qwen', 'doubao', 'pixai', 'comfyui', 'sdcpp']
 
 function SettingsPage() {
   const { apiConfig, updateApiConfig, updateProviderConfig, comfyConnection } = useStudio()
   const [showKey, setShowKey] = useState(false)
   const [testingComfy, setTestingComfy] = useState(false)
+  const [testingSdCpp, setTestingSdCpp] = useState(false)
+  const [sdCppInfo, setSdCppInfo] = useState('')
 
   const pid = apiConfig.activeProvider
   const meta = PROVIDER_META[pid]
@@ -55,6 +58,22 @@ function SettingsPage() {
     }
   }
 
+  const handleTestSdCpp = async () => {
+    setTestingSdCpp(true)
+    setSdCppInfo('')
+    try {
+      const info = await testSdCppConnection(pCfg.baseUrl, pCfg.apiKey)
+      setSdCppInfo(info)
+      toast.success(`已連接：${info}`)
+    } catch (error) {
+      const message = error instanceof Error ? error.message : '連線失敗'
+      setSdCppInfo(message)
+      toast.error(message, { duration: 10000 })
+    } finally {
+      setTestingSdCpp(false)
+    }
+  }
+
   return (
     <>
       <PageHeader
@@ -70,13 +89,14 @@ function SettingsPage() {
       />
 
       {/* 五大协议切换标签 */}
-      <div className="grid grid-cols-2 gap-2 sm:grid-cols-5">
+      <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 xl:grid-cols-7">
         {PROVIDER_ORDER.map((id) => {
           const itemMeta = PROVIDER_META[id]
           const isActive = pid === id
           const hasKey =
             id === 'comfyui'
               ? Boolean(apiConfig.providers.comfyui.baseUrl.trim())
+              : id === 'sdcpp' ? Boolean(apiConfig.providers.sdcpp.baseUrl.trim())
               : Boolean(apiConfig.providers[id].apiKey.trim())
           return (
             <button
@@ -89,13 +109,13 @@ function SettingsPage() {
                   : 'border-border/60 bg-card hover:bg-muted/40'
               }`}
             >
-              <span className="min-w-0"><span className="block truncate text-sm">{itemMeta.name}</span><span className="block text-xs font-normal text-muted-foreground">{id === 'comfyui' ? COMFY_CONNECTION_LABELS[comfyConnection.status] : hasKey ? '已配置' : '未配置 Key'}</span></span>
+              <span className="min-w-0"><span className="block truncate text-sm">{itemMeta.name}</span><span className="block text-xs font-normal text-muted-foreground">{id === 'comfyui' ? COMFY_CONNECTION_LABELS[comfyConnection.status] : id === 'sdcpp' ? (hasKey ? 'Server 已設定' : '未設定 Server') : hasKey ? '已配置' : '未配置 Key'}</span></span>
               <span
                 aria-hidden="true"
                 className={`size-2 shrink-0 rounded-full ${
-                  id === 'comfyui' && comfyConnection.status === 'connected' ? 'bg-emerald-500' : hasKey ? 'bg-amber-500' : 'bg-muted-foreground/30'
+                  (id === 'comfyui' && comfyConnection.status === 'connected') || id === 'sdcpp' && sdCppInfo.includes('· ready ·') ? 'bg-emerald-500' : hasKey ? 'bg-amber-500' : 'bg-muted-foreground/30'
                 }`}
-                title={id === 'comfyui' ? COMFY_CONNECTION_LABELS[comfyConnection.status] : hasKey ? '已配置，尚未检测' : '未配置 Key'}
+                title={id === 'comfyui' ? COMFY_CONNECTION_LABELS[comfyConnection.status] : hasKey ? (id === 'sdcpp' ? '已設定 Server' : '已配置，尚未检测') : '未配置 Key'}
               />
             </button>
           )
@@ -117,6 +137,7 @@ function SettingsPage() {
                 </Button>
               </>
             )}
+            {pid === 'sdcpp' && <Button variant="outline" size="sm" onClick={handleTestSdCpp} disabled={testingSdCpp}>{testingSdCpp ? '檢測中…' : '檢測連線'}</Button>}
             <Button variant="ghost" size="sm" asChild>
               <a href={meta.docUrl} target="_blank" rel="noreferrer">
                 <ExternalLinkIcon className="size-3.5" />
@@ -141,10 +162,11 @@ function SettingsPage() {
         }
       >
         <Field
-          label={pid === 'comfyui' ? 'ComfyUI 地址 (Base URL)' : 'Base URL'}
+          label={pid === 'comfyui' ? 'ComfyUI 地址 (Base URL)' : pid === 'sdcpp' ? 'sd-server 地址 (Base URL)' : 'Base URL'}
           hint={
             pid === 'comfyui'
               ? `本地运行本站时填 /comfy（同源代理，无需改跨域设置）；直连时 ComfyUI 需加启动参数 --enable-cors-header "${typeof window !== 'undefined' ? window.location.origin : '*'}"。Desktop 版默认端口 8000，便携版 8188`
+              : pid === 'sdcpp' ? '本機預設 http://127.0.0.1:1234；遠端可填 LAN / HTTPS Reverse Proxy URL。Server 原生 API 沒有內建 API Key，遠端請使用 VPN 或具備認證的 Reverse Proxy。'
               : undefined
           }
         >
@@ -157,7 +179,7 @@ function SettingsPage() {
           />
         </Field>
 
-        <Field label={pid === 'comfyui' ? 'API Key（可选，本地留空）' : 'API Key'}>
+        <Field label={pid === 'comfyui' ? 'API Key（可选，本地留空）' : pid === 'sdcpp' ? 'API Key（可選，通常留空）' : 'API Key'}>
           <div className="relative">
             <Input
               type={showKey ? 'text' : 'password'}
@@ -166,6 +188,7 @@ function SettingsPage() {
               placeholder={
                 pid === 'comfyui'
                   ? '本地 ComfyUI 无需填写，远程鉴权可填 Token'
+                  : pid === 'sdcpp' ? '可選：僅供遠端 Reverse Proxy Bearer Token'
                   : '输入 API Key（仅保存在本地浏览器）'
               }
               className="pr-10"
@@ -212,13 +235,14 @@ function SettingsPage() {
         )}
       </Section>
 
-      {pid === 'comfyui' && (
-        <p className="text-sm text-muted-foreground">模型由工作流决定。请返回合成台导入工作流，并设置人像、服装和姿势节点。</p>
-      )}
+        {pid === 'comfyui' && (
+          <p className="text-sm text-muted-foreground">模型由工作流决定。请返回合成台导入工作流，并设置人像、服装和姿势节点。</p>
+        )}
+        {pid === 'sdcpp' && <div className="text-sm text-muted-foreground">{sdCppInfo || '模型與權重由 sd-server 管理。Studio 在按下 Generate 時會自動尋找相容權重並載入所選 H3 Built-in Recipe；也可在合成台 Model 視窗手動指定權重。'}</div>}
 
       {/* 全局传输设置 */}
       {pid === 'pixai' && <p className="text-sm text-muted-foreground">支持 Tsubaki.3 和 Tsubaki.3 Flash，每次输出一张。人像、服装、姿势各一图，按原始图片上传；默认启用本站代理。Key 随请求发送到本站代理与 PixAI，请仅在可信部署上使用。</p>}
-      {pid !== 'comfyui' && (
+      {pid !== 'comfyui' && pid !== 'sdcpp' && (
         <Section title="全局请求选项">
           {pid !== 'pixai' && <Field label="参考图传参方式">
             <Select
