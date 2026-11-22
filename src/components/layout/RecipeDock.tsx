@@ -8,14 +8,16 @@ import { workflowIdentity } from '@/lib/comfyWorkflowParameters'
 import { Button } from '@/components/ui/button'
 import { buildRecipePrompt } from '@/services/aiGenerator'
 import { useStudio } from '@/store/studioStore'
+import { characterReferences, isDualCharacter, recipeReferences } from '@/lib/recipeCharacters'
+import { CharacterTargetPicker } from '@/components/studio/CharacterTargetPicker'
 
 export function RecipeDock() {
   const { pathname } = useLocation()
-  const { recipe, apiConfig, isGenerating, setPortrait, setCostume, setPose, toggleRecipePoseDepth, clearRecipe, randomizeRecipe } = useStudio()
+  const { recipe, apiConfig, isGenerating, activeCharacter, setPortrait, setCostume, setPose, toggleRecipePoseDepth, clearRecipe, randomizeRecipe } = useStudio()
+  const selected = characterReferences(recipe, activeCharacter)
   const qc = useQueryClient()
-  const extraCount = (recipe.extraImages || []).length
   const workflowImages = apiConfig.activeProvider === 'comfyui' && recipe.workflowImagesIdentity === workflowIdentity(apiConfig.comfyuiParams.workflowJson) ? Object.values(recipe.workflowImages || {}) : []
-  const count = [recipe.portrait, recipe.costume, recipe.pose].filter(Boolean).length + extraCount + workflowImages.length
+  const count = recipeReferences(recipe, workflowImages).length
 
   // 在合成台、设置页、指南页隐藏底部悬浮栏，避免与页面内组件重复
   if (pathname.startsWith('/studio') || pathname.startsWith('/settings') || pathname.startsWith('/guide')) {
@@ -43,19 +45,20 @@ export function RecipeDock() {
 
   return (
     <div className="sticky bottom-[max(0.75rem,env(safe-area-inset-bottom))] z-30 mx-auto mt-4 w-full max-w-5xl [@media(max-height:30rem)]:static">
+      {isDualCharacter(recipe) && <div className="mb-1 rounded-xl border bg-card/95 px-2 backdrop-blur-md"><CharacterTargetPicker compact /></div>}
       <div className="flex flex-col gap-2 rounded-2xl border border-border/80 bg-card/95 p-2 shadow-lg backdrop-blur-md @3xl/main:flex-row @3xl/main:items-center @3xl/main:justify-between sm:px-3.5 sm:py-2.5">
         <div className="grid min-w-0 max-w-full flex-1 grid-cols-3 gap-1.5 sm:gap-2">
           {/* Slot 1: Portrait */}
           <div className="relative flex min-w-0 flex-col items-start gap-1.5 rounded-xl bg-muted/80 p-1.5 @md/main:flex-row @md/main:items-center sm:gap-2 sm:p-2">
-            {recipe.portrait ? (
+            {selected.portrait ? (
               <>
                 <img
-                  src={referenceImageUrl(recipe.portrait.缩略图)}
-                  alt={recipe.portrait.标题}
+                  src={referenceImageUrl(selected.portrait.缩略图)}
+                  alt={selected.portrait.标题}
                   className="h-8 w-7 shrink-0 rounded-md object-cover sm:h-10 sm:w-8"
                 />
                 <div className="min-w-0 max-w-full flex-1">
-                  <div className="truncate text-[11px] font-medium sm:text-xs">{recipe.portrait.发型名称}</div>
+                  <div className="truncate text-[11px] font-medium sm:text-xs">{selected.portrait.发型名称}</div>
                 </div>
                 <button
                   type="button"
@@ -78,15 +81,15 @@ export function RecipeDock() {
 
           {/* Slot 2: Costume */}
           <div className="relative flex min-w-0 flex-col items-start gap-1.5 rounded-xl bg-muted/80 p-1.5 @md/main:flex-row @md/main:items-center sm:gap-2 sm:p-2">
-            {recipe.costume ? (
+            {selected.costume ? (
               <>
                 <img
-                  src={referenceImageUrl(recipe.costume.缩略图)}
-                  alt={recipe.costume.服装名称}
+                  src={referenceImageUrl(selected.costume.缩略图)}
+                  alt={selected.costume.服装名称}
                   className="h-8 w-7 shrink-0 rounded-md object-cover sm:h-10 sm:w-8"
                 />
                 <div className="min-w-0 max-w-full flex-1">
-                  <div className="truncate text-[11px] font-medium sm:text-xs">{recipe.costume.服装名称}</div>
+                  <div className="truncate text-[11px] font-medium sm:text-xs">{selected.costume.服装名称}</div>
                 </div>
                 <button
                   type="button"

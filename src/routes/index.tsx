@@ -18,6 +18,8 @@ import { Button } from '@/components/ui/button'
 import { Skeleton } from '@/components/ui/skeleton'
 import { useStudio } from '@/store/studioStore'
 import { referenceImageUrl } from '@/lib/recipeImages'
+import { characterReferences } from '@/lib/recipeCharacters'
+import { CharacterTargetPicker } from '@/components/studio/CharacterTargetPicker'
 
 export const Route = createFileRoute('/')({
   staticData: { title: '图库总览' },
@@ -35,7 +37,8 @@ function DashboardPage() {
   const { data: posesData } = useSuspenseQuery(posesQuery)
   const { data: costumes } = useSuspenseQuery(costumesQuery)
   const { data: portraits } = useSuspenseQuery(portraitsQuery)
-  const { recipe, togglePortrait } = useStudio()
+  const { recipe, togglePortrait, activeCharacter } = useStudio()
+  const selectedPortrait = characterReferences(recipe, activeCharacter).portrait
 
   const topPortraits = portraits.filter((p) => p.热门).slice(0, 10)
   const totalImages = posesData.items.length + costumes.length + portraits.length
@@ -153,9 +156,10 @@ function DashboardPage() {
           </Button>
         </div>
 
+        <div className="mt-3"><CharacterTargetPicker /></div>
         <div className="mt-3 grid grid-cols-2 gap-2.5 sm:grid-cols-5 lg:grid-cols-10">
           {topPortraits.map((item, idx) => {
-            const picked = recipe.portrait?.id === item.id
+            const picked = selectedPortrait?.id === item.id
             return (
               <div
                 key={item.id}

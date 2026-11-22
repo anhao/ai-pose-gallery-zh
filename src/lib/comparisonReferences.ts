@@ -1,6 +1,7 @@
-import type { GenerationHistoryItem } from '@/types/gallery'
+import type { ExtraReferenceImage, GenerationHistoryItem } from '@/types/gallery'
 import { parseParameterWorkflow, workflowIdentity } from './comfyWorkflowParameters'
-import { poseImagePath, referenceImageUrl } from './recipeImages'
+import { referenceImageUrl } from './recipeImages'
+import { isDualCharacter, recipeReferences } from './recipeCharacters'
 
 export interface ComparisonReference { id: string; label: string; url: string }
 
@@ -9,24 +10,19 @@ export function comparisonReferences(result: GenerationHistoryItem): ComparisonR
   const snapshot = result.snapshot
   if (!snapshot?.recipe) return []
   const { recipe } = snapshot
-  const refs: ComparisonReference[] = []
-  const add = (id: string, label: string, url?: string) => { if (url) refs.push({ id, label, url: referenceImageUrl(url) }) }
-  if (recipe.portrait) add('portrait', `人像 · ${recipe.portrait.标题}`, recipe.portrait.原图 || recipe.portrait.缩略图)
-  if (recipe.costume) add('costume', `服装 · ${recipe.costume.服装名称}`, recipe.costume.原图 || recipe.costume.预览图 || recipe.costume.缩略图)
-  if (recipe.pose) add('pose', `姿势 · ${recipe.pose.姿势名称}${recipe.pose.useDepth ? '（深度图）' : ''}`, poseImagePath(recipe.pose))
-  recipe.extraImages?.forEach((image, i) => add(`extra:${i}`, `附加参考 · ${image.name}`, image.url))
+  const workflowImages: ExtraReferenceImage[] = []
   const cp = snapshot.settings?.comfyuiParams
   const submitted = snapshot.submittedWorkflowJson && parseParameterWorkflow(snapshot.submittedWorkflowJson)
   const original = cp && parseParameterWorkflow(cp.workflowJson)
   const identity = recipe.workflowImagesIdentity
   if (result.provider === 'comfyui' && cp && submitted && original && identity &&
     (identity === workflowIdentity(cp.workflowJson) || identity === workflowIdentity(snapshot.submittedWorkflowJson!))) {
-    const mapped = [cp.portraitNodeId, cp.costumeNodeId, cp.poseNodeId, cp.stitchedNodeId]
+    const mapped = [cp.portraitNodeId, cp.costumeNodeId, cp.poseNodeId, cp.stitchedNodeId, ...(isDualCharacter(recipe) ? [cp.secondaryPortraitNodeId, cp.secondaryCostumeNodeId] : [])]
     for (const [nodeId, image] of Object.entries(recipe.workflowImages || {})) {
       const node = submitted[nodeId]
       if (mapped.includes(nodeId) || !node || node.class_type !== original[nodeId]?.class_type || typeof node.inputs.image !== 'string' || !node.inputs.image.trim() || node.inputs.image === '无') continue
-      add(`workflow:${nodeId}`, `工作流参考 · ${image.name}`, image.url)
+      workflowImages.push({ ...image, id: nodeId })
     }
   }
-  return refs
+  return recipeReferences(recipe, workflowImages).map((ref) => ({ id: ref.id, label: `图${ref.number} · ${ref.label} · ${ref.name}`, url: referenceImageUrl(ref.src) }))
 }

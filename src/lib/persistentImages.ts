@@ -16,7 +16,7 @@ export async function durableImage(url: string): Promise<string> {
 }
 export async function durableRecipe(recipe: RecipeState) {
   const next = structuredClone(recipe)
-  for (const item of [next.portrait, next.costume, next.pose]) {
+  for (const item of [next.portrait, next.costume, next.secondaryCharacter?.portrait, next.secondaryCharacter?.costume, next.pose]) {
     if (item?.source === 'upload') {
       item.原图 = await durableImage(item.原图)
       item.缩略图 = item.原图

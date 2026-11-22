@@ -76,10 +76,22 @@ export interface ExtraReferenceImage {
   url: string
 }
 
+export type CharacterSlot = 'a' | 'b'
+export type CharacterMode = 'single' | 'dual'
+export type CharacterLayout = 'a-left' | 'a-right' | 'a-front' | 'a-back'
+
+export interface CharacterReference {
+  portrait: PortraitItem | null
+  costume: CostumeItem | null
+}
+
 export interface RecipeState {
   portrait: PortraitItem | null
   costume: CostumeItem | null
   pose: PoseItem | null
+  characterMode?: CharacterMode
+  characterLayout?: CharacterLayout
+  secondaryCharacter?: CharacterReference
   workflowImages?: Record<string, ExtraReferenceImage>
   workflowImagesIdentity?: string
   extraImages?: ExtraReferenceImage[]
@@ -110,6 +122,8 @@ export interface ComfyUiParams {
   promptNodeId: string
   portraitNodeId: string
   costumeNodeId: string
+  secondaryPortraitNodeId?: string
+  secondaryCostumeNodeId?: string
   poseNodeId: string
   stitchedNodeId: string
   randomizeSeed: boolean

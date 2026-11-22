@@ -16,6 +16,7 @@ import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { SidebarTrigger } from '@/components/ui/sidebar'
 import { useStudio } from '@/store/studioStore'
+import { recipeReferences } from '@/lib/recipeCharacters'
 
 export function AppHeader() {
   const { recipe, randomizeRecipe, safeMode, toggleSafeMode } = useStudio()
@@ -25,7 +26,7 @@ export function AppHeader() {
       matches.filter((m) => m.staticData.title).map((m) => ({ title: m.staticData.title!, path: m.pathname })),
   })
 
-  const selectedCount = [recipe.portrait, recipe.costume, recipe.pose].filter(Boolean).length
+  const selectedCount = recipeReferences(recipe).length
 
   const handleRandom = async () => {
     const [posesRes, costumes, portraits] = await Promise.all([
@@ -89,7 +90,7 @@ export function AppHeader() {
             <span className="hidden @lg/header:inline">AI 合成台</span>
             {selectedCount > 0 && (
               <span className="ml-1 rounded-full bg-primary-foreground/20 px-1.5 py-0.2 text-[11px] font-bold">
-                {selectedCount}/3
+                {selectedCount} 图
               </span>
             )}
           </Link>

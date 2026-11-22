@@ -1,8 +1,10 @@
 import { generateWithPixAi, PIXAI_MODELS, type PixAiTaskHandle, type PreparedPixAiGeneration } from './pixai'
 import type { ApiConfig, ExtraReferenceImage, ImageProviderId, RecipeState } from '@/types/gallery'
 import { getGptInputFidelity } from '@/lib/gptImageCapabilities'
-import { applyWorkflowOverrides, getWorkflowImages, validateReferenceCombinations, workflowIdentity, type ComfyObjectInfo } from '@/lib/comfyWorkflowParameters'
+import { isGptFreeImageModel, resolveGptImageEndpoint, toMagpieProxyUrl } from '@/lib/magpie'
+import { applyWorkflowOverrides, getWorkflowImages, validateReferenceCombinations, type ComfyObjectInfo } from '@/lib/comfyWorkflowParameters'
 import { poseImagePath, referenceImageUrl } from '@/lib/recipeImages'
+import { characterRecipeErrors, comfyRecipeMappedImageNodes, comfyRecipeWorkflowImages, isDualCharacter, recipeCharacters, recipeReferences } from '@/lib/recipeCharacters'
 import qwen2509ThreeImageWorkflow from '@/workflows/qwen_image_edit_2509_3img.api.json'
 
 export interface ProviderModelOption {
@@ -162,7 +164,29 @@ export const STYLE_PRESETS: Record<string, { label: string; prompt: string }> = 
 // 用自然语言逐项描述（人物 / 服装 / 姿势），实测比堆砌要点更能让多图编辑模型还原服装、避免照搬人体模型线条
 const PHOTO_STYLES = new Set(['realistic', 'fashion', 'film'])
 
+function buildDualRecipePrompt(recipe: RecipeState, stylePreset: string, workflowImages: ExtraReferenceImage[]): string {
+  const style = STYLE_PRESETS[stylePreset] ?? STYLE_PRESETS.realistic
+  const references = recipeReferences(recipe, workflowImages)
+  const lines = [`请根据提供的 ${references.length} 张参考图，生成一张完整的双人${PHOTO_STYLES.has(stylePreset) ? '真实人物照片' : '人物图像'}，画面中恰好有角色 A 和角色 B 两个人物：`]
+  for (const character of recipeCharacters(recipe)) {
+    const portrait = references.find((ref) => ref.kind === 'portrait' && ref.character === character.slot)
+    const costume = references.find((ref) => ref.kind === 'costume' && ref.character === character.slot)
+    const identity = portrait ? `只使用图${portrait.number}中的人物作为其身份参考，保持该人物的脸型、五官、发型、发色和肤色一致；该角色的所有裸露皮肤都与其自身脸部肤色统一。` : '尚未提供该角色的人像，请补齐后生成。'
+    const outfit = costume ? `只让${character.label}穿图${costume.number}展示的整套服装与配饰，颜色、款式和面料以这张服装图为准。`
+      : portrait ? `保留图${portrait.number}中该人物原有可见服装与配饰；不要借用另一角色的服装。` : ''
+    lines.push(`• ${character.label}：对应${character.position}的人物。${identity}${outfit}`)
+  }
+  const pose = references.find((ref) => ref.kind === 'pose')
+  if (pose) lines.push(`• 共享姿势：图${pose.number}只用于双人动作、相互接触关系、镜头角度和构图。将角色 A、B 分别绑定到上面指定位置的人体，保持各自身体与四肢对应，不能交换身份或服装，也不复制白模的脸、肤色或衣服。`)
+  lines.push('• 身份隔离：两人的脸、发型、肤色和衣服各自独立，不混合五官，不把同一张参考脸复制给另一个角色，不生成额外人物。左右与前后均以观众看到的画面为准。')
+  for (const ref of references.filter((item) => item.kind === 'workflow' || item.kind === 'extra')) lines.push(`• ${ref.label}：图${ref.number}（${ref.name}）只补充相关细节，不覆盖角色 A、B 的独立身份、服装及位置绑定。`)
+  if (style.prompt) lines.push(`• 风格：${style.prompt} 两个人物的比例、手部与五官自然，光影统一。`)
+  lines.push('画面中没有任何文字、标志或水印。')
+  return lines.join('\n')
+}
+
 export function buildRecipePrompt(recipe: RecipeState, stylePreset = 'realistic', workflowImages: ExtraReferenceImage[] = []): string {
+  if (isDualCharacter(recipe)) return buildDualRecipePrompt(recipe, stylePreset, workflowImages)
   const styleInfo = STYLE_PRESETS[stylePreset] ?? STYLE_PRESETS.realistic
   const isPhoto = PHOTO_STYLES.has(stylePreset)
   const faceless = !recipe.portrait && !workflowImages.some((image) => image.role === 'character_sheet') && Boolean(recipe.costume && recipe.pose)
@@ -180,8 +204,8 @@ export function buildRecipePrompt(recipe: RecipeState, stylePreset = 'realistic'
       recipe.portrait.发型名称 && recipe.portrait.发型名称 !== '标准基础款'
         ? recipe.portrait.标题
         : recipe.portrait.发长
-    const skin = '人物的肤色必须与图一人物一致，所有裸露皮肤（包括服装镂空处露出的皮肤）必须与脸部肤色统一，统一后的肤色与质感按风格要求呈现。'
-    const outfit = recipe.costume ? '' : '保留图1人物原有可见服装与配饰，不复制姿势参考图的服装或白模外观。'
+    const skin = `人物的肤色必须与图${idx}人物一致，所有裸露皮肤（包括服装镂空处露出的皮肤）必须与脸部肤色统一，统一后的肤色与质感按风格要求呈现。`
+    const outfit = recipe.costume ? '' : `保留图${idx}人物原有可见服装与配饰，不复制姿势参考图的服装或白模外观。`
     clauses.push(
       recipe.portrait.source === 'upload'
         ? `• 人物：图${idx}中的人物，保持其脸型、五官、发型和发色一致。${skin}${outfit}`
@@ -271,38 +295,8 @@ function loadImage(src: string): Promise<HTMLImageElement> {
   })
 }
 
-export async function stitchRecipeCanvas(recipe: RecipeState): Promise<string> {
-  const list: Array<{ tag: string; sub: string; src: string }> = []
-  let idx = 1
-
-  if (recipe.portrait) {
-    list.push({
-      tag: `图${idx++} · 人像`,
-      sub: recipe.portrait.标题,
-      src: recipe.portrait.原图 || recipe.portrait.缩略图,
-    })
-  }
-  if (recipe.costume) {
-    list.push({
-      tag: `图${idx++} · 服装`,
-      sub: `${recipe.costume.分类} · ${recipe.costume.服装名称}`,
-      src: recipe.costume.预览图 || recipe.costume.原图 || recipe.costume.缩略图,
-    })
-  }
-  if (recipe.pose) {
-    list.push({
-      tag: `图${idx++} · 姿势`,
-      sub: `${recipe.pose.姿势名称}（${recipe.pose.角度}${recipe.pose.useDepth ? ' · 深度图' : ''}）`,
-      src: poseImagePath(recipe.pose),
-    })
-  }
-  for (const extra of recipe.extraImages || []) {
-    list.push({
-      tag: `图${idx++} · 附加`,
-      sub: extra.name || '自定义参考图',
-      src: extra.url,
-    })
-  }
+export async function stitchRecipeCanvas(recipe: RecipeState, workflowImages: ExtraReferenceImage[] = []): Promise<string> {
+  const list = recipeReferences(recipe, workflowImages).map((ref) => ({ tag: `图${ref.number} · ${ref.label}`, sub: ref.name, src: ref.src }))
 
   if (!list.length) {
     throw new Error('请至少选择或上传 1 张参考图')
@@ -312,18 +306,21 @@ export async function stitchRecipeCanvas(recipe: RecipeState): Promise<string> {
   const cardW = 480
   const cardH = 640
   const pad = 20
-  const headH = 62
+  const headH = 76
+  const columns = Math.min(3, list.length)
+  const rows = Math.ceil(list.length / columns)
   const canvas = document.createElement('canvas')
-  canvas.width = list.length * cardW + (list.length + 1) * pad
-  canvas.height = cardH + headH + pad * 2
-  const ctx = canvas.getContext('2d')!
+  canvas.width = columns * cardW + (columns + 1) * pad
+  canvas.height = rows * (cardH + headH) + (rows + 1) * pad
+  const ctx = canvas.getContext('2d')
+  if (!ctx) throw new Error('无法创建参考拼图')
 
   ctx.fillStyle = '#111318'
   ctx.fillRect(0, 0, canvas.width, canvas.height)
 
   imgs.forEach((img, i) => {
-    const x = pad + i * (cardW + pad)
-    const y = pad
+    const x = pad + (i % columns) * (cardW + pad)
+    const y = pad + Math.floor(i / columns) * (cardH + headH + pad)
     ctx.fillStyle = '#1e222b'
     ctx.fillRect(x, y, cardW, cardH + headH)
     ctx.fillStyle = '#f4f5f7'
@@ -335,12 +332,12 @@ export async function stitchRecipeCanvas(recipe: RecipeState): Promise<string> {
     ctx.drawImage(img, x + (cardW - dw) / 2, y + headH + (cardH - dh) / 2, dw, dh)
 
     ctx.fillStyle = '#a1a1aa'
-    ctx.font = '600 12px Inter, -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif'
-    ctx.fillText(list[i].tag, x + 14, y + 23)
+    ctx.font = '600 18px Inter, -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif'
+    ctx.fillText(list[i].tag, x + 14, y + 28, cardW - 28)
 
     ctx.fillStyle = '#ffffff'
-    ctx.font = '700 15px Inter, -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif'
-    ctx.fillText(list[i].sub.slice(0, 26), x + 14, y + 46)
+    ctx.font = '700 20px Inter, -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif'
+    ctx.fillText(list[i].sub.slice(0, 26), x + 14, y + 57, cardW - 28)
   })
 
   return canvas.toDataURL('image/jpeg', 0.92)
@@ -409,6 +406,8 @@ async function smartFetch(
   init: RequestInit,
   useProxy: boolean
 ): Promise<Response> {
+  const magpieUrl = toMagpieProxyUrl(targetUrl, typeof window === 'undefined' ? '' : window.location.href)
+  if (magpieUrl) return fetch(magpieUrl, init)
   if (!useProxy) {
     return fetch(targetUrl, init)
   }
@@ -1394,19 +1393,35 @@ async function generateWithComfyUi(params: {
   if (!parsedInfo.valid) {
     throw new Error(`[ComfyUI] ${parsedInfo.error || '工作流 JSON 无效'}`)
   }
+  const mappedNodes = comfyRecipeMappedImageNodes(recipe, cp)
+  const slotUploads: Array<{ nodeId: string; src: string | null; prefix: string; label: string }> = []
+  for (const character of recipeCharacters(recipe)) {
+    const primary = character.slot === 'a'
+    const prefix = isDualCharacter(recipe) ? `${character.label} ` : ''
+    slotUploads.push({ nodeId: (primary ? cp.portraitNodeId : cp.secondaryPortraitNodeId) || 'none',
+      src: character.portrait ? character.portrait.原图 || character.portrait.缩略图 : null,
+      prefix: `studio_${character.slot}_portrait`, label: `${prefix}人像` })
+    slotUploads.push({ nodeId: (primary ? cp.costumeNodeId : cp.secondaryCostumeNodeId) || 'none',
+      src: character.costume ? character.costume.预览图 || character.costume.原图 || character.costume.缩略图 : null,
+      prefix: `studio_${character.slot}_costume`, label: `${prefix}服装` })
+  }
+  slotUploads.push({ nodeId: cp.poseNodeId, src: recipe.pose ? poseImagePath(recipe.pose) : null, prefix: 'studio_pose', label: isDualCharacter(recipe) ? '共享姿势' : '姿势' })
+  const imageMappings = [...slotUploads, { nodeId: cp.stitchedNodeId, label: '参考拼图' }]
+  const invalidSlots = imageMappings.filter((slot) => slot.nodeId && slot.nodeId !== 'none' && !parsedInfo.imageNodes.some((node) => node.id === slot.nodeId))
+  if (invalidSlots.length) throw new Error(`[ComfyUI] ${invalidSlots.map((slot) => slot.label).join('、')}节点映射已失效，请重新识别或选择节点`)
+  const missingSlots = slotUploads.filter((slot) => slot.nodeId && slot.nodeId !== 'none' && !slot.src && parsedInfo.imageNodes.find((node) => node.id === slot.nodeId)?.emptyValue === undefined)
+  if (missingSlots.length) throw new Error(`[ComfyUI] 请先选择或上传：${missingSlots.map((slot) => slot.label).join('、')}`)
 
   // 0. 预检：服务在线 + 节点/模型与本机匹配
   report({ stage: 'check', message: '正在检查 ComfyUI 服务与模型…' })
   await testComfyConnection(baseUrl, apiKey)
   const schemas = await fetchComfyObjectInfo(baseUrl, apiKey, cp.workflowJson)
-  const extraImageNodes = getWorkflowImages(cp.workflowJson, [cp.portraitNodeId, cp.costumeNodeId, cp.poseNodeId, cp.stitchedNodeId], schemas)
-  const extraImages = recipe.workflowImagesIdentity === workflowIdentity(cp.workflowJson) ? recipe.workflowImages || {} : {}
+  const extraImageNodes = getWorkflowImages(cp.workflowJson, mappedNodes, schemas)
+  const extraImages = Object.fromEntries(Object.entries(comfyRecipeWorkflowImages(recipe, cp))
+    .filter(([nodeId]) => extraImageNodes.some((node) => node.nodeId === nodeId)))
   const selectedJson = applyWorkflowOverrides(cp.workflowJson, cp.parameterOverrides, schemas)
   const check = await checkComfyWorkflow(baseUrl, apiKey, selectedJson, [
-    cp.portraitNodeId,
-    cp.costumeNodeId,
-    cp.poseNodeId,
-    cp.stitchedNodeId,
+    ...mappedNodes,
     ...extraImageNodes.filter((node) => extraImages[node.nodeId]?.url || (node.optional && node.role === 'character_sheet')).map((node) => node.nodeId),
   ], schemas)
   if (!check.ok) {
@@ -1415,40 +1430,11 @@ async function generateWithComfyUi(params: {
   const workflow: ComfyWorkflow = JSON.parse(check.fixedJson ?? selectedJson)
 
   // 1. 按映射槽位上传参考图并注入节点
-  const slotUploads: Array<{ nodeId: string; src: string | null; prefix: string; label: string }> = [
-    {
-      nodeId: cp.portraitNodeId,
-      src: recipe.portrait ? recipe.portrait.原图 || recipe.portrait.缩略图 : null,
-      prefix: 'studio_portrait',
-      label: '人像',
-    },
-    {
-      nodeId: cp.costumeNodeId,
-      src: recipe.costume ? recipe.costume.预览图 || recipe.costume.原图 || recipe.costume.缩略图 : null,
-      prefix: 'studio_costume',
-      label: '服装',
-    },
-    {
-      nodeId: cp.poseNodeId,
-      src: recipe.pose ? poseImagePath(recipe.pose) : null,
-      prefix: 'studio_pose',
-      label: '姿势',
-    },
-  ]
   const combinationError = validateReferenceCombinations(cp.workflowJson, [
     ...slotUploads.filter((slot) => slot.src && slot.nodeId && slot.nodeId !== 'none').map((slot) => slot.nodeId),
     ...extraImageNodes.filter((node) => extraImages[node.nodeId]?.url).map((node) => node.nodeId),
   ])
   if (combinationError) throw new Error(`[ComfyUI] ${combinationError}`)
-
-  const invalidSlots = slotUploads.filter((slot) => slot.nodeId && slot.nodeId !== 'none' && !parsedInfo.imageNodes.some((node) => node.id === slot.nodeId))
-  if (invalidSlots.length) {
-    throw new Error(`[ComfyUI] ${invalidSlots.map((slot) => slot.label).join('、')}节点映射已失效，请重新识别或选择节点`)
-  }
-  const missingSlots = slotUploads.filter((slot) => slot.nodeId && slot.nodeId !== 'none' && !slot.src && parsedInfo.imageNodes.find((node) => node.id === slot.nodeId)?.emptyValue === undefined)
-  if (missingSlots.length) {
-    throw new Error(`[ComfyUI] 请先选择或上传：${missingSlots.map((slot) => slot.label).join('、')}`)
-  }
 
   for (const slot of slotUploads) {
     if (!slot.nodeId || slot.nodeId === 'none' || !workflow[slot.nodeId]?.inputs) continue
@@ -1476,7 +1462,7 @@ async function generateWithComfyUi(params: {
 
   if (cp.stitchedNodeId && cp.stitchedNodeId !== 'none' && workflow[cp.stitchedNodeId]?.inputs) {
     report({ stage: 'upload', message: '正在上传参考拼图…' })
-    const stitchedDataUrl = await stitchRecipeCanvas(recipe)
+    const stitchedDataUrl = await stitchRecipeCanvas(recipe, Object.values(extraImages))
     workflow[cp.stitchedNodeId].inputs.image = await uploadImageToComfy(baseUrl, stitchedDataUrl, 'studio_stitched', apiKey)
   }
 
@@ -1557,6 +1543,8 @@ export async function generateCharacterImage(params: {
   const provider = config.activeProvider
   const pCfg = config.providers[provider]
   const apiKey = pCfg.apiKey.trim()
+  const characterErrors = characterRecipeErrors(recipe, config)
+  if (characterErrors.length) throw new Error(characterErrors.join('；'))
 
   if (provider !== 'comfyui' && !apiKey) {
     throw new Error(`请先配置 ${PROVIDER_META[provider].name} 的 API Key`)
@@ -1564,14 +1552,8 @@ export async function generateCharacterImage(params: {
 
   if (provider === 'pixai') return generateWithPixAi(params)
 
-  const rawSources = [
-    recipe.portrait && (recipe.portrait.原图 || recipe.portrait.缩略图),
-    recipe.costume && (recipe.costume.预览图 || recipe.costume.原图 || recipe.costume.缩略图),
-    recipe.pose && poseImagePath(recipe.pose),
-    ...(recipe.extraImages || []).map((x) => x.url),
-    ...(provider === 'comfyui' && recipe.workflowImagesIdentity === workflowIdentity(config.comfyuiParams.workflowJson)
-      ? Object.values(recipe.workflowImages || {}).map((image) => image.url) : []),
-  ].filter(Boolean) as string[]
+  const activeWorkflowImages = provider === 'comfyui' ? Object.values(comfyRecipeWorkflowImages(recipe, config.comfyuiParams)) : []
+  const rawSources = recipeReferences(recipe, activeWorkflowImages).map((reference) => reference.src)
 
   if (!rawSources.length) {
     throw new Error('请先选择或上传至少 1 张参考图')
@@ -1592,11 +1574,12 @@ export async function generateCharacterImage(params: {
   // 1) 用户显式选择了 base64 模式
   // 2) 或者勾选了「附带三合一 Canvas 合成图」（本地动态绘制无公网 URL）
   // 3) 或者使用 Gemini Native 原生接口 / OpenAI multipart/form-data 模式
+  const gptEndpoint = provider === 'gpt' ? resolveGptImageEndpoint(model, config.gptParams.endpointMode) : undefined
   const needBase64 =
     config.imagePassMode === 'base64' ||
     config.sendStitchedSheet ||
     (provider === 'gemini' && config.geminiParams.endpointMode === 'native') ||
-    (provider === 'gpt' && config.gptParams.endpointMode === 'images_edits')
+    (provider === 'gpt' && (gptEndpoint === 'images_edits' || isGptFreeImageModel(model)))
 
   const imageRefs: string[] = needBase64
     ? await Promise.all(rawSources.map(srcToPngDataUrl))
@@ -1613,7 +1596,7 @@ export async function generateCharacterImage(params: {
   // 协议 1: OpenAI GPT Image (gpt-image-2.5 / gpt-image-2 / gpt-image-1.5 / 1)
   // =========================================================================
   if (provider === 'gpt') {
-    const g = config.gptParams
+    const g = { ...config.gptParams, endpointMode: gptEndpoint }
     const inputFidelity = getGptInputFidelity(model, g.inputFidelity)
     const v1 = baseUrl.endsWith('/v1') ? baseUrl : `${baseUrl}/v1`
 
