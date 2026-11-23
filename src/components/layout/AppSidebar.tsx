@@ -14,13 +14,14 @@ import {
   SidebarRail,
 } from '@/components/ui/sidebar'
 import { useStudio } from '@/store/studioStore'
+import { recipeReferences } from '@/lib/recipeCharacters'
 import { activeNavTo, navGroups } from './nav'
 
 export function AppSidebar() {
   const pathname = useLocation({ select: (l) => l.pathname })
   const active = activeNavTo(pathname)
   const { recipe } = useStudio()
-  const count = [recipe.portrait, recipe.costume, recipe.pose].filter(Boolean).length
+  const count = recipeReferences(recipe).length
 
   return (
     <Sidebar collapsible="icon">
@@ -76,7 +77,7 @@ export function AppSidebar() {
                   <SparklesIcon className="size-4" />
                 </div>
                 <div className="grid flex-1 text-left text-xs leading-tight">
-                  <span className="truncate font-semibold">角色配方槽 ({count}/3)</span>
+                  <span className="truncate font-semibold">角色配方 ({count} 图)</span>
                   <span className="truncate text-[11px] text-muted-foreground">
                     {count === 0 ? '未选择 · 点击去捏人' : '点击进入 AI 合成台'}
                   </span>

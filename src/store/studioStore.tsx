@@ -16,9 +16,10 @@ import {
 } from '@/components/ui/alert-dialog'
 import { useComfyConnection, type ComfyConnectionState } from './useComfyConnection'
 import { idbRead, idbWrite } from '@/lib/idbStorage'
-import { parseParameterWorkflow, workflowIdentity } from '@/lib/comfyWorkflowParameters'
+import { workflowIdentity } from '@/lib/comfyWorkflowParameters'
 import { durableImage, snapshotGeneration } from '@/lib/generationSnapshot'
 import { recipeBackup } from '@/lib/recipeImages'
+import { characterRecipeErrors, characterReferences, comfyRecipeWorkflowImages, isDualCharacter, isDualPose, recipeReferences, restoreRecipe, withCharacterReferences, withRecipePose } from '@/lib/recipeCharacters'
 import { randomSlot, type RandomScope, type ReferencePools, type ReferenceSlot } from '@/lib/randomRecipe'
 import {
   buildRecipePrompt,
@@ -46,6 +47,9 @@ import type {
   ProviderEndpointConfig,
   QwenParams,
   RecipeState,
+  CharacterSlot,
+  CharacterMode,
+  CharacterLayout,
 } from '@/types/gallery'
 
 const CFG_KEY = 'pose_atlas_api_config_v3'
@@ -65,6 +69,10 @@ interface StudioContextValue {
   abandonTask: () => Promise<void>
   recoverPixAiTask: (taskId: string) => Promise<void>
   recipe: RecipeState
+  activeCharacter: CharacterSlot
+  setActiveCharacter: (slot: CharacterSlot) => void
+  setCharacterMode: (mode: CharacterMode) => void
+  setCharacterLayout: (layout: CharacterLayout) => void
   apiConfig: ApiConfig
   history: GenerationHistoryItem[]
   safeMode: boolean
@@ -84,8 +92,8 @@ interface StudioContextValue {
   generationError: string
   startGeneration: (overridePrompt?: string) => Promise<void>
   refreshStitchPreview: () => Promise<void>
-  setPortrait: (item: PortraitItem | null) => void
-  setCostume: (item: CostumeItem | null) => void
+  setPortrait: (item: PortraitItem | null, slot?: CharacterSlot) => void
+  setCostume: (item: CostumeItem | null, slot?: CharacterSlot) => void
   setPose: (item: PoseItem | null) => void
   togglePortrait: (item: PortraitItem) => void
   toggleCostume: (item: CostumeItem) => void
@@ -96,7 +104,7 @@ interface StudioContextValue {
   setWorkflowImage: (nodeId: string, image: ExtraReferenceImage | null, identity: string) => void
   clearRecipe: () => void
   randomizeRecipe: (pools: { portraits?: PortraitItem[]; costumes?: CostumeItem[]; poses?: PoseItem[] }) => void
-  randomizeSlot: (slot: ReferenceSlot, scope: RandomScope, pools: ReferencePools, expectedId?: string | null) => void
+  randomizeSlot: (slot: ReferenceSlot, scope: RandomScope, pools: ReferencePools, expectedId?: string | null, characterSlot?: CharacterSlot) => void
   updateApiConfig: (patch: Partial<ApiConfig>) => void
   updateProviderConfig: (provider: ImageProviderId, patch: Partial<ProviderEndpointConfig>) => void
   updatePixAiParams: (patch: Partial<PixAiParams>) => void
@@ -116,18 +124,13 @@ export function StudioProvider({ children }: { children: ReactNode }) {
   const [recipe, setRecipe] = useState<RecipeState>(() => {
     try {
       const raw = localStorage.getItem(RECIPE_KEY)
-      if (!raw) return { portrait: null, costume: null, pose: null, extraImages: [] }
-      const parsed = JSON.parse(raw)
-      return {
-        portrait: parsed.portrait ?? null,
-        costume: parsed.costume ?? null,
-        pose: parsed.pose ?? null,
-        extraImages: Array.isArray(parsed.extraImages) ? parsed.extraImages : [],
-      }
+      return restoreRecipe(raw ? JSON.parse(raw) : null)
     } catch {
-      return { portrait: null, costume: null, pose: null, extraImages: [] }
+      return restoreRecipe(null)
     }
   })
+  const [activeCharacterState, setActiveCharacterState] = useState<CharacterSlot>('a')
+  const activeCharacter: CharacterSlot = isDualCharacter(recipe) ? activeCharacterState : 'a'
 
   const [apiConfig, setApiConfig] = useState<ApiConfig>(() => {
     try {
@@ -161,8 +164,8 @@ export function StudioProvider({ children }: { children: ReactNode }) {
   const [ageGateOpen, setAgeGateOpen] = useState(false)
   const pendingUnlockCbRef = useRef<(() => void) | null>(null)
   const [poseDepthMode, setPoseDepthModeState] = useState<boolean>(() => Boolean(recipe.pose?.useDepth))
-  const randomContext = useRef({ recipe, safeMode, poseDepthMode })
-  useEffect(() => { randomContext.current = { recipe, safeMode, poseDepthMode } }, [recipe, safeMode, poseDepthMode])
+  const randomContext = useRef({ recipe, safeMode, poseDepthMode, activeCharacter })
+  useEffect(() => { randomContext.current = { recipe, safeMode, poseDepthMode, activeCharacter } }, [recipe, safeMode, poseDepthMode, activeCharacter])
 
   // 提升到根部 Provider 的生成状态，路由切换不会卸载或中断
   const [customPrompt, setCustomPrompt] = useState<string | null>(null)
@@ -200,14 +203,7 @@ export function StudioProvider({ children }: { children: ReactNode }) {
         if (savedRecipe.pose?.useDepth !== undefined) {
           setPoseDepthModeState(Boolean(savedRecipe.pose.useDepth))
         }
-        setRecipe({
-          portrait: savedRecipe.portrait ?? null,
-          costume: savedRecipe.costume ?? null,
-          pose: savedRecipe.pose ?? null,
-          workflowImages: savedRecipe.workflowImages ?? {},
-          workflowImagesIdentity: savedRecipe.workflowImagesIdentity,
-          extraImages: Array.isArray(savedRecipe.extraImages) ? savedRecipe.extraImages : [],
-        })
+        setRecipe(restoreRecipe(savedRecipe))
       }
       if (Array.isArray(savedHistory)) {
         historyRef.current = savedHistory
@@ -275,9 +271,15 @@ export function StudioProvider({ children }: { children: ReactNode }) {
     }
   }
 
-  const setPortrait = (portrait: PortraitItem | null) => setRecipe((r) => ({ ...r, portrait }))
-  const setCostume = (costume: CostumeItem | null) => setRecipe((r) => ({ ...r, costume }))
-  const setPose = (pose: PoseItem | null) => setRecipe((r) => ({ ...r, pose }))
+  const setActiveCharacter = (slot: CharacterSlot) => setActiveCharacterState(isDualCharacter(recipe) ? slot : 'a')
+  const setCharacterMode = (mode: CharacterMode) => {
+    setRecipe((r) => ({ ...r, characterMode: mode }))
+    if (mode === 'single') setActiveCharacterState('a')
+  }
+  const setCharacterLayout = (layout: CharacterLayout) => setRecipe((r) => ({ ...r, characterLayout: layout }))
+  const setPortrait = (portrait: PortraitItem | null, slot: CharacterSlot = activeCharacter) => setRecipe((r) => withCharacterReferences(r, slot, { portrait }))
+  const setCostume = (costume: CostumeItem | null, slot: CharacterSlot = activeCharacter) => setRecipe((r) => withCharacterReferences(r, slot, { costume }))
+  const setPose = (pose: PoseItem | null) => setRecipe((r) => withRecipePose(r, pose))
 
   const setPoseDepthMode = (val: boolean) => {
     setPoseDepthModeState(val)
@@ -294,19 +296,20 @@ export function StudioProvider({ children }: { children: ReactNode }) {
   }
 
   const togglePortrait = (item: PortraitItem) => {
-    const remove = recipe.portrait?.id === item.id
-    setRecipe((r) => ({ ...r, portrait: remove ? null : item }))
+    const remove = characterReferences(recipe, activeCharacter).portrait?.id === item.id
+    setRecipe((r) => withCharacterReferences(r, activeCharacter, { portrait: remove ? null : item }))
     toast.success(remove ? '已移除人像' : `已选人像：${item.发型名称}`)
   }
   const toggleCostume = (item: CostumeItem) => {
-    const remove = recipe.costume?.id === item.id && (recipe.costume.selectedView || 'front') === (item.selectedView || 'front')
-    setRecipe((r) => ({ ...r, costume: remove ? null : item }))
+    const selected = characterReferences(recipe, activeCharacter).costume
+    const remove = selected?.id === item.id && (selected.selectedView || 'front') === (item.selectedView || 'front')
+    setRecipe((r) => withCharacterReferences(r, activeCharacter, { costume: remove ? null : item }))
     toast.success(remove ? '已移除服装' : `已选服装：${item.服装名称}`)
   }
   const togglePose = (item: PoseItem) => {
     const useDepth = item.source === 'upload' ? false : (item.useDepth ?? poseDepthMode)
     const remove = recipe.pose?.id === item.id && Boolean(recipe.pose?.useDepth) === useDepth
-    setRecipe((r) => ({ ...r, pose: remove ? null : { ...item, useDepth } }))
+    setRecipe((r) => withRecipePose(r, remove ? null : { ...item, useDepth }))
     toast.success(remove ? '已移除姿势' : `已选姿势：${item.姿势名称}（${item.角度}${useDepth ? ' · 深度图' : ''}）`)
   }
 
@@ -352,21 +355,18 @@ export function StudioProvider({ children }: { children: ReactNode }) {
     if (!idbHydrated) return
     const cp = activeComfyParams
     const identity = workflowIdentity(cp.workflowJson)
-    const workflow = parseParameterWorkflow(cp.workflowJson)
-    const mapped = [cp.portraitNodeId, cp.costumeNodeId, cp.poseNodeId, cp.stitchedNodeId]
-    const ids = new Set(Object.entries(workflow || {}).filter(([id, node]) => !mapped.includes(id) && typeof node.inputs.image === 'string').map(([id]) => id))
     // IndexedDB 恢复与工作流变更同步时清理失效映射。
     // oxlint-disable-next-line react/set-state-in-effect
     setRecipe((r) => {
-      const entries = Object.entries(r.workflowImages || {})
-      const kept = r.workflowImagesIdentity === identity ? entries.filter(([id]) => ids.has(id)) : []
-      if (entries.length === kept.length && r.workflowImagesIdentity === identity) return r
-      return { ...r, workflowImages: Object.fromEntries(kept), workflowImagesIdentity: identity }
+      const workflowImages = comfyRecipeWorkflowImages(r, cp)
+      if (Object.keys(r.workflowImages || {}).length === Object.keys(workflowImages).length && r.workflowImagesIdentity === identity) return r
+      return { ...r, workflowImages, workflowImagesIdentity: identity }
     })
-  }, [activeComfyParams, idbHydrated])
+  }, [activeComfyParams, idbHydrated, recipe.characterMode])
 
   const clearRecipe = () => {
-    setRecipe({ portrait: null, costume: null, pose: null, extraImages: [] })
+    setRecipe(restoreRecipe(null))
+    setActiveCharacterState('a')
     toast.success('已清空配方')
   }
 
@@ -375,37 +375,48 @@ export function StudioProvider({ children }: { children: ReactNode }) {
     const costumePool = (pools.costumes || []).filter((c) => !c.source && c.一级分类 !== '二次元' && (!safeMode || !isNsfwCostume(c)))
     const portraitPool = pools.portraits || []
 
-    setRecipe((prev) => ({
-      ...prev,
-      portrait: portraitPool.length
-        ? portraitPool[Math.floor(Math.random() * portraitPool.length)]
-        : prev.portrait,
-      costume: costumePool.length
-        ? costumePool[Math.floor(Math.random() * costumePool.length)]
-        : prev.costume,
-      pose: posePool.length
-        ? { ...posePool[Math.floor(Math.random() * posePool.length)], useDepth: poseDepthMode }
-        : prev.pose,
-    }))
+    setRecipe((prev) => {
+      const eligiblePoses = isDualCharacter(prev) ? posePool.filter(isDualPose) : posePool
+      let next = withRecipePose(prev, eligiblePoses.length
+        ? { ...eligiblePoses[Math.floor(Math.random() * eligiblePoses.length)], useDepth: poseDepthMode } : prev.pose)
+      const slots: CharacterSlot[] = isDualCharacter(next) ? ['a', 'b'] : ['a']
+      for (const slot of slots) {
+        const previous = characterReferences(next, slot)
+        const other = characterReferences(next, slot === 'a' ? 'b' : 'a')
+        const portraits = portraitPool.length > 1 ? portraitPool.filter((item) => item.id !== other.portrait?.id) : portraitPool
+        next = withCharacterReferences(next, slot, {
+          portrait: portraits.length ? portraits[Math.floor(Math.random() * portraits.length)] : previous.portrait,
+          costume: costumePool.length ? costumePool[Math.floor(Math.random() * costumePool.length)] : previous.costume,
+        })
+      }
+      return next
+    })
     toast.success(safeMode ? '已随机抽取一套角色配方（安全模式）' : '已随机抽取一套角色配方')
   }
 
-  const randomizeSlot = (slot: ReferenceSlot, scope: RandomScope, pools: ReferencePools, expectedId?: string | null) => {
+  const randomizeSlot = (slot: ReferenceSlot, scope: RandomScope, pools: ReferencePools, expectedId?: string | null, characterSlot?: CharacterSlot) => {
     const current = randomContext.current
-    if (expectedId !== undefined && (current.recipe[slot]?.id ?? null) !== expectedId) {
+    const target = characterSlot ?? current.activeCharacter
+    if (slot !== 'pose' && target === 'b' && !isDualCharacter(current.recipe)) {
+      toast.info('已切回单人模式，本次换样已取消')
+      return
+    }
+    const selected = { ...current.recipe, ...characterReferences(current.recipe, target) }
+    if (expectedId !== undefined && (selected[slot]?.id ?? null) !== expectedId) {
       toast.info('参考已更改，本次换样已取消')
       return
     }
-    const next = randomSlot(current.recipe, slot, scope, {
+    const next = randomSlot(selected, slot, scope, {
       ...pools,
       costumes: (pools.costumes || []).filter((item) => !current.safeMode || !isNsfwCostume(item)),
-      poses: (pools.poses || []).filter((item) => !current.safeMode || !isNsfwPose(item)),
+      poses: (pools.poses || []).filter((item) => (!current.safeMode || !isNsfwPose(item)) && (!isDualCharacter(current.recipe) || isDualPose(item))),
     }, current.poseDepthMode)
     if (!next) {
       toast.info(scope === 'similar' ? '没有其他同类素材，可切到“全部”再试' : '没有其他可用素材')
       return
     }
-    setRecipe((previous) => ({ ...previous, [slot]: next[slot] }))
+    setRecipe((previous) => slot === 'pose' ? withRecipePose(previous, next.pose)
+      : withCharacterReferences(previous, target, slot === 'portrait' ? { portrait: next.portrait } : { costume: next.costume }))
     toast.success(`已更换${{ portrait: '人像', costume: '服装', pose: '姿势' }[slot]}，其他参考保持不变`)
   }
 
@@ -479,7 +490,9 @@ export function StudioProvider({ children }: { children: ReactNode }) {
 
   const refreshStitchPreview = async () => {
     try {
-      const url = await stitchRecipeCanvas(recipe)
+      const workflowImages = apiConfig.activeProvider === 'comfyui'
+        ? Object.values(comfyRecipeWorkflowImages(recipe, apiConfig.comfyuiParams)) : []
+      const url = await stitchRecipeCanvas(recipe, workflowImages)
       setPreviewUrl(url)
       toast.success('已合成参考拼图')
     } catch (e) {
@@ -565,10 +578,18 @@ export function StudioProvider({ children }: { children: ReactNode }) {
   const startGeneration = async (overridePrompt?: string) => {
     if (!idbHydrated || isGeneratingRef.current) return
     if (activeTaskRef.current) { toast.error('存在待确认任务，请先恢复或明确放弃记录'); return }
+    const characterErrors = characterRecipeErrors(recipe, apiConfig)
+    if (characterErrors.length) {
+      setGenerationError(characterErrors.join('\n'))
+      toast.error(characterErrors[0])
+      return
+    }
     const configSnapshot = apiConfig
     const recipeSnapshot = apiConfig.activeProvider === 'pixai' ? { ...recipe, workflowImages: {}, workflowImagesIdentity: undefined } : recipe
-    const finalPrompt = overridePrompt ?? customPrompt ?? buildRecipePrompt(recipeSnapshot, configSnapshot.stylePreset, configSnapshot.activeProvider === 'comfyui' && recipeSnapshot.workflowImagesIdentity === workflowIdentity(configSnapshot.comfyuiParams.workflowJson) ? Object.values(recipeSnapshot.workflowImages || {}) : [])
-    let record: ActiveTask = { provider: configSnapshot.activeProvider, baseUrl: configSnapshot.providers[configSnapshot.activeProvider].baseUrl, prompt: finalPrompt, summary: [recipeSnapshot.portrait?.发型名称, recipeSnapshot.costume?.服装名称, recipeSnapshot.pose?.姿势名称].filter(Boolean).join(' + ') || '自定义合成' }
+    const workflowImages = configSnapshot.activeProvider === 'comfyui'
+      ? Object.values(comfyRecipeWorkflowImages(recipeSnapshot, configSnapshot.comfyuiParams)) : []
+    const finalPrompt = overridePrompt ?? customPrompt ?? buildRecipePrompt(recipeSnapshot, configSnapshot.stylePreset, workflowImages)
+    let record: ActiveTask = { provider: configSnapshot.activeProvider, baseUrl: configSnapshot.providers[configSnapshot.activeProvider].baseUrl, prompt: finalPrompt, summary: recipeReferences(recipeSnapshot).filter((ref) => ref.kind !== 'extra').map((ref) => `${ref.label}：${ref.name}`).join(' + ') || '自定义合成' }
     isGeneratingRef.current = true
     setIsGenerating(true)
     setGeneratingModel(PROVIDER_META[configSnapshot.activeProvider].models.find((model) => model.value === configSnapshot.providers[configSnapshot.activeProvider].model)?.label || PROVIDER_META[configSnapshot.activeProvider].shortName)
@@ -617,6 +638,7 @@ export function StudioProvider({ children }: { children: ReactNode }) {
         hydrated: idbHydrated,
         activeTask, resumeGeneration, stopTracking, abandonTask, recoverPixAiTask,
         recipe,
+        activeCharacter, setActiveCharacter, setCharacterMode, setCharacterLayout,
         apiConfig,
         history,
         safeMode,

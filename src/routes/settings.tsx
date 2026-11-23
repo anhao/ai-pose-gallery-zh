@@ -145,7 +145,9 @@ function SettingsPage() {
           hint={
             pid === 'comfyui'
               ? `本地运行本站时填 /comfy（同源代理，无需改跨域设置）；直连时 ComfyUI 需加启动参数 --enable-cors-header "${typeof window !== 'undefined' ? window.location.origin : '*'}"。Desktop 版默认端口 8000，便携版 8188`
-              : undefined
+              : pid === 'gpt'
+                ? '支持自定义中转。本地 Magpie 可填 http://127.0.0.1:3425/v1，开发和预览时自动使用同源代理。'
+                : undefined
           }
         >
           <Input

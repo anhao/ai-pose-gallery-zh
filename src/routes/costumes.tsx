@@ -28,6 +28,8 @@ import { referenceImageUrl } from '@/lib/recipeImages'
 import { COSTUME_SOURCES, SHISEI_SOURCE_URLS, costumeSourceId, selectCostumeView } from '@/lib/costumeSources'
 import { CHARADB_NOTICE_URL } from '@/lib/charadb'
 import { useStudio } from '@/store/studioStore'
+import { characterReferences } from '@/lib/recipeCharacters'
+import { CharacterTargetPicker } from '@/components/studio/CharacterTargetPicker'
 import type { CostumeItem } from '@/types/gallery'
 
 export const Route = createFileRoute('/costumes')({
@@ -64,7 +66,8 @@ function CostumeThumbnail({ item, onOpen, picked, onToggle }: { item: CostumeIte
 
 function CostumesPage() {
   const { data: costumes } = useSuspenseQuery(costumesQuery)
-  const { recipe, toggleCostume, safeMode, requestUnlockNsfw } = useStudio()
+  const { recipe, toggleCostume, safeMode, requestUnlockNsfw, activeCharacter } = useStudio()
+  const selectedCostume = characterReferences(recipe, activeCharacter).costume
 
   const [source, setSource] = useState('all')
   const [view, setView] = useState({ itemId: '', id: 'front' })
@@ -142,6 +145,7 @@ function CostumesPage() {
       <div className="space-y-1 text-xs text-muted-foreground">
         {COSTUME_SOURCES.filter((entry) => (source === 'all' || source === entry.id) && (kind === '全部' || (['gia-anime', 'charadb'].includes(entry.id) ? '二次元' : '现实') === kind)).map((entry) => <p key={entry.id}><a href={entry.url} target="_blank" rel="noopener noreferrer" className="underline">{entry.label}</a>：{entry.notice}</p>)}
       </div>
+      <CharacterTargetPicker />
       {/* 分类筛选药丸 */}
       <div className="flex gap-2 overflow-x-auto pb-1 sm:flex-wrap sm:pb-0">
         <button
@@ -254,7 +258,7 @@ function CostumesPage() {
       ) : (
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
           {filtered.slice(0, shown).map((item, idx) => {
-            const picked = recipe.costume?.id === item.id
+            const picked = selectedCostume?.id === item.id
             return (
               <div
                 key={item.id}
@@ -294,7 +298,7 @@ function CostumesPage() {
       <Dialog open={viewerIndex !== null} onOpenChange={(o) => !o && setViewerIndex(null)}>
         <DialogContent className="max-h-[90dvh] w-[95vw] max-w-4xl overflow-y-auto p-0 sm:max-w-4xl">
           {currentItem && viewerIndex !== null && (() => {
-            const picked = recipe.costume?.id === currentItem.id && (recipe.costume.selectedView || 'front') === (currentItem.selectedView || 'front')
+            const picked = selectedCostume?.id === currentItem.id && (selectedCostume.selectedView || 'front') === (currentItem.selectedView || 'front')
             return (
               <div className="grid md:grid-cols-[1fr_320px]">
                 <div className="relative flex max-h-[78dvh] min-h-[min(380px,65dvh)] items-center justify-center bg-muted/60 p-4">

@@ -26,6 +26,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Skeleton } from '@/components/ui/skeleton'
 import { cn } from '@/lib/utils'
 import { useStudio } from '@/store/studioStore'
+import { characterReferences } from '@/lib/recipeCharacters'
+import { CharacterTargetPicker } from '@/components/studio/CharacterTargetPicker'
 
 export const Route = createFileRoute('/portraits')({
   staticData: { title: '人像颜值库' },
@@ -38,7 +40,8 @@ const HAIRS = ['短发', '中发', '中长发', '长发'] as const
 
 function PortraitsPage() {
   const { data: portraits } = useSuspenseQuery(portraitsQuery)
-  const { recipe, togglePortrait } = useStudio()
+  const { recipe, togglePortrait, activeCharacter } = useStudio()
+  const selectedPortrait = characterReferences(recipe, activeCharacter).portrait
 
   const [section, setSection] = useState<'' | '正脸参考' | '造型氛围'>('')
   const [hair, setHair] = useState('')
@@ -100,6 +103,7 @@ function PortraitsPage() {
         }
       />
 
+      <CharacterTargetPicker />
       {/* 分区与发长切换药丸 */}
       <div className="flex gap-2 overflow-x-auto pb-1 sm:flex-wrap sm:pb-0">
         <button
@@ -221,7 +225,7 @@ function PortraitsPage() {
       ) : (
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
           {filtered.slice(0, shown).map((item, idx) => {
-            const picked = recipe.portrait?.id === item.id
+            const picked = selectedPortrait?.id === item.id
             return (
               <div
                 key={item.id}
@@ -291,7 +295,7 @@ function PortraitsPage() {
       <Dialog open={viewerIndex !== null} onOpenChange={(o) => !o && setViewerIndex(null)}>
         <DialogContent className="max-h-[90dvh] w-[95vw] max-w-4xl overflow-y-auto p-0 sm:max-w-4xl">
           {currentItem && viewerIndex !== null && (() => {
-            const picked = recipe.portrait?.id === currentItem.id
+            const picked = selectedPortrait?.id === currentItem.id
             return (
               <div className="grid md:grid-cols-[1fr_320px]">
                 <div className="relative flex max-h-[78dvh] min-h-[min(380px,65dvh)] items-center justify-center bg-muted/60 p-4">

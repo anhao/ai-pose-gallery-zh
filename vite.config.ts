@@ -101,6 +101,21 @@ const comfyProxy = {
   },
 }
 
+// Magpie's local gateway has no browser CORS support. Keep its HTTP proxy local
+// to Vite rather than relaxing the public /api/proxy HTTPS allowlist.
+const magpieProxy = {
+  '^/magpie/v1(?:/|$)': {
+    target: process.env.MAGPIE_URL || 'http://127.0.0.1:3425',
+    changeOrigin: true,
+    proxyTimeout: 600000,
+    timeout: 600000,
+    rewrite: (p: string) => p.replace(/^\/magpie/, ''),
+    configure: (proxy: any) => {
+      proxy.on('proxyReq', (proxyReq: any) => proxyReq.removeHeader('origin'))
+    },
+  },
+}
+
 export default defineConfig({
   publicDir: false,
   plugins: [
@@ -127,9 +142,9 @@ export default defineConfig({
   },
   server: {
     port: 5173,
-    proxy: comfyProxy,
+    proxy: { ...comfyProxy, ...magpieProxy },
   },
   preview: {
-    proxy: comfyProxy,
+    proxy: { ...comfyProxy, ...magpieProxy },
   },
 })

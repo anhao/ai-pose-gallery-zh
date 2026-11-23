@@ -1,5 +1,6 @@
 import type { ApiConfig, PixAiParams, RecipeState } from '@/types/gallery'
 import { poseImagePath, referenceImageUrl } from '@/lib/recipeImages'
+import { isDualCharacter } from '@/lib/recipeCharacters'
 import type { GenerationProgress } from './aiGenerator'
 
 export const PIXAI_MODEL = '2024383379556065549'
@@ -45,6 +46,7 @@ export function pixAiBaseUrl(value: string) {
   return base
 }
 export function pixAiSources(recipe: RecipeState): [string, string, string] {
+  if (isDualCharacter(recipe)) throw new Error('[PixAI] 当前接入固定使用三张参考图，暂不支持双角色；请切换其他接口或使用单人模式')
   if (!recipe.portrait || !recipe.costume || !recipe.pose) throw new Error('[PixAI] 请补齐人像、服装、姿势三张参考图')
   if (recipe.extraImages?.length) throw new Error('[PixAI] 最多支持三图，请先移除附加参考图')
   return [recipe.portrait.原图 || recipe.portrait.缩略图,

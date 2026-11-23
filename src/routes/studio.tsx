@@ -34,6 +34,9 @@ import { costumesQuery, portraitsQuery, posesQuery } from '@/api/gallery'
 import { Field, Section } from '@/components/common/FormSection'
 import { ComfyConnectionStatus } from '@/components/studio/ComfyConnectionStatus'
 import { WorkflowParameters } from '@/components/studio/WorkflowParameters'
+import { CharacterTargetPicker } from '@/components/studio/CharacterTargetPicker'
+import { DualCharacterPanel } from '@/components/studio/DualCharacterPanel'
+import { characterRecipeErrors, characterReferences, comfyRecipeWorkflowImages, isDualCharacter, recipeReferences } from '@/lib/recipeCharacters'
 import { applyWorkflowOverrides, validateReferenceCombinations, workflowIdentity } from '@/lib/comfyWorkflowParameters'
 import { PageHeader } from '@/components/common/PageHeader'
 import { Badge } from '@/components/ui/badge'
@@ -61,9 +64,11 @@ import {
 import { poseImagePath, poseThumbPath, referenceImageUrl, uploadedReferences } from '@/lib/recipeImages'
 import { useStudio } from '@/store/studioStore'
 import { getGptInputFidelity } from '@/lib/gptImageCapabilities'
+import { isGptFreeImageModel, resolveGptImageEndpoint } from '@/lib/magpie'
 import type { RandomScope, ReferenceSlot } from '@/lib/randomRecipe'
 import { selectCostumeView } from '@/lib/costumeSources'
 import type {
+  CharacterSlot,
   ComfyUiParams,
   DoubaoParams,
   GeminiParams,
@@ -81,6 +86,11 @@ export const Route = createFileRoute('/studio')({
 })
 
 const PROVIDER_LIST: ImageProviderId[] = ['gemini', 'gpt', 'qwen', 'doubao', 'pixai', 'comfyui']
+type RandomControlId = ReferenceSlot | 'b-portrait' | 'b-costume'
+
+function randomControlId(slot: ReferenceSlot, character: CharacterSlot): RandomControlId {
+  return character === 'b' && slot !== 'pose' ? `b-${slot}` : slot
+}
 
 function StudioPage() {
   const {
@@ -124,20 +134,23 @@ function StudioPage() {
   const slotInputRef = useRef<HTMLInputElement | null>(null)
   const uploadSlotRef = useRef<'portrait' | 'costume' | 'pose'>('portrait')
   const [uploadingSlot, setUploadingSlot] = useState<string | null>(null)
-  const [randomizingSlot, setRandomizingSlot] = useState<ReferenceSlot | null>(null)
-  const [randomScopes, setRandomScopes] = useState<Record<ReferenceSlot, RandomScope>>({ portrait: 'similar', costume: 'similar', pose: 'similar' })
+  const [randomizingSlot, setRandomizingSlot] = useState<RandomControlId | null>(null)
+  const [randomScopes, setRandomScopes] = useState<Partial<Record<RandomControlId, RandomScope>>>({})
   const costumeViews = recipe.costume?.views?.filter((view) => view.原图 && view.缩略图) || []
   const [showReferenceErrors, setShowReferenceErrors] = useState(false)
   const referenceErrorsRef = useRef<HTMLDivElement | null>(null)
 
   const activeProvider = apiConfig.activeProvider
+  const dual = isDualCharacter(recipe)
+  const characterErrors = characterRecipeErrors(recipe, apiConfig)
   const providerMeta = PROVIDER_META[activeProvider]
   const providerCfg = apiConfig.providers[activeProvider]
   const gptCfg = apiConfig.providers.gpt
   const gptModel = gptCfg.model === 'custom' ? gptCfg.customModel.trim() : gptCfg.model
   const supportsInputFidelity = Boolean(getGptInputFidelity(gptModel, 'high') || getGptInputFidelity(gptModel, 'low'))
 
-  const activeWorkflowImages = activeProvider === 'comfyui' && recipe.workflowImagesIdentity === workflowIdentity(apiConfig.comfyuiParams.workflowJson) ? Object.values(recipe.workflowImages || {}) : []
+  const workflowImages = useMemo(() => activeProvider === 'comfyui' ? comfyRecipeWorkflowImages(recipe, apiConfig.comfyuiParams) : {}, [activeProvider, recipe, apiConfig.comfyuiParams])
+  const activeWorkflowImages = Object.values(workflowImages)
   const defaultPrompt = buildRecipePrompt(activeProvider === 'pixai' ? { ...recipe, extraImages: [] } : recipe, apiConfig.stylePreset, activeWorkflowImages)
   const prompt = customPrompt ?? defaultPrompt
   const [recoveryTaskId, setRecoveryTaskId] = useState('')
@@ -167,6 +180,8 @@ function StudioPage() {
       workflowPreset: preset,
       workflowJson: JSON.stringify(tpl.workflow, null, 2),
       ...tpl.defaults,
+      secondaryPortraitNodeId: 'none',
+      secondaryCostumeNodeId: 'none',
     })
     toast.success(`已切换为：${tpl.label}`)
   }
@@ -199,6 +214,7 @@ function StudioPage() {
         cp.costumeNodeId,
         cp.poseNodeId,
         cp.stitchedNodeId,
+        ...(dual ? [cp.secondaryPortraitNodeId || '', cp.secondaryCostumeNodeId || ''] : []),
       ])
       // 自动修复仅用于提交副本，保留导入的原始 API。
       setComfyCheck({ ...result, info: `${found.info}（${found.baseUrl}）` })
@@ -226,6 +242,8 @@ function StudioPage() {
         workflowPreset: 'custom',
         workflowJson: text,
         ...detected,
+        secondaryPortraitNodeId: 'none',
+        secondaryCostumeNodeId: 'none',
       })
       setShowAdvanced(true)
       toast.success(
@@ -280,8 +298,8 @@ function StudioPage() {
       await image.decode()
       const name = file.name.replace(/\.[^.]+$/, '') || '上传图片'
       const items = uploadedReferences(name, url, image.width, image.height, file.size)
-      if (slot === 'portrait') setPortrait(items.portrait)
-      if (slot === 'costume') setCostume(items.costume)
+      if (slot === 'portrait') setPortrait(items.portrait, 'a')
+      if (slot === 'costume') setCostume(items.costume, 'a')
       if (slot === 'pose') setPose(items.pose)
     } catch (err) {
       toast.error(err instanceof Error ? err.message : '图片读取失败')
@@ -294,10 +312,14 @@ function StudioPage() {
     { label: '人像', node: apiConfig.comfyuiParams.portraitNodeId, image: recipe.portrait },
     { label: '服装', node: apiConfig.comfyuiParams.costumeNodeId, image: recipe.costume },
     { label: '姿势', node: apiConfig.comfyuiParams.poseNodeId, image: recipe.pose },
+    ...(dual ? [
+      { label: '角色 B 人像', node: apiConfig.comfyuiParams.secondaryPortraitNodeId, image: recipe.secondaryCharacter?.portrait },
+      { label: '角色 B 服装', node: apiConfig.comfyuiParams.secondaryCostumeNodeId, image: recipe.secondaryCharacter?.costume },
+    ] : []),
   ].filter((slot) => slot.node && slot.node !== 'none' && parsedComfyNodes.imageNodes.some((node) => node.id === slot.node && node.emptyValue === undefined) && !slot.image).map((slot) => slot.label) : activeProvider === 'pixai' ? [['人像', recipe.portrait], ['服装', recipe.costume], ['姿势', recipe.pose]].filter(([, image]) => !image).map(([label]) => String(label)) : []
 
   const extraImages = recipe.extraImages || []
-  const hasStitchRefs = Boolean(recipe.portrait || recipe.costume || recipe.pose || extraImages.length > 0)
+  const hasStitchRefs = recipeReferences(recipe).length > 0
   const hasAnyRef = hasStitchRefs || activeWorkflowImages.length > 0
 
   const processFiles = async (files: File[]) => {
@@ -347,14 +369,14 @@ function StudioPage() {
     })
   }
 
-  const handleRandomSlot = async (slot: ReferenceSlot) => {
-    const expectedId = recipe[slot]?.id ?? null
-    setRandomizingSlot(slot)
+  const handleRandomSlot = async (slot: ReferenceSlot, character: CharacterSlot, scope: RandomScope) => {
+    const current = slot === 'pose' ? recipe.pose : characterReferences(recipe, character)[slot]
+    setRandomizingSlot(randomControlId(slot, character))
     try {
       const pools = slot === 'portrait' ? { portraits: await qc.ensureQueryData(portraitsQuery) }
         : slot === 'costume' ? { costumes: await qc.ensureQueryData(costumesQuery) }
         : { poses: (await qc.ensureQueryData(posesQuery)).items }
-      randomizeSlot(slot, randomScopes[slot], pools, expectedId)
+      randomizeSlot(slot, scope, pools, current?.id ?? null, character)
     } catch {
       toast.error('素材库加载失败，请稍后重试')
     } finally {
@@ -362,15 +384,20 @@ function StudioPage() {
     }
   }
 
-  const randomControls = (slot: ReferenceSlot, label: string) => <div className="flex basis-full flex-wrap items-center gap-2 border-t pt-2">
-    <Select value={randomScopes[slot]} onValueChange={(value) => setRandomScopes((current) => ({ ...current, [slot]: value as RandomScope }))}>
-      <SelectTrigger aria-label={`${label}换样范围`} className="min-h-11 w-24"><SelectValue /></SelectTrigger>
-      <SelectContent><SelectItem value="similar">同类</SelectItem><SelectItem value="all">全部</SelectItem></SelectContent>
-    </Select>
-    <Button type="button" variant="outline" className="min-h-11" disabled={uploadingSlot !== null || randomizingSlot !== null} onClick={() => void handleRandomSlot(slot)} aria-label={`${label}换一个`}>
-      {randomizingSlot === slot ? <LoaderCircleIcon className="size-4 animate-spin motion-reduce:animate-none" /> : <DicesIcon className="size-4" />}换一个
-    </Button>
-  </div>
+  const randomControls = (slot: ReferenceSlot, label: string, character: CharacterSlot = 'a') => {
+    const id = randomControlId(slot, character)
+    const scope = randomScopes[id] ?? 'similar'
+    const disabled = uploadingSlot !== null || randomizingSlot !== null || (dual && isGenerating)
+    return <div className="flex basis-full flex-wrap items-center gap-2 border-t pt-2">
+      <Select value={scope} disabled={disabled} onValueChange={(value) => setRandomScopes((current) => ({ ...current, [id]: value as RandomScope }))}>
+        <SelectTrigger aria-label={`${label}换样范围`} className="min-h-11 w-24"><SelectValue /></SelectTrigger>
+        <SelectContent><SelectItem value="similar">同类</SelectItem><SelectItem value="all">全部</SelectItem></SelectContent>
+      </Select>
+      <Button type="button" variant="outline" className="min-h-11" disabled={disabled} onClick={() => void handleRandomSlot(slot, character, scope)} aria-label={`${label}换一个`}>
+        {randomizingSlot === id ? <LoaderCircleIcon className="size-4 animate-spin motion-reduce:animate-none" /> : <DicesIcon className="size-4" />}换一个
+      </Button>
+    </div>
+  }
 
   const handleUploadFiles = async (e: ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(e.target.files || [])
@@ -399,7 +426,7 @@ function StudioPage() {
 
   const handleOpenStitchModal = async () => {
     try {
-      const url = await stitchRecipeCanvas(recipe)
+      const url = await stitchRecipeCanvas(recipe, activeWorkflowImages)
       setStitchModalUrl(url)
     } catch (e) {
       toast.error(e instanceof Error ? e.message : '拼图失败')
@@ -407,17 +434,24 @@ function StudioPage() {
   }
 
   const handleGenerate = () => {
-    if (activeProvider === 'comfyui') {
-      const cp = apiConfig.comfyuiParams
-      const workflowImages = recipe.workflowImagesIdentity === workflowIdentity(cp.workflowJson) ? recipe.workflowImages || {} : {}
-      const selected = [recipe.portrait ? cp.portraitNodeId : '', recipe.costume ? cp.costumeNodeId : '', recipe.pose ? cp.poseNodeId : '', ...Object.keys(workflowImages)].filter((id) => id && id !== 'none')
-      const combinationError = validateReferenceCombinations(cp.workflowJson, selected)
-      if (combinationError) { toast.error(combinationError); setShowAdvanced(true); return }
-    }
-    if (missingReferences.length) {
+    if (characterErrors.length || missingReferences.length) {
       setShowReferenceErrors(true)
+      if (activeProvider === 'comfyui' && characterErrors.length) setShowAdvanced(true)
       requestAnimationFrame(() => referenceErrorsRef.current?.focus())
       return
+    }
+    if (activeProvider === 'comfyui') {
+      const cp = apiConfig.comfyuiParams
+      const selected = [
+        recipe.portrait && cp.portraitNodeId,
+        recipe.costume && cp.costumeNodeId,
+        recipe.pose && cp.poseNodeId,
+        dual && recipe.secondaryCharacter?.portrait && cp.secondaryPortraitNodeId,
+        dual && recipe.secondaryCharacter?.costume && cp.secondaryCostumeNodeId,
+        ...Object.keys(workflowImages),
+      ].filter((id): id is string => typeof id === 'string' && id !== '' && id !== 'none')
+      const combinationError = validateReferenceCombinations(cp.workflowJson, selected)
+      if (combinationError) { toast.error(combinationError); setShowAdvanced(true); return }
     }
     void startGeneration(prompt)
   }
@@ -486,13 +520,17 @@ function StudioPage() {
           >
 
             <input ref={slotInputRef} type="file" accept="image/*" className="hidden" onChange={handleSlotUpload} />
-            {showReferenceErrors && missingReferences.length > 0 && (
+            <CharacterTargetPicker />
+            {dual && activeProvider === 'pixai' && <p role="status" className="rounded-lg border border-destructive/40 bg-background p-3 text-xs text-destructive">PixAI 当前接入固定使用三张参考图，暂不支持双角色。请切换其他接口，或切回单人模式。</p>}
+            {showReferenceErrors && (missingReferences.length > 0 || characterErrors.length > 0) && (
               <div id="reference-errors" ref={referenceErrorsRef} role="alert" tabIndex={-1} className="rounded-lg border border-destructive/50 bg-destructive/5 p-3 text-sm text-destructive focus-visible:outline-2">
-                请先选择或上传：{missingReferences.join('、')}。这些槽位已绑定工作流节点。
+                <ul className="list-inside list-disc space-y-1">{characterErrors.map((error) => <li key={error}>{error}</li>)}{missingReferences.length > 0 && <li>请先选择或上传：{missingReferences.join('、')}。</li>}</ul>
               </div>
             )}
+            {dual && <DualCharacterPanel disabled={uploadingSlot !== null || randomizingSlot !== null || isGenerating} onPreview={setZoomImageUrl} onUploadingChange={setUploadingSlot} showErrors={showReferenceErrors} renderRandomControls={randomControls} />}
             {/* 3 个核心图库槽位：手机端单列舒展展示，平板/桌面端三列并排 */}
-            <div className="grid min-w-0 grid-cols-1 gap-2 @min-[42rem]/section:grid-cols-3">
+            <div className={dual ? 'grid min-w-0 grid-cols-1 gap-2' : 'grid min-w-0 grid-cols-1 gap-2 @min-[42rem]/section:grid-cols-3'}>
+              {!dual && <>
               {/* 人像槽 */}
               <div className={`relative flex min-w-0 flex-wrap items-start gap-2.5 rounded-xl bg-background p-2.5 ${showReferenceErrors && missingReferences.includes('人像') ? 'ring-1 ring-destructive' : ''}`}>
                 {recipe.portrait ? (
@@ -513,7 +551,7 @@ function StudioPage() {
                         <button
                           type="button"
                           aria-label="清除人像参考图"
-                          onClick={() => setPortrait(null)}
+                          onClick={() => setPortrait(null, 'a')}
                           className="-mr-0.5 -mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring"
                         >
                           <XIcon className="size-3.5" />
@@ -564,7 +602,7 @@ function StudioPage() {
                         <button
                           type="button"
                           aria-label="清除服装参考图"
-                          onClick={() => setCostume(null)}
+                          onClick={() => setCostume(null, 'a')}
                           className="-mr-0.5 -mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring"
                         >
                           <XIcon className="size-3.5" />
@@ -577,7 +615,7 @@ function StudioPage() {
                         value={costumeViews.find((view) => view.id === recipe.costume?.selectedView)?.id || costumeViews.find((view) => view.id === 'front')?.id || costumeViews[0].id}
                         disabled={uploadingSlot !== null || randomizingSlot !== null}
                         onValueChange={(value) => {
-                          if (recipe.costume && uploadingSlot === null && randomizingSlot === null) setCostume(selectCostumeView(recipe.costume, value))
+                          if (recipe.costume && uploadingSlot === null && randomizingSlot === null) setCostume(selectCostumeView(recipe.costume, value), 'a')
                         }}
                       >
                         <SelectTrigger aria-label="已选服装视角" className="h-8 w-full text-xs"><SelectValue /></SelectTrigger>
@@ -605,6 +643,7 @@ function StudioPage() {
                 {randomControls('costume', '服装')}
               </div>
 
+              </>}
               {/* 姿势槽 */}
               <div className={`relative flex min-w-0 flex-wrap items-start gap-2.5 rounded-xl bg-background p-2.5 ${showReferenceErrors && missingReferences.includes('姿势') ? 'ring-1 ring-destructive' : ''}`}>
                 {recipe.pose ? (
@@ -622,7 +661,7 @@ function StudioPage() {
                     <div className="flex min-h-12 min-w-0 flex-1 flex-col justify-between gap-1">
                       <div className="flex items-center justify-between gap-1">
                         <div className="flex min-w-0 flex-wrap items-center gap-1.5">
-                          <span className="shrink-0 text-[11px] text-muted-foreground">姿势</span>
+                          <span className="shrink-0 text-[11px] text-muted-foreground">{dual ? '共享姿势' : '姿势'}</span>
                           {recipe.pose.source !== 'upload' && (
                             <div
                               role="group"
@@ -684,7 +723,7 @@ function StudioPage() {
                       <div className="flex h-10 w-8 shrink-0 items-center justify-center rounded-lg bg-muted">
                         <PersonStandingIcon className="size-4" />
                       </div>
-                      <span className="truncate text-xs">+ 选姿势</span>
+                      <span className="truncate text-xs">{dual ? '+ 选共享姿势' : '+ 选姿势'}</span>
                     </Link>
                     <Button type="button" variant="ghost" size="sm" aria-label="上传姿势参考图" aria-describedby={showReferenceErrors && missingReferences.includes('姿势') ? 'reference-errors' : undefined} aria-busy={uploadingSlot === 'pose'} disabled={uploadingSlot !== null || randomizingSlot !== null} className="h-12 shrink-0 border-l px-2 text-xs" onClick={() => { uploadSlotRef.current = 'pose'; slotInputRef.current?.click() }}>
                       {uploadingSlot === 'pose' ? <LoaderCircleIcon className="size-3.5 animate-spin motion-reduce:animate-none" /> : <ImagePlusIcon className="size-3.5" />}
@@ -1014,7 +1053,7 @@ function StudioPage() {
                   </div>
                 )}
 
-                <Field label="人像图节点 (LoadImage)">
+                <Field label={dual ? '角色 A 人像节点 (LoadImage)' : '人像图节点 (LoadImage)'}>
                   <Select
                     value={apiConfig.comfyuiParams.portraitNodeId}
                     onValueChange={(v) => updateComfyUiParams({ portraitNodeId: v })}
@@ -1033,7 +1072,7 @@ function StudioPage() {
                   </Select>
                 </Field>
 
-                <Field label="服装图节点 (LoadImage)">
+                <Field label={dual ? '角色 A 服装节点 (LoadImage)' : '服装图节点 (LoadImage)'}>
                   <Select
                     value={apiConfig.comfyuiParams.costumeNodeId}
                     onValueChange={(v) => updateComfyUiParams({ costumeNodeId: v })}
@@ -1052,7 +1091,23 @@ function StudioPage() {
                   </Select>
                 </Field>
 
-                <Field label="姿势图节点 (LoadImage)">
+                {dual && <>
+                  <p className="col-span-full text-xs text-muted-foreground">双人需要含独立图片输入的自定义工作流。A、B 的人像与服装须绑定不同节点；未选服装时可不绑定该角色服装。</p>
+                  <Field label="角色 B 人像节点 (LoadImage)">
+                    <Select value={apiConfig.comfyuiParams.secondaryPortraitNodeId || 'none'} onValueChange={(value) => updateComfyUiParams({ secondaryPortraitNodeId: value })}>
+                      <SelectTrigger className="w-full text-xs"><SelectValue /></SelectTrigger>
+                      <SelectContent><SelectItem value="none">不绑定</SelectItem>{parsedComfyNodes.imageNodes.map((node) => <SelectItem key={node.id} value={node.id} className="text-xs">#{node.id} {node.title}</SelectItem>)}</SelectContent>
+                    </Select>
+                  </Field>
+                  <Field label="角色 B 服装节点 (LoadImage)">
+                    <Select value={apiConfig.comfyuiParams.secondaryCostumeNodeId || 'none'} onValueChange={(value) => updateComfyUiParams({ secondaryCostumeNodeId: value })}>
+                      <SelectTrigger className="w-full text-xs"><SelectValue /></SelectTrigger>
+                      <SelectContent><SelectItem value="none">不绑定</SelectItem>{parsedComfyNodes.imageNodes.map((node) => <SelectItem key={node.id} value={node.id} className="text-xs">#{node.id} {node.title}</SelectItem>)}</SelectContent>
+                    </Select>
+                  </Field>
+                </>}
+
+                <Field label={dual ? '共享姿势节点 (LoadImage)' : '姿势图节点 (LoadImage)'}>
                   <Select
                     value={apiConfig.comfyuiParams.poseNodeId}
                     onValueChange={(v) => updateComfyUiParams({ poseNodeId: v })}
@@ -1156,9 +1211,9 @@ function StudioPage() {
 
                 {activeProvider === 'gpt' && (
                   <>
-                    <Field label="调用端点 (endpointMode)">
+                    <Field label="调用端点 (endpointMode)" hint={isGptFreeImageModel(gptModel) ? 'GPT 号池图片模型使用 Images Edits，参考图自动转换为 Base64 或文件上传。' : undefined}>
                       <Select
-                        value={apiConfig.gptParams.endpointMode}
+                        value={resolveGptImageEndpoint(gptModel, apiConfig.gptParams.endpointMode)}
                         onValueChange={(v) =>
                           updateGptParams({ endpointMode: v as GptParams['endpointMode'] })
                         }
@@ -1168,8 +1223,8 @@ function StudioPage() {
                         </SelectTrigger>
                         <SelectContent>
                           <SelectItem value="images_edits_json">/v1/images/edits (JSON)</SelectItem>
-                          <SelectItem value="responses">/v1/responses</SelectItem>
-                          <SelectItem value="chat">/v1/chat/completions</SelectItem>
+                          <SelectItem value="responses" disabled={isGptFreeImageModel(gptModel)}>/v1/responses</SelectItem>
+                          <SelectItem value="chat" disabled={isGptFreeImageModel(gptModel)}>/v1/chat/completions</SelectItem>
                           <SelectItem value="images_edits">/v1/images/edits (Multipart)</SelectItem>
                         </SelectContent>
                       </Select>
@@ -1474,6 +1529,7 @@ function StudioPage() {
               rows={5}
               className="bg-background font-mono text-xs leading-relaxed"
             />
+            {dual && customPrompt !== null && <p role="status" className="text-xs leading-relaxed text-muted-foreground">当前使用自定义提示词。修改角色或位置后，请同步更新 A/B 对应关系，或点击「重置」恢复自动提示词。</p>}
 
             <Button
               onClick={handleGenerate}
