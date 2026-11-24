@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { toast } from 'sonner'
 import { comfyFetch, normalizeComfyBase } from '@/services/aiGenerator'
+import { t } from '@/i18n'
 
 export type ComfyConnectionState = {
   status: 'notconfigured' | 'unchecked' | 'checking' | 'connected' | 'error' | 'offline'
@@ -46,33 +47,33 @@ export function useComfyConnection(baseUrl: string, apiKey: string, enabled: boo
     const startedEpoch = epoch.current
     request.current = { controller, epoch: startedEpoch, manual }
     setSaved((previous) => ({ scope, value: { ...(previous?.scope === scope ? previous.value : {}), status: 'checking', error: undefined } }))
-    if (manual) toast.loading('正在检测 ComfyUI HTTP 连接…', { id: TOAST_ID })
+    if (manual) toast.loading(t('正在检测 ComfyUI HTTP 连接…'), { id: TOAST_ID })
     const timeout = setTimeout(() => controller.abort('timeout'), 8000)
     const publish = (value: ComfyConnectionState) => {
       if (epoch.current !== startedEpoch) return
       setSaved({ scope, value })
       if (manual) {
-        if (value.status === 'connected') toast.success(`HTTP 连接成功：${value.info}`, { id: TOAST_ID })
+        if (value.status === 'connected') toast.success(t('HTTP 连接成功：{info}', { info: value.info ?? '' }), { id: TOAST_ID })
         else toast.error(value.error || COMFY_CONNECTION_LABELS[value.status], { id: TOAST_ID, duration: 10000 })
       }
     }
     try {
       const response = await comfyFetch(normalizeComfyBase(baseUrl), '/system_stats', { signal: controller.signal }, apiKey, 8000)
       if (!response.ok) {
-        publish({ status: 'error', checkedAt: Date.now(), error: response.status === 401 || response.status === 403 ? `鉴权失败（HTTP ${response.status}），请检查 API Key / 鉴权设置` : `HTTP ${response.status}，请检查 ComfyUI 服务与代理` })
+        publish({ status: 'error', checkedAt: Date.now(), error: response.status === 401 || response.status === 403 ? t('鉴权失败（HTTP {status}），请检查 API Key / 鉴权设置', { status: response.status }) : t('HTTP {status}，请检查 ComfyUI 服务与代理', { status: response.status }) })
         return
       }
       const data = await response.json()
       controller.signal.throwIfAborted()
       if (!data?.system || typeof data.system !== 'object' || Array.isArray(data.system)) {
-        publish({ status: 'error', checkedAt: Date.now(), error: '响应不是 ComfyUI system_stats 格式，请检查地址' })
+        publish({ status: 'error', checkedAt: Date.now(), error: t('响应不是 ComfyUI system_stats 格式，请检查地址') })
         return
       }
       // 只展示允许的版本字符，避免后端响应或错误文本带出凭据。
-      const version = typeof data.system.comfyui_version === 'string' && /^[\d.a-zA-Z_-]{1,40}$/.test(data.system.comfyui_version) && (!apiKey.trim() || !data.system.comfyui_version.includes(apiKey.trim())) ? data.system.comfyui_version : '未知版本'
+      const version = typeof data.system.comfyui_version === 'string' && /^[\d.a-zA-Z_-]{1,40}$/.test(data.system.comfyui_version) && (!apiKey.trim() || !data.system.comfyui_version.includes(apiKey.trim())) ? data.system.comfyui_version : t('未知版本')
       publish({ status: 'connected', checkedAt: Date.now(), info: `ComfyUI ${version}` })
     } catch {
-      publish({ status: isOffline() ? 'offline' : 'error', checkedAt: Date.now(), error: controller.signal.reason === 'timeout' ? '连接检测超时（8 秒），请检查 ComfyUI 是否忙碌或无响应' : '无法读取 ComfyUI 状态，请检查服务、地址、跨域和本地网络访问权限' })
+      publish({ status: isOffline() ? 'offline' : 'error', checkedAt: Date.now(), error: controller.signal.reason === 'timeout' ? t('连接检测超时（8 秒），请检查 ComfyUI 是否忙碌或无响应') : t('无法读取 ComfyUI 状态，请检查服务、地址、跨域和本地网络访问权限') })
     } finally {
       clearTimeout(timeout)
       if (request.current?.epoch === startedEpoch) request.current = null

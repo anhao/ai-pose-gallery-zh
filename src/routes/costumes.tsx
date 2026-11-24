@@ -29,6 +29,7 @@ import { COSTUME_SOURCES, SHISEI_SOURCE_URLS, costumeSourceId, selectCostumeView
 import { CHARADB_NOTICE_URL } from '@/lib/charadb'
 import { useStudio } from '@/store/studioStore'
 import type { CostumeItem } from '@/types/gallery'
+import { costumeName, localSearchText, t, term } from '@/i18n'
 
 export const Route = createFileRoute('/costumes')({
   staticData: { title: '服装穿搭库' },
@@ -41,11 +42,11 @@ function CostumeThumbnail({ item, onOpen, picked, onToggle }: { item: CostumeIte
   const [failed, setFailed] = useState(false)
   const openButton = useRef<HTMLButtonElement>(null)
   return <div className="relative aspect-2/3 w-full shrink-0 overflow-hidden rounded-2xl bg-background">
-    <button ref={openButton} type="button" aria-label={`查看 ${item.id} 大图`} onClick={onOpen} className="relative block h-full w-full cursor-zoom-in focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
-      {!failed && <img src={referenceImageUrl(item.缩略图)} alt={item.服装名称} loading="lazy" onError={() => setFailed(true)} className="h-full w-full object-contain transition duration-300 group-hover:scale-105" />}
+    <button ref={openButton} type="button" aria-label={t('查看 {id} 大图', { id: item.id })} onClick={onOpen} className="relative block h-full w-full cursor-zoom-in focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
+      {!failed && <img src={referenceImageUrl(item.缩略图)} alt={costumeName(item)} loading="lazy" onError={() => setFailed(true)} className="h-full w-full object-contain transition duration-300 group-hover:scale-105" />}
       <span className="absolute inset-x-2 top-2 flex items-center justify-between gap-1">
         <span className="rounded-md bg-black/70 px-1.5 py-0.5 font-mono text-[10px] font-bold text-white">{item.id}</span>
-        <span className="rounded-md bg-white/90 px-1.5 py-0.5 text-[10px] font-semibold text-zinc-900">{item.分类}</span>
+        <span className="rounded-md bg-white/90 px-1.5 py-0.5 text-[10px] font-semibold text-zinc-900">{term(item.分类)}</span>
       </span>
     </button>
     <button type="button" onClick={onToggle} className={cn(
@@ -53,11 +54,11 @@ function CostumeThumbnail({ item, onOpen, picked, onToggle }: { item: CostumeIte
       picked ? 'bg-emerald-600' : 'bg-black/75 hover:bg-primary'
     )}>
       {picked ? <CheckIcon className="size-3" /> : <PlusIcon className="size-3" />}
-      {picked ? '已选' : '加入配方'}
+      {picked ? t('已选') : t('加入配方')}
     </button>
     {failed && <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center gap-2 bg-background/90 p-2 text-center">
-      <p role="status" className="text-xs text-muted-foreground">图片加载失败</p>
-      <Button type="button" variant="outline" className="pointer-events-auto min-h-11" aria-label={`重新加载 ${item.id} 缩略图`} onClick={() => { setFailed(false); openButton.current?.focus() }}>重新加载</Button>
+      <p role="status" className="text-xs text-muted-foreground">{t('图片加载失败')}</p>
+      <Button type="button" variant="outline" className="pointer-events-auto min-h-11" aria-label={t('重新加载 {id} 缩略图', { id: item.id })} onClick={() => { setFailed(false); openButton.current?.focus() }}>{t('重新加载')}</Button>
     </div>}
   </div>
 }
@@ -100,7 +101,7 @@ function CostumesPage() {
     return baseCostumes.filter((item) => {
       if (activeCategory && item.分类 !== activeCategory) return false
       if (activeTag !== 'all' && !(item.标签 || []).includes(activeTag)) return false
-      if (q && !item.检索.toLowerCase().includes(q)) return false
+      if (q && !`${item.检索} ${localSearchText([costumeName(item), item.分类, ...(item.标签 || [])])}`.toLowerCase().includes(q)) return false
       return true
     })
   }, [baseCostumes, activeCategory, activeTag, q])
@@ -123,24 +124,24 @@ function CostumesPage() {
 
   return (
     <>
-      <PageHeader title="服装穿搭库" />
+      <PageHeader title={t('服装穿搭库')} />
 
-      <div className="flex flex-wrap items-center justify-between gap-2" aria-label="服装一级分类">
+      <div className="flex flex-wrap items-center justify-between gap-2" aria-label={t('服装一级分类')}>
         <div className="flex flex-wrap gap-2">
           {['全部', '现实', '二次元'].map((value) => (
             <Button key={value} variant={kind === value ? 'default' : 'outline'} aria-pressed={kind === value} onClick={() => {
               setKind(value); setCategory(''); setTag('all'); setShown(60); setViewerIndex(null)
-            }}>{value}</Button>
+            }}>{value === '全部' ? t('全部') : term(value)}</Button>
           ))}
         </div>
         <Select value={source} onValueChange={(value) => { setSource(value); setCategory(''); setTag('all'); setShown(60); setViewerIndex(null) }}>
-          <SelectTrigger aria-label="服装来源" className="w-56"><SelectValue placeholder="全部来源" /></SelectTrigger>
-          <SelectContent><SelectItem value="all">全部来源</SelectItem>{COSTUME_SOURCES.map((entry) => <SelectItem key={entry.id} value={entry.id}>{entry.label}</SelectItem>)}</SelectContent>
+          <SelectTrigger aria-label={t('服装来源')} className="w-56"><SelectValue placeholder={t('全部来源')} /></SelectTrigger>
+          <SelectContent><SelectItem value="all">{t('全部来源')}</SelectItem>{COSTUME_SOURCES.map((entry) => <SelectItem key={entry.id} value={entry.id}>{t(entry.label)}</SelectItem>)}</SelectContent>
         </Select>
       </div>
 
       <div className="space-y-1 text-xs text-muted-foreground">
-        {COSTUME_SOURCES.filter((entry) => (source === 'all' || source === entry.id) && (kind === '全部' || (['gia-anime', 'charadb'].includes(entry.id) ? '二次元' : '现实') === kind)).map((entry) => <p key={entry.id}><a href={entry.url} target="_blank" rel="noopener noreferrer" className="underline">{entry.label}</a>：{entry.notice}</p>)}
+        {COSTUME_SOURCES.filter((entry) => (source === 'all' || source === entry.id) && (kind === '全部' || (['gia-anime', 'charadb'].includes(entry.id) ? '二次元' : '现实') === kind)).map((entry) => <p key={entry.id}><a href={entry.url} target="_blank" rel="noopener noreferrer" className="underline">{t(entry.label)}</a>{t('：')}{t(entry.notice)}</p>)}
       </div>
       {/* 分类筛选药丸 */}
       <div className="flex gap-2 overflow-x-auto pb-1 sm:flex-wrap sm:pb-0">
@@ -156,7 +157,7 @@ function CostumesPage() {
             activeCategory === '' ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground hover:text-foreground'
           )}
         >
-          全部穿搭 ({baseCostumes.length})
+          {t('全部穿搭')} ({baseCostumes.length})
         </button>
         {categories.map((c) => {
           const cnt = baseCostumes.filter((x) => x.分类 === c).length
@@ -175,7 +176,7 @@ function CostumesPage() {
                 activeCategory === c ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground hover:text-foreground'
               )}
             >
-              {c} ({cnt}){isNsfw ? ' · 18+' : ''}
+              {term(c)} ({cnt}){isNsfw ? ' · 18+' : ''}
             </button>
           )
         })}
@@ -191,7 +192,7 @@ function CostumesPage() {
             }
             className="shrink-0 rounded-full border border-dashed border-rose-500/40 bg-rose-500/5 px-3.5 py-1.5 text-sm font-medium text-rose-600 transition-colors hover:bg-rose-500/10 dark:text-rose-400"
           >
-            🔒 解锁 18+ 敏感服装 ({hiddenNsfwCount})
+            🔒 {t('解锁 18+ 敏感服装')} ({hiddenNsfwCount})
           </button>
         )}
       </div>
@@ -206,7 +207,7 @@ function CostumesPage() {
               setQuery(e.target.value)
               setShown(60)
             }}
-            placeholder="搜索服装款式、颜色、材质、英文词条 (如 denim, lace, 针织, 迷你裙)…"
+            placeholder={t('搜索服装款式、颜色、材质、英文词条 (如 denim, lace, 针织, 迷你裙)…')}
             className="bg-background pl-9"
           />
         </div>
@@ -219,13 +220,13 @@ function CostumesPage() {
           }}
         >
           <SelectTrigger className="w-full bg-background">
-            <SelectValue placeholder="单品/颜色标签" />
+            <SelectValue placeholder={t('单品/颜色标签')} />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">全部单品与颜色标签</SelectItem>
-            {allTags.map((t) => (
-              <SelectItem key={t} value={t}>
-                {t}
+            <SelectItem value="all">{t('全部单品与颜色标签')}</SelectItem>
+            {allTags.map((tag) => (
+              <SelectItem key={tag} value={tag}>
+                {term(tag)}
               </SelectItem>
             ))}
           </SelectContent>
@@ -245,12 +246,12 @@ function CostumesPage() {
           }}
         >
           <RotateCcwIcon className="size-3.5" />
-          重置
+          {t('重置')}
         </Button>
       </div>
 
       {filtered.length === 0 ? (
-        <EmptyState title="没有找到匹配的服装穿搭" description="试试更换搜索词或切换分类" />
+        <EmptyState title={t('没有找到匹配的服装穿搭')} description={t('试试更换搜索词或切换分类')} />
       ) : (
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
           {filtered.slice(0, shown).map((item, idx) => {
@@ -264,12 +265,12 @@ function CostumesPage() {
 
                 <div className="flex flex-1 flex-col justify-between px-1.5 pt-2.5 pb-1">
                   <div>
-                    <div className="line-clamp-2 text-xs leading-snug font-semibold">{item.服装名称}</div>
-                    <div className="mt-1 text-[11px] text-muted-foreground">{item.来源 || 'ギア · 现实服装'}</div>
+                    <div className="line-clamp-2 text-xs leading-snug font-semibold">{costumeName(item)}</div>
+                    <div className="mt-1 text-[11px] text-muted-foreground">{t(item.来源 || 'ギア · 现实服装')}</div>
                     <div className="mt-1.5 flex flex-wrap gap-1">
-                      {(item.标签 || []).slice(0, 5).map((t) => (
-                        <span key={t} className="rounded bg-background px-1.5 py-0.5 text-[10px] text-muted-foreground">
-                          {t}
+                      {(item.标签 || []).slice(0, 5).map((tag) => (
+                        <span key={tag} className="rounded bg-background px-1.5 py-0.5 text-[10px] text-muted-foreground">
+                          {term(tag)}
                         </span>
                       ))}
                     </div>
@@ -285,7 +286,7 @@ function CostumesPage() {
       {shown < filtered.length && (
         <div className="flex justify-center pt-2">
           <Button variant="outline" onClick={() => setShown((s) => s + 60)}>
-            加载更多（剩余 {filtered.length - shown} 套）
+            {t('加载更多（剩余 {n} 套）', { n: filtered.length - shown })}
           </Button>
         </div>
       )}
@@ -298,11 +299,11 @@ function CostumesPage() {
             return (
               <div className="grid md:grid-cols-[1fr_320px]">
                 <div className="relative flex max-h-[78dvh] min-h-[min(380px,65dvh)] items-center justify-center bg-muted/60 p-4">
-                  <ZoomViewport imageUrl={referenceImageUrl(currentItem.预览图 || currentItem.原图)} alt={currentItem.服装名称} className="min-h-0 h-[58dvh]" />
+                  <ZoomViewport imageUrl={referenceImageUrl(currentItem.预览图 || currentItem.原图)} alt={costumeName(currentItem)} className="min-h-0 h-[58dvh]" />
                   <Button
                     variant="secondary"
                     size="icon"
-                    aria-label="上一张图片" className="absolute top-1/2 left-3 min-h-11 min-w-11 -translate-y-1/2 rounded-full shadow"
+                    aria-label={t('上一张图片')} className="absolute top-1/2 left-3 min-h-11 min-w-11 -translate-y-1/2 rounded-full shadow"
                     onClick={() => setViewerIndex((viewerIndex - 1 + filtered.length) % filtered.length)}
                   >
                     <ChevronLeftIcon className="size-4" />
@@ -310,7 +311,7 @@ function CostumesPage() {
                   <Button
                     variant="secondary"
                     size="icon"
-                    aria-label="下一张图片" className="absolute top-1/2 right-3 min-h-11 min-w-11 -translate-y-1/2 rounded-full shadow"
+                    aria-label={t('下一张图片')} className="absolute top-1/2 right-3 min-h-11 min-w-11 -translate-y-1/2 rounded-full shadow"
                     onClick={() => setViewerIndex((viewerIndex + 1) % filtered.length)}
                   >
                     <ChevronRightIcon className="size-4" />
@@ -321,29 +322,29 @@ function CostumesPage() {
                   <div className="space-y-4">
                     <DialogHeader>
                       <div className="flex items-center gap-2">
-                        <Badge>{currentItem.分类}</Badge>
+                        <Badge>{term(currentItem.分类)}</Badge>
                         <Badge variant="outline">{currentItem.id}</Badge>
                       </div>
-                      <DialogTitle className="mt-2 text-base leading-snug">{currentItem.服装名称}</DialogTitle>
-                      <p className="text-xs text-muted-foreground">来源：{currentItem.来源 || 'ギア（@giaaibusi）'}</p>
+                      <DialogTitle className="mt-2 text-base leading-snug">{costumeName(currentItem)}</DialogTitle>
+                      <p className="text-xs text-muted-foreground">{t('来源：')}{t(currentItem.来源 || 'ギア（@giaaibusi）')}</p>
                       {currentItem.source === 'shisei' && <div className="space-y-2 text-xs text-muted-foreground">
-                        <p>Shisei / wquguru · CC0 · AI 生成服装参考，并非专业复原。</p>
-                        <div className="flex flex-wrap gap-x-3 gap-y-2" aria-label="Shisei 来源与许可">
-                          <a className="underline" href={SHISEI_SOURCE_URLS.repository} target="_blank" rel="noopener noreferrer">原仓库</a>
-                          <a className="underline" href={SHISEI_SOURCE_URLS.catalog} target="_blank" rel="noopener noreferrer">条目目录（{currentItem.id.replace('shisei-', '')}，固定版本）</a>
-                          <a className="underline" href={SHISEI_SOURCE_URLS.license} target="_blank" rel="noopener noreferrer">图片许可证（CC0）</a>
+                        <p>{t('Shisei / wquguru · CC0 · AI 生成服装参考，并非专业复原。')}</p>
+                        <div className="flex flex-wrap gap-x-3 gap-y-2" aria-label={t('Shisei 来源与许可')}>
+                          <a className="underline" href={SHISEI_SOURCE_URLS.repository} target="_blank" rel="noopener noreferrer">{t('原仓库')}</a>
+                          <a className="underline" href={SHISEI_SOURCE_URLS.catalog} target="_blank" rel="noopener noreferrer">{t('条目目录（{id}，固定版本）', { id: currentItem.id.replace('shisei-', '') })}</a>
+                          <a className="underline" href={SHISEI_SOURCE_URLS.license} target="_blank" rel="noopener noreferrer">{t('图片许可证（CC0）')}</a>
                         </div>
                       </div>}
-                      {currentItem.source === 'charadb' && <a className="text-xs underline" href={CHARADB_NOTICE_URL} target="_blank" rel="noopener noreferrer">图片仅作参考，禁止真人、未成年人及再分发；查看原作者条件</a>}
+                      {currentItem.source === 'charadb' && <a className="text-xs underline" href={CHARADB_NOTICE_URL} target="_blank" rel="noopener noreferrer">{t('图片仅作参考，禁止真人、未成年人及再分发；查看原作者条件')}</a>}
                     </DialogHeader>
 
-                    {currentItem.views && <div className="flex flex-wrap gap-2" aria-label="服装视角">{currentItem.views.map((entry) => <Button key={entry.id} variant={currentItem.selectedView === entry.id ? 'default' : 'outline'} aria-pressed={currentItem.selectedView === entry.id} onClick={() => setView({ itemId: currentItem.id, id: entry.id })}>{entry.label}</Button>)}</div>}
+                    {currentItem.views && <div className="flex flex-wrap gap-2" aria-label={t('服装视角')}>{currentItem.views.map((entry) => <Button key={entry.id} variant={currentItem.selectedView === entry.id ? 'default' : 'outline'} aria-pressed={currentItem.selectedView === entry.id} onClick={() => setView({ itemId: currentItem.id, id: entry.id })}>{term(entry.label)}</Button>)}</div>}
                     <div>
-                      <div className="mb-1.5 text-xs font-medium text-muted-foreground">中文单品与色彩标签</div>
+                      <div className="mb-1.5 text-xs font-medium text-muted-foreground">{t('中文单品与色彩标签')}</div>
                       <div className="flex flex-wrap gap-1.5">
-                        {(currentItem.标签 || []).map((t) => (
-                          <Badge key={t} variant="secondary" className="text-xs">
-                            {t}
+                        {(currentItem.标签 || []).map((tag) => (
+                          <Badge key={tag} variant="secondary" className="text-xs">
+                            {term(tag)}
                           </Badge>
                         ))}
                       </div>
@@ -351,17 +352,17 @@ function CostumesPage() {
 
                     <div>
                       <div className="mb-1.5 flex items-center justify-between text-xs font-medium text-muted-foreground">
-                        <span>英文 Prompt 词条</span>
+                        <span>{t('英文 Prompt 词条')}</span>
                         <button
                           type="button"
                           onClick={() => {
                             void navigator.clipboard.writeText(currentItem.关键词)
-                            toast.success('已复制英文服装 Prompt')
+                            toast.success(t('已复制英文服装 Prompt'))
                           }}
                           className="flex items-center gap-1 text-primary hover:underline"
                         >
                           <CopyIcon className="size-3" />
-                          复制
+                          {t('复制')}
                         </button>
                       </div>
                       <div className="rounded-xl bg-muted p-2.5 font-mono text-xs leading-relaxed">
@@ -373,19 +374,19 @@ function CostumesPage() {
                   <div className="flex flex-col gap-2">
                     <Button onClick={() => toggleCostume(currentItem)} variant={picked ? 'secondary' : 'default'}>
                       {picked ? <CheckIcon className="size-4" /> : <PlusIcon className="size-4" />}
-                      {picked ? '已在角色配方中（点击移除）' : '加入角色配方'}
+                      {picked ? t('已在角色配方中（点击移除）') : t('加入角色配方')}
                     </Button>
                     <div className="grid grid-cols-2 gap-2">
                       <Button variant="outline" size="sm" asChild>
                         <a href={referenceImageUrl(currentItem.原图)} download={['charadb', 'gia-anime'].includes(currentItem.source || '') ? undefined : `${currentItem.id}.webp`} target={['charadb', 'gia-anime'].includes(currentItem.source || '') ? '_blank' : undefined} rel="noopener noreferrer">
                           <DownloadIcon className="size-3.5" />
-                          {['charadb', 'gia-anime'].includes(currentItem.source || '') ? '前往来源原图' : '下载高清原图'}
+                          {['charadb', 'gia-anime'].includes(currentItem.source || '') ? t('前往来源原图') : t('下载高清原图')}
                         </a>
                       </Button>
                       <Button variant="outline" size="sm" asChild>
                         <a href={currentItem.source === 'shisei' ? referenceImageUrl(currentItem.原图) : currentItem.来源地址 || referenceImageUrl(currentItem.原图)} target="_blank" rel="noopener noreferrer">
                           <ExternalLinkIcon className="size-3.5" />
-                          {['charadb', 'gia-anime'].includes(currentItem.source || '') ? '原作者站点' : '新窗口原图'}
+                          {['charadb', 'gia-anime'].includes(currentItem.source || '') ? t('原作者站点') : t('新窗口原图')}
                         </a>
                       </Button>
                     </div>

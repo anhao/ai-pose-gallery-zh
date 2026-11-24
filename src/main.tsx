@@ -3,6 +3,7 @@ import { createRouter, RouterProvider } from '@tanstack/react-router'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { ThemeProvider } from '@/components/theme/ThemeProvider'
+import { initI18n } from '@/i18n'
 import { StudioProvider } from '@/store/studioStore'
 import { routeTree } from './routeTree.gen'
 import './index.css'
@@ -35,7 +36,8 @@ declare module '@tanstack/react-router' {
   }
 }
 
-createRoot(document.getElementById('root')!).render(
+// 默认中文无需等待；选择了英文 / 泰文时先加载对应文案再渲染
+void initI18n().finally(() => createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ThemeProvider>
       <QueryClientProvider client={queryClient}>
@@ -45,4 +47,4 @@ createRoot(document.getElementById('root')!).render(
       </QueryClientProvider>
     </ThemeProvider>
   </StrictMode>
-)
+))

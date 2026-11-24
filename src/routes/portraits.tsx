@@ -26,6 +26,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Skeleton } from '@/components/ui/skeleton'
 import { cn } from '@/lib/utils'
 import { useStudio } from '@/store/studioStore'
+import { localSearchText, portraitStyle, portraitTitle, t, term } from '@/i18n'
 
 export const Route = createFileRoute('/portraits')({
   staticData: { title: '人像颜值库' },
@@ -61,7 +62,7 @@ function PortraitsPage() {
       if (hair && item.发长 !== hair) return false
       if (styleName !== 'all' && item.发型名称 !== styleName) return false
       if (onlyHot && !item.热门) return false
-      if (q && !item.检索.toLowerCase().includes(q)) return false
+      if (q && !`${item.检索} ${localSearchText([item.分区, item.发长, item.发型名称, item.标题])}`.toLowerCase().includes(q)) return false
       return true
     })
   }, [portraits, section, hair, styleName, onlyHot, q])
@@ -84,7 +85,7 @@ function PortraitsPage() {
   return (
     <>
       <PageHeader
-        title="人像颜值库"
+        title={t('人像颜值库')}
         actions={
           <Button
             variant={onlyHot ? 'default' : 'outline'}
@@ -95,7 +96,7 @@ function PortraitsPage() {
             }}
           >
             <FlameIcon className="size-3.5 text-orange-500" />
-            Top10 热门
+            {t('Top10 热门')}
           </Button>
         }
       />
@@ -117,7 +118,7 @@ function PortraitsPage() {
               : 'bg-muted text-muted-foreground hover:text-foreground'
           )}
         >
-          全部人像 ({portraits.length})
+          {t('全部人像')} ({portraits.length})
         </button>
         {(['正脸参考', '造型氛围'] as const).map((sec) => {
           const cnt = portraits.filter((x) => x.分区 === sec).length
@@ -137,7 +138,7 @@ function PortraitsPage() {
                   : 'bg-muted text-muted-foreground hover:text-foreground'
               )}
             >
-              {sec} ({cnt})
+              {term(sec)} ({cnt})
             </button>
           )
         })}
@@ -157,7 +158,7 @@ function PortraitsPage() {
                 hair === h ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground hover:text-foreground'
               )}
             >
-              {h} ({cnt})
+              {term(h)} ({cnt})
             </button>
           )
         })}
@@ -173,7 +174,7 @@ function PortraitsPage() {
               setQuery(e.target.value)
               setShown(60)
             }}
-            placeholder="搜索发型款式、发色或 ID（如：波波头、狼尾、空气刘海、挑染、韩式）…"
+            placeholder={t('搜索发型款式、发色或 ID（如：波波头、狼尾、空气刘海、挑染、韩式）…')}
             className="bg-background pl-9"
           />
         </div>
@@ -186,13 +187,13 @@ function PortraitsPage() {
           }}
         >
           <SelectTrigger className="w-full bg-background">
-            <SelectValue placeholder="全部 51 款日系发型" />
+            <SelectValue placeholder={t('全部 51 款日系发型')} />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">全部 51 款日系发型</SelectItem>
+            <SelectItem value="all">{t('全部 51 款日系发型')}</SelectItem>
             {styleOptions.map((s) => (
               <SelectItem key={s} value={s}>
-                {s}
+                {term(s)}
               </SelectItem>
             ))}
           </SelectContent>
@@ -212,12 +213,12 @@ function PortraitsPage() {
           }}
         >
           <RotateCcwIcon className="size-3.5" />
-          重置
+          {t('重置')}
         </Button>
       </div>
 
       {filtered.length === 0 ? (
-        <EmptyState title="没有找到匹配的人像参考" description="试试更换发型关键词或重置筛选" />
+        <EmptyState title={t('没有找到匹配的人像参考')} description={t('试试更换发型关键词或重置筛选')} />
       ) : (
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
           {filtered.slice(0, shown).map((item, idx) => {
@@ -233,16 +234,16 @@ function PortraitsPage() {
                 >
                   <img
                     src={`/${item.缩略图}`}
-                    alt={item.标题}
+                    alt={portraitTitle(item)}
                     loading="lazy"
                     className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
                   />
                   <div className="absolute inset-x-2 top-2 flex items-center justify-between gap-1">
                     <span className="rounded-md bg-black/70 px-1.5 py-0.5 text-[10px] font-bold text-white">
-                      {item.分区}
+                      {term(item.分区)}
                     </span>
                     <span className="rounded-md bg-white/90 px-1.5 py-0.5 text-[10px] font-semibold text-zinc-900">
-                      {item.发长}
+                      {term(item.发长)}
                     </span>
                   </div>
                   {item.热门 && (
@@ -262,12 +263,12 @@ function PortraitsPage() {
                     )}
                   >
                     {picked ? <CheckIcon className="size-3" /> : <PlusIcon className="size-3" />}
-                    {picked ? '已选' : '加入配方'}
+                    {picked ? t('已选') : t('加入配方')}
                   </button>
                 </div>
 
                 <div className="px-1.5 pt-2.5 pb-1">
-                  <div className="line-clamp-2 min-h-[34px] text-xs leading-snug font-semibold">{item.发型名称}</div>
+                  <div className="line-clamp-2 min-h-[34px] text-xs leading-snug font-semibold">{portraitStyle(item)}</div>
                   <div className="mt-1 flex items-center justify-between font-mono text-[10px] text-muted-foreground">
                     <span>{item.id}</span>
                     <span>CC0</span>
@@ -282,7 +283,7 @@ function PortraitsPage() {
       {shown < filtered.length && (
         <div className="flex justify-center pt-2">
           <Button variant="outline" onClick={() => setShown((s) => s + 60)}>
-            加载更多（剩余 {filtered.length - shown} 张）
+            {t('加载更多（剩余 {n} 张）', { n: filtered.length - shown })}
           </Button>
         </div>
       )}
@@ -295,11 +296,11 @@ function PortraitsPage() {
             return (
               <div className="grid md:grid-cols-[1fr_320px]">
                 <div className="relative flex max-h-[78dvh] min-h-[min(380px,65dvh)] items-center justify-center bg-muted/60 p-4">
-                  <ZoomViewport imageUrl={`/${currentItem.原图}`} alt={currentItem.标题} className="min-h-0 h-[58dvh]" />
+                  <ZoomViewport imageUrl={`/${currentItem.原图}`} alt={portraitTitle(currentItem)} className="min-h-0 h-[58dvh]" />
                   <Button
                     variant="secondary"
                     size="icon"
-                    aria-label="上一张图片" className="absolute top-1/2 left-3 min-h-11 min-w-11 -translate-y-1/2 rounded-full shadow"
+                    aria-label={t('上一张图片')} className="absolute top-1/2 left-3 min-h-11 min-w-11 -translate-y-1/2 rounded-full shadow"
                     onClick={() => setViewerIndex((viewerIndex - 1 + filtered.length) % filtered.length)}
                   >
                     <ChevronLeftIcon className="size-4" />
@@ -307,7 +308,7 @@ function PortraitsPage() {
                   <Button
                     variant="secondary"
                     size="icon"
-                    aria-label="下一张图片" className="absolute top-1/2 right-3 min-h-11 min-w-11 -translate-y-1/2 rounded-full shadow"
+                    aria-label={t('下一张图片')} className="absolute top-1/2 right-3 min-h-11 min-w-11 -translate-y-1/2 rounded-full shadow"
                     onClick={() => setViewerIndex((viewerIndex + 1) % filtered.length)}
                   >
                     <ChevronRightIcon className="size-4" />
@@ -318,11 +319,11 @@ function PortraitsPage() {
                   <div className="space-y-4">
                     <DialogHeader>
                       <div className="flex items-center gap-2">
-                        <Badge>{currentItem.分区}</Badge>
-                        <Badge variant="outline">{currentItem.发长}</Badge>
+                        <Badge>{term(currentItem.分区)}</Badge>
+                        <Badge variant="outline">{term(currentItem.发长)}</Badge>
                         {currentItem.热门 && <Badge variant="secondary">🔥 Top10</Badge>}
                       </div>
-                      <DialogTitle className="mt-2 text-base leading-snug">{currentItem.标题}</DialogTitle>
+                      <DialogTitle className="mt-2 text-base leading-snug">{portraitTitle(currentItem)}</DialogTitle>
                     </DialogHeader>
 
                     <div className="flex items-center justify-between rounded-lg bg-muted px-2.5 py-1.5 font-mono text-xs">
@@ -331,7 +332,7 @@ function PortraitsPage() {
                         type="button"
                         onClick={() => {
                           void navigator.clipboard.writeText(currentItem.id)
-                          toast.success('已复制人像 ID')
+                          toast.success(t('已复制人像 ID'))
                         }}
                         className="ml-2 shrink-0 text-primary hover:underline"
                       >
@@ -340,33 +341,33 @@ function PortraitsPage() {
                     </div>
 
                     <dl className="grid grid-cols-[72px_1fr] gap-y-1.5 text-xs">
-                      <dt className="text-muted-foreground">发型款式</dt>
-                      <dd className="font-medium">{currentItem.发型名称}</dd>
-                      <dt className="text-muted-foreground">原图尺寸</dt>
+                      <dt className="text-muted-foreground">{t('发型款式')}</dt>
+                      <dd className="font-medium">{portraitStyle(currentItem)}</dd>
+                      <dt className="text-muted-foreground">{t('原图尺寸')}</dt>
                       <dd className="font-medium">
                         {currentItem.宽} × {currentItem.高}
                       </dd>
-                      <dt className="text-muted-foreground">授权协议</dt>
-                      <dd className="font-medium text-emerald-600 dark:text-emerald-400">CC0 1.0 公共领域（可商用）</dd>
+                      <dt className="text-muted-foreground">{t('授权协议')}</dt>
+                      <dd className="font-medium text-emerald-600 dark:text-emerald-400">{t('CC0 1.0 公共领域（可商用）')}</dd>
                     </dl>
                   </div>
 
                   <div className="flex flex-col gap-2">
                     <Button onClick={() => togglePortrait(currentItem)} variant={picked ? 'secondary' : 'default'}>
                       {picked ? <CheckIcon className="size-4" /> : <PlusIcon className="size-4" />}
-                      {picked ? '已在角色配方中（点击移除）' : '加入角色配方'}
+                      {picked ? t('已在角色配方中（点击移除）') : t('加入角色配方')}
                     </Button>
                     <div className="grid grid-cols-2 gap-2">
                       <Button variant="outline" size="sm" asChild>
                         <a href={`/${currentItem.原图}`} download={`${currentItem.id}.webp`}>
                           <DownloadIcon className="size-3.5" />
-                          下载高清原图
+                          {t('下载高清原图')}
                         </a>
                       </Button>
                       <Button variant="outline" size="sm" asChild>
                         <a href={`/${currentItem.原图}`} target="_blank" rel="noopener noreferrer">
                           <ExternalLinkIcon className="size-3.5" />
-                          新窗口原图
+                          {t('新窗口原图')}
                         </a>
                       </Button>
                     </div>

@@ -74,6 +74,7 @@ import type {
   QwenParams,
   PixAiParams,
 } from '@/types/gallery'
+import { costumeName, portraitStyle, portraitTitle, poseName, t, term } from '@/i18n'
 
 export const Route = createFileRoute('/studio')({
   staticData: { title: 'AI 合成台' },
@@ -168,7 +169,7 @@ function StudioPage() {
       workflowJson: JSON.stringify(tpl.workflow, null, 2),
       ...tpl.defaults,
     })
-    toast.success(`已切换为：${tpl.label}`)
+    toast.success(t('已切换为：{label}', { label: t(tpl.label) }))
   }
 
   // 自动识别 ComfyUI 地址 + 检测工作流所需节点/模型是否在本机存在
@@ -182,7 +183,7 @@ function StudioPage() {
         setComfyCheck({
           ok: false,
           errors: [
-            `未找到可用的 ComfyUI 服务（已尝试：${cfg.baseUrl || '默认地址'}、127.0.0.1:8000、127.0.0.1:8188）。请确认 ComfyUI 已启动，并检查跨域 (CORS) 设置。`,
+            t('未找到可用的 ComfyUI 服务（已尝试：{url}、127.0.0.1:8000、127.0.0.1:8188）。请确认 ComfyUI 已启动，并检查跨域 (CORS) 设置。', { url: cfg.baseUrl || t('默认地址') }),
           ],
           warnings: [],
           fixes: [],
@@ -191,7 +192,7 @@ function StudioPage() {
       }
       if (found.baseUrl !== cfg.baseUrl.trim().replace(/\/+$/, '')) {
         updateProviderConfig('comfyui', { baseUrl: found.baseUrl })
-        toast.success(`已自动识别 ComfyUI 地址：${found.baseUrl}`)
+        toast.success(t('已自动识别 ComfyUI 地址：{url}', { url: found.baseUrl }))
       }
       const cp = apiConfig.comfyuiParams
       const result = await checkComfyWorkflow(found.baseUrl, cfg.apiKey, cp.workflowJson, [
@@ -203,7 +204,7 @@ function StudioPage() {
       // 自动修复仅用于提交副本，保留导入的原始 API。
       setComfyCheck({ ...result, info: `${found.info}（${found.baseUrl}）` })
     } catch (e) {
-      setComfyCheck({ ok: false, errors: [e instanceof Error ? e.message : '检测失败'], warnings: [], fixes: [] })
+      setComfyCheck({ ok: false, errors: [e instanceof Error ? e.message : t('检测失败')], warnings: [], fixes: [] })
     } finally {
       setCheckingComfy(false)
     }
@@ -217,7 +218,7 @@ function StudioPage() {
       const text = await file.text()
       const info = parseComfyWorkflowNodes(text)
       if (!info.valid) {
-        toast.error(info.error || '工作流 JSON 无效')
+        toast.error(t(info.error || '工作流 JSON 无效'))
         return
       }
       const detected = autoDetectComfyMappings(text)
@@ -229,10 +230,10 @@ function StudioPage() {
       })
       setShowAdvanced(true)
       toast.success(
-        `已导入工作流：识别到 ${info.imageNodes.length} 个图片节点、${info.promptNodes.length} 个提示词节点`
+        t('已导入工作流：识别到 {images} 个图片节点、{prompts} 个提示词节点', { images: info.imageNodes.length, prompts: info.promptNodes.length })
       )
     } catch {
-      toast.error('读取 JSON 文件失败')
+      toast.error(t('读取 JSON 文件失败'))
     }
   }
 
@@ -257,9 +258,9 @@ function StudioPage() {
       a.download = `comfyui-workflow-${Date.now()}.api.json`
       a.click()
       URL.revokeObjectURL(url)
-      toast.success('已导出 ComfyUI API 工作流 JSON')
+      toast.success(t('已导出 ComfyUI API 工作流 JSON'))
     } catch {
-      toast.error('当前工作流 JSON 格式有误，无法导出')
+      toast.error(t('当前工作流 JSON 格式有误，无法导出'))
     }
   }
 
@@ -269,7 +270,7 @@ function StudioPage() {
     e.target.value = ''
     if (!file) return
     if (!file.type.startsWith('image/')) {
-      toast.error('请选择图片文件')
+      toast.error(t('请选择图片文件'))
       return
     }
     setUploadingSlot(slot)
@@ -284,7 +285,7 @@ function StudioPage() {
       if (slot === 'costume') setCostume(items.costume)
       if (slot === 'pose') setPose(items.pose)
     } catch (err) {
-      toast.error(err instanceof Error ? err.message : '图片读取失败')
+      toast.error(err instanceof Error ? err.message : t('图片读取失败'))
     } finally {
       setUploadingSlot(null)
     }
@@ -301,7 +302,7 @@ function StudioPage() {
   const hasAnyRef = hasStitchRefs || activeWorkflowImages.length > 0
 
   const processFiles = async (files: File[]) => {
-    if (activeProvider === 'pixai') { toast.error('PixAI 仅支持三张独立参考图，请使用各槽位的上传按钮'); return }
+    if (activeProvider === 'pixai') { toast.error(t('PixAI 仅支持三张独立参考图，请使用各槽位的上传按钮')); return }
     const imgFiles = files.filter((f) => f.type.startsWith('image/'))
     if (!imgFiles.length) return
     try {
@@ -311,7 +312,7 @@ function StudioPage() {
         addExtraImage({ name: baseName || '附加图', url: dataUrl })
       }
     } catch (err) {
-      toast.error(err instanceof Error ? err.message : '图片读取失败')
+      toast.error(err instanceof Error ? err.message : t('图片读取失败'))
     }
   }
 
@@ -356,7 +357,7 @@ function StudioPage() {
         : { poses: (await qc.ensureQueryData(posesQuery)).items }
       randomizeSlot(slot, randomScopes[slot], pools, expectedId)
     } catch {
-      toast.error('素材库加载失败，请稍后重试')
+      toast.error(t('素材库加载失败，请稍后重试'))
     } finally {
       setRandomizingSlot(null)
     }
@@ -364,11 +365,11 @@ function StudioPage() {
 
   const randomControls = (slot: ReferenceSlot, label: string) => <div className="flex basis-full flex-wrap items-center gap-2 border-t pt-2">
     <Select value={randomScopes[slot]} onValueChange={(value) => setRandomScopes((current) => ({ ...current, [slot]: value as RandomScope }))}>
-      <SelectTrigger aria-label={`${label}换样范围`} className="min-h-11 w-24"><SelectValue /></SelectTrigger>
-      <SelectContent><SelectItem value="similar">同类</SelectItem><SelectItem value="all">全部</SelectItem></SelectContent>
+      <SelectTrigger aria-label={t('{label}换样范围', { label: t(label) })} className="min-h-11 w-24"><SelectValue /></SelectTrigger>
+      <SelectContent><SelectItem value="similar">{t('同类')}</SelectItem><SelectItem value="all">{t('全部')}</SelectItem></SelectContent>
     </Select>
-    <Button type="button" variant="outline" className="min-h-11" disabled={uploadingSlot !== null || randomizingSlot !== null} onClick={() => void handleRandomSlot(slot)} aria-label={`${label}换一个`}>
-      {randomizingSlot === slot ? <LoaderCircleIcon className="size-4 animate-spin motion-reduce:animate-none" /> : <DicesIcon className="size-4" />}换一个
+    <Button type="button" variant="outline" className="min-h-11" disabled={uploadingSlot !== null || randomizingSlot !== null} onClick={() => void handleRandomSlot(slot)} aria-label={t('{label}换一个', { label: t(label) })}>
+      {randomizingSlot === slot ? <LoaderCircleIcon className="size-4 animate-spin motion-reduce:animate-none" /> : <DicesIcon className="size-4" />}{t('换一个')}
     </Button>
   </div>
 
@@ -389,7 +390,7 @@ function StudioPage() {
     const trimmed = extraUrlInput.trim()
     if (!trimmed) return
     if (!/^https?:\/\//i.test(trimmed) && !trimmed.startsWith('data:image/')) {
-      toast.error('请输入有效的 http(s):// 图片链接')
+      toast.error(t('请输入有效的 http(s):// 图片链接'))
       return
     }
     addExtraImage({ name: '外部参考图', url: trimmed })
@@ -402,7 +403,7 @@ function StudioPage() {
       const url = await stitchRecipeCanvas(recipe)
       setStitchModalUrl(url)
     } catch (e) {
-      toast.error(e instanceof Error ? e.message : '拼图失败')
+      toast.error(e instanceof Error ? e.message : t('拼图失败'))
     }
   }
 
@@ -425,12 +426,12 @@ function StudioPage() {
   return (
     <>
       <PageHeader
-        title="AI 角色合成台"
+        title={t('AI 角色合成台')}
         actions={
           activeProvider === 'comfyui' ? <ComfyConnectionStatus compact /> : <Button variant="outline" size="sm" asChild>
             <Link to="/settings">
               <KeyRoundIcon className="size-4" />
-              {providerCfg.apiKey.trim() ? `${providerMeta.shortName} 已配置` : '配置 API Key'}
+              {providerCfg.apiKey.trim() ? t('{name} 已配置', { name: providerMeta.shortName }) : t('配置 API Key')}
             </Link>
           </Button>
         }
@@ -449,7 +450,7 @@ function StudioPage() {
         >
           {/* 1. 参考图组合 */}
           <Section
-            title="1. 参考图组合"
+            title={t('1. 参考图组合')}
             className="@lg/section:grid-cols-1"
             actions={
               <div className="flex flex-wrap items-center gap-1.5">
@@ -468,7 +469,7 @@ function StudioPage() {
                   onClick={handleRandom}
                 >
                   <DicesIcon className="size-3.5" />
-                  随机
+                  {t('随机')}
                 </Button>
                 {hasAnyRef && hasStitchRefs && (
                   <Button
@@ -478,7 +479,7 @@ function StudioPage() {
                     onClick={handleOpenStitchModal}
                   >
                     <LayoutGridIcon className="size-3.5" />
-                    参考拼图
+                    {t('参考拼图')}
                   </Button>
                 )}
               </div>
@@ -488,7 +489,7 @@ function StudioPage() {
             <input ref={slotInputRef} type="file" accept="image/*" className="hidden" onChange={handleSlotUpload} />
             {showReferenceErrors && missingReferences.length > 0 && (
               <div id="reference-errors" ref={referenceErrorsRef} role="alert" tabIndex={-1} className="rounded-lg border border-destructive/50 bg-destructive/5 p-3 text-sm text-destructive focus-visible:outline-2">
-                请先选择或上传：{missingReferences.join('、')}。这些槽位已绑定工作流节点。
+                {t('请先选择或上传：{list}。这些槽位已绑定工作流节点。', { list: missingReferences.map((label) => t(label)).join(t('、')) })}
               </div>
             )}
             {/* 3 个核心图库槽位：手机端单列舒展展示，平板/桌面端三列并排 */}
@@ -497,30 +498,30 @@ function StudioPage() {
               <div className={`relative flex min-w-0 flex-wrap items-start gap-2.5 rounded-xl bg-background p-2.5 ${showReferenceErrors && missingReferences.includes('人像') ? 'ring-1 ring-destructive' : ''}`}>
                 {recipe.portrait ? (
                   <>
-                    <button type="button" aria-label="放大人像参考图" className="shrink-0 cursor-zoom-in overflow-hidden rounded-lg transition-opacity hover:opacity-80 focus-visible:outline-2 focus-visible:outline-ring" onClick={() => {
+                    <button type="button" aria-label={t('放大人像参考图')} className="shrink-0 cursor-zoom-in overflow-hidden rounded-lg transition-opacity hover:opacity-80 focus-visible:outline-2 focus-visible:outline-ring" onClick={() => {
                       const item = recipe.portrait
                       if (item) setZoomImageUrl(referenceImageUrl(item.原图 || item.缩略图))
                     }}>
                       <img
                         src={referenceImageUrl(recipe.portrait.缩略图)}
-                        alt={recipe.portrait.标题}
+                        alt={portraitTitle(recipe.portrait)}
                         className="h-12 w-10 shrink-0 rounded-lg object-cover"
                       />
                     </button>
                     <div className="flex min-h-12 min-w-0 flex-1 flex-col justify-between gap-1">
                       <div className="flex items-center justify-between gap-1">
-                        <span className="shrink-0 text-[11px] text-muted-foreground">人像</span>
+                        <span className="shrink-0 text-[11px] text-muted-foreground">{t('人像')}</span>
                         <button
                           type="button"
-                          aria-label="清除人像参考图"
+                          aria-label={t('清除人像参考图')}
                           onClick={() => setPortrait(null)}
                           className="-mr-0.5 -mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring"
                         >
                           <XIcon className="size-3.5" />
                         </button>
                       </div>
-                      <div className="line-clamp-2 text-xs font-medium leading-snug" title={recipe.portrait.发型名称}>
-                        {recipe.portrait.发型名称}
+                      <div className="line-clamp-2 text-xs font-medium leading-snug" title={portraitStyle(recipe.portrait)}>
+                        {portraitStyle(recipe.portrait)}
                       </div>
                     </div>
                   </>
@@ -533,11 +534,11 @@ function StudioPage() {
                       <div className="flex h-10 w-8 shrink-0 items-center justify-center rounded-lg bg-muted">
                         <UserRoundIcon className="size-4" />
                       </div>
-                      <span className="truncate text-xs">+ 选人像</span>
+                      <span className="truncate text-xs">{t('+ 选人像')}</span>
                     </Link>
-                    <Button type="button" variant="ghost" size="sm" aria-label="上传人像参考图" aria-describedby={showReferenceErrors && missingReferences.includes('人像') ? 'reference-errors' : undefined} aria-busy={uploadingSlot === 'portrait'} disabled={uploadingSlot !== null || randomizingSlot !== null} className="h-12 shrink-0 border-l px-2 text-xs" onClick={() => { uploadSlotRef.current = 'portrait'; slotInputRef.current?.click() }}>
+                    <Button type="button" variant="ghost" size="sm" aria-label={t('上传人像参考图')} aria-describedby={showReferenceErrors && missingReferences.includes('人像') ? 'reference-errors' : undefined} aria-busy={uploadingSlot === 'portrait'} disabled={uploadingSlot !== null || randomizingSlot !== null} className="h-12 shrink-0 border-l px-2 text-xs" onClick={() => { uploadSlotRef.current = 'portrait'; slotInputRef.current?.click() }}>
                       {uploadingSlot === 'portrait' ? <LoaderCircleIcon className="size-3.5 animate-spin motion-reduce:animate-none" /> : <ImagePlusIcon className="size-3.5" />}
-                      {uploadingSlot === 'portrait' ? '处理中' : '上传'}
+                      {uploadingSlot === 'portrait' ? t('处理中') : t('上传')}
                     </Button>
                   </>
                 )}
@@ -548,30 +549,30 @@ function StudioPage() {
               <div className={`relative flex min-w-0 flex-wrap items-start gap-2.5 rounded-xl bg-background p-2.5 ${showReferenceErrors && missingReferences.includes('服装') ? 'ring-1 ring-destructive' : ''}`}>
                 {recipe.costume ? (
                   <>
-                    <button type="button" aria-label="放大服装参考图" className="shrink-0 cursor-zoom-in overflow-hidden rounded-lg transition-opacity hover:opacity-80 focus-visible:outline-2 focus-visible:outline-ring" onClick={() => {
+                    <button type="button" aria-label={t('放大服装参考图')} className="shrink-0 cursor-zoom-in overflow-hidden rounded-lg transition-opacity hover:opacity-80 focus-visible:outline-2 focus-visible:outline-ring" onClick={() => {
                       const item = recipe.costume
                       if (item) setZoomImageUrl(referenceImageUrl(item.预览图 || item.原图 || item.缩略图))
                     }}>
                       <img
                         src={referenceImageUrl(recipe.costume.缩略图)}
-                        alt={recipe.costume.服装名称}
+                        alt={costumeName(recipe.costume)}
                         className="h-12 w-10 shrink-0 rounded-lg object-cover"
                       />
                     </button>
                     <div className="flex min-h-12 min-w-0 flex-1 flex-col justify-between gap-1">
                       <div className="flex items-center justify-between gap-1">
-                        <span className="shrink-0 text-[11px] text-muted-foreground">服装</span>
+                        <span className="shrink-0 text-[11px] text-muted-foreground">{t('服装')}</span>
                         <button
                           type="button"
-                          aria-label="清除服装参考图"
+                          aria-label={t('清除服装参考图')}
                           onClick={() => setCostume(null)}
                           className="-mr-0.5 -mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring"
                         >
                           <XIcon className="size-3.5" />
                         </button>
                       </div>
-                      <div className="line-clamp-2 text-xs font-medium leading-snug" title={recipe.costume.服装名称}>
-                        {recipe.costume.服装名称}
+                      <div className="line-clamp-2 text-xs font-medium leading-snug" title={costumeName(recipe.costume)}>
+                        {costumeName(recipe.costume)}
                       </div>
                       {costumeViews.length > 0 && <Select
                         value={costumeViews.find((view) => view.id === recipe.costume?.selectedView)?.id || costumeViews.find((view) => view.id === 'front')?.id || costumeViews[0].id}
@@ -580,8 +581,8 @@ function StudioPage() {
                           if (recipe.costume && uploadingSlot === null && randomizingSlot === null) setCostume(selectCostumeView(recipe.costume, value))
                         }}
                       >
-                        <SelectTrigger aria-label="已选服装视角" className="h-8 w-full text-xs"><SelectValue /></SelectTrigger>
-                        <SelectContent>{costumeViews.map((view) => <SelectItem key={view.id} value={view.id}>{view.label}</SelectItem>)}</SelectContent>
+                        <SelectTrigger aria-label={t('已选服装视角')} className="h-8 w-full text-xs"><SelectValue /></SelectTrigger>
+                        <SelectContent>{costumeViews.map((view) => <SelectItem key={view.id} value={view.id}>{term(view.label)}</SelectItem>)}</SelectContent>
                       </Select>}
                     </div>
                   </>
@@ -594,11 +595,11 @@ function StudioPage() {
                       <div className="flex h-10 w-8 shrink-0 items-center justify-center rounded-lg bg-muted">
                         <ShirtIcon className="size-4" />
                       </div>
-                      <span className="truncate text-xs">+ 选服装</span>
+                      <span className="truncate text-xs">{t('+ 选服装')}</span>
                     </Link>
-                    <Button type="button" variant="ghost" size="sm" aria-label="上传服装参考图" aria-describedby={showReferenceErrors && missingReferences.includes('服装') ? 'reference-errors' : undefined} aria-busy={uploadingSlot === 'costume'} disabled={uploadingSlot !== null || randomizingSlot !== null} className="h-12 shrink-0 border-l px-2 text-xs" onClick={() => { uploadSlotRef.current = 'costume'; slotInputRef.current?.click() }}>
+                    <Button type="button" variant="ghost" size="sm" aria-label={t('上传服装参考图')} aria-describedby={showReferenceErrors && missingReferences.includes('服装') ? 'reference-errors' : undefined} aria-busy={uploadingSlot === 'costume'} disabled={uploadingSlot !== null || randomizingSlot !== null} className="h-12 shrink-0 border-l px-2 text-xs" onClick={() => { uploadSlotRef.current = 'costume'; slotInputRef.current?.click() }}>
                       {uploadingSlot === 'costume' ? <LoaderCircleIcon className="size-3.5 animate-spin motion-reduce:animate-none" /> : <ImagePlusIcon className="size-3.5" />}
-                      {uploadingSlot === 'costume' ? '处理中' : '上传'}
+                      {uploadingSlot === 'costume' ? t('处理中') : t('上传')}
                     </Button>
                   </>
                 )}
@@ -609,24 +610,24 @@ function StudioPage() {
               <div className={`relative flex min-w-0 flex-wrap items-start gap-2.5 rounded-xl bg-background p-2.5 ${showReferenceErrors && missingReferences.includes('姿势') ? 'ring-1 ring-destructive' : ''}`}>
                 {recipe.pose ? (
                   <>
-                    <button type="button" aria-label="放大姿势参考图" className="shrink-0 cursor-zoom-in overflow-hidden rounded-lg transition-opacity hover:opacity-80 focus-visible:outline-2 focus-visible:outline-ring" onClick={() => {
+                    <button type="button" aria-label={t('放大姿势参考图')} className="shrink-0 cursor-zoom-in overflow-hidden rounded-lg transition-opacity hover:opacity-80 focus-visible:outline-2 focus-visible:outline-ring" onClick={() => {
                       const item = recipe.pose
                       if (item) setZoomImageUrl(referenceImageUrl(poseImagePath(item)))
                     }}>
                       <img
                         src={referenceImageUrl(poseThumbPath(recipe.pose))}
-                        alt={recipe.pose.姿势名称}
+                        alt={poseName(recipe.pose)}
                         className="h-12 w-10 shrink-0 rounded-lg object-cover"
                       />
                     </button>
                     <div className="flex min-h-12 min-w-0 flex-1 flex-col justify-between gap-1">
                       <div className="flex items-center justify-between gap-1">
                         <div className="flex min-w-0 flex-wrap items-center gap-1.5">
-                          <span className="shrink-0 text-[11px] text-muted-foreground">姿势</span>
+                          <span className="shrink-0 text-[11px] text-muted-foreground">{t('姿势')}</span>
                           {recipe.pose.source !== 'upload' && (
                             <div
                               role="group"
-                              aria-label="切换素体白模或深度图"
+                              aria-label={t('切换素体白模或深度图')}
                               className="inline-flex shrink-0 items-center rounded-md border border-border/70 bg-muted/70 p-0.5 text-[10px] leading-none"
                             >
                               <button
@@ -640,7 +641,7 @@ function StudioPage() {
                                     : 'text-muted-foreground hover:text-foreground'
                                 }`}
                               >
-                                白模
+                                {t('白模')}
                               </button>
                               <button
                                 type="button"
@@ -653,14 +654,14 @@ function StudioPage() {
                                     : 'text-muted-foreground hover:text-foreground'
                                 }`}
                               >
-                                深度
+                                {t('深度')}
                               </button>
                             </div>
                           )}
                         </div>
                         <button
                           type="button"
-                          aria-label="清除姿势参考图"
+                          aria-label={t('清除姿势参考图')}
                           onClick={() => setPose(null)}
                           className="-mr-0.5 -mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring"
                         >
@@ -669,9 +670,9 @@ function StudioPage() {
                       </div>
                       <div
                         className="line-clamp-2 text-xs font-medium leading-snug"
-                        title={recipe.pose.角度 ? `${recipe.pose.姿势名称} · ${recipe.pose.角度}` : recipe.pose.姿势名称}
+                        title={recipe.pose.角度 ? `${poseName(recipe.pose)} · ${term(recipe.pose.角度)}` : poseName(recipe.pose)}
                       >
-                        {recipe.pose.角度 ? `${recipe.pose.姿势名称} · ${recipe.pose.角度}` : recipe.pose.姿势名称}
+                        {recipe.pose.角度 ? `${poseName(recipe.pose)} · ${term(recipe.pose.角度)}` : poseName(recipe.pose)}
                       </div>
                     </div>
                   </>
@@ -684,11 +685,11 @@ function StudioPage() {
                       <div className="flex h-10 w-8 shrink-0 items-center justify-center rounded-lg bg-muted">
                         <PersonStandingIcon className="size-4" />
                       </div>
-                      <span className="truncate text-xs">+ 选姿势</span>
+                      <span className="truncate text-xs">{t('+ 选姿势')}</span>
                     </Link>
-                    <Button type="button" variant="ghost" size="sm" aria-label="上传姿势参考图" aria-describedby={showReferenceErrors && missingReferences.includes('姿势') ? 'reference-errors' : undefined} aria-busy={uploadingSlot === 'pose'} disabled={uploadingSlot !== null || randomizingSlot !== null} className="h-12 shrink-0 border-l px-2 text-xs" onClick={() => { uploadSlotRef.current = 'pose'; slotInputRef.current?.click() }}>
+                    <Button type="button" variant="ghost" size="sm" aria-label={t('上传姿势参考图')} aria-describedby={showReferenceErrors && missingReferences.includes('姿势') ? 'reference-errors' : undefined} aria-busy={uploadingSlot === 'pose'} disabled={uploadingSlot !== null || randomizingSlot !== null} className="h-12 shrink-0 border-l px-2 text-xs" onClick={() => { uploadSlotRef.current = 'pose'; slotInputRef.current?.click() }}>
                       {uploadingSlot === 'pose' ? <LoaderCircleIcon className="size-3.5 animate-spin motion-reduce:animate-none" /> : <ImagePlusIcon className="size-3.5" />}
-                      {uploadingSlot === 'pose' ? '处理中' : '上传'}
+                      {uploadingSlot === 'pose' ? t('处理中') : t('上传')}
                     </Button>
                   </>
                 )}
@@ -711,12 +712,12 @@ function StudioPage() {
                         className="h-11 w-9 shrink-0 rounded-lg object-cover"
                       />
                       <div className="min-w-0 flex-1">
-                        <div className="text-[10px] text-muted-foreground">附图 #{idx + 1}</div>
+                        <div className="text-[10px] text-muted-foreground">{t('附图 #')}{idx + 1}</div>
                         <input
                           type="text"
                           value={img.name}
                           onChange={(e) => updateExtraImageName(img.id, e.target.value)}
-                          placeholder="备注(如:配饰/背景)"
+                          placeholder={t('备注(如:配饰/背景)')}
                           className="w-full truncate bg-transparent text-xs font-medium outline-none focus:underline"
                         />
                       </div>
@@ -732,7 +733,7 @@ function StudioPage() {
                 </div>
               )}
 
-              {activeProvider === 'pixai' && <p className="text-xs text-muted-foreground">PixAI 需要人像、服装、姿势各一张，按此顺序上传，不发送拼图。{extraImages.length > 0 ? '请先移除上方附加图后生成。' : '附加图已禁用，请使用各槽位的上传按钮。'}</p>}
+              {activeProvider === 'pixai' && <p className="text-xs text-muted-foreground">{t('PixAI 需要人像、服装、姿势各一张，按此顺序上传，不发送拼图。')}{extraImages.length > 0 ? t('请先移除上方附加图后生成。') : t('附加图已禁用，请使用各槽位的上传按钮。')}</p>}
               {/* 显式虚线上传/拖拽/粘贴提示区 */}
               {activeProvider !== 'pixai' && <>
               <div
@@ -747,8 +748,8 @@ function StudioPage() {
                   <ImagePlusIcon className="size-4 shrink-0" />
                   <span>
                     {isDragging
-                      ? '松开鼠标添加附加参考图'
-                      : '添加附加参考图：点击上传、拖拽图片至此，或直接按 Ctrl+V / ⌘V 粘贴'}
+                      ? t('松开鼠标添加附加参考图')
+                      : t('添加附加参考图：点击上传、拖拽图片至此，或直接按 Ctrl+V / ⌘V 粘贴')}
                   </span>
                 </div>
                 <button
@@ -760,7 +761,7 @@ function StudioPage() {
                   className="inline-flex shrink-0 items-center gap-1 rounded-md px-2 py-0.5 text-[11px] font-medium text-primary hover:bg-primary/10"
                 >
                   <LinkIcon className="size-3" />
-                  输入图片 URL
+                  {t('输入图片 URL')}
                 </button>
               </div>
 
@@ -769,12 +770,12 @@ function StudioPage() {
                   <Input
                     value={extraUrlInput}
                     onChange={(e) => setExtraUrlInput(e.target.value)}
-                    placeholder="粘贴 https://... 图片地址"
+                    placeholder={t('粘贴 https://... 图片地址')}
                     className="bg-background text-xs"
                     onKeyDown={(e) => e.key === 'Enter' && handleAddUrl()}
                   />
                   <Button size="sm" onClick={handleAddUrl}>
-                    添加
+                    {t('添加')}
                   </Button>
                 </div>
               )}
@@ -784,11 +785,11 @@ function StudioPage() {
 
           {/* 2. 协议、模型与可折叠高级参数 */}
           <Section
-            title="2. 模型与参数"
+            title={t('2. 模型与参数')}
             actions={
               <Button variant="ghost" size="sm" onClick={() => setShowAdvanced((v) => !v)}>
                 <SlidersHorizontalIcon className="size-3.5" />
-                高级参数
+                {t('高级参数')}
                 {showAdvanced ? (
                   <ChevronUpIcon className="size-3.5" />
                 ) : (
@@ -797,7 +798,7 @@ function StudioPage() {
               </Button>
             }
           >
-            <Field label="接口协议">
+            <Field label={t('接口协议')}>
               <Select
                 value={activeProvider}
                 onValueChange={(v) => updateApiConfig({ activeProvider: v as ImageProviderId })}
@@ -808,7 +809,7 @@ function StudioPage() {
                 <SelectContent>
                   {PROVIDER_LIST.map((pid) => (
                     <SelectItem key={pid} value={pid}>
-                      {PROVIDER_META[pid].name}
+                      {t(PROVIDER_META[pid].name)}
                     </SelectItem>
                   ))}
                 </SelectContent>
@@ -816,7 +817,7 @@ function StudioPage() {
             </Field>
 
             {activeProvider === 'comfyui' ? (
-              <Field label="工作流模板 (API 格式)">
+              <Field label={t('工作流模板 (API 格式)')}>
                 <div className="space-y-2">
                   <Select
                     value={apiConfig.comfyuiParams.workflowPreset}
@@ -830,11 +831,11 @@ function StudioPage() {
                     <SelectContent>
                       {(Object.keys(COMFYUI_WORKFLOW_TEMPLATES) as ComfyPresetId[]).map((key) => (
                         <SelectItem key={key} value={key} className="text-xs">
-                          {COMFYUI_WORKFLOW_TEMPLATES[key].label}
+                          {t(COMFYUI_WORKFLOW_TEMPLATES[key].label)}
                         </SelectItem>
                       ))}
                       <SelectItem value="custom" className="text-xs">
-                        自定义工作流 (已导入 JSON)
+                        {t('自定义工作流 (已导入 JSON)')}
                       </SelectItem>
                     </SelectContent>
                   </Select>
@@ -854,7 +855,7 @@ function StudioPage() {
                       onClick={() => comfyFileInputRef.current?.click()}
                     >
                       <FileUpIcon className="size-3.5" />
-                      导入 .json
+                      {t('导入 .json')}
                     </Button>
                     <Button
                       type="button"
@@ -864,7 +865,7 @@ function StudioPage() {
                       onClick={() => setShowComfyJsonModal(true)}
                     >
                       <CodeXmlIcon className="size-3.5" />
-                      编辑 JSON
+                      {t('编辑 JSON')}
                     </Button>
                     <Button
                       type="button"
@@ -874,7 +875,7 @@ function StudioPage() {
                       onClick={() => void handleExportComfyJson()}
                     >
                       <DownloadIcon className="size-3.5" />
-                      导出 .json
+                      {t('导出 .json')}
                     </Button>
                     <Button
                       type="button"
@@ -889,7 +890,7 @@ function StudioPage() {
                       ) : (
                         <ScanSearchIcon className="size-3.5" />
                       )}
-                      检测本机模型
+                      {t('检测本机模型')}
                     </Button>
                   </div>
                   {comfyCheck && (
@@ -906,7 +907,7 @@ function StudioPage() {
                         ) : (
                           <CircleAlertIcon className="size-3.5" />
                         )}
-                        {comfyCheck.ok ? '工作流与本机模型/节点匹配，可以生成' : '检测未通过'}
+                        {comfyCheck.ok ? t('工作流与本机模型/节点匹配，可以生成') : t('检测未通过')}
                       </div>
                       {comfyCheck.info && <div className="opacity-80">{comfyCheck.info}</div>}
                       {comfyCheck.errors.map((m, i) => (
@@ -930,7 +931,7 @@ function StudioPage() {
               </Field>
             ) : (
               <>
-                <Field label="模型 ID">
+                <Field label={t('模型 ID')}>
                   <Select
                     value={providerCfg.model}
                     onValueChange={(v) => updateProviderConfig(activeProvider, { model: v })}
@@ -941,7 +942,7 @@ function StudioPage() {
                     <SelectContent>
                       {providerMeta.models.map((m) => (
                         <SelectItem key={m.value} value={m.value} className="font-mono text-xs">
-                          {m.label}
+                          {t(m.label)}
                         </SelectItem>
                       ))}
                     </SelectContent>
@@ -949,13 +950,13 @@ function StudioPage() {
                 </Field>
 
                 {providerCfg.model === 'custom' && (
-                  <Field label="自定义模型 ID">
+                  <Field label={t('自定义模型 ID')}>
                     <Input
                       value={providerCfg.customModel}
                       onChange={(e) =>
                         updateProviderConfig(activeProvider, { customModel: e.target.value })
                       }
-                      placeholder="输入模型 ID"
+                      placeholder={t('输入模型 ID')}
                       className="bg-background font-mono text-xs"
                     />
                   </Field>
@@ -964,31 +965,31 @@ function StudioPage() {
             )}
 
             {activeProvider === 'pixai' && <>
-              <Field label="输出比例">
+              <Field label={t('输出比例')}>
                 <Select value={apiConfig.pixaiParams.aspectRatio} onValueChange={(value) => updatePixAiParams({ aspectRatio: value as PixAiParams['aspectRatio'] })}>
                   <SelectTrigger className="w-full"><SelectValue /></SelectTrigger>
                   <SelectContent>{['1:1', '2:3', '3:2', '3:4', '4:3', '3:5', '5:3', '9:16', '16:9', '1:3', '3:1'].map((value) => <SelectItem key={value} value={value}>{value}</SelectItem>)}</SelectContent>
                 </Select>
               </Field>
-              <Field label="分辨率">
+              <Field label={t('分辨率')}>
                 <Select value={apiConfig.pixaiParams.size} onValueChange={(value) => updatePixAiParams({ size: value as PixAiParams['size'] })}>
                   <SelectTrigger className="w-full"><SelectValue /></SelectTrigger>
                   <SelectContent>{['1k', '1.5k'].map((value) => <SelectItem key={value} value={value}>{value}</SelectItem>)}</SelectContent>
                 </Select>
               </Field>
-              <Field label="生成模式" hint="可用模式取决于模型和账号，不支持时会显示接口错误">
+              <Field label={t('生成模式')} hint={t('可用模式取决于模型和账号，不支持时会显示接口错误')}>
                 <Select value={apiConfig.pixaiParams.mode} onValueChange={(value) => updatePixAiParams({ mode: value as PixAiParams['mode'] })}>
                   <SelectTrigger className="w-full"><SelectValue /></SelectTrigger>
-                  <SelectContent>{(providerCfg.model === PIXAI_FLASH_MODEL ? ['default'] : ['default', 'pro', 'ultra']).map((value) => <SelectItem key={value} value={value}>{value === 'default' ? '模型默认' : value}</SelectItem>)}</SelectContent>
+                  <SelectContent>{(providerCfg.model === PIXAI_FLASH_MODEL ? ['default'] : ['default', 'pro', 'ultra']).map((value) => <SelectItem key={value} value={value}>{value === 'default' ? t('模型默认') : value}</SelectItem>)}</SelectContent>
                 </Select>
               </Field>
               {showAdvanced && <>
-                {providerCfg.model !== PIXAI_FLASH_MODEL ? <Field label="负向提示词"><Textarea value={apiConfig.pixaiParams.negativePrompt} onChange={(e) => updatePixAiParams({ negativePrompt: e.target.value })} /></Field> : <p className="text-xs text-muted-foreground">Flash 不使用负向提示词。</p>}
-                <Field label="Seed（留空为随机）"><Input type="number" step="1" value={apiConfig.pixaiParams.seed ?? ''} onChange={(e) => updatePixAiParams({ seed: e.target.value === '' ? undefined : Number(e.target.value) })} /></Field>
+                {providerCfg.model !== PIXAI_FLASH_MODEL ? <Field label={t('负向提示词')}><Textarea value={apiConfig.pixaiParams.negativePrompt} onChange={(e) => updatePixAiParams({ negativePrompt: e.target.value })} /></Field> : <p className="text-xs text-muted-foreground">{t('Flash 不使用负向提示词。')}</p>}
+                <Field label={t('Seed（留空为随机）')}><Input type="number" step="1" value={apiConfig.pixaiParams.seed ?? ''} onChange={(e) => updatePixAiParams({ seed: e.target.value === '' ? undefined : Number(e.target.value) })} /></Field>
               </>}
             </>}
 
-            <Field label="画风预设">
+            <Field label={t('画风预设')}>
               <Select
                 value={apiConfig.stylePreset}
                 onValueChange={(v) => updateApiConfig({ stylePreset: v })}
@@ -999,7 +1000,7 @@ function StudioPage() {
                 <SelectContent>
                   {Object.entries(STYLE_PRESETS).map(([key, info]) => (
                     <SelectItem key={key} value={key}>
-                      {info.label}
+                      {t(info.label)}
                     </SelectItem>
                   ))}
                 </SelectContent>
@@ -1014,7 +1015,7 @@ function StudioPage() {
                   </div>
                 )}
 
-                <Field label="人像图节点 (LoadImage)">
+                <Field label={t('人像图节点 (LoadImage)')}>
                   <Select
                     value={apiConfig.comfyuiParams.portraitNodeId}
                     onValueChange={(v) => updateComfyUiParams({ portraitNodeId: v })}
@@ -1023,7 +1024,7 @@ function StudioPage() {
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="none">不绑定</SelectItem>
+                      <SelectItem value="none">{t('不绑定')}</SelectItem>
                       {parsedComfyNodes.imageNodes.map((n) => (
                         <SelectItem key={n.id} value={n.id} className="text-xs">
                           #{n.id} {n.title}
@@ -1033,7 +1034,7 @@ function StudioPage() {
                   </Select>
                 </Field>
 
-                <Field label="服装图节点 (LoadImage)">
+                <Field label={t('服装图节点 (LoadImage)')}>
                   <Select
                     value={apiConfig.comfyuiParams.costumeNodeId}
                     onValueChange={(v) => updateComfyUiParams({ costumeNodeId: v })}
@@ -1042,7 +1043,7 @@ function StudioPage() {
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="none">不绑定</SelectItem>
+                      <SelectItem value="none">{t('不绑定')}</SelectItem>
                       {parsedComfyNodes.imageNodes.map((n) => (
                         <SelectItem key={n.id} value={n.id} className="text-xs">
                           #{n.id} {n.title}
@@ -1052,7 +1053,7 @@ function StudioPage() {
                   </Select>
                 </Field>
 
-                <Field label="姿势图节点 (LoadImage)">
+                <Field label={t('姿势图节点 (LoadImage)')}>
                   <Select
                     value={apiConfig.comfyuiParams.poseNodeId}
                     onValueChange={(v) => updateComfyUiParams({ poseNodeId: v })}
@@ -1061,7 +1062,7 @@ function StudioPage() {
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="none">不绑定</SelectItem>
+                      <SelectItem value="none">{t('不绑定')}</SelectItem>
                       {parsedComfyNodes.imageNodes.map((n) => (
                         <SelectItem key={n.id} value={n.id} className="text-xs">
                           #{n.id} {n.title}
@@ -1071,7 +1072,7 @@ function StudioPage() {
                   </Select>
                 </Field>
 
-                <Field label="正向提示词节点 (Prompt)">
+                <Field label={t('正向提示词节点 (Prompt)')}>
                   <Select
                     value={apiConfig.comfyuiParams.promptNodeId}
                     onValueChange={(v) => updateComfyUiParams({ promptNodeId: v })}
@@ -1080,7 +1081,7 @@ function StudioPage() {
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="none">保留工作流原提示词</SelectItem>
+                      <SelectItem value="none">{t('保留工作流原提示词')}</SelectItem>
                       {parsedComfyNodes.promptNodes.map((n) => (
                         <SelectItem key={n.id} value={n.id} className="text-xs">
                           #{n.id} {n.title} ({n.field})
@@ -1099,7 +1100,7 @@ function StudioPage() {
               <>
                 {activeProvider === 'gemini' && (
                   <>
-                    <Field label="Gemini 协议模式">
+                    <Field label={t('Gemini 协议模式')}>
                       <Select
                         value={apiConfig.geminiParams.endpointMode}
                         onValueChange={(v) =>
@@ -1115,7 +1116,7 @@ function StudioPage() {
                         </SelectContent>
                       </Select>
                     </Field>
-                    <Field label="宽高比 (aspectRatio)">
+                    <Field label={t('宽高比 (aspectRatio)')}>
                       <Select
                         value={apiConfig.geminiParams.aspectRatio}
                         onValueChange={(v) =>
@@ -1134,7 +1135,7 @@ function StudioPage() {
                         </SelectContent>
                       </Select>
                     </Field>
-                    <Field label="分辨率 (imageSize)">
+                    <Field label={t('分辨率 (imageSize)')}>
                       <Select
                         value={apiConfig.geminiParams.imageSize}
                         onValueChange={(v) =>
@@ -1156,7 +1157,7 @@ function StudioPage() {
 
                 {activeProvider === 'gpt' && (
                   <>
-                    <Field label="调用端点 (endpointMode)">
+                    <Field label={t('调用端点 (endpointMode)')}>
                       <Select
                         value={apiConfig.gptParams.endpointMode}
                         onValueChange={(v) =>
@@ -1174,7 +1175,7 @@ function StudioPage() {
                         </SelectContent>
                       </Select>
                     </Field>
-                    <Field label="输出尺寸 (size)">
+                    <Field label={t('输出尺寸 (size)')}>
                       <Select
                         value={apiConfig.gptParams.size}
                         onValueChange={(v) => updateGptParams({ size: v as GptParams['size'] })}
@@ -1190,7 +1191,7 @@ function StudioPage() {
                         </SelectContent>
                       </Select>
                     </Field>
-                    <Field label="渲染质量 (quality)">
+                    <Field label={t('渲染质量 (quality)')}>
                       <Select
                         value={apiConfig.gptParams.quality}
                         onValueChange={(v) => updateGptParams({ quality: v as GptParams['quality'] })}
@@ -1208,7 +1209,7 @@ function StudioPage() {
                         </SelectContent>
                       </Select>
                     </Field>
-                    <Field label="参考还原度 (input_fidelity)" hint={supportsInputFidelity ? undefined : '当前模型使用默认参考还原度，无需设置此参数。'}>
+                    <Field label={t('参考还原度 (input_fidelity)')} hint={supportsInputFidelity ? undefined : t('当前模型使用默认参考还原度，无需设置此参数。')}>
                       <Select
                         disabled={!supportsInputFidelity}
                         value={apiConfig.gptParams.inputFidelity}
@@ -1225,7 +1226,7 @@ function StudioPage() {
                         </SelectContent>
                       </Select>
                     </Field>
-                    <Field label="背景模式 (background)">
+                    <Field label={t('背景模式 (background)')}>
                       <Select
                         value={apiConfig.gptParams.background}
                         onValueChange={(v) =>
@@ -1242,7 +1243,7 @@ function StudioPage() {
                         </SelectContent>
                       </Select>
                     </Field>
-                    <Field label="图片格式 (output_format)">
+                    <Field label={t('图片格式 (output_format)')}>
                       <Select
                         value={apiConfig.gptParams.outputFormat}
                         onValueChange={(v) =>
@@ -1264,7 +1265,7 @@ function StudioPage() {
 
                 {activeProvider === 'qwen' && (
                   <>
-                    <Field label="输出尺寸 (size)">
+                    <Field label={t('输出尺寸 (size)')}>
                       <Select
                         value={apiConfig.qwenParams.size}
                         onValueChange={(v) => updateQwenParams({ size: v as QwenParams['size'] })}
@@ -1280,10 +1281,10 @@ function StudioPage() {
                         </SelectContent>
                       </Select>
                     </Field>
-                    <Field label="提示词扩写 (prompt_extend)">
+                    <Field label={t('提示词扩写 (prompt_extend)')}>
                       <div className="flex h-9 items-center justify-between rounded-xl border bg-background px-3">
                         <span className="text-xs text-muted-foreground">
-                          {apiConfig.qwenParams.promptExtend ? '开启' : '关闭'}
+                          {apiConfig.qwenParams.promptExtend ? t('开启') : t('关闭')}
                         </span>
                         <Switch
                           checked={apiConfig.qwenParams.promptExtend}
@@ -1291,11 +1292,11 @@ function StudioPage() {
                         />
                       </div>
                     </Field>
-                    <Field label="反向提示词 (negative_prompt)">
+                    <Field label={t('反向提示词 (negative_prompt)')}>
                       <Input
                         value={apiConfig.qwenParams.negativePrompt}
                         onChange={(e) => updateQwenParams({ negativePrompt: e.target.value })}
-                        placeholder="低分辨率，多余手指，扭曲"
+                        placeholder={t('低分辨率，多余手指，扭曲')}
                         className="bg-background text-xs"
                       />
                     </Field>
@@ -1304,7 +1305,7 @@ function StudioPage() {
 
                 {activeProvider === 'doubao' && (
                   <>
-                    <Field label="输出尺寸 (size)">
+                    <Field label={t('输出尺寸 (size)')}>
                       <Select
                         value={apiConfig.doubaoParams.size}
                         onValueChange={(v) =>
@@ -1324,7 +1325,7 @@ function StudioPage() {
                         </SelectContent>
                       </Select>
                     </Field>
-                    <Field label="组图模式 (sequential)">
+                    <Field label={t('组图模式 (sequential)')}>
                       <Select
                         value={apiConfig.doubaoParams.sequentialImageGeneration}
                         onValueChange={(v) =>
@@ -1338,12 +1339,12 @@ function StudioPage() {
                           <SelectValue />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="disabled">disabled (单张)</SelectItem>
-                          <SelectItem value="auto">auto (组图)</SelectItem>
+                          <SelectItem value="disabled">{t('disabled (单张)')}</SelectItem>
+                          <SelectItem value="auto">{t('auto (组图)')}</SelectItem>
                         </SelectContent>
                       </Select>
                     </Field>
-                    <Field label="返回格式 (response_format)">
+                    <Field label={t('返回格式 (response_format)')}>
                       <Select
                         value={apiConfig.doubaoParams.responseFormat}
                         onValueChange={(v) =>
@@ -1366,7 +1367,7 @@ function StudioPage() {
 
                 {activeProvider === 'comfyui' && (
                   <>
-                    <Field label="三合一拼图节点 (可选)">
+                    <Field label={t('三合一拼图节点 (可选)')}>
                       <Select
                         value={apiConfig.comfyuiParams.stitchedNodeId}
                         onValueChange={(v) => updateComfyUiParams({ stitchedNodeId: v })}
@@ -1375,7 +1376,7 @@ function StudioPage() {
                           <SelectValue />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="none">不绑定</SelectItem>
+                          <SelectItem value="none">{t('不绑定')}</SelectItem>
                           {parsedComfyNodes.imageNodes.map((n) => (
                             <SelectItem key={n.id} value={n.id} className="text-xs">
                               #{n.id} {n.title}
@@ -1384,7 +1385,7 @@ function StudioPage() {
                         </SelectContent>
                       </Select>
                     </Field>
-                    <Field label="最长等待时间（秒）">
+                    <Field label={t('最长等待时间（秒）')}>
                       <Input
                         type="number"
                         min={60}
@@ -1396,10 +1397,10 @@ function StudioPage() {
                         className="bg-background text-xs"
                       />
                     </Field>
-                    <Field label="随机种子 (seed)">
+                    <Field label={t('随机种子 (seed)')}>
                       <div className="flex h-9 items-center justify-between rounded-xl border bg-background px-3">
                         <span className="text-xs text-muted-foreground">
-                          {apiConfig.comfyuiParams.randomizeSeed ? '每次随机种子' : '固定工作流种子'}
+                          {apiConfig.comfyuiParams.randomizeSeed ? t('每次随机种子') : t('固定工作流种子')}
                         </span>
                         <Switch
                           checked={apiConfig.comfyuiParams.randomizeSeed}
@@ -1412,7 +1413,7 @@ function StudioPage() {
 
                 {activeProvider !== 'comfyui' && activeProvider !== 'pixai' && (
                   <>
-                    <Field label="图片传参方式">
+                    <Field label={t('图片传参方式')}>
                       <Select
                         value={apiConfig.imagePassMode}
                         onValueChange={(v) => updateApiConfig({ imagePassMode: v as ImagePassMode })}
@@ -1427,10 +1428,10 @@ function StudioPage() {
                       </Select>
                     </Field>
 
-                    <Field label="附带合成拼图">
+                    <Field label={t('附带合成拼图')}>
                       <div className="flex h-9 items-center justify-between rounded-xl border bg-background px-3">
                         <span className="text-xs text-muted-foreground">
-                          {apiConfig.sendStitchedSheet ? '同时发送拼图' : '仅发单图序列'}
+                          {apiConfig.sendStitchedSheet ? t('同时发送拼图') : t('仅发单图序列')}
                         </span>
                         <Switch
                           checked={apiConfig.sendStitchedSheet}
@@ -1446,24 +1447,24 @@ function StudioPage() {
 
           {/* 3. 提示词与生成按钮 */}
           <Section
-            title="3. 提示词 (Prompt)"
+            title={t('3. 提示词 (Prompt)')}
             className="@lg/section:grid-cols-1"
             actions={
               <div className="flex items-center gap-1.5">
                 <Button variant="ghost" size="sm" onClick={() => setCustomPrompt(null)}>
                   <RotateCcwIcon className="size-3.5" />
-                  重置
+                  {t('重置')}
                 </Button>
                 <Button
                   variant="outline"
                   size="sm"
                   onClick={() => {
                     void navigator.clipboard.writeText(prompt)
-                    toast.success('已复制')
+                    toast.success(t('已复制'))
                   }}
                 >
                   <CopyIcon className="size-3.5" />
-                  复制
+                  {t('复制')}
                 </Button>
               </div>
             }
@@ -1483,12 +1484,12 @@ function StudioPage() {
               {isGenerating ? (
                 <>
                   <LoaderCircleIcon className="size-4 animate-spin" />
-                  生成中…
+                  {t('生成中…')}
                 </>
               ) : (
                 <>
                   <SparklesIcon className="size-4" />
-                  生成角色图
+                  {t('生成角色图')}
                 </>
               )}
             </Button>
@@ -1498,20 +1499,20 @@ function StudioPage() {
         {/* 右栏：专注展示 AI 生成结果与生成状态 */}
         <div className="min-w-0 space-y-4 lg:col-span-5">
           <Section
-            title="生成结果"
+            title={t('生成结果')}
             className="@lg/section:grid-cols-1"
             actions={
               previewUrl && !isGenerating ? (
                 <Button variant="outline" size="sm" asChild>
                   <a href={previewUrl} download="image.png">
                     <DownloadIcon className="size-3.5" />
-                    下载图片
+                    {t('下载图片')}
                   </a>
                 </Button>
               ) : null
             }
           >
-            {previewResult && !isGenerating && <Button className="min-h-11" variant="outline" onClick={() => setComparisonResult(previewResult)}>对比参考</Button>}
+            {previewResult && !isGenerating && <Button className="min-h-11" variant="outline" onClick={() => setComparisonResult(previewResult)}>{t('对比参考')}</Button>}
             <div className="relative flex min-h-[340px] items-center justify-center overflow-hidden rounded-2xl bg-background p-4 sm:min-h-[460px]">
               {isGenerating ? (
                 <div className="flex flex-col items-center gap-3 text-center">
@@ -1519,7 +1520,7 @@ function StudioPage() {
                     <LoaderCircleIcon className="size-6 animate-spin" />
                   </div>
                   <div className="space-y-1">
-                    <div className="text-sm font-semibold">正在生成角色图…</div>
+                    <div className="text-sm font-semibold">{t('正在生成角色图…')}</div>
                     {generatingModel && (
                       <Badge variant="secondary" className="font-mono text-[11px]">
                         {generatingModel}
@@ -1527,8 +1528,8 @@ function StudioPage() {
                     )}
                     {generationProgress && (
                       <div className="w-56 max-w-full space-y-1.5 pt-1">
-                        <div className="text-xs text-foreground/80">{generationProgress.message}</div>
-                        {generationProgress.connection && <p className="text-xs text-muted-foreground">连接：{{connecting: 'WebSocket 连接中', connected: 'WebSocket 已连接', reconnecting: 'WebSocket 重连中，HTTP 保底跟踪', degraded: 'WebSocket 暂不可用，HTTP 保底跟踪'}[generationProgress.connection]}</p>}
+                        <div className="text-xs text-foreground/80">{t(generationProgress.message)}</div>
+                        {generationProgress.connection && <p className="text-xs text-muted-foreground">{t('连接：')}{t({connecting: 'WebSocket 连接中', connected: 'WebSocket 已连接', reconnecting: 'WebSocket 重连中，HTTP 保底跟踪', degraded: 'WebSocket 暂不可用，HTTP 保底跟踪'}[generationProgress.connection])}</p>}
                         {generationProgress.percent !== undefined && (
                           <div className="h-1.5 overflow-hidden rounded-full bg-muted">
                             <div
@@ -1540,43 +1541,43 @@ function StudioPage() {
                       </div>
                     )}
                     <p className="pt-1 text-xs text-muted-foreground">
-                      切换页面不会中断当前任务
+                      {t('切换页面不会中断当前任务')}
                     </p>
                   </div>
                 </div>
               ) : generationError ? (
                 <div className="flex max-w-md flex-col items-center gap-2 text-center">
                   <CircleAlertIcon className="size-7 text-destructive" />
-                  <div className="text-sm font-semibold text-destructive">生成失败</div>
+                  <div className="text-sm font-semibold text-destructive">{t('生成失败')}</div>
                   <p className="whitespace-pre-wrap break-all text-left text-xs leading-relaxed text-muted-foreground">
-                    {generationError}
+                    {t(generationError)}
                   </p>
                   {previewUrl && (
                     <Button variant="ghost" size="sm" onClick={() => setZoomImageUrl(previewUrl)}>
-                      查看上一张结果
+                      {t('查看上一张结果')}
                     </Button>
                   )}
                 </div>
               ) : previewUrl ? (
-                <button type="button" aria-label="放大生成结果" onClick={() => setZoomImageUrl(previewUrl)} className="cursor-zoom-in rounded-xl focus-visible:outline-2 focus-visible:outline-ring"><img src={previewUrl} alt="生成结果" className="max-h-[480px] w-auto rounded-xl object-contain transition hover:opacity-95" /></button>
+                <button type="button" aria-label={t('放大生成结果')} onClick={() => setZoomImageUrl(previewUrl)} className="cursor-zoom-in rounded-xl focus-visible:outline-2 focus-visible:outline-ring"><img src={previewUrl} alt={t('生成结果')} className="max-h-[480px] w-auto rounded-xl object-contain transition hover:opacity-95" /></button>
               ) : (
                 <div className="flex flex-col items-center gap-2 text-center text-muted-foreground">
                   <SparklesIcon className="size-7 opacity-35" />
-                  <span className="text-xs">点击「生成角色图」后在此处展示生成结果</span>
+                  <span className="text-xs">{t('点击「生成角色图」后在此处展示生成结果')}</span>
                 </div>
               )}
             </div>
           </Section>
-          {activeTask && <Section title="待确认任务" className="@lg/section:grid-cols-1">
-            <p className="break-all text-xs">{activeTask.task ? `任务 ${(activeTask.task.provider === 'pixai' ? activeTask.task.taskId : activeTask.task.promptId)}：刷新后查询原任务，不重复提交。` : '提交结果未知或提交前被中断，请核对后端队列；不会自动重试提交。'}</p>
+          {activeTask && <Section title={t('待确认任务')} className="@lg/section:grid-cols-1">
+            <p className="break-all text-xs">{activeTask.task ? t('任务 {id}：刷新后查询原任务，不重复提交。', { id: activeTask.task.provider === 'pixai' ? activeTask.task.taskId : activeTask.task.promptId }) : t('提交结果未知或提交前被中断，请核对后端队列；不会自动重试提交。')}</p>
             {!activeTask.task && activeTask.provider === 'pixai' && <div className="flex flex-wrap gap-2">
-              <Input aria-label="PixAI 任务编号" placeholder="已确认的 PixAI 任务编号" value={recoveryTaskId} onChange={(e) => setRecoveryTaskId(e.target.value)} />
-              <Button disabled={isGenerating || !recoveryTaskId.trim()} onClick={() => void recoverPixAiTask(recoveryTaskId)}>按编号恢复（只查询）</Button>
+              <Input aria-label={t('PixAI 任务编号')} placeholder={t('已确认的 PixAI 任务编号')} value={recoveryTaskId} onChange={(e) => setRecoveryTaskId(e.target.value)} />
+              <Button disabled={isGenerating || !recoveryTaskId.trim()} onClick={() => void recoverPixAiTask(recoveryTaskId)}>{t('按编号恢复（只查询）')}</Button>
             </div>}
             <div className="flex flex-wrap gap-2">
-              <Button disabled={isGenerating || !activeTask.task} onClick={() => void resumeGeneration()}>恢复跟踪</Button>
-              <Button variant="outline" disabled={!isGenerating} onClick={() => void stopTracking()}>暂停跟踪（保留记录）</Button>
-              <Button variant="outline" disabled={isGenerating} onClick={() => void abandonTask()}>放弃记录（不取消服务器任务）</Button>
+              <Button disabled={isGenerating || !activeTask.task} onClick={() => void resumeGeneration()}>{t('恢复跟踪')}</Button>
+              <Button variant="outline" disabled={!isGenerating} onClick={() => void stopTracking()}>{t('暂停跟踪（保留记录）')}</Button>
+              <Button variant="outline" disabled={isGenerating} onClick={() => void abandonTask()}>{t('放弃记录（不取消服务器任务）')}</Button>
             </div>
           </Section>}
         </div>
@@ -1585,12 +1586,12 @@ function StudioPage() {
       {/* 生成历史记录 */}
       {history.length > 0 && (
         <Section
-          title={`生成记录 (${history.length})`}
+          title={t('生成记录 ({n})', { n: history.length })}
           className="grid-cols-2 @lg/section:grid-cols-3 @3xl/section:grid-cols-4"
           actions={
             <Button variant="ghost" size="sm" onClick={clearHistory}>
               <Trash2Icon className="size-3.5" />
-              清空
+              {t('清空')}
             </Button>
           }
         >
@@ -1600,7 +1601,7 @@ function StudioPage() {
               className="group flex flex-col justify-between overflow-hidden rounded-2xl bg-background p-2"
             >
               <div className="relative aspect-3/4 overflow-hidden rounded-xl bg-muted">
-                <button type="button" aria-label={`查看生成记录：${h.recipeSummary}`} onClick={() => setZoomImageUrl(h.imageUrl)} className="block h-full w-full cursor-zoom-in focus-visible:outline-2 focus-visible:outline-ring">
+                <button type="button" aria-label={t('查看生成记录：{name}', { name: h.recipeSummary })} onClick={() => setZoomImageUrl(h.imageUrl)} className="block h-full w-full cursor-zoom-in focus-visible:outline-2 focus-visible:outline-ring">
                 <img
                   src={h.imageUrl}
                   alt={h.recipeSummary}
@@ -1616,7 +1617,7 @@ function StudioPage() {
                     e.stopPropagation()
                     removeHistoryItem(h.id)
                   }}
-                  title="删除此记录"
+                  title={t('删除此记录')}
                   className="absolute top-1.5 right-1.5 rounded-full bg-black/65 p-1 text-white opacity-85 transition hover:bg-destructive hover:opacity-100"
                 >
                   <XIcon className="size-3" />
@@ -1625,24 +1626,24 @@ function StudioPage() {
 
               <div className="mt-2 space-y-1.5 px-0.5">
                 <div className="truncate text-xs font-medium">{h.recipeSummary}</div>
-                <Button variant="outline" className="min-h-11 w-full" onClick={() => setComparisonResult(h)}>对比参考</Button>
+                <Button variant="outline" className="min-h-11 w-full" onClick={() => setComparisonResult(h)}>{t('对比参考')}</Button>
                 <div className="grid grid-cols-2 gap-1.5">
                   <button
                     type="button"
                     onClick={() => {
                       setCustomPrompt(h.prompt)
-                      toast.success('已恢复该图提示词')
+                      toast.success(t('已恢复该图提示词'))
                     }}
                     className="flex h-7 items-center justify-center rounded-lg bg-muted text-[11px] font-medium whitespace-nowrap text-foreground transition hover:bg-muted/70"
                   >
-                    复用词
+                    {t('复用词')}
                   </button>
                   <a
                     href={h.imageUrl}
                     download={`character-${h.id}.png`}
                     className="flex h-7 items-center justify-center rounded-lg bg-primary/10 text-[11px] font-medium whitespace-nowrap text-primary transition hover:bg-primary/20"
                   >
-                    下载
+                    {t('下载')}
                   </a>
                 </div>
               </div>
@@ -1659,12 +1660,12 @@ function StudioPage() {
       <Dialog open={Boolean(stitchModalUrl)} onOpenChange={(o) => !o && setStitchModalUrl(null)}>
         <DialogContent className="max-h-[90dvh] w-[95vw] max-w-3xl overflow-y-auto p-4 sm:max-w-3xl">
           <DialogHeader className="flex flex-row flex-wrap items-center justify-between gap-3 pr-8">
-            <DialogTitle className="text-base">参考图拼合卡片</DialogTitle>
+            <DialogTitle className="text-base">{t('参考图拼合卡片')}</DialogTitle>
             {stitchModalUrl && (
               <Button size="sm" variant="outline" asChild>
                 <a href={stitchModalUrl} download="reference-sheet.jpg">
                   <DownloadIcon className="size-3.5" />
-                  下载拼图
+                  {t('下载拼图')}
                 </a>
               </Button>
             )}
@@ -1673,7 +1674,7 @@ function StudioPage() {
             <div className="mt-2 flex items-center justify-center overflow-hidden rounded-xl bg-muted p-2">
               <img
                 src={stitchModalUrl}
-                alt="参考拼图"
+                alt={t('参考拼图')}
                 className="max-h-[70dvh] w-auto rounded-lg object-contain"
               />
             </div>
@@ -1685,30 +1686,30 @@ function StudioPage() {
       <Dialog open={showComfyJsonModal} onOpenChange={setShowComfyJsonModal}>
         <DialogContent className="max-h-[90dvh] w-[95vw] max-w-3xl overflow-y-auto p-4 sm:max-w-3xl">
           <DialogHeader className="flex flex-row flex-wrap items-center justify-between gap-3 pr-8">
-            <DialogTitle className="text-base">ComfyUI API 工作流 JSON</DialogTitle>
+            <DialogTitle className="text-base">{t('ComfyUI API 工作流 JSON')}</DialogTitle>
             <Button
               size="sm"
               variant="outline"
               onClick={() => {
                 const info = parseComfyWorkflowNodes(apiConfig.comfyuiParams.workflowJson)
                 if (!info.valid) {
-                  toast.error(info.error || '工作流 JSON 无效')
+                  toast.error(t(info.error || '工作流 JSON 无效'))
                   return
                 }
                 const detected = autoDetectComfyMappings(apiConfig.comfyuiParams.workflowJson)
                 updateComfyUiParams(detected)
                 toast.success(
-                  `已自动重新识别节点：${info.imageNodes.length} 个图片节点、${info.promptNodes.length} 个提示词节点`
+                  t('已自动重新识别节点：{images} 个图片节点、{prompts} 个提示词节点', { images: info.imageNodes.length, prompts: info.promptNodes.length })
                 )
               }}
             >
-              自动识别节点
+              {t('自动识别节点')}
             </Button>
           </DialogHeader>
           <p className="text-xs text-muted-foreground">
-            请在 ComfyUI 设置中开启「启用开发模式选项」，点击菜单中的「导出 (API)」获取 JSON 并粘贴于下方。
+            {t('请在 ComfyUI 设置中开启「启用开发模式选项」，点击菜单中的「导出 (API)」获取 JSON 并粘贴于下方。')}
           </p>
-          <Button type="button" size="sm" variant="outline" onClick={() => void handleExportComfyJson(true)}>导出原始 API</Button>
+          <Button type="button" size="sm" variant="outline" onClick={() => void handleExportComfyJson(true)}>{t('导出原始 API')}</Button>
           <Textarea
             value={apiConfig.comfyuiParams.workflowJson}
             onChange={(e) =>

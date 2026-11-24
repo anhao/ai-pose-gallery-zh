@@ -3,6 +3,7 @@ import { Toaster as Sonner, useSonner, type ToasterProps } from 'sonner'
 import { CircleCheckIcon, InfoIcon, TriangleAlertIcon, OctagonXIcon } from 'lucide-react'
 import { adoptNotification, toast, type Notification } from '@/lib/notifications'
 import { useTheme } from '@/components/theme/ThemeProvider'
+import { t } from '@/i18n'
 
 function Lifetime({ notice, paused }: { notice: Notification; paused: boolean }) {
   const duration = notice.notificationDuration ?? 4000
@@ -130,13 +131,13 @@ export function Toaster(props: ToasterProps) {
         richColors={false} closeButton duration={Infinity} visibleToasts={visibleCount} expand={expanded || focused} gap={8}
         offset={{ top: 'calc(64px + env(safe-area-inset-top, 0px))', left: 12, right: 12 }}
         mobileOffset={{ top: 'calc(64px + env(safe-area-inset-top, 0px))', left: 12, right: 12 }}
-        customAriaLabel="操作通知（Alt+T 聚焦，Esc 关闭）"
+        customAriaLabel={t('操作通知（Alt+T 聚焦，Esc 关闭）')}
         hotkey={['altKey', 'KeyT']}
-        toastOptions={{ ...props.toastOptions, closeButtonAriaLabel: '关闭此通知' }}
+        toastOptions={{ ...props.toastOptions, closeButtonAriaLabel: t('关闭此通知') }}
         icons={{ success: <CircleCheckIcon size={18} />, info: <InfoIcon size={18} />, warning: <TriangleAlertIcon size={18} />, error: <OctagonXIcon size={18} /> }} />
       {toasts.length > 1 && <button type="button" className="app-notification-toggle" style={{ top: toggleTop }}
         aria-expanded={expanded || focused} onClick={() => { setFocused(false); setExpanded((current) => !current) }}>
-        {expanded || focused ? '收起通知' : '展开通知'}
+        {expanded || focused ? t('收起通知') : t('展开通知')}
       </button>}
     </div>
   </>

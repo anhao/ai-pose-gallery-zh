@@ -18,6 +18,7 @@ import { Button } from '@/components/ui/button'
 import { Skeleton } from '@/components/ui/skeleton'
 import { useStudio } from '@/store/studioStore'
 import { referenceImageUrl } from '@/lib/recipeImages'
+import { costumeName, formatNumber, portraitStyle, portraitTitle, t } from '@/i18n'
 
 export const Route = createFileRoute('/')({
   staticData: { title: '图库总览' },
@@ -42,33 +43,33 @@ function DashboardPage() {
 
   return (
     <>
-      <PageHeader title="AI 角色参考库" />
+      <PageHeader title={t('AI 角色参考库')} />
 
       {/* 核心数据指标卡片 */}
       <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
         <StatCard
-          title="总参考图"
-          value={totalImages.toLocaleString('zh-CN')}
+          title={t('总参考图')}
+          value={formatNumber(totalImages)}
           icon={<LayersIcon />}
-          desc="11,568 本地高清图"
+          desc={t('11,568 本地高清图')}
         />
         <StatCard
-          title="动作姿势 (Pose)"
-          value={`${posesData.groups.length} 组`}
+          title={t('动作姿势 (Pose)')}
+          value={t('{n} 组', { n: posesData.groups.length })}
           icon={<PersonStandingIcon />}
-          desc={`${posesData.items.length} 张 · 白模/深度`}
+          desc={t('{n} 张 · 白模/深度', { n: posesData.items.length })}
         />
         <StatCard
-          title="服装穿搭 (Costume)"
-          value={`${costumes.length.toLocaleString('zh-CN')} 套`}
+          title={t('服装穿搭 (Costume)')}
+          value={t('{n} 套', { n: formatNumber(costumes.length) })}
           icon={<ShirtIcon />}
-          desc="现实 1,407 · 二次元 440"
+          desc={t('现实 1,407 · 二次元 440')}
         />
         <StatCard
-          title="人像颜值 (Portrait)"
-          value={`${portraits.length.toLocaleString('zh-CN')} 张`}
+          title={t('人像颜值 (Portrait)')}
+          value={t('{n} 张', { n: formatNumber(portraits.length) })}
           icon={<UserRoundIcon />}
-          desc="CC0 协议 · 51 款发型"
+          desc={t('CC0 协议 · 51 款发型')}
         />
       </div>
 
@@ -79,7 +80,7 @@ function DashboardPage() {
           className="group flex flex-col justify-between rounded-[20px] bg-muted p-4 transition hover:bg-muted/70"
         >
           <div className="flex items-center justify-between">
-            <h2 className="text-base font-semibold">🕺 动作姿势库</h2>
+            <h2 className="text-base font-semibold">{t('🕺 动作姿势库')}</h2>
             <Badge variant="secondary">1,439</Badge>
           </div>
           <div className="mt-3 grid grid-cols-4 gap-1.5">
@@ -100,7 +101,7 @@ function DashboardPage() {
           className="group flex flex-col justify-between rounded-[20px] bg-muted p-4 transition hover:bg-muted/70"
         >
           <div className="flex items-center justify-between">
-            <h2 className="text-base font-semibold">👗 服装穿搭库</h2>
+            <h2 className="text-base font-semibold">{t('👗 服装穿搭库')}</h2>
             <Badge variant="secondary">{costumes.length.toLocaleString('zh-CN')}</Badge>
           </div>
           <div className="mt-3 grid grid-cols-4 gap-1.5">
@@ -108,7 +109,7 @@ function DashboardPage() {
               <img
                 key={c.id}
                 src={referenceImageUrl(c.缩略图)}
-                alt={c.服装名称}
+                alt={costumeName(c)}
                 loading="lazy"
                 className="aspect-3/4 w-full rounded-lg bg-background object-cover"
               />
@@ -121,7 +122,7 @@ function DashboardPage() {
           className="group flex flex-col justify-between rounded-[20px] bg-muted p-4 transition hover:bg-muted/70"
         >
           <div className="flex items-center justify-between">
-            <h2 className="text-base font-semibold">👤 人像颜值库</h2>
+            <h2 className="text-base font-semibold">{t('👤 人像颜值库')}</h2>
             <Badge variant="secondary">1,499</Badge>
           </div>
           <div className="mt-3 grid grid-cols-4 gap-1.5">
@@ -129,7 +130,7 @@ function DashboardPage() {
               <img
                 key={p.id}
                 src={`/${p.缩略图}`}
-                alt={p.标题}
+                alt={portraitTitle(p)}
                 loading="lazy"
                 className="aspect-3/4 w-full rounded-lg bg-background object-cover"
               />
@@ -143,11 +144,11 @@ function DashboardPage() {
         <div className="flex items-center justify-between gap-2">
           <h2 className="flex items-center gap-1.5 text-sm font-semibold sm:text-base">
             <FlameIcon className="size-4 text-orange-500" />
-            热门人像 Top 10
+            {t('热门人像 Top 10')}
           </h2>
           <Button variant="ghost" size="sm" asChild>
             <Link to="/portraits">
-              全部
+              {t('全部')}
               <ArrowRightIcon className="size-3.5" />
             </Link>
           </Button>
@@ -165,7 +166,7 @@ function DashboardPage() {
                 <div className="relative aspect-4/5 overflow-hidden">
                   <img
                     src={`/${item.缩略图}`}
-                    alt={item.标题}
+                    alt={portraitTitle(item)}
                     loading="lazy"
                     className="h-full w-full object-cover transition group-hover:scale-105"
                   />
@@ -181,7 +182,7 @@ function DashboardPage() {
                   </span>
                 </div>
                 <div className="p-1.5">
-                  <div className="truncate text-[11px] font-medium">{item.发型名称}</div>
+                  <div className="truncate text-[11px] font-medium">{portraitStyle(item)}</div>
                 </div>
               </div>
             )
@@ -191,20 +192,20 @@ function DashboardPage() {
 
       {/* 底部免责声明提示条 */}
       <footer className="rounded-[18px] border border-border/60 bg-muted/50 px-4 py-3 text-xs leading-relaxed text-muted-foreground">
-        <strong className="text-foreground">⚠️ 免责声明：</strong>
-        本站原有姿势与现实服饰参考图源自 X 创作者{' '}
+        <strong className="text-foreground">{t('⚠️ 免责声明：')}</strong>
+        {t('本站原有姿势与现实服饰参考图源自 X 创作者')}{' '}
         <a
           href="https://x.com/giaaibusi"
           target="_blank"
           rel="noopener noreferrer"
           className="underline hover:text-foreground"
         >
-          ギア (@giaaibusi)
+          {t('ギア (@giaaibusi)')}
         </a>{' '}
-        公开分享。新增二次元服装来自 たき AI · CharaDB，仅收录元数据，图片从来源站点读取，各素材适用各自条件。默认已开启「安全模式 (SFW)」隐藏 18+ 敏感分类，未满 18 周岁请勿关闭。本工具与素材
-        <strong className="text-foreground">仅供个人学习与合法艺术创作使用，严禁用于任何违法违规或侵害他人肖像权用途</strong>。{' '}
+        {t('公开分享。新增二次元服装来自 たき AI · CharaDB，仅收录元数据，图片从来源站点读取，各素材适用各自条件。默认已开启「安全模式 (SFW)」隐藏 18+ 敏感分类，未满 18 周岁请勿关闭。本工具与素材')}
+        <strong className="text-foreground">{t('仅供个人学习与合法艺术创作使用，严禁用于任何违法违规或侵害他人肖像权用途')}</strong>{t('。')}{' '}
         <Link to="/guide" className="font-medium text-primary underline">
-          查看完整免责声明 →
+          {t('查看完整免责声明 →')}
         </Link>
       </footer>
     </>

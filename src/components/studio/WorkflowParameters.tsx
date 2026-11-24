@@ -9,6 +9,7 @@ import { getWorkflowControls, getWorkflowImages, validControlValue, workflowIden
 import { fetchComfyObjectInfo, fileToDataUrl } from '@/services/aiGenerator'
 import { useStudio } from '@/store/studioStore'
 import type { WorkflowScalar } from '@/types/gallery'
+import { t } from '@/i18n'
 
 function ParameterField({ control, value, overridden, onChange, onReset }: { control: WorkflowControl; value: WorkflowScalar; overridden: boolean; onChange: (value: WorkflowScalar) => void; onReset: () => void }) {
   const [numberDraft, setNumberDraft] = useState(String(value))
@@ -17,14 +18,14 @@ function ParameterField({ control, value, overridden, onChange, onReset }: { con
   return <div className="min-w-0 space-y-2">
     <div className="flex flex-wrap items-center justify-between gap-2">
       <label htmlFor={id} className="min-w-0 flex-1 break-words text-xs font-medium">{control.group && <span className="mb-1 block font-normal text-muted-foreground">{control.group}</span>}{control.label}</label>
-      <Button type="button" size="sm" variant="ghost" className="min-h-11 shrink-0" aria-label={`恢复${control.label}默认值`} disabled={!overridden} onClick={onReset}>恢复默认</Button>
+      <Button type="button" size="sm" variant="ghost" className="min-h-11 shrink-0" aria-label={t('恢复{label}默认值', { label: control.label })} disabled={!overridden} onClick={onReset}>{t('恢复默认')}</Button>
     </div>
     {control.type === 'boolean' ? <Switch id={id} checked={Boolean(value)} onCheckedChange={onChange} />
       : control.type === 'enum' ? <select id={id} className={inputClass} value={JSON.stringify(value)} onChange={(event) => onChange(JSON.parse(event.target.value))}>{control.options?.map((option) => <option key={JSON.stringify(option)} value={JSON.stringify(option)}>{control.optionLabels?.[JSON.stringify(option)] || String(option)}</option>)}</select>
-      : control.type === 'number' ? <Input id={id} className="min-h-11" type="number" min={control.min} max={control.max} step={control.step ?? 'any'} value={numberDraft} onChange={(event) => setNumberDraft(event.target.value)} onBlur={() => { const parsed = numberDraft.trim() ? Number(numberDraft) : NaN; if (validControlValue(control, parsed)) onChange(parsed); else { setNumberDraft(String(value)); toast.error('请输入参数允许范围内的数字') } }} />
+      : control.type === 'number' ? <Input id={id} className="min-h-11" type="number" min={control.min} max={control.max} step={control.step ?? 'any'} value={numberDraft} onChange={(event) => setNumberDraft(event.target.value)} onBlur={() => { const parsed = numberDraft.trim() ? Number(numberDraft) : NaN; if (validControlValue(control, parsed)) onChange(parsed); else { setNumberDraft(String(value)); toast.error(t('请输入参数允许范围内的数字')) } }} />
       : control.multiline ? <Textarea id={id} value={String(value)} rows={3} onChange={(event) => onChange(event.target.value)} />
       : <Input id={id} className="min-h-11" value={String(value)} onChange={(event) => onChange(event.target.value)} />}
-    <p className="break-words text-xs text-muted-foreground">{control.description || (overridden ? '已覆盖工作流默认值' : '沿用工作流默认值')}{overridden && <span className="mt-1 block font-medium text-primary">已修改</span>}</p>
+    <p className="break-words text-xs text-muted-foreground">{control.description || (overridden ? t('已覆盖工作流默认值') : t('沿用工作流默认值'))}{overridden && <span className="mt-1 block font-medium text-primary">{t('已修改')}</span>}</p>
   </div>
 }
 
@@ -76,7 +77,7 @@ export function WorkflowParameters({ onPreview, onUploadingChange }: { onPreview
     event.target.value = ''
     if (!file) return
     if (uploading !== null) return
-    if (!file.type.startsWith('image/')) { toast.error('请选择图片文件'); return }
+    if (!file.type.startsWith('image/')) { toast.error(t('请选择图片文件')); return }
     const startedIdentity = identity
     const startedEpoch = ++readEpoch.current
     setUploading(nodeId)
@@ -86,31 +87,31 @@ export function WorkflowParameters({ onPreview, onUploadingChange }: { onPreview
       if (currentIdentityRef.current !== startedIdentity || startedEpoch !== readEpoch.current) return
       setWorkflowImage(nodeId, { id: crypto.randomUUID(), name: file.name, url, role }, startedIdentity)
     } catch {
-      if (currentIdentityRef.current === startedIdentity && startedEpoch === readEpoch.current) toast.error('图片读取失败，已保留原图，请重新选择')
+      if (currentIdentityRef.current === startedIdentity && startedEpoch === readEpoch.current) toast.error(t('图片读取失败，已保留原图，请重新选择'))
     } finally {
       if (currentIdentityRef.current === startedIdentity && startedEpoch === readEpoch.current) { setUploading(null); onUploadingChange(null) }
     }
   }
   return <div className="col-span-full min-w-0 space-y-4 break-words rounded-xl border p-3">
-    <div className="flex flex-wrap items-center justify-between gap-2"><h3 className="text-sm font-medium">工作流高级参数</h3><Button type="button" size="sm" variant="ghost" className="min-h-11" disabled={!Object.keys(saved).length} onClick={() => updateComfyUiParams({ parameterOverrides: { workflowId: identity, values: {} } })}>全部恢复默认</Button></div>
-    <p className="text-xs text-muted-foreground">按当前 ComfyUI 节点定义显示；未修改的参数沿用导入 API。</p>
+    <div className="flex flex-wrap items-center justify-between gap-2"><h3 className="text-sm font-medium">{t('工作流高级参数')}</h3><Button type="button" size="sm" variant="ghost" className="min-h-11" disabled={!Object.keys(saved).length} onClick={() => updateComfyUiParams({ parameterOverrides: { workflowId: identity, values: {} } })}>{t('全部恢复默认')}</Button></div>
+    <p className="text-xs text-muted-foreground">{t('按当前 ComfyUI 节点定义显示；未修改的参数沿用导入 API。')}</p>
     {images.length > 0 && <div className="grid gap-4 sm:grid-cols-2">{images.map((image) => {
       const selected = workflowImages[image.nodeId]
       const inputId = `workflow-image-${image.nodeId}`
       return <div key={image.nodeId} className="min-w-0 space-y-2 rounded-xl bg-background p-3" onDrop={(event) => { event.preventDefault(); event.stopPropagation() }}>
-        <div className="block text-sm font-medium">{image.label}{image.optional ? '（可选）' : '（可替换）'}</div>
-        {selected && <button type="button" className="block w-full cursor-zoom-in" onClick={() => onPreview(selected.url)} aria-label={`预览${image.label}`}><img src={selected.url} alt={image.label} className="h-28 w-full rounded-lg object-contain" /></button>}
-        <input id={inputId} ref={(element) => { imageInputs.current[image.nodeId] = element }} hidden type="file" accept="image/*" disabled={uploading !== null} onChange={(event) => void upload(event, image.nodeId, image.role)} aria-label={`选择${image.label}`} />
-        <Button type="button" variant="outline" className="min-h-11" disabled={uploading !== null} onClick={() => imageInputs.current[image.nodeId]?.click()}>{selected ? '替换图片' : '选择图片'}</Button>
-        {selected && <><p className="break-all text-xs" title={selected.name}>{selected.name}</p><p className="text-xs text-muted-foreground">已选择，生成时上传</p></>}
-        {uploading === image.nodeId && <p role="status" className="text-xs">正在读取图片…</p>}
-        {selected ? <Button type="button" variant="ghost" size="sm" className="min-h-11" disabled={uploading !== null} aria-label={`清除${image.label}`} onClick={() => setWorkflowImage(image.nodeId, null, identity)}>清除图片</Button> : <p className="text-xs text-muted-foreground">{image.optional ? '未选择（可选），可添加参考图片。' : '默认沿用工作流原图；选择后替换，清除后恢复原图。'}{image.role === 'character_sheet' && ' 可选择完整角色设定集，人物身份与外观以此图为准。'}</p>}
+        <div className="block text-sm font-medium">{image.label}{image.optional ? t('（可选）') : t('（可替换）')}</div>
+        {selected && <button type="button" className="block w-full cursor-zoom-in" onClick={() => onPreview(selected.url)} aria-label={t('预览{label}', { label: image.label })}><img src={selected.url} alt={image.label} className="h-28 w-full rounded-lg object-contain" /></button>}
+        <input id={inputId} ref={(element) => { imageInputs.current[image.nodeId] = element }} hidden type="file" accept="image/*" disabled={uploading !== null} onChange={(event) => void upload(event, image.nodeId, image.role)} aria-label={t('选择{label}', { label: image.label })} />
+        <Button type="button" variant="outline" className="min-h-11" disabled={uploading !== null} onClick={() => imageInputs.current[image.nodeId]?.click()}>{selected ? t('替换图片') : t('选择图片')}</Button>
+        {selected && <><p className="break-all text-xs" title={selected.name}>{selected.name}</p><p className="text-xs text-muted-foreground">{t('已选择，生成时上传')}</p></>}
+        {uploading === image.nodeId && <p role="status" className="text-xs">{t('正在读取图片…')}</p>}
+        {selected ? <Button type="button" variant="ghost" size="sm" className="min-h-11" disabled={uploading !== null} aria-label={t('清除{label}', { label: image.label })} onClick={() => setWorkflowImage(image.nodeId, null, identity)}>{t('清除图片')}</Button> : <p className="text-xs text-muted-foreground">{image.optional ? t('未选择（可选），可添加参考图片。') : t('默认沿用工作流原图；选择后替换，清除后恢复原图。')}{image.role === 'character_sheet' && t(' 可选择完整角色设定集，人物身份与外观以此图为准。')}</p>}
       </div>
     })}</div>}
-    {isPending && identity && <p role="status" className="text-xs text-muted-foreground">正在读取节点参数…</p>}
-    {error && <div role="status" className="text-xs text-destructive">节点参数读取失败：{error.message}<Button type="button" size="sm" variant="ghost" className="min-h-11" onClick={() => void refetch()}>重试</Button></div>}
+    {isPending && identity && <p role="status" className="text-xs text-muted-foreground">{t('正在读取节点参数…')}</p>}
+    {error && <div role="status" className="text-xs text-destructive">{t('节点参数读取失败：')}{t(error.message)}<Button type="button" size="sm" variant="ghost" className="min-h-11" onClick={() => void refetch()}>{t('重试')}</Button></div>}
     {controls.some((control) => control.recommended) && <div className="grid gap-4 sm:grid-cols-2">{controls.filter((control) => control.recommended).map(renderControl)}</div>}
-    {controls.some((control) => !control.recommended) && <details><summary className="min-h-11 cursor-pointer py-2 text-sm">其他可调参数（{controls.filter((control) => !control.recommended).length}）</summary><div className="grid gap-4 pt-3 sm:grid-cols-2">{controls.filter((control) => !control.recommended).map(renderControl)}</div></details>}
-    {schemas && !controls.length && <p className="text-xs text-muted-foreground">此工作流没有可编辑的普通参数。</p>}
+    {controls.some((control) => !control.recommended) && <details><summary className="min-h-11 cursor-pointer py-2 text-sm">{t('其他可调参数（{n}）', { n: controls.filter((control) => !control.recommended).length })}</summary><div className="grid gap-4 pt-3 sm:grid-cols-2">{controls.filter((control) => !control.recommended).map(renderControl)}</div></details>}
+    {schemas && !controls.length && <p className="text-xs text-muted-foreground">{t('此工作流没有可编辑的普通参数。')}</p>}
   </div>
 }

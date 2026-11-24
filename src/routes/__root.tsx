@@ -6,14 +6,17 @@ import { RecipeDock } from '@/components/layout/RecipeDock'
 import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar'
 import { Toaster } from '@/components/ui/sonner'
 import { TooltipProvider } from '@/components/ui/tooltip'
+import { useLang } from '@/i18n'
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   component: RootLayout,
 })
 
 function RootLayout() {
+  // 切换语言时以语言为 key 重新渲染界面
+  const lang = useLang()
   return (
-    <TooltipProvider>
+    <TooltipProvider key={lang}>
       <SidebarProvider>
         <AppSidebar />
         <SidebarInset>
