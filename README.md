@@ -77,6 +77,12 @@
 - **AI 人像参考图 (`PortraitGalleryNode`)**：输出 `人像图 (IMAGE)`、`图片ID`、`人像发型描述`
 - **AI 角色三合一合成配方 (`CharacterRecipeNode`)**：单节点同时输出 `人像图`、`服装图`、`姿势图（支持 use_depth 深度图切换）`、`三合一拼图` 以及自动组装的 `中文合成Prompt` 与 `英文合成Prompt`，并内置 **6,162 条中文可视化弹窗选图器（含 🌗 深度图预览开关）**与节点内实时缩略图预览。
 
+
+### 4. 界面语言：中文（默认）/ English / ไทย
+- 页面右上角的国旗按钮可切换 **中文 / English / ไทย**，选择会保存在浏览器 `localStorage`；首次访问按浏览器语言自动选择（`th*` → 泰文，`en*` → 英文，其余一律中文）。
+- 中文为默认语言且数据不变：英文 / 泰文只是附加的显示层，界面文案在 `src/i18n/locales/`，数据标签（姿势名称、服装名称、分类、标签、发型等）在 `data/i18n/<lang>/`，按原有 id 索引；未翻译的内容自动回退为中文。
+- 发送给图像模型的提示词始终使用原始数据，与界面语言无关；安全模式（SFW）规则不变。
+
 ---
 
 ## 数据规模
@@ -140,6 +146,7 @@ git clone --depth 1 https://github.com/anhao/ai-pose-gallery-zh.git
 ├── src/
 │   ├── components/         # 通用组件、AppLayout 响应式导航、GalleryLightbox 灯箱、RecipeDock
 │   ├── routes/             # 页面路由：概览(index)、姿势(poses)、服装(costumes)、人像(portraits)、合成台(studio)、配置(settings)、指南(guide)
+│   ├── i18n/               # 界面多语言（中文默认，附加 en / th；locales/ 为界面文案）
 │   ├── services/           # 5 大 AI 图像协议客户端 (aiGenerator.ts) 与 Canvas 拼图合成 (canvasComposer.ts)
 │   ├── store/              # 全局配方、生图状态与 IndexedDB 历史管理 (studioStore.tsx)
 │   ├── lib/                # 数据加载器 (dataLoader.ts) 与 IndexedDB 工具 (idbStorage.ts)
@@ -152,6 +159,7 @@ git clone --depth 1 https://github.com/anhao/ai-pose-gallery-zh.git
 │   ├── costume.json / costume-zh.json           # 服装库原始数据 & 中文数据（1,407 条）
 │   ├── portrait.json / portrait-zh.json         # 人像库原始数据 & 中文数据（1,499 条）
 │   ├── meta-zh.json / *-meta-zh.json            # 三库中文体系分类元数据与热门榜单
+│   ├── i18n/en/ · i18n/th/                      # 英文 / 泰文数据标签（按原有 id 索引，仅用于界面显示）
 │   └── translations.csv                         # 日⇄中翻译对照表
 ├── thumbs/                 # 缩略图目录（姿势根目录 + depth/ + costume/ + portrait/）
 ├── img/                    # 高清原图目录（姿势根目录 + depth/ + costume/ + portrait/）
