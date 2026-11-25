@@ -1,4 +1,5 @@
 import type { WorkflowParameterOverrides, WorkflowScalar } from '@/types/gallery'
+import { t } from '@/i18n'
 
 export interface ParameterNode {
   class_type: string
@@ -118,7 +119,7 @@ export function getWorkflowImages(json: string, mappedNodeIds: string[], schemas
     if (mappedNodeIds.includes(nodeId) || typeof node.inputs.image !== 'string') return false
     const definition = schemas?.[node.class_type]?.input?.required?.image ?? schemas?.[node.class_type]?.input?.optional?.image
     return /^LoadImage(?:Goohai)?$/.test(node.class_type) || (schemas?.[node.class_type]?.output?.includes('IMAGE') && Array.isArray(definition) && Boolean((definition[1] as Record<string, unknown> | undefined)?.image_upload))
-  }).map(([nodeId, node]) => ({ nodeId, role: node._meta?.studio?.imageRole === 'character_sheet' ? 'character_sheet' as const : undefined, label: node._meta?.studio?.imageRole === 'character_sheet' ? '角色设定集' : typeof node._meta?.title === 'string' ? node._meta.title : `参考图 · ${nodeId}`, optional: node.class_type === 'LoadImageGoohai' })).sort((a, b) => Number(b.role === 'character_sheet') - Number(a.role === 'character_sheet'))
+  }).map(([nodeId, node]) => ({ nodeId, role: node._meta?.studio?.imageRole === 'character_sheet' ? 'character_sheet' as const : undefined, label: node._meta?.studio?.imageRole === 'character_sheet' ? t('角色设定集') : typeof node._meta?.title === 'string' ? node._meta.title : `参考图 · ${nodeId}`, optional: node.class_type === 'LoadImageGoohai' })).sort((a, b) => Number(b.role === 'character_sheet') - Number(a.role === 'character_sheet'))
 }
 
 export function validateReferenceCombinations(json: string, uploadedNodeIds: string[]): string | null {
@@ -127,8 +128,8 @@ export function validateReferenceCombinations(json: string, uploadedNodeIds: str
   const selected = JSON.stringify([...new Set(uploadedNodeIds)].sort())
   for (const combinations of declarations) {
     if (combinations.some((combination) => JSON.stringify([...new Set(combination)].sort()) === selected)) continue
-    const label = (id: string) => workflow[id]?._meta?.studio?.imageRole === 'character_sheet' ? '角色设定集' : workflow[id]?._meta?.title || ('参考图 #' + id)
-    return '当前参考图组合不受此工作流支持，可用组合：' + combinations.map((combination) => combination.map(label).join('＋')).join('、') + '。'
+    const label = (id: string) => workflow[id]?._meta?.studio?.imageRole === 'character_sheet' ? t('角色设定集') : workflow[id]?._meta?.title || t('参考图 #{id}', { id })
+    return t('当前参考图组合不受此工作流支持，可用组合：{list}。', { list: combinations.map((combination) => combination.map(label).join('＋')).join('、') })
   }
   return null
 }

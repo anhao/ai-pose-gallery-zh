@@ -8,6 +8,7 @@ import { workflowIdentity } from '@/lib/comfyWorkflowParameters'
 import { Button } from '@/components/ui/button'
 import { buildRecipePrompt } from '@/services/aiGenerator'
 import { useStudio } from '@/store/studioStore'
+import { costumeName, portraitStyle, portraitTitle, poseName, t } from '@/i18n'
 
 export function RecipeDock() {
   const { pathname } = useLocation()
@@ -38,7 +39,7 @@ export function RecipeDock() {
   const handleCopyPrompt = async () => {
     const text = buildRecipePrompt(recipe, apiConfig.stylePreset, workflowImages)
     await navigator.clipboard.writeText(text)
-    toast.success('已复制提示词')
+    toast.success(t('已复制提示词'))
   }
 
   return (
@@ -51,15 +52,15 @@ export function RecipeDock() {
               <>
                 <img
                   src={referenceImageUrl(recipe.portrait.缩略图)}
-                  alt={recipe.portrait.标题}
+                  alt={portraitTitle(recipe.portrait)}
                   className="h-8 w-7 shrink-0 rounded-md object-cover sm:h-10 sm:w-8"
                 />
                 <div className="min-w-0 max-w-full flex-1">
-                  <div className="truncate text-[11px] font-medium sm:text-xs">{recipe.portrait.发型名称}</div>
+                  <div className="truncate text-[11px] font-medium sm:text-xs">{portraitStyle(recipe.portrait)}</div>
                 </div>
                 <button
                   type="button"
-                  aria-label="清除人像参考图"
+                  aria-label={t('清除人像参考图')}
                   onClick={() => setPortrait(null)}
                   className="absolute top-1 right-1 shrink-0 rounded-full p-0.5 text-muted-foreground hover:text-foreground @md/main:static"
                 >
@@ -71,7 +72,7 @@ export function RecipeDock() {
                 <div className="flex h-8 w-7 shrink-0 items-center justify-center rounded-md bg-background/80 sm:h-10 sm:w-8">
                   <UserRoundIcon className="size-3.5" />
                 </div>
-                <span className="truncate text-[11px] sm:text-xs">人像</span>
+                <span className="truncate text-[11px] sm:text-xs">{t('人像')}</span>
               </Link>
             )}
           </div>
@@ -82,15 +83,15 @@ export function RecipeDock() {
               <>
                 <img
                   src={referenceImageUrl(recipe.costume.缩略图)}
-                  alt={recipe.costume.服装名称}
+                  alt={costumeName(recipe.costume)}
                   className="h-8 w-7 shrink-0 rounded-md object-cover sm:h-10 sm:w-8"
                 />
                 <div className="min-w-0 max-w-full flex-1">
-                  <div className="truncate text-[11px] font-medium sm:text-xs">{recipe.costume.服装名称}</div>
+                  <div className="truncate text-[11px] font-medium sm:text-xs">{costumeName(recipe.costume)}</div>
                 </div>
                 <button
                   type="button"
-                  aria-label="清除服装参考图"
+                  aria-label={t('清除服装参考图')}
                   onClick={() => setCostume(null)}
                   className="absolute top-1 right-1 shrink-0 rounded-full p-0.5 text-muted-foreground hover:text-foreground @md/main:static"
                 >
@@ -102,7 +103,7 @@ export function RecipeDock() {
                 <div className="flex h-8 w-7 shrink-0 items-center justify-center rounded-md bg-background/80 sm:h-10 sm:w-8">
                   <ShirtIcon className="size-3.5" />
                 </div>
-                <span className="truncate text-[11px] sm:text-xs">服装</span>
+                <span className="truncate text-[11px] sm:text-xs">{t('服装')}</span>
               </Link>
             )}
           </div>
@@ -113,26 +114,26 @@ export function RecipeDock() {
               <>
                 <img
                   src={referenceImageUrl(poseThumbPath(recipe.pose))}
-                  alt={recipe.pose.姿势名称}
+                  alt={poseName(recipe.pose)}
                   className="h-8 w-7 shrink-0 rounded-md object-cover sm:h-10 sm:w-8"
                 />
                 <div className="min-w-0 max-w-full flex-1">
-                  <div className="truncate text-[11px] font-medium sm:text-xs" title={recipe.pose.姿势名称}>{recipe.pose.姿势名称}</div>
+                  <div className="truncate text-[11px] font-medium sm:text-xs" title={poseName(recipe.pose)}>{poseName(recipe.pose)}</div>
                   {recipe.pose.source !== 'upload' && (
                     <button
                       type="button"
                       onClick={toggleRecipePoseDepth}
                       className="mt-0.5 inline-flex items-center gap-1 rounded bg-background/80 px-1 py-0.5 text-[10px] leading-none text-muted-foreground hover:text-foreground"
                     >
-                      <span className={!recipe.pose.useDepth ? 'font-semibold text-foreground' : ''}>白模</span>
+                      <span className={!recipe.pose.useDepth ? 'font-semibold text-foreground' : ''}>{t('白模')}</span>
                       <span>/</span>
-                      <span className={recipe.pose.useDepth ? 'font-semibold text-primary' : ''}>深度</span>
+                      <span className={recipe.pose.useDepth ? 'font-semibold text-primary' : ''}>{t('深度')}</span>
                     </button>
                   )}
                 </div>
                 <button
                   type="button"
-                  aria-label="清除姿势参考图"
+                  aria-label={t('清除姿势参考图')}
                   onClick={() => setPose(null)}
                   className="absolute top-1 right-1 shrink-0 rounded-full p-0.5 text-muted-foreground hover:text-foreground @md/main:static"
                 >
@@ -144,7 +145,7 @@ export function RecipeDock() {
                 <div className="flex h-8 w-7 shrink-0 items-center justify-center rounded-md bg-background/80 sm:h-10 sm:w-8">
                   <PersonStandingIcon className="size-3.5" />
                 </div>
-                <span className="truncate text-[11px] sm:text-xs">姿势</span>
+                <span className="truncate text-[11px] sm:text-xs">{t('姿势')}</span>
               </Link>
             )}
           </div>
@@ -153,15 +154,15 @@ export function RecipeDock() {
         <div className="flex flex-wrap items-center justify-end gap-1.5">
           <Button variant="outline" size="sm" className="h-8 px-2.5 text-xs" onClick={handleRandom}>
             <DicesIcon className="size-3.5" />
-            随机
+            {t('随机')}
           </Button>
           {count > 0 && (
             <>
-              <Button variant="outline" size="sm" className="h-8 px-2.5 text-xs" aria-label="复制提示词" onClick={handleCopyPrompt}>
+              <Button variant="outline" size="sm" className="h-8 px-2.5 text-xs" aria-label={t('复制提示词')} onClick={handleCopyPrompt}>
                 <CopyIcon className="size-3.5" />
-                <span className="hidden md:inline">复制词</span>
+                <span className="hidden md:inline">{t('复制词')}</span>
               </Button>
-              <Button variant="ghost" size="icon" className="size-8" aria-label="清空参考图" onClick={clearRecipe}>
+              <Button variant="ghost" size="icon" className="size-8" aria-label={t('清空参考图')} onClick={clearRecipe}>
                 <Trash2Icon className="size-3.5" />
               </Button>
             </>
@@ -171,12 +172,12 @@ export function RecipeDock() {
               {isGenerating ? (
                 <>
                   <LoaderCircleIcon className="size-3.5 animate-spin" />
-                  生成中…
+                  {t('生成中…')}
                 </>
               ) : (
                 <>
                   <SparklesIcon className="size-3.5" />
-                  合成 ({count})
+                  {t('合成 ({count})', { count })}
                 </>
               )}
             </Link>

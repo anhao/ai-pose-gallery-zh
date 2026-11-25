@@ -27,6 +27,7 @@ import { poseImagePath, poseThumbPath } from '@/lib/recipeImages'
 import { cn } from '@/lib/utils'
 import { useStudio } from '@/store/studioStore'
 import type { PoseGroup, PoseItem } from '@/types/gallery'
+import { localSearchText, poseName, t, term } from '@/i18n'
 
 export const Route = createFileRoute('/poses')({
   staticData: { title: '动作姿势库' },
@@ -77,7 +78,7 @@ function PosesPage() {
       if (category !== 'all' && g.category !== category) return false
       return g.items.some((it) => {
         if (angle && it.角度 !== angle) return false
-        if (q && !`${it.姿势名称} ${it.id} ${it.分类} ${it.姿势编号} ${it.体系}`.toLowerCase().includes(q)) return false
+        if (q && !`${it.姿势名称} ${it.id} ${it.分类} ${it.姿势编号} ${it.体系} ${localSearchText([poseName(it), it.分类, it.体系])}`.toLowerCase().includes(q)) return false
         return true
       })
     })
@@ -88,7 +89,7 @@ function PosesPage() {
       if (activeLine && it.体系 !== activeLine) return false
       if (category !== 'all' && it.分类 !== category) return false
       if (angle && it.角度 !== angle) return false
-      if (q && !`${it.姿势名称} ${it.id} ${it.分类} ${it.姿势编号} ${it.体系}`.toLowerCase().includes(q)) return false
+      if (q && !`${it.姿势名称} ${it.id} ${it.分类} ${it.姿势编号} ${it.体系} ${localSearchText([poseName(it), it.分类, it.体系])}`.toLowerCase().includes(q)) return false
       return true
     })
   }, [baseItems, activeLine, category, angle, q])
@@ -139,7 +140,7 @@ function PosesPage() {
   return (
     <>
       <PageHeader
-        title="动作姿势库"
+        title={t('动作姿势库')}
         actions={
           <div className="flex flex-wrap items-center gap-2">
             {/* 素体白模 / 深度图 切换 */}
@@ -154,7 +155,7 @@ function PosesPage() {
                     : 'text-muted-foreground hover:text-foreground'
                 )}
               >
-                素体白模
+                {t('素体白模')}
               </button>
               <button
                 type="button"
@@ -166,7 +167,7 @@ function PosesPage() {
                     : 'text-muted-foreground hover:text-foreground'
                 )}
               >
-                深度图 (Depth)
+                {t('深度图 (Depth)')}
               </button>
             </div>
 
@@ -179,7 +180,7 @@ function PosesPage() {
                   setShown(60)
                 }}
               >
-                分组
+                {t('分组')}
               </Button>
               <Button
                 variant={viewMode === 'single' ? 'default' : 'outline'}
@@ -189,7 +190,7 @@ function PosesPage() {
                   setShown(96)
                 }}
               >
-                单张
+                {t('单张')}
               </Button>
             </div>
           </div>
@@ -210,7 +211,7 @@ function PosesPage() {
             activeLine === '' ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground hover:text-foreground'
           )}
         >
-          全部 ({baseItems.length})
+          {t('全部')} ({baseItems.length})
         </button>
         {visibleLines.map((l) => {
           const cnt = data.items.filter((x) => x.体系 === l).length
@@ -229,7 +230,7 @@ function PosesPage() {
                 activeLine === l ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground hover:text-foreground'
               )}
             >
-              {l} ({cnt}){isNsfw ? ' · 18+' : ''}
+              {term(l)} ({cnt}){isNsfw ? ' · 18+' : ''}
             </button>
           )
         })}
@@ -245,7 +246,7 @@ function PosesPage() {
             }
             className="shrink-0 rounded-full border border-dashed border-rose-500/40 bg-rose-500/5 px-3.5 py-1.5 text-sm font-medium text-rose-600 transition-colors hover:bg-rose-500/10 dark:text-rose-400"
           >
-            🔒 解锁 18+ 性感/双人系 ({hiddenNsfwCount})
+            🔒 {t('解锁 18+ 性感/双人系')} ({hiddenNsfwCount})
           </button>
         )}
       </div>
@@ -260,7 +261,7 @@ function PosesPage() {
               setQuery(e.target.value)
               setShown(60)
             }}
-            placeholder="搜索姿势名称、编号 (如 P001)、分类或 ID…"
+            placeholder={t('搜索姿势名称、编号 (如 P001)、分类或 ID…')}
             className="bg-background pl-9"
           />
         </div>
@@ -273,13 +274,13 @@ function PosesPage() {
           }}
         >
           <SelectTrigger className="w-full bg-background">
-            <SelectValue placeholder="动作分类" />
+            <SelectValue placeholder={t('动作分类')} />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">全部动作分类</SelectItem>
+            <SelectItem value="all">{t('全部动作分类')}</SelectItem>
             {categories.map((c) => (
               <SelectItem key={c} value={c}>
-                {c}
+                {term(c)}
               </SelectItem>
             ))}
           </SelectContent>
@@ -299,20 +300,20 @@ function PosesPage() {
                 angle === a ? 'bg-primary text-primary-foreground' : 'text-muted-foreground hover:text-foreground'
               )}
             >
-              {a || '全部视角'}
+              {a ? term(a) : t('全部视角')}
             </button>
           ))}
         </div>
 
         <Button variant="ghost" size="sm" onClick={resetFilters} className="h-9">
           <RotateCcwIcon className="size-3.5" />
-          重置
+          {t('重置')}
         </Button>
       </div>
 
       {/* 列表区 */}
       {totalCount === 0 ? (
-        <EmptyState title="没有找到匹配的姿势" description="试试更换搜索词或重置筛选条件" />
+        <EmptyState title={t('没有找到匹配的姿势')} description={t('试试更换搜索词或重置筛选条件')} />
       ) : viewMode === 'group' ? (
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
           {filteredGroups.slice(0, shown).map((group, gIdx) => {
@@ -329,7 +330,7 @@ function PosesPage() {
                 >
                   <img
                     src={`/${poseThumbPath(item, poseDepthMode)}`}
-                    alt={`${group.name} · ${item.角度}`}
+                    alt={`${poseName(group)} · ${term(item.角度)}`}
                     loading="lazy"
                     className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
                   />
@@ -338,7 +339,7 @@ function PosesPage() {
                       {group.number}
                     </span>
                     <span className="rounded-md bg-white/90 px-1.5 py-0.5 text-[10px] font-semibold text-zinc-900 shadow-xs">
-                      {item.角度}
+                      {term(item.角度)}
                     </span>
                   </div>
                   <button
@@ -353,15 +354,15 @@ function PosesPage() {
                     )}
                   >
                     {picked ? <CheckIcon className="size-3" /> : <PlusIcon className="size-3" />}
-                    {picked ? '已选' : '加入配方'}
+                    {picked ? t('已选') : t('加入配方')}
                   </button>
                 </div>
 
                 <div className="px-1.5 pt-2.5 pb-1.5">
-                  <div className="line-clamp-2 min-h-[36px] text-xs leading-snug font-semibold">{group.name}</div>
+                  <div className="line-clamp-2 min-h-[36px] text-xs leading-snug font-semibold">{poseName(group)}</div>
                   <div className="mt-1 flex items-center justify-between text-[11px] text-muted-foreground">
-                    <span className="truncate">{group.system}</span>
-                    <span className="shrink-0 font-medium text-foreground/80">{group.category}</span>
+                    <span className="truncate">{term(group.system)}</span>
+                    <span className="shrink-0 font-medium text-foreground/80">{term(group.category)}</span>
                   </div>
                 </div>
 
@@ -384,11 +385,11 @@ function PosesPage() {
                       >
                         <img
                           src={`/${poseThumbPath(angItem, poseDepthMode)}`}
-                          alt={ang}
+                          alt={term(ang)}
                           loading="lazy"
                           className="aspect-square w-full rounded-md object-cover"
                         />
-                        <span className="mt-0.5 block text-center text-[9px] text-muted-foreground">{ang}</span>
+                        <span className="mt-0.5 block text-center text-[9px] text-muted-foreground">{term(ang)}</span>
                       </button>
                     )
                   })}
@@ -413,7 +414,7 @@ function PosesPage() {
                 >
                   <img
                     src={`/${poseThumbPath(item, poseDepthMode)}`}
-                    alt={item.姿势名称}
+                    alt={poseName(item)}
                     loading="lazy"
                     className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
                   />
@@ -422,7 +423,7 @@ function PosesPage() {
                       {item.姿势编号}
                     </span>
                     <span className="rounded-md bg-white/90 px-1.5 py-0.5 text-[10px] font-semibold text-zinc-900">
-                      {item.角度}
+                      {term(item.角度)}
                     </span>
                   </div>
                   <button
@@ -437,11 +438,11 @@ function PosesPage() {
                     )}
                   >
                     {picked ? <CheckIcon className="size-3" /> : <PlusIcon className="size-3" />}
-                    {picked ? '已选' : '加入配方'}
+                    {picked ? t('已选') : t('加入配方')}
                   </button>
                 </div>
                 <div className="px-1.5 pt-2 pb-1">
-                  <div className="line-clamp-2 text-xs font-semibold">{item.姿势名称}</div>
+                  <div className="line-clamp-2 text-xs font-semibold">{poseName(item)}</div>
                   <div className="mt-1 truncate font-mono text-[10px] text-muted-foreground">{item.id}</div>
                 </div>
               </div>
@@ -453,7 +454,7 @@ function PosesPage() {
       {shown < totalCount && (
         <div className="flex justify-center pt-2">
           <Button variant="outline" onClick={() => setShown((s) => s + 60)}>
-            加载更多（剩余 {totalCount - shown} {viewMode === 'group' ? '组' : '张'}）
+            {t('加载更多（剩余 {n} {unit}）', { n: totalCount - shown, unit: viewMode === 'group' ? t('组') : t('张') })}
           </Button>
         </div>
       )}
@@ -469,13 +470,13 @@ function PosesPage() {
             return (
               <div className="grid md:grid-cols-[1fr_300px]">
                 <div className="relative flex max-h-[78dvh] min-h-[min(360px,65dvh)] items-center justify-center bg-muted/60 p-4">
-                  <ZoomViewport imageUrl={`/${activeImgPath}`} alt={it.姿势名称} className="min-h-0 h-[58dvh]" />
+                  <ZoomViewport imageUrl={`/${activeImgPath}`} alt={poseName(it)} className="min-h-0 h-[58dvh]" />
                   {grp && grp.order.length > 1 && (
                     <>
                       <Button
                         variant="secondary"
                         size="icon"
-                        aria-label="上一张图片" className="absolute top-1/2 left-3 min-h-11 min-w-11 -translate-y-1/2 rounded-full shadow"
+                        aria-label={t('上一张图片')} className="absolute top-1/2 left-3 min-h-11 min-w-11 -translate-y-1/2 rounded-full shadow"
                         onClick={() => {
                           const idx = grp.order.findIndex((x) => x.id === it.id)
                           const next = grp.order[(idx - 1 + grp.order.length) % grp.order.length]
@@ -487,7 +488,7 @@ function PosesPage() {
                       <Button
                         variant="secondary"
                         size="icon"
-                        aria-label="下一张图片" className="absolute top-1/2 right-3 min-h-11 min-w-11 -translate-y-1/2 rounded-full shadow"
+                        aria-label={t('下一张图片')} className="absolute top-1/2 right-3 min-h-11 min-w-11 -translate-y-1/2 rounded-full shadow"
                         onClick={() => {
                           const idx = grp.order.findIndex((x) => x.id === it.id)
                           const next = grp.order[(idx + 1) % grp.order.length]
@@ -505,7 +506,7 @@ function PosesPage() {
                     <DialogHeader>
                       <div className="flex flex-wrap items-center gap-2">
                         <Badge>{it.姿势编号}</Badge>
-                        <Badge variant="outline">{it.角度}</Badge>
+                        <Badge variant="outline">{term(it.角度)}</Badge>
                         <div className="ml-auto inline-flex items-center rounded-md border bg-muted p-0.5">
                           <button
                             type="button"
@@ -515,7 +516,7 @@ function PosesPage() {
                               !poseDepthMode ? 'bg-background text-foreground shadow-2xs' : 'text-muted-foreground'
                             )}
                           >
-                            白模
+                            {t('白模')}
                           </button>
                           <button
                             type="button"
@@ -525,11 +526,11 @@ function PosesPage() {
                               poseDepthMode ? 'bg-primary text-primary-foreground shadow-2xs' : 'text-muted-foreground'
                             )}
                           >
-                            深度图
+                            {t('深度图')}
                           </button>
                         </div>
                       </div>
-                      <DialogTitle className="mt-2 text-lg leading-snug">{it.姿势名称}</DialogTitle>
+                      <DialogTitle className="mt-2 text-lg leading-snug">{poseName(it)}</DialogTitle>
                     </DialogHeader>
 
                     <div className="flex items-center justify-between rounded-lg bg-muted px-2.5 py-1.5 font-mono text-xs">
@@ -538,7 +539,7 @@ function PosesPage() {
                         type="button"
                         onClick={() => {
                           void navigator.clipboard.writeText(it.id)
-                          toast.success('已复制姿势 ID')
+                          toast.success(t('已复制姿势 ID'))
                         }}
                         className="ml-2 shrink-0 text-primary hover:underline"
                       >
@@ -548,7 +549,7 @@ function PosesPage() {
 
                     {grp && (
                       <div>
-                        <div className="mb-1.5 text-xs font-medium text-muted-foreground">切换视角（← / →）</div>
+                        <div className="mb-1.5 text-xs font-medium text-muted-foreground">{t('切换视角（← / →）')}</div>
                         <div className="grid grid-cols-5 gap-1.5">
                           {ANGLES.map((ang) => {
                             const angItem = grp.angles[ang]
@@ -563,8 +564,8 @@ function PosesPage() {
                                   angItem.id === it.id ? 'border-primary bg-muted' : 'border-transparent opacity-70'
                                 )}
                               >
-                                <img src={`/${poseThumbPath(angItem, poseDepthMode)}`} alt={ang} className="aspect-square w-full rounded object-cover" />
-                                <span className="mt-0.5 block text-center text-[10px]">{ang}</span>
+                                <img src={`/${poseThumbPath(angItem, poseDepthMode)}`} alt={term(ang)} className="aspect-square w-full rounded object-cover" />
+                                <span className="mt-0.5 block text-center text-[10px]">{term(ang)}</span>
                               </button>
                             )
                           })}
@@ -573,13 +574,13 @@ function PosesPage() {
                     )}
 
                     <dl className="grid grid-cols-[68px_1fr] gap-y-1.5 text-xs">
-                      <dt className="text-muted-foreground">所属体系</dt>
-                      <dd className="font-medium">{it.体系}</dd>
-                      <dt className="text-muted-foreground">动作分类</dt>
-                      <dd className="font-medium">{it.分类}</dd>
-                      <dt className="text-muted-foreground">当前模式</dt>
-                      <dd className="font-medium">{poseDepthMode ? '深度图 (Depth Map)' : '3D 素体白模'}</dd>
-                      <dt className="text-muted-foreground">原图尺寸</dt>
+                      <dt className="text-muted-foreground">{t('所属体系')}</dt>
+                      <dd className="font-medium">{term(it.体系)}</dd>
+                      <dt className="text-muted-foreground">{t('动作分类')}</dt>
+                      <dd className="font-medium">{term(it.分类)}</dd>
+                      <dt className="text-muted-foreground">{t('当前模式')}</dt>
+                      <dd className="font-medium">{poseDepthMode ? t('深度图 (Depth Map)') : t('3D 素体白模')}</dd>
+                      <dt className="text-muted-foreground">{t('原图尺寸')}</dt>
                       <dd className="font-medium">900 × 1200 {poseDepthMode ? 'WebP' : 'PNG'}</dd>
                     </dl>
                   </div>
@@ -587,19 +588,19 @@ function PosesPage() {
                   <div className="flex flex-col gap-2">
                     <Button onClick={() => togglePose(it)} variant={picked ? 'secondary' : 'default'}>
                       {picked ? <CheckIcon className="size-4" /> : <PlusIcon className="size-4" />}
-                      {picked ? '已在角色配方中（点击移除）' : `加入角色配方（${poseDepthMode ? '深度图' : '白模'}）`}
+                      {picked ? t('已在角色配方中（点击移除）') : t('加入角色配方（{mode}）', { mode: poseDepthMode ? t('深度图') : t('白模') })}
                     </Button>
                     <div className="grid grid-cols-2 gap-2">
                       <Button variant="outline" size="sm" asChild>
                         <a href={`/${activeImgPath}`} download={`${it.id}${poseDepthMode ? '_depth.webp' : '.png'}`}>
                           <DownloadIcon className="size-3.5" />
-                          下载{poseDepthMode ? '深度图' : ' PNG'}
+                          {poseDepthMode ? t('下载深度图') : t('下载 PNG')}
                         </a>
                       </Button>
                       <Button variant="outline" size="sm" asChild>
                         <a href={`/${activeImgPath}`} target="_blank" rel="noopener noreferrer">
                           <ExternalLinkIcon className="size-3.5" />
-                          新窗口原图
+                          {t('新窗口原图')}
                         </a>
                       </Button>
                     </div>

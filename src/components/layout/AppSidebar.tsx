@@ -15,6 +15,7 @@ import {
 } from '@/components/ui/sidebar'
 import { useStudio } from '@/store/studioStore'
 import { activeNavTo, navGroups } from './nav'
+import { t } from '@/i18n'
 
 export function AppSidebar() {
   const pathname = useLocation({ select: (l) => l.pathname })
@@ -34,7 +35,7 @@ export function AppSidebar() {
                 </div>
                 <div className="grid flex-1 text-left leading-tight">
                   <span className="truncate text-sm font-semibold">POSE &amp; CHARACTER</span>
-                  <span className="truncate text-xs text-muted-foreground">AI 角色三合一参考台</span>
+                  <span className="truncate text-xs text-muted-foreground">{t('AI 角色三合一参考台')}</span>
                 </div>
               </Link>
             </SidebarMenuButton>
@@ -45,14 +46,14 @@ export function AppSidebar() {
       <SidebarContent>
         {navGroups.map((group) => (
           <SidebarGroup key={group.label}>
-            <SidebarGroupLabel>{group.label}</SidebarGroupLabel>
+            <SidebarGroupLabel>{t(group.label)}</SidebarGroupLabel>
             <SidebarMenu>
               {group.items.map((item) => (
                 <SidebarMenuItem key={item.to}>
-                  <SidebarMenuButton asChild isActive={item.to === active} tooltip={item.title}>
+                  <SidebarMenuButton asChild isActive={item.to === active} tooltip={t(item.title)}>
                     <Link to={item.to}>
                       <item.icon />
-                      <span className="flex-1 truncate">{item.title}</span>
+                      <span className="flex-1 truncate">{t(item.title)}</span>
                       {item.badge && (
                         <Badge variant="secondary" className="ml-auto h-5 px-1.5 text-[10px] font-medium">
                           {item.badge}
@@ -70,22 +71,22 @@ export function AppSidebar() {
       <SidebarFooter>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton size="lg" asChild tooltip="当前角色配方">
+            <SidebarMenuButton size="lg" asChild tooltip={t('当前角色配方')}>
               <Link to="/studio" className="bg-sidebar-accent/70 hover:bg-sidebar-accent">
                 <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-primary/10 text-primary">
                   <SparklesIcon className="size-4" />
                 </div>
                 <div className="grid flex-1 text-left text-xs leading-tight">
-                  <span className="truncate font-semibold">角色配方槽 ({count}/3)</span>
+                  <span className="truncate font-semibold">{t('角色配方槽 ({count}/3)', { count })}</span>
                   <span className="truncate text-[11px] text-muted-foreground">
-                    {count === 0 ? '未选择 · 点击去捏人' : '点击进入 AI 合成台'}
+                    {count === 0 ? t('未选择 · 点击去捏人') : t('点击进入 AI 合成台')}
                   </span>
                 </div>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
           <SidebarMenuItem>
-            <SidebarMenuButton size="sm" asChild tooltip="访问 GitHub 仓库">
+            <SidebarMenuButton size="sm" asChild tooltip={t('访问 GitHub 仓库')}>
               <a
                 href="https://github.com/anhao/ai-pose-gallery-zh"
                 target="_blank"
