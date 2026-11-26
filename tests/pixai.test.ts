@@ -26,9 +26,9 @@ test('fixed model, ordered references, seed and single-output payload without cr
   assert.equal(body.promptHelper, 'disable')
   assert.ok(!('width' in body) && !('height' in body) && !('apiKey' in body))
   assert.deepEqual(body.contextImages, ['portrait', 'costume', 'pose'])
-  assert.throws(() => pixAiSources({ ...recipe, extraImages: [{ id: 'x', name: 'extra', url: 'x' }] }), /附加/)
-  assert.throws(() => pixAiSources({ ...recipe, pose: null }), /三张/)
-  assert.throws(() => pixAiBaseUrl('https://attacker.test'), /官方/)
+  assert.throws(() => pixAiSources({ ...recipe, extraImages: [{ id: 'x', name: 'extra', url: 'x' }] }), /tối đa ba ảnh/)
+  assert.throws(() => pixAiSources({ ...recipe, pose: null }), /ba ảnh/)
+  assert.throws(() => pixAiBaseUrl('https://attacker.test'), /chính thức/)
   assert.throws(() => pixAiPayload('test', { ...DEFAULT_PIXAI_PARAMS, seed: NaN }, ['a', 'b', 'c']), /Seed/)
 })
 
@@ -103,17 +103,17 @@ test('resume only queries original task, reports terminal states and preserves d
     assert.equal(new Headers(init?.headers).has('authorization'), false)
     return new Response('', { status: 503 })
   }) as typeof fetch
-  await assert.rejects(resumePixAiTask({ task, apiKey: 'key' }), /图片下载失败/)
+  await assert.rejects(resumePixAiTask({ task, apiKey: 'key' }), /Tải ảnh thất bại/)
   assert.equal(count, 2)
-  await assert.rejects(resumePixAiTask({ task: { ...task, baseUrl: 'https://attacker.test' }, apiKey: 'key' }), /官方/)
+  await assert.rejects(resumePixAiTask({ task: { ...task, baseUrl: 'https://attacker.test' }, apiKey: 'key' }), /chính thức/)
 })
 
 test('image preflight rejects unsupported MIME and oversized bytes with slot name', async () => {
   globalThis.fetch = (async () => new Response('bad', { headers: { 'content-type': 'text/html' } })) as typeof fetch
-  await assert.rejects(preparePixAiImage('/ref', '服装'), /服装读取失败/)
+  await assert.rejects(preparePixAiImage('/ref', '服装'), /Không đọc được ảnh Trang phục/)
   bitmap()
   globalThis.fetch = (async () => new Response(oversizedPng(), { headers: { 'content-type': 'image/png' } })) as typeof fetch
-  await assert.rejects(preparePixAiImage('/ref', '姿势'), /姿势读取失败.*10 MiB/)
+  await assert.rejects(preparePixAiImage('/ref', '姿势'), /Không đọc được ảnh Tư thế.*10 MiB/)
 })
 
 test('Flash shares reference contract, omits unsupported negatives and uses server default mode', async () => {
@@ -196,9 +196,9 @@ test('actual raster bytes fix generic CDN MIME and reject spoofed image response
   assert.equal((await preparePixAiImage('/cdn-image', '服装')).type, 'image/png')
   assert.equal(await pixAiImageMime(new Blob(['<html>fallback</html>'], { type: 'image/png' })), null)
   globalThis.fetch = (async () => new Response('<html>fallback</html>', { headers: { 'content-type': 'text/html' } })) as typeof fetch
-  await assert.rejects(preparePixAiImage('/missing-image', '服装'), /服装读取失败.*网页而非图片/)
+  await assert.rejects(preparePixAiImage('/missing-image', '服装'), /Không đọc được ảnh Trang phục.*trang web thay vì ảnh/)
   globalThis.fetch = (async () => new Response('not found', { status: 404 })) as typeof fetch
-  await assert.rejects(preparePixAiImage('/missing-image', '服装'), /服装读取失败.*素材文件不存在/)
+  await assert.rejects(preparePixAiImage('/missing-image', '服装'), /Không đọc được ảnh Trang phục.*Không tìm thấy tệp tài nguyên/)
 })
 
 test('AVIF references are converted to a supported upload MIME', async () => {

@@ -3,6 +3,7 @@ import { DEFAULT_API_CONFIG, mergeStoredConfig, shouldEnableProxyByDefault } fro
 import { migrateActiveTask, taskHistoryId, type ActiveTask } from '@/lib/generationTask'
 import { createContext, type ReactNode, useContext, useEffect, useEffectEvent, useRef, useState } from 'react'
 import { toast } from '@/lib/notifications'
+import { randomUuid } from '@/lib/uuid'
 import { isNsfwCostume, isNsfwPose } from '@/api/gallery'
 import {
   AlertDialog,
@@ -469,7 +470,7 @@ export function StudioProvider({ children }: { children: ReactNode }) {
     return write
   }
   const addHistory = (item: Omit<GenerationHistoryItem, 'id' | 'createdAt'>) => {
-    void persistHistory((current) => [{ ...item, id: crypto.randomUUID(), createdAt: Date.now() }, ...current].slice(0, 30)).catch(() => toast.error(t('历史记录保存失败')))
+    void persistHistory((current) => [{ ...item, id: randomUuid(), createdAt: Date.now() }, ...current].slice(0, 30)).catch(() => toast.error(t('历史记录保存失败')))
   }
   const removeHistoryItem = (id: string) => {
     void persistHistory((current) => current.filter((x) => x.id !== id)).then(() => toast.success(t('已删除该条记录'))).catch(() => toast.error(t('删除失败')))
@@ -568,7 +569,8 @@ export function StudioProvider({ children }: { children: ReactNode }) {
     if (activeTaskRef.current) { toast.error(t('存在待确认任务，请先恢复或明确放弃记录')); return }
     const configSnapshot = apiConfig
     const recipeSnapshot = apiConfig.activeProvider === 'pixai' ? { ...recipe, workflowImages: {}, workflowImagesIdentity: undefined } : recipe
-    const finalPrompt = overridePrompt ?? customPrompt ?? buildRecipePrompt(recipeSnapshot, configSnapshot.stylePreset, configSnapshot.activeProvider === 'comfyui' && recipeSnapshot.workflowImagesIdentity === workflowIdentity(configSnapshot.comfyuiParams.workflowJson) ? Object.values(recipeSnapshot.workflowImages || {}) : [])
+    // customPrompt 为空字符串时也回退到配方提示词，避免 ComfyUI 提交空 prompt
+    const finalPrompt = (overridePrompt ?? customPrompt ?? '').trim() || buildRecipePrompt(recipeSnapshot, configSnapshot.stylePreset, configSnapshot.activeProvider === 'comfyui' && recipeSnapshot.workflowImagesIdentity === workflowIdentity(configSnapshot.comfyuiParams.workflowJson) ? Object.values(recipeSnapshot.workflowImages || {}) : [])
     let record: ActiveTask = { provider: configSnapshot.activeProvider, baseUrl: configSnapshot.providers[configSnapshot.activeProvider].baseUrl, prompt: finalPrompt, summary: [recipeSnapshot.portrait?.发型名称, recipeSnapshot.costume?.服装名称, recipeSnapshot.pose?.姿势名称].filter(Boolean).join(' + ') || '自定义合成' }
     isGeneratingRef.current = true
     setIsGenerating(true)

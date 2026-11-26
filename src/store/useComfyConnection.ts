@@ -40,7 +40,7 @@ export function useComfyConnection(baseUrl: string, apiKey: string, enabled: boo
     if (!baseUrl.trim() || isOffline()) {
       const value: ComfyConnectionState = { status: !baseUrl.trim() ? 'notconfigured' : 'offline' }
       setSaved({ scope, value })
-      if (manual) toast.error(COMFY_CONNECTION_LABELS[value.status], { id: TOAST_ID })
+      if (manual) toast.error(t(COMFY_CONNECTION_LABELS[value.status]), { id: TOAST_ID })
       return
     }
     const controller = new AbortController()
@@ -54,7 +54,7 @@ export function useComfyConnection(baseUrl: string, apiKey: string, enabled: boo
       setSaved({ scope, value })
       if (manual) {
         if (value.status === 'connected') toast.success(t('HTTP 连接成功：{info}', { info: value.info ?? '' }), { id: TOAST_ID })
-        else toast.error(value.error || COMFY_CONNECTION_LABELS[value.status], { id: TOAST_ID, duration: 10000 })
+        else toast.error(value.error || t(COMFY_CONNECTION_LABELS[value.status]), { id: TOAST_ID, duration: 10000 })
       }
     }
     try {

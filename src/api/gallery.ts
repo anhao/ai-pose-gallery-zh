@@ -1,3 +1,4 @@
+import { t } from '@/i18n'
 import { queryOptions } from '@tanstack/react-query'
 import type { CostumeItem, PortraitItem, PoseGroup, PoseItem } from '@/types/gallery'
 
@@ -79,7 +80,7 @@ export const posesQuery = queryOptions({
   staleTime: Infinity,
   queryFn: async () => {
     const res = await fetch('/data/pose-zh.json')
-    if (!res.ok) throw new Error(`加载姿势数据失败: HTTP ${res.status}`)
+    if (!res.ok) throw new Error(t('加载姿势数据失败: HTTP {status}', { status: res.status }))
     const data = (await res.json()) as PoseItem[]
     return buildPoseGroups(data)
   },
@@ -91,7 +92,7 @@ export const costumesQuery = queryOptions({
   queryFn: async () => {
     const lists = await Promise.all(['/data/costume-zh.json', '/data/costume-anime-zh.json', '/data/costume-gia-anime-zh.json', '/data/costume-shisei-zh.json'].map(async (url) => {
       const res = await fetch(url)
-      if (!res.ok) throw new Error(`加载服装数据失败: HTTP ${res.status}`)
+      if (!res.ok) throw new Error(t('加载服装数据失败: HTTP {status}', { status: res.status }))
       return (await res.json()) as CostumeItem[]
     }))
     return lists.flat()
@@ -103,7 +104,7 @@ export const portraitsQuery = queryOptions({
   staleTime: Infinity,
   queryFn: async () => {
     const res = await fetch('/data/portrait-zh.json')
-    if (!res.ok) throw new Error(`加载人像数据失败: HTTP ${res.status}`)
+    if (!res.ok) throw new Error(t('加载人像数据失败: HTTP {status}', { status: res.status }))
     return (await res.json()) as PortraitItem[]
   },
 })

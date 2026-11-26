@@ -1,5 +1,7 @@
 import type { ComfyTaskHandle } from '@/services/aiGenerator'
 import type { PixAiTaskHandle } from '@/services/pixai'
+import { randomUuid } from '@/lib/uuid'
+
 import type { GenerationSnapshot, ImageProviderId } from '@/types/gallery'
 
 export type TaskHandle = ComfyTaskHandle | PixAiTaskHandle
@@ -18,6 +20,6 @@ export function migrateActiveTask(record: ActiveTask): ActiveTask {
   return { ...record, provider: 'comfyui', task: { ...record.task, provider: 'comfyui' } }
 }
 export function taskHistoryId(task?: TaskHandle): string {
-  if (!task) return crypto.randomUUID()
+  if (!task) return randomUuid()
   return task.provider === 'pixai' ? `pixai:${task.baseUrl}:${task.taskId}` : `comfy:${task.baseUrl}:${task.promptId}`
 }

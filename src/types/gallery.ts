@@ -85,7 +85,7 @@ export interface RecipeState {
   extraImages?: ExtraReferenceImage[]
 }
 
-export type ImageProviderId = 'gemini' | 'gpt' | 'qwen' | 'doubao' | 'comfyui' | 'pixai'
+export type ImageProviderId = 'gemini' | 'gpt' | 'qwen' | 'doubao' | 'byteplus' | 'comfyui' | 'pixai'
 
 export interface ProviderEndpointConfig {
   baseUrl: string
@@ -105,7 +105,7 @@ export interface WorkflowParameterOverrides {
 
 export interface ComfyUiParams {
   parameterOverrides?: WorkflowParameterOverrides
-  workflowPreset: 'qwen2509_3img' | 'qwen2509_2img' | 'qwen21_3img' | 'qwen21_2img' | 'custom'
+  workflowPreset: 'qwen2509_3img' | 'qwen2509_2img' | 'qwen21_3img' | 'qwen21_2img' | 'qwen21_omni_i2i' | 'custom'
   workflowJson: string
   promptNodeId: string
   portraitNodeId: string

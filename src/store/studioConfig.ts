@@ -5,7 +5,7 @@ import { DEFAULT_PIXAI_PARAMS, PIXAI_MODEL, PIXAI_MODELS } from '@/services/pixa
 const COMFY_CONFIG_VERSION = 3
 
 export const shouldEnableProxyByDefault = (provider?: ImageProviderId) =>
-  provider === 'qwen' || provider === 'doubao' || provider === 'pixai'
+  provider === 'qwen' || provider === 'doubao' || provider === 'byteplus' || provider === 'pixai'
 
 export const DEFAULT_API_CONFIG: ApiConfig = {
   activeProvider: 'gemini',
@@ -33,10 +33,16 @@ export const DEFAULT_API_CONFIG: ApiConfig = {
       model: PROVIDER_META.qwen.models[0].value,
       customModel: '',
     },
-    doubao: {
+      doubao: {
       baseUrl: PROVIDER_META.doubao.defaultBaseUrl,
       apiKey: '',
       model: PROVIDER_META.doubao.models[0].value,
+      customModel: '',
+    },
+    byteplus: {
+      baseUrl: PROVIDER_META.byteplus.defaultBaseUrl,
+      apiKey: '',
+      model: PROVIDER_META.byteplus.models[0].value,
       customModel: '',
     },
     comfyui: {
@@ -134,6 +140,7 @@ export function mergeStoredConfig(raw: unknown): ApiConfig {
       gpt: { ...DEFAULT_API_CONFIG.providers.gpt, ...obj.providers?.gpt },
       qwen: { ...DEFAULT_API_CONFIG.providers.qwen, ...obj.providers?.qwen },
       doubao: { ...DEFAULT_API_CONFIG.providers.doubao, ...obj.providers?.doubao },
+      byteplus: { ...DEFAULT_API_CONFIG.providers.byteplus, ...obj.providers?.byteplus },
       pixai: { ...DEFAULT_API_CONFIG.providers.pixai, ...obj.providers?.pixai, model: PIXAI_MODELS.some((entry) => entry.value === obj.providers?.pixai?.model) ? obj.providers!.pixai.model : PIXAI_MODEL, customModel: '' },
       comfyui: comfy.provider,
     },

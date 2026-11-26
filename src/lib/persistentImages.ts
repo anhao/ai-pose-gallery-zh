@@ -1,16 +1,17 @@
+import { t } from '@/i18n'
 import type { RecipeState } from '@/types/gallery'
 import { referenceImageUrl } from './recipeImages'
 
 export async function durableImage(url: string): Promise<string> {
   if (url.startsWith('data:image/')) return url
   const response = await fetch(referenceImageUrl(url))
-  if (!response.ok) throw new Error('图片下载失败')
+  if (!response.ok) throw new Error(t('图片下载失败'))
   const blob = await response.blob()
-  if (!blob.type.startsWith('image/')) throw new Error('引用不是图片')
+  if (!blob.type.startsWith('image/')) throw new Error(t('引用不是图片'))
   return new Promise((resolve, reject) => {
     const reader = new FileReader()
     reader.onload = () => resolve(String(reader.result))
-    reader.onerror = () => reject(new Error('图片读取失败'))
+    reader.onerror = () => reject(new Error(t('图片读取失败')))
     reader.readAsDataURL(blob)
   })
 }

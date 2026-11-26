@@ -1,8 +1,12 @@
-import { generateWithPixAi, PIXAI_MODELS, type PixAiTaskHandle, type PreparedPixAiGeneration } from './pixai'
+import { generateWithPixAi, PIXAI_MODELS, pixAiImageMime, type PixAiTaskHandle, type PreparedPixAiGeneration } from './pixai'
 import type { ApiConfig, ExtraReferenceImage, ImageProviderId, RecipeState } from '@/types/gallery'
+import { proxyErrorMessage } from '@/lib/proxyError'
+import { randomUuid } from '@/lib/uuid'
 import { getGptInputFidelity } from '@/lib/gptImageCapabilities'
 import { applyWorkflowOverrides, getWorkflowImages, validateReferenceCombinations, workflowIdentity, type ComfyObjectInfo } from '@/lib/comfyWorkflowParameters'
 import { poseImagePath, referenceImageUrl } from '@/lib/recipeImages'
+import { t } from '@/i18n'
+import qwen21OmniI2iWorkflow from '@/workflows/qwen_image_2.1_omni_i2i.api.json'
 import qwen2509ThreeImageWorkflow from '@/workflows/qwen_image_edit_2509_3img.api.json'
 
 export interface ProviderModelOption {
@@ -87,6 +91,23 @@ export const PROVIDER_META: Record<
       { value: 'custom', label: '自定义模型 ID / Endpoint' },
     ],
   },
+  byteplus: {
+    id: 'byteplus',
+    name: 'BytePlus ModelArk（火山国际版）',
+    shortName: 'ModelArk',
+    defaultBaseUrl: 'https://ark.ap-southeast.bytepluses.com',
+    docUrl: 'https://docs.byteplus.com/en/docs/modelark',
+    models: [
+      { value: 'dola-seedream-5-0-flash-260915', label: 'dola-seedream-5-0-flash-260915' },
+      { value: 'seedream-5-0-260128', label: 'seedream-5-0-260128' },
+      { value: 'dola-seedream-5-5-261028', label: 'dola-seedream-5-5-261028' },
+      { value: 'dola-seedream-5-0-pro-260628', label: 'dola-seedream-5-0-pro-260628' },
+      { value: 'seedream-4-5-251128', label: 'seedream-4-5-251128' },
+      { value: 'seedream-4-0-250828', label: 'seedream-4-0-250828' },
+      { value: 'seedream-3-0-t2i-250415', label: 'seedream-3-0-t2i-250415' },
+      { value: 'custom', label: '自定义模型 ID / Endpoint' },
+    ],
+  },
   pixai: {
     id: 'pixai', name: 'PixAI', shortName: 'PixAI',
     defaultBaseUrl: 'https://api.pixai.art',
@@ -161,6 +182,9 @@ export const STYLE_PRESETS: Record<string, { label: string; prompt: string }> = 
 // 按实际传入模型的图片顺序动态生成「图1 / 图2 / 图3...」明确指代，支持附加上传图片
 // 用自然语言逐项描述（人物 / 服装 / 姿势），实测比堆砌要点更能让多图编辑模型还原服装、避免照搬人体模型线条
 const PHOTO_STYLES = new Set(['realistic', 'fashion', 'film'])
+
+// BytePlus ModelArk：仅 Seedream 4/5 非 t2i 模型接受 sequential_image_generation，dola-* / 3.0 t2i 会返回 HTTP 400（实探测得）
+export const byteplusSupportsSequential = (model: string) => /^seedream-[45]-/.test(model) && !model.includes('-t2i-')
 
 export function buildRecipePrompt(recipe: RecipeState, stylePreset = 'realistic', workflowImages: ExtraReferenceImage[] = []): string {
   const styleInfo = STYLE_PRESETS[stylePreset] ?? STYLE_PRESETS.realistic
@@ -242,7 +266,7 @@ export function buildRecipePrompt(recipe: RecipeState, stylePreset = 'realistic'
 export function fileToDataUrl(file: File): Promise<string> {
   return new Promise((resolve, reject) => {
     const reader = new FileReader()
-    reader.onerror = () => reject(new Error('读取文件失败'))
+    reader.onerror = () => reject(new Error(t('读取文件失败')))
     reader.onload = () => {
       const img = new Image()
       img.onload = () => {
@@ -254,7 +278,7 @@ export function fileToDataUrl(file: File): Promise<string> {
         c.getContext('2d')!.drawImage(img, 0, 0, c.width, c.height)
         resolve(c.toDataURL('image/png'))
       }
-      img.onerror = () => reject(new Error('解析图片失败'))
+      img.onerror = () => reject(new Error(t('解析图片失败')))
       img.src = reader.result as string
     }
     reader.readAsDataURL(file)
@@ -266,7 +290,7 @@ function loadImage(src: string): Promise<HTMLImageElement> {
     const img = new Image()
     img.crossOrigin = 'anonymous'
     img.onload = () => resolve(img)
-    img.onerror = () => reject(new Error(`加载图片失败: ${src}`))
+    img.onerror = () => reject(new Error(t('加载图片失败: {src}', { src })))
     img.src = referenceImageUrl(src)
   })
 }
@@ -305,7 +329,7 @@ export async function stitchRecipeCanvas(recipe: RecipeState): Promise<string> {
   }
 
   if (!list.length) {
-    throw new Error('请至少选择或上传 1 张参考图')
+    throw new Error(t('请至少选择或上传 1 张参考图'))
   }
 
   const imgs = await Promise.all(list.map((x) => loadImage(x.src)))
@@ -404,6 +428,47 @@ function dataUrlToBlob(dataUrl: string): Blob {
   return new Blob([arr], { type: mime })
 }
 
+// ModelArk Seedream 仅接受 jpeg/png/webp/bmp/tiff/gif 输入图，且引用 URL 必须可公网拉取
+// （https://docs.byteplus.com/en/docs/modelark/image-generation-tutorial）。
+const ARK_INPUT_MIMES = ['image/png', 'image/jpeg', 'image/webp', 'image/bmp', 'image/tiff', 'image/gif']
+
+export function arkInputRefSupported(src: string): boolean {
+  const m = /^data:image\/([a-z0-9.+-]+);/i.exec(src)
+  return m !== null && ARK_INPUT_MIMES.includes(`image/${m[1].toLowerCase()}`)
+}
+
+/** byteplus/doubao 专用：把任意引用图统一转为 Ark 可接受的 data URL（默认 JPEG，重编码同时压缩 payload）。 */
+export async function toArkImageRef(src: string): Promise<string> {
+  if (arkInputRefSupported(src)) return src
+  // Node 测试环境无 canvas/createImageBitmap：data URL 原样透传，URL 引用则明确报错
+  if (typeof document === 'undefined' || typeof createImageBitmap !== 'function') {
+    if (/^data:image\//i.test(src)) return src
+    throw new Error(t('[ModelArk] 参考图读取失败：{src}', { src: src.slice(0, 80) }))
+  }
+  try {
+    const response = await fetch(referenceImageUrl(src))
+    if (!response.ok) throw new Error(`HTTP ${response.status}`)
+    const blob = await response.blob()
+    const mime = await pixAiImageMime(blob)
+    // mime 为 null（如 text/html）时直接交给解码器，解码失败即报错
+    const bitmap = await createImageBitmap(mime && blob.type !== mime ? blob.slice(0, blob.size, mime) : blob)
+    try {
+      // 上限 2048：Ark 单图支持到 36M 像素，但 2048 已远超参考图需要，且保证 base64 后远小于代理 10 MiB 上限
+      const maxSide = 2048
+      const scale = Math.min(1, maxSide / Math.max(bitmap.width, bitmap.height))
+      const canvas = document.createElement('canvas')
+      canvas.width = Math.max(1, Math.round(bitmap.width * scale))
+      canvas.height = Math.max(1, Math.round(bitmap.height * scale))
+      canvas.getContext('2d')!.drawImage(bitmap, 0, 0, canvas.width, canvas.height)
+      const dataUrl = canvas.toDataURL('image/jpeg', 0.92)
+      if (!dataUrl.startsWith('data:image/jpeg;base64,')) throw new Error(t('图片转换失败'))
+      return dataUrl
+    } finally { bitmap.close() }
+  } catch (error) {
+    throw new Error(t('[ModelArk] {label}读取失败：{reason}', { label: t('参考图'), reason: error instanceof Error ? error.message : t('无法读取图片') }))
+  }
+}
+
 async function smartFetch(
   targetUrl: string,
   init: RequestInit,
@@ -476,7 +541,7 @@ function extractUniversalImage(json: any): string | null {
 type ComfyNode = { class_type: string; inputs: Record<string, any>; _meta?: { title?: string; studio?: { imageRole?: string } } }
 type ComfyWorkflow = Record<string, ComfyNode>
 
-export type ComfyPresetId = 'qwen2509_3img' | 'qwen2509_2img' | 'qwen21_3img' | 'qwen21_2img'
+export type ComfyPresetId = 'qwen2509_3img' | 'qwen2509_2img' | 'qwen21_3img' | 'qwen21_2img' | 'qwen21_omni_i2i'
 
 export interface ComfyNodeMappings {
   promptNodeId: string
@@ -505,6 +570,7 @@ export function defaultComfyBaseUrl(): string {
 export function comfyCandidateUrls(current = ''): string[] {
   const list = [
     current.trim(),
+    '/comfy', // 同源代理（部署环境可能已配置），Cloudflare Pages 的 HTML 兜底会被 testComfyConnection 拒绝
     isLocalDevHost() ? defaultComfyBaseUrl() : '',
     'http://127.0.0.1:8000',
     'http://127.0.0.1:8188',
@@ -645,6 +711,21 @@ export const COMFYUI_WORKFLOW_TEMPLATES: Record<
     workflow: buildQwen21Workflow(false),
     defaults: { promptNodeId: '9', portraitNodeId: '1', costumeNodeId: 'none', poseNodeId: '2', stitchedNodeId: 'none' },
   },
+  // 单参考图（拼图）i2i：Qwen-Image 2.1 Omni Uncensored GGUF + Turbo 8 步 LoRA，需运行 install-qwen-image-2.1.sh
+  qwen21_omni_i2i: {
+    label: 'Qwen-Image 2.1 Omni 拼图参考 i2i（Turbo 8 步，需另装 Omni 模型）',
+    workflow: qwen21OmniI2iWorkflow as ComfyWorkflow,
+    defaults: { promptNodeId: '12', portraitNodeId: '1', costumeNodeId: '2', poseNodeId: '3', stitchedNodeId: 'none' },
+  },
+}
+
+// Match bundled node metadata, not mutable inputs; never translate imported annotations or renamed nodes.
+function presentationIdentity(workflow: ComfyWorkflow): string {
+  return workflowIdentity(JSON.stringify(Object.fromEntries(Object.entries(workflow).map(([id, node]) => [id, { class_type: node?.class_type, inputs: {}, _meta: node?._meta }]))))
+}
+const bundledPresentationIds = new Set(Object.values(COMFYUI_WORKFLOW_TEMPLATES).map(({ workflow }) => presentationIdentity(workflow)))
+export function workflowPresentation(workflow: ComfyWorkflow): (text: string) => string {
+  return bundledPresentationIds.has(presentationIdentity(workflow)) ? t : (text) => text
 }
 
 export interface ComfyParsedNodes {
@@ -657,18 +738,18 @@ export interface ComfyParsedNodes {
 
 export function parseComfyWorkflowNodes(workflowJson: string): ComfyParsedNodes {
   if (!workflowJson.trim()) {
-    return { valid: false, isUiFormat: false, error: '工作流 JSON 为空', imageNodes: [], promptNodes: [] }
+    return { valid: false, isUiFormat: false, error: t('工作流 JSON 为空'), imageNodes: [], promptNodes: [] }
   }
   try {
     const parsed = JSON.parse(workflowJson)
     if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
-      return { valid: false, isUiFormat: false, error: '无效的 JSON 对象', imageNodes: [], promptNodes: [] }
+      return { valid: false, isUiFormat: false, error: t('无效的 JSON 对象'), imageNodes: [], promptNodes: [] }
     }
     if (Array.isArray(parsed.nodes) && Array.isArray(parsed.links)) {
       return {
         valid: false,
         isUiFormat: true,
-        error: '检测到普通画布格式 JSON，请在 ComfyUI 中使用「工作流 → 导出 (API)」得到 API 格式 JSON',
+        error: t('检测到普通画布格式 JSON，请在 ComfyUI 中使用「工作流 → 导出 (API)」得到 API 格式 JSON'),
         imageNodes: [],
         promptNodes: [],
       }
@@ -697,14 +778,14 @@ export function parseComfyWorkflowNodes(workflowJson: string): ComfyParsedNodes 
     }
 
     if (imageNodes.length === 0 && promptNodes.length === 0) {
-      return { valid: false, isUiFormat: false, error: '未在 JSON 中找到任何 ComfyUI 节点', imageNodes, promptNodes }
+      return { valid: false, isUiFormat: false, error: t('未在 JSON 中找到任何 ComfyUI 节点'), imageNodes, promptNodes }
     }
     return { valid: true, isUiFormat: false, imageNodes, promptNodes }
   } catch (err: any) {
     return {
       valid: false,
       isUiFormat: false,
-      error: `JSON 解析失败: ${err?.message || '语法错误'}`,
+      error: t('JSON 解析失败: {reason}', { reason: err?.message || t('语法错误') }),
       imageNodes: [],
       promptNodes: [],
     }
@@ -759,23 +840,23 @@ export function normalizeComfyBase(baseUrl: string): string {
 
 function describeComfyNetworkError(baseUrl: string, timedOut: boolean): string {
   if (timedOut) {
-    return `[ComfyUI] 请求 ${baseUrl} 超时：ComfyUI 可能正忙或无响应，请查看 ComfyUI 终端日志。`
+    return t('[ComfyUI] 请求 {url} 超时：ComfyUI 可能正忙或无响应，请查看 ComfyUI 终端日志。', { url: baseUrl })
   }
   if (baseUrl.startsWith('/')) {
-    return `[ComfyUI] 本地代理 ${baseUrl} 无法连通 ComfyUI：请确认 ComfyUI 已启动，且端口与启动网页时的 COMFYUI_URL 一致（默认 http://127.0.0.1:8000）。`
+    return t('[ComfyUI] 本地代理 {url} 无法连通 ComfyUI：请确认 ComfyUI 已启动，且端口与启动网页时的 COMFYUI_URL 一致（默认 http://127.0.0.1:8000）。', { url: baseUrl })
   }
   const origin = typeof window !== 'undefined' ? window.location.origin : ''
   const reasons = [
-    `① ComfyUI 未启动，或地址/端口不对（Desktop 版默认 8000，便携版默认 8188）`,
-    `② 跨域 (CORS) 被拦截：ComfyUI 启动参数需包含 --enable-cors-header "${origin}"（该参数只能填一个来源）`,
+    t('① ComfyUI 未启动，或地址/端口不对（Desktop 版默认 8000，便携版默认 8188）'),
+    t('② 跨域 (CORS) 被拦截：ComfyUI 启动参数需包含 --enable-cors-header "{origin}"（该参数只能填一个来源）', { origin }),
   ]
   if (typeof window !== 'undefined' && window.location.protocol === 'https:') {
-    reasons.push('③ 浏览器「本地网络访问」权限被拒绝：请点击地址栏左侧图标允许访问本地设备')
+    reasons.push(t('③ 浏览器「本地网络访问」权限被拒绝：请点击地址栏左侧图标允许访问本地设备'))
     if (/^http:/i.test(baseUrl) && !/\/\/(127\.0\.0\.1|localhost|\[::1\])/i.test(baseUrl)) {
-      reasons.push('④ HTTPS 页面不能访问局域网 HTTP 地址（混合内容限制），请改用 127.0.0.1 或本地运行本站')
+      reasons.push(t('④ HTTPS 页面不能访问局域网 HTTP 地址（混合内容限制），请改用 127.0.0.1 或本地运行本站'))
     }
   }
-  return `[ComfyUI] 无法连接 ${baseUrl}。可能原因：\n${reasons.join('\n')}`
+  return `${t('[ComfyUI] 无法连接 {url}。可能原因：', { url: baseUrl })}\n${reasons.join('\n')}`
 }
 
 export async function comfyFetch(
@@ -822,15 +903,15 @@ export async function testComfyConnection(baseUrl: string, apiKey = ''): Promise
   const cleanUrl = normalizeComfyBase(baseUrl)
   const res = await comfyFetch(cleanUrl, '/system_stats', {}, apiKey, 8000)
   if (res.status === 401 || res.status === 403) {
-    throw new Error(`[ComfyUI] ${cleanUrl} 拒绝访问 (HTTP ${res.status})，请检查 API Key / 鉴权设置`)
+    throw new Error(t('[ComfyUI] {url} 拒绝访问 (HTTP {status})，请检查 API Key / 鉴权设置', { url: cleanUrl, status: res.status }))
   }
-  if (!res.ok) throw new Error(`[ComfyUI] ${cleanUrl}/system_stats 返回 HTTP ${res.status}，该地址可能不是 ComfyUI`)
+  if (!res.ok) throw new Error(t('[ComfyUI] {url}/system_stats 返回 HTTP {status}，该地址可能不是 ComfyUI', { url: cleanUrl, status: res.status }))
   const data = await readJsonSafe(res)
-  if (!data?.system) throw new Error(`[ComfyUI] ${cleanUrl} 的响应不是 ComfyUI 格式，请检查地址`)
-  const ver = data.system.comfyui_version || '未知版本'
+  if (!data?.system) throw new Error(t('[ComfyUI] {url} 的响应不是 ComfyUI 格式，请检查地址', { url: cleanUrl }))
+  const ver = data.system.comfyui_version || t('未知版本')
   const dev = data.devices?.[0]
-  const gpu = dev?.name ? String(dev.name).replace(/^cuda:\d+\s*/, '').replace(/\s*:\s*\w+$/, '') : '本地设备'
-  const vram = dev?.vram_total ? ` · 显存 ${(dev.vram_total / 1024 ** 3).toFixed(1)} GB` : ''
+  const gpu = dev?.name ? String(dev.name).replace(/^cuda:\d+\s*/, '').replace(/\s*:\s*\w+$/, '') : t('本地设备')
+  const vram = dev?.vram_total ? t(' · 显存 {n} GB', { n: (dev.vram_total / 1024 ** 3).toFixed(1) }) : ''
   return `ComfyUI ${ver} · ${gpu}${vram}`
 }
 
@@ -874,13 +955,13 @@ const baseName = (s: string) => s.split(/[\\/]/).pop()!.toLowerCase()
 
 export async function fetchComfyObjectInfo(baseUrl: string, apiKey: string, workflowJson: string): Promise<ComfyObjectInfo> {
   const parsed = parseComfyWorkflowNodes(workflowJson)
-  if (!parsed.valid) throw new Error(parsed.error || '工作流 JSON 无效')
+  if (!parsed.valid) throw new Error(parsed.error || t('工作流 JSON 无效'))
   const workflow: ComfyWorkflow = JSON.parse(workflowJson)
   const base = normalizeComfyBase(baseUrl)
   const classes = Array.from(new Set(Object.values(workflow).map((node) => node.class_type).filter(Boolean)))
   const entries = await Promise.all(classes.map(async (cls) => {
     const res = await comfyFetch(base, `/object_info/${encodeURIComponent(cls)}`, {}, apiKey, 15000)
-    if (!res.ok) throw new Error(`[ComfyUI] 无法读取节点「${cls}」的定义（HTTP ${res.status}），请检查连接地址、访问令牌和网关接口权限。`)
+    if (!res.ok) throw new Error(t('[ComfyUI] 无法读取节点「{cls}」的定义（HTTP {status}），请检查连接地址、访问令牌和网关接口权限。', { cls, status: res.status }))
     const json = await readJsonSafe(res)
     return [cls, json?.[cls]] as const
   }))
@@ -896,11 +977,12 @@ export async function checkComfyWorkflow(
 ): Promise<ComfyCheckResult> {
   const parsedInfo = parseComfyWorkflowNodes(workflowJson)
   if (!parsedInfo.valid) {
-    return { ok: false, errors: [parsedInfo.error || '工作流 JSON 无效'], warnings: [], fixes: [] }
+    return { ok: false, errors: [parsedInfo.error || t('工作流 JSON 无效')], warnings: [], fixes: [] }
   }
   const wf: ComfyWorkflow = JSON.parse(workflowJson)
   const info = objectInfo ?? await fetchComfyObjectInfo(baseUrl, apiKey, workflowJson)
 
+  const display = workflowPresentation(wf)
   const errors: string[] = []
   const warnings: string[] = []
   const fixes: string[] = []
@@ -909,11 +991,11 @@ export async function checkComfyWorkflow(
 
   for (const [id, node] of Object.entries(wf)) {
     if (!node?.class_type) continue
-    const title = node._meta?.title || node.class_type
+    const title = display(node._meta?.title || node.class_type)
     const def = info[node.class_type]
     if (!def) {
       errors.push(
-        `缺少节点「${node.class_type}」（节点 ${id}：${title}）。请在 ComfyUI Manager 安装对应的自定义节点，或升级 ComfyUI。`
+        t('缺少节点「{cls}」（节点 {id}：{title}）。请在 ComfyUI Manager 安装对应的自定义节点，或升级 ComfyUI。', { cls: node.class_type, id, title })
       )
       continue
     }
@@ -929,13 +1011,13 @@ export async function checkComfyWorkflow(
           for (let i = 0; i < (template.min ?? 0); i++) {
             const child = template.names?.[i] ?? `${template.prefix}${i}`
             if (!(`${name}.${child}` in inputs)) {
-              errors.push(`节点 ${id}「${title}」缺少必填输入 ${name}.${child}`)
+              errors.push(t('节点 {id}「{title}」缺少必填输入 {name}', { id, title, name: `${name}.${child}` }))
             }
           }
         }
         continue
       }
-      if (!(name in inputs)) errors.push(`节点 ${id}「${title}」缺少必填输入 ${name}`)
+      if (!(name in inputs)) errors.push(t('节点 {id}「{title}」缺少必填输入 {name}', { id, title, name }))
     }
 
     for (const [name, value] of Object.entries(inputs)) {
@@ -946,7 +1028,7 @@ export async function checkComfyWorkflow(
       if (name === 'image' && mapped.has(id) && imageLoaders.has(id)) continue
       if (node.class_type === 'LoadImage' && name === 'image') {
         if (!mapped.has(id) && !options.includes(value)) {
-          warnings.push(`节点 ${id}「${title}」引用的图片 ${value} 不在 ComfyUI input 目录中，且未映射到人像/服装/姿势槽位`)
+          warnings.push(t('节点 {id}「{title}」引用的图片 {value} 不在 ComfyUI input 目录中，且未映射到人像/服装/姿势槽位', { id, title, value }))
         }
         continue
       }
@@ -954,12 +1036,12 @@ export async function checkComfyWorkflow(
       const sameFile = options.find((o) => baseName(o) === baseName(value))
       if (sameFile) {
         inputs[name] = sameFile
-        fixes.push(`节点 ${id}「${title}」${name}：${value} → ${sameFile}（自动修正路径）`)
+        fixes.push(t('节点 {id}「{title}」{name}：{value} → {fixed}（自动修正路径）', { id, title, name, value, fixed: sameFile }))
         continue
       }
       const sample = options.slice(0, 12).join('、')
       errors.push(
-        `节点 ${id}「${title}」的 ${name} = ${value} 在本机不存在（通常是模型文件未安装或路径不同）。本机可选：${sample || '（空）'}${options.length > 12 ? ' …' : ''}`
+        t('节点 {id}「{title}」的 {name} = {value} 在本机不存在（通常是模型文件未安装或路径不同）。本机可选：{options}', { id, title, name, value, options: `${sample || t('（空）')}${options.length > 12 ? ' …' : ''}` })
       )
     }
   }
@@ -977,20 +1059,20 @@ function translateNodeError(er: any): string {
   const detail = er?.details ? `（${er.details}）` : ''
   switch (er?.type) {
     case 'value_not_in_list':
-      return `${er.extra_info?.input_name ?? '输入'} 的值不在本机可选列表中${detail}——通常是模型文件不存在或路径不同`
+      return t('{name} 的值不在本机可选列表中{detail}——通常是模型文件不存在或路径不同', { name: er.extra_info?.input_name ?? t('输入'), detail })
     case 'required_input_missing':
-      return `缺少必填输入 ${er.extra_info?.input_name ?? ''}`
+      return t('缺少必填输入 {name}', { name: er.extra_info?.input_name ?? '' })
     case 'invalid_input_type':
     case 'return_type_mismatch':
-      return `节点连线类型不匹配${detail}`
+      return t('节点连线类型不匹配{detail}', { detail })
     case 'value_bigger_than_max':
     case 'value_smaller_than_min':
-      return `参数超出范围${detail}`
+      return t('参数超出范围{detail}', { detail })
     case 'image_not_found':
     case 'custom_validation_failed':
-      return `${er.message || '校验失败'}${detail}`
+      return t('图片或参数校验失败：{detail}', { detail: `${er.message || ''}${detail}` })
     default:
-      return `${er?.message || '校验失败'}${detail}`
+      return `${er?.message || t('校验失败')}${detail}`
   }
 }
 
@@ -999,51 +1081,51 @@ function formatComfyPromptError(json: any, wf: ComfyWorkflow, status: number): s
   const e = json?.error
   if (e) {
     if (e.type === 'missing_node_type' || /does not exist|not found/i.test(String(e.message))) {
-      parts.push(`缺少节点类型：${e.details || e.message}。请在 ComfyUI Manager 安装缺失的自定义节点或升级 ComfyUI`)
+      parts.push(t('缺少节点类型：{detail}。请在 ComfyUI Manager 安装缺失的自定义节点或升级 ComfyUI', { detail: e.details || e.message }))
     } else if (e.type === 'prompt_no_outputs') {
-      parts.push('工作流没有输出节点（SaveImage / PreviewImage）')
+      parts.push(t('工作流没有输出节点（SaveImage / PreviewImage）'))
     } else if (e.type !== 'prompt_outputs_failed_validation') {
       parts.push(`${e.message || e.type}${e.details ? `：${e.details}` : ''}`)
     }
   }
   for (const [id, ne] of Object.entries<any>(json?.node_errors || {})) {
-    const title = wf[id]?._meta?.title || ne?.class_type || id
+    const title = workflowPresentation(wf)(wf[id]?._meta?.title || ne?.class_type || id)
     for (const er of ne?.errors || []) {
-      parts.push(`节点 ${id}「${title}」：${translateNodeError(er)}`)
+      parts.push(t('节点 {id}「{title}」：{error}', { id, title, error: translateNodeError(er) }))
     }
   }
   if (!parts.length) parts.push(json?._raw || `HTTP ${status}`)
-  return `[ComfyUI] 提交工作流失败：\n${parts.join('\n')}`
+  return `${t('[ComfyUI] 提交工作流失败：')}\n${parts.join('\n')}`
 }
 
 function formatExecutionError(messages: any[], wf: ComfyWorkflow): { text: string; oom: boolean } {
   const errMsg = (messages || []).find((m) => m?.[0] === 'execution_error')?.[1]
   if (errMsg) {
-    const title = wf[errMsg.node_id]?._meta?.title || errMsg.node_type || errMsg.node_id
+    const title = workflowPresentation(wf)(wf[errMsg.node_id]?._meta?.title || errMsg.node_type || errMsg.node_id)
     const raw = `${errMsg.exception_type || ''} ${errMsg.exception_message || ''}`
     if (/out of memory|OutOfMemory|CUDA error: out of memory|allocat/i.test(raw)) {
       return {
         oom: true,
         text:
-          `[ComfyUI] 显存不足（节点 ${errMsg.node_id}「${title}」）。已请求 ComfyUI 释放显存。\n` +
-          '建议：关闭其他占用显卡的程序；在工作流中把「按姿势图比例确定输出尺寸」节点的 megapixels 从 1.0 调低到 0.6；然后重试。',
+          `${t('[ComfyUI] 显存不足（节点 {id}「{title}」）。已请求 ComfyUI 释放显存。', { id: errMsg.node_id, title })}\n` +
+          t('建议：关闭其他占用显卡的程序；在工作流中把「按姿势图比例确定输出尺寸」节点的 megapixels 从 1.0 调低到 0.6；然后重试。'),
       }
     }
     return {
       oom: false,
-      text: `[ComfyUI] 执行出错（节点 ${errMsg.node_id}「${title}」）：${String(errMsg.exception_message || raw).trim().slice(0, 400)}`,
+      text: t('[ComfyUI] 执行出错（节点 {id}「{title}」）：{detail}', { id: errMsg.node_id, title, detail: String(errMsg.exception_message || raw).trim().slice(0, 400) }),
     }
   }
   if ((messages || []).some((m) => m?.[0] === 'execution_interrupted')) {
-    return { oom: false, text: '[ComfyUI] 任务已被中断（可能在 ComfyUI 界面中点击了取消）' }
+    return { oom: false, text: t('[ComfyUI] 任务已被中断（可能在 ComfyUI 界面中点击了取消）') }
   }
-  return { oom: false, text: `[ComfyUI] 工作流执行出错：${JSON.stringify(messages || '').slice(0, 300)}` }
+  return { oom: false, text: t('[ComfyUI] 工作流执行出错：{detail}', { detail: JSON.stringify(messages || '').slice(0, 300) }) }
 }
 
 function blobToDataUrl(blob: Blob): Promise<string> {
   return new Promise((resolve, reject) => {
     const reader = new FileReader()
-    reader.onerror = () => reject(new Error('读取生成结果失败'))
+    reader.onerror = () => reject(new Error(t('读取生成结果失败')))
     reader.onload = () => resolve(reader.result as string)
     reader.readAsDataURL(blob)
   })
@@ -1059,7 +1141,7 @@ async function uploadImageToComfy(
   try {
     dataUrl = await srcToPngDataUrl(src)
   } catch {
-    throw new Error(`读取参考图失败：${src.slice(0, 80)}`)
+    throw new Error(t('读取参考图失败：{src}', { src: src.slice(0, 80) }))
   }
   const form = new FormData()
   form.append('image', dataUrlToBlob(dataUrl), `${filenamePrefix}_${Date.now()}.png`)
@@ -1068,7 +1150,7 @@ async function uploadImageToComfy(
 
   const res = await comfyFetch(baseUrl, '/upload/image', { method: 'POST', body: form }, apiKey, 60000)
   if (!res.ok) {
-    throw new Error(`[ComfyUI] 上传参考图失败 (HTTP ${res.status})：${(await res.text()).slice(0, 200)}`)
+    throw new Error(t('[ComfyUI] 上传参考图失败 (HTTP {status})：{detail}', { status: res.status, detail: (await res.text()).slice(0, 200) }))
   }
   const json = await res.json()
   return json.subfolder ? `${json.subfolder}/${json.name}` : json.name
@@ -1104,7 +1186,7 @@ export class ComfySubmissionRejectedError extends Error {
 
 export class ComfySubmissionUnknownError extends Error {
   constructor() {
-    super('[ComfyUI] 提交结果未知：服务端可能已接受任务，请先检查队列与历史记录，勿直接重复提交。')
+    super(t('[ComfyUI] 提交结果未知：服务端可能已接受任务，请先检查队列与历史记录，勿直接重复提交。'))
     this.name = 'ComfySubmissionUnknownError'
   }
 }
@@ -1213,7 +1295,7 @@ async function trackComfyTask(params: {
   signal?.addEventListener('abort', abort, { once: true })
   if (signal?.aborted) abort()
   const deadline = setTimeout(abort, Math.max(1, params.timeoutSec || 600) * 1000)
-  let progress: GenerationProgress = { stage: 'queue', message: '正在确认 ComfyUI 任务状态…', connection: 'connecting' }
+  let progress: GenerationProgress = { stage: 'queue', message: t('正在确认 ComfyUI 任务状态…'), connection: 'connecting' }
   const report = (next: Partial<GenerationProgress>) => {
     progress = { ...progress, ...next }
     params.onProgress?.(progress)
@@ -1253,7 +1335,7 @@ async function trackComfyTask(params: {
       const headers = new Headers()
       if (apiKey.trim()) headers.set('Authorization', `Bearer ${apiKey.trim()}`)
       const res = await fetch(`${task.baseUrl}${path}`, { headers, signal: request.signal })
-      if (res.status === 401 || res.status === 403) throw new ComfyTaskError(`[ComfyUI] 访问被拒绝 (HTTP ${res.status})，请检查凭据和来源后恢复任务。`, task, 'auth')
+      if (res.status === 401 || res.status === 403) throw new ComfyTaskError(t('[ComfyUI] 访问被拒绝 (HTTP {status})，请检查凭据和来源后恢复任务。', { status: res.status }), task, 'auth')
       if (!res.ok) throw new Error(`HTTP ${res.status}`)
       return image ? await res.blob() : await res.json()
     } finally { clearTimeout(timer); ctrl.signal.removeEventListener('abort', stop) }
@@ -1270,12 +1352,12 @@ async function trackComfyTask(params: {
       }
       if (!d || d.prompt_id !== task.promptId) return
       if (msg.type === 'executing' && d.node) {
-        const title = workflow[d.node]?._meta?.title || workflow[d.node]?.class_type || d.node
-        report({ stage: 'running', message: `正在执行：${title}`, percent: undefined })
+        const title = workflowPresentation(workflow)(workflow[d.node]?._meta?.title || workflow[d.node]?.class_type || d.node)
+        report({ stage: 'running', message: t('正在执行：{title}', { title }), percent: undefined })
       } else if (msg.type === 'progress' && d.max > 0) {
-        report({ stage: 'running', message: `当前节点（${d.value}/${d.max}）`, percent: Math.round(d.value / d.max * 100) })
+        report({ stage: 'running', message: t('当前节点（{value}/{max}）', { value: d.value, max: d.max }), percent: Math.round(d.value / d.max * 100) })
       } else if (msg.type === 'execution_start' || msg.type === 'execution_cached' || msg.type === 'executed') {
-        report({ stage: 'running', message: msg.type === 'execution_cached' ? '正在复用已缓存节点…' : msg.type === 'executed' ? '节点已完成，继续执行工作流…' : 'ComfyUI 开始执行任务…', percent: undefined })
+        report({ stage: 'running', message: msg.type === 'execution_cached' ? t('正在复用已缓存节点…') : msg.type === 'executed' ? t('节点已完成，继续执行工作流…') : t('ComfyUI 开始执行任务…'), percent: undefined })
       }
       if (['execution_success', 'execution_error', 'execution_interrupted'].includes(msg.type) || (msg.type === 'executing' && d.node === null)) {
         if (msg.type === 'execution_error' || msg.type === 'execution_interrupted') terminalFailure = [[msg.type, d]]
@@ -1301,7 +1383,7 @@ async function trackComfyTask(params: {
         try { item = (await read(`/history/${encodeURIComponent(task.promptId)}`))?.[task.promptId] } catch (error) {
           if (error instanceof ComfyTaskError) throw error
           checkTrackingSignal(ctrl.signal)
-          report({ message: '任务状态查询暂时失败，正在重试…' })
+          report({ message: t('任务状态查询暂时失败，正在重试…') })
           nextHistoryAt = Math.min(nextHistoryAt, Date.now() + 3000)
         }
         if (item?.status?.status_str === 'error') throw new ComfyTaskError(formatExecutionError(item.status.messages, workflow).text, task, 'failed')
@@ -1321,20 +1403,20 @@ async function trackComfyTask(params: {
             }
           }
           if (!outImg) {
-            if (item.status?.completed) throw new ComfyTaskError('[ComfyUI] 工作流完成但没有输出图片，请检查 SaveImage 节点。', task, 'failed')
+            if (item.status?.completed) throw new ComfyTaskError(t('[ComfyUI] 工作流完成但没有输出图片，请检查 SaveImage 节点。'), task, 'failed')
             nextHistoryAt = Math.min(nextHistoryAt, Date.now() + 3000)
           } else {
-            report({ stage: 'download', message: '正在获取生成结果…', percent: undefined })
+            report({ stage: 'download', message: t('正在获取生成结果…'), percent: undefined })
             const qs = new URLSearchParams({ filename: outImg.filename, subfolder: outImg.subfolder || '', type: outImg.type || 'output' })
             let blob: Blob | undefined
             try { blob = await read(`/view?${qs.toString()}`, true) } catch (error) {
               if (error instanceof ComfyTaskError) throw error
               checkTrackingSignal(ctrl.signal)
-              report({ message: '图片下载暂时失败，正在重试…' })
+              report({ message: t('图片下载暂时失败，正在重试…') })
               nextHistoryAt = Math.min(nextHistoryAt, Date.now() + 3000)
             }
             if (blob) {
-              if (!blob.size || !blob.type.startsWith('image/')) throw new ComfyTaskError('[ComfyUI] 生成结果不是有效图片，可恢复后重新下载。', task)
+              if (!blob.size || !blob.type.startsWith('image/')) throw new ComfyTaskError(t('[ComfyUI] 生成结果不是有效图片，可恢复后重新下载。'), task)
               const imageUrl = await blobToDataUrl(blob)
               checkTrackingSignal(ctrl.signal)
               return { imageUrl, modelUsed: 'ComfyUI 工作流', providerUsed: 'comfyui' }
@@ -1348,14 +1430,14 @@ async function trackComfyTask(params: {
         try {
           const q = await read('/queue')
           const pending = (q?.queue_pending || []).findIndex((x: any) => x?.[1] === task.promptId)
-          if (pending >= 0) report({ stage: 'queue', message: `排队中，前方还有 ${pending + (q.queue_running?.length || 0)} 个任务`, percent: undefined })
+          if (pending >= 0) report({ stage: 'queue', message: t('排队中，前方还有 {n} 个任务', { n: pending + (q.queue_running?.length || 0) }), percent: undefined })
           else if ((q?.queue_running || []).some((x: any) => x?.[1] === task.promptId)) {
-            if (progress.stage !== 'running') report({ stage: 'running', message: 'ComfyUI 正在执行任务…', percent: undefined })
-          } else report({ message: '暂未在队列或历史中找到任务，继续确认…', percent: undefined })
+            if (progress.stage !== 'running') report({ stage: 'running', message: t('ComfyUI 正在执行任务…'), percent: undefined })
+          } else report({ message: t('暂未在队列或历史中找到任务，继续确认…'), percent: undefined })
         } catch (error) {
           if (error instanceof ComfyTaskError) throw error
           checkTrackingSignal(ctrl.signal)
-          report({ message: '队列查询暂时失败，正在等待任务状态…' })
+          report({ message: t('队列查询暂时失败，正在等待任务状态…') })
         }
       }
       await wait(Math.min(nextHistoryAt, queueRequested ? nextQueueAt : Infinity) - Date.now())
@@ -1363,8 +1445,8 @@ async function trackComfyTask(params: {
   } catch (error) {
     if (error instanceof ComfyTaskError) throw error
     const message = ctrl.signal.aborted
-      ? signal?.aborted ? '[ComfyUI] 已停止跟踪，后台任务继续执行，可恢复查看。' : '[ComfyUI] 等待结果超时，后台任务继续执行，可恢复查看。'
-      : error instanceof Error ? error.message : '[ComfyUI] 跟踪任务失败，可恢复查看。'
+      ? signal?.aborted ? t('[ComfyUI] 已停止跟踪，后台任务继续执行，可恢复查看。') : t('[ComfyUI] 等待结果超时，后台任务继续执行，可恢复查看。')
+      : error instanceof Error ? error.message : t('[ComfyUI] 跟踪任务失败，可恢复查看。')
     throw new ComfyTaskError(message, task, ctrl.signal.aborted && !signal?.aborted ? 'timeout' : 'tracking')
   } finally {
     socket?.close()
@@ -1392,11 +1474,11 @@ async function generateWithComfyUi(params: {
   const timeoutSec = Math.max(60, cp.timeoutSec || 600)
   const parsedInfo = parseComfyWorkflowNodes(cp.workflowJson)
   if (!parsedInfo.valid) {
-    throw new Error(`[ComfyUI] ${parsedInfo.error || '工作流 JSON 无效'}`)
+    throw new Error(`[ComfyUI] ${parsedInfo.error || t('工作流 JSON 无效')}`)
   }
 
   // 0. 预检：服务在线 + 节点/模型与本机匹配
-  report({ stage: 'check', message: '正在检查 ComfyUI 服务与模型…' })
+  report({ stage: 'check', message: t('正在检查 ComfyUI 服务与模型…') })
   await testComfyConnection(baseUrl, apiKey)
   const schemas = await fetchComfyObjectInfo(baseUrl, apiKey, cp.workflowJson)
   const extraImageNodes = getWorkflowImages(cp.workflowJson, [cp.portraitNodeId, cp.costumeNodeId, cp.poseNodeId, cp.stitchedNodeId], schemas)
@@ -1410,7 +1492,7 @@ async function generateWithComfyUi(params: {
     ...extraImageNodes.filter((node) => extraImages[node.nodeId]?.url || (node.optional && node.role === 'character_sheet')).map((node) => node.nodeId),
   ], schemas)
   if (!check.ok) {
-    throw new Error(`[ComfyUI] 工作流与本机不匹配：\n${check.errors.join('\n')}`)
+    throw new Error(`${t('[ComfyUI] 工作流与本机不匹配：')}\n${check.errors.join('\n')}`)
   }
   const workflow: ComfyWorkflow = JSON.parse(check.fixedJson ?? selectedJson)
 
@@ -1443,11 +1525,11 @@ async function generateWithComfyUi(params: {
 
   const invalidSlots = slotUploads.filter((slot) => slot.nodeId && slot.nodeId !== 'none' && !parsedInfo.imageNodes.some((node) => node.id === slot.nodeId))
   if (invalidSlots.length) {
-    throw new Error(`[ComfyUI] ${invalidSlots.map((slot) => slot.label).join('、')}节点映射已失效，请重新识别或选择节点`)
+    throw new Error(t('[ComfyUI] {slots}节点映射已失效，请重新识别或选择节点', { slots: invalidSlots.map((slot) => t(slot.label)).join('、') }))
   }
   const missingSlots = slotUploads.filter((slot) => slot.nodeId && slot.nodeId !== 'none' && !slot.src && parsedInfo.imageNodes.find((node) => node.id === slot.nodeId)?.emptyValue === undefined)
   if (missingSlots.length) {
-    throw new Error(`[ComfyUI] 请先选择或上传：${missingSlots.map((slot) => slot.label).join('、')}`)
+    throw new Error(t('[ComfyUI] 请先选择或上传：{slots}', { slots: missingSlots.map((slot) => t(slot.label)).join('、') }))
   }
 
   for (const slot of slotUploads) {
@@ -1458,9 +1540,9 @@ async function generateWithComfyUi(params: {
         workflow[slot.nodeId].inputs.image = emptyValue
         continue
       }
-      throw new Error(`当前工作流需要「${slot.label}」参考图（节点 ${slot.nodeId}），请先在图库中选择`)
+      throw new Error(t('当前工作流需要「{label}」参考图（节点 {id}），请先在图库中选择', { label: t(slot.label), id: slot.nodeId }))
     }
-    report({ stage: 'upload', message: `正在上传${slot.label}参考图…` })
+    report({ stage: 'upload', message: t('正在上传{label}参考图…', { label: t(slot.label) }) })
     workflow[slot.nodeId].inputs.image = await uploadImageToComfy(baseUrl, slot.src, slot.prefix, apiKey)
   }
 
@@ -1470,12 +1552,12 @@ async function generateWithComfyUi(params: {
       if (node.optional && node.role === 'character_sheet') workflow[node.nodeId].inputs.image = '无'
       continue
     }
-    report({ stage: 'upload', message: `正在上传${node.label}…` })
+    report({ stage: 'upload', message: t('正在上传{label}…', { label: workflowPresentation(workflow)(node.label) }) })
     workflow[node.nodeId].inputs.image = await uploadImageToComfy(baseUrl, image.url, 'studio_reference', apiKey)
   }
 
   if (cp.stitchedNodeId && cp.stitchedNodeId !== 'none' && workflow[cp.stitchedNodeId]?.inputs) {
-    report({ stage: 'upload', message: '正在上传参考拼图…' })
+    report({ stage: 'upload', message: t('正在上传参考拼图…') })
     const stitchedDataUrl = await stitchRecipeCanvas(recipe)
     workflow[cp.stitchedNodeId].inputs.image = await uploadImageToComfy(baseUrl, stitchedDataUrl, 'studio_stitched', apiKey)
   }
@@ -1505,9 +1587,9 @@ async function generateWithComfyUi(params: {
   checkTrackingSignal(params.signal)
   await params.onSubmitting?.({ workflow: JSON.parse(JSON.stringify(workflow)) })
   checkTrackingSignal(params.signal)
-  const clientId = `pose_studio_${crypto.randomUUID()}`
+  const clientId = `pose_studio_${randomUuid()}`
   const submittedAt = Date.now()
-  report({ stage: 'queue', message: '正在提交工作流…' })
+  report({ stage: 'queue', message: t('正在提交工作流…') })
   // Subscribe before submission; HTTP reconciliation covers events received before prompt_id is known.
   const socket = openComfySocket({ baseUrl, clientId }, apiKey)
   try {
@@ -1538,7 +1620,7 @@ async function generateWithComfyUi(params: {
     if (typeof promptJson?.prompt_id !== 'string' || !promptJson.prompt_id) throw new ComfySubmissionUnknownError()
     const task: ComfyTaskHandle = { provider: 'comfyui', promptId: promptJson.prompt_id, clientId, baseUrl, submittedAt }
     try { await params.onSubmitted?.(task) } catch {
-      throw new ComfyTaskError('[ComfyUI] 任务已提交，但保存恢复记录失败。请保留任务编号后恢复，勿重复提交。', task, 'storage')
+      throw new ComfyTaskError(t('[ComfyUI] 任务已提交，但保存恢复记录失败。请保留任务编号后恢复，勿重复提交。'), task, 'storage')
     }
     return await trackComfyTask({ task, apiKey, timeoutSec, onProgress: params.onProgress, signal: params.signal }, workflow, socket)
   } finally { socket.close() }
@@ -1558,8 +1640,9 @@ export async function generateCharacterImage(params: {
   const pCfg = config.providers[provider]
   const apiKey = pCfg.apiKey.trim()
 
-  if (provider !== 'comfyui' && !apiKey) {
-    throw new Error(`请先配置 ${PROVIDER_META[provider].name} 的 API Key`)
+  // byteplus 走本站代理时由服务端注入 ARK_API_KEY，浏览器端允许留空
+  if (provider !== 'comfyui' && !apiKey && !(provider === 'byteplus' && config.useProxy)) {
+    throw new Error(t('请先配置 {name} 的 API Key', { name: t(PROVIDER_META[provider].name) }))
   }
 
   if (provider === 'pixai') return generateWithPixAi(params)
@@ -1574,12 +1657,12 @@ export async function generateCharacterImage(params: {
   ].filter(Boolean) as string[]
 
   if (!rawSources.length) {
-    throw new Error('请先选择或上传至少 1 张参考图')
+    throw new Error(t('请先选择或上传至少 1 张参考图'))
   }
 
   const model = pCfg.model === 'custom' ? pCfg.customModel.trim() : pCfg.model
   if (provider !== 'comfyui' && !model) {
-    throw new Error('请选择或填写有效的模型名称')
+    throw new Error(t('请选择或填写有效的模型名称'))
   }
 
   const baseUrl = (pCfg.baseUrl.trim() || PROVIDER_META[provider].defaultBaseUrl).replace(/\/+$/, '')
@@ -1850,20 +1933,29 @@ export async function generateCharacterImage(params: {
       }
     }
 
+    // byteplus/doubao：引用图统一转为 Ark 可接受的格式（JPEG data URL），不依赖 Ark 回源拉取本站 URL
+    const image = await Promise.all(
+      (config.sendStitchedSheet ? [...rawSources, await stitchRecipeCanvas(recipe)] : [...rawSources]).map(toArkImageRef)
+    )
     res = await smartFetch(
       endpoint,
       {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${apiKey}`,
+          // byteplus 走代理时 key 允许为空，此时不带头让代理注入 ARK_API_KEY；其余场景上方校验已保证非空
+          ...(apiKey ? { Authorization: `Bearer ${apiKey}` } : {}),
         },
         body: JSON.stringify({
           model,
           prompt,
-          image: allImageRefs, // Seedream 4.0 / 4.5 / 5.0 原生支持传入多张参考图 URL 数组或 Base64 数组
+          image, // Seedream 4.0 / 4.5 / 5.0 原生支持传入多张参考图 URL 数组或 Base64 数组
           size: db.size,
-          sequential_image_generation: db.sequentialImageGeneration,
+          // 组图模式仅在开启且（byteplus 下）模型支持时发送，默认不发送
+          ...(db.sequentialImageGeneration === 'auto' &&
+          (provider !== 'byteplus' || byteplusSupportsSequential(model))
+            ? { sequential_image_generation: db.sequentialImageGeneration }
+            : {}),
           watermark: db.watermark,
           response_format: db.responseFormat,
         }),
@@ -1877,9 +1969,9 @@ export async function generateCharacterImage(params: {
     const errMsg =
       json?.error?.message ||
       json?.message ||
-      json?.code ||
-      `请求失败 (HTTP ${res.status})`
-    throw new Error(`[${PROVIDER_META[provider].shortName}] ${errMsg}`)
+      json?.code
+    const detail = errMsg ? `: ${config.useProxy ? proxyErrorMessage(String(errMsg)) : errMsg}` : ''
+    throw new Error(`[${PROVIDER_META[provider].shortName}] ${t('请求失败 (HTTP {status})', { status: res.status })}${detail}`)
   }
 
   const imageUrl = extractUniversalImage(json)
@@ -1888,7 +1980,7 @@ export async function generateCharacterImage(params: {
       json?.choices?.[0]?.message?.content ||
       json?.output?.choices?.[0]?.message?.content?.[0]?.text ||
       JSON.stringify(json).slice(0, 260)
-    throw new Error(`接口已响应但未解析到图片输出：${fallbackText}`)
+    throw new Error(t('接口已响应但未解析到图片输出：{detail}', { detail: fallbackText }))
   }
 
   return { imageUrl, modelUsed: model, providerUsed: provider }

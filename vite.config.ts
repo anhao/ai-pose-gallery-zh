@@ -39,7 +39,7 @@ function localAssetsAndProxyPlugin(): Plugin {
       const request = new Request('http://localhost/api/proxy', {
         method, headers, body, ...(body ? { duplex: 'half' } : {}),
       } as RequestInit)
-      const upstream = await forwardProxy({ request, env: { PROXY_ALLOWED_ORIGINS: process.env.PROXY_ALLOWED_ORIGINS } })
+      const upstream = await forwardProxy({ request, env: { PROXY_ALLOWED_ORIGINS: process.env.PROXY_ALLOWED_ORIGINS, ARK_API_KEY: process.env.ARK_API_KEY } })
       res.statusCode = upstream.status
       upstream.headers.forEach((value, key) => res.setHeader(key, value))
       res.end(Buffer.from(await upstream.arrayBuffer()))

@@ -11,6 +11,11 @@ export interface ProxyEnv {
    * - 全部放行：`*`
    */
   PROXY_ALLOWED_ORIGINS?: string
+  /**
+   * 可选环境变量：服务器保存的火山方舟 / BytePlus ModelArk API Key。
+   * 仅当请求未携带 Authorization 且目标为方舟域名时注入，用于预览/开发环境。
+   */
+  ARK_API_KEY?: string
 }
 
 /**
@@ -19,6 +24,7 @@ export interface ProxyEnv {
 const DEFAULT_ALLOWED_ORIGINS = [
   'https://dashscope.aliyuncs.com', // 阿里云百炼 / Qwen
   'https://ark.cn-beijing.volces.com', // 火山方舟 / Doubao
+  'https://ark.ap-southeast.bytepluses.com', // BytePlus ModelArk (国际版)
   'https://generativelanguage.googleapis.com', // Google Gemini
   'https://api.openai.com', // OpenAI
   'https://api.pixai.art', // PixAI
@@ -60,6 +66,8 @@ function isOriginAllowed(target: URL, envRaw?: string): boolean {
   const allRules = [...DEFAULT_ALLOWED_ORIGINS, ...extraRules]
   return allRules.some((rule) => matchOriginRule(target, rule))
 }
+
+const ARK_HOSTS = ['ark.cn-beijing.volces.com', 'ark.ap-southeast.bytepluses.com']
 
 /** 单次转发的请求体上限：生图接口携带 base64 图片时 10 MiB 足够。 */
 const MAX_BODY_BYTES = 10 * 1024 * 1024
@@ -118,10 +126,14 @@ export const handleProxy = async (context: { request: Request; env?: ProxyEnv })
   }
 
   const forwardHeaders = new Headers()
-  for (const key of ['content-type', 'authorization', 'x-goog-api-key', 'x-dashscope-async']) {
+  for (const key of ['content-type', 'x-goog-api-key', 'x-dashscope-async']) {
     const val = request.headers.get(key)
     if (val) forwardHeaders.set(key, val)
   }
+  const auth = request.headers.get('authorization')
+  if (auth) forwardHeaders.set('authorization', auth)
+  else if (env?.ARK_API_KEY && ARK_HOSTS.includes(target.hostname))
+    forwardHeaders.set('authorization', `Bearer ${env.ARK_API_KEY}`)
 
   try {
     const limited = request.method === 'GET' ? null : limitBodySize(request.body, MAX_BODY_BYTES)
