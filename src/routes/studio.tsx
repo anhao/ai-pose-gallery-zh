@@ -54,7 +54,9 @@ import {
   fileToDataUrl,
   fetchComfyObjectInfo,
   parseComfyWorkflowNodes,
+  workflowPresentation,
   PROVIDER_META,
+  byteplusSupportsSequential,
   stitchRecipeCanvas,
   STYLE_PRESETS,
 } from '@/services/aiGenerator'
@@ -74,14 +76,14 @@ import type {
   QwenParams,
   PixAiParams,
 } from '@/types/gallery'
-import { costumeName, portraitStyle, portraitTitle, poseName, t, term } from '@/i18n'
+import { costumeName, historySummary, portraitStyle, portraitTitle, poseName, t, term } from '@/i18n'
 
 export const Route = createFileRoute('/studio')({
   staticData: { title: 'AI 合成台' },
   component: StudioPage,
 })
 
-const PROVIDER_LIST: ImageProviderId[] = ['gemini', 'gpt', 'qwen', 'doubao', 'pixai', 'comfyui']
+const PROVIDER_LIST: ImageProviderId[] = ['gemini', 'gpt', 'qwen', 'doubao', 'byteplus', 'pixai', 'comfyui']
 
 function StudioPage() {
   const {
@@ -153,7 +155,13 @@ function StudioPage() {
   const [checkingComfy, setCheckingComfy] = useState(false)
 
   const parsedComfyNodes = useMemo(
-    () => parseComfyWorkflowNodes(apiConfig.comfyuiParams.workflowJson),
+    () => {
+      const json = apiConfig.comfyuiParams.workflowJson
+      const parsed = parseComfyWorkflowNodes(json)
+      if (!parsed.valid) return parsed
+      const display = workflowPresentation(JSON.parse(json))
+      return { ...parsed, imageNodes: parsed.imageNodes.map((node) => ({ ...node, title: display(node.title) })), promptNodes: parsed.promptNodes.map((node) => ({ ...node, title: display(node.title) })) }
+    },
     [apiConfig.comfyuiParams.workflowJson]
   )
 
@@ -1303,7 +1311,7 @@ function StudioPage() {
                   </>
                 )}
 
-                {activeProvider === 'doubao' && (
+                {(activeProvider === 'doubao' || activeProvider === 'byteplus') && (
                   <>
                     <Field label={t('输出尺寸 (size)')}>
                       <Select
@@ -1326,7 +1334,11 @@ function StudioPage() {
                       </Select>
                     </Field>
                     <Field label={t('组图模式 (sequential)')}>
+                      {activeProvider === 'byteplus' && !byteplusSupportsSequential(providerCfg.model) && (
+                        <p className="text-xs text-muted-foreground">{t('当前模型不支持组图模式 (sequential)')}</p>
+                      )}
                       <Select
+                        disabled={activeProvider === 'byteplus' && !byteplusSupportsSequential(providerCfg.model)}
                         value={apiConfig.doubaoParams.sequentialImageGeneration}
                         onValueChange={(v) =>
                           updateDoubaoParams({
@@ -1528,7 +1540,7 @@ function StudioPage() {
                     )}
                     {generationProgress && (
                       <div className="w-56 max-w-full space-y-1.5 pt-1">
-                        <div className="text-xs text-foreground/80">{t(generationProgress.message)}</div>
+                        <div className="text-xs text-foreground/80">{generationProgress.message}</div>
                         {generationProgress.connection && <p className="text-xs text-muted-foreground">{t('连接：')}{t({connecting: 'WebSocket 连接中', connected: 'WebSocket 已连接', reconnecting: 'WebSocket 重连中，HTTP 保底跟踪', degraded: 'WebSocket 暂不可用，HTTP 保底跟踪'}[generationProgress.connection])}</p>}
                         {generationProgress.percent !== undefined && (
                           <div className="h-1.5 overflow-hidden rounded-full bg-muted">
@@ -1601,14 +1613,14 @@ function StudioPage() {
               className="group flex flex-col justify-between overflow-hidden rounded-2xl bg-background p-2"
             >
               <div className="relative aspect-3/4 overflow-hidden rounded-xl bg-muted">
-                <button type="button" aria-label={t('查看生成记录：{name}', { name: h.recipeSummary })} onClick={() => setZoomImageUrl(h.imageUrl)} className="block h-full w-full cursor-zoom-in focus-visible:outline-2 focus-visible:outline-ring">
+                <button type="button" aria-label={t('查看生成记录：{name}', { name: historySummary(h) })} onClick={() => setZoomImageUrl(h.imageUrl)} className="block h-full w-full cursor-zoom-in focus-visible:outline-2 focus-visible:outline-ring">
                 <img
                   src={h.imageUrl}
-                  alt={h.recipeSummary}
+                  alt={historySummary(h)}
                   className="h-full w-full object-cover transition group-hover:scale-105"
                 />
                 <span className="absolute bottom-1.5 left-1.5 max-w-[calc(100%-12px)] truncate rounded-md bg-black/70 px-1.5 py-0.5 font-mono text-[10px] text-white">
-                  {h.model}
+                  {h.model === 'ComfyUI 工作流' ? t('ComfyUI 工作流') : h.model}
                 </span>
                 </button>
                 <button
@@ -1625,7 +1637,7 @@ function StudioPage() {
               </div>
 
               <div className="mt-2 space-y-1.5 px-0.5">
-                <div className="truncate text-xs font-medium">{h.recipeSummary}</div>
+                <div className="truncate text-xs font-medium">{historySummary(h)}</div>
                 <Button variant="outline" className="min-h-11 w-full" onClick={() => setComparisonResult(h)}>{t('对比参考')}</Button>
                 <div className="grid grid-cols-2 gap-1.5">
                   <button

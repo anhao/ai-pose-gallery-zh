@@ -1,0 +1,203 @@
+{
+  "1": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "portrait_ref.png"
+    },
+    "_meta": {
+      "title": "图1：人像参考 (Portrait)"
+    }
+  },
+  "2": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "costume_ref.png"
+    },
+    "_meta": {
+      "title": "图2：服装参考 (Costume)"
+    }
+  },
+  "3": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "pose_ref.png"
+    },
+    "_meta": {
+      "title": "图3：姿势参考 (Pose)"
+    }
+  },
+  "5": {
+    "class_type": "EmptyLatentImage",
+    "inputs": {
+      "width": 832,
+      "height": 1216,
+      "batch_size": 1
+    },
+    "_meta": {
+      "title": "输出画布 Latent"
+    }
+  },
+  "6": {
+    "class_type": "UnetLoaderGGUF",
+    "inputs": {
+      "unet_name": "qwen-image-2.1-step90000-Q6_K.gguf"
+    },
+    "_meta": {
+      "title": "加载 Qwen-Image 2.1 Omni Q6_K GGUF"
+    }
+  },
+  "7": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "6",
+        0
+      ],
+      "lora_name": "chatrlabs-omni-turbo-8step-fp32.safetensors",
+      "strength_model": 1.0
+    },
+    "_meta": {
+      "title": "Omni Turbo 8 步加速 LoRA"
+    }
+  },
+  "8": {
+    "class_type": "QwenImage21Cache",
+    "inputs": {
+      "model": [
+        "7",
+        0
+      ],
+      "device": "auto",
+      "dtype": "default"
+    },
+    "_meta": {
+      "title": "Qwen Image 2.1 条件缓存"
+    }
+  },
+  "9": {
+    "class_type": "ModelSamplingFlux",
+    "inputs": {
+      "model": [
+        "8",
+        0
+      ],
+      "max_shift": 0.6935483870967742,
+      "base_shift": 0.5,
+      "width": 832,
+      "height": 1216
+    },
+    "_meta": {
+      "title": "ModelSamplingFlux"
+    }
+  },
+  "10": {
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "qwen3vl_8b_int8_convrot.safetensors",
+      "type": "qwen_image",
+      "device": "default"
+    },
+    "_meta": {
+      "title": "加载 Qwen3-VL 8B INT8 文本编码器"
+    }
+  },
+  "11": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "qwen_image_2.1_vae_bf16.safetensors"
+    },
+    "_meta": {
+      "title": "加载 Qwen Image 2.1 VAE"
+    }
+  },
+  "12": {
+    "class_type": "TextEncodeQwenImage21",
+    "inputs": {
+      "clip": [
+        "10",
+        0
+      ],
+      "images.image_1": [
+        "1",
+        0
+      ],
+      "images.image_2": [
+        "2",
+        0
+      ],
+      "images.image_3": [
+        "3",
+        0
+      ],
+      "vae": [
+        "11",
+        0
+      ],
+      "prompt": "image 1 person, image 2 outfit, image 3 pose. Generate one full-body photo.",
+      "negative_prompt": " ",
+      "resolution": 1024
+    },
+    "_meta": {
+      "title": "正向提示词 (Positive Prompt，三图均送入视觉语言编码器)"
+    }
+  },
+  "13": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "9",
+        0
+      ],
+      "positive": [
+        "12",
+        0
+      ],
+      "negative": [
+        "12",
+        1
+      ],
+      "latent_image": [
+        "5",
+        0
+      ],
+      "seed": 20261031,
+      "steps": 8,
+      "cfg": 1.0,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1.0
+    },
+    "_meta": {
+      "title": "KSampler (Turbo 8 步, cfg=1)"
+    }
+  },
+  "14": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "13",
+        0
+      ],
+      "vae": [
+        "11",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "VAE 解码"
+    }
+  },
+  "15": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "14",
+        0
+      ],
+      "filename_prefix": "pose_studio/result"
+    },
+    "_meta": {
+      "title": "保存生成结果"
+    }
+  }
+}
