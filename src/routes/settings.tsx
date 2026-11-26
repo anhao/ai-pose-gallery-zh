@@ -28,7 +28,7 @@ export const Route = createFileRoute('/settings')({
   component: SettingsPage,
 })
 
-const PROVIDER_ORDER: ImageProviderId[] = ['gemini', 'gpt', 'qwen', 'doubao', 'pixai', 'comfyui']
+const PROVIDER_ORDER: ImageProviderId[] = ['gemini', 'gpt', 'qwen', 'doubao', 'byteplus', 'pixai', 'comfyui']
 
 function SettingsPage() {
   const { apiConfig, updateApiConfig, updateProviderConfig, comfyConnection } = useStudio()
@@ -71,7 +71,7 @@ function SettingsPage() {
       />
 
       {/* 五大协议切换标签 */}
-      <div className="grid grid-cols-2 gap-2 sm:grid-cols-5">
+      <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 lg:grid-cols-7">
         {PROVIDER_ORDER.map((id) => {
           const itemMeta = PROVIDER_META[id]
           const isActive = pid === id
@@ -167,7 +167,9 @@ function SettingsPage() {
               placeholder={
                 pid === 'comfyui'
                   ? t('本地 ComfyUI 无需填写，远程鉴权可填 Token')
-                  : t('输入 API Key（仅保存在本地浏览器）')
+                  : pid === 'byteplus'
+                    ? t('可留空：使用本站代理时由服务器注入 ARK_API_KEY（预览环境）')
+                    : t('输入 API Key（仅保存在本地浏览器）')
               }
               className="pr-10"
             />
@@ -206,7 +208,7 @@ function SettingsPage() {
             <Input
               value={pCfg.customModel}
               onChange={(e) => updateProviderConfig(pid, { customModel: e.target.value })}
-              placeholder={pid === 'doubao' ? t('ep-2026xxxx 或模型 ID') : t('输入模型 ID')}
+              placeholder={pid === 'doubao' || pid === 'byteplus' ? t('ep-2026xxxx 或模型 ID') : t('输入模型 ID')}
               className="font-mono text-xs"
             />
           </Field>

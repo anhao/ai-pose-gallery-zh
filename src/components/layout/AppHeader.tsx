@@ -17,7 +17,6 @@ import { Separator } from '@/components/ui/separator'
 import { SidebarTrigger } from '@/components/ui/sidebar'
 import { useStudio } from '@/store/studioStore'
 import { t } from '@/i18n'
-import { LanguageMenu, LanguageSwitch } from '@/components/common/LanguageSwitch'
 
 export function AppHeader() {
   const { recipe, randomizeRecipe, safeMode, toggleSafeMode } = useStudio()
@@ -96,8 +95,6 @@ export function AppHeader() {
             )}
           </Link>
         </Button>
-        <LanguageSwitch className="hidden @3xl/header:flex" />
-        <LanguageMenu className="@3xl/header:hidden" />
         <ThemeToggle />
       </div>
     </header>

@@ -55,7 +55,7 @@ function GuidePage() {
           </p>
           <p>
             <strong className="text-foreground">{t('3. 隐私保护与使用者责任归属：')}</strong>
-            {t('本工作台为纯前端本地应用，所有 AI 生图请求均由使用者自行配置的云端 API Key 或使用者本机 ComfyUI 环境直接执行，平台不收集、不存储任何用户上传的图片或生成结果。')}
+            {t('AI 生图请求发送至使用者配置的服务（云端 API 或本机 ComfyUI）；若启用本站代理，代理会转发 API Key 与请求数据（包括上传的图片）。请仅使用可信的部署与服务，并在上传前确认已获得必要授权与同意。')}
             <strong className="text-foreground">{t('因使用者违规使用或不当传播所产生的一切法律责任，均由使用者本人独立承担，与本项目及维护者无关。')}</strong>
           </p>
         </div>

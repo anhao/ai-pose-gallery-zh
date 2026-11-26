@@ -1,16 +1,18 @@
-// 界面多语言（中文为默认语言，英文 / 泰文为可选附加语言）。
-// - 中文文案直接写在源码中，同时作为翻译字典的 key；未翻译的文案自动回退为中文。
-// - 英文 / 泰文的界面文案在 src/i18n/locales/*.ts，数据标签在 data/i18n/<lang>/*.json（按原有 id 索引）。
+// 界面语言固定为越南文；中文原文仅作为翻译字典的 key 与回退文案，不对用户暴露。
+// - 中文文案直接写在源码中，同时作为翻译字典的 key。
+// - 越南文界面文案在 src/i18n/locales/vi.ts，数据标签在 data/i18n/vi/*.json（按原有 id 索引）。
 // - 发给图像模型的提示词始终使用原始数据，不受界面语言影响。
+import { updateMetadata } from './metadata'
+import vi from './locales/vi'
 import { createElement, Fragment, useSyncExternalStore, type ReactNode } from 'react'
-import type { CostumeItem, PortraitItem, PoseGroup, PoseItem } from '@/types/gallery'
+import type { CostumeItem, GenerationHistoryItem, PortraitItem, PoseGroup, PoseItem } from '@/types/gallery'
 
-export const LANGS = ['zh', 'en', 'th'] as const
+export const LANGS = ['vi'] as const
 export type Lang = (typeof LANGS)[number]
-export const DEFAULT_LANG: Lang = 'zh'
+export const DEFAULT_LANG: Lang = 'vi'
 export const LANG_STORAGE_KEY = 'ai-pose-gallery-lang'
-export const LANG_LABELS: Record<Lang, string> = { zh: '中文', en: 'English', th: 'ไทย' }
-const HTML_LANG: Record<Lang, string> = { zh: 'zh-CN', en: 'en', th: 'th' }
+export const LANG_LABELS: Record<Lang, string> = { vi: 'Tiếng Việt' }
+const HTML_LANG: Record<Lang, string> = { vi: 'vi' }
 
 type Dict = Record<string, string>
 export interface DataLabels {
@@ -29,28 +31,17 @@ interface State {
 }
 
 const EMPTY: DataLabels = { poses: {}, costumes: {}, terms: {} }
-let state: State = { lang: DEFAULT_LANG, ui: {}, data: EMPTY }
+// 越南文界面文案静态导入并预填：首帧即为越南文，无中文闪烁。
+let state: State = { lang: DEFAULT_LANG, ui: vi as Dict, data: EMPTY }
 const listeners = new Set<() => void>()
 
 export function isLang(value: unknown): value is Lang {
   return typeof value === 'string' && (LANGS as readonly string[]).includes(value)
 }
 
-/** 首次访问按浏览器语言选择：th* → 泰文，en* → 英文，其余（含 zh*）→ 中文。 */
-export function detectLang(languages: readonly string[]): Lang {
-  const first = (languages[0] || '').toLowerCase()
-  if (first.startsWith('th')) return 'th'
-  if (first.startsWith('en')) return 'en'
-  return 'zh'
-}
-
-function storedLang(): Lang | null {
-  try {
-    const v = localStorage.getItem(LANG_STORAGE_KEY)
-    return isLang(v) ? v : null
-  } catch {
-    return null
-  }
+/** 语言固定为越南文，浏览器语言不再影响界面。 */
+export function detectLang(_languages?: readonly string[]): Lang {
+  return DEFAULT_LANG
 }
 
 async function loadJson(url: string): Promise<Dict> {
@@ -62,38 +53,32 @@ async function loadJson(url: string): Promise<Dict> {
   }
 }
 
-async function loadResources(lang: Lang): Promise<Pick<State, 'ui' | 'data'>> {
-  if (lang === 'zh') return { ui: {}, data: EMPTY }
-  const [ui, poses, costumes, terms] = await Promise.all([
-    (lang === 'en' ? import('./locales/en') : import('./locales/th')).then((m) => m.default as Dict),
-    loadJson(`/data/i18n/${lang}/poses.json`),
-    loadJson(`/data/i18n/${lang}/costumes.json`),
-    loadJson(`/data/i18n/${lang}/terms.json`),
+async function loadResources(): Promise<Pick<State, 'ui' | 'data'>> {
+  const [poses, costumes, terms] = await Promise.all([
+    loadJson('/data/i18n/vi/poses.json'),
+    loadJson('/data/i18n/vi/costumes.json'),
+    loadJson('/data/i18n/vi/terms.json'),
   ])
-  return { ui, data: { poses, costumes, terms } }
+  return { ui: vi as Dict, data: { poses, costumes, terms } }
 }
 
 function apply(lang: Lang, res: Pick<State, 'ui' | 'data'>) {
   state = { lang, ...res }
-  if (typeof document !== 'undefined') document.documentElement.lang = HTML_LANG[lang]
+  if (typeof document !== 'undefined') {
+    document.documentElement.lang = HTML_LANG[lang]
+    updateMetadata()
+  }
   listeners.forEach((fn) => fn())
 }
 
-/** 启动时调用：读取已保存的语言，否则按浏览器语言选择；中文无需加载任何资源。 */
+/** 启动时调用：忽略历史遗留的其他语言设置并改写为越南文，加载越南文数据标签。 */
 export async function initI18n(): Promise<void> {
-  const lang = storedLang() ?? detectLang(typeof navigator === 'undefined' ? [] : navigator.languages || [navigator.language])
-  if (lang !== 'zh') apply(lang, await loadResources(lang))
-}
-
-/** 用户手动切换语言（记住到 localStorage）。 */
-export async function setLang(lang: Lang): Promise<void> {
   try {
-    localStorage.setItem(LANG_STORAGE_KEY, lang)
+    if (localStorage.getItem(LANG_STORAGE_KEY) !== DEFAULT_LANG) localStorage.setItem(LANG_STORAGE_KEY, DEFAULT_LANG)
   } catch {
     // 隐私模式等无法写入时忽略
   }
-  if (lang === state.lang) return
-  apply(lang, await loadResources(lang))
+  apply(DEFAULT_LANG, await loadResources())
 }
 
 export function getLang(): Lang {
@@ -112,7 +97,7 @@ export function useLang(): Lang {
 
 /**
  * 翻译界面文案：以中文原文为 key，`{name}` 为插值占位符。
- * 当前语言没有对应译文时回退为中文。
+ * 越南文没有对应译文时回退为中文。
  */
 export function t(zh: string, vars?: Record<string, string | number>): string {
   let s = state.ui[zh] ?? zh
@@ -131,29 +116,41 @@ export function poseKey(id: string): string {
 
 export function poseName(item: PoseItem | PoseGroup): string {
   if ('items' in item) return item.items[0] ? poseName(item.items[0]) : item.name
-  return state.data.poses[poseKey(item.id)] || item.姿势名称
+  return item.source === 'upload' ? item.姿势名称 : state.data.poses[poseKey(item.id)] || item.姿势名称
 }
 
 export function costumeName(item: CostumeItem): string {
-  return state.data.costumes[item.id] || item.服装名称
+  return item.source === 'upload' ? item.服装名称 : state.data.costumes[item.id] || item.服装名称
 }
 
 export function portraitStyle(item: PortraitItem): string {
-  return term(item.发型名称)
+  return item.source === 'upload' ? item.发型名称 : term(item.发型名称)
+}
+
+/** 生成记录标题：按快照中的素材 id 取当前语言名称；没有快照的旧记录回退为保存的中文摘要（存储格式不变）。 */
+export function historySummary(item: Pick<GenerationHistoryItem, 'recipeSummary' | 'snapshot'>): string {
+  const r = item.snapshot?.recipe
+  const names = r ? [r.portrait && portraitStyle(r.portrait), r.costume && costumeName(r.costume), r.pose && poseName(r.pose)].filter(Boolean) : []
+  return names.join(' + ') || (r || item.recipeSummary === '自定义合成' ? t('自定义合成') : item.recipeSummary)
 }
 
 export function portraitTitle(item: PortraitItem): string {
-  return term(item.标题)
+  return item.source === 'upload' ? item.标题 : term(item.标题)
 }
 
 /** 当前语言下附加的检索文本（中文检索字段仍然保留）。 */
 export function localSearchText(parts: string[]): string {
-  return state.lang === 'zh' ? '' : parts.map(term).join(' ')
+  return parts.map(term).join(' ')
 }
 
-/** 数字格式（中文保持原有 zh-CN 格式）。 */
+/** 数字格式（越南文 zh→vi 点号千分位）。 */
 export function formatNumber(n: number): string {
-  return n.toLocaleString(state.lang === 'zh' ? 'zh-CN' : state.lang)
+  return n.toLocaleString(HTML_LANG[state.lang])
+}
+
+/** 当前界面语言的时间格式。 */
+export function formatTime(timestamp: number): string {
+  return new Date(timestamp).toLocaleTimeString(HTML_LANG[state.lang])
 }
 
 /** 带 React 节点插值的翻译：`tn('见 {link}', { link: <a … /> })`，整句一起翻译，避免拆碎。 */

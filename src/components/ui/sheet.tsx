@@ -1,4 +1,5 @@
 import * as React from "react"
+import { t } from "@/i18n"
 import { cn } from "@/lib/utils"
 import { Dialog as SheetPrimitive } from "radix-ui"
 
@@ -75,7 +76,7 @@ function SheetContent({
             >
               <XIcon
               />
-              <span className="sr-only">Close</span>
+              <span className="sr-only">{t('关闭对话框')}</span>
             </Button>
           </SheetPrimitive.Close>
         )}

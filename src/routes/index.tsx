@@ -18,7 +18,7 @@ import { Button } from '@/components/ui/button'
 import { Skeleton } from '@/components/ui/skeleton'
 import { useStudio } from '@/store/studioStore'
 import { referenceImageUrl } from '@/lib/recipeImages'
-import { costumeName, formatNumber, portraitStyle, portraitTitle, t } from '@/i18n'
+import { costumeName, formatNumber, poseName, portraitStyle, portraitTitle, t } from '@/i18n'
 
 export const Route = createFileRoute('/')({
   staticData: { title: '图库总览' },
@@ -81,14 +81,14 @@ function DashboardPage() {
         >
           <div className="flex items-center justify-between">
             <h2 className="text-base font-semibold">{t('🕺 动作姿势库')}</h2>
-            <Badge variant="secondary">1,439</Badge>
+            <Badge variant="secondary">{formatNumber(posesData.items.length)}</Badge>
           </div>
           <div className="mt-3 grid grid-cols-4 gap-1.5">
             {posesData.groups.slice(0, 4).map((g) => (
               <img
                 key={g.key}
                 src={`/${g.order[0].缩略图}`}
-                alt={g.name}
+                alt={poseName(g)}
                 loading="lazy"
                 className="aspect-3/4 w-full rounded-lg bg-background object-cover"
               />
@@ -102,7 +102,7 @@ function DashboardPage() {
         >
           <div className="flex items-center justify-between">
             <h2 className="text-base font-semibold">{t('👗 服装穿搭库')}</h2>
-            <Badge variant="secondary">{costumes.length.toLocaleString('zh-CN')}</Badge>
+            <Badge variant="secondary">{formatNumber(costumes.length)}</Badge>
           </div>
           <div className="mt-3 grid grid-cols-4 gap-1.5">
             {costumes.slice(0, 4).map((c) => (
@@ -123,7 +123,7 @@ function DashboardPage() {
         >
           <div className="flex items-center justify-between">
             <h2 className="text-base font-semibold">{t('👤 人像颜值库')}</h2>
-            <Badge variant="secondary">1,499</Badge>
+            <Badge variant="secondary">{formatNumber(portraits.length)}</Badge>
           </div>
           <div className="mt-3 grid grid-cols-4 gap-1.5">
             {portraits.slice(0, 4).map((p) => (

@@ -15,7 +15,7 @@ import {
 } from '@/components/ui/sidebar'
 import { useStudio } from '@/store/studioStore'
 import { activeNavTo, navGroups } from './nav'
-import { t } from '@/i18n'
+import { formatNumber, t } from '@/i18n'
 
 export function AppSidebar() {
   const pathname = useLocation({ select: (l) => l.pathname })
@@ -56,7 +56,7 @@ export function AppSidebar() {
                       <span className="flex-1 truncate">{t(item.title)}</span>
                       {item.badge && (
                         <Badge variant="secondary" className="ml-auto h-5 px-1.5 text-[10px] font-medium">
-                          {item.badge}
+                          {typeof item.badge === 'number' ? formatNumber(item.badge) : item.badge}
                         </Badge>
                       )}
                     </Link>

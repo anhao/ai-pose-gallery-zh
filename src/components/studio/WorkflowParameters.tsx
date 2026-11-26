@@ -1,12 +1,13 @@
 import { useQuery } from '@tanstack/react-query'
 import { useEffect, useRef, useState, type ChangeEvent } from 'react'
 import { toast } from '@/lib/notifications'
+import { randomUuid } from '@/lib/uuid'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Switch } from '@/components/ui/switch'
 import { Textarea } from '@/components/ui/textarea'
-import { getWorkflowControls, getWorkflowImages, validControlValue, workflowIdentity, type WorkflowControl } from '@/lib/comfyWorkflowParameters'
-import { fetchComfyObjectInfo, fileToDataUrl } from '@/services/aiGenerator'
+import { getWorkflowControls, getWorkflowImages, parseParameterWorkflow, validControlValue, workflowIdentity, type WorkflowControl } from '@/lib/comfyWorkflowParameters'
+import { fetchComfyObjectInfo, fileToDataUrl, workflowPresentation } from '@/services/aiGenerator'
 import { useStudio } from '@/store/studioStore'
 import type { WorkflowScalar } from '@/types/gallery'
 import { t } from '@/i18n'
@@ -34,6 +35,7 @@ export function WorkflowParameters({ onPreview, onUploadingChange }: { onPreview
   const cp = apiConfig.comfyuiParams
   const endpoint = apiConfig.providers.comfyui
   const identity = workflowIdentity(cp.workflowJson)
+  const display = workflowPresentation(parseParameterWorkflow(cp.workflowJson) || {})
   const currentIdentityRef = useRef(identity)
   const imageInputs = useRef<Record<string, HTMLInputElement | null>>({})
   const readEpoch = useRef(0)
@@ -55,13 +57,17 @@ export function WorkflowParameters({ onPreview, onUploadingChange }: { onPreview
     queryFn: () => fetchComfyObjectInfo(endpoint.baseUrl, endpoint.apiKey, cp.workflowJson),
     enabled: Boolean(identity), retry: false, staleTime: 60_000,
   })
-  const images = getWorkflowImages(cp.workflowJson, [cp.portraitNodeId, cp.costumeNodeId, cp.poseNodeId, cp.stitchedNodeId], schemas)
+  const images = getWorkflowImages(cp.workflowJson, [cp.portraitNodeId, cp.costumeNodeId, cp.poseNodeId, cp.stitchedNodeId], schemas).map((image) => ({ ...image, label: display(image.label) }))
   const excluded = new Set<string>()
   // 图片和主提示词由各自上传、编辑入口管理。
   for (const image of images) excluded.add(`${image.nodeId}.image`)
   for (const nodeId of [cp.portraitNodeId, cp.costumeNodeId, cp.poseNodeId, cp.stitchedNodeId]) excluded.add(`${nodeId}.image`)
   for (const input of ['prompt', 'text', 'string', 'positive']) excluded.add(`${cp.promptNodeId}.${input}`)
-  const controls = getWorkflowControls(cp.workflowJson, schemas || {}, excluded)
+  const controls = getWorkflowControls(cp.workflowJson, schemas || {}, excluded).map((control) => ({
+    ...control, label: control.label.split(' · ').map(display).join(' · '),
+    group: control.group && display(control.group), description: control.description && display(control.description),
+    optionLabels: Object.fromEntries(Object.entries(control.optionLabels || {}).map(([key, label]) => [key, display(label)])),
+  }))
   const saved = cp.parameterOverrides?.workflowId === identity ? cp.parameterOverrides.values || {} : {}
   const workflowImages = recipe.workflowImagesIdentity === identity ? recipe.workflowImages || {} : {}
   const change = (control: WorkflowControl, value?: WorkflowScalar) => {
@@ -85,7 +91,7 @@ export function WorkflowParameters({ onPreview, onUploadingChange }: { onPreview
     try {
       const url = await fileToDataUrl(file)
       if (currentIdentityRef.current !== startedIdentity || startedEpoch !== readEpoch.current) return
-      setWorkflowImage(nodeId, { id: crypto.randomUUID(), name: file.name, url, role }, startedIdentity)
+      setWorkflowImage(nodeId, { id: randomUuid(), name: file.name, url, role }, startedIdentity)
     } catch {
       if (currentIdentityRef.current === startedIdentity && startedEpoch === readEpoch.current) toast.error(t('图片读取失败，已保留原图，请重新选择'))
     } finally {
@@ -109,7 +115,7 @@ export function WorkflowParameters({ onPreview, onUploadingChange }: { onPreview
       </div>
     })}</div>}
     {isPending && identity && <p role="status" className="text-xs text-muted-foreground">{t('正在读取节点参数…')}</p>}
-    {error && <div role="status" className="text-xs text-destructive">{t('节点参数读取失败：')}{t(error.message)}<Button type="button" size="sm" variant="ghost" className="min-h-11" onClick={() => void refetch()}>{t('重试')}</Button></div>}
+    {error && <div role="status" className="text-xs text-destructive">{t('节点参数读取失败：')}{error.message}<Button type="button" size="sm" variant="ghost" className="min-h-11" onClick={() => void refetch()}>{t('重试')}</Button></div>}
     {controls.some((control) => control.recommended) && <div className="grid gap-4 sm:grid-cols-2">{controls.filter((control) => control.recommended).map(renderControl)}</div>}
     {controls.some((control) => !control.recommended) && <details><summary className="min-h-11 cursor-pointer py-2 text-sm">{t('其他可调参数（{n}）', { n: controls.filter((control) => !control.recommended).length })}</summary><div className="grid gap-4 pt-3 sm:grid-cols-2">{controls.filter((control) => !control.recommended).map(renderControl)}</div></details>}
     {schemas && !controls.length && <p className="text-xs text-muted-foreground">{t('此工作流没有可编辑的普通参数。')}</p>}

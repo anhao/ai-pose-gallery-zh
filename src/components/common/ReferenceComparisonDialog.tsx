@@ -97,7 +97,7 @@ function ComparisonContent({ result }: { result: GenerationHistoryItem }) {
       {reference && <ComparisonSurface {...gestureProps} onSize={(size) => paneSize('reference', size)} label={reference.label}><ComparisonImage key={reference.url} url={reference.url} label={reference.label} transform={transform} onSize={(size) => imageSize(reference.url, size)} /><PaneLabel label={reference.label} /></ComparisonSurface>}
       <ComparisonSurface {...gestureProps} onSize={(size) => paneSize('result', size)} label={t('生成结果')}><ComparisonImage key={result.imageUrl} url={result.imageUrl} label={t('生成结果')} transform={transform} onSize={(size) => imageSize(result.imageUrl, size)} /><PaneLabel label={t('生成结果')} /></ComparisonSurface>
     </div>}
-    {reference && mode === 'slider' && <label className="flex shrink-0 items-center gap-3 text-sm">{t('参考占比')}<input type="range" min={0} max={100} value={split} aria-label={t('参考图显示比例')} aria-valuetext={`${split}% 参考图`} onChange={(e) => setSplit(Number(e.target.value))} className="h-11 min-w-0 flex-1 accent-primary" /><span className="w-10 tabular-nums">{split}%</span></label>}
+    {reference && mode === 'slider' && <label className="flex shrink-0 items-center gap-3 text-sm">{t('参考占比')}<input type="range" min={0} max={100} value={split} aria-label={t('参考图显示比例')} aria-valuetext={t('{percent}% 参考图', { percent: split })} onChange={(e) => setSplit(Number(e.target.value))} className="h-11 min-w-0 flex-1 accent-primary" /><span className="w-10 tabular-nums">{split}%</span></label>}
     <p className="shrink-0 text-center text-xs text-muted-foreground">{t('滚轮或双指共同缩放 · 放大后拖动 · 加减键缩放、方向键移动、0 键复位')}</p>
   </>
 }

@@ -1,16 +1,29 @@
 import type { QueryClient } from '@tanstack/react-query'
-import { createRootRouteWithContext, Outlet } from '@tanstack/react-router'
+import { createRootRouteWithContext, Link, Outlet } from '@tanstack/react-router'
+import { Button } from '@/components/ui/button'
 import { AppHeader } from '@/components/layout/AppHeader'
 import { AppSidebar } from '@/components/layout/AppSidebar'
 import { RecipeDock } from '@/components/layout/RecipeDock'
 import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar'
 import { Toaster } from '@/components/ui/sonner'
 import { TooltipProvider } from '@/components/ui/tooltip'
-import { useLang } from '@/i18n'
+import { t, useLang } from '@/i18n'
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   component: RootLayout,
+  notFoundComponent: NotFound,
+  errorComponent: RouteError,
 })
+
+function NotFound() {
+  useLang()
+  return <div role="status" className="space-y-3"><h1>{t('页面不存在')}</h1><Link to="/">{t('返回首页')}</Link></div>
+}
+
+function RouteError({ error, reset }: { error: unknown; reset: () => void }) {
+  useLang()
+  return <div role="alert" className="space-y-3"><h1>{t('页面加载失败')}</h1>{error instanceof Error && <p>{error.message}</p>}<div className="flex flex-wrap items-center gap-3"><Button type="button" variant="outline" className="min-h-11" onClick={reset}>{t('重试')}</Button><Link to="/">{t('返回首页')}</Link></div></div>
+}
 
 function RootLayout() {
   // 切换语言时以语言为 key 重新渲染界面
