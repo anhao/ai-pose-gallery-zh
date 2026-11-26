@@ -9,6 +9,8 @@ import logging
 import urllib.request
 from pathlib import Path
 
+from .i18n import error_message
+
 logger = logging.getLogger(__name__)
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
@@ -128,6 +130,17 @@ def register_routes() -> None:
 
     routes = PromptServer.instance.routes
 
+    @routes.get("/pose_character_atlas/i18n/vi")
+    async def get_vietnamese_dictionary(request):
+        try:
+            dictionaries = {}
+            for name in ("terms", "poses", "costumes"):
+                with open(DATA_DIR / "i18n" / "vi" / f"{name}.json", encoding="utf-8") as f:
+                    dictionaries[name] = json.load(f)
+            return web.json_response(dictionaries, headers={"Cache-Control": "public, max-age=300"})
+        except Exception as exc:
+            return web.json_response({"error": error_message(exc, "vi")}, status=400)
+
     @routes.get("/pose_character_atlas/catalogue")
     async def get_catalogue(request):
         lib = request.query.get("library", "pose")
@@ -138,7 +151,7 @@ def register_routes() -> None:
                 headers={"Cache-Control": "public, max-age=300"},
             )
         except Exception as exc:
-            return web.json_response({"error": str(exc)}, status=400)
+            return web.json_response({"error": error_message(exc, request.headers.get("Accept-Language", ""))}, status=400)
 
     @routes.get("/pose_character_atlas/image")
     async def get_image(request):
@@ -178,4 +191,4 @@ def register_routes() -> None:
         except web.HTTPRedirection:
             raise
         except Exception as exc:
-            return web.json_response({"error": str(exc)}, status=404)
+            return web.json_response({"error": error_message(exc, request.headers.get("Accept-Language", ""))}, status=404)
