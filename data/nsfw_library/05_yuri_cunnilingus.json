@@ -9,6 +9,7 @@
   "default_facing": "front",
   "mirrorable": true,
   "camera_tags": [
+   "full body",
    "from below"
   ],
   "shared_pose_tags": [
@@ -29,6 +30,8 @@
      "leaning forward",
      "hand on another's head",
      "spread legs",
+     "straddling",
+     "facesitting",
      "looking down"
     ],
     "natural_en": "Straddling the partner's face from above, leaning forward with one hand braced on the partner's head and both thighs spread apart while looking down."
@@ -48,6 +51,7 @@
      "hands on another's thighs",
      "tongue out",
      "licking",
+     "cunnilingus",
      "looking up"
     ],
     "natural_en": "Lying on the back with knees raised and legs spread, both hands gripping the partner's thighs while licking upward toward the face."
@@ -78,6 +82,7 @@
   "default_facing": "front",
   "mirrorable": true,
   "camera_tags": [
+   "full body",
    "from below"
   ],
   "shared_pose_tags": [
@@ -116,6 +121,7 @@
      "tongue out",
      "licking",
      "hands on another's thighs",
+     "cunnilingus",
      "looking up"
     ],
     "natural_en": "Kneeling between the receiver's spread thighs, leaning forward with both hands holding the thighs, tongue out and looking up toward the receiver."
@@ -151,6 +157,7 @@
    "from side"
   ],
   "shared_pose_tags": [
+   "69",
    "cunnilingus",
    "oral"
   ],
@@ -169,7 +176,8 @@
      "knees up",
      "arched back",
      "tongue out",
-     "licking"
+     "licking",
+     "cunnilingus"
     ],
     "natural_en": "Lying on the back on the lower half of the frame, head toward the left edge and legs toward the right, knees raised and legs spread, back arched, mouth pressed to the partner above with tongue out."
    },
@@ -187,7 +195,8 @@
      "knees up",
      "arched back",
      "tongue out",
-     "licking"
+     "licking",
+     "cunnilingus"
     ],
     "natural_en": "Lying face down on top of the partner, head toward the right edge and legs toward the left, knees raised and legs spread, back arched, mouth pressed to the partner below with tongue out."
    }
@@ -250,6 +259,7 @@
      "tongue out",
      "licking",
      "hands on another's thighs",
+     "cunnilingus",
      "looking up"
     ],
     "natural_en": "Kneeling in front of the partner on the right side of the frame, leaning forward with both hands holding the raised thigh, tongue out, looking up."
@@ -302,6 +312,7 @@
      "leg up",
      "leg between thighs",
      "arched back",
+     "tribadism",
      "looking at another"
     ],
     "natural_en": "Lying on her side with her head toward the left edge, one leg raised and hooked over the partner's hip, the other leg slid between the partner's thighs so their crotches press together, back arched, looking at the partner."
@@ -318,6 +329,7 @@
      "on side",
      "leg between thighs",
      "spread legs",
+     "tribadism",
      "looking at another"
     ],
     "natural_en": "Lying on her side with her head toward the right edge, legs open with one leg between the partner's thighs, crotch pressed against the partner's crotch, looking at the partner."
@@ -351,23 +363,27 @@
   ],
   "shared_pose_tags": [
    "tribadism",
-   "sex"
+   "crotch rub",
+   "lying on person",
+   "on top",
+   "hug"
   ],
   "slots": {
    "bottom": {
     "label_zh": "下方（仰躺張腿）",
     "requires": "pussy",
     "center": {
-     "x": 0.44,
-     "y": 0.64
+     "x": 0.48,
+     "y": 0.62
     },
     "tags": [
      "lying",
      "on back",
      "spread legs",
      "knees up",
-     "arched back",
-     "looking at another"
+     "hug",
+     "tribadism",
+     "looking up"
     ],
     "natural_en": "Lying on the back with legs spread wide and knees raised, back arched, looking up at the partner lying on top."
    },
@@ -375,15 +391,18 @@
     "label_zh": "上方（俯趴疊壓）",
     "requires": "pussy",
     "center": {
-     "x": 0.56,
-     "y": 0.48
+     "x": 0.52,
+     "y": 0.44
     },
     "tags": [
      "lying",
      "on stomach",
-     "spread legs",
-     "arched back",
+     "on top",
+     "lying on person",
+     "straddling",
      "hug",
+     "arms around neck",
+     "tribadism",
      "looking down"
     ],
     "natural_en": "Lying face down on top of the partner, legs spread over the partner's hips, back arched, arms wrapped around the partner, looking down."
@@ -415,8 +434,11 @@
    "from side"
   ],
   "shared_pose_tags": [
-   "kissing",
-   "breast fondling"
+   "kiss",
+   "mutual breast grab",
+   "grabbing another's breast",
+   "face-to-face",
+   "kneeling"
   ],
   "slots": {
    "partner_a": {
@@ -429,7 +451,9 @@
     "tags": [
      "kneeling",
      "leaning forward",
-     "breast fondling",
+     "grabbing another's breast",
+     "hand on another's breast",
+     "kiss",
      "closed eyes"
     ],
     "natural_en": "Kneeling on the left side of the frame facing the partner, leaning forward with eyes closed, both hands on the partner's breasts while sharing a deep kiss."
@@ -444,7 +468,9 @@
     "tags": [
      "kneeling",
      "leaning forward",
-     "breast fondling",
+     "grabbing another's breast",
+     "hand on another's breast",
+     "kiss",
      "closed eyes"
     ],
     "natural_en": "Kneeling on the right side of the frame facing the partner, leaning forward with eyes closed, both hands on the partner's breasts while sharing a deep kiss."
@@ -453,7 +479,9 @@
   "pairing_tags": {
    "female_female": {
     "base": [
-     "yuri"
+     "yuri",
+     "kiss",
+     "grabbing another's breast"
     ]
    }
   },
@@ -475,8 +503,11 @@
    "from side"
   ],
   "shared_pose_tags": [
-   "kissing",
-   "breast fondling"
+   "kiss",
+   "mutual breast grab",
+   "grabbing another's breast",
+   "face-to-face",
+   "standing"
   ],
   "slots": {
    "partner_a": {
@@ -489,7 +520,9 @@
     "tags": [
      "standing",
      "leaning forward",
-     "breast fondling",
+     "grabbing another's breast",
+     "hand on another's breast",
+     "kiss",
      "closed eyes"
     ],
     "natural_en": "Standing on the left side of the frame facing the partner, leaning in to kiss with eyes closed while cupping the partner's breast with one hand."
@@ -504,7 +537,9 @@
     "tags": [
      "standing",
      "leaning forward",
-     "breast fondling",
+     "grabbing another's breast",
+     "hand on another's breast",
+     "kiss",
      "closed eyes"
     ],
     "natural_en": "Standing on the right side of the frame facing the partner, leaning in to kiss with eyes closed while cupping the partner's breast with one hand."
@@ -514,8 +549,8 @@
    "female_female": {
     "base": [
      "yuri",
-     "kissing",
-     "breast fondling"
+     "kiss",
+     "grabbing another's breast"
     ]
    }
   },
@@ -537,8 +572,12 @@
    "from side"
   ],
   "shared_pose_tags": [
-   "kissing",
-   "breast fondling"
+   "kiss",
+   "mutual breast grab",
+   "grabbing another's breast",
+   "face-to-face",
+   "sitting",
+   "on floor"
   ],
   "slots": {
    "partner_a": {
@@ -550,8 +589,12 @@
     },
     "tags": [
      "sitting",
+     "on floor",
+     "indian style",
      "leaning forward",
-     "breast fondling",
+     "grabbing another's breast",
+     "hand on another's breast",
+     "kiss",
      "closed eyes"
     ],
     "natural_en": "Sitting face to face on the left side of the frame, leaning in close with both hands on the partner's chest, eyes closed while kissing."
@@ -565,8 +608,12 @@
     },
     "tags": [
      "sitting",
+     "on floor",
+     "indian style",
      "leaning forward",
-     "breast fondling",
+     "grabbing another's breast",
+     "hand on another's breast",
+     "kiss",
      "closed eyes"
     ],
     "natural_en": "Sitting face to face on the right side of the frame, leaning in close with both hands on the partner's chest, eyes closed while kissing."
@@ -597,21 +644,25 @@
    "from side"
   ],
   "shared_pose_tags": [
-   "sex from behind"
+   "sex from behind",
+   "vaginal",
+   "penetration"
   ],
   "slots": {
    "receiver": {
     "label_zh": "承受方（前方俯趴）",
     "requires": "pussy",
     "center": {
-     "x": 0.4,
-     "y": 0.6
+     "x": 0.42,
+     "y": 0.62
     },
     "tags": [
      "lying",
      "on stomach",
      "ass up",
      "arched back",
+     "sex from behind",
+     "vaginal",
      "looking back"
     ],
     "natural_en": "Lying face down on the left side of the frame with hips raised and back arched, both arms stretched forward on the surface, looking back toward the partner behind."
@@ -620,13 +671,14 @@
     "label_zh": "施與方（後方跪姿穿戴式後入）",
     "requires": "penis_or_strapon_or_nonhuman",
     "center": {
-     "x": 0.68,
-     "y": 0.48
+     "x": 0.62,
+     "y": 0.5
     },
     "tags": [
      "kneeling",
      "leaning forward",
      "hands on another's hips",
+     "sex from behind",
      "looking down"
     ],
     "natural_en": "Kneeling directly behind the partner on the right side of the frame, wearing a strap-on and leaning forward over the partner's lower back while gripping both hips and looking down."
@@ -637,10 +689,15 @@
     "base": [
      "yuri",
      "sex",
-     "vaginal"
+     "vaginal",
+     "strap-on",
+     "dildo",
+     "penetration"
     ],
     "giver": [
-     "strap-on"
+     "strap-on",
+     "dildo",
+     "harness"
     ]
    }
   },
@@ -658,12 +715,15 @@
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "side view",
+   "three-quarter view",
    "from side"
   ],
   "shared_pose_tags": [
    "sex",
-   "missionary"
+   "missionary",
+   "vaginal",
+   "penetration",
+   "legs up"
   ],
   "slots": {
    "receiver": {
@@ -671,14 +731,17 @@
     "requires": "pussy",
     "center": {
      "x": 0.38,
-     "y": 0.6
+     "y": 0.62
     },
     "tags": [
      "lying",
      "on back",
      "legs up",
+     "knees to chest",
      "spread legs",
      "arched back",
+     "vaginal",
+     "penetration",
      "looking at another"
     ],
     "natural_en": "Lying on her back on the left side of the frame with legs raised and spread wide, back slightly arched, looking toward the partner above her."
@@ -687,13 +750,14 @@
     "label_zh": "施與方（跪姿前傾）",
     "requires": "penis_or_strapon_or_nonhuman",
     "center": {
-     "x": 0.65,
+     "x": 0.62,
      "y": 0.5
     },
     "tags": [
      "kneeling",
      "leaning forward",
-     "hands on another's hips",
+     "hands on another's thighs",
+     "missionary",
      "looking down"
     ],
     "natural_en": "Kneeling between the partner's raised legs on the right side of the frame, leaning forward over the partner with both hands on the hips, looking down."
@@ -704,10 +768,15 @@
     "base": [
      "yuri",
      "sex",
-     "vaginal"
+     "vaginal",
+     "strap-on",
+     "pink dildo",
+     "penetration"
     ],
     "giver": [
-     "strap-on"
+     "strap-on",
+     "pink dildo",
+     "black harness"
     ]
    }
   },
@@ -745,6 +814,7 @@
      "on floor",
      "spread legs",
      "leaning forward",
+     "tribadism",
      "looking at another"
     ],
     "natural_en": "Sitting on the floor on the left side of the frame, leaning forward toward the partner with legs spread wide, one leg threaded between the partner's legs so their thighs interlock, hips pressed close."
@@ -761,6 +831,7 @@
      "on floor",
      "spread legs",
      "legs up",
+     "tribadism",
      "looking at another"
     ],
     "natural_en": "Sitting on the floor on the right side of the frame, leaning back slightly with legs spread wide, one leg raised and threaded between the partner's legs so their thighs interlock, hips pressed close and grinding together."
@@ -784,7 +855,7 @@
   "subcategory": "舔陰 cunnilingus",
   "title_zh": "坐床緣低跪侍奉・低角四分之三",
   "pattern": "organ_bound",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "three_quarter_left",
   "mirrorable": true,
   "camera_tags": [
@@ -795,7 +866,8 @@
   "shared_pose_tags": [
    "cunnilingus",
    "oral",
-   "on bed"
+   "on bed",
+   "face to face"
   ],
   "slots": {
    "receiver": {
@@ -827,6 +899,8 @@
      "on floor",
      "leaning forward",
      "hands on another's thighs",
+     "cunnilingus",
+     "licking",
      "looking up"
     ],
     "natural_en": "Kneeling low on the floor before the bed edge, holding both thighs steady while leaning forward and looking upward."
@@ -892,7 +966,9 @@
      "lying",
      "on bed",
      "head between thighs",
-     "hands on another's thighs"
+     "hands on another's thighs",
+     "cunnilingus",
+     "licking"
     ],
     "natural_en": "Lying face-up at lower left beneath the receiver's outstretched leg, head turned into the receiver's crotch between her thighs, hands holding both thighs."
    }
@@ -957,6 +1033,8 @@
      "kneeling",
      "leaning forward",
      "grabbing another's ass",
+     "cunnilingus",
+     "licking",
      "closed eyes"
     ],
     "natural_en": "Kneeling on the right behind the receiver, both knees on the floor, leaning forward with face pressed to the receiver's rear and hands gripping the buttocks."
@@ -988,10 +1066,12 @@
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "front view"
+   "three-quarter view"
   ],
   "shared_pose_tags": [
    "tribadism",
+   "crotch rub",
+   "girl on top",
    "straddling",
    "sex"
   ],
@@ -1001,13 +1081,15 @@
     "requires": "pussy",
     "center": {
      "x": 0.5,
-     "y": 0.68
+     "y": 0.66
     },
     "tags": [
      "lying",
      "on back",
      "spread legs",
-     "hands on another's waist",
+     "knees up",
+     "hands on another's hips",
+     "tribadism",
      "looking up"
     ],
     "natural_en": "Lying on her back in the lower foreground with her head toward the camera at the bottom edge, face seen upside down, legs spread under the partner."
@@ -1017,13 +1099,16 @@
     "requires": "pussy",
     "center": {
      "x": 0.5,
-     "y": 0.36
+     "y": 0.42
     },
     "tags": [
      "straddling",
      "sitting",
+     "girl on top",
      "arched back",
-     "hands on another's chest",
+     "hands on another's thighs",
+     "crotch rub",
+     "tribadism",
      "looking down"
     ],
     "natural_en": "Kneeling upright astride the lower partner's hips facing the camera, palms pressed on the partner's chest, looking down."
@@ -1074,6 +1159,7 @@
      "on bed",
      "legs up",
      "arched back",
+     "tribadism",
      "looking at another"
     ],
     "natural_en": "Lying on her back on the left side of the bed with arms raised by her head, one knee lifted high and bent, her legs scissored with the partner's."
@@ -1091,6 +1177,7 @@
      "leaning back",
      "arm support",
      "spread legs",
+     "tribadism",
      "looking at another"
     ],
     "natural_en": "Sitting on the right leaning back on one arm with the other hand on the partner's raised knee, one knee up, legs scissored with the partner's so the crotches press together."
@@ -1115,17 +1202,20 @@
   "title_zh": "坐椅面對面跨腿磨蹭・正面低角",
   "pattern": "organ_bound",
   "default_canvas": "3:4",
-  "default_facing": "front",
+  "default_facing": "three_quarter_left",
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "front view",
+   "three-quarter view",
    "from below"
   ],
   "shared_pose_tags": [
    "tribadism",
+   "crotch rub",
    "sitting on lap",
-   "on chair"
+   "on chair",
+   "face-to-face",
+   "straddling"
   ],
   "slots": {
    "bottom": {
@@ -1139,7 +1229,9 @@
      "sitting",
      "on chair",
      "spread legs",
+     "leaning back",
      "hands on another's hips",
+     "tribadism",
      "looking up"
     ],
     "natural_en": "Seated deeply on an armchair facing forward with hands gripping the straddling partner's hips."
@@ -1154,8 +1246,12 @@
     "tags": [
      "straddling",
      "sitting on lap",
+     "knees on chair",
+     "spread legs",
+     "crotch rub",
      "arms around neck",
      "arched back",
+     "tribadism",
      "looking down"
     ],
     "natural_en": "Straddling upright on the partner's lap with knees framing the chair seat, arms looped around the neck."
@@ -1170,8 +1266,8 @@
     ]
    }
   },
-  "natural_en": "Low-angle frontal full-body view on a chair: one woman sits back gripping the hips of the partner straddling face-to-face across her lap.",
-  "prompt_zh": "正面低角全身坐椅跨腿：下方坐穩椅面雙手扶胯；上方居高面對面跨坐膝上、雙臂環頸貼身磨蹭。"
+  "natural_en": "Low-angle three-quarter full-body view on a chair: one woman sits back gripping the hips of the partner straddling face-to-face across her lap.",
+  "prompt_zh": "四分之三低角全身坐椅跨腿：下方坐穩椅面雙手扶胯；上方居高面對面跨坐膝上、雙臂環頸貼身磨蹭。"
  },
  {
   "id": "yuri_tribadism_standing_wall_leg_lift_three_quarter",
@@ -1184,25 +1280,31 @@
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "three-quarter view",
-   "dutch angle"
+   "side view",
+   "from side"
   ],
   "shared_pose_tags": [
    "tribadism",
+   "crotch rub",
    "against wall",
-   "standing"
+   "wall",
+   "standing",
+   "holding another's leg"
   ],
   "slots": {
    "partner_a": {
     "label_zh": "左方（靠牆單腳站立抬腿）",
     "requires": "pussy",
     "center": {
-     "x": 0.4,
-     "y": 0.48
+     "x": 0.38,
+     "y": 0.5
     },
     "tags": [
      "standing",
+     "standing on one leg",
      "against wall",
+     "back against wall",
+     "hand on wall",
      "leg up",
      "arms around neck",
      "head back"
@@ -1214,12 +1316,14 @@
     "requires": "pussy",
     "center": {
      "x": 0.6,
-     "y": 0.52
+     "y": 0.5
     },
     "tags": [
      "standing",
      "leaning forward",
      "holding another's leg",
+     "holding another's thigh",
+     "crotch rub",
      "looking at another"
     ],
     "natural_en": "Standing tightly pressed forward on the right in a dynamic tilted frame, holding up the partner's raised thigh."
@@ -1253,7 +1357,9 @@
   "shared_pose_tags": [
    "kiss",
    "grabbing another's breast",
-   "on bed"
+   "on bed",
+   "side by side",
+   "lying"
   ],
   "slots": {
    "partner_a": {
@@ -1265,8 +1371,11 @@
     },
     "tags": [
      "lying",
+     "on back",
      "on bed",
      "facing another",
+     "hand on another's waist",
+     "kiss",
      "closed eyes"
     ],
     "natural_en": "Lying mostly on her back on the left with her head turned toward the partner, kissing with closed eyes, one hand resting on the partner's hand at her breast."
@@ -1284,6 +1393,8 @@
      "on bed",
      "facing another",
      "grabbing another's breast",
+     "hand on another's breast",
+     "kiss",
      "closed eyes"
     ],
     "natural_en": "Lying turned on her side on the right toward the partner, kissing with closed eyes while one hand grabs the partner's breast."
@@ -1310,7 +1421,6 @@
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "front view",
    "three-quarter view"
   ],
   "shared_pose_tags": [
@@ -1330,6 +1440,7 @@
      "standing",
      "arched back",
      "turning head",
+     "kiss",
      "closed eyes"
     ],
     "natural_en": "Standing in the foreground facing forward, turning her cheek back into the partner's kiss while arching softly."
@@ -1346,6 +1457,7 @@
      "hug from behind",
      "grabbing another's breast",
      "leaning forward",
+     "kiss",
      "closed eyes"
     ],
     "natural_en": "Standing directly behind in vertical depth, wrapping both arms forward around the chest and kissing over the shoulder."
@@ -1358,7 +1470,7 @@
     ]
    }
   },
-  "natural_en": "Low-angle frontal full-body view of a standing embrace from behind: both women stack along the center line, sharing a cheek-to-cheek kiss as the rear partner wraps both arms forward.",
+  "natural_en": "Three-quarter full-body view of a standing embrace from behind: both women stack along the center line, sharing a cheek-to-cheek kiss as the rear partner wraps both arms forward.",
   "prompt_zh": "正面低角縱向重疊全身：前方站立側首閉眼回吻；後方貼背環抱胸前並由肩側吻上。"
  },
  {
@@ -1391,6 +1503,7 @@
      "sitting",
      "leaning back",
      "grabbing another's breast",
+     "kiss",
      "closed eyes"
     ],
     "natural_en": "Seated beneath leaning slightly back while drawing the straddling partner close by the waist and chest."
@@ -1407,6 +1520,7 @@
      "sitting on lap",
      "arms around neck",
      "leaning forward",
+     "kiss",
      "closed eyes"
     ],
     "natural_en": "Straddling face-to-face across the lap, looping arms around the shoulders and leaning into a deep kiss."
@@ -1453,7 +1567,8 @@
      "sitting",
      "arched back",
      "hands on another's thighs",
-     "looking back"
+     "reverse cowgirl position",
+     "looking at viewer"
     ],
     "natural_en": "Sitting upright astride the giver's pelvis, facing away from the giver toward her feet and the camera, one hand resting on the giver's chest, glancing toward the viewer."
    },
@@ -1520,6 +1635,7 @@
      "spread legs",
      "knees up",
      "arched back",
+     "double dildo",
      "looking at another"
     ],
     "natural_en": "Reclining supine on the left half of the widescreen canvas with knees bent wide toward the center."
@@ -1537,6 +1653,7 @@
      "spread legs",
      "knees up",
      "arched back",
+     "double dildo",
      "looking at another"
     ],
     "natural_en": "Reclining supine symmetrically on the right half facing the partner, knees open toward the shared center point."
@@ -1587,6 +1704,7 @@
      "hand on wall",
      "bent over",
      "arched back",
+     "sex from behind",
      "looking at viewer"
     ],
     "natural_en": "Standing at left facing the wall, bent forward at the hips with one palm braced on the wall and back arched, face turned toward the viewer."
@@ -1602,6 +1720,7 @@
      "standing",
      "leaning forward",
      "hands on another's hips",
+     "sex from behind",
      "looking down"
     ],
     "natural_en": "Standing close behind at right wearing a strap-on, leaning slightly forward with hands on the receiver's hips."
@@ -1653,6 +1772,8 @@
     "tags": [
      "standing",
      "hand on another's waist",
+     "breast press",
+     "hug",
      "eye contact"
     ],
     "natural_en": "Standing on the left side of the frame facing the partner, chest pressed flat against the partner's chest, hands on the partner's waist, holding eye contact."
@@ -1667,6 +1788,8 @@
     "tags": [
      "standing",
      "hand on another's back",
+     "breast press",
+     "hug",
      "eye contact"
     ],
     "natural_en": "Standing on the right side of the frame facing the partner, chest pressed flat against the partner's chest, arms around the partner's back, holding eye contact."
@@ -1713,6 +1836,7 @@
      "sitting",
      "spread legs",
      "arm support",
+     "fingering",
      "looking at another"
     ],
     "natural_en": "Sitting on the floor on the left side of the frame facing the partner, legs spread, leaning back on one arm and reaching the other hand between the partner's legs to finger her."
@@ -1728,6 +1852,7 @@
      "sitting",
      "spread legs",
      "arm support",
+     "fingering",
      "looking at another"
     ],
     "natural_en": "Sitting on the floor on the right side of the frame facing the partner, legs spread, leaning back on one arm and reaching the other hand between the partner's legs to finger her."
@@ -1757,23 +1882,28 @@
    "from above"
   ],
   "shared_pose_tags": [
-   "mutual masturbation",
    "fingering",
-   "lying"
+   "mutual fingering",
+   "hand between another's legs",
+   "lying",
+   "side by side",
+   "on bed"
   ],
   "slots": {
    "partner_left": {
     "label_zh": "女方左（仰躺微側身伸手愛撫對方）",
     "requires": "female",
     "center": {
-     "x": 0.38,
-     "y": 0.5
+     "x": 0.41,
+     "y": 0.52
     },
     "tags": [
      "lying",
      "on back",
      "spread legs",
-     "fingering",
+     "knees up",
+     "fingering another",
+     "hand between another's legs",
      "looking at another"
     ],
     "natural_en": "Lying on her back turned slightly toward her partner, legs open while reaching over to finger her partner."
@@ -1782,14 +1912,16 @@
     "label_zh": "女方右（仰躺微側身回應愛撫）",
     "requires": "female",
     "center": {
-     "x": 0.62,
-     "y": 0.5
+     "x": 0.59,
+     "y": 0.52
     },
     "tags": [
      "lying",
      "on back",
      "spread legs",
-     "fingering",
+     "knees up",
+     "fingering another",
+     "hand between another's legs",
      "looking at another"
     ],
     "natural_en": "Lying beside her with legs parted, reciprocating by caressing her partner between the thighs."
@@ -1799,8 +1931,8 @@
    "female_female": {
     "base": [
      "yuri",
-     "mutual masturbation",
-     "fingering"
+     "fingering",
+     "hand between another's legs"
     ]
    }
   },
@@ -1823,7 +1955,8 @@
   ],
   "shared_pose_tags": [
    "fingering from behind",
-   "hug from behind"
+   "hug from behind",
+   "grabbing another's breast"
   ],
   "slots": {
    "receiver": {
@@ -1837,7 +1970,10 @@
      "standing",
      "leaning back",
      "head back",
-     "legs apart"
+     "arched back",
+     "legs apart",
+     "closed eyes",
+     "arms at sides"
     ],
     "natural_en": "Standing leaning back into her partner's chest with thighs slightly parted."
    },
@@ -1851,8 +1987,10 @@
     "tags": [
      "standing",
      "hug from behind",
+     "fingering from behind",
      "fingering",
-     "breast grab"
+     "hand between another's legs",
+     "grabbing another's breast"
     ],
     "natural_en": "Standing pressed behind her, fondling her chest with one arm while sliding the other hand down to finger her."
    }
@@ -1898,6 +2036,10 @@
      "lying",
      "on back",
      "spread legs",
+     "knees up",
+     "hands on another's ass",
+     "tongue out",
+     "licking",
      "cunnilingus"
     ],
     "natural_en": "Lying on her back beneath her partner in a head-to-toe 69 position, licking upward."
@@ -1910,8 +2052,13 @@
      "y": 0.42
     },
     "tags": [
-     "straddling",
-     "leaning forward",
+     "lying",
+     "on stomach",
+     "on top",
+     "spread legs",
+     "hands on another's thighs",
+     "tongue out",
+     "licking",
      "cunnilingus"
     ],
     "natural_en": "Positioned head-to-toe above her partner, leaning down to lick between her thighs."

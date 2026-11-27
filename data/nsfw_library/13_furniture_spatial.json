@@ -10,11 +10,14 @@
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "side view"
+   "side view",
+   "from side"
   ],
   "shared_pose_tags": [
+   "sex",
    "sex from behind",
    "on desk",
+   "desk",
    "prone bone"
   ],
   "slots": {
@@ -26,7 +29,11 @@
      "y": 0.56
     },
     "tags": [
+     "lying",
      "on stomach",
+     "on desk",
+     "prone bone",
+     "sex from behind",
      "ass up",
      "spread legs"
     ],
@@ -41,6 +48,9 @@
     },
     "tags": [
      "standing",
+     "standing sex",
+     "prone bone",
+     "sex from behind",
      "leaning forward",
      "hands on another's hips",
      "legs apart"
@@ -89,16 +99,17 @@
   "id": "glass_reflection_closeup_side",
   "category": "13_furniture_spatial",
   "subcategory": "貼玻璃／鏡面壓制",
-  "title_zh": "鏡面跪姿倒影特寫・正面近景",
+  "title_zh": "鏡面跪姿倒影特寫・斜側近景",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
-  "default_facing": "left",
+  "default_canvas": "4:3",
+  "default_facing": "three_quarter_left",
   "mirrorable": true,
   "camera_tags": [
-   "front view"
+   "three-quarter view"
   ],
   "shared_pose_tags": [
    "sex",
+   "sex from behind",
    "against glass",
    "reflection",
    "mirror"
@@ -114,6 +125,8 @@
     "tags": [
      "kneeling",
      "arched back",
+     "against glass",
+     "sex from behind",
      "looking at viewer"
     ],
     "natural_en": "Kneeling close to the glass surface on the left with arched back, looking toward the visible reflection."
@@ -129,6 +142,7 @@
      "kneeling",
      "leaning forward",
      "hands on another's hips",
+     "sex from behind",
      "looking at viewer"
     ],
     "natural_en": "Kneeling behind on the right, leaning forward with hands on hips while both appear in the reflection."
@@ -176,8 +190,8 @@
     "giver": []
    }
   },
-  "natural_en": "Close front view focused on the reflection in glass: the receiver kneels close to the surface with arched back while the giver kneels behind gripping the hips.",
-  "prompt_zh": "正面近景鏡面倒影：承受方居左跪姿貼近玻璃拱背，玻璃映出兩人倒影；施與方居右跪於身後扶胯壓貼。"
+  "natural_en": "Close three-quarter view focused on the reflection in glass: the receiver kneels close to the surface on the left with arched back while the giver kneels behind on the right gripping the hips.",
+  "prompt_zh": "4:3 斜側近景鏡面倒影：承受方居左跪姿貼近玻璃拱背，玻璃映出兩人倒影；施與方居右跪於身後扶胯壓貼。"
  },
  {
   "id": "desk_lying_edge_side",
@@ -195,7 +209,9 @@
   ],
   "shared_pose_tags": [
    "sex",
-   "on desk"
+   "standing sex",
+   "on desk",
+   "desk"
   ],
   "slots": {
    "receiver": {
@@ -223,6 +239,7 @@
     },
     "tags": [
      "standing",
+     "standing sex",
      "leaning forward",
      "hands on another's thighs",
      "looking down"
@@ -291,7 +308,12 @@
   ],
   "shared_pose_tags": [
    "sex",
-   "on couch"
+   "spooning",
+   "sex from behind",
+   "lying",
+   "on side",
+   "on couch",
+   "couch"
   ],
   "slots": {
    "receiver": {
@@ -305,8 +327,11 @@
      "lying",
      "on side",
      "on couch",
-     "spread legs",
-     "looking at another"
+     "spooning",
+     "sex from behind",
+     "bent knees",
+     "arched back",
+     "looking back"
     ],
     "natural_en": "Lying on one side on the couch on the left side of the frame facing away from the camera, legs slightly spread, while the partner spoons in close behind."
    },
@@ -321,9 +346,11 @@
      "lying",
      "on side",
      "on couch",
-     "leaning forward",
-     "hands on another's hips",
-     "looking at another"
+     "spooning",
+     "sex from behind",
+     "hug from behind",
+     "arm around waist",
+     "looking down"
     ],
     "natural_en": "Lying on one side on the couch on the right side of the frame spooned close behind the partner, leaning forward with one hand on the partner's hip while thrusting."
    }
@@ -371,24 +398,31 @@
    }
   },
   "natural_en": "Full-body side view of spooning sex on a couch: the receiver lies on one side on the couch on the left, while the giver lies on one side on the right spooned close behind, leaning forward with a hand on the hip.",
-  "prompt_zh": "側面全身沙發側臥：承受方居左側臥於沙發在前；施與方居右側臥貼背相擁，前傾一手扶胯。"
+  "prompt_zh": "側面全身沙發側臥：承受方居左側臥於沙發在前；施與方居右側臥貼背相擁，前傾一手扶胯。",
+  "scene_tags": [
+   "living room",
+   "couch"
+  ]
  },
  {
   "id": "wall_kabedon_close_front",
   "category": "13_furniture_spatial",
   "subcategory": "牆面壓制與立姿",
-  "title_zh": "壁咚近距・正面近景",
+  "title_zh": "壁咚近距・斜側近景",
   "pattern": "geometry_dispatch",
   "default_canvas": "3:4",
-  "default_facing": "front",
+  "default_facing": "three_quarter_left",
   "mirrorable": true,
   "camera_tags": [
-   "front view"
+   "three-quarter view"
   ],
   "shared_pose_tags": [
    "sex",
+   "standing sex",
    "against wall",
-   "kabedon"
+   "kabedon",
+   "face to face",
+   "wall"
   ],
   "slots": {
    "receiver": {
@@ -400,10 +434,14 @@
     },
     "tags": [
      "standing",
+     "standing sex",
      "against wall",
+     "back against wall",
+     "kabedon",
+     "facing another",
      "looking at another"
     ],
-    "natural_en": "Standing pressed against the wall in close view, looking at the partner standing close in front while being penetrated against the wall."
+    "natural_en": "Standing pressed against the wall on the left in close three-quarter view, looking at the partner standing close in front while being penetrated against the wall."
    },
    "giver": {
     "label_zh": "施與方（前方站姿壁咚）",
@@ -414,10 +452,15 @@
     },
     "tags": [
      "standing",
+     "standing sex",
+     "kabedon",
+     "hand on wall",
      "leaning forward",
+     "hand on another's hip",
+     "facing another",
      "looking at another"
     ],
-    "natural_en": "Standing close in front of the partner, leaning forward with one arm braced on the wall beside the partner's head, pinning the partner to the wall while thrusting."
+    "natural_en": "Standing close in front of the partner on the right, leaning forward with one arm braced on the wall beside the partner's head, pinning the partner to the wall while thrusting."
    }
   },
   "pairing_tags": {
@@ -462,8 +505,8 @@
     "giver": []
    }
   },
-  "natural_en": "Close front view of kabedon sex against a wall: the receiver stands pressed against the wall, while the giver stands close in front leaning forward with one arm braced on the wall beside the receiver's head, pinning the receiver to the wall.",
-  "prompt_zh": "正面近景壁咚：承受方被壓在牆上站立；施與方站於身前近距前傾，一手撐在對方頭側的牆上，將對方釘在牆邊交合。"
+  "natural_en": "Close three-quarter view of kabedon sex against a wall: the receiver stands pressed against the wall on the left, while the giver stands close in front on the right leaning forward with one arm braced on the wall beside the receiver's head, pinning the receiver to the wall.",
+  "prompt_zh": "斜側近景壁咚：承受方居左被壓在牆上站立；施與方居右站於身前近距前傾，一手撐在對方頭側的牆上，將對方釘在牆邊面對面交合。"
  },
  {
   "id": "wall_lift_embrace_side",
@@ -481,7 +524,10 @@
   ],
   "shared_pose_tags": [
    "sex",
-   "against wall"
+   "standing sex",
+   "suspended congress",
+   "against wall",
+   "face to face"
   ],
   "slots": {
    "receiver": {
@@ -492,6 +538,8 @@
      "y": 0.5
     },
     "tags": [
+     "suspended congress",
+     "against wall",
      "spread legs",
      "legs up",
      "looking at another"
@@ -507,6 +555,11 @@
     },
     "tags": [
      "standing",
+     "standing sex",
+     "suspended congress",
+     "carrying",
+     "holding another's legs",
+     "hands on another's thighs",
      "leaning forward",
      "looking at another"
     ],
@@ -574,7 +627,9 @@
   ],
   "shared_pose_tags": [
    "sex",
-   "on couch"
+   "missionary",
+   "on couch",
+   "couch"
   ],
   "slots": {
    "receiver": {
@@ -588,6 +643,7 @@
      "lying",
      "on back",
      "on couch",
+     "missionary",
      "spread legs",
      "legs up"
     ],
@@ -603,6 +659,7 @@
     "tags": [
      "kneeling",
      "on couch",
+     "missionary",
      "leaning forward",
      "hands on another's hips",
      "looking down"
@@ -671,7 +728,10 @@
   ],
   "shared_pose_tags": [
    "sex",
-   "on table"
+   "standing sex",
+   "face to face",
+   "on table",
+   "table"
   ],
   "slots": {
    "receiver": {
@@ -686,7 +746,8 @@
      "on table",
      "spread legs",
      "legs up",
-     "leaning forward"
+     "leaning forward",
+     "looking at another"
     ],
     "natural_en": "Sitting on the edge of the table on the left side of the frame with legs raised high and spread wide, leaning forward toward the partner standing between the legs."
    },
@@ -699,6 +760,7 @@
     },
     "tags": [
      "standing",
+     "standing sex",
      "leaning forward",
      "hands on another's thighs",
      "looking down"
@@ -767,7 +829,12 @@
   ],
   "shared_pose_tags": [
    "sex",
-   "against glass"
+   "standing sex",
+   "leg lift",
+   "against glass",
+   "face to face",
+   "glass wall",
+   "window"
   ],
   "slots": {
    "receiver": {
@@ -779,7 +846,12 @@
     },
     "tags": [
      "standing",
+     "standing on one leg",
+     "standing sex",
+     "against glass",
      "leg up",
+     "arms around neck",
+     "facing another",
      "looking at another"
     ],
     "natural_en": "Standing with back pressed into the glass corner on the left, one leg lifted while facing the partner."
@@ -793,8 +865,11 @@
     },
     "tags": [
      "standing",
+     "standing sex",
      "leaning forward",
+     "holding another's leg",
      "hands on another's thighs",
+     "facing another",
      "looking at another"
     ],
     "natural_en": "Standing face-to-face on the right, leaning in and holding the partner's lifted thigh while pinning them into the glass corner."
@@ -861,8 +936,13 @@
   ],
   "shared_pose_tags": [
    "sex",
+   "standing sex",
+   "sex from behind",
+   "doggystyle",
    "against glass",
-   "doggystyle"
+   "glass wall",
+   "window",
+   "reflection"
   ],
   "slots": {
    "receiver": {
@@ -874,7 +954,13 @@
     },
     "tags": [
      "standing",
+     "bent over",
      "leaning forward",
+     "against glass",
+     "hands on glass",
+     "arched back",
+     "doggystyle",
+     "sex from behind",
      "looking back"
     ],
     "natural_en": "Standing on the left side of the frame facing the glass with both hands flat against it, back arched and hips pushed back toward the partner behind, looking back over the shoulder."
@@ -888,6 +974,9 @@
     },
     "tags": [
      "standing",
+     "standing sex",
+     "doggystyle",
+     "sex from behind",
      "leaning forward",
      "hands on another's hips",
      "looking down"
@@ -956,7 +1045,11 @@
   "shared_pose_tags": [
    "sex",
    "cowgirl position",
-   "on chair"
+   "upright straddle",
+   "sitting on lap",
+   "on chair",
+   "chair",
+   "face to face"
   ],
   "slots": {
    "receiver": {
@@ -968,9 +1061,13 @@
     },
     "tags": [
      "sitting",
+     "straddling",
+     "cowgirl position",
+     "upright straddle",
+     "sitting on lap",
      "on chair",
      "spread legs",
-     "leaning forward",
+     "hands on another's shoulders",
      "looking down"
     ],
     "natural_en": "Sitting astride the partner on the chair facing forward with legs spread wide, leaning forward over the partner and looking down."
@@ -984,7 +1081,11 @@
     },
     "tags": [
      "sitting",
-     "on chair",
+     "sitting on chair",
+     "cowgirl position",
+     "upright straddle",
+     "back to viewer",
+     "hands on another's hips",
      "looking up"
     ],
     "natural_en": "Sitting on the chair below the rider, looking up at the rider sitting astride facing forward."
@@ -1041,7 +1142,7 @@
   "subcategory": "椅子與沙發",
   "title_zh": "靠背扶腰後入・側面全身",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -1051,8 +1152,11 @@
   ],
   "shared_pose_tags": [
    "sex",
+   "standing sex",
+   "sex from behind",
    "doggystyle",
-   "on chair"
+   "bent over",
+   "chair"
   ],
   "slots": {
    "receiver": {
@@ -1064,8 +1168,12 @@
     },
     "tags": [
      "standing",
+     "bent over",
      "leaning forward",
+     "leaning on object",
      "ass up",
+     "doggystyle",
+     "sex from behind",
      "looking back"
     ],
     "natural_en": "Standing bent forward over the back of the chair on the left side of the frame, hands gripping the chair back, hips raised, looking back toward the partner behind."
@@ -1079,6 +1187,9 @@
     },
     "tags": [
      "standing",
+     "standing sex",
+     "doggystyle",
+     "sex from behind",
      "leaning forward",
      "hands on another's hips",
      "looking down"
@@ -1147,7 +1258,11 @@
   ],
   "shared_pose_tags": [
    "sex",
-   "against wall"
+   "standing sex",
+   "leg lift",
+   "against wall",
+   "face to face",
+   "wall"
   ],
   "slots": {
    "receiver": {
@@ -1159,9 +1274,14 @@
     },
     "tags": [
      "standing",
+     "standing on one leg",
+     "standing sex",
      "against wall",
+     "back against wall",
      "leg up",
-     "leaning forward"
+     "arms around neck",
+     "facing another",
+     "looking at another"
     ],
     "natural_en": "Standing against the wall on the left side of the frame with one leg raised high, leaning forward toward the partner standing close in front."
    },
@@ -1174,9 +1294,12 @@
     },
     "tags": [
      "standing",
+     "standing sex",
      "leaning forward",
+     "holding another's leg",
      "hands on another's thighs",
-     "looking down"
+     "facing another",
+     "looking at another"
     ],
     "natural_en": "Standing close in front of the partner on the right side of the frame, leaning forward and holding the partner's raised leg with both hands while thrusting."
    }
@@ -1238,12 +1361,15 @@
   "camera_tags": [
    "full body",
    "side view",
-   "from side"
+   "from side",
+   "profile"
   ],
   "shared_pose_tags": [
    "sex",
    "reverse cowgirl position",
-   "on chair"
+   "sitting on lap",
+   "on chair",
+   "chair"
   ],
   "slots": {
    "receiver": {
@@ -1255,9 +1381,12 @@
     },
     "tags": [
      "sitting",
+     "straddling",
+     "reverse cowgirl position",
+     "sitting on lap",
      "on chair",
-     "spread legs",
      "leaning forward",
+     "arched back",
      "looking down"
     ],
     "natural_en": "Sitting astride the partner on the chair with the back turned toward the partner's head on the left side of the frame, legs spread wide, leaning forward and looking down."
@@ -1271,8 +1400,11 @@
     },
     "tags": [
      "sitting",
-     "on chair",
-     "looking up"
+     "sitting on chair",
+     "reverse cowgirl position",
+     "leaning back",
+     "hands on another's hips",
+     "looking at another"
     ],
     "natural_en": "Sitting on the chair on the right side of the frame with the head toward the right edge, looking up at the rider sitting astride with their back turned."
    }
@@ -1338,6 +1470,8 @@
   ],
   "shared_pose_tags": [
    "sex",
+   "standing sex",
+   "sex from behind",
    "doggystyle",
    "against wall"
   ],
@@ -1351,8 +1485,13 @@
     },
     "tags": [
      "standing",
+     "bent over",
      "leaning forward",
+     "against wall",
+     "hand on wall",
      "ass up",
+     "doggystyle",
+     "sex from behind",
      "looking back"
     ],
     "natural_en": "Standing facing the wall on the left side of the frame bent forward at the waist with both hands braced flat against the wall, hips raised, looking back over the shoulder while the partner thrusts from behind."
@@ -1366,6 +1505,9 @@
     },
     "tags": [
      "standing",
+     "standing sex",
+     "doggystyle",
+     "sex from behind",
      "leaning forward",
      "hands on another's hips",
      "looking down"
@@ -1433,7 +1575,12 @@
   ],
   "shared_pose_tags": [
    "sex",
-   "against glass"
+   "standing sex",
+   "sex from behind",
+   "against glass",
+   "breasts on glass",
+   "glass wall",
+   "window"
   ],
   "slots": {
    "receiver": {
@@ -1445,6 +1592,13 @@
     },
     "tags": [
      "standing",
+     "standing sex",
+     "against glass",
+     "breasts on glass",
+     "breast press",
+     "hands on glass",
+     "sex from behind",
+     "spread legs",
      "looking at viewer"
     ],
     "natural_en": "Standing facing the camera with the chest and body pressed flat against the glass, looking at the viewer while the partner presses in from behind."
@@ -1458,7 +1612,10 @@
     },
     "tags": [
      "standing",
+     "standing sex",
+     "sex from behind",
      "leaning forward",
+     "hands on another's hips",
      "looking down"
     ],
     "natural_en": "Standing behind the partner, leaning forward and pressing the partner's body flat against the glass while thrusting from behind."
@@ -1521,12 +1678,15 @@
   "camera_tags": [
    "full body",
    "side view",
-   "from side"
+   "from side",
+   "profile"
   ],
   "shared_pose_tags": [
    "fellatio",
    "oral",
-   "on couch"
+   "face to face",
+   "couch",
+   "sitting on couch"
   ],
   "slots": {
    "receiver": {
@@ -1538,8 +1698,10 @@
     },
     "tags": [
      "sitting",
-     "on couch",
+     "sitting on couch",
+     "leaning back",
      "spread legs",
+     "hand on another's head",
      "looking down"
     ],
     "natural_en": "Sitting on the couch on the left side of the frame with legs spread wide, looking down at the partner kneeling on the floor in front of the couch."
@@ -1553,8 +1715,10 @@
     },
     "tags": [
      "kneeling",
+     "on floor",
      "leaning forward",
-     "tongue out",
+     "fellatio",
+     "oral",
      "looking up"
     ],
     "natural_en": "Kneeling on the floor in front of the couch on the right side of the frame, leaning in between the partner's spread legs with tongue out and looking up while servicing the partner."
@@ -1585,27 +1749,30 @@
   "id": "desk_fellatio_front",
   "category": "13_furniture_spatial",
   "subcategory": "書桌與餐桌",
-  "title_zh": "桌前侍奉・正面全身",
+  "title_zh": "桌前侍奉・斜側俯視全身",
   "pattern": "organ_bound",
-  "default_canvas": "3:4",
-  "default_facing": "front",
+  "default_canvas": "4:3",
+  "default_facing": "three_quarter_left",
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "front view"
+   "three-quarter view",
+   "from above"
   ],
   "shared_pose_tags": [
    "fellatio",
    "oral",
-   "on desk"
+   "face to face",
+   "on desk",
+   "desk"
   ],
   "slots": {
    "receiver": {
     "label_zh": "承受方（坐桌緣張腿）",
     "requires": "penis_or_dildo",
     "center": {
-     "x": 0.42,
-     "y": 0.45
+     "x": 0.38,
+     "y": 0.44
     },
     "tags": [
      "sitting",
@@ -1613,22 +1780,24 @@
      "spread legs",
      "looking down"
     ],
-    "natural_en": "Sitting on the edge of the desk facing the camera with legs spread wide, looking down at the partner kneeling in front of the desk."
+    "natural_en": "Sitting on the edge of the desk on the left with legs spread wide, looking down at the partner kneeling in front of the desk."
    },
    "giver": {
     "label_zh": "施與方（桌前跪姿口交）",
     "requires": "any",
     "center": {
-     "x": 0.58,
-     "y": 0.7
+     "x": 0.64,
+     "y": 0.66
     },
     "tags": [
      "kneeling",
      "leaning forward",
+     "fellatio",
+     "oral",
      "tongue out",
      "looking up"
     ],
-    "natural_en": "Kneeling on the floor in front of the desk, leaning in between the partner's spread legs with tongue out and looking up while servicing the partner."
+    "natural_en": "Kneeling on the floor in front of the desk on the right facing the partner, leaning in between the partner's spread legs with tongue out and looking up while servicing the partner."
    }
   },
   "pairing_tags": {
@@ -1649,8 +1818,8 @@
     ]
    }
   },
-  "natural_en": "Full-body front view of fellatio in front of a desk: the receiver sits on the desk edge facing the camera with legs spread wide, while the giver kneels on the floor in front of the desk, leaning in with tongue out and looking up.",
-  "prompt_zh": "正面全身桌前侍奉：承受方坐於桌緣面向鏡頭、雙腿張開並低視；施與方跪於桌前地面，俯身伸舌仰望。"
+  "natural_en": "High-angle three-quarter full-body view of fellatio in front of a desk: the receiver sits on the desk edge on the left with legs spread wide, while the giver kneels face to face on the floor in front of the desk on the right, leaning in with tongue out and looking up.",
+  "prompt_zh": "4:3 斜側俯視全身桌前侍奉：承受方居左坐於桌緣、雙腿張開並低視；施與方居右面對面跪於桌前地面，俯身伸舌口交並仰望。"
  },
  {
   "id": "bath_tub_seated_straddle_above",
@@ -1682,6 +1851,7 @@
     "tags": [
      "sitting",
      "straddling",
+     "cowgirl position",
      "leaning forward",
      "wet",
      "looking down"
@@ -1697,6 +1867,7 @@
     },
     "tags": [
      "sitting",
+     "cowgirl position",
      "leaning back",
      "hands on another's hips",
      "wet",
@@ -1767,6 +1938,8 @@
   ],
   "shared_pose_tags": [
    "sex",
+   "standing sex",
+   "face to face",
    "sink",
    "mirror",
    "reflection"
@@ -1781,6 +1954,8 @@
     },
     "tags": [
      "sitting",
+     "spread legs",
+     "leg up",
      "arms around neck",
      "looking at another"
     ],
@@ -1795,6 +1970,7 @@
     },
     "tags": [
      "standing",
+     "standing sex",
      "leaning forward",
      "hands on another's hips",
      "looking at another"
@@ -1861,12 +2037,15 @@
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "three-quarter view"
+   "side view",
+   "three-quarter view",
+   "wide shot"
   ],
   "shared_pose_tags": [
    "sex",
-   "missionary",
-   "on bed"
+   "standing sex",
+   "bed",
+   "face to face"
   ],
   "slots": {
    "receiver": {
@@ -1895,8 +2074,10 @@
     },
     "tags": [
      "standing",
+     "standing sex",
      "leaning forward",
-     "hands on another's legs",
+     "holding another's legs",
+     "hands on another's thighs",
      "looking down"
     ],
     "natural_en": "Standing on the floor right against the mattress edge, holding the receiver's lifted legs high while thrusting forward."
@@ -1945,7 +2126,12 @@
    }
   },
   "natural_en": "Three-quarter 4:3 full-body view at the edge of a bed: the receiver lies on her back with hips perched at the mattress edge and legs hoisted high while the giver stands on the floor leaning in.",
-  "prompt_zh": "4:3 斜側全身床緣立姿傳教士：承受方仰躺床墊、臀部貼近床沿高舉雙腿，施與方站立床下地板扶腿前傾進入。"
+  "prompt_zh": "4:3 斜側全身床緣立姿傳教士：承受方仰躺床墊、臀部貼近床沿高舉雙腿，施與方站立床下地板扶腿前傾進入。",
+  "scene_tags": [
+   "bedroom",
+   "bed",
+   "wooden floor"
+  ]
  },
  {
   "id": "bed_sprawled_overhead_press_above",
@@ -1978,6 +2164,7 @@
      "lying",
      "on back",
      "on bed",
+     "missionary",
      "spread legs",
      "arms up",
      "looking up"
@@ -1992,7 +2179,10 @@
      "y": 0.6
     },
     "tags": [
+     "lying",
+     "on top",
      "on bed",
+     "missionary",
      "leaning forward",
      "looking down"
     ],
@@ -2061,6 +2251,8 @@
   "shared_pose_tags": [
    "sex",
    "standing sex",
+   "face to face",
+   "leg lift",
    "stairs",
    "railing"
   ],
@@ -2073,10 +2265,13 @@
      "y": 0.48
     },
     "tags": [
+     "standing",
      "standing on one leg",
-     "leaning back",
+     "standing sex",
      "against railing",
      "leg up",
+     "arms around neck",
+     "facing another",
      "looking at another"
     ],
     "natural_en": "Leaning back against the staircase railing on one leg, the other leg lifted high beside the partner."
@@ -2090,8 +2285,11 @@
     },
     "tags": [
      "standing",
+     "standing sex",
      "leaning forward",
      "holding another's leg",
+     "hands on another's thighs",
+     "facing another",
      "looking at another"
     ],
     "natural_en": "Standing close and facing the receiver, leaning in while holding her thigh against the railing."
@@ -2140,7 +2338,12 @@
    }
   },
   "natural_en": "Three-quarter 4:3 full-body view from slightly above at a staircase railing: the receiver leans back against the rail on one leg with the other leg raised while the giver stands facing her holding her thigh.",
-  "prompt_zh": "4:3 俯視斜側全身樓梯扶手立交：承受方背靠樓梯欄杆單腳站立、另一腿高抬，施與方面對面站立托住其大腿貼近結合。"
+  "prompt_zh": "4:3 俯視斜側全身樓梯扶手立交：承受方背靠樓梯欄杆單腳站立、另一腿高抬，施與方面對面站立托住其大腿貼近結合。",
+  "scene_tags": [
+   "stairs",
+   "staircase",
+   "railing"
+  ]
  },
  {
   "id": "stairs_seated_step_oral_above",
@@ -2159,6 +2362,7 @@
   "shared_pose_tags": [
    "fellatio",
    "oral",
+   "face to face",
    "stairs",
    "on stairs"
   ],
@@ -2171,6 +2375,7 @@
      "y": 0.4
     },
     "tags": [
+     "sitting",
      "sitting on stairs",
      "spread legs",
      "hand on another's head",
@@ -2188,6 +2393,8 @@
     "tags": [
      "kneeling",
      "leaning forward",
+     "fellatio",
+     "oral",
      "looking up"
     ],
     "natural_en": "Kneeling on a lower step between the seated partner's knees, leaning forward to give oral while looking up."
@@ -2218,51 +2425,57 @@
   "id": "kitchen_counter_seated_front",
   "category": "13_furniture_spatial",
   "subcategory": "廚房與吧台",
-  "title_zh": "廚房流理台坐檯開腿・正面全身",
+  "title_zh": "廚房流理台坐檯開腿・斜側全身",
   "pattern": "geometry_dispatch",
   "default_canvas": "4:3",
-  "default_facing": "front",
+  "default_facing": "three_quarter_left",
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "front view"
+   "three-quarter view"
   ],
   "shared_pose_tags": [
    "sex",
+   "standing sex",
+   "face to face",
    "counter",
-   "sitting"
+   "kitchen counter"
   ],
   "slots": {
    "receiver": {
     "label_zh": "承受方（坐於流理台面張腿雙手後撐）",
     "requires": "pussy",
     "center": {
-     "x": 0.48,
-     "y": 0.38
+     "x": 0.38,
+     "y": 0.42
     },
     "tags": [
      "sitting",
      "spread legs",
      "leaning back",
+     "arm support",
      "arched back",
-     "looking at viewer"
+     "facing another",
+     "looking at another"
     ],
-    "natural_en": "Perched atop a kitchen counter facing the camera with both hands planted behind on the countertop, chest lifted and legs spread wide around the partner."
+    "natural_en": "Perched atop a kitchen counter on the left with both hands planted behind on the countertop, chest lifted and legs spread wide around the partner."
    },
    "giver": {
     "label_zh": "施與方（站於台前腿間扶腰貼近）",
     "requires": "penis_or_strapon_or_nonhuman",
     "center": {
-     "x": 0.54,
-     "y": 0.58
+     "x": 0.64,
+     "y": 0.54
     },
     "tags": [
      "standing",
+     "standing sex",
      "leaning forward",
      "hands on another's thighs",
-     "looking up"
+     "facing another",
+     "looking at another"
     ],
-    "natural_en": "Standing closely in front of the kitchen counter between the receiver's parted thighs, gripping her thighs and pulling her hips to the counter edge."
+    "natural_en": "Standing closely in front of the kitchen counter on the right between the receiver's parted thighs, gripping her thighs and pulling her hips to the counter edge."
    }
   },
   "pairing_tags": {
@@ -2307,10 +2520,12 @@
     "giver": []
    }
   },
-  "natural_en": "Front 4:3 full-body view at a kitchen counter: the receiver sits elevated on the countertop bracing her hands behind her with legs spread wide while the giver stands directly between her thighs.",
-  "prompt_zh": "4:3 正面全身廚房檯面交合：承受方高坐流理台邊雙手後撐挺胸張腿，施與方立於台前腿間扶腿拉近結合。",
+  "natural_en": "Three-quarter 4:3 full-body view at a kitchen counter: the receiver sits elevated on the countertop on the left bracing her hands behind her with legs spread wide while the giver stands face to face on the right between her thighs.",
+  "prompt_zh": "4:3 斜側全身廚房檯面交合：承受方居左高坐流理台邊雙手後撐挺胸張腿，施與方居右面對面立於台前腿間扶腿拉近結合。",
   "scene_tags": [
-   "kitchen"
+   "kitchen",
+   "kitchen counter",
+   "indoors"
   ]
  },
  {
@@ -2343,9 +2558,11 @@
      "y": 0.54
     },
     "tags": [
+     "standing on one leg",
      "bent over",
      "arched back",
-     "leg up"
+     "leg up",
+     "sex from behind"
     ],
     "natural_en": "Bent forward with both forearms resting on a tall round bar table, standing on one leg with the other knee bent and the foot lifted back toward the partner; a bar stool stands empty beside her."
    },
@@ -2358,6 +2575,8 @@
     },
     "tags": [
      "standing",
+     "standing sex",
+     "sex from behind",
      "leaning forward",
      "hands on another's hips",
      "looking down"
@@ -2426,6 +2645,8 @@
   ],
   "shared_pose_tags": [
    "sex",
+   "standing sex",
+   "face to face",
    "on table",
    "counter"
   ],
@@ -2440,6 +2661,7 @@
     "tags": [
      "lying",
      "on back",
+     "on table",
      "leaning back",
      "legs up",
      "spread legs",
@@ -2456,6 +2678,7 @@
     },
     "tags": [
      "standing",
+     "standing sex",
      "leaning forward",
      "hands on another's legs",
      "looking at another"
@@ -2541,6 +2764,7 @@
     "tags": [
      "sitting",
      "straddling",
+     "cowgirl position",
      "spread legs",
      "leaning forward",
      "looking at viewer"
@@ -2556,6 +2780,7 @@
     },
     "tags": [
      "sitting",
+     "cowgirl position",
      "leaning back",
      "hands on another's hips",
      "looking up"
@@ -2605,7 +2830,7 @@
     "giver": []
    }
   },
-  "natural_en": "Low-angle 4:3 front view inside a car backseat: the giver leans back against the seat while the receiver straddles astride, slightly crouched under the low car roof.",
+  "natural_en": "Low-angle 4:3 front view inside a car backseat: the giver leans back against the seat while the receiver straddles astride, ducking slightly under the low car roof.",
   "prompt_zh": "4:3 低角正面全身車內後座騎乘：狹窄車廂內施與方背靠後座扶胯，承受方跨坐於上方微低頭撐住車頂或椅背。",
   "scene_tags": [
    "car interior"
@@ -2627,8 +2852,7 @@
   ],
   "shared_pose_tags": [
    "sex",
-   "missionary",
-   "lying"
+   "missionary"
   ],
   "slots": {
    "receiver": {
@@ -2641,6 +2865,7 @@
     "tags": [
      "lying",
      "on back",
+     "missionary",
      "knees up",
      "spread legs",
      "looking at another"
@@ -2656,6 +2881,7 @@
     },
     "tags": [
      "kneeling",
+     "missionary",
      "leaning forward",
      "hands on another's thighs",
      "looking down"
@@ -2722,12 +2948,15 @@
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "three-quarter view"
+   "three-quarter view",
+   "from side"
   ],
   "shared_pose_tags": [
    "sex",
    "reverse cowgirl position",
-   "sitting on lap"
+   "sitting on lap",
+   "car sex",
+   "steering wheel"
   ],
   "slots": {
    "receiver": {
@@ -2740,6 +2969,9 @@
     "tags": [
      "sitting",
      "straddling",
+     "reverse cowgirl position",
+     "sitting on lap",
+     "holding steering wheel",
      "leaning forward",
      "arched back",
      "looking back"
@@ -2755,8 +2987,9 @@
     },
     "tags": [
      "sitting",
+     "reverse cowgirl position",
      "leaning back",
-     "hands on another's waist",
+     "hands on another's hips",
      "looking at another"
     ],
     "natural_en": "Seated in the slid-back driver seat gripping the receiver's waist tightly inside the enclosed front cabin."
@@ -2807,7 +3040,10 @@
   "natural_en": "Three-quarter full-body view inside the front cabin of a car: the giver sits in the pushed-back driver seat while the receiver straddles facing the windshield with hands braced on the steering wheel.",
   "prompt_zh": "斜側全身駕駛座背向跨坐：前座向後調開，施與方端坐椅背扶腰，承受方背向跨坐其膝、手扶方向盤拱背回眸。",
   "scene_tags": [
-   "car interior"
+   "car interior",
+   "car seat",
+   "steering wheel",
+   "dashboard"
   ]
  },
  {
@@ -2844,6 +3080,8 @@
      "bent over",
      "leaning on object",
      "arched back",
+     "doggystyle",
+     "sex from behind",
      "looking back"
     ],
     "natural_en": "Standing bent forward at a window with both hands braced on the windowsill, back arched, glancing back."
@@ -2857,6 +3095,9 @@
     },
     "tags": [
      "standing",
+     "standing sex",
+     "doggystyle",
+     "sex from behind",
      "leaning forward",
      "hands on another's hips",
      "looking down"
@@ -2924,7 +3165,11 @@
   ],
   "shared_pose_tags": [
    "sex",
+   "standing sex",
+   "doggystyle",
    "standing doggystyle",
+   "sex from behind",
+   "bent over",
    "railing"
   ],
   "slots": {
@@ -2937,8 +3182,14 @@
     },
     "tags": [
      "standing",
+     "bent over",
      "leaning forward",
+     "against railing",
+     "hands on railing",
      "arched back",
+     "ass up",
+     "doggystyle",
+     "sex from behind",
      "looking back"
     ],
     "natural_en": "Leaning forward over an open balcony railing overlooking an expansive skyline, forearms braced on the rail while glancing back over her shoulder."
@@ -2952,9 +3203,12 @@
     },
     "tags": [
      "standing",
+     "standing sex",
+     "doggystyle",
+     "sex from behind",
      "leaning forward",
-     "hug from behind",
-     "hands on another's waist"
+     "hands on another's hips",
+     "looking down"
     ],
     "natural_en": "Standing close behind on the wide balcony deck, wrapping arms around the receiver's waist while pressing her gently against the balustrade."
    }
@@ -3004,7 +3258,10 @@
   "natural_en": "Wide 16:9 three-quarter view on an open balcony: the receiver rests her forearms on the railing looking back while the giver embraces her from behind against the outdoor vista.",
   "prompt_zh": "16:9 寬幅斜側全身陽台欄杆：開闊陽台外景下，承受方扶靠欄杆微前傾回眸，施與方自後緊抱腰際站立後入。",
   "scene_tags": [
-   "balcony"
+   "balcony",
+   "outdoors",
+   "sky",
+   "cityscape"
   ]
  },
  {
@@ -3025,6 +3282,7 @@
   "shared_pose_tags": [
    "sex",
    "standing sex",
+   "face to face",
    "against wall"
   ],
   "slots": {
@@ -3037,6 +3295,8 @@
     },
     "tags": [
      "standing",
+     "standing on one leg",
+     "standing sex",
      "against wall",
      "leg up",
      "arms around neck",
@@ -3053,7 +3313,9 @@
     },
     "tags": [
      "standing",
+     "standing sex",
      "leaning forward",
+     "holding another's leg",
      "hands on another's thighs",
      "looking at another"
     ],
@@ -3125,7 +3387,8 @@
   "shared_pose_tags": [
    "sex",
    "upright straddle",
-   "sitting on lap"
+   "sitting on lap",
+   "face to face"
   ],
   "slots": {
    "receiver": {
@@ -3135,7 +3398,10 @@
      "y": 0.46
     },
     "tags": [
+     "sitting",
      "straddling",
+     "upright straddle",
+     "sitting on lap",
      "arms around neck",
      "looking at another"
     ],
@@ -3150,6 +3416,7 @@
     },
     "tags": [
      "sitting",
+     "upright straddle",
      "hands on another's hips",
      "looking at another"
     ],
@@ -3224,6 +3491,7 @@
   "shared_pose_tags": [
    "sex",
    "bent over",
+   "doggystyle",
    "sex from behind",
    "standing sex",
    "school desk",
@@ -3239,7 +3507,12 @@
     "tags": [
      "standing",
      "bent over",
+     "leaning forward",
      "arms behind back",
+     "arm held back",
+     "ass up",
+     "doggystyle",
+     "sex from behind",
      "looking back"
     ],
     "natural_en": "Standing on the left and bent forward at the waist over the school desk, chest close to the desktop, both arms drawn back behind the body, looking back.",
@@ -3253,6 +3526,10 @@
     },
     "tags": [
      "standing",
+     "standing sex",
+     "doggystyle",
+     "sex from behind",
+     "leaning forward",
      "holding another's arm",
      "looking down"
     ],
@@ -3303,7 +3580,11 @@
    }
   },
   "natural_en": "Side 4:3 view of bent-over sex at a school desk: the receiver bends over the desk on the left with both arms drawn behind the back, while the giver stands behind on the right holding the arms.",
-  "prompt_zh": "4:3 側面課桌俯身後入：承受方居左站立俯身趴向課桌、雙臂被向後拉並回頭；施與方居右站於身後抓住雙臂後入。"
+  "prompt_zh": "4:3 側面課桌俯身後入：承受方居左站立俯身趴向課桌、雙臂被向後拉並回頭；施與方居右站於身後抓住雙臂後入。",
+  "scene_tags": [
+   "classroom",
+   "window"
+  ]
  },
  {
   "id": "train_strap_standing_rear_side",
@@ -3317,12 +3598,15 @@
   "camera_tags": [
    "full body",
    "side view",
-   "from side"
+   "from side",
+   "profile"
   ],
   "shared_pose_tags": [
    "sex",
    "standing sex",
-   "sex from behind"
+   "doggystyle",
+   "sex from behind",
+   "train sex"
   ],
   "slots": {
    "receiver": {
@@ -3333,6 +3617,10 @@
     },
     "tags": [
      "standing",
+     "leaning forward",
+     "arched back",
+     "standing sex",
+     "sex from behind",
      "holding strap",
      "arm up",
      "closed eyes"
@@ -3348,9 +3636,11 @@
     },
     "tags": [
      "standing",
-     "hand on another's hip",
-     "grabbing another's breast",
-     "grabbing from behind"
+     "standing sex",
+     "sex from behind",
+     "leaning forward",
+     "hands on another's hips",
+     "looking down"
     ],
     "natural_en": "Standing pressed against the receiver's back on the right, one hand on the hip and the other cupping a breast from behind.",
     "requires": "penis_or_strapon_or_nonhuman"
@@ -3401,7 +3691,8 @@
   "natural_en": "Side full-body view inside a train car: the receiver stands upright on the left holding a hanging strap overhead while the giver stands close behind on the right, one hand on the hip and one on a breast.",
   "prompt_zh": "側面全身電車站立後入：承受方居左直立、單手高舉拉住吊環並閉眼；施與方居右緊貼其背後站立，一手扶胯一手握胸。",
   "scene_tags": [
-   "train interior"
+   "train interior",
+   "hand strap"
   ]
  },
  {
@@ -3420,7 +3711,8 @@
   "shared_pose_tags": [
    "sex",
    "squatting cowgirl position",
-   "on bench"
+   "on bench",
+   "bench"
   ],
   "slots": {
    "receiver": {
@@ -3431,6 +3723,8 @@
     },
     "tags": [
      "squatting",
+     "squatting cowgirl position",
+     "on bench",
      "spread legs",
      "hands on own knees",
      "looking down"
@@ -3447,6 +3741,8 @@
     "tags": [
      "lying",
      "on back",
+     "on bench",
+     "squatting cowgirl position",
      "hands on another's hips",
      "looking up"
     ],
@@ -3519,6 +3815,8 @@
   ],
   "shared_pose_tags": [
    "sex",
+   "standing sex",
+   "face to face",
    "on desk",
    "desk"
   ],
@@ -3531,6 +3829,9 @@
     },
     "tags": [
      "sitting",
+     "on desk",
+     "spread legs",
+     "leg up",
      "arm support",
      "looking at another"
     ],
@@ -3545,6 +3846,7 @@
     },
     "tags": [
      "standing",
+     "standing sex",
      "hands on another's thighs",
      "looking at another"
     ],
@@ -3617,7 +3919,8 @@
    "sex",
    "standing sex",
    "leg lift",
-   "against wall"
+   "against wall",
+   "face to face"
   ],
   "slots": {
    "receiver": {
@@ -3627,9 +3930,14 @@
      "y": 0.5
     },
     "tags": [
+     "standing",
      "standing on one leg",
+     "standing sex",
+     "against wall",
+     "back against wall",
      "leg up",
-     "hand on another's shoulder",
+     "arms around neck",
+     "facing another",
      "looking at another"
     ],
     "natural_en": "Standing on one leg with the back against the brick wall on the left, the other leg lifted high, one hand on the partner's shoulder.",
@@ -3643,7 +3951,11 @@
     },
     "tags": [
      "standing",
+     "standing sex",
+     "leaning forward",
      "holding another's leg",
+     "hands on another's thighs",
+     "facing another",
      "looking at another"
     ],
     "natural_en": "Standing face to face on the right, holding the receiver's raised leg up under the knee and pressing close toward the wall.",
@@ -3727,6 +4039,8 @@
     },
     "tags": [
      "sitting",
+     "reverse cowgirl position",
+     "sitting on lap",
      "spread legs",
      "leaning back",
      "looking at viewer"
@@ -3742,6 +4056,8 @@
     },
     "tags": [
      "sitting",
+     "on toilet",
+     "reverse cowgirl position",
      "hands on another's thighs",
      "looking down"
     ],
@@ -3810,11 +4126,13 @@
   "camera_tags": [
    "full body",
    "side view",
-   "from side"
+   "from side",
+   "profile"
   ],
   "shared_pose_tags": [
    "sex",
    "standing sex",
+   "doggystyle",
    "sex from behind",
    "against glass",
    "breasts on glass"
@@ -3828,7 +4146,13 @@
     },
     "tags": [
      "standing",
-     "hand on glass",
+     "leaning forward",
+     "arched back",
+     "standing sex",
+     "sex from behind",
+     "against glass",
+     "breasts on glass",
+     "hands on glass",
      "breast press",
      "closed eyes"
     ],
@@ -3843,7 +4167,10 @@
     },
     "tags": [
      "standing",
-     "hug from behind",
+     "standing sex",
+     "sex from behind",
+     "leaning forward",
+     "hands on another's hips",
      "looking down"
     ],
     "natural_en": "Standing upright close behind on the right, arms wrapped around the receiver's waist from behind, pressing the receiver against the glass.",
@@ -3896,7 +4223,9 @@
   "prompt_zh": "側面全身淋浴間直立後入：承受方居左直立面向淋浴玻璃，胸口與雙掌平貼玻璃並閉眼；施與方居右緊貼其背後直立，從後環抱腰部壓向玻璃。",
   "scene_tags": [
    "shower (place)",
-   "showering"
+   "showering",
+   "glass wall",
+   "wet"
   ]
  }
 ]

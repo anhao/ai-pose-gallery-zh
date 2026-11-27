@@ -27,7 +27,8 @@
     },
     "tags": [
      "all fours",
-     "arched back"
+     "arched back",
+     "doggystyle"
     ],
     "natural_en": "On all fours on the left side of the frame, head toward the left edge, back deeply arched with hips raised, both hands flat on the surface."
    },
@@ -41,7 +42,9 @@
     "tags": [
      "kneeling",
      "leaning forward",
-     "hands on another's hips"
+     "hands on another's hips",
+     "doggystyle",
+     "sex from behind"
     ],
     "natural_en": "Kneeling directly behind the partner on the right side of the frame, leaning forward over the partner's lower back and gripping both hips."
    }
@@ -123,7 +126,8 @@
      "on back",
      "spread legs",
      "knees up",
-     "legs up"
+     "legs up",
+     "missionary"
     ],
     "natural_en": "Lying on the back with legs spread and knees raised, thighs lifted toward the partner's shoulders while remaining in contact."
    },
@@ -138,7 +142,8 @@
      "kneeling",
      "leaning forward",
      "hands on another's shoulders",
-     "looking down"
+     "looking down",
+     "missionary"
     ],
     "natural_en": "Kneeling above the receiver on the right side of the frame, leaning forward over the lower body and pressing both hands onto the receiver's shoulders."
    }
@@ -190,6 +195,7 @@
   "default_facing": "front",
   "mirrorable": true,
   "camera_tags": [
+   "full body",
    "from above"
   ],
   "shared_pose_tags": [
@@ -210,7 +216,9 @@
      "sitting",
      "straddling",
      "leaning forward",
-     "looking down"
+     "looking down",
+     "cowgirl position",
+     "girl on top"
     ],
     "natural_en": "Sitting astride the partner in the upper part of the frame, leaning forward over them and looking downward."
    },
@@ -227,7 +235,8 @@
      "spread legs",
      "knees up",
      "hands on another's hips",
-     "looking up"
+     "looking up",
+     "cowgirl position"
     ],
     "natural_en": "Lying on their back in the lower part of the frame with legs spread and knees raised, gripping the partner's hips while looking upward."
    }
@@ -288,12 +297,14 @@
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "side view"
+   "side view",
+   "from side"
   ],
   "shared_pose_tags": [
-   "standing",
+   "standing sex",
+   "suspended congress",
    "sex",
-   "facing each other"
+   "face to face"
   ],
   "slots": {
    "receiver": {
@@ -304,11 +315,13 @@
      "y": 0.56
     },
     "tags": [
-     "standing",
-     "legs up",
-     "spread legs"
+     "suspended congress",
+     "knees up",
+     "spread legs",
+     "hands on another's shoulders",
+     "looking at another"
     ],
-    "natural_en": "Standing on the left side of the frame, facing the partner, with both thighs held and knees bent so the feet are off the floor."
+    "natural_en": "Held lifted off the floor on the left side of the frame, facing the partner, with both thighs supported and knees bent so the feet are off the floor."
    },
    "giver": {
     "label_zh": "施與方（站立扶腿）",
@@ -319,7 +332,10 @@
     },
     "tags": [
      "standing",
+     "standing sex",
+     "carrying",
      "leaning forward",
+     "holding another's legs",
      "hands on another's thighs"
     ],
     "natural_en": "Standing on the right side of the frame, facing the receiver, leaning slightly forward while gripping both thighs to support the lifted legs."
@@ -399,8 +415,12 @@
     },
     "tags": [
      "all fours",
+     "on elbows",
+     "head down",
+     "ass up",
      "arched back",
-     "looking down"
+     "looking down",
+     "doggystyle"
     ],
     "natural_en": "On all fours on the left side of the frame, supported on both forearms and both knees, head lowered toward the surface, hips raised high with the back arched."
    },
@@ -413,9 +433,12 @@
     },
     "tags": [
      "on one knee",
+     "knee up",
      "leaning forward",
      "hands on another's hips",
-     "looking down"
+     "looking down",
+     "doggystyle",
+     "sex from behind"
     ],
     "natural_en": "Kneeling on one knee directly behind the partner on the right side of the frame, leaning forward over the partner's hips and gripping both hips while looking down."
    }
@@ -495,7 +518,8 @@
      "lying",
      "on stomach",
      "ass up",
-     "looking back"
+     "looking back",
+     "prone bone"
     ],
     "natural_en": "Lying flat on the stomach on the left side of the frame with legs stretched out behind, hips slightly raised, looking back toward the partner."
    },
@@ -510,7 +534,9 @@
      "lying",
      "on top",
      "leaning forward",
-     "looking down"
+     "looking down",
+     "prone bone",
+     "sex from behind"
     ],
     "natural_en": "Lying on top of the partner on the right side of the frame, chest pressed against the partner's back, leaning forward while looking down."
    }
@@ -592,7 +618,9 @@
      "bent over",
      "arched back",
      "ass up",
-     "looking back"
+     "looking back",
+     "doggystyle",
+     "against wall"
     ],
     "natural_en": "Standing on the left side of the frame facing the wall, bent forward at the waist with an arched back and hips raised, both hands flat against the wall, looking back toward the partner."
    },
@@ -607,7 +635,9 @@
      "standing",
      "leaning forward",
      "hands on another's hips",
-     "looking down"
+     "looking down",
+     "doggystyle",
+     "sex from behind"
     ],
     "natural_en": "Standing directly behind the partner on the right side of the frame, leaning forward over the partner's lower back and gripping both hips while looking down."
    }
@@ -687,7 +717,8 @@
      "kneeling",
      "arched back",
      "arms behind back",
-     "head back"
+     "head back",
+     "doggystyle"
     ],
     "natural_en": "Kneeling upright on the left side of the frame with the torso leaning back, back arched, both arms pulled behind the back, head tilted back."
    },
@@ -702,7 +733,9 @@
      "kneeling",
      "leaning forward",
      "holding hands",
-     "looking down"
+     "looking down",
+     "doggystyle",
+     "sex from behind"
     ],
     "natural_en": "Kneeling directly behind the partner on the right side of the frame, leaning forward and holding both of the partner's hands to pull the arms back while looking down."
    }
@@ -767,8 +800,11 @@
    "from side"
   ],
   "shared_pose_tags": [
+   "standing sex",
+   "sex from behind",
    "doggystyle",
-   "sex from behind"
+   "bed",
+   "bent over"
   ],
   "slots": {
    "receiver": {
@@ -781,9 +817,11 @@
     "tags": [
      "lying",
      "on stomach",
-     "on bed",
+     "bent over",
+     "bed",
      "ass up",
-     "looking back"
+     "looking back",
+     "sex from behind"
     ],
     "natural_en": "Lying face down on the bed with the upper body flat on the mattress and the hips at the edge of the bed, legs hanging down off the edge, back arched with hips raised, looking back toward the partner."
    },
@@ -796,9 +834,11 @@
     },
     "tags": [
      "standing",
+     "standing sex",
      "leaning forward",
      "hands on another's hips",
-     "looking down"
+     "looking down",
+     "sex from behind"
     ],
     "natural_en": "Standing behind the bed on the right side of the frame, leaning forward over the partner's hips and gripping both hips while looking down."
    }
@@ -878,7 +918,8 @@
      "on back",
      "spread legs",
      "arched back",
-     "looking up"
+     "looking up",
+     "missionary"
     ],
     "natural_en": "Lying on the back in the lower part of the frame with legs spread wide and back arched, looking up toward the partner above."
    },
@@ -892,7 +933,9 @@
     "tags": [
      "lying",
      "leaning forward",
-     "looking down"
+     "looking down",
+     "missionary",
+     "on top"
     ],
     "natural_en": "Lying on top of the partner in the upper part of the frame, leaning forward over the partner while looking down."
    }
@@ -973,7 +1016,8 @@
      "on back",
      "spread legs",
      "holding hands",
-     "looking up"
+     "looking up",
+     "missionary"
     ],
     "natural_en": "Lying on the back in the lower part of the frame with legs spread, both arms raised beside the head with fingers interlocked with the partner's hands, looking up."
    },
@@ -988,7 +1032,8 @@
      "kneeling",
      "leaning forward",
      "holding hands",
-     "looking down"
+     "looking down",
+     "missionary"
     ],
     "natural_en": "Kneeling over the partner on the right side of the frame, leaning forward with the body pressed close, both hands clasped with the partner's hands beside the head, looking down."
    }
@@ -1070,7 +1115,9 @@
      "legs up",
      "knees up",
      "arched back",
-     "looking up"
+     "looking up",
+     "missionary",
+     "folded"
     ],
     "natural_en": "Lying on the back in the lower part of the frame with both legs folded up and pressed close to the chest, knees bent, back arched, looking up toward the partner."
    },
@@ -1085,7 +1132,8 @@
      "kneeling",
      "leaning forward",
      "hands on another's legs",
-     "looking down"
+     "looking down",
+     "missionary"
     ],
     "natural_en": "Kneeling over the partner on the right side of the frame, leaning forward and pressing down with both hands holding the folded legs while looking down."
    }
@@ -1166,7 +1214,8 @@
      "on back",
      "leg up",
      "arched back",
-     "looking up"
+     "looking up",
+     "missionary"
     ],
     "natural_en": "Lying on the back on the left side of the frame with one leg raised high and held up, the other leg resting bent on the surface, back slightly arched, looking up toward the partner."
    },
@@ -1180,7 +1229,9 @@
     "tags": [
      "kneeling",
      "leaning forward",
-     "looking down"
+     "looking down",
+     "missionary",
+     "holding another's leg"
     ],
     "natural_en": "Kneeling over the partner on the right side of the frame, leaning forward with both hands holding the raised leg, looking down."
    }
@@ -1246,7 +1297,10 @@
   ],
   "shared_pose_tags": [
    "missionary",
-   "sex"
+   "sex",
+   "bed",
+   "on bed",
+   "standing sex"
   ],
   "slots": {
    "receiver": {
@@ -1259,10 +1313,12 @@
     "tags": [
      "lying",
      "on back",
+     "bed",
      "on bed",
      "spread legs",
      "arched back",
-     "looking up"
+     "looking up",
+     "missionary"
     ],
     "natural_en": "Lying on the back at the edge of the bed on the left side of the frame, legs hanging down past the edge with knees bent and spread apart, back arched, looking up."
    },
@@ -1275,9 +1331,11 @@
     },
     "tags": [
      "standing",
+     "standing sex",
      "leaning forward",
      "hands on another's hips",
-     "looking down"
+     "looking down",
+     "missionary"
     ],
     "natural_en": "Standing at the edge of the bed on the right side of the frame, leaning forward over the partner and gripping both hips while looking down."
    }
@@ -1338,12 +1396,12 @@
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "side view",
-   "from side"
+   "three-quarter view"
   ],
   "shared_pose_tags": [
    "cowgirl position",
    "girl on top",
+   "face to face",
    "sex"
   ],
   "slots": {
@@ -1358,8 +1416,13 @@
      "sitting",
      "straddling",
      "spread legs",
+     "facing another",
      "leaning back",
-     "head back"
+     "arched back",
+     "head back",
+     "hands on another's thighs",
+     "cowgirl position",
+     "girl on top"
     ],
     "natural_en": "Sitting astride the partner below, facing toward the left side of the frame and leaning back with her back arched, head tilted back."
    },
@@ -1374,7 +1437,8 @@
      "lying",
      "on back",
      "hands on another's hips",
-     "looking up"
+     "looking up",
+     "cowgirl position"
     ],
     "natural_en": "Lying on the back below the partner, head toward the left side of the frame, both hands gripping the partner's hips while looking up at the partner."
    }
@@ -1450,7 +1514,9 @@
      "spread legs",
      "arched back",
      "leaning forward",
-     "looking down"
+     "looking down",
+     "reverse cowgirl position",
+     "girl on top"
     ],
     "natural_en": "Sitting astride the partner's hips in the upper middle of the frame, facing away from the partner's head toward the right edge with back arched, leaning forward with both hands braced on the partner's thighs, looking down."
    },
@@ -1465,7 +1531,8 @@
      "lying",
      "on back",
      "hands on another's hips",
-     "looking up"
+     "looking up",
+     "reverse cowgirl position"
     ],
     "natural_en": "Lying on the back in the lower part of the frame with head toward the left edge, both hands gripping the rider's hips while looking up at the rider's back."
    }
@@ -1547,7 +1614,9 @@
      "straddling",
      "spread legs",
      "leaning forward",
-     "looking down"
+     "looking down",
+     "cowgirl position",
+     "girl on top"
     ],
     "natural_en": "Squatting over the partner with feet flat on the surface, knees bent wide and hips lowered over the partner, torso upright and leaning slightly forward, looking down at the partner."
    },
@@ -1562,7 +1631,8 @@
      "lying",
      "on back",
      "hands on another's hips",
-     "looking up"
+     "looking up",
+     "cowgirl position"
     ],
     "natural_en": "Lying on the back below the partner with knees bent, both hands gripping the partner's hips while looking up."
    }
@@ -1637,7 +1707,9 @@
      "spread legs",
      "leaning forward",
      "hug",
-     "looking down"
+     "looking down",
+     "cowgirl position",
+     "girl on top"
     ],
     "natural_en": "Sitting astride the partner on top, leaning far forward until the chest presses flat against the partner's chest, arms wrapped around the partner's shoulders, looking down at the partner's face."
    },
@@ -1653,7 +1725,8 @@
      "on back",
      "spread legs",
      "hands on another's hips",
-     "looking up"
+     "looking up",
+     "cowgirl position"
     ],
     "natural_en": "Lying on the back below the partner with legs spread, hands resting on the partner's hips, looking up at the partner leaning over."
    }
@@ -1735,7 +1808,9 @@
      "arched back",
      "spread legs",
      "hands on another's thighs",
-     "looking up"
+     "looking up",
+     "cowgirl position",
+     "girl on top"
     ],
     "natural_en": "Sitting astride the giver on the left side of the frame, leaning back with the spine arched and the chest pushed forward, both hands resting on the giver's thighs for support, looking up."
    },
@@ -1751,7 +1826,8 @@
      "on back",
      "spread legs",
      "hands on another's hips",
-     "looking up"
+     "looking up",
+     "cowgirl position"
     ],
     "natural_en": "Lying on the back on the right side of the frame with legs spread, looking up at the partner and holding the partner's hips with both hands."
    }
@@ -1812,12 +1888,17 @@
   "mirrorable": true,
   "camera_tags": [
    "full body",
+   "wide shot",
    "side view",
-   "from side"
+   "from side",
+   "profile"
   ],
   "shared_pose_tags": [
    "standing sex",
    "sex from behind",
+   "standing on one leg",
+   "knee up",
+   "lifted leg",
    "sex"
   ],
   "slots": {
@@ -1830,11 +1911,18 @@
     },
     "tags": [
      "standing",
-     "leg up",
-     "leaning forward",
-     "looking away"
+     "standing on one leg",
+     "knee up",
+     "lifted leg",
+     "bent knee",
+     "facing away",
+     "back to partner",
+     "hands on own knee",
+     "profile",
+     "standing sex",
+     "sex from behind"
     ],
-    "natural_en": "Standing on one leg on the left side of the frame facing the same direction as the partner, the other knee bent and lifted forward, leaning slightly forward, looking away."
+    "natural_en": "Standing on one leg on the left side of the frame facing away from the partner in side profile, back against the partner's chest, the other knee bent and lifted forward with hands on her raised knee."
    },
    "giver": {
     "label_zh": "施與方（後方站立抱腿前傾）",
@@ -1845,11 +1933,17 @@
     },
     "tags": [
      "standing",
+     "behind",
+     "chest to back",
      "leaning forward",
-     "hands on another's thighs",
-     "looking at another"
+     "holding another's thigh",
+     "holding another's leg",
+     "looking down",
+     "profile",
+     "standing sex",
+     "sex from behind"
     ],
-    "natural_en": "Standing directly behind the partner on the right side of the frame, leaning forward over the partner and holding the raised thigh with both hands, looking at the partner."
+    "natural_en": "Standing directly behind the partner on the right side of the frame, wrapping an arm around the waist and supporting the raised bent thigh from behind while looking down at the partner."
    }
   },
   "pairing_tags": {
@@ -1912,7 +2006,9 @@
    "from side"
   ],
   "shared_pose_tags": [
-   "standing sex"
+   "standing sex",
+   "suspended congress",
+   "face to face"
   ],
   "slots": {
    "receiver": {
@@ -1926,7 +2022,9 @@
      "arms around neck",
      "spread legs",
      "legs up",
-     "looking at another"
+     "looking at another",
+     "suspended congress",
+     "standing sex"
     ],
     "natural_en": "Lifted off the ground on the left side of the frame, facing the partner, with both legs spread apart to the sides and raised, both arms around the partner's neck, looking at the partner."
    },
@@ -1941,7 +2039,9 @@
      "standing",
      "leaning forward",
      "hand on another's butt",
-     "looking at another"
+     "looking at another",
+     "standing sex",
+     "carrying"
     ],
     "natural_en": "Standing on the right side of the frame, facing the partner, leaning forward slightly while supporting the partner's buttocks with both hands, looking at the partner."
    }
@@ -2022,7 +2122,8 @@
      "standing",
      "leaning forward",
      "arched back",
-     "looking away"
+     "looking away",
+     "standing sex"
     ],
     "natural_en": "Standing on the left side of the frame, leaning forward slightly with the back arched, looking away from the partner."
    },
@@ -2037,7 +2138,9 @@
      "standing",
      "leaning forward",
      "hands on another's hips",
-     "looking down"
+     "looking down",
+     "standing sex",
+     "sex from behind"
     ],
     "natural_en": "Standing directly behind the partner on the right side of the frame, leaning forward and gripping both hips while looking down."
    }
@@ -2103,7 +2206,9 @@
   ],
   "shared_pose_tags": [
    "spooning",
-   "sex from behind",
+   "lying",
+   "on side",
+   "hug from behind",
    "sex"
   ],
   "slots": {
@@ -2117,8 +2222,12 @@
     "tags": [
      "lying",
      "on side",
+     "profile",
+     "facing away",
      "knees up",
-     "looking away"
+     "legs together",
+     "looking away",
+     "spooning"
     ],
     "natural_en": "Lying on the side on the left side of the frame, facing the left edge with knees bent up toward the chest, back toward the partner behind."
    },
@@ -2132,8 +2241,10 @@
     "tags": [
      "lying",
      "on side",
-     "hands on another's hips",
-     "looking at another"
+     "profile",
+     "hug from behind",
+     "arms around waist",
+     "spooning"
     ],
     "natural_en": "Lying on the side directly behind the partner on the right side of the frame, chest pressed against the partner's back, one arm around the partner's waist and one hand on the partner's hip, looking at the partner."
    }
@@ -2198,7 +2309,10 @@
   ],
   "shared_pose_tags": [
    "sex",
-   "sitting"
+   "sitting",
+   "sitting on lap",
+   "straddling",
+   "face to face"
   ],
   "slots": {
    "receiver": {
@@ -2213,7 +2327,8 @@
      "straddling",
      "spread legs",
      "arms around neck",
-     "looking at another"
+     "looking at another",
+     "sitting on person"
     ],
     "natural_en": "Sitting face to face on the partner's lap on the left side of the frame, straddling the partner's thighs with legs spread and knees bent, arms around the partner's neck, looking at the partner."
    },
@@ -2294,7 +2409,9 @@
   ],
   "shared_pose_tags": [
    "sex",
-   "sex from behind"
+   "sex from behind",
+   "sitting on lap",
+   "hug from behind"
   ],
   "slots": {
    "receiver": {
@@ -2308,7 +2425,8 @@
      "sitting",
      "spread legs",
      "arched back",
-     "looking away"
+     "looking away",
+     "sitting on person"
     ],
     "natural_en": "Sitting on the partner's lap on the left side of the frame with the back against the partner's chest, legs spread apart, back arched, looking away toward the left edge."
    },
@@ -2323,7 +2441,9 @@
      "sitting",
      "leaning forward",
      "hands on another's hips",
-     "looking at another"
+     "looking at another",
+     "sex from behind",
+     "hug from behind"
     ],
     "natural_en": "Sitting behind the partner on the right side of the frame, leaning forward against the partner's back and holding both hips while looking at the partner."
    }
@@ -2404,7 +2524,8 @@
      "lying",
      "on stomach",
      "legs together",
-     "looking away"
+     "looking away",
+     "prone bone"
     ],
     "natural_en": "Lying completely flat on the stomach on the left side of the frame, body fully stretched out with legs together and straight, no knee bend and no hip raise, arms resting along the body, head turned away."
    },
@@ -2419,7 +2540,10 @@
      "lying",
      "on stomach",
      "legs together",
-     "looking down"
+     "looking down",
+     "prone bone",
+     "on top",
+     "sex from behind"
     ],
     "natural_en": "Lying completely flat on top of the partner on the right side of the frame, not kneeling and not supporting the body with hands or knees, chest fully pressed against the partner's back, legs extended straight and together along the partner's legs, looking down."
    }
@@ -2485,7 +2609,8 @@
   ],
   "shared_pose_tags": [
    "sex",
-   "missionary position"
+   "missionary",
+   "leg lock"
   ],
   "slots": {
    "receiver": {
@@ -2501,7 +2626,8 @@
      "legs up",
      "leg lock",
      "arched back",
-     "looking at another"
+     "looking at another",
+     "missionary"
     ],
     "natural_en": "Lying on the back on the left side of the frame with both legs raised and locked around the partner's waist, ankles crossed behind the partner's back, back arched, looking at the partner."
    },
@@ -2516,7 +2642,8 @@
      "kneeling",
      "leaning forward",
      "hands on another's hips",
-     "looking down"
+     "looking down",
+     "missionary"
     ],
     "natural_en": "Kneeling between the partner's raised legs on the right side of the frame, leaning forward over the partner and gripping both hips while looking down."
    }
@@ -2570,17 +2697,17 @@
   "id": "pos_mating_press_squatting_side",
   "category": "04_main_positions",
   "subcategory": "高辨識度進階幾何",
-  "titlezh": "深折疊壓制 mating press・蹲姿上位全身",
+  "title_zh": "深折疊壓制 mating press・蹲姿上位全身",
   "pattern": "geometry_dispatch",
-  "defaultcanvas": "3:4",
-  "defaultfacing": "left",
+  "default_canvas": "4:3",
+  "default_facing": "left",
   "mirrorable": true,
-  "cameratags": [
+  "camera_tags": [
    "full body",
    "side view",
    "from side"
   ],
-  "sharedposetags": [
+  "shared_pose_tags": [
    "mating press",
    "sex"
   ],
@@ -2598,7 +2725,9 @@
      "legs up",
      "knees up",
      "spread legs",
-     "looking up"
+     "looking up",
+     "mating press",
+     "folded"
     ],
     "natural_en": "Lying on the back on the left side of the frame with both legs folded up and pressed to the sides of the upper body, knees bent high, looking up."
    },
@@ -2613,23 +2742,12 @@
      "squatting",
      "leaning forward",
      "hands on another's legs",
-     "looking down"
+     "looking down",
+     "mating press"
     ],
     "natural_en": "Squatting directly above the partner on the right side of the frame, body upright and weight pressing down, leaning forward with both hands holding the partner's legs, looking down."
    }
   },
-  "title_zh": "深折疊壓制 mating press・蹲姿上位全身",
-  "default_canvas": "4:3",
-  "default_facing": "left",
-  "camera_tags": [
-   "full body",
-   "side view",
-   "from side"
-  ],
-  "shared_pose_tags": [
-   "mating press",
-   "sex"
-  ],
   "pairing_tags": {
    "female_male": {
     "base": [
@@ -2691,6 +2809,8 @@
   ],
   "shared_pose_tags": [
    "folded",
+   "lying",
+   "on side",
    "sex"
   ],
   "slots": {
@@ -2705,8 +2825,9 @@
      "lying",
      "on side",
      "knees up",
-     "legs up",
-     "looking at another"
+     "knees to chest",
+     "looking at another",
+     "folded"
     ],
     "natural_en": "Lying on the side on the left side of the frame with both knees drawn up toward the chest, legs folded close to the body, looking toward the partner."
    },
@@ -2720,7 +2841,7 @@
     "tags": [
      "kneeling",
      "leaning forward",
-     "hands on another's hips",
+     "holding another's legs",
      "looking down"
     ],
     "natural_en": "Kneeling beside the partner's hips on the right side of the frame, leaning forward and gripping the partner's hips, looking down."
@@ -2788,7 +2909,8 @@
   "shared_pose_tags": [
    "upright straddle",
    "sex",
-   "straddling"
+   "straddling",
+   "face to face"
   ],
   "slots": {
    "receiver": {
@@ -2801,7 +2923,9 @@
     "tags": [
      "straddling",
      "arms around neck",
-     "looking at another"
+     "looking at another",
+     "upright straddle",
+     "sitting"
     ],
     "natural_en": "Facing the partner on the left side of the frame, sitting upright and straddling the partner's thighs with both arms around the partner's neck, looking at the partner."
    },
@@ -2815,7 +2939,8 @@
     "tags": [
      "seiza",
      "hands on another's hips",
-     "looking at another"
+     "looking at another",
+     "upright straddle"
     ],
     "natural_en": "Kneeling upright on the heels on the right side of the frame with the torso straight, both hands holding the partner's hips, looking at the partner."
    }
@@ -2881,8 +3006,11 @@
   ],
   "shared_pose_tags": [
    "reverse upright straddle",
-   "sex",
-   "straddling"
+   "upright straddle",
+   "sitting on lap",
+   "straddling",
+   "sex from behind",
+   "sex"
   ],
   "slots": {
    "receiver": {
@@ -2893,9 +3021,13 @@
      "y": 0.45
     },
     "tags": [
+     "sitting",
+     "sitting on person",
      "straddling",
+     "arched back",
      "leaning forward",
-     "looking down"
+     "looking down",
+     "reverse upright straddle"
     ],
     "natural_en": "With the back turned to the partner on the left side of the frame, sitting upright and straddling the partner's legs, torso leaning forward with both hands braced on the own knees, looking down."
    },
@@ -2908,8 +3040,11 @@
     },
     "tags": [
      "kneeling",
+     "seiza",
      "hands on another's hips",
-     "looking at another"
+     "looking at another",
+     "reverse upright straddle",
+     "sex from behind"
     ],
     "natural_en": "Kneeling upright on the right side of the frame with the torso straight, both hands holding the partner's hips, looking toward the partner's back."
    }
@@ -2987,9 +3122,11 @@
     },
     "tags": [
      "all fours",
+     "on elbows",
+     "bent arms",
      "arched back",
      "looking at viewer",
-     "spread legs"
+     "doggystyle"
     ],
     "natural_en": "Resting low on elbows and knees in the foreground facing toward the camera, shoulders dropped and hips lifted high behind, staring toward the lens."
    },
@@ -3004,7 +3141,9 @@
      "kneeling",
      "leaning forward",
      "hands on another's hips",
-     "looking down"
+     "looking down",
+     "doggystyle",
+     "sex from behind"
     ],
     "natural_en": "Kneeling behind the receiver in the upper background towering over the arched back, gripping the waist and leaning forward."
    }
@@ -3071,7 +3210,8 @@
   "shared_pose_tags": [
    "doggystyle",
    "sex from behind",
-   "grabbing another's hair"
+   "grabbing another's hair",
+   "hair pull"
   ],
   "slots": {
    "receiver": {
@@ -3085,7 +3225,9 @@
      "all fours",
      "arched back",
      "head back",
-     "open mouth"
+     "open mouth",
+     "hair pull",
+     "doggystyle"
     ],
     "natural_en": "On all fours at lower left with one hand braced on the floor while head and chest are pulled upward by the hair, back sharply arched."
    },
@@ -3098,9 +3240,13 @@
     },
     "tags": [
      "kneeling",
+     "leaning forward",
      "grabbing another's hair",
+     "hair pull",
      "hand on another's hip",
-     "looking down"
+     "looking down",
+     "doggystyle",
+     "sex from behind"
     ],
     "natural_en": "Kneeling upright behind at upper right, one hand pulling the receiver's hair back and the other gripping the hip while looking down."
    }
@@ -3182,7 +3328,8 @@
      "arched back",
      "ass up",
      "kneeling",
-     "face down"
+     "face down",
+     "doggystyle"
     ],
     "natural_en": "Chest and cheek pressed flat against the bed on the right while hips peak steeply upward with knees tucked underneath."
    },
@@ -3197,7 +3344,9 @@
      "kneeling",
      "leaning forward",
      "hands on another's hips",
-     "looking down"
+     "looking down",
+     "doggystyle",
+     "sex from behind"
     ],
     "natural_en": "Kneeling behind on the upper left, gripping the steeply raised hips and leaning forward over the downward-sloping spine."
    }
@@ -3264,8 +3413,7 @@
   "shared_pose_tags": [
    "missionary",
    "sex",
-   "legs up",
-   "legs together"
+   "legs up"
   ],
   "slots": {
    "receiver": {
@@ -3279,11 +3427,11 @@
      "lying",
      "on back",
      "legs up",
-     "legs together",
      "legs on another's shoulders",
-     "looking up"
+     "looking up",
+     "missionary"
     ],
-    "natural_en": "Lying on the back in the lower frame with both legs held together and lifted straight up, calves resting on the partner's shoulders."
+    "natural_en": "Lying on the back in the lower frame with both legs lifted straight up and ankles resting on the partner's shoulders."
    },
    "giver": {
     "label_zh": "施與方（上方挺身跪姿扶小腿）",
@@ -3295,7 +3443,8 @@
     "tags": [
      "kneeling",
      "leg grab",
-     "looking down"
+     "looking down",
+     "missionary"
     ],
     "natural_en": "Kneeling upright above in the upper frame with the receiver's calves on both shoulders, hands gripping the legs."
    }
@@ -3342,8 +3491,8 @@
     "giver": []
    }
   },
-  "natural_en": "High-angle front full-body view of ankles-on-shoulders missionary: the receiver lies below with legs held together and raised straight onto the giver's shoulders, while the giver kneels upright gripping the legs.",
-  "prompt_zh": "高角正面雙踝搭肩正常位：承受方居下仰躺、雙腿併攏高舉伸直搭在對方肩頭；施與方居上挺身跪姿抓住雙腿。"
+  "natural_en": "High-angle front full-body view of ankles-on-shoulders missionary: the receiver lies below with legs raised straight onto the giver's shoulders, while the giver kneels upright gripping the legs.",
+  "prompt_zh": "高角正面雙踝搭肩正常位：承受方居下仰躺、雙腿高舉伸直將雙踝搭在對方肩頭；施與方居上挺身跪姿抓住雙腿。"
  },
  {
   "id": "pos_missionary_embrace_chest_press_wide",
@@ -3378,7 +3527,9 @@
      "on back",
      "spread legs",
      "arm around neck",
-     "looking at another"
+     "looking at another",
+     "missionary",
+     "hug"
     ],
     "natural_en": "Lying on the back on the bed with the head on the pillow side, one arm wrapped around the partner's neck and the other hand at the partner's arm, one leg bent up behind the partner and the other leg stretched out along the bed, looking at the partner's face."
    },
@@ -3390,6 +3541,10 @@
      "y": 0.46
     },
     "tags": [
+     "missionary",
+     "on top",
+     "arm support",
+     "leaning forward",
      "looking at another"
     ],
     "natural_en": "Positioned between the receiver's legs and propped up on one straight arm planted on the bed, torso raised above the receiver with a gap between their chests, face lowered close to the receiver's face."
@@ -3471,7 +3626,8 @@
      "on back",
      "spread legs",
      "leg up",
-     "looking up"
+     "looking up",
+     "missionary"
     ],
     "natural_en": "Lying on the back across the lower-left frame, head at the bottom-left, one leg raised high beside the partner's shoulder and the other stretched out to the side."
    },
@@ -3486,7 +3642,8 @@
      "kneeling",
      "leaning forward",
      "leg grab",
-     "looking down"
+     "looking down",
+     "missionary"
     ],
     "natural_en": "Kneeling between the receiver's legs in the upper-right frame, seen from the front, leaning slightly forward and holding the raised leg."
    }
@@ -3568,7 +3725,9 @@
      "straddling",
      "spread legs",
      "hands on another's chest",
-     "looking down"
+     "looking down",
+     "cowgirl position",
+     "girl on top"
     ],
     "natural_en": "Sitting tall and upright astride the lying partner facing straight forward, palms braced on the partner's chest, hips seated deeply."
    },
@@ -3583,7 +3742,8 @@
      "lying",
      "on back",
      "hands on another's hips",
-     "looking up"
+     "looking up",
+     "cowgirl position"
     ],
     "natural_en": "Lying flat on the back directly below in the lower frame, gripping the rider's hips while looking straight upward."
    }
@@ -3650,7 +3810,8 @@
    "reverse upright straddle",
    "sitting on lap",
    "sex",
-   "on bed"
+   "on bed",
+   "sex from behind"
   ],
   "slots": {
    "receiver": {
@@ -3663,7 +3824,9 @@
     "tags": [
      "sitting on person",
      "spread legs",
-     "looking at viewer"
+     "looking at viewer",
+     "reverse upright straddle",
+     "sitting on lap"
     ],
     "natural_en": "Sitting upright on the partner's lap with the back to the partner's chest, facing the camera, knees apart and lower legs hanging down, both hands resting on the mattress beside the hips, gazing at the viewer."
    },
@@ -3676,7 +3839,9 @@
     },
     "tags": [
      "sitting",
-     "hands on another's hips"
+     "hands on another's hips",
+     "reverse upright straddle",
+     "sex from behind"
     ],
     "natural_en": "Sitting upright on the edge of the bed directly behind the receiver, legs apart and down past the bed edge, both hands holding the receiver's hips, face hidden behind the receiver's head."
    }
@@ -3732,16 +3897,16 @@
   "subcategory": "騎乘位",
   "title_zh": "騎乘位・反向背騎・半躺後仰斜側",
   "pattern": "geometry_dispatch",
-  "default_canvas": "1:1",
+  "default_canvas": "4:3",
   "default_facing": "three_quarter_left",
   "mirrorable": true,
   "camera_tags": [
    "full body",
+   "wide shot",
    "three-quarter view"
   ],
   "shared_pose_tags": [
    "reverse cowgirl position",
-   "cowgirl position",
    "girl on top",
    "sex"
   ],
@@ -3750,14 +3915,17 @@
     "label_zh": "承受方（反向跨坐、面向鏡頭）",
     "requires": "pussy",
     "center": {
-     "x": 0.5,
-     "y": 0.42
+     "x": 0.44,
+     "y": 0.4
     },
     "tags": [
      "sitting",
      "straddling",
      "spread legs",
-     "arched back"
+     "leaning back",
+     "arched back",
+     "facing viewer",
+     "reverse cowgirl position"
     ],
     "natural_en": "Sitting upright astride the partner's pelvis with her back to the partner, facing the camera, legs bent and angled out to the side."
    },
@@ -3765,14 +3933,15 @@
     "label_zh": "施與方（斜向半躺、手扶腰）",
     "requires": "penis_or_strapon_or_nonhuman",
     "center": {
-     "x": 0.62,
+     "x": 0.6,
      "y": 0.6
     },
     "tags": [
-     "reclining",
+     "lying",
      "on back",
      "hands on another's hips",
-     "looking up"
+     "looking up",
+     "reverse cowgirl position"
     ],
     "natural_en": "Half-reclining diagonally behind the rider with the upper body propped up at the right, legs stretched toward the lower left, hands holding the rider's hips."
    }
@@ -3819,27 +3988,29 @@
     "giver": []
    }
   },
-  "natural_en": "Square eye-level three-quarter full-body view of reverse cowgirl: the giver half-reclines diagonally with legs stretched toward the lower left, and the rider sits upright on the pelvis facing away from the giver toward the camera.",
-  "prompt_zh": "1:1 平視斜側反向騎乘：施與方斜向半躺、上身撐起於右側、雙腿朝左下伸出並扶住承受方腰側；承受方背對對方直身跨坐、面向鏡頭。"
+  "natural_en": "Horizontal eye-level three-quarter full-body view of reverse cowgirl: the giver half-reclines diagonally with legs stretched toward the lower left, and the rider sits upright on the pelvis facing away from the giver toward the camera.",
+  "prompt_zh": "橫構圖平視斜側反向騎乘：施與方斜向半躺、上身撐起於右側、雙腿朝左下伸出並扶住承受方腰側；承受方背對對方直身跨坐、面向鏡頭。"
  },
  {
   "id": "pos_cowgirl_chair_straddle_front",
   "category": "04_main_positions",
   "subcategory": "騎乘位",
-  "title_zh": "椅上跨坐騎乘・正面仰角",
+  "title_zh": "椅上跨坐騎乘・斜側仰角",
   "pattern": "geometry_dispatch",
   "default_canvas": "3:4",
-  "default_facing": "front",
+  "default_facing": "three_quarter_left",
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "front view",
+   "three-quarter view",
    "from below"
   ],
   "shared_pose_tags": [
    "cowgirl position",
    "sitting",
    "straddling",
+   "on chair",
+   "face to face",
    "sex"
   ],
   "slots": {
@@ -3847,7 +4018,7 @@
     "label_zh": "承受方（面對面跨坐於椅上對方腿間）",
     "requires": "pussy",
     "center": {
-     "x": 0.5,
+     "x": 0.44,
      "y": 0.44
     },
     "tags": [
@@ -3855,7 +4026,9 @@
      "straddling",
      "spread legs",
      "arms around neck",
-     "arched back"
+     "arched back",
+     "cowgirl position",
+     "on chair"
     ],
     "natural_en": "Straddling face-to-face atop the partner seated in a chair, knees hooking over the chair seat and arms wrapped tightly around the partner's neck."
    },
@@ -3863,14 +4036,15 @@
     "label_zh": "施與方（坐於椅上環抱托臀）",
     "requires": "penis_or_strapon_or_nonhuman",
     "center": {
-     "x": 0.5,
+     "x": 0.56,
      "y": 0.56
     },
     "tags": [
      "sitting",
      "on chair",
      "hand on another's ass",
-     "looking up"
+     "looking up",
+     "cowgirl position"
     ],
     "natural_en": "Seated upright in a sturdy chair with feet planted on the floor, cradling the straddling partner's hips and buttocks."
    }
@@ -3917,8 +4091,8 @@
     "giver": []
    }
   },
-  "natural_en": "Low-angle front full-body view of chair straddling: the giver sits upright in a chair while the receiver straddles face-to-face on the lap with arms around the neck and back arched.",
-  "prompt_zh": "正面仰角椅上跨坐騎乘：施與方正坐於椅上雙腳踩地並托住對方臀部；承受方正面跨坐懷中雙臂環頸、微拱腰背。"
+  "natural_en": "Low-angle three-quarter full-body view of face-to-face chair straddling: the giver sits upright in a chair while the receiver straddles face-to-face on the lap with arms around the neck and back arched.",
+  "prompt_zh": "斜側仰角椅上跨坐騎乘：施與方正坐於椅上雙腳踩地並托住對方臀部；承受方面對面跨坐懷中雙臂環頸、微拱腰背。"
  },
  {
   "id": "pos_ekiben_back_to_chest_front",
@@ -3953,7 +4127,8 @@
      "legs up",
      "knees up",
      "arched back",
-     "head back"
+     "head back",
+     "reverse suspended congress"
     ],
     "natural_en": "Suspended completely off the floor with back pressed against the standing partner's chest, facing the camera with both bent legs hoisted wide open."
    },
@@ -3967,7 +4142,10 @@
     "tags": [
      "standing",
      "leg hold",
-     "looking down"
+     "looking down",
+     "standing sex",
+     "reverse suspended congress",
+     "sex from behind"
     ],
     "natural_en": "Standing tall directly behind the receiver, hooking both arms beneath the receiver's bent thighs to hold the legs spread wide toward the front."
    }
@@ -4033,8 +4211,10 @@
   "shared_pose_tags": [
    "standing sex",
    "against wall",
+   "kabedon",
    "standing on one leg",
    "leg up",
+   "face to face",
    "sex"
   ],
   "slots": {
@@ -4052,7 +4232,8 @@
      "tiptoes",
      "leg up",
      "arms around neck",
-     "looking at another"
+     "looking at another",
+     "standing sex"
     ],
     "natural_en": "Standing with the back against a wall on the right, on the tiptoes of one foot, the other leg raised high at the partner's waist and both arms around the partner's neck."
    },
@@ -4066,9 +4247,11 @@
     "tags": [
      "standing",
      "leaning forward",
+     "kabedon",
      "hand on wall",
      "holding another's leg",
-     "looking at another"
+     "looking at another",
+     "standing sex"
     ],
     "natural_en": "Standing close on the left, leaning in with one hand braced on the wall beside the receiver and the other hand holding the raised leg."
    }
@@ -4134,6 +4317,8 @@
   "shared_pose_tags": [
    "standing sex",
    "standing on one leg",
+   "leg up",
+   "face to face",
    "sex"
   ],
   "slots": {
@@ -4148,7 +4333,9 @@
      "standing",
      "standing on one leg",
      "leg up",
-     "looking at another"
+     "hands on another's shoulders",
+     "looking at another",
+     "standing sex"
     ],
     "natural_en": "Standing on one straight leg at left with the torso turned toward the camera and hips toward the partner, the other leg raised with the knee bent to about chest height, both hands raised loosely to shoulder height, face turned toward the partner."
    },
@@ -4163,7 +4350,8 @@
      "standing",
      "holding another's leg",
      "hand on another's waist",
-     "looking at another"
+     "looking at another",
+     "standing sex"
     ],
     "natural_en": "Standing close on the right, turned toward the receiver, one hand holding the raised leg under the bent knee and the other hand at the receiver's waist, looking down at the receiver."
    }
@@ -4247,7 +4435,8 @@
      "on couch",
      "leaning forward",
      "hands on another's shoulders",
-     "looking down"
+     "looking down",
+     "cowgirl position"
     ],
     "natural_en": "Straddling face-to-face over the reclined partner on a couch at upper right, leaning forward with both hands on the partner's shoulders."
    },
@@ -4263,7 +4452,8 @@
      "leaning back",
      "on couch",
      "hands on another's hips",
-     "looking up"
+     "looking up",
+     "cowgirl position"
     ],
     "natural_en": "Reclining comfortably back against the sofa cushions at lower left, gripping the rider's hips while looking up."
    }
@@ -4357,7 +4547,8 @@
      "lying",
      "on side",
      "holding another's leg",
-     "looking at another"
+     "looking at another",
+     "sex from behind"
     ],
     "natural_en": "Lying on one side directly behind the receiver's hips with the upper body propped up, one hand holding the receiver's raised upper leg under the thigh, looking at the receiver."
    }
@@ -4440,7 +4631,9 @@
      "straddling",
      "leaning forward",
      "hands on another's thighs",
-     "looking down"
+     "looking down",
+     "amazon position",
+     "girl on top"
     ],
     "natural_en": "Squatting astride the partner's raised hips at upper right, leaning slightly forward and looking down, both hands gripping the partner's thighs."
    },
@@ -4457,7 +4650,8 @@
      "legs up",
      "knees to chest",
      "spread legs",
-     "looking up"
+     "looking up",
+     "amazon position"
     ],
     "natural_en": "Lying on the back at lower left with hips lifted, one leg stretched straight up and out to the side, the other thigh folded down so the knee rests by the chest, looking up at the partner."
    }
@@ -4540,7 +4734,9 @@
      "shoulder stand",
      "legs up",
      "spread legs",
-     "upside-down"
+     "upside-down",
+     "piledriver (sex)",
+     "folded"
     ],
     "natural_en": "Balanced steeply on shoulders and upper back in the lower center with hips inverted vertically into the air and legs spread wide around the partner."
    },
@@ -4555,7 +4751,8 @@
      "squatting",
      "leaning forward",
      "hands on another's hips",
-     "looking down"
+     "looking down",
+     "piledriver (sex)"
     ],
     "natural_en": "Squatting high above the inverted receiver, gripping the raised hips and thrusting vertically downward."
    }
@@ -4622,7 +4819,8 @@
   "shared_pose_tags": [
    "arched back",
    "sex",
-   "leaning back"
+   "leaning back",
+   "face to face"
   ],
   "slots": {
    "receiver": {
@@ -4714,13 +4912,15 @@
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "from above"
+   "from above",
+   "three-quarter view"
   ],
   "shared_pose_tags": [
    "missionary",
-   "folded",
-   "sex",
-   "legs together"
+   "legs together",
+   "knees together",
+   "closed legs",
+   "sex"
   ],
   "slots": {
    "receiver": {
@@ -4735,8 +4935,12 @@
      "on back",
      "legs up",
      "legs together",
-     "knees up",
-     "closed eyes"
+     "knees together",
+     "closed legs",
+     "crossed ankles",
+     "knees to chest",
+     "closed eyes",
+     "missionary"
     ],
     "natural_en": "Lying on the back at lower right with both legs held together and knees bent upward, the feet resting against the partner's chest, eyes closed."
    },
@@ -4750,8 +4954,10 @@
     "tags": [
      "kneeling",
      "leaning forward",
-     "hands on another's thighs",
-     "looking down"
+     "leg grab",
+     "holding another's legs",
+     "looking down",
+     "missionary"
     ],
     "natural_en": "Kneeling upright at upper left facing the receiver, holding the receiver's closed, bent thighs against the chest with both hands."
    }
@@ -4805,27 +5011,29 @@
   "id": "pos_missionary_front_eye_level_kiss",
   "category": "04_main_positions",
   "subcategory": "正常位",
-  "title_zh": "正常位・正面貼身相擁親吻",
+  "title_zh": "正常位・斜側俯視貼身相擁親吻",
   "pattern": "geometry_dispatch",
   "default_canvas": "4:3",
-  "default_facing": "front",
+  "default_facing": "three_quarter_left",
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "front view"
+   "three-quarter view",
+   "from above"
   ],
   "shared_pose_tags": [
    "missionary",
    "sex",
    "kiss",
-   "hug"
+   "hug",
+   "face to face"
   ],
   "slots": {
    "receiver": {
     "label_zh": "承受方（仰躺環頸迎吻）",
     "requires": "pussy",
     "center": {
-     "x": 0.5,
+     "x": 0.42,
      "y": 0.58
     },
     "tags": [
@@ -4833,7 +5041,9 @@
      "on back",
      "spread legs",
      "arms around neck",
-     "kiss"
+     "kiss",
+     "missionary",
+     "hug"
     ],
     "natural_en": "Lying on her back with legs open and arms wrapped around her partner's neck while kissing."
    },
@@ -4841,14 +5051,16 @@
     "label_zh": "攻方（俯壓撐身低頭親吻）",
     "requires": "penis_or_strapon_or_nonhuman",
     "center": {
-     "x": 0.5,
-     "y": 0.42
+     "x": 0.58,
+     "y": 0.44
     },
     "tags": [
      "lying",
      "on top",
      "leaning forward",
-     "kiss"
+     "kiss",
+     "missionary",
+     "hug"
     ],
     "natural_en": "Pressing down over her between her legs in a close embrace, sharing a deep kiss."
    }
@@ -4895,8 +5107,8 @@
     "giver": []
    }
   },
-  "natural_en": "Front horizontal full-body view of intimate missionary sex with both partners tightly embracing and kissing.",
-  "prompt_zh": "正面橫構圖全身：正常位緊密交疊，受方仰躺雙臂環頸，攻方俯身壓上相擁親吻。"
+  "natural_en": "High-angle three-quarter full-body view of intimate face-to-face missionary sex with both partners tightly embracing and kissing.",
+  "prompt_zh": "斜側俯視橫構圖全身：正常位面對面緊密交疊，受方仰躺雙臂環頸，攻方俯身壓上相擁親吻。"
  },
  {
   "id": "pos_missionary_legs_wrapped_waist_overhead",
@@ -4929,7 +5141,8 @@
      "on back",
      "leg lock",
      "arms around neck",
-     "looking up"
+     "looking up",
+     "missionary"
     ],
     "natural_en": "Lying on her back with her legs wrapped tightly around the partner's waist and ankles crossed."
    },
@@ -4943,7 +5156,8 @@
     "tags": [
      "kneeling",
      "leaning forward",
-     "hands beside head"
+     "hands beside head",
+     "missionary"
     ],
     "natural_en": "Leaning over her with hands braced beside her shoulders, held tightly by her leg lock."
    }
@@ -5005,11 +5219,13 @@
   "camera_tags": [
    "full body",
    "from behind",
-   "from above"
+   "back view"
   ],
   "shared_pose_tags": [
    "doggystyle",
    "sex from behind",
+   "from behind",
+   "ass focus",
    "sex"
   ],
   "slots": {
@@ -5022,8 +5238,13 @@
     },
     "tags": [
      "all fours",
+     "hands on ground",
      "arched back",
-     "looking back"
+     "ass",
+     "ass up",
+     "looking back",
+     "back",
+     "doggystyle"
     ],
     "natural_en": "On all fours with back arched deeply and hips raised, glancing back over her shoulder."
    },
@@ -5037,7 +5258,9 @@
     "tags": [
      "kneeling",
      "hands on another's hips",
-     "back"
+     "back",
+     "doggystyle",
+     "sex from behind"
     ],
     "natural_en": "Kneeling behind her gripping both hips firmly as they thrust from behind."
    }
@@ -5091,26 +5314,27 @@
   "id": "pos_ekiben_face_to_face_front_carry",
   "category": "04_main_positions",
   "subcategory": "立位與抱起",
-  "title_zh": "正面懸空火車便當（面對面抱腿）・正面全身",
+  "title_zh": "正面懸空火車便當（面對面抱腿）・斜側全身",
   "pattern": "geometry_dispatch",
   "default_canvas": "3:4",
-  "default_facing": "front",
+  "default_facing": "three_quarter_left",
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "front view"
+   "three-quarter view"
   ],
   "shared_pose_tags": [
    "suspended congress",
    "standing sex",
-   "sex"
+   "sex",
+   "face to face"
   ],
   "slots": {
    "receiver": {
     "label_zh": "承受方（懸空環頸開腿跨坐於臂彎）",
     "requires": "pussy",
     "center": {
-     "x": 0.5,
+     "x": 0.44,
      "y": 0.44
     },
     "tags": [
@@ -5125,13 +5349,15 @@
     "label_zh": "施與方（站立雙臂托舉大腿內側）",
     "requires": "penis_or_strapon_or_nonhuman",
     "center": {
-     "x": 0.5,
-     "y": 0.56
+     "x": 0.56,
+     "y": 0.54
     },
     "tags": [
      "standing",
      "carrying",
-     "holding another's legs"
+     "holding another's legs",
+     "standing sex",
+     "suspended congress"
     ],
     "natural_en": "Standing upright, hooking both arms beneath her thighs to carry her suspended in mid-air."
    }
@@ -5178,8 +5404,8 @@
     "giver": []
    }
   },
-  "natural_en": "Front full-body view of face-to-face suspended congress: the standing giver carries the receiver completely off the ground by holding under her spread thighs while she clings to their neck.",
-  "prompt_zh": "正面全身：面對面懸空抱舉（正面火車便當），攻方站立雙臂托住受方大腿懸空支撐，受方雙腿大開環頸緊抱。"
+  "natural_en": "Three-quarter full-body view of face-to-face suspended congress: the standing giver carries the receiver completely off the ground by holding under her spread thighs while she clings to their neck.",
+  "prompt_zh": "斜側全身：面對面懸空抱舉（正面火車便當），攻方站立雙臂托住受方大腿懸空支撐，受方雙腿大開環頸緊抱。"
  },
  {
   "id": "pos_side_lying_face_to_face_leg_up_side",
@@ -5188,18 +5414,19 @@
   "title_zh": "側臥面對面抬單腿交合・側面全身",
   "pattern": "geometry_dispatch",
   "default_canvas": "4:3",
-  "default_facing": "front",
+  "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "front view",
+   "side view",
    "from above"
   ],
   "shared_pose_tags": [
    "sex",
    "lying",
    "on side",
-   "leg up"
+   "leg up",
+   "face to face"
   ],
   "slots": {
    "receiver": {
@@ -5275,7 +5502,7 @@
     "giver": []
    }
   },
-  "natural_en": "Slightly elevated horizontal full-body view of two adults lying face to face on their sides, the receiver lifting her upper leg over the giver's waist.",
+  "natural_en": "Slightly elevated side horizontal full-body view of two adults lying face to face on their sides, the receiver lifting her upper leg over the giver's waist.",
   "prompt_zh": "橫構圖全身：兩人面對面側臥交合，受方將上側長腿抬跨於攻方腰側，攻方扶腿相望。"
  },
  {
@@ -5311,7 +5538,8 @@
      "legs up",
      "folded",
      "spread legs",
-     "looking up"
+     "looking up",
+     "mating press"
     ],
     "natural_en": "Lying on her back with her legs folded tightly back past her shoulders under the partner's weight."
    },
@@ -5326,9 +5554,10 @@
      "squatting",
      "leaning forward",
      "holding another's legs",
-     "looking down"
+     "looking down",
+     "mating press"
     ],
-    "natural_en": "Crouching over her from above, pinning her folded legs back while thrusting downward."
+    "natural_en": "Squatting over her from above, pinning her folded legs back while thrusting downward."
    }
   },
   "pairing_tags": {
@@ -5373,7 +5602,7 @@
     "giver": []
    }
   },
-  "natural_en": "Low-angle front full-body view of a deep mating press: the giver crouches forward pinning the lying receiver's legs folded back beside her shoulders.",
+  "natural_en": "Low-angle front full-body view of a deep mating press: the giver squats forward pinning the lying receiver's legs folded back beside her shoulders.",
   "prompt_zh": "正面低角全身：深折疊壓制（Mating Press），受方仰躺雙腿被折壓至肩旁，攻方上位蹲壓推進。"
  }
 ]

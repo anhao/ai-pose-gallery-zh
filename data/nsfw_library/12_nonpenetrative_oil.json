@@ -44,6 +44,7 @@
      "kneeling",
      "on floor",
      "leaning forward",
+     "armpit sex",
      "looking at another"
     ],
     "natural_en": "Kneeling on the right side of the frame, leaning forward toward the partner's raised armpit and pressing close to the exposed armpit."
@@ -134,6 +135,7 @@
     "tags": [
      "lying",
      "leaning forward",
+     "buttjob",
      "looking down"
     ],
     "natural_en": "Lying on top of the partner on the right side of the frame, leaning forward with the penis clasped between the partner's pressed-together buttocks, thrusting while looking down."
@@ -211,7 +213,8 @@
     },
     "tags": [
      "lying",
-     "on stomach"
+     "on stomach",
+     "oiled"
     ],
     "natural_en": "Lying face down on the left side of the frame with the oiled back exposed while the partner sits astride the lower back and massages upward."
    },
@@ -225,6 +228,8 @@
     "tags": [
      "sitting",
      "leaning forward",
+     "massage",
+     "oiled",
      "looking down",
      "straddling"
     ],
@@ -273,7 +278,9 @@
   ],
   "shared_pose_tags": [
    "nursing handjob",
-   "handjob"
+   "handjob",
+   "breast sucking",
+   "sitting"
   ],
   "slots": {
    "receiver": {
@@ -285,12 +292,12 @@
     },
     "tags": [
      "sitting",
-     "spread legs",
-     "knees up",
+     "leaning back",
      "breast sucking",
+     "head resting on chest",
      "looking up"
     ],
-    "natural_en": "Sitting with legs apart, leaning sideways into the partner's chest, head held by the partner, mouth on the partner's breast, looking up."
+    "natural_en": "Sitting beside the partner leaning back into their chest with legs relaxed forward, head cradled by the partner, mouth sucking the breast, looking up."
    },
    "giver": {
     "label_zh": "施與方（右側坐姿環抱）",
@@ -301,12 +308,13 @@
     },
     "tags": [
      "sitting",
+     "legs together",
      "leaning forward",
      "hand on another's head",
      "handjob",
      "looking down"
     ],
-    "natural_en": "Sitting beside the partner and holding them close from the side, one hand cradling their head against the breast while the other hand strokes their penis."
+    "natural_en": "Sitting beside the partner with legs kept together to the side, one hand cradling the partner's head against the breast while the other hand strokes their penis."
    }
   },
   "pairing_tags": {
@@ -353,6 +361,7 @@
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
+   "full body",
    "side view",
    "from side"
   ],
@@ -371,9 +380,11 @@
     "tags": [
      "standing",
      "legs apart",
+     "leaning forward",
+     "breast sucking",
      "looking at another"
     ],
-    "natural_en": "Standing on the left side facing the partner closely."
+    "natural_en": "Standing on the left side facing the partner closely, leaning forward slightly to suck on the partner's breast."
    },
    "giver": {
     "label_zh": "施與方（右側站姿貼胸侍奉）",
@@ -386,9 +397,10 @@
      "standing",
      "leaning forward",
      "hug",
+     "handjob",
      "looking at another"
     ],
-    "natural_en": "Standing close on the right, leaning in with chest pressed near the partner while performing manual service."
+    "natural_en": "Standing close on the right, leaning in and hugging the partner with chest pressed close while giving a handjob."
    }
   },
   "pairing_tags": {
@@ -456,7 +468,8 @@
     "tags": [
      "lying",
      "on back",
-     "arched back"
+     "arched back",
+     "oiled"
     ],
     "natural_en": "Lying on the back on the left side of the frame with the chest raised and back arched while the partner kneels beside pouring oil from a bottle onto the chest and stomach."
    },
@@ -472,7 +485,8 @@
      "leaning forward",
      "looking down",
      "holding bottle",
-     "pouring"
+     "pouring",
+     "oil"
     ],
     "natural_en": "Kneeling beside the partner on the right side of the frame, leaning forward and holding a bottle overhead, pouring a stream of oil onto the partner's chest and stomach while looking down."
    }
@@ -518,9 +532,11 @@
    "from side"
   ],
   "shared_pose_tags": [
-   "massage",
    "oil",
-   "oiled"
+   "oiled",
+   "shiny skin",
+   "chest press",
+   "lying on top"
   ],
   "slots": {
    "receiver": {
@@ -533,9 +549,12 @@
     "tags": [
      "lying",
      "on back",
-     "spread legs"
+     "legs apart",
+     "oiled",
+     "shiny skin",
+     "looking at another"
     ],
-    "natural_en": "Lying on the back on the left side of the frame with legs spread, skin slick with oil, while the partner lies on top and slides their oiled body against the receiver."
+    "natural_en": "Lying flat on the back on the left side of the frame with skin slick with oil, while the partner lies directly on top pressing chest to chest and sliding their oiled body close."
    },
    "giver": {
     "label_zh": "施與方（右側俯壓滑磨）",
@@ -546,10 +565,14 @@
     },
     "tags": [
      "lying",
-     "leaning forward",
-     "looking at another"
+     "on stomach",
+     "on top",
+     "hug",
+     "oiled",
+     "shiny skin",
+     "looking down"
     ],
-    "natural_en": "Lying on top of the partner on the right side of the frame, leaning forward with the whole oiled body pressed close and sliding slowly against the partner while looking at the partner."
+    "natural_en": "Lying flat on top of the partner chest to chest, whole oiled body pressed closely and sliding slowly against the partner while looking down."
    }
   },
   "pairing_tags": {
@@ -593,8 +616,7 @@
    "from side"
   ],
   "shared_pose_tags": [
-   "thigh sex",
-   "penis between thighs"
+   "thigh sex"
   ],
   "slots": {
    "receiver": {
@@ -608,7 +630,7 @@
      "lying",
      "on back",
      "legs together",
-     "leg up",
+     "legs up",
      "looking at another"
     ],
     "natural_en": "Lying on the back on the left side of the frame with both legs raised together and pressed tightly against each other, thighs clasped around the partner, looking at the partner."
@@ -624,6 +646,7 @@
      "kneeling",
      "leaning forward",
      "hands on another's thighs",
+     "thigh sex",
      "looking down"
     ],
     "natural_en": "Kneeling on the right side of the frame facing the raised legs, leaning forward and holding both thighs together with both hands, thrusting between the pressed-together thighs while looking down."
@@ -683,15 +706,18 @@
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "side view",
+   "three-quarter view",
    "from side"
   ],
   "shared_pose_tags": [
-   "thigh sex"
+   "thigh sex",
+   "penis between thighs",
+   "from behind",
+   "ass up"
   ],
   "slots": {
    "receiver": {
-    "label_zh": "承受方（左側俯趴張腿）",
+    "label_zh": "承受方（左側俯趴併腿）",
     "requires": "any",
     "center": {
      "x": 0.38,
@@ -701,9 +727,10 @@
      "lying",
      "on stomach",
      "ass up",
-     "legs together"
+     "legs together",
+     "looking back"
     ],
-    "natural_en": "Lying face down on the left side of the frame with legs spread and hips raised, thighs pressed together around the partner lying on top."
+    "natural_en": "Lying face down on the left side of the frame with hips raised high and thighs pressed tightly together around the partner's penis, looking back."
    },
    "giver": {
     "label_zh": "施與方（右側俯壓夾磨）",
@@ -713,11 +740,14 @@
      "y": 0.5
     },
     "tags": [
-     "lying",
+     "kneeling",
      "leaning forward",
+     "hands on another's thighs",
+     "thigh sex",
+     "erection",
      "looking down"
     ],
-    "natural_en": "Lying on top of the partner on the right side of the frame, leaning forward with the penis clasped between the partner's pressed-together thighs, thrusting while looking down."
+    "natural_en": "Kneeling behind and leaning forward over the prone partner on the right side of the frame, holding both thighs together with the erect penis visibly clasped between the pressed-together thighs while looking down."
    }
   },
   "pairing_tags": {
@@ -760,8 +790,8 @@
     ]
    }
   },
-  "natural_en": "Full-body side view of prone thigh sex: the receiver lies face down on the left with legs spread and hips raised, thighs pressed together, while the giver lies on top on the right thrusting between the thighs.",
-  "prompt_zh": "側面全身素股俯趴夾磨：承受方居左俯趴張腿、高抬臀部，雙腿併攏夾緊；施與方居右俯壓在上，於大腿之間摩擦。"
+  "natural_en": "Full-body side view of prone thigh sex: the receiver lies face down on the left with hips raised and thighs pressed together, while the giver lies on top on the right thrusting between the thighs.",
+  "prompt_zh": "側面全身素股俯趴夾磨：承受方居左俯趴、高抬臀部，雙腿併攏夾緊；施與方居右俯壓在上，於大腿之間摩擦。"
  },
  {
   "id": "oil_massage_lying_caress_side",
@@ -792,7 +822,8 @@
     },
     "tags": [
      "lying",
-     "on back"
+     "on back",
+     "oiled"
     ],
     "natural_en": "Lying on the back on the left side of the frame with the chest and stomach slick with oil while the partner sits beside and caresses the oiled skin with both hands."
    },
@@ -806,6 +837,8 @@
     "tags": [
      "sitting",
      "leaning forward",
+     "massage",
+     "oiled",
      "looking down"
     ],
     "natural_en": "Sitting beside the partner on the right side of the frame, leaning forward with both oiled hands caressing slowly across the partner's chest and stomach while looking down."
@@ -881,6 +914,7 @@
      "standing",
      "leaning forward",
      "hands on another's hips",
+     "thigh sex",
      "looking down"
     ],
     "natural_en": "Standing directly behind the partner on the right side of the frame, leaning forward and gripping both hips with the penis clasped between the partner's pressed-together thighs, thrusting while looking down."
@@ -945,7 +979,9 @@
   ],
   "shared_pose_tags": [
    "nursing handjob",
-   "handjob"
+   "handjob",
+   "breast sucking",
+   "girl on top"
   ],
   "slots": {
    "receiver": {
@@ -958,10 +994,11 @@
     "tags": [
      "lying",
      "on back",
-     "spread legs",
-     "looking at another"
+     "legs apart",
+     "breast sucking",
+     "looking up"
     ],
-    "natural_en": "Lying on the back on the left side of the frame with legs spread wide, looking toward the partner lying on top."
+    "natural_en": "Lying on the back on the left side of the frame with both legs extended clearly apart, sucking the breast of the partner leaning over from above."
    },
    "giver": {
     "label_zh": "施與方（右側上位俯壓貼胸）",
@@ -971,11 +1008,13 @@
      "y": 0.5
     },
     "tags": [
-     "lying",
+     "on top",
+     "kneeling",
      "leaning forward",
+     "handjob",
      "looking down"
     ],
-    "natural_en": "Lying on top of the partner on the right side of the frame, pressing breasts against the partner's chest and leaning forward, one hand stroking below while looking down."
+    "natural_en": "Kneeling astride and leaning low over the supine partner from above, pressing breasts to the partner's mouth while stroking the penis with one hand and looking down."
    }
   },
   "pairing_tags": {
@@ -1055,6 +1094,7 @@
      "kneeling",
      "leaning forward",
      "hands on another's hips",
+     "buttjob",
      "looking down"
     ],
     "natural_en": "Kneeling behind the partner on the right side of the frame, leaning forward and gripping both hips with the penis clasped between the partner's pressed-together buttocks, thrusting while looking down."
@@ -1118,11 +1158,13 @@
    "from side"
   ],
   "shared_pose_tags": [
-   "thigh sex"
+   "thigh sex",
+   "face-to-face",
+   "penis between thighs"
   ],
   "slots": {
    "receiver": {
-    "label_zh": "承受方（左側坐姿張腿）",
+    "label_zh": "承受方（左側坐姿併腿屈膝）",
     "requires": "any",
     "center": {
      "x": 0.38,
@@ -1130,11 +1172,12 @@
     },
     "tags": [
      "sitting",
+     "leaning back",
      "knees up",
-     "looking at another",
-     "legs together"
+     "legs together",
+     "looking at another"
     ],
-    "natural_en": "Sitting on the left side of the frame facing the partner with legs spread wide and knees raised, thighs pressed together around the partner sitting close in front."
+    "natural_en": "Sitting on the left side of the frame facing the partner, leaning back slightly with knees raised and thighs pressed tightly together around the partner's penis."
    },
    "giver": {
     "label_zh": "施與方（右側坐姿夾磨）",
@@ -1146,9 +1189,11 @@
     "tags": [
      "sitting",
      "leaning forward",
+     "hands on another's thighs",
+     "thigh sex",
      "looking at another"
     ],
-    "natural_en": "Sitting close in front of the partner on the right side of the frame, leaning forward with the penis clasped between the partner's pressed-together thighs, thrusting while looking at the partner."
+    "natural_en": "Sitting directly face-to-face in front of the partner on the right side of the frame, leaning forward gripping the partner's thighs with the penis clasped between them while looking at the partner."
    }
   },
   "pairing_tags": {
@@ -1191,8 +1236,8 @@
     ]
    }
   },
-  "natural_en": "Full-body side view of sitting thigh sex: the receiver sits on the left facing the partner with legs spread wide and knees raised, thighs pressed together, while the giver sits close in front on the right thrusting between the thighs.",
-  "prompt_zh": "側面全身素股坐姿夾磨：承受方居左坐姿張腿屈膝面向對方，雙腿併攏夾緊；施與方居右坐姿貼近，於大腿之間摩擦。"
+  "natural_en": "Full-body side view of sitting thigh sex: the receiver sits on the left facing the partner with knees raised and thighs pressed together, while the giver sits close in front on the right thrusting between the thighs.",
+  "prompt_zh": "側面全身素股坐姿夾磨：承受方居左坐姿屈膝面向對方，雙腿併攏夾緊；施與方居右坐姿貼近，於大腿之間摩擦。"
  },
  {
   "id": "nursing_handjob_lying_chest_press_side",
@@ -1210,7 +1255,8 @@
   ],
   "shared_pose_tags": [
    "nursing handjob",
-   "handjob"
+   "handjob",
+   "breast sucking"
   ],
   "slots": {
    "receiver": {
@@ -1223,10 +1269,11 @@
     "tags": [
      "lying",
      "on back",
-     "spread legs",
-     "looking at another"
+     "breast sucking",
+     "erection",
+     "looking up"
     ],
-    "natural_en": "Lying on the back on the left side of the frame with legs spread wide, looking toward the partner sitting beside and leaning over."
+    "natural_en": "Lying flat on the back on the left side of the frame with both legs naturally extended, sucking the breast of the partner sitting beside."
    },
    "giver": {
     "label_zh": "施與方（右側坐姿側身貼胸）",
@@ -1237,10 +1284,14 @@
     },
     "tags": [
      "sitting",
+     "legs together",
      "leaning forward",
+     "hand on another's head",
+     "handjob",
+     "holding penis",
      "looking down"
     ],
-    "natural_en": "Sitting beside the partner on the right side of the frame, leaning sideways over the partner with breasts pressed against the partner's chest, one hand stroking below while looking down."
+    "natural_en": "Sitting neatly beside the supine partner on the right side of the frame with legs together to the side, leaning sideways with one hand on their head and the other firmly stroking their penis while looking down."
    }
   },
   "pairing_tags": {
@@ -1294,7 +1345,9 @@
   "shared_pose_tags": [
    "massage",
    "oil",
-   "oiled"
+   "oiled",
+   "shiny skin",
+   "leg lift"
   ],
   "slots": {
    "receiver": {
@@ -1307,9 +1360,11 @@
     "tags": [
      "lying",
      "on back",
-     "legs up"
+     "legs up",
+     "oiled",
+     "shiny skin"
     ],
-    "natural_en": "Lying on the back on the left side of the frame with legs raised, skin slick with oil, while the partner kneels at the legs and massages upward along the oiled legs."
+    "natural_en": "Lying on the back on the left side of the frame with legs lifted high into the air, skin slick with oil, while the partner kneels at the foot end massaging along the lifted legs."
    },
    "giver": {
     "label_zh": "施與方（右側跪姿腿部推滑）",
@@ -1321,9 +1376,13 @@
     "tags": [
      "kneeling",
      "leaning forward",
+     "holding leg",
+     "hands on another's legs",
+     "massage",
+     "oiled",
      "looking down"
     ],
-    "natural_en": "Kneeling at the partner's legs on the right side of the frame, leaning forward with both oiled hands pressing and sliding upward along the partner's raised legs while looking down."
+    "natural_en": "Kneeling at the foot end on the right side of the frame, leaning forward with both oiled hands gripping and sliding along the partner's lifted calves and thighs while looking down."
    }
   },
   "pairing_tags": {
@@ -1366,11 +1425,12 @@
    "from above"
   ],
   "shared_pose_tags": [
-   "thigh sex"
+   "thigh sex",
+   "penis between thighs"
   ],
   "slots": {
    "receiver": {
-    "label_zh": "承受方（下方仰躺張腿）",
+    "label_zh": "承受方（下方仰躺併腿）",
     "requires": "any",
     "center": {
      "x": 0.5,
@@ -1379,9 +1439,11 @@
     "tags": [
      "lying",
      "on back",
-     "legs together"
+     "legs together",
+     "knees up",
+     "looking up"
     ],
-    "natural_en": "Lying on the back at the bottom of the frame with legs spread wide and thighs pressed together around the partner kneeling above."
+    "natural_en": "Lying on the back at the bottom of the frame with legs together and thighs pressed tightly around the partner's penis so the tip emerges between the thighs."
    },
    "giver": {
     "label_zh": "施與方（上方跪姿夾磨）",
@@ -1392,10 +1454,11 @@
     },
     "tags": [
      "kneeling",
-     "leaning forward",
+     "hands on another's thighs",
+     "thigh sex",
      "looking down"
     ],
-    "natural_en": "Kneeling at the top of the frame, leaning forward over the partner's pressed-together thighs and thrusting between them while looking down."
+    "natural_en": "Kneeling upright at the top of the frame holding both thighs together with both hands, thrusting the penis visibly between the pressed-together thighs while looking down."
    }
   },
   "pairing_tags": {
@@ -1438,8 +1501,8 @@
     ]
    }
   },
-  "natural_en": "Overhead close-up of thigh sex: the receiver lies on the back at the bottom of the frame with legs spread and thighs pressed together, while the giver kneels at the top leaning forward and thrusting between the thighs.",
-  "prompt_zh": "俯視近拍素股特寫：承受方在下仰躺張腿、雙腿併攏夾緊；施與方在上跪姿前傾，於大腿之間摩擦。"
+  "natural_en": "Overhead close-up of thigh sex: the receiver lies on the back at the bottom of the frame with legs and thighs pressed tightly together, while the giver kneels at the top leaning forward and thrusting between the thighs.",
+  "prompt_zh": "俯視近拍素股特寫：承受方在下仰躺、雙腿併攏夾緊；施與方在上跪姿前傾，於大腿之間摩擦。"
  },
  {
   "id": "oil_massage_prone_back_rub_side",
@@ -1470,7 +1533,8 @@
     },
     "tags": [
      "lying",
-     "on stomach"
+     "on stomach",
+     "oiled"
     ],
     "natural_en": "Lying face down on the left side of the frame with the oiled back exposed, arms resting slack at the sides while the partner kneels beside and massages the back."
    },
@@ -1484,6 +1548,8 @@
     "tags": [
      "kneeling",
      "leaning forward",
+     "massage",
+     "oiled",
      "looking down"
     ],
     "natural_en": "Kneeling beside the partner on the right side of the frame, leaning forward with both oiled hands pressing and sliding along the partner's back while looking down."
@@ -1530,7 +1596,8 @@
    "from side"
   ],
   "shared_pose_tags": [
-   "armpit sex"
+   "armpit sex",
+   "presenting armpit"
   ],
   "slots": {
    "receiver": {
@@ -1543,11 +1610,12 @@
     "tags": [
      "lying",
      "on back",
-     "arm up",
+     "legs together",
+     "one arm up",
      "presenting armpit",
      "looking at another"
     ],
-    "natural_en": "Lying on the back on the left side of the frame with one arm raised overhead to present the armpit, looking toward the partner kneeling beside."
+    "natural_en": "Lying flat on the back on the left side of the frame with legs together and one arm raised overhead to present the armpit, looking toward the partner kneeling beside."
    },
    "giver": {
     "label_zh": "施與方（右側跪姿俯身進入腋下）",
@@ -1559,9 +1627,11 @@
     "tags": [
      "kneeling",
      "leaning forward",
-     "looking at another"
+     "holding penis",
+     "armpit sex",
+     "looking down"
     ],
-    "natural_en": "Kneeling beside the partner on the right side of the frame, leaning forward toward the raised armpit and pressing close to the exposed armpit."
+    "natural_en": "Kneeling beside the partner's upper torso on the right side of the frame, holding the penis and pressing it clearly into the exposed armpit while looking down."
    }
   },
   "pairing_tags": {
@@ -1626,33 +1696,34 @@
   ],
   "slots": {
    "receiver": {
-    "label_zh": "承受方（左側站姿抬臂露出腋下）",
+    "label_zh": "承受方（左側跪姿抬臂露出腋下）",
     "requires": "any",
     "center": {
      "x": 0.38,
-     "y": 0.45
+     "y": 0.58
     },
     "tags": [
-     "standing",
+     "kneeling",
      "arm up",
      "presenting armpit",
-     "looking at another"
+     "looking up"
     ],
-    "natural_en": "Standing on the left side of the frame with one arm raised overhead to present the armpit, body angled toward the partner standing close beside."
+    "natural_en": "Kneeling on the left side of the frame with one arm raised overhead to present the armpit at waist height, body angled toward the standing partner."
    },
    "giver": {
     "label_zh": "施與方（右側站姿貼近腋下）",
     "requires": "penis_or_dildo",
     "center": {
      "x": 0.66,
-     "y": 0.48
+     "y": 0.45
     },
     "tags": [
      "standing",
      "leaning forward",
-     "looking at another"
+     "armpit sex",
+     "looking down"
     ],
-    "natural_en": "Standing close beside the partner on the right side of the frame, leaning forward toward the raised armpit and pressing close to the exposed armpit."
+    "natural_en": "Standing close beside the kneeling partner on the right side of the frame, leaning slightly forward and pressing into the partner's raised armpit while looking down."
    }
   },
   "pairing_tags": {
@@ -1695,8 +1766,8 @@
     ]
    }
   },
-  "natural_en": "Full-body side view of armpit sex standing: the receiver stands on the left with one arm raised to present the armpit, while the giver stands close beside on the right and leans forward into that armpit.",
-  "prompt_zh": "側面全身站姿腋下互動：承受方居左站姿、單臂高舉露出腋下；施與方居右站姿貼近俯身，以陽具或穿戴式假陽具貼近並進入對方腋下。"
+  "natural_en": "Full-body side view of standing-height armpit sex: the receiver kneels on the left with one arm raised to present the armpit at hip level, while the giver stands close beside on the right and leans forward into that armpit.",
+  "prompt_zh": "側面全身站姿高差腋下互動：承受方居左跪姿、單臂高舉將腋下對齊對方胯部高度；施與方居右站姿貼近俯身，以陽具或穿戴式假陽具貼近並進入對方腋下。"
  },
  {
   "id": "oil_nuru_fullbody_glide_overhead_wide",
@@ -1727,7 +1798,8 @@
     "tags": [
      "lying",
      "on stomach",
-     "oiled"
+     "oiled",
+     "looking at viewer"
     ],
     "natural_en": "Lying face down across the wide frame with one arm stretched forward and one lower leg bent up behind, the body glossy with oil, looking toward the viewer."
    },
@@ -1739,6 +1811,9 @@
      "y": 0.5
     },
     "tags": [
+     "kneeling",
+     "arm support",
+     "leaning forward",
      "oiled",
      "looking down"
     ],
@@ -1894,6 +1969,7 @@
     "tags": [
      "standing",
      "hands on another's hips",
+     "thigh sex",
      "looking at another"
     ],
     "natural_en": "Standing on the right face to face with the receiver, holding the hips and pressing in between the closed thighs."
@@ -1957,7 +2033,8 @@
   ],
   "shared_pose_tags": [
    "thigh sex",
-   "straddling"
+   "straddling",
+   "penis between thighs"
   ],
   "slots": {
    "receiver": {
@@ -1969,11 +2046,12 @@
     },
     "tags": [
      "straddling",
-     "sitting",
+     "kneeling",
      "legs together",
+     "thigh sex",
      "looking down"
     ],
-    "natural_en": "Sitting upright astride the partner's lower torso with knees and thighs pressed together, the penis held between the thighs, looking down."
+    "natural_en": "Kneeling upright astride the partner's lower torso with knees and thighs pressed together, shins tucked neatly behind, the penis held between the thighs, looking down."
    },
    "giver": {
     "label_zh": "施與方（下方仰躺、頭朝畫面下緣、雙手扶腰）",
@@ -1988,7 +2066,7 @@
      "hands on another's hips",
      "looking up"
     ],
-    "natural_en": "Lying on the back with the head at the bottom edge of the frame, both hands on the rider's hips."
+    "natural_en": "Lying flat on the back with legs straight and the head at the bottom edge of the frame, both hands on the rider's hips."
    }
   },
   "pairing_tags": {
@@ -2082,6 +2160,7 @@
      "standing",
      "leaning forward",
      "hands on another's hips",
+     "buttjob",
      "looking down"
     ],
     "natural_en": "Standing tightly behind along the centerline in low-angle rear perspective, holding both hips firmly."
@@ -2134,52 +2213,55 @@
   "id": "nursing_handjob_lap_straddle_front_low",
   "category": "12_nonpenetrative_oil",
   "subcategory": "複合胸手侍奉 nursing handjob",
-  "title_zh": "坐姿跨懷含乳手交・正面低角仰視",
+  "title_zh": "坐姿跨懷含乳手交・斜側",
   "pattern": "organ_bound",
-  "default_canvas": "3:4",
-  "default_facing": "front",
+  "default_canvas": "4:3",
+  "default_facing": "three_quarter_left",
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "front view",
-   "from below"
+   "three-quarter view"
   ],
   "shared_pose_tags": [
    "nursing handjob",
    "handjob",
+   "breast sucking",
    "sitting on lap"
   ],
   "slots": {
    "receiver": {
-    "label_zh": "承受方（下方坐姿仰臉貼胸）",
+    "label_zh": "承受方（左側坐姿仰臉貼胸）",
     "requires": "penis_or_dildo",
     "center": {
-     "x": 0.5,
-     "y": 0.62
+     "x": 0.36,
+     "y": 0.56
     },
     "tags": [
      "sitting",
+     "leaning back",
      "spread legs",
+     "erection",
      "breast sucking",
-     "looking up"
+     "hand on another's waist"
     ],
-    "natural_en": "Seated below leaning into the straddling partner's chest with eyes closed or looking up."
+    "natural_en": "Seated on the left in three-quarter view leaning slightly back with legs spread and penis erect, one hand resting on the partner's waist while leaning into their chest to suck the breast."
    },
    "giver": {
-    "label_zh": "施與方（上方跨坐環抱扶頭侍奉）",
+    "label_zh": "施與方（右側斜坐大腿上環抱扶頭手交）",
     "requires": "breasts",
     "center": {
-     "x": 0.5,
-     "y": 0.4
+     "x": 0.62,
+     "y": 0.46
     },
     "tags": [
-     "straddling",
      "sitting on lap",
+     "legs together",
      "hand on another's head",
      "handjob",
+     "holding penis",
      "looking down"
     ],
-    "natural_en": "Straddling elevated across the partner's lap in low-angle frontal view, cradling the head gently to the chest with one arm while the other hand works below."
+    "natural_en": "Sitting side-saddle across the partner's thigh on the right with legs kept together to one side, cradling their head to the chest with one hand while reaching down to firmly stroke their unobstructed penis with the other hand."
    }
   },
   "pairing_tags": {
@@ -2213,8 +2295,8 @@
     ]
    }
   },
-  "natural_en": "Low-angle frontal full-body view of a lap-straddle nursing handjob: the giver sits elevated astride the seated receiver's lap, cradling the head gently to her chest while looking down.",
-  "prompt_zh": "正面低角仰視坐姿跨懷胸手侍奉：承受方居下坐姿靠入胸前；施與方居上跨坐膝上環抱扶頭俯視並以手侍奉。"
+  "natural_en": "Three-quarter side full-body view of a lap-seated nursing handjob: the receiver sits on the left leaning into the chest to suck the breast while the giver sits across his thigh on the right, cradling his head with one hand and stroking his unobstructed erect penis with the other.",
+  "prompt_zh": "斜側面全身坐姿跨懷胸手侍奉：承受方居左坐姿張腿貼近胸前含乳；施與方居右斜坐大腿上，一手環抱扶頭、另一手清晰握持侍奉陰莖。"
  },
  {
   "id": "nursing_handjob_reclining_bed_over_shoulder",
@@ -2251,20 +2333,20 @@
     "natural_en": "Half-reclining on the bed on the left, propped on one elbow, sucking the partner's breast with eyes closed."
    },
    "giver": {
-    "label_zh": "施與方（右側坐於身旁、扶頭手交）",
+    "label_zh": "施與方（右側跪坐於身旁、扶頭手交）",
     "requires": "breasts",
     "center": {
      "x": 0.62,
      "y": 0.48
     },
     "tags": [
-     "sitting",
+     "kneeling",
      "on bed",
      "hand on another's head",
      "handjob",
      "looking down"
     ],
-    "natural_en": "Sitting upright beside the partner on the right, one hand cradling the head against the breast and the other stroking below."
+    "natural_en": "Kneeling upright beside the partner on the right with legs tucked neatly to the right, one hand cradling the head against the breast and the other stroking below."
    }
   },
   "pairing_tags": {
@@ -2312,19 +2394,17 @@
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "front view",
    "three-quarter view",
-   "from below"
+   "from side"
   ],
   "shared_pose_tags": [
    "armpit sex",
    "presenting armpit",
-   "arms behind head",
-   "hug from behind"
+   "arms behind head"
   ],
   "slots": {
    "receiver": {
-    "label_zh": "承受方（前景坐姿雙手抱腦後）",
+    "label_zh": "承受方（前景跪坐雙手抱腦後）",
     "requires": "any",
     "center": {
      "x": 0.46,
@@ -2337,7 +2417,7 @@
      "arched back",
      "looking at viewer"
     ],
-    "natural_en": "Kneeling in front facing the camera with both hands clasped behind the head and elbows lifted wide."
+    "natural_en": "Kneeling in front angled sideways in three-quarter view with both hands clasped behind the head and elbows lifted wide so the raised armpit is clearly exposed."
    },
    "giver": {
     "label_zh": "施與方（後方高跪貼肩靠近）",
@@ -2348,11 +2428,12 @@
     },
     "tags": [
      "kneeling",
-     "hug from behind",
      "leaning forward",
+     "holding penis",
+     "armpit sex",
      "looking down"
     ],
-    "natural_en": "Kneeling elevated directly behind in low-angle frontal perspective, leaning close beside the lifted shoulder."
+    "natural_en": "Kneeling closely beside and slightly behind in three-quarter view, holding the penis and visibly pressing it into the partner's raised armpit while looking down."
    }
   },
   "pairing_tags": {
@@ -2395,7 +2476,7 @@
     ]
    }
   },
-  "natural_en": "Low-angle frontal full-body view: the receiver kneels in front with both hands behind the head raising both shoulders while the giver kneels closely behind along the vertical centerline.",
-  "prompt_zh": "正面低角縱疊全身腋下互動：承受方居前景正跪、雙手抱腦後高抬手肘；施與方居正後方高跪前傾貼近肩腋。"
+  "natural_en": "Low-angle three-quarter full-body view: the receiver sits in front with both hands behind the head raising both shoulders while the giver kneels closely behind along the vertical centerline into the armpit.",
+  "prompt_zh": "斜正面低角縱疊全身腋下互動：承受方居前景坐姿、雙手抱腦後高抬手肘；施與方居正後方高跪前傾貼近肩腋。"
  }
 ]

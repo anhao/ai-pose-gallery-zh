@@ -2198,28 +2198,32 @@
   "id": "pos_paizuri_sitting_receiver_front",
   "category": "03_service_oral_chest_hand_foot",
   "subcategory": "乳交 paizuri",
-  "title_zh": "坐姿乳交・正面",
+  "title_zh": "坐姿乳交・斜側俯視",
   "pattern": "organ_bound",
-  "default_canvas": "3:4",
-  "default_facing": "front",
+  "default_canvas": "4:3",
+  "default_facing": "three_quarter_left",
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "front view"
+   "three-quarter view",
+   "from above"
   ],
   "shared_pose_tags": [
-   "paizuri"
+   "paizuri",
+   "between breasts",
+   "face to face"
   ],
   "slots": {
    "receiver": {
     "label_zh": "承受方（坐姿張腿）",
     "requires": "penis_or_dildo",
     "center": {
-     "x": 0.5,
-     "y": 0.42
+     "x": 0.36,
+     "y": 0.48
     },
     "tags": [
      "sitting",
+     "leaning back",
      "spread legs",
      "knees up",
      "looking down"
@@ -2230,14 +2234,15 @@
     "label_zh": "施與方（前方跪姿俯身）",
     "requires": "breasts",
     "center": {
-     "x": 0.5,
-     "y": 0.7
+     "x": 0.64,
+     "y": 0.58
     },
     "tags": [
      "kneeling",
      "leaning forward",
+     "paizuri",
      "breasts squeezed together",
-     "looking down"
+     "looking up"
     ],
     "natural_en": "Kneeling in front of the partner, leaning forward with both hands squeezing the breasts together around the penis, looking down."
    }
@@ -2270,8 +2275,8 @@
     ]
    }
   },
-  "natural_en": "Front full-body view of paizuri: the receiver sits facing the camera with legs spread and knees raised, while the giver kneels in front, leaning forward with breasts pressed together around the penis.",
-  "prompt_zh": "正面全身坐姿乳交：承受方坐姿張腿屈膝面向鏡頭低頭；施與方跪於前方前傾，雙手托胸夾住陽具。"
+  "natural_en": "High-angle three-quarter full-body view of paizuri: the receiver sits leaning back with legs spread wide, while the giver kneels facing him between his legs, squeezing her breasts together around his penis and looking up.",
+  "prompt_zh": "斜側俯視全身坐姿乳交：承受方後靠坐姿張腿屈膝低頭；施與方於腿間面對面跪姿前傾，雙手聚胸夾住陽具並抬眼仰望。"
  },
  {
   "id": "pos_paizuri_kneeling_face_to_face_side",
@@ -5449,27 +5454,29 @@
   "id": "pos_paizuri_standing_lean_forward_front",
   "category": "03_service_oral_chest_hand_foot",
   "subcategory": "乳交 paizuri",
-  "title_zh": "低蹲前傾夾胸乳交・正面全身",
+  "title_zh": "站姿低蹲夾胸乳交・側面全身",
   "pattern": "organ_bound",
   "default_canvas": "3:4",
-  "default_facing": "front",
+  "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "front view"
+   "side view",
+   "from side"
   ],
   "shared_pose_tags": [
    "paizuri",
    "between breasts",
-   "breast squeeze"
+   "breast squeeze",
+   "face to face"
   ],
   "slots": {
    "giver": {
     "label_zh": "施與方（半蹲前傾雙手擠胸）",
     "requires": "breasts",
     "center": {
-     "x": 0.5,
-     "y": 0.58
+     "x": 0.36,
+     "y": 0.62
     },
     "tags": [
      "squatting",
@@ -5484,12 +5491,12 @@
     "label_zh": "承受方（站立貼近俯看）",
     "requires": "penis_or_dildo",
     "center": {
-     "x": 0.5,
-     "y": 0.36
+     "x": 0.64,
+     "y": 0.44
     },
     "tags": [
      "standing",
-     "spread legs",
+     "legs apart",
      "hands on another's head",
      "looking down"
     ],
@@ -5524,8 +5531,8 @@
     ]
    }
   },
-  "natural_en": "Front full-body view of a standing adult receiving a paizuri from a partner squatting low and leaning forward, squeezing breasts together while looking up.",
-  "prompt_zh": "正面全身：承受方站立張腿、雙手扶頭俯看；施與方半蹲降低高度前傾，雙手聚胸夾持侍奉並仰望對方。"
+  "natural_en": "Side full-body view of a standing adult facing a squatting partner who leans forward, pressing her breasts together around his penis while looking up.",
+  "prompt_zh": "側面全身：承受方站立張腿、雙手扶頭俯看；施與方於身前相對半蹲降低高度前傾，雙手聚胸夾持侍奉並仰望對方。"
  },
  {
   "id": "pos_anilingus_facesitting_lying_side",

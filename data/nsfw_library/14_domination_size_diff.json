@@ -10,11 +10,13 @@
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "side view"
+   "side view",
+   "from side"
   ],
   "shared_pose_tags": [
    "size difference",
-   "height difference"
+   "height difference",
+   "carrying"
   ],
   "slots": {
    "receiver": {
@@ -26,9 +28,11 @@
     },
     "tags": [
      "arms around neck",
-     "knees up"
+     "knees up",
+     "legs up",
+     "looking down"
     ],
-    "natural_en": "Held off the ground on the left side of the frame, body suspended in a side profile, arms wrapped around the larger partner's neck, knees bent and feet clear of the surface."
+    "natural_en": "Held off the ground on the left side of the frame, body suspended in a side profile, arms wrapped around the larger partner's neck, knees bent and feet clear of the surface, looking down at the partner."
    },
    "giver": {
     "label_zh": "抱起者（站立支撐）",
@@ -39,7 +43,9 @@
     },
     "tags": [
      "standing",
-     "leg hold"
+     "carrying",
+     "leg hold",
+     "looking up"
     ],
     "natural_en": "Standing on the right side of the frame in a larger body type, supporting the smaller partner under the thighs and buttocks with both arms, head tilted upward toward them."
    }
@@ -99,8 +105,9 @@
     "tags": [
      "standing",
      "leaning forward",
-     "looking down",
-     "hand on another's shoulder"
+     "choking",
+     "hand on another's shoulder",
+     "looking down"
     ],
     "natural_en": "Standing on the right side of the frame, leaning forward with one hand gripping the kneeling partner's neck and shoulder, looking down at the submissive partner."
    },
@@ -150,7 +157,8 @@
   "shared_pose_tags": [
    "facesitting",
    "dominant female",
-   "cunnilingus"
+   "cunnilingus",
+   "sitting on face"
   ],
   "slots": {
    "top": {
@@ -162,11 +170,13 @@
     },
     "tags": [
      "sitting",
-     "spread legs",
-     "leaning forward",
+     "kneeling",
+     "straddling",
+     "facesitting",
+     "hands on own thighs",
      "looking down"
     ],
-    "natural_en": "Sitting on the partner's face on the upper part of the frame with legs spread wide, leaning forward and pressing down with full weight, looking down at the partner pinned beneath."
+    "natural_en": "Sitting on the partner's face on the upper part of the frame straddling the head, hands resting on own thighs and pressing down with full weight, looking down at the partner pinned beneath."
    },
    "bottom": {
     "label_zh": "下方（仰躺被坐臉）",
@@ -178,9 +188,11 @@
     "tags": [
      "lying",
      "on back",
-     "looking up"
+     "straight legs",
+     "hands on another's thighs",
+     "cunnilingus"
     ],
-    "natural_en": "Lying on the back below the sitter, face covered by the sitter pressing down, looking up while servicing the sitter."
+    "natural_en": "Lying straight on the back below the sitter, face covered by the sitter pressing down, hands gripping the sitter's thighs while servicing."
    }
   },
   "pairing_tags": {
@@ -216,7 +228,8 @@
   "shared_pose_tags": [
    "dominant female",
    "collar",
-   "leash"
+   "leash",
+   "leash pull"
   ],
   "slots": {
    "dominant": {
@@ -228,9 +241,11 @@
     },
     "tags": [
      "standing",
+     "holding leash",
+     "hand on hip",
      "looking down"
     ],
-    "natural_en": "Standing on the right side of the frame holding the leash attached to the kneeling partner's collar, looking down at the submissive partner."
+    "natural_en": "Standing on the right side of the frame with one hand on hip and the other hand holding the single taut leash attached to the kneeling partner's collar, looking down at the submissive partner."
    },
    "submissive": {
     "label_zh": "臣服方（左側跪姿戴項圈）",
@@ -242,9 +257,10 @@
     "tags": [
      "kneeling",
      "collar",
+     "hands on own thighs",
      "looking up"
     ],
-    "natural_en": "Kneeling upright on the left side of the frame wearing a collar with the leash held by the dominant partner standing beside, looking up at the dominant partner."
+    "natural_en": "Kneeling upright on the left side of the frame wearing a collar with the leash held by the dominant partner standing beside, hands on thighs, looking up at the dominant partner."
    }
   },
   "pairing_tags": {
@@ -273,13 +289,20 @@
   "mirrorable": true,
   "camera_tags": [
    "full body",
+   "wide shot",
    "side view",
    "from side"
   ],
   "shared_pose_tags": [
    "cowgirl position",
    "dominant female",
-   "sex"
+   "sex",
+   "vaginal",
+   "penetration",
+   "pinned",
+   "arm grab",
+   "wrist grab",
+   "holding hands"
   ],
   "slots": {
    "receiver": {
@@ -290,12 +313,16 @@
      "y": 0.42
     },
     "tags": [
-     "sitting",
-     "spread legs",
+     "cowgirl position",
+     "straddling",
+     "kneeling",
      "leaning forward",
+     "grabbing another's wrists",
+     "wrist grab",
+     "arms forward",
      "looking down"
     ],
-    "natural_en": "Sitting astride the partner on the left side of the frame with legs spread wide, leaning forward and pinning the partner's wrists to the surface, looking down at the partner beneath."
+    "natural_en": "Straddling and kneeling astride the partner on the left side of the frame during cowgirl sex, leaning far forward with arms extended to pin the partner's wrists to the surface, looking down at the partner beneath."
    },
    "giver": {
     "label_zh": "施與方（右側下方仰躺被壓）",
@@ -305,11 +332,14 @@
      "y": 0.62
     },
     "tags": [
+     "cowgirl position",
      "lying",
      "on back",
+     "arms up",
+     "pinned",
      "looking up"
     ],
-    "natural_en": "Lying on the back on the right side of the frame with the head toward the right edge, wrists pinned by the rider sitting astride, looking up at the dominant rider."
+    "natural_en": "Lying on the back on the right side of the frame with arms pinned down to the surface by the rider straddling astride, looking up at the dominant rider."
    }
   },
   "pairing_tags": {
@@ -368,13 +398,20 @@
   "mirrorable": true,
   "camera_tags": [
    "full body",
+   "wide shot",
    "side view",
    "from side"
   ],
   "shared_pose_tags": [
    "sex",
+   "vaginal",
+   "penetration",
+   "standing sex",
+   "suspended congress",
+   "carrying",
    "size difference",
-   "height difference"
+   "height difference",
+   "face to face"
   ],
   "slots": {
    "receiver": {
@@ -385,11 +422,15 @@
      "y": 0.48
     },
     "tags": [
+     "standing sex",
+     "suspended congress",
+     "arms around neck",
      "spread legs",
      "legs up",
+     "bent knees",
      "looking at another"
     ],
-    "natural_en": "Held up in the air on the left side of the frame, much smaller than the partner, legs spread and raised, supported by the partner's single arm under the thighs, looking at the partner."
+    "natural_en": "Held up in the air on the left side of the frame, much smaller than the partner, arms wrapped around the partner's neck with knees bent and legs lifted, looking at the partner."
    },
    "giver": {
     "label_zh": "施與方（右側站姿單手提抱）",
@@ -400,10 +441,15 @@
     },
     "tags": [
      "standing",
-     "leaning forward",
-     "looking at another"
+     "tall",
+     "muscular",
+     "standing sex",
+     "suspended congress",
+     "carrying",
+     "holding another's legs",
+     "looking down"
     ],
-    "natural_en": "Standing on the right side of the frame, much taller and larger, lifting the smaller partner into the air with a single arm under the thighs and pressing close, looking at the partner."
+    "natural_en": "Standing tall on the right side of the frame, much taller and larger, lifting the smaller partner off the ground under the thighs during standing sex, looking down at the partner."
    }
   },
   "pairing_tags": {
@@ -467,9 +513,12 @@
   ],
   "shared_pose_tags": [
    "doggystyle",
+   "sex from behind",
+   "sex",
+   "vaginal",
+   "penetration",
    "size difference",
-   "height difference",
-   "sex"
+   "height difference"
   ],
   "slots": {
    "receiver": {
@@ -481,6 +530,9 @@
     },
     "tags": [
      "all fours",
+     "doggystyle",
+     "sex from behind",
+     "ass up",
      "arched back",
      "looking back"
     ],
@@ -495,6 +547,10 @@
     },
     "tags": [
      "kneeling",
+     "tall",
+     "muscular",
+     "doggystyle",
+     "sex from behind",
      "leaning forward",
      "hands on another's hips",
      "looking down"
@@ -563,6 +619,7 @@
   ],
   "shared_pose_tags": [
    "trampling",
+   "foot on chest",
    "dominant female"
   ],
   "slots": {
@@ -576,6 +633,8 @@
     "tags": [
      "standing",
      "leg up",
+     "trampling",
+     "soles",
      "looking down"
     ],
     "natural_en": "Standing on the right side of the frame with one foot raised and pressed down onto the chest of the partner lying below, looking down at the submissive partner."
@@ -590,6 +649,7 @@
     "tags": [
      "lying",
      "on back",
+     "foot on chest",
      "looking up"
     ],
     "natural_en": "Lying on the back on the left side of the frame with the dominant partner's foot pressed onto the chest, looking up at the dominant partner."
@@ -628,7 +688,10 @@
   ],
   "shared_pose_tags": [
    "dominant female",
-   "arm grab"
+   "pinned",
+   "arm grab",
+   "wrist grab",
+   "holding hands"
   ],
   "slots": {
    "dominant": {
@@ -639,11 +702,14 @@
      "y": 0.45
     },
     "tags": [
+     "straddling",
      "kneeling",
      "leaning forward",
+     "grabbing another's wrists",
+     "arms forward",
      "looking down"
     ],
-    "natural_en": "Kneeling over the partner on the right side of the frame, leaning forward with both hands pinning the partner's wrists to the surface, looking down at the submissive partner."
+    "natural_en": "Straddling and kneeling over the partner on the right side of the frame, leaning forward with both hands gripping and pinning the partner's wrists above their head to the surface, looking down at the submissive partner."
    },
    "submissive": {
     "label_zh": "臣服方（左側仰躺被壓腕）",
@@ -655,10 +721,11 @@
     "tags": [
      "lying",
      "on back",
-     "looking up",
-     "arms up"
+     "arms above head",
+     "pinned",
+     "looking up"
     ],
-    "natural_en": "Lying on the back on the left side of the frame with wrists pinned to the surface by the dominant partner kneeling over, looking up at the dominant partner."
+    "natural_en": "Lying on the back on the left side of the frame with wrists pinned above the head to the surface by the dominant partner straddling over, looking up at the dominant partner."
    }
   },
   "pairing_tags": {
@@ -691,6 +758,7 @@
    "from side"
   ],
   "shared_pose_tags": [
+   "missionary",
    "sex",
    "size difference",
    "height difference"
@@ -704,6 +772,7 @@
      "y": 0.58
     },
     "tags": [
+     "missionary",
      "lying",
      "on back",
      "spread legs",
@@ -719,6 +788,7 @@
      "y": 0.42
     },
     "tags": [
+     "missionary",
      "kneeling",
      "leaning forward",
      "hands on another's hips",
@@ -788,8 +858,15 @@
   ],
   "shared_pose_tags": [
    "sex",
+   "vaginal",
+   "penetration",
+   "sitting",
+   "straddling",
+   "sitting on lap",
+   "hug",
    "size difference",
-   "height difference"
+   "height difference",
+   "face to face"
   ],
   "slots": {
    "receiver": {
@@ -801,11 +878,13 @@
     },
     "tags": [
      "sitting",
-     "spread legs",
+     "sitting on lap",
+     "straddling",
+     "arms around neck",
      "leaning forward",
-     "looking at another"
+     "looking up"
     ],
-    "natural_en": "Sitting in the much larger partner's lap on the left side of the frame, much smaller, with legs spread wide and leaning forward, completely enveloped by the partner's body, looking at the partner."
+    "natural_en": "Sitting deeply in the much larger partner's lap on the left side of the frame, much smaller, arms around the neck and pressed close against the chest while straddling the pelvis, looking up at the partner."
    },
    "giver": {
     "label_zh": "施與方（右側高大坐姿懷抱）",
@@ -816,10 +895,13 @@
     },
     "tags": [
      "sitting",
-     "leaning forward",
-     "looking at another"
+     "tall",
+     "muscular",
+     "hug",
+     "hands on another's back",
+     "looking down"
     ],
-    "natural_en": "Sitting on the right side of the frame, much taller and larger, holding the smaller partner in the lap with arms wrapped around them, leaning forward while thrusting."
+    "natural_en": "Sitting on the right side of the frame, much taller and larger, holding the smaller partner snugly in the lap with arms wrapped around the back, looking down while thrusting."
    }
   },
   "pairing_tags": {
@@ -898,6 +980,7 @@
     "tags": [
      "standing",
      "legs apart",
+     "fellatio",
      "looking down"
     ],
     "natural_en": "Standing tall on the left side of the frame with legs apart, towering over the much shorter partner kneeling below, looking down at the partner."
@@ -912,6 +995,8 @@
     "tags": [
      "kneeling",
      "leaning forward",
+     "fellatio",
+     "oral",
      "tongue out",
      "looking up"
     ],
@@ -1012,10 +1097,12 @@
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "from above"
+   "from above",
+   "high angle"
   ],
   "shared_pose_tags": [
    "facesitting",
+   "sitting on face",
    "dominant female",
    "cunnilingus"
   ],
@@ -1029,11 +1116,13 @@
     },
     "tags": [
      "squatting",
+     "straddling",
+     "facesitting",
      "spread legs",
-     "arched back",
+     "hands on own knees",
      "looking down"
     ],
-    "natural_en": "Crouching over the partner's face in overhead view with legs spread and arched back, looking straight down."
+    "natural_en": "Squatting over the partner's face in overhead high-angle view with legs spread and hands braced on own knees, looking straight down."
    },
    "bottom": {
     "label_zh": "下方（仰躺被坐臉）",
@@ -1045,10 +1134,11 @@
     "tags": [
      "lying",
      "on back",
-     "arms up",
-     "looking up"
+     "straight legs",
+     "hands on another's thighs",
+     "cunnilingus"
     ],
-    "natural_en": "Lying on the back below the sitter seen from above, face covered by the sitter pressing down, looking up while servicing the sitter."
+    "natural_en": "Lying straight on the back below the sitter seen from above, face covered by the sitter pressing down, hands gripping the sitter's thighs while servicing."
    }
   },
   "pairing_tags": {
@@ -1065,59 +1155,67 @@
     ]
    }
   },
-  "natural_en": "Overhead full-body view of dominant facesitting: the top partner crouches astride over the lying partner's face looking straight down.",
+  "natural_en": "Overhead full-body view of dominant facesitting: the top partner squats astride over the lying partner's face looking straight down.",
   "prompt_zh": "高角度俯視蹲姿坐臉：主導方以蹲姿跨於對方臉部上方拱背俯視，與側面坐姿 R022 形成不同骨架。"
  },
  {
   "id": "femdom_throne_foot_worship_low",
   "category": "14_domination_size_diff",
   "subcategory": "女方上位主導",
-  "title_zh": "高座賜足崇拜・正面低角仰視",
+  "title_zh": "高座賜足崇拜・斜側低角仰視",
   "pattern": "organ_bound",
-  "default_canvas": "3:4",
-  "default_facing": "front",
+  "default_canvas": "4:3",
+  "default_facing": "three_quarter_left",
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "front view",
+   "three-quarter view",
    "from below"
   ],
   "shared_pose_tags": [
    "femdom",
+   "dominant female",
    "foot worship",
    "soles",
-   "sitting"
+   "sitting",
+   "face to face"
+  ],
+  "scene_tags": [
+   "chair"
   ],
   "slots": {
    "dominant": {
-    "label_zh": "主導方（上方高座翹腿伸足俯視）",
+    "label_zh": "主導方（右上方高座翹腿伸足俯視）",
     "requires": "female",
     "center": {
-     "x": 0.5,
-     "y": 0.36
+     "x": 0.58,
+     "y": 0.38
     },
     "tags": [
      "sitting",
      "on chair",
      "crossed legs",
+     "leg up",
      "soles",
+     "foot worship",
      "looking down"
     ],
-    "natural_en": "Seated high on an armchair or throne in upper center with legs crossed, extending one bare foot downward while looking down with cool authority."
+    "natural_en": "Seated high on an armchair or throne at upper right in a three-quarter view with legs crossed, extending one foot downward while looking down with cool authority."
    },
    "submissive": {
-    "label_zh": "臣服方（下方低跪捧足親吻）",
+    "label_zh": "臣服方（左下方低跪捧足親吻）",
     "requires": "any",
     "center": {
-     "x": 0.5,
-     "y": 0.74
+     "x": 0.4,
+     "y": 0.72
     },
     "tags": [
      "kneeling",
      "leaning forward",
+     "foot worship",
      "looking up"
     ],
-    "natural_en": "Kneeling low on the floor at bottom center cradling the dominant's extended foot with both hands and pressing lips toward the toes."
+    "natural_en": "Kneeling low on the floor at lower left facing the seated dominant, cradling the extended foot with both hands and pressing lips toward the toes."
    }
   },
   "pairing_tags": {
@@ -1132,8 +1230,8 @@
     ]
    }
   },
-  "natural_en": "Low-angle front full-body view of throne foot worship: the dominant woman sits elevated on a chair in upper center extending a bare foot downward while the submissive kneels low at the floor worshipping the foot.",
-  "prompt_zh": "正面低角高座賜足崇拜：主導方居上高坐椅背翹腿伸出赤足冷眼俯視，臣服方居下低跪於地雙手捧足親吻。"
+  "natural_en": "Low-angle 4:3 three-quarter full-body view of throne foot worship: the dominant woman sits elevated on a chair at upper right extending one foot downward while the submissive kneels low at lower left facing her and worshipping the foot.",
+  "prompt_zh": "4:3 斜側低角高座賜足崇拜：主導方居右上高坐椅背翹腿伸出足底冷眼俯視，臣服方居左下低跪於地面向對方雙手捧足親吻。"
  },
  {
   "id": "femdom_standing_collar_pull_rear_quarter",
@@ -1166,6 +1264,8 @@
     "tags": [
      "walking",
      "holding leash",
+     "leash",
+     "leash pull",
      "looking down"
     ],
     "natural_en": "Walking upright on the right, feet on the floor, holding the leash pulled taut and looking down at the crawling partner."
@@ -1181,6 +1281,7 @@
      "all fours",
      "crawling",
      "collar",
+     "leash",
      "looking up"
     ],
     "natural_en": "Crawling on all fours on the left wearing a collar, the leash pulled taut, looking up at the dominant."
@@ -1219,7 +1320,8 @@
   "shared_pose_tags": [
    "femdom",
    "grabbing another's chin",
-   "height difference"
+   "height difference",
+   "face to face"
   ],
   "slots": {
    "dominant": {
@@ -1232,6 +1334,7 @@
     "tags": [
      "standing",
      "leaning forward",
+     "grabbing another's chin",
      "looking down"
     ],
     "natural_en": "Standing tall at upper right leaning down with one hand lifting the kneeling submissive's chin firmly to force eye contact."
@@ -1282,7 +1385,11 @@
   "shared_pose_tags": [
    "size difference",
    "height difference",
-   "sex from behind"
+   "sex",
+   "sex from behind",
+   "standing sex",
+   "reverse suspended congress",
+   "carrying"
   ],
   "slots": {
    "receiver": {
@@ -1293,9 +1400,13 @@
      "y": 0.56
     },
     "tags": [
+     "reverse suspended congress",
+     "sex from behind",
      "spread legs",
      "legs up",
-     "head down"
+     "holding own legs",
+     "head down",
+     "closed eyes"
     ],
     "natural_en": "Much smaller, held suspended with the back against the partner's chest and facing the camera, both legs raised high and spread wide in a V, own hands holding the legs at the knees, head bowed with eyes closed."
    },
@@ -1308,6 +1419,11 @@
     },
     "tags": [
      "standing",
+     "standing sex",
+     "reverse suspended congress",
+     "sex from behind",
+     "carrying",
+     "leg hold",
      "closed eyes"
     ],
     "natural_en": "Towering behind the smaller partner and standing, both arms passing behind and under the receiver's raised thighs to hold the receiver up against the chest, hands hidden from view, eyes closed."
@@ -1375,6 +1491,7 @@
   "shared_pose_tags": [
    "femdom",
    "trampling",
+   "foot on face",
    "foot focus",
    "soles"
   ],
@@ -1389,6 +1506,8 @@
     "tags": [
      "standing",
      "leg up",
+     "trampling",
+     "foot on face",
      "soles",
      "looking down"
     ],
@@ -1404,6 +1523,7 @@
     "tags": [
      "lying",
      "on back",
+     "foot on face",
      "looking up"
     ],
     "natural_en": "Lying flat on the back looking up beneath the dominant partner's foot."
@@ -1432,49 +1552,55 @@
   "id": "femdom_hand_on_collar_kneeling_front",
   "category": "14_domination_size_diff",
   "subcategory": "女方上位主導",
-  "title_zh": "站姿提拉項圈俯視・正面全身",
+  "title_zh": "站姿提拉項圈俯視・斜側低角全身",
   "pattern": "organ_bound",
   "default_canvas": "3:4",
-  "default_facing": "front",
+  "default_facing": "three_quarter_left",
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "front view",
+   "three-quarter view",
    "from below"
   ],
   "shared_pose_tags": [
    "femdom",
    "dominant female",
-   "collar"
+   "collar",
+   "grabbing another's collar",
+   "face to face"
   ],
   "slots": {
    "dominant": {
-    "label_zh": "主導方（站立俯身提拉對方項圈）",
+    "label_zh": "主導方（左側站立俯身提拉對方項圈）",
     "requires": "female",
     "center": {
-     "x": 0.48,
+     "x": 0.42,
      "y": 0.4
     },
     "tags": [
      "standing",
      "leaning forward",
+     "hand on another's neck",
+     "grabbing another's collar",
+     "hand on hip",
      "looking down"
     ],
-    "natural_en": "Standing tall over the kneeling partner, gripping their collar to lift their gaze while looking down."
+    "natural_en": "Standing tall on the left in a three-quarter view over the kneeling partner, gripping their collar directly with one hand and resting the other hand on hip while looking down."
    },
    "submissive": {
-    "label_zh": "從屬方（跪地仰望被提拉項圈）",
+    "label_zh": "從屬方（右側跪地仰望被提拉項圈）",
     "requires": "any",
     "center": {
-     "x": 0.54,
+     "x": 0.6,
      "y": 0.68
     },
     "tags": [
      "kneeling",
      "collar",
+     "hands on own thighs",
      "looking up"
     ],
-    "natural_en": "Kneeling on the floor looking up obediently as their collar is pulled upward."
+    "natural_en": "Kneeling on the floor on the right facing the dominant, hands on thighs, looking up obediently as their collar is gripped and pulled upward."
    }
   },
   "pairing_tags": {
@@ -1491,57 +1617,75 @@
     ]
    }
   },
-  "natural_en": "Low-angle front full-body view of a dominant adult woman standing over a kneeling partner and gripping their collar to tilt their head upward.",
-  "prompt_zh": "正面低角全身：主導方站立俯視、伸手抓提跪地從屬方的項圈迫使其抬頭仰望。"
+  "natural_en": "Low-angle three-quarter full-body view of a dominant adult woman standing on the left over a kneeling partner on the right, gripping their collar face to face to tilt their head upward.",
+  "prompt_zh": "斜側低角全身：主導方居左站立俯視、伸手抓提右側跪地從屬方的項圈迫使其面對面抬頭仰望。"
  },
  {
   "id": "size_diff_standing_wall_lift_front",
   "category": "14_domination_size_diff",
   "subcategory": "顯著體型與身高差",
-  "title_zh": "體型差壓牆托腿高舉・正面全身",
+  "title_zh": "體型差壓牆托腿高舉・斜側全身",
   "pattern": "geometry_dispatch",
   "default_canvas": "3:4",
-  "default_facing": "front",
+  "default_facing": "three_quarter_left",
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "front view"
+   "wide shot",
+   "three-quarter view"
   ],
   "shared_pose_tags": [
    "size difference",
    "height difference",
    "against wall",
-   "standing sex"
+   "standing sex",
+   "suspended congress",
+   "sex",
+   "vaginal",
+   "penetration",
+   "face to face"
+  ],
+  "scene_tags": [
+   "wall"
   ],
   "slots": {
    "receiver": {
-    "label_zh": "較矮方（背貼牆面雙腿被高舉懸空）",
+    "label_zh": "較矮方（左側背貼牆面雙腿被高舉懸空）",
     "requires": "pussy",
     "center": {
-     "x": 0.5,
+     "x": 0.38,
      "y": 0.42
     },
     "tags": [
      "against wall",
+     "standing sex",
+     "suspended congress",
      "spread legs",
      "legs up",
-     "arms around neck"
+     "bent knees",
+     "arms around neck",
+     "looking up"
     ],
-    "natural_en": "Pressed high against the wall off her feet, legs lifted wide and arms clinging around her tall partner's shoulders."
+    "natural_en": "Pressed high against the wall on the left off her feet in a three-quarter view, knees bent and legs lifted wide, arms clinging around her tall partner's shoulders, looking up."
    },
    "giver": {
-    "label_zh": "高大方（站立壓牆托腿支撐）",
+    "label_zh": "高大方（右側站立壓牆托腿支撐）",
     "requires": "penis_or_strapon_or_nonhuman",
     "center": {
-     "x": 0.5,
-     "y": 0.56
+     "x": 0.62,
+     "y": 0.54
     },
     "tags": [
      "standing",
+     "tall",
+     "muscular",
+     "standing sex",
+     "suspended congress",
+     "carrying",
      "holding another's legs",
-     "leaning forward"
+     "looking down"
     ],
-    "natural_en": "Towering taller partner standing close, bracing her against the wall while lifting both thighs."
+    "natural_en": "Towering taller partner standing close on the right facing the smaller partner, bracing them against the wall while lifting both thighs and looking down."
    }
   },
   "pairing_tags": {
@@ -1586,7 +1730,7 @@
     "giver": []
    }
   },
-  "natural_en": "Front full-body view emphasizing significant height difference: the taller standing partner lifts and pins the smaller partner high against a wall.",
-  "prompt_zh": "正面全身：強調顯著體型與身高差，高大方站立將較矮方托腿高舉壓貼於牆面交合。"
+  "natural_en": "Three-quarter full-body view emphasizing significant height difference: the taller standing partner on the right lifts and pins the smaller partner high against a wall on the left face to face.",
+  "prompt_zh": "斜側全身：強調顯著體型與身高差，右側高大方站立將左側較矮方面對面托腿高舉壓貼於牆面交合。"
  }
 ]

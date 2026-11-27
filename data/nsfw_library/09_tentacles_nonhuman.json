@@ -14,7 +14,9 @@
   ],
   "shared_pose_tags": [
    "tentacles",
-   "bondage"
+   "tentacle grab",
+   "tentacle bondage",
+   "spread legs"
   ],
   "slots": {
    "subject": {
@@ -27,13 +29,17 @@
     "tags": [
      "lying",
      "on back",
-     "bound wrists",
-     "bound ankles",
      "spread legs",
+     "arms up",
      "arched back",
-     "head back"
+     "looking up",
+     "tentacles",
+     "tentacle grab",
+     "tentacle bondage",
+     "coiled tentacles",
+     "tentacles on body"
     ],
-    "natural_en": "Lying on her back with wrists tied together in front of her body and ankles bound apart, legs spread wide, back arched and head tilted back, thick tentacles coiling around her wrists, ankles and torso to hold her in place."
+    "natural_en": "Lying on her back with wrists held overhead and ankles pulled apart by thick writhing tentacles, legs spread wide, back arched and looking up, multiple slimy tentacles coiling tightly around her wrists, waist, thighs and ankles."
    }
   },
   "pairing_tags": {
@@ -43,8 +49,8 @@
     ]
    }
   },
-  "natural_en": "High-angle full-body view of an adult woman lying on her back, wrists and ankles bound by coiling tentacles, legs spread and back arched.",
-  "prompt_zh": "高角度俯視全身：仰躺女子雙腕綁在身前、雙踝分開綁住，張腿拱腰，粗觸手纏住手腕、腳踝與軀幹固定全身。"
+  "natural_en": "High-angle full-body view of an adult woman lying on her back, wrists, waist and ankles bound by thick coiling tentacles, legs spread and back arched, looking up.",
+  "prompt_zh": "高角度俯視全身：仰躺女子雙腕高舉、雙踝張開並拱腰仰望，多條粗長觸手緊緊纏繞其手腕、腰際、大腿與腳踝固定全身。"
  },
  {
   "id": "tentacle_suspended_entanglement_front",
@@ -76,7 +82,9 @@
      "arms up",
      "spread legs",
      "arched back",
-     "looking up"
+     "looking up",
+     "tentacles",
+     "suspension"
     ],
     "natural_en": "Floating in mid-air with both arms raised above her head, legs spread apart and back deeply arched, looking up, her whole body wrapped and lifted by several thick tentacles coiling around her torso, thighs and arms."
    }
@@ -102,12 +110,18 @@
   "mirrorable": true,
   "camera_tags": [
    "full body",
+   "wide shot",
+   "front view",
    "from below"
   ],
   "shared_pose_tags": [
    "tentacles",
+   "tentacle sex",
+   "vaginal",
+   "oral",
+   "tentacle in mouth",
    "penetration",
-   "double penetration"
+   "multiple penetration"
   ],
   "slots": {
    "subject": {
@@ -120,10 +134,17 @@
     "tags": [
      "lying",
      "on back",
+     "arms up",
      "spread legs",
      "knees up",
      "open mouth",
-     "arched back"
+     "arched back",
+     "tentacles",
+     "tentacle sex",
+     "tentacle in mouth",
+     "oral",
+     "vaginal",
+     "penetration"
     ],
     "natural_en": "Lying on her back with knees raised and legs spread wide, mouth open and back arched, tentacles pressing into her mouth and lower body at the same time while more tentacles coil around her thighs."
    }
@@ -168,7 +189,9 @@
      "on back",
      "spread legs",
      "arms up",
-     "looking up"
+     "looking up",
+     "tentacles",
+     "submerged"
     ],
     "natural_en": "Lying on her back in a pool filled with writhing tentacles, arms raised above her head, legs spread apart and looking up, tentacles rising out of the pool around her and coiling over her torso and thighs."
    }
@@ -212,7 +235,9 @@
     "tags": [
      "all fours",
      "arched back",
-     "looking back"
+     "looking back",
+     "doggystyle",
+     "sex from behind"
     ],
     "natural_en": "On all fours on the left side of the frame with the back deeply arched and hips raised, looking back toward the nonhuman partner pinning from behind."
    },
@@ -227,7 +252,9 @@
      "kneeling",
      "leaning forward",
      "hands on another's hips",
-     "looking down"
+     "looking down",
+     "doggystyle",
+     "sex from behind"
     ],
     "natural_en": "Kneeling directly behind the partner on the right side of the frame, a nonhuman creature leaning forward and pinning the partner down by gripping both hips while looking down."
    }
@@ -260,7 +287,10 @@
   ],
   "shared_pose_tags": [
    "tentacles",
-   "oral"
+   "tentacle sex",
+   "tentacle grab",
+   "oral",
+   "tentacle in mouth"
   ],
   "slots": {
    "subject": {
@@ -275,7 +305,13 @@
      "open mouth",
      "tongue out",
      "arched back",
-     "looking up"
+     "looking up",
+     "tentacles",
+     "tentacle grab",
+     "tentacle in mouth",
+     "oral",
+     "tentacle bondage",
+     "coiled tentacles"
     ],
     "natural_en": "Kneeling upright with back arched and looking up, mouth open with tongue out, thick tentacles coiling tightly around her torso and waist, one tentacle tip pressed against her open mouth."
    }
@@ -301,12 +337,20 @@
   "mirrorable": true,
   "camera_tags": [
    "full body",
+   "wide shot",
+   "long shot",
    "side view",
    "from side"
   ],
   "shared_pose_tags": [
    "sex",
-   "group sex"
+   "group sex",
+   "threesome",
+   "surrounded",
+   "missionary",
+   "fellatio",
+   "irrumatio",
+   "penetration"
   ],
   "slots": {
    "receiver": {
@@ -319,14 +363,22 @@
     "tags": [
      "lying",
      "on back",
+     "head back",
      "spread legs",
      "knees up",
-     "looking at another"
+     "open mouth",
+     "penis in mouth",
+     "group sex",
+     "surrounded",
+     "sex",
+     "vaginal",
+     "fellatio",
+     "irrumatio"
     ],
-    "natural_en": "Lying on the back in the middle of the frame with legs spread wide and knees raised, surrounded by nonhuman partners closing in from both sides, looking toward the partner on the left."
+    "natural_en": "Lying on her back in the middle of the frame with legs spread wide and knees raised, penetrated by the nonhuman partner kneeling between her legs on the left while servicing the second nonhuman partner at her head on the right."
    },
    "partner_left": {
-    "label_zh": "左側非人（跪姿貼近）",
+    "label_zh": "左側非人（跪姿於腿間插入）",
     "requires": "nonhuman",
     "center": {
      "x": 0.22,
@@ -335,12 +387,19 @@
     "tags": [
      "kneeling",
      "leaning forward",
-     "looking down"
+     "hands on another's legs",
+     "looking down",
+     "facing another",
+     "missionary",
+     "vaginal",
+     "sex",
+     "penis",
+     "penetration"
     ],
-    "natural_en": "Kneeling at the left edge of the frame, a nonhuman creature leaning forward over the middle partner, looking down."
+    "natural_en": "Kneeling between the receiver's parted legs on the left side of the frame, gripping her thighs and penetrating her while leaning forward."
    },
    "partner_right": {
-    "label_zh": "右側非人（跪姿貼近）",
+    "label_zh": "右側非人（跪姿於頭側受口交）",
     "requires": "nonhuman",
     "center": {
      "x": 0.78,
@@ -349,9 +408,16 @@
     "tags": [
      "kneeling",
      "leaning forward",
-     "looking down"
+     "hand on another's head",
+     "looking down",
+     "facing another",
+     "fellatio",
+     "irrumatio",
+     "oral",
+     "penis",
+     "erection"
     ],
-    "natural_en": "Kneeling at the right edge of the frame, a nonhuman creature leaning forward over the middle partner, looking down."
+    "natural_en": "Kneeling by the receiver's head on the right side of the frame, leaning in for oral service with a hand guiding her head."
    }
   },
   "pairing_tags": {
@@ -359,12 +425,13 @@
     "base": [
      "sex",
      "vaginal",
+     "fellatio",
      "interspecies"
     ]
    }
   },
-  "natural_en": "Full-body side view of a woman surrounded by nonhuman partners: she lies on her back in the middle with legs spread wide and knees raised, while a nonhuman creature kneels and leans in from each side.",
-  "prompt_zh": "側面全身非人包圍：中央承受方仰躺張腿屈膝，被左右兩側的非人包圍貼近，兩邊非人皆跪姿前傾低頭。"
+  "natural_en": "Full-body side view of a woman lying on her back between two nonhuman partners: the left creature kneels between her spread legs penetrating her while the right creature kneels by her head for fellatio.",
+  "prompt_zh": "側面全身非人仰躺夾擊：中央承受方仰躺張腿屈膝，左側非人跪於腿間扶腿插入，右側非人跪於頭側前傾進行口交。"
  },
  {
   "id": "nonhuman_prone_on_top_side",
@@ -377,12 +444,17 @@
   "mirrorable": true,
   "camera_tags": [
    "full body",
+   "wide shot",
+   "long shot",
    "side view",
    "from side"
   ],
   "shared_pose_tags": [
    "sex",
-   "prone bone"
+   "prone bone",
+   "sex from behind",
+   "vaginal",
+   "penetration"
   ],
   "slots": {
    "receiver": {
@@ -396,7 +468,10 @@
      "lying",
      "on stomach",
      "spread legs",
-     "ass up"
+     "looking back",
+     "prone bone",
+     "sex from behind",
+     "vaginal"
     ],
     "natural_en": "Lying face down on the left side of the frame with legs spread and hips raised, pressed flat under the weight of the nonhuman partner on top."
    },
@@ -409,8 +484,13 @@
     },
     "tags": [
      "lying",
-     "leaning forward",
-     "looking down"
+     "on top",
+     "hands on another's hips",
+     "barefoot",
+     "looking down",
+     "prone bone",
+     "sex from behind",
+     "penetration"
     ],
     "natural_en": "Lying on top of the partner on the right side of the frame, a nonhuman creature pressing the partner flat with its full weight while looking down."
    }
@@ -444,6 +524,7 @@
   ],
   "shared_pose_tags": [
    "cowgirl position",
+   "straddling",
    "sex"
   ],
   "slots": {
@@ -458,7 +539,9 @@
      "sitting",
      "spread legs",
      "leaning forward",
-     "looking down"
+     "looking down",
+     "cowgirl position",
+     "straddling"
     ],
     "natural_en": "Sitting astride the nonhuman partner on the left side of the frame with legs spread wide, leaning forward over the partner and looking down."
    },
@@ -472,7 +555,8 @@
     "tags": [
      "lying",
      "on back",
-     "looking up"
+     "looking up",
+     "cowgirl position"
     ],
     "natural_en": "Lying on the back on the right side of the frame, a nonhuman creature with its head toward the right edge, looking up at the rider sitting astride."
    }
@@ -502,11 +586,14 @@
   "camera_tags": [
    "full body",
    "side view",
-   "from side"
+   "from side",
+   "profile"
   ],
   "shared_pose_tags": [
    "fellatio",
-   "oral"
+   "oral",
+   "face to face",
+   "penis"
   ],
   "slots": {
    "receiver": {
@@ -518,8 +605,13 @@
     },
     "tags": [
      "standing",
-     "legs apart",
-     "looking down"
+     "profile",
+     "facing another",
+     "hand on another's head",
+     "looking down",
+     "penis",
+     "erection",
+     "fellatio"
     ],
     "natural_en": "Standing on the left side of the frame, a nonhuman creature with legs apart, looking down at the partner kneeling between its legs."
    },
@@ -532,9 +624,13 @@
     },
     "tags": [
      "kneeling",
+     "profile",
      "leaning forward",
-     "tongue out",
-     "looking up"
+     "looking up",
+     "facing another",
+     "fellatio",
+     "oral",
+     "penis in mouth"
     ],
     "natural_en": "Kneeling between the partner's parted legs on the right side of the frame, leaning in with tongue out and looking up while servicing the nonhuman partner."
    }
@@ -543,6 +639,8 @@
    "female_other": {
     "base": [
      "fellatio",
+     "oral",
+     "penis",
      "interspecies"
     ],
     "receiver": []
@@ -567,7 +665,7 @@
   "shared_pose_tags": [
    "tentacles",
    "tentacle grab",
-   "restrained",
+   "tentacle bondage",
    "against wall"
   ],
   "slots": {
@@ -580,12 +678,16 @@
     },
     "tags": [
      "standing",
+     "against wall",
+     "back against wall",
      "arms up",
-     "bound wrists",
-     "bound ankles",
      "legs apart",
      "arched back",
-     "looking at viewer"
+     "looking at viewer",
+     "tentacles",
+     "tentacle grab",
+     "tentacle bondage",
+     "coiled tentacles"
     ],
     "natural_en": "Standing upright with her back against a stone wall, facing the camera, as tentacles hold her raised wrists overhead and grip her ankles apart."
    }
@@ -598,7 +700,11 @@
    }
   },
   "natural_en": "Front full-body view of an adult woman standing upright against a wall, held in place by tentacles around her raised wrists and her ankles, legs apart.",
-  "prompt_zh": "正面全身觸手壁壓：女子背貼牆面直立，觸手纏住高舉的雙腕並抓住分開的雙踝，拱背直視鏡頭。"
+  "prompt_zh": "正面全身觸手壁壓：女子背貼牆面直立，觸手纏住高舉的雙腕並抓住分開的雙踝，拱背直視鏡頭。",
+  "scene_tags": [
+   "wall",
+   "stone wall"
+  ]
  },
  {
   "id": "tentacle_horizontal_carry_side",
@@ -611,6 +717,7 @@
   "mirrorable": true,
   "camera_tags": [
    "full body",
+   "wide shot",
    "side view",
    "from side"
   ],
@@ -629,11 +736,12 @@
     },
     "tags": [
      "floating",
-     "lying",
      "on back",
      "arched back",
      "spread legs",
-     "head back"
+     "head back",
+     "tentacles",
+     "suspension"
     ],
     "natural_en": "Floating roughly horizontally in a deep backward arch, head tipped back and both arms hanging limply downward, held up from below by tentacles coiled around her chest, waist, thighs and ankles."
    }
@@ -662,7 +770,12 @@
    "from above"
   ],
   "shared_pose_tags": [
-   "sex"
+   "sex",
+   "missionary",
+   "mating press",
+   "vaginal",
+   "penetration",
+   "leg grab"
   ],
   "slots": {
    "receiver": {
@@ -675,7 +788,12 @@
     "tags": [
      "lying",
      "on back",
-     "legs up"
+     "legs up",
+     "spread legs",
+     "missionary",
+     "mating press",
+     "vaginal",
+     "penetration"
     ],
     "natural_en": "Lying on her back in the upper part of the frame, both legs raised high and spread in a wide V, calves held by the partner between them, hands at her collar."
    },
@@ -687,7 +805,14 @@
      "y": 0.64
     },
     "tags": [
-     "leg grab"
+     "kneeling",
+     "leaning forward",
+     "holding another's legs",
+     "ankle grab",
+     "leg grab",
+     "missionary",
+     "mating press",
+     "penetration"
     ],
     "natural_en": "A grey humanoid creature with pointed ears between her legs in the lower part of the frame, seen from above with the top of its head toward the bottom edge, gripping both of her raised calves."
    }
@@ -716,6 +841,8 @@
   "mirrorable": true,
   "camera_tags": [
    "full body",
+   "wide shot",
+   "long shot",
    "side view",
    "from side"
   ],
@@ -723,7 +850,9 @@
    "sex",
    "standing sex",
    "suspended congress",
-   "face-to-face"
+   "face to face",
+   "vaginal",
+   "penetration"
   ],
   "slots": {
    "receiver": {
@@ -735,7 +864,12 @@
     },
     "tags": [
      "arms around neck",
-     "looking at another"
+     "leg wrap",
+     "facing another",
+     "looking at another",
+     "standing sex",
+     "suspended congress",
+     "vaginal"
     ],
     "natural_en": "Held off the ground facing the nonhuman partner, arms wrapped around its neck, one bent leg hooked over its forearm and the other bent around its far hip."
    },
@@ -749,8 +883,13 @@
     "tags": [
      "standing",
      "legs apart",
+     "barefoot",
      "carrying",
-     "hands on another's thighs"
+     "hands on another's thighs",
+     "facing another",
+     "standing sex",
+     "suspended congress",
+     "penetration"
     ],
     "natural_en": "A tall horned nonhuman partner standing with legs apart, carrying the receiver against its chest with one hand under her thigh."
    }
@@ -785,7 +924,9 @@
    "sex",
    "sex from behind",
    "standing doggystyle",
-   "against wall"
+   "against wall",
+   "vaginal",
+   "penetration"
   ],
   "slots": {
    "receiver": {
@@ -798,8 +939,13 @@
     "tags": [
      "standing",
      "against wall",
+     "hands on wall",
      "bent over",
-     "looking back"
+     "arched back",
+     "looking back",
+     "sex from behind",
+     "standing doggystyle",
+     "vaginal"
     ],
     "natural_en": "Standing in front facing a stone wall with both palms flat against it and back arched, partly framed by the towering nonhuman silhouette behind."
    },
@@ -814,7 +960,10 @@
      "standing",
      "leaning forward",
      "hands on another's hips",
-     "looking down"
+     "looking down",
+     "sex from behind",
+     "standing doggystyle",
+     "penetration"
     ],
     "natural_en": "A large nonhuman fantasy partner standing directly behind in rear view, looming forward over the receiver's back while gripping her hips."
    }
@@ -830,7 +979,10 @@
    }
   },
   "natural_en": "Rear full-body view of standing sex against a wall: a towering nonhuman fantasy partner looms directly behind the receiver, pinning her forward against the wall.",
-  "prompt_zh": "背面全身非人貼牆後入：承受方雙手撐牆微前傾，高大非人魔物居後整個籠罩身軀並扶胯壓入。"
+  "prompt_zh": "背面全身非人貼牆後入：承受方雙手撐牆微前傾，高大非人魔物居後整個籠罩身軀並扶胯壓入。",
+  "scene_tags": [
+   "wall"
+  ]
  },
  {
   "id": "nonhuman_reverse_cowgirl_3q",
@@ -846,7 +998,10 @@
    "three-quarter view"
   ],
   "shared_pose_tags": [
-   "sex"
+   "sex",
+   "reverse cowgirl position",
+   "straddling",
+   "upright straddle"
   ],
   "slots": {
    "receiver": {
@@ -857,7 +1012,12 @@
      "y": 0.4
     },
     "tags": [
-     "straddling"
+     "sitting",
+     "straddling",
+     "upright straddle",
+     "reverse cowgirl position",
+     "spread legs",
+     "looking at viewer"
     ],
     "natural_en": "Straddling the reclining nonhuman partner crosswise, torso upright and facing the viewer, one hand on her thigh and the other resting on the partner's body."
    },
@@ -872,7 +1032,8 @@
      "lying",
      "on back",
      "hands on another's hips",
-     "looking up"
+     "looking up",
+     "reverse cowgirl position"
     ],
     "natural_en": "A horned nonhuman partner lying on its back below the rider, one hand gripping her hip."
    }
@@ -901,12 +1062,15 @@
   "mirrorable": true,
   "camera_tags": [
    "full body",
+   "wide shot",
    "front view"
   ],
   "shared_pose_tags": [
    "sex",
    "sitting on lap",
-   "reverse cowgirl position"
+   "reverse cowgirl position",
+   "vaginal",
+   "penetration"
   ],
   "slots": {
    "receiver": {
@@ -918,12 +1082,16 @@
     },
     "tags": [
      "sitting",
+     "sitting on lap",
      "spread legs",
      "knees up",
      "arched back",
-     "looking at viewer"
+     "hands on own knees",
+     "looking at viewer",
+     "reverse cowgirl position",
+     "vaginal"
     ],
-    "natural_en": "Seated on the large nonhuman partner's lap facing the camera, thighs held wide open and back leaned against its chest."
+    "natural_en": "Seated on the large nonhuman partner's lap facing the camera, thighs held wide open with knees raised, hands resting on her own knees and back leaned against its chest."
    },
    "giver": {
     "label_zh": "施與方（後景端坐非人雙臂環抱托腿）",
@@ -934,11 +1102,14 @@
     },
     "tags": [
      "sitting",
-     "hug from behind",
+     "sitting on lap",
      "hands on another's thighs",
-     "looking ahead"
+     "leg lift",
+     "looking ahead",
+     "reverse cowgirl position",
+     "penetration"
     ],
-    "natural_en": "A broad nonhuman fantasy partner seated upright behind the receiver, wrapping powerful arms around her thighs to lift and display her toward the viewer."
+    "natural_en": "A broad nonhuman fantasy partner seated upright behind the receiver, gripping under both of her thighs to lift and spread her legs toward the viewer."
    }
   },
   "pairing_tags": {
@@ -952,7 +1123,7 @@
    }
   },
   "natural_en": "Front full-body view of seated lap intercourse with a towering nonhuman fantasy partner: the broad creature sits upright holding the receiver against its chest facing the camera with thighs spread wide.",
-  "prompt_zh": "正面全身非人端坐跨膝：高大非人魔物端坐於後方，雙臂自後環托女子大腿向鏡頭張開，女子背靠其胸口坐於膝上。"
+  "prompt_zh": "正面全身非人端坐跨膝：高大非人魔物端坐於後方，雙手自下托住女子大腿向鏡頭張開，女子背靠其胸口坐於膝上、雙手扶膝。"
  },
  {
   "id": "nonhuman_dual_spitroast_wide_3q",
@@ -965,6 +1136,7 @@
   "mirrorable": true,
   "camera_tags": [
    "full body",
+   "wide shot",
    "three-quarter view"
   ],
   "shared_pose_tags": [
@@ -972,6 +1144,7 @@
    "group sex",
    "threesome",
    "doggystyle",
+   "sex from behind",
    "fellatio"
   ],
   "slots": {
@@ -985,7 +1158,9 @@
     "tags": [
      "standing",
      "hand on another's head",
-     "looking down"
+     "looking down",
+     "fellatio",
+     "spitroast"
     ],
     "natural_en": "A nonhuman fantasy partner standing at the far left of the wide frame, one hand guiding the central woman's head while looking down."
    },
@@ -1000,7 +1175,10 @@
      "all fours",
      "arched back",
      "open mouth",
-     "looking up"
+     "looking up",
+     "spitroast",
+     "doggystyle",
+     "fellatio"
     ],
     "natural_en": "On all fours in the middle of the wide composition, servicing the front nonhuman partner while gripped from behind by the second."
    },
@@ -1015,7 +1193,10 @@
      "kneeling",
      "leaning forward",
      "hands on another's hips",
-     "looking down"
+     "looking down",
+     "doggystyle",
+     "sex from behind",
+     "spitroast"
     ],
     "natural_en": "A second nonhuman fantasy partner kneeling at the right side, leaning forward over the receiver's hips."
    }
@@ -1046,13 +1227,15 @@
   "mirrorable": true,
   "camera_tags": [
    "full body",
+   "wide shot",
    "from above"
   ],
   "shared_pose_tags": [
-   "group sex",
    "foursome",
-   "kneeling",
-   "fellatio"
+   "surrounded",
+   "handjob",
+   "double handjob",
+   "group sex"
   ],
   "slots": {
    "center_subject": {
@@ -1066,12 +1249,14 @@
      "kneeling",
      "looking up",
      "open mouth",
-     "double handjob"
+     "surrounded",
+     "double handjob",
+     "handjob"
     ],
-    "natural_en": "Kneeling in the exact center of the square overhead frame looking upward, surrounded symmetrically by three large nonhuman fantasy creatures."
+    "natural_en": "Kneeling in the exact center of the square overhead frame looking upward, gripping the left and right nonhuman partners with both hands in a double handjob while surrounded by three creatures."
    },
    "top_partner": {
-    "label_zh": "正上方非人（居頂端站立前傾）",
+    "label_zh": "正上方非人（居身後站立扶肩籠罩）",
     "requires": "nonhuman",
     "center": {
      "x": 0.5,
@@ -1080,9 +1265,10 @@
     "tags": [
      "standing",
      "leaning forward",
-     "looking down"
+     "looking down",
+     "hands on another's shoulders"
     ],
-    "natural_en": "A tall nonhuman fantasy partner positioned at top center leaning inward toward the kneeling woman."
+    "natural_en": "A tall nonhuman fantasy partner standing directly behind the kneeling woman at top center, leaning forward with hands on her shoulders."
    },
    "left_partner": {
     "label_zh": "左下側非人（居左圍攏）",
@@ -1093,8 +1279,12 @@
     },
     "tags": [
      "standing",
+     "legs apart",
      "leaning forward",
-     "looking down"
+     "looking down",
+     "penis",
+     "erection",
+     "handjob"
     ],
     "natural_en": "A second nonhuman fantasy partner crowding in from the lower-left arc of the triangle."
    },
@@ -1107,8 +1297,12 @@
     },
     "tags": [
      "standing",
+     "legs apart",
      "leaning forward",
-     "looking down"
+     "looking down",
+     "penis",
+     "erection",
+     "handjob"
     ],
     "natural_en": "A third nonhuman fantasy partner closing the circle from the lower-right arc."
    }
@@ -1116,14 +1310,15 @@
   "pairing_tags": {
    "group": {
     "base": [
-     "group sex",
      "foursome",
-     "fellatio",
+     "handjob",
+     "double handjob",
+     "penis",
      "interspecies"
     ]
    }
   },
-  "natural_en": "Square overhead full-body view of a woman kneeling at the center of a triangular ring formed by three large nonhuman fantasy creatures leaning down around her.",
-  "prompt_zh": "1:1 正上方俯視全身三非人環圍：女子跪於正中央仰望，三名大型非人魔物自正上、左下、右下呈三角包圍俯身靠近。"
+  "natural_en": "Square overhead full-body view of a woman kneeling at the center surrounded by three large nonhuman fantasy creatures: one stands behind holding her shoulders while the left and right creatures stand flanking her for a double handjob.",
+  "prompt_zh": "1:1 正上方俯視全身三非人環圍：女子跪於正中央仰望並以雙手分別替左右兩側非人手交，正後方非人站立前傾扶肩籠罩。"
  }
 ]

@@ -15,7 +15,8 @@
   ],
   "shared_pose_tags": [
    "fellatio",
-   "oral"
+   "oral",
+   "penis in mouth"
   ],
   "slots": {
    "subject": {
@@ -27,9 +28,11 @@
     },
     "tags": [
      "kneeling",
+     "looking up",
      "looking at viewer",
-     "open mouth",
-     "hands on another's thighs"
+     "hands on another's thighs",
+     "fellatio",
+     "penis in mouth"
     ],
     "natural_en": "Kneeling in the lower center of the frame and facing upward toward the camera with an open mouth, both hands resting on the viewer's thighs."
    }
@@ -76,7 +79,8 @@
      "kneeling",
      "spread legs",
      "leaning forward",
-     "looking down"
+     "looking down",
+     "cowgirl position"
     ],
     "natural_en": "Sitting astride the viewer with knees bent on either side, legs spread wide, leaning forward over the viewer and looking down at the camera."
    }
@@ -109,7 +113,9 @@
    "front view"
   ],
   "shared_pose_tags": [
-   "breast fondling"
+   "breast fondling",
+   "grabbing another's breast",
+   "groping"
   ],
   "slots": {
    "subject": {
@@ -123,7 +129,8 @@
      "kneeling",
      "leaning forward",
      "arched back",
-     "looking at viewer"
+     "looking at viewer",
+     "hands on own thighs"
     ],
     "natural_en": "Kneeling facing the camera with the back arched and the chest pushed forward, looking at the viewer, while hands from the camera reach in to fondle the breasts."
    }
@@ -170,7 +177,9 @@
      "arched back",
      "ass up",
      "top-down bottom-up",
-     "looking back"
+     "looking back",
+     "doggystyle",
+     "sex from behind"
     ],
     "natural_en": "On all fours with her back to the camera, back deeply arched and hips raised high, head turned to look back toward the viewer."
    }
@@ -220,7 +229,8 @@
      "legs up",
      "spread legs",
      "arched back",
-     "looking at viewer"
+     "looking at viewer",
+     "missionary"
     ],
     "natural_en": "Lying on the back facing the viewer with both legs raised up toward the viewer and spread apart, back arched, looking up at the viewer."
    }
@@ -268,7 +278,8 @@
      "standing",
      "leg up",
      "soles",
-     "looking down"
+     "looking down",
+     "trampling"
     ],
     "natural_en": "Standing directly over the camera with one leg raised and the bare sole of the raised foot turned toward the lens, looking down at the viewer."
    }
@@ -320,7 +331,8 @@
      "on stomach",
      "spread legs",
      "arched back",
-     "looking back"
+     "looking back",
+     "prone bone"
     ],
     "natural_en": "Lying face down on the left side of the bed, legs spread, back arched, head turned to look back toward the partner behind."
    },
@@ -335,7 +347,9 @@
      "kneeling",
      "leaning forward",
      "hands on another's hips",
-     "looking down"
+     "looking down",
+     "prone bone",
+     "sex from behind"
     ],
     "natural_en": "Kneeling behind the partner on the right, leaning forward over the partner's back and gripping both hips while looking down."
    }
@@ -396,10 +410,15 @@
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "front view"
+   "front view",
+   "through window",
+   "blurry foreground"
   ],
   "shared_pose_tags": [
-   "window"
+   "voyeurism",
+   "peeking",
+   "window",
+   "window frame"
   ],
   "slots": {
    "subject": {
@@ -412,6 +431,7 @@
     "tags": [
      "lying",
      "on back",
+     "on bed",
      "spread legs",
      "knees up",
      "arched back",
@@ -505,7 +525,8 @@
      "on stomach",
      "spread legs",
      "arched back",
-     "looking back"
+     "looking back",
+     "prone bone"
     ],
     "natural_en": "Lying face down on the left side of the frame with legs spread apart and back arched, head turned back toward the partner behind."
    },
@@ -520,7 +541,9 @@
      "kneeling",
      "leaning forward",
      "hands on another's hips",
-     "looking down"
+     "looking down",
+     "prone bone",
+     "sex from behind"
     ],
     "natural_en": "Kneeling directly behind the partner on the right side of the frame, leaning forward over the partner's lower back and gripping both hips while looking down."
    }
@@ -580,11 +603,14 @@
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "front view"
+   "front view",
+   "blurry foreground"
   ],
   "shared_pose_tags": [
    "curtains",
-   "peeking"
+   "peeking",
+   "voyeurism",
+   "behind curtain"
   ],
   "slots": {
    "subject": {
@@ -596,7 +622,9 @@
     },
     "tags": [
      "standing",
-     "spread legs",
+     "holding curtain",
+     "peeking",
+     "partially hidden",
      "looking at viewer"
     ],
     "natural_en": "Standing behind a curtain in the center of the frame, half hidden by the curtain, legs spread apart, one hand holding the curtain aside, peeking out and looking at the viewer."
@@ -643,7 +671,8 @@
      "leaning forward",
      "against wall",
      "hand between legs",
-     "looking at another"
+     "looking to the side",
+     "masturbation"
     ],
     "natural_en": "Standing in profile at the corner, leaning forward around the wall edge, her body against the wall, one hand braced on the wall edge and the other hand between her legs, looking toward the unseen scene beyond the corner."
    }
@@ -674,7 +703,9 @@
   ],
   "shared_pose_tags": [
    "sex",
-   "girl on top"
+   "girl on top",
+   "cowgirl position",
+   "straddling"
   ],
   "slots": {
    "observer": {
@@ -701,7 +732,9 @@
     "tags": [
      "sitting",
      "leaning forward",
-     "looking down"
+     "looking down",
+     "cowgirl position",
+     "straddling"
     ],
     "natural_en": "Sitting on top of the partner lying below, leaning forward with both hands on the partner's chest, looking down at the partner."
    },
@@ -716,7 +749,8 @@
      "lying",
      "on back",
      "hands on another's hips",
-     "looking up"
+     "looking up",
+     "cowgirl position"
     ],
     "natural_en": "Lying on the back on the right side of the frame, looking up at the partner sitting on top, both hands gripping the partner's hips."
    }
@@ -775,13 +809,16 @@
   "default_facing": "front",
   "mirrorable": true,
   "camera_tags": [
-   "full body",
    "front view",
    "pov",
-   "peeking"
+   "peeking",
+   "framing",
+   "black border"
   ],
   "shared_pose_tags": [
-   "masturbation"
+   "masturbation",
+   "keyhole",
+   "looking through keyhole"
   ],
   "slots": {
    "subject": {
@@ -795,7 +832,8 @@
      "sitting",
      "spread legs",
      "hand between legs",
-     "looking at viewer"
+     "looking at viewer",
+     "masturbation"
     ],
     "natural_en": "Sitting in the center of the frame facing the camera, legs spread wide, one hand between the legs, looking directly toward the viewer through the keyhole."
    }
@@ -825,7 +863,8 @@
   ],
   "shared_pose_tags": [
    "mirror",
-   "reflection"
+   "reflection",
+   "wall mirror"
   ],
   "slots": {
    "subject": {
@@ -837,9 +876,11 @@
     },
     "tags": [
      "standing",
-     "hand on own hip"
+     "from behind",
+     "hands on own hips",
+     "looking at mirror"
     ],
-    "natural_en": "Standing with her back to the viewer in front of a large mirror, one hand resting on her hip, her front visible only as a reflection in the mirror facing the viewer."
+    "natural_en": "Standing with her back to the viewer in front of a large wall mirror, both hands resting on her hips, her front visible as a reflection in the mirror facing the viewer."
    }
   },
   "pairing_tags": {
@@ -849,8 +890,8 @@
     ]
    }
   },
-  "natural_en": "Full-body rear view of an adult woman standing before a mirror, her back facing the camera with one hand on her hip, while the mirror reflects her front toward the viewer.",
-  "prompt_zh": "全身背面鏡面倒影，主體背對鏡頭站於鏡前，一手扶胯，鏡中倒影正面朝向觀者。"
+  "natural_en": "Full-body rear view of an adult woman standing before a large wall mirror, her back facing the camera with hands on her hips, while the mirror reflects her front toward the viewer.",
+  "prompt_zh": "全身背面鏡面倒影，主體背對鏡頭站於大片牆鏡前，雙手扶胯，鏡中倒影正面朝向觀者。"
  },
  {
   "id": "pos_fisheye_crawl_closeup_front",
@@ -907,10 +948,14 @@
   "default_facing": "front",
   "mirrorable": true,
   "camera_tags": [
-   "from below"
+   "from below",
+   "worm's-eye view",
+   "extreme low angle",
+   "foreshortening"
   ],
   "shared_pose_tags": [
-   "spread legs"
+   "spread legs",
+   "crotch focus"
   ],
   "slots": {
    "subject": {
@@ -923,8 +968,11 @@
     "tags": [
      "standing",
      "spread legs",
+     "wide stance",
      "leaning forward",
-     "looking down"
+     "hands on thighs",
+     "looking down",
+     "looking at viewer"
     ],
     "natural_en": "Standing with legs spread wide apart, leaning forward slightly with both hands resting on the thighs, looking down toward the camera positioned below between the legs."
    }
@@ -950,11 +998,14 @@
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "dutch angle"
+   "dutch angle",
+   "tilted",
+   "dynamic angle"
   ],
   "shared_pose_tags": [
    "kneeling",
-   "arched back"
+   "arched back",
+   "dutch angle"
   ],
   "slots": {
    "subject": {
@@ -970,7 +1021,8 @@
      "arched back",
      "arms behind head",
      "spread legs",
-     "looking at viewer"
+     "looking at viewer",
+     "tilted"
     ],
     "natural_en": "Kneeling upright in the center of the frame with the torso leaning back and the back deeply arched, both arms behind the head, knees apart with legs spread, looking at the viewer while the tilted camera places the body on a diagonal across the frame."
    }
@@ -1018,7 +1070,9 @@
      "straddling",
      "arched back",
      "spread legs",
-     "looking back"
+     "looking back",
+     "reverse cowgirl position",
+     "cowgirl position"
     ],
     "natural_en": "Straddling atop the lying viewer with her back turned toward the camera, spine deeply arched and hips seated over the viewer, glancing back over her shoulder."
    }
@@ -1042,19 +1096,21 @@
   "subcategory": "第一人稱",
   "title_zh": "第一人稱後入俯趴・低角抓臀回眸",
   "pattern": "solo_or_pov",
-  "default_canvas": "4:3",
+  "default_canvas": "3:4",
   "default_facing": "back",
   "mirrorable": true,
   "camera_tags": [
    "pov",
    "pov hands",
-   "from behind"
+   "from behind",
+   "from above"
   ],
   "shared_pose_tags": [
    "prone bone",
    "sex from behind",
    "on bed",
-   "grabbing another's ass"
+   "grabbing another's ass",
+   "ass focus"
   ],
   "slots": {
    "subject": {
@@ -1067,8 +1123,10 @@
     "tags": [
      "lying",
      "on stomach",
-     "leg up",
-     "looking back"
+     "arched back",
+     "looking back",
+     "prone bone",
+     "sex from behind"
     ],
     "natural_en": "Lying on her stomach on the bed with hips slightly lifted, propped on one elbow, one lower leg bent up into the air, turning her head back to look at the viewer."
    }
@@ -1083,8 +1141,8 @@
     ]
    }
   },
-  "natural_en": "Horizontal first-person rear view near hip level of penetration from behind: the subject lies on her stomach on the bed with hips slightly raised and one lower leg kicked up, the viewer's hands gripping her buttocks while she looks back at the lens.",
-  "prompt_zh": "第一人稱橫構圖後入俯趴：鏡頭接近臀部高度自後方平視，主體俯趴床上、臀部微抬、單側小腿向上翹起並以手肘撐身，觀看者雙手抓住臀部，主體轉頭回看鏡頭。"
+  "natural_en": "First-person rear view of penetration from behind: the subject lies on her stomach on the bed with hips raised, the viewer's hands gripping her buttocks while she looks back at the lens.",
+  "prompt_zh": "第一人稱後入俯趴：鏡頭自後方俯視，主體俯趴床上、臀部微抬並以手肘撐身，觀看者雙手抓住臀部，主體轉頭回看鏡頭。"
  },
  {
   "id": "pov_footjob_lying_front",
@@ -1104,6 +1162,7 @@
   ],
   "shared_pose_tags": [
    "footjob",
+   "two-footed footjob",
    "soles"
   ],
   "slots": {
@@ -1116,10 +1175,15 @@
     },
     "tags": [
      "lying",
+     "on back",
      "leaning back",
+     "spread legs",
      "legs up",
      "soles",
-     "looking at viewer"
+     "toes",
+     "looking at viewer",
+     "footjob",
+     "two-footed footjob"
     ],
     "natural_en": "Reclining back on the bed facing the viewer, extending both bare feet straight forward into the foreground so the soles press around the viewer's shaft."
    }
@@ -1192,27 +1256,30 @@
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "three-quarter view"
+   "three-quarter view",
+   "from side"
   ],
   "shared_pose_tags": [
    "doggystyle",
    "sex from behind",
    "mirror",
-   "reflection"
+   "reflection",
+   "wall mirror"
   ],
   "slots": {
    "receiver": {
     "label_zh": "承受方（面向大鏡四肢著地、鏡中映出正面）",
     "requires": "pussy",
     "center": {
-     "x": 0.42,
+     "x": 0.48,
      "y": 0.58
     },
     "tags": [
      "all fours",
      "arched back",
+     "spread legs",
      "looking at mirror",
-     "spread legs"
+     "doggystyle"
     ],
     "natural_en": "On all fours facing a large wall mirror at left so the camera sees her arched back directly while her face and front torso appear reflected in the mirror."
    },
@@ -1220,14 +1287,15 @@
     "label_zh": "施與方（後方跪姿扶胯入鏡）",
     "requires": "penis_or_strapon_or_nonhuman",
     "center": {
-     "x": 0.66,
-     "y": 0.46
+     "x": 0.72,
+     "y": 0.48
     },
     "tags": [
      "kneeling",
-     "leaning forward",
      "hands on another's hips",
-     "looking at mirror"
+     "looking at mirror",
+     "doggystyle",
+     "sex from behind"
     ],
     "natural_en": "Kneeling behind at right gripping the receiver's hips and watching both of their reflections in the mirror ahead."
    }
@@ -1308,7 +1376,8 @@
      "on back",
      "spread legs",
      "legs up",
-     "hands on another's shoulders"
+     "hands on another's shoulders",
+     "missionary"
     ],
     "natural_en": "Lying on her back beneath the partner, legs raised straight up on both sides of him, hands resting on his shoulders; her face and torso are hidden behind his back."
    },
@@ -1324,7 +1393,8 @@
      "back",
      "spread legs",
      "leaning forward",
-     "soles"
+     "soles",
+     "missionary"
     ],
     "natural_en": "Kneeling between the receiver's raised legs with his back to the camera, knees spread and leaning forward over her, buttocks and soles in the lower foreground."
    }
@@ -1406,7 +1476,8 @@
      "sitting",
      "straddling",
      "arms behind head",
-     "looking down"
+     "looking down",
+     "cowgirl position"
     ],
     "natural_en": "Sitting upright astride the partner at upper center, hands raised behind her head, looking down toward the camera."
    },
@@ -1421,7 +1492,8 @@
      "lying",
      "on back",
      "hands on another's hips",
-     "looking up"
+     "looking up",
+     "cowgirl position"
     ],
     "natural_en": "Lying on his back along the vertical center with the back of his head in the lower foreground, hands on the rider's hips."
    }
@@ -1484,14 +1556,17 @@
    "full body",
    "side view",
    "from side",
+   "pov doorway",
+   "doorway",
+   "open door",
    "blurry foreground"
   ],
   "shared_pose_tags": [
    "voyeurism",
    "peeking",
-   "doorway",
-   "mirror",
-   "standing sex"
+   "standing sex",
+   "sex from behind",
+   "against wall"
   ],
   "slots": {
    "receiver": {
@@ -1504,9 +1579,11 @@
     "tags": [
      "standing",
      "against wall",
-     "hand on wall",
+     "hands on wall",
      "bent over",
-     "looking at viewer"
+     "arched back",
+     "looking back",
+     "standing sex"
     ],
     "natural_en": "Standing at right bent forward at the hips with both hands on the wall, seen in side profile, face turned toward the viewer."
    },
@@ -1521,7 +1598,9 @@
      "standing",
      "leaning forward",
      "hands on another's hips",
-     "looking down"
+     "looking down",
+     "standing sex",
+     "sex from behind"
     ],
     "natural_en": "Standing directly behind the receiver in side profile, leaning in and gripping her hips."
    }
@@ -1568,8 +1647,8 @@
     "giver": []
    }
   },
-  "natural_en": "Wide 16:9 voyeur shot through a doorway gap with blurred door jambs on both sides: in the room beyond, seen in side profile, the receiver bends forward with both hands on the wall while the giver stands behind her; a standing mirror with hanging clothes is at the left of the room.",
-  "prompt_zh": "寬景門縫偷窺（16:9）：兩側為虛化的門框前景，門內房間中一對伴侶以側面呈現站姿撐牆後入；承受方居右前傾雙手撐牆，施與方於其身後站立扶胯，房間左側有一面立鏡與掛衣。"
+  "natural_en": "Wide 16:9 voyeur shot through a doorway gap with blurred door jambs on both sides: in the room beyond, seen in side profile, the receiver bends forward with both hands braced against the wall while the giver stands directly behind her gripping her hips.",
+  "prompt_zh": "寬景門縫偷窺（16:9）：兩側為虛化的門框前景，門內房間中一對伴侶以側面呈現站姿撐牆後入；承受方居右前傾雙手撐牆，施與方於其身後站立扶胯。"
  },
  {
   "id": "pov_footjob_sitting_m_legs_front",
@@ -1605,7 +1684,9 @@
      "knees up",
      "soles",
      "toes",
-     "looking at viewer"
+     "looking at viewer",
+     "footjob",
+     "two-footed footjob"
     ],
     "natural_en": "Sitting upright facing the viewer with knees raised and spread wide, both bare feet brought together in the lower foreground with the soles pressed around the viewer's shaft, face and torso fully visible above the feet."
    }
@@ -1655,7 +1736,10 @@
      "legs up",
      "soles",
      "toes",
-     "looking at viewer"
+     "looking at viewer",
+     "arm support",
+     "footjob",
+     "two-footed footjob"
     ],
     "natural_en": "Leaning back facing the viewer with both legs extended forward, one bare foot stacked above the other so the shaft is held between the upper sole and the lower instep in the foreground."
    }
@@ -1678,8 +1762,8 @@
   "subcategory": "第一人稱",
   "title_zh": "第一人稱反足交・俯趴背對曲膝・腳底朝鏡頭",
   "pattern": "solo_or_pov",
-  "default_canvas": "4:3",
-  "default_facing": "front",
+  "default_canvas": "3:4",
+  "default_facing": "back",
   "mirrorable": true,
   "camera_tags": [
    "pov",
@@ -1690,7 +1774,8 @@
   "shared_pose_tags": [
    "footjob",
    "two-footed footjob",
-   "soles"
+   "soles",
+   "ass focus"
   ],
   "slots": {
    "subject": {
@@ -1703,11 +1788,14 @@
     "tags": [
      "lying",
      "on stomach",
+     "bent knees",
      "legs up",
      "soles",
      "toes",
      "ass",
-     "looking back"
+     "looking back",
+     "footjob",
+     "two-footed footjob"
     ],
     "natural_en": "Lying on her stomach facing away from the viewer with both lower legs bent back, the bare soles turned toward the camera and pressed together around the viewer's shaft in the foreground, glancing back over her shoulder."
    }
@@ -1721,8 +1809,8 @@
     ]
    }
   },
-  "natural_en": "Horizontal first-person view of a reverse footjob: the subject lies prone facing away, lower legs bent back so both soles face the camera and grip the viewer's penis, her back and hips receding into the frame.",
-  "prompt_zh": "第一人稱橫構圖反足交：主體背對鏡頭俯趴，小腿向後曲起，雙足腳底朝向鏡頭在前景夾持，背與臀向畫面深處延伸，回頭看向鏡頭。"
+  "natural_en": "First-person rear view of a reverse footjob: the subject lies prone facing away with both knees bent back so both soles face the camera and grip the viewer's penis in the lower foreground, looking back over her shoulder.",
+  "prompt_zh": "第一人稱反足交：主體背對鏡頭俯趴，雙膝向後曲起，雙足腳底朝向鏡頭在前景夾持，背與臀向畫面深處延伸，回頭看向鏡頭。"
  },
  {
   "id": "pov_footjob_all_fours_reverse_from_behind",
@@ -1731,7 +1819,7 @@
   "title_zh": "第一人稱反足交・四肢著地背對・雙足向後夾",
   "pattern": "solo_or_pov",
   "default_canvas": "3:4",
-  "default_facing": "front",
+  "default_facing": "back",
   "mirrorable": true,
   "camera_tags": [
    "pov",
@@ -1756,7 +1844,9 @@
      "soles",
      "ass",
      "arched back",
-     "looking back"
+     "looking back",
+     "footjob",
+     "two-footed footjob"
     ],
     "natural_en": "On all fours facing away from the viewer, hips raised, both feet drawn back together behind her so the soles press around the viewer's shaft in the lower foreground, looking back over her shoulder."
    }
@@ -1806,7 +1896,9 @@
      "legs apart",
      "soles",
      "toes",
-     "looking down"
+     "looking down",
+     "footjob",
+     "two-footed footjob"
     ],
     "natural_en": "Sitting on the edge of a table above the viewer with legs hanging down and apart, both bare feet lowered onto the viewer's shaft from above, looking down between her knees."
    }
@@ -1859,7 +1951,9 @@
      "soles",
      "toes",
      "spread toes",
-     "looking at viewer"
+     "looking at viewer",
+     "footjob",
+     "two-footed footjob"
     ],
     "natural_en": "Lying on her back with both legs raised toward the viewer, the two bare soles filling most of the foreground with toes spread and the shaft held between the heels, her face visible in the gap between the feet."
    }
@@ -1910,7 +2004,9 @@
      "legs apart",
      "soles",
      "toes",
-     "looking down"
+     "looking down",
+     "footjob",
+     "two-footed footjob"
     ],
     "natural_en": "Sitting on a sofa above the viewer's eye level with legs stretched down and forward, both bare feet meeting around the viewer's shaft in the lower foreground, hands resting on the cushion, looking down at the viewer."
    }
@@ -1963,7 +2059,8 @@
      "soles",
      "toes",
      "spread toes",
-     "looking at viewer"
+     "looking at viewer",
+     "presenting foot"
     ],
     "natural_en": "Lying on her back with both legs raised right in front of the viewer's eyes, both soles filling the foreground with spread toes and her face visible between the feet."
    }
@@ -2010,12 +2107,14 @@
     "tags": [
      "sitting",
      "leaning back",
+     "spread legs",
      "legs up",
      "feet up",
      "soles",
      "toes",
      "looking down",
-     "looking at viewer"
+     "looking at viewer",
+     "presenting foot"
     ],
     "natural_en": "Sitting and leaning back with both legs raised toward the low-angle viewer, presenting both soles and toes up close while looking down at the viewer."
    }
@@ -2042,12 +2141,14 @@
   "camera_tags": [
    "pov",
    "pov crotch",
-   "from above",
-   "close-up"
+   "from above"
   ],
   "shared_pose_tags": [
    "paizuri",
-   "breast squeeze"
+   "breast squeeze",
+   "penis",
+   "erection",
+   "penis between breasts"
   ],
   "slots": {
    "subject": {
@@ -2060,8 +2161,12 @@
     "tags": [
      "kneeling",
      "squeezing breasts",
+     "hands on own breasts",
      "looking up",
-     "looking at viewer"
+     "looking at viewer",
+     "paizuri",
+     "breasts squeezed together",
+     "penis between breasts"
     ],
     "natural_en": "Kneeling before the viewer, squeezing both breasts together around the viewer's shaft while looking up."
    }
@@ -2090,11 +2195,11 @@
   "camera_tags": [
    "pov",
    "pov crotch",
-   "from above",
-   "close-up"
+   "from above"
   ],
   "shared_pose_tags": [
-   "handjob"
+   "handjob",
+   "penis"
   ],
   "slots": {
    "subject": {
@@ -2102,13 +2207,15 @@
     "requires": "female",
     "center": {
      "x": 0.5,
-     "y": 0.52
+     "y": 0.44
     },
     "tags": [
      "kneeling",
      "grabbing penis",
+     "holding penis",
      "looking up",
-     "looking at viewer"
+     "looking at viewer",
+     "handjob"
     ],
     "natural_en": "Kneeling closely before the viewer, stroking with her hands while gazing up directly at the viewer."
    }
@@ -2131,18 +2238,20 @@
   "subcategory": "第一人稱",
   "title_zh": "第一人稱貼臉親吻・正面極近特寫",
   "pattern": "solo_or_pov",
-  "default_canvas": "3:4",
+  "default_canvas": "1:1",
   "default_facing": "front",
   "mirrorable": true,
   "camera_tags": [
    "pov",
+   "portrait",
    "close-up",
    "front view"
   ],
   "shared_pose_tags": [
    "kiss",
    "face focus",
-   "leaning towards viewer"
+   "leaning towards viewer",
+   "eye contact"
   ],
   "slots": {
    "subject": {
@@ -2153,9 +2262,13 @@
      "y": 0.5
     },
     "tags": [
+     "portrait",
+     "upper body",
      "leaning towards viewer",
      "puckered lips",
-     "looking at viewer"
+     "looking at viewer",
+     "eye contact",
+     "kiss"
     ],
     "natural_en": "Leaning right into the camera's face with lips parted for an intimate first-person kiss."
    }
@@ -2188,7 +2301,7 @@
   ],
   "shared_pose_tags": [
    "headpat",
-   "chin grab"
+   "hand on another's head"
   ],
   "slots": {
    "subject": {
@@ -2201,7 +2314,9 @@
     "tags": [
      "kneeling",
      "looking up",
-     "looking at viewer"
+     "looking at viewer",
+     "headpat",
+     "hands on own thighs"
     ],
     "natural_en": "Kneeling before the viewer and gazing upward as the viewer's hand reaches into frame to gently lift her chin or pat her head."
    }
@@ -2227,14 +2342,19 @@
   "mirrorable": true,
   "camera_tags": [
    "pov",
+   "pov hands",
    "from below",
+   "low angle",
    "front view",
-   "close-up"
+   "close-up",
+   "foreshortening"
   ],
   "shared_pose_tags": [
    "cunnilingus",
+   "pussy focus",
    "spread legs",
-   "thighs"
+   "thighs",
+   "hands on another's thighs"
   ],
   "slots": {
    "subject": {
@@ -2249,8 +2369,10 @@
      "on back",
      "spread legs",
      "knees up",
+     "pussy focus",
      "looking down",
-     "looking at viewer"
+     "looking at viewer",
+     "cunnilingus"
     ],
     "natural_en": "Lying back with legs parted on either side of the viewer's perspective, looking down toward the camera."
    }
@@ -2284,7 +2406,8 @@
   "shared_pose_tags": [
    "standing sex",
    "sex from behind",
-   "against wall"
+   "against wall",
+   "hands on another's hips"
   ],
   "slots": {
    "subject": {
@@ -2300,7 +2423,9 @@
      "hands on wall",
      "arched back",
      "looking back",
-     "looking at viewer"
+     "looking at viewer",
+     "standing sex",
+     "sex from behind"
     ],
     "natural_en": "Standing bent forward with both hands braced against a wall, back arched, looking back over her shoulder while the viewer's hands grip her hips."
    }
