@@ -131,7 +131,6 @@
   "pairing_tags": {
    "pov": {
     "base": [
-     "hetero",
      "breast fondling"
     ]
    }
@@ -277,7 +276,6 @@
   "pairing_tags": {
    "pov": {
     "base": [
-     "hetero",
      "dominant female",
      "trampling"
     ]
@@ -292,7 +290,7 @@
   "subcategory": "偷窺遮擋與敘事前景",
   "title_zh": "門縫窺見俯趴後入・門框前景・側面",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -438,7 +436,7 @@
   "subcategory": "偷窺遮擋與敘事前景",
   "title_zh": "桌下偷窺・四肢著地探頭・側面全身",
   "pattern": "solo_or_pov",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -483,7 +481,7 @@
   "subcategory": "偷窺遮擋與敘事前景",
   "title_zh": "高處俯拍・俯趴後入・俯視全身",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -666,7 +664,7 @@
   "subcategory": "偷窺遮擋與敘事前景",
   "title_zh": "第三者背影前景・跨坐仰望・側面全身",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -688,7 +686,7 @@
     },
     "tags": [
      "standing",
-     "from behind",
+     "back",
      "looking at another"
     ],
     "natural_en": "Standing in the left foreground with back to the camera, watching the couple in the background."
@@ -839,7 +837,6 @@
     },
     "tags": [
      "standing",
-     "from behind",
      "hand on own hip"
     ],
     "natural_en": "Standing with her back to the viewer in front of a large mirror, one hand resting on her hip, her front visible only as a reflection in the mirror facing the viewer."
@@ -1324,7 +1321,7 @@
     },
     "tags": [
      "kneeling",
-     "from behind",
+     "back",
      "spread legs",
      "leaning forward",
      "soles"
@@ -1929,5 +1926,396 @@
   },
   "natural_en": "First-person low-angle view of a footjob: the subject sits on a sofa higher than the camera, legs extended down toward the lens with both feet around the viewer's penis, her whole body visible above.",
   "prompt_zh": "第一人稱低角足交：主體坐在高於鏡頭的沙發上，雙腿向下前伸，雙足在畫面下方前景夾持，雙手撐在坐墊上，低頭俯視鏡頭，全身入鏡。"
+ },
+ {
+  "id": "pov_soles_display_lying_extreme_closeup",
+  "category": "06_pov_special_cameras",
+  "subcategory": "第一人稱",
+  "title_zh": "第一人稱純賞足・仰躺雙腳底極近透視・臉在兩足之間",
+  "pattern": "solo_or_pov",
+  "default_canvas": "4:3",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "pov",
+   "close-up",
+   "foot focus",
+   "foreshortening"
+  ],
+  "shared_pose_tags": [
+   "presenting foot",
+   "soles",
+   "toes",
+   "spread toes"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（仰躺，雙腳底貼近觀者視野，臉自兩足之間露出）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.45
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "legs up",
+     "soles",
+     "toes",
+     "spread toes",
+     "looking at viewer"
+    ],
+    "natural_en": "Lying on her back with both legs raised right in front of the viewer's eyes, both soles filling the foreground with spread toes and her face visible between the feet."
+   }
+  },
+  "pairing_tags": {
+   "pov": {
+    "base": [
+     "pov"
+    ]
+   }
+  },
+  "natural_en": "Horizontal first-person close-up of an adult woman lying on her back presenting both soles with spread toes directly toward the viewer with strong foreshortening, her face visible between her feet, without any penis or footjob contact.",
+  "prompt_zh": "第一人稱橫構圖純賞足特寫：仰躺雙腳底以強烈透視貼近觀者眼前、腳趾張開，臉自兩足之間露出直視觀者（不含陰莖與足交）。"
+ },
+ {
+  "id": "pov_soles_display_sitting_from_below",
+  "category": "06_pov_special_cameras",
+  "subcategory": "第一人稱",
+  "title_zh": "第一人稱純賞足・坐姿仰視雙腳底貼近鏡頭",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "pov",
+   "from below",
+   "close-up",
+   "foot focus",
+   "foreshortening"
+  ],
+  "shared_pose_tags": [
+   "presenting foot",
+   "soles",
+   "toes"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（坐姿抬起雙腳朝低位觀者展示腳底）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.46
+    },
+    "tags": [
+     "sitting",
+     "leaning back",
+     "legs up",
+     "feet up",
+     "soles",
+     "toes",
+     "looking down",
+     "looking at viewer"
+    ],
+    "natural_en": "Sitting and leaning back with both legs raised toward the low-angle viewer, presenting both soles and toes up close while looking down at the viewer."
+   }
+  },
+  "pairing_tags": {
+   "pov": {
+    "base": [
+     "pov"
+    ]
+   }
+  },
+  "natural_en": "Low-angle first-person close-up of an adult woman sitting and raising both feet toward the viewer's face, both soles dominating the foreground as she looks down, with no penis in frame.",
+  "prompt_zh": "第一人稱低角仰視純賞足：坐姿後傾抬起雙腳貼近鏡頭，雙腳底佔據前景，居高臨下望向觀者（不含陰莖與足交）。"
+ },
+ {
+  "id": "pov_paizuri_looking_up_from_above",
+  "category": "06_pov_special_cameras",
+  "subcategory": "第一人稱",
+  "title_zh": "第一人稱俯視乳交・跪姿夾胸仰望",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "pov",
+   "pov crotch",
+   "from above",
+   "close-up"
+  ],
+  "shared_pose_tags": [
+   "paizuri",
+   "breast squeeze"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（跪姿雙手夾胸仰望觀者）",
+    "requires": "breasts",
+    "center": {
+     "x": 0.5,
+     "y": 0.52
+    },
+    "tags": [
+     "kneeling",
+     "squeezing breasts",
+     "looking up",
+     "looking at viewer"
+    ],
+    "natural_en": "Kneeling before the viewer, squeezing both breasts together around the viewer's shaft while looking up."
+   }
+  },
+  "pairing_tags": {
+   "pov": {
+    "base": [
+     "hetero",
+     "penis",
+     "paizuri"
+    ]
+   }
+  },
+  "natural_en": "First-person high-angle close-up of paizuri: a kneeling adult woman squeezes her breasts together around the viewer's penis while looking up at the viewer.",
+  "prompt_zh": "第一人稱俯視特寫：對方跪於觀者身前雙手擠壓胸部乳交，抬眼仰望鏡頭。"
+ },
+ {
+  "id": "pov_handjob_looking_up_closeup",
+  "category": "06_pov_special_cameras",
+  "subcategory": "第一人稱",
+  "title_zh": "第一人稱俯視手交・貼近仰望",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "pov",
+   "pov crotch",
+   "from above",
+   "close-up"
+  ],
+  "shared_pose_tags": [
+   "handjob"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（跪坐近距雙手握持仰望）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.52
+    },
+    "tags": [
+     "kneeling",
+     "grabbing penis",
+     "looking up",
+     "looking at viewer"
+    ],
+    "natural_en": "Kneeling closely before the viewer, stroking with her hands while gazing up directly at the viewer."
+   }
+  },
+  "pairing_tags": {
+   "pov": {
+    "base": [
+     "hetero",
+     "penis",
+     "handjob"
+    ]
+   }
+  },
+  "natural_en": "First-person high-angle close-up of a kneeling adult woman performing a handjob while looking straight up at the viewer.",
+  "prompt_zh": "第一人稱俯視近景：對方跪於胯前雙手侍奉手交，抬頭直視觀者。"
+ },
+ {
+  "id": "pov_kiss_leaning_close_front",
+  "category": "06_pov_special_cameras",
+  "subcategory": "第一人稱",
+  "title_zh": "第一人稱貼臉親吻・正面極近特寫",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "pov",
+   "close-up",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "kiss",
+   "face focus",
+   "leaning towards viewer"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（貼近鏡頭嘟唇／微張迎吻）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "leaning towards viewer",
+     "puckered lips",
+     "looking at viewer"
+    ],
+    "natural_en": "Leaning right into the camera's face with lips parted for an intimate first-person kiss."
+   }
+  },
+  "pairing_tags": {
+   "pov": {
+    "base": [
+     "pov",
+     "kiss"
+    ]
+   }
+  },
+  "natural_en": "First-person extreme close-up of an adult woman leaning directly toward the viewer's face with lips poised for an intimate kiss.",
+  "prompt_zh": "第一人稱正面極近特寫：對方湊近鏡頭眼前微張雙唇迎吻（無男方器官）。"
+ },
+ {
+  "id": "pov_headpat_kneeling_looking_up_front",
+  "category": "06_pov_special_cameras",
+  "subcategory": "第一人稱",
+  "title_zh": "第一人稱撫頭托下巴・跪姿仰望",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "pov",
+   "pov hands",
+   "from above",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "headpat",
+   "chin grab"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（跪姿仰望承受撫摸）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.54
+    },
+    "tags": [
+     "kneeling",
+     "looking up",
+     "looking at viewer"
+    ],
+    "natural_en": "Kneeling before the viewer and gazing upward as the viewer's hand reaches into frame to gently lift her chin or pat her head."
+   }
+  },
+  "pairing_tags": {
+   "pov": {
+    "base": [
+     "pov"
+    ]
+   }
+  },
+  "natural_en": "First-person high-angle view of an adult woman kneeling and looking up affectionately while the viewer's hand enters the frame to touch her face and head.",
+  "prompt_zh": "第一人稱俯視：對方跪坐仰望觀者，鏡頭伸出手輕撫頭頂或挑起下巴（無陰莖）。"
+ },
+ {
+  "id": "pov_cunnilingus_between_thighs_front",
+  "category": "06_pov_special_cameras",
+  "subcategory": "第一人稱",
+  "title_zh": "第一人稱大腿間仰視舔陰・正面近景",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "pov",
+   "from below",
+   "front view",
+   "close-up"
+  ],
+  "shared_pose_tags": [
+   "cunnilingus",
+   "spread legs",
+   "thighs"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（坐姿或仰躺雙腿夾靠鏡頭兩側）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.5,
+     "y": 0.44
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs",
+     "knees up",
+     "looking down",
+     "looking at viewer"
+    ],
+    "natural_en": "Lying back with legs parted on either side of the viewer's perspective, looking down toward the camera."
+   }
+  },
+  "pairing_tags": {
+   "pov": {
+    "base": [
+     "pov",
+     "cunnilingus"
+    ]
+   }
+  },
+  "natural_en": "First-person low-angle view from between a woman's spread thighs as she lies back looking down at the viewer during cunnilingus.",
+  "prompt_zh": "第一人稱低角正面近景：視角位於受方大開的雙腿之間仰望，對方微抬頭垂眼望向觀者。"
+ },
+ {
+  "id": "pov_standing_doggy_from_behind_hands",
+  "category": "06_pov_special_cameras",
+  "subcategory": "第一人稱",
+  "title_zh": "第一人稱站立扶腰後入・背後扶牆回眸",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "back",
+  "mirrorable": true,
+  "camera_tags": [
+   "pov",
+   "pov hands",
+   "from behind",
+   "full body"
+  ],
+  "shared_pose_tags": [
+   "standing sex",
+   "sex from behind",
+   "against wall"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（背對鏡頭扶牆彎腰回眸）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.5,
+     "y": 0.52
+    },
+    "tags": [
+     "standing",
+     "bent over",
+     "hands on wall",
+     "arched back",
+     "looking back",
+     "looking at viewer"
+    ],
+    "natural_en": "Standing bent forward with both hands braced against a wall, back arched, looking back over her shoulder while the viewer's hands grip her hips."
+   }
+  },
+  "pairing_tags": {
+   "pov": {
+    "base": [
+     "hetero",
+     "penis",
+     "sex",
+     "vaginal"
+    ]
+   }
+  },
+  "natural_en": "First-person rear view of standing sex from behind: the viewer's hands grip the waist of an adult woman braced against a wall as she arches her back and looks over her shoulder.",
+  "prompt_zh": "第一人稱站立後入：雙手自鏡頭伸出扣住對方腰際，對方扶牆彎腰塌背並回眸直視觀者。"
  }
 ]

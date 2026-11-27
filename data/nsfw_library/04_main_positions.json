@@ -5,7 +5,7 @@
   "subcategory": "後背位",
   "title_zh": "四肢著地後背位・側面扶胯",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -97,7 +97,7 @@
   "subcategory": "正常位",
   "title_zh": "正常位・抬腿壓肩・側面全身",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -376,7 +376,7 @@
   "subcategory": "後背位",
   "title_zh": "前臂撐地後背位・斜側俯視單膝扶胯",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -471,7 +471,7 @@
   "subcategory": "後背位",
   "title_zh": "俯趴壓背後背位・側面",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -663,7 +663,7 @@
   "subcategory": "後背位",
   "title_zh": "拉臂後仰後背位・側面",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -758,7 +758,7 @@
   "subcategory": "後背位",
   "title_zh": "床緣趴伏後背位・側面",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -948,7 +948,7 @@
   "subcategory": "正常位",
   "title_zh": "正常位・十指交扣・側面",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -1044,7 +1044,7 @@
   "subcategory": "正常位",
   "title_zh": "正常位・深壓折疊・側面",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -1141,7 +1141,7 @@
   "subcategory": "正常位",
   "title_zh": "正常位・單腿高舉・側面",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -1236,7 +1236,7 @@
   "subcategory": "正常位",
   "title_zh": "正常位・床邊懸腿・側面",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -1333,7 +1333,7 @@
   "subcategory": "騎乘位",
   "title_zh": "騎乘位・正向後仰・側斜",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "three_quarter_left",
   "mirrorable": true,
   "camera_tags": [
@@ -1422,7 +1422,7 @@
   "subcategory": "騎乘位",
   "title_zh": "騎乘位・反向背騎・側面",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -1521,7 +1521,7 @@
   "subcategory": "騎乘位",
   "title_zh": "騎乘位・蹲姿・側面",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -1610,7 +1610,7 @@
   "subcategory": "騎乘位",
   "title_zh": "騎乘位・前傾貼胸・側面",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -1708,7 +1708,7 @@
   "subcategory": "騎乘位",
   "title_zh": "騎乘位・後仰挺腰・側面",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -2093,7 +2093,7 @@
   "subcategory": "側臥與坐位",
   "title_zh": "湯匙側臥・側面全身",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -2188,7 +2188,7 @@
   "subcategory": "側臥與坐位",
   "title_zh": "面對面坐大腿・側面全身",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -2284,7 +2284,7 @@
   "subcategory": "側臥與坐位",
   "title_zh": "背向坐懷・側面全身",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -2379,7 +2379,7 @@
   "subcategory": "高辨識度進階幾何",
   "title_zh": "俯壓平趴 prone bone・雙人疊合平躺・側面全身",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -2475,7 +2475,7 @@
   "subcategory": "高辨識度進階幾何",
   "title_zh": "腿鎖纏腰 leg lock・側面全身",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -2619,7 +2619,7 @@
    }
   },
   "title_zh": "深折疊壓制 mating press・蹲姿上位全身",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "camera_tags": [
    "full body",
@@ -2681,7 +2681,7 @@
   "subcategory": "高辨識度進階幾何",
   "title_zh": "抬腿深壓 folded・側臥屈膝全身",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -2777,7 +2777,7 @@
   "subcategory": "高辨識度進階幾何",
   "title_zh": "正向直立跨坐 upright straddle・跪坐對面全身",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -2871,7 +2871,7 @@
   "subcategory": "高辨識度進階幾何",
   "title_zh": "反向直立跨坐 reverse upright straddle・跪立背向全身",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -3060,7 +3060,7 @@
   "subcategory": "後背位",
   "title_zh": "拉髮提腰後背位・斜側荷蘭角",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "three_quarter_left",
   "mirrorable": true,
   "camera_tags": [
@@ -3446,7 +3446,7 @@
   "subcategory": "正常位",
   "title_zh": "正常位・單腿高舉・高角斜側",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "three_quarter_left",
   "mirrorable": true,
   "camera_tags": [
@@ -4800,5 +4800,580 @@
   },
   "natural_en": "High-angle diagonal view of closed-leg missionary: the receiver lies on the back at lower right with legs together and knees bent upward, feet against the giver's chest, while the giver kneels at upper left holding both thighs.",
   "prompt_zh": "俯視斜角正常位併腿屈膝：承受方居右下仰躺閉眼，雙腿併攏屈膝上抬、雙腳抵在對方胸前；施與方居左上跪姿，雙手扶住併攏的大腿。"
+ },
+ {
+  "id": "pos_missionary_front_eye_level_kiss",
+  "category": "04_main_positions",
+  "subcategory": "正常位",
+  "title_zh": "正常位・正面貼身相擁親吻",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "4:3",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "missionary",
+   "sex",
+   "kiss",
+   "hug"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（仰躺環頸迎吻）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.5,
+     "y": 0.58
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs",
+     "arms around neck",
+     "kiss"
+    ],
+    "natural_en": "Lying on her back with legs open and arms wrapped around her partner's neck while kissing."
+   },
+   "giver": {
+    "label_zh": "攻方（俯壓撐身低頭親吻）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.5,
+     "y": 0.42
+    },
+    "tags": [
+     "lying",
+     "on top",
+     "leaning forward",
+     "kiss"
+    ],
+    "natural_en": "Pressing down over her between her legs in a close embrace, sharing a deep kiss."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Front horizontal full-body view of intimate missionary sex with both partners tightly embracing and kissing.",
+  "prompt_zh": "正面橫構圖全身：正常位緊密交疊，受方仰躺雙臂環頸，攻方俯身壓上相擁親吻。"
+ },
+ {
+  "id": "pos_missionary_legs_wrapped_waist_overhead",
+  "category": "04_main_positions",
+  "subcategory": "正常位",
+  "title_zh": "正常位・雙腿勾腰深抱・正上方俯視",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from above"
+  ],
+  "shared_pose_tags": [
+   "missionary",
+   "leg lock",
+   "sex"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（仰躺雙腿交叉鎖腰）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.5,
+     "y": 0.48
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "leg lock",
+     "arms around neck",
+     "looking up"
+    ],
+    "natural_en": "Lying on her back with her legs wrapped tightly around the partner's waist and ankles crossed."
+   },
+   "giver": {
+    "label_zh": "施與方（覆身貼合壓入）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.5,
+     "y": 0.54
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "hands beside head"
+    ],
+    "natural_en": "Leaning over her with hands braced beside her shoulders, held tightly by her leg lock."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Top-down full-body view of missionary sex with the receiver wrapping both legs tightly around the giver's waist in a leg lock.",
+  "prompt_zh": "正上方俯視全身：正常位緊抱，受方仰躺以雙腿緊緊勾鎖攻方腰部、雙臂環肩。"
+ },
+ {
+  "id": "pos_doggy_from_behind_rear_ass_focus",
+  "category": "04_main_positions",
+  "subcategory": "後背位",
+  "title_zh": "四肢著地後背位・正後方腰臀視角",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "back",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from behind",
+   "from above"
+  ],
+  "shared_pose_tags": [
+   "doggystyle",
+   "sex from behind",
+   "sex"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（四肢著地塌腰回眸）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.5,
+     "y": 0.44
+    },
+    "tags": [
+     "all fours",
+     "arched back",
+     "looking back"
+    ],
+    "natural_en": "On all fours with back arched deeply and hips raised, glancing back over her shoulder."
+   },
+   "giver": {
+    "label_zh": "施與方（後方跪姿扶胯推入）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.5,
+     "y": 0.64
+    },
+    "tags": [
+     "kneeling",
+     "hands on another's hips",
+     "back"
+    ],
+    "natural_en": "Kneeling behind her gripping both hips firmly as they thrust from behind."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "High rear full-body view of doggystyle: the giver kneels behind gripping the receiver's hips while she arches on all fours looking back.",
+  "prompt_zh": "正後方俯視全身：四肢著地後背位，受方塌腰回眸，攻方於後方跪姿雙手扣胯推進。"
+ },
+ {
+  "id": "pos_ekiben_face_to_face_front_carry",
+  "category": "04_main_positions",
+  "subcategory": "立位與抱起",
+  "title_zh": "正面懸空火車便當（面對面抱腿）・正面全身",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "suspended congress",
+   "standing sex",
+   "sex"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（懸空環頸開腿跨坐於臂彎）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.5,
+     "y": 0.44
+    },
+    "tags": [
+     "suspended congress",
+     "spread legs",
+     "arms around neck",
+     "looking at another"
+    ],
+    "natural_en": "Held completely off the ground facing her partner, arms locked around their neck and legs lifted wide."
+   },
+   "giver": {
+    "label_zh": "施與方（站立雙臂托舉大腿內側）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.5,
+     "y": 0.56
+    },
+    "tags": [
+     "standing",
+     "carrying",
+     "holding another's legs"
+    ],
+    "natural_en": "Standing upright, hooking both arms beneath her thighs to carry her suspended in mid-air."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Front full-body view of face-to-face suspended congress: the standing giver carries the receiver completely off the ground by holding under her spread thighs while she clings to their neck.",
+  "prompt_zh": "正面全身：面對面懸空抱舉（正面火車便當），攻方站立雙臂托住受方大腿懸空支撐，受方雙腿大開環頸緊抱。"
+ },
+ {
+  "id": "pos_side_lying_face_to_face_leg_up_side",
+  "category": "04_main_positions",
+  "subcategory": "側臥與坐位",
+  "title_zh": "側臥面對面抬單腿交合・側面全身",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "4:3",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view",
+   "from above"
+  ],
+  "shared_pose_tags": [
+   "sex",
+   "lying",
+   "on side",
+   "leg up"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（側躺高抬上側腿）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.42,
+     "y": 0.52
+    },
+    "tags": [
+     "lying",
+     "on side",
+     "leg up",
+     "looking at another"
+    ],
+    "natural_en": "Lying on her side facing her partner with her upper leg lifted over their hip."
+   },
+   "giver": {
+    "label_zh": "施與方（側臥面對面抱腿貼近）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.58,
+     "y": 0.52
+    },
+    "tags": [
+     "lying",
+     "on side",
+     "holding another's leg",
+     "looking at another"
+    ],
+    "natural_en": "Lying on their side facing her closely, supporting her raised leg while pressing hips together."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Slightly elevated horizontal full-body view of two adults lying face to face on their sides, the receiver lifting her upper leg over the giver's waist.",
+  "prompt_zh": "橫構圖全身：兩人面對面側臥交合，受方將上側長腿抬跨於攻方腰側，攻方扶腿相望。"
+ },
+ {
+  "id": "pos_mating_press_front_low_angle",
+  "category": "04_main_positions",
+  "subcategory": "高辨識度進階幾何",
+  "title_zh": "深折疊壓制 Mating Press・正面低角全身",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view",
+   "from below"
+  ],
+  "shared_pose_tags": [
+   "mating press",
+   "folded",
+   "sex"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（仰躺雙腿折壓至肩側）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.5,
+     "y": 0.56
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "legs up",
+     "folded",
+     "spread legs",
+     "looking up"
+    ],
+    "natural_en": "Lying on her back with her legs folded tightly back past her shoulders under the partner's weight."
+   },
+   "giver": {
+    "label_zh": "施與方（蹲壓上位緊扣腳踝）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.5,
+     "y": 0.42
+    },
+    "tags": [
+     "squatting",
+     "leaning forward",
+     "holding another's legs",
+     "looking down"
+    ],
+    "natural_en": "Crouching over her from above, pinning her folded legs back while thrusting downward."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Low-angle front full-body view of a deep mating press: the giver crouches forward pinning the lying receiver's legs folded back beside her shoulders.",
+  "prompt_zh": "正面低角全身：深折疊壓制（Mating Press），受方仰躺雙腿被折壓至肩旁，攻方上位蹲壓推進。"
  }
 ]

@@ -69,7 +69,7 @@
   "subcategory": "背後環抱揉胸",
   "title_zh": "坐姿背後環抱揉胸・側面",
   "pattern": "organ_bound",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -133,7 +133,7 @@
   "subcategory": "背後環抱揉胸",
   "title_zh": "坐姿背後環抱揉胸・後方跪姿環抱",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -340,7 +340,7 @@
   "subcategory": "壁咚與壓制親吻",
   "title_zh": "坐地靠牆壁咚親吻・側面",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -411,7 +411,7 @@
   "subcategory": "耳頸親吻與撫摸腰腿",
   "title_zh": "坐姿耳頸親吻撫腰腿・側面",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -564,7 +564,7 @@
   "subcategory": "耳頸親吻與撫摸腰腿",
   "title_zh": "面對面側躺耳頸親吻撫腰腿・側面",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -705,7 +705,7 @@
   "subcategory": "抓手腕／抬下巴／拉手臂等拉扯互動",
   "title_zh": "坐姿拉臂抬下巴・側面",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -775,7 +775,7 @@
   "subcategory": "抓手腕／抬下巴／拉手臂等拉扯互動",
   "title_zh": "跪姿面對面抓腕抬下巴・側面",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -844,7 +844,7 @@
   "subcategory": "指交與下體愛撫",
   "title_zh": "仰躺張腿指交・側面",
   "pattern": "organ_bound",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -909,7 +909,7 @@
   "subcategory": "指交與下體愛撫",
   "title_zh": "坐姿張腿面對面指交・側面",
   "pattern": "organ_bound",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -974,7 +974,7 @@
   "subcategory": "指交與下體愛撫",
   "title_zh": "四肢著地背後指交・側面",
   "pattern": "organ_bound",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -1122,7 +1122,7 @@
   "subcategory": "進入前臨界／引導定位／吻後停頓過渡格",
   "title_zh": "仰躺張腿引導定位・側面",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -2146,5 +2146,448 @@
   },
   "natural_en": "Full-body side view of a breast smother hug: both kneel facing each other; the giver kneels upright and hugs the receiver's head against the chest, while the receiver leans forward with the face buried between the giver's breasts and both hands on the giver's back.",
   "prompt_zh": "側面全身跪姿埋胸：雙方面對面跪著；施與方直跪，雙臂環抱承受方頭部按向胸口並低頭看著對方；承受方前傾，臉埋進施與方雙乳之間，雙手扶在對方背上。"
+ },
+ {
+  "id": "pos_foreplay_french_kiss_saliva_closeup_side",
+  "category": "02_foreplay",
+  "subcategory": "壁咚與壓制親吻",
+  "title_zh": "面對面法式深吻拉絲・側面近景",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "close-up",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "kiss",
+   "french kiss",
+   "saliva trail"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "受方（仰頭承接深吻）",
+    "requires": "any",
+    "center": {
+     "x": 0.42,
+     "y": 0.5
+    },
+    "tags": [
+     "kiss",
+     "tongue",
+     "head tilt",
+     "hands on another's chest"
+    ],
+    "natural_en": "Tilting the head up in a deep open-mouthed kiss with hands resting on the partner's chest."
+   },
+   "giver": {
+    "label_zh": "攻方（托臉俯身深吻）",
+    "requires": "any",
+    "center": {
+     "x": 0.58,
+     "y": 0.48
+    },
+    "tags": [
+     "kiss",
+     "tongue",
+     "holding another's face",
+     "leaning forward"
+    ],
+    "natural_en": "Leaning in close, cradling the partner's face in a deep French kiss with a delicate saliva bridge."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "kiss"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "kiss"
+    ]
+   },
+   "male_male": {
+    "base": [
+     "yaoi",
+     "kiss"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "kiss"
+    ]
+   }
+  },
+  "natural_en": "Side-profile close-up of two adult partners sharing a deep French kiss with intertwined tongues and a thin saliva strand.",
+  "prompt_zh": "側面近景特寫：兩人面對面托臉深吻，舌尖交纏並帶有細微唾液拉絲。"
+ },
+ {
+  "id": "pos_foreplay_breast_sucking_sitting_side",
+  "category": "02_foreplay",
+  "subcategory": "耳頸親吻與撫摸腰腿",
+  "title_zh": "坐姿低頭吸吮胸部・側面全身",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "4:3",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "breast sucking",
+   "nipple lick"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "受方（坐姿挺胸仰頭）",
+    "requires": "breasts",
+    "center": {
+     "x": 0.42,
+     "y": 0.5
+    },
+    "tags": [
+     "sitting",
+     "leaning back",
+     "arched back",
+     "hand on another's head"
+    ],
+    "natural_en": "Sitting leaning back with chest arched forward, resting a hand gently on the partner's head."
+   },
+   "giver": {
+    "label_zh": "攻方（跪坐低頭吸吮胸部）",
+    "requires": "any",
+    "center": {
+     "x": 0.62,
+     "y": 0.54
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "breast sucking",
+     "hands on another's breasts"
+    ],
+    "natural_en": "Kneeling in front, cupping the partner's breasts and sucking on a nipple."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "breast sucking"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "breast sucking"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "breast sucking"
+    ]
+   }
+  },
+  "natural_en": "Side full-body view of a seated adult woman arching back while her kneeling partner cups and sucks on her breast.",
+  "prompt_zh": "側面全身：受方坐姿後仰挺胸、一手搭在對方頭上，攻方跪於身前雙手捧胸低頭吸吮。"
+ },
+ {
+  "id": "pos_foreplay_breast_sucking_lying_above",
+  "category": "02_foreplay",
+  "subcategory": "耳頸親吻與撫摸腰腿",
+  "title_zh": "仰躺俯身吸吮胸部・俯視全身",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "4:3",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from above"
+  ],
+  "shared_pose_tags": [
+   "breast sucking",
+   "breast fondling"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "受方（仰躺拱背）",
+    "requires": "breasts",
+    "center": {
+     "x": 0.45,
+     "y": 0.52
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "arched back",
+     "head back"
+    ],
+    "natural_en": "Lying on her back with her chest arched upward, fingers tangled in her partner's hair."
+   },
+   "giver": {
+    "label_zh": "攻方（覆身埋胸吸吮揉捏）",
+    "requires": "any",
+    "center": {
+     "x": 0.6,
+     "y": 0.48
+    },
+    "tags": [
+     "lying",
+     "leaning forward",
+     "breast sucking",
+     "grabbing another's breast"
+    ],
+    "natural_en": "Leaning over her from the side, sucking one breast while fondling the other."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "breast sucking"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "breast sucking"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "breast sucking"
+    ]
+   }
+  },
+  "natural_en": "Overhead horizontal view of an adult woman lying on her back arching her chest while her partner leans over to suck and fondle her breasts.",
+  "prompt_zh": "橫構圖俯視全身：受方仰躺拱背，攻方自側上方覆身低頭吸吮一側胸部並揉捏另一側。"
+ },
+ {
+  "id": "pos_foreplay_undressing_shirt_lift_standing_side",
+  "category": "02_foreplay",
+  "subcategory": "抓手腕／抬下巴／拉手臂等拉扯互動",
+  "title_zh": "站姿掀起對方上衣・側面全身",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "undressing",
+   "shirt lift"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "受方（站立微仰舉臂配合脫衣）",
+    "requires": "female",
+    "center": {
+     "x": 0.42,
+     "y": 0.5
+    },
+    "tags": [
+     "standing",
+     "arms up",
+     "looking at another"
+    ],
+    "natural_en": "Standing with arms slightly raised as her top is lifted upward, gazing at her partner."
+   },
+   "giver": {
+    "label_zh": "攻方（面對面雙手掀衣）",
+    "requires": "any",
+    "center": {
+     "x": 0.6,
+     "y": 0.5
+    },
+    "tags": [
+     "standing",
+     "undressing another",
+     "looking at another"
+    ],
+    "natural_en": "Standing close facing her, pulling the hem of her top upward with both hands."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari"
+    ]
+   }
+  },
+  "natural_en": "Side full-body view of two standing adults facing closely as one lifts the other's shirt hem upward to undress her.",
+  "prompt_zh": "側面全身：兩人面對面近身站立，攻方雙手抓著受方衣擺向上掀起，受方抬臂配合。"
+ },
+ {
+  "id": "pos_foreplay_thigh_grope_sitting_side",
+  "category": "02_foreplay",
+  "subcategory": "指交與下體愛撫",
+  "title_zh": "並排坐姿貼身撫摸大腿內側・正面斜側",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "4:3",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "three-quarter view"
+  ],
+  "shared_pose_tags": [
+   "side by side",
+   "sitting",
+   "groping",
+   "thigh grab"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "受方（坐姿緊繃微張雙腿）",
+    "requires": "female",
+    "center": {
+     "x": 0.4,
+     "y": 0.52
+    },
+    "tags": [
+     "sitting",
+     "legs apart",
+     "looking to the side"
+    ],
+    "natural_en": "Sitting beside the partner with knees slightly parted, tense as a hand slides along her inner thigh."
+   },
+   "giver": {
+    "label_zh": "攻方（並肩貼近探手撫腿）",
+    "requires": "any",
+    "center": {
+     "x": 0.62,
+     "y": 0.5
+    },
+    "tags": [
+     "sitting",
+     "leaning to the side",
+     "hand on another's thigh",
+     "looking at another"
+    ],
+    "natural_en": "Sitting close beside her, leaning toward her ear while sliding a hand up her inner thigh."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari"
+    ]
+   }
+  },
+  "natural_en": "Three-quarter view of two adults sitting side by side as one leans close and slides a hand up the other's inner thigh.",
+  "prompt_zh": "斜側橫構圖全身：兩人並排緊貼而坐，攻方側身湊近耳畔，一手探向受方大腿內側愛撫。",
+  "scene_tags": [
+   "on couch"
+  ]
+ },
+ {
+  "id": "pos_foreplay_spread_thighs_kneeling_hover_front",
+  "category": "02_foreplay",
+  "subcategory": "進入前臨界／引導定位／吻後停頓過渡格",
+  "title_zh": "仰躺掰開雙腿俯近凝視・正面俯視",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from above",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "spread legs",
+   "foreplay"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "受方（仰躺雙腿被拉開）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.5,
+     "y": 0.44
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs",
+     "knees up",
+     "looking at another"
+    ],
+    "natural_en": "Lying on her back with her knees pushed wide apart, looking up at the partner kneeling between her legs."
+   },
+   "giver": {
+    "label_zh": "攻方（跪於腿間雙手扶腿俯近）",
+    "requires": "any",
+    "center": {
+     "x": 0.5,
+     "y": 0.66
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "hands on another's thighs",
+     "looking down"
+    ],
+    "natural_en": "Kneeling between her legs, holding both thighs wide apart while leaning forward in anticipation."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari"
+    ]
+   }
+  },
+  "natural_en": "High-angle front view of an adult woman lying on her back while her partner kneels between her legs, holding both thighs wide open before contact.",
+  "prompt_zh": "正面俯視全身：受方仰躺屈膝，攻方跪於雙腿之間雙手扶開大腿內側、俯身凝視進入前臨界停頓。"
  }
 ]

@@ -139,7 +139,7 @@
   "subcategory": "女方上位主導",
   "title_zh": "顏面跨坐・側面全身",
   "pattern": "organ_bound",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -268,7 +268,7 @@
   "subcategory": "女方上位主導",
   "title_zh": "上位騎乘支配・側面全身",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -457,7 +457,7 @@
   "subcategory": "顯著體型與身高差",
   "title_zh": "高大後方完全籠罩・側面全身",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -553,7 +553,7 @@
   "subcategory": "女方上位主導",
   "title_zh": "單腳踩踏壓制・側面全身",
   "pattern": "organ_bound",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -618,7 +618,7 @@
   "subcategory": "女方上位主導",
   "title_zh": "俯身壓腕・仰躺側面",
   "pattern": "organ_bound",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -682,7 +682,7 @@
   "subcategory": "顯著體型與身高差",
   "title_zh": "俯視壓制・側面全身",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -778,7 +778,7 @@
   "subcategory": "顯著體型與身高差",
   "title_zh": "坐懷包裹・側面全身",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -1357,5 +1357,236 @@
   },
   "natural_en": "Front view of a size-difference suspended carry from behind, framed from the raised feet down to the giver's thighs: the towering giver stands behind and holds the much smaller receiver up with both arms under the thighs, while the receiver faces the camera with both legs raised high and spread in a V, holding the own legs at the knees, head bowed.",
   "prompt_zh": "正面體型差背後懸空抱舉（畫面上至高舉的雙腳、下至施與方大腿）：高大施與方居後站立，雙臂從大腿下方托起矮小承受方，使其背靠胸前懸空；承受方面向鏡頭，雙腿高舉張開成V字並以雙手扶住腿，低頭閉眼。"
+ },
+ {
+  "id": "femdom_double_foot_trampling_face_side",
+  "category": "14_domination_size_diff",
+  "subcategory": "女方上位主導",
+  "title_zh": "站立雙腳踩臉壓制・側面全身",
+  "pattern": "organ_bound",
+  "default_canvas": "4:3",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "femdom",
+   "trampling",
+   "foot focus",
+   "soles"
+  ],
+  "slots": {
+   "dominant": {
+    "label_zh": "主導方（站立俯視以腳踩踏對方臉部）",
+    "requires": "female",
+    "center": {
+     "x": 0.44,
+     "y": 0.42
+    },
+    "tags": [
+     "standing",
+     "leg up",
+     "soles",
+     "looking down"
+    ],
+    "natural_en": "Standing imperiously above the lying partner, pressing her foot onto their face while looking down."
+   },
+   "submissive": {
+    "label_zh": "從屬方（仰躺承受腳底踩臉）",
+    "requires": "any",
+    "center": {
+     "x": 0.56,
+     "y": 0.72
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "looking up"
+    ],
+    "natural_en": "Lying flat on the back looking up beneath the dominant partner's foot."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "femdom",
+     "trampling"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "femdom",
+     "trampling"
+    ]
+   }
+  },
+  "natural_en": "Side full-body view of femdom face trampling: the dominant woman stands over her supine partner pressing her sole onto their face while gazing down.",
+  "prompt_zh": "側面全身：女方居高臨下站立俯視，以腳底踩壓仰躺從屬方臉部。"
+ },
+ {
+  "id": "femdom_hand_on_collar_kneeling_front",
+  "category": "14_domination_size_diff",
+  "subcategory": "女方上位主導",
+  "title_zh": "站姿提拉項圈俯視・正面全身",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view",
+   "from below"
+  ],
+  "shared_pose_tags": [
+   "femdom",
+   "dominant female",
+   "collar"
+  ],
+  "slots": {
+   "dominant": {
+    "label_zh": "主導方（站立俯身提拉對方項圈）",
+    "requires": "female",
+    "center": {
+     "x": 0.48,
+     "y": 0.4
+    },
+    "tags": [
+     "standing",
+     "leaning forward",
+     "looking down"
+    ],
+    "natural_en": "Standing tall over the kneeling partner, gripping their collar to lift their gaze while looking down."
+   },
+   "submissive": {
+    "label_zh": "從屬方（跪地仰望被提拉項圈）",
+    "requires": "any",
+    "center": {
+     "x": 0.54,
+     "y": 0.68
+    },
+    "tags": [
+     "kneeling",
+     "collar",
+     "looking up"
+    ],
+    "natural_en": "Kneeling on the floor looking up obediently as their collar is pulled upward."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "femdom"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "femdom"
+    ]
+   }
+  },
+  "natural_en": "Low-angle front full-body view of a dominant adult woman standing over a kneeling partner and gripping their collar to tilt their head upward.",
+  "prompt_zh": "正面低角全身：主導方站立俯視、伸手抓提跪地從屬方的項圈迫使其抬頭仰望。"
+ },
+ {
+  "id": "size_diff_standing_wall_lift_front",
+  "category": "14_domination_size_diff",
+  "subcategory": "顯著體型與身高差",
+  "title_zh": "體型差壓牆托腿高舉・正面全身",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "size difference",
+   "height difference",
+   "against wall",
+   "standing sex"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "較矮方（背貼牆面雙腿被高舉懸空）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.5,
+     "y": 0.42
+    },
+    "tags": [
+     "against wall",
+     "spread legs",
+     "legs up",
+     "arms around neck"
+    ],
+    "natural_en": "Pressed high against the wall off her feet, legs lifted wide and arms clinging around her tall partner's shoulders."
+   },
+   "giver": {
+    "label_zh": "高大方（站立壓牆托腿支撐）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.5,
+     "y": 0.56
+    },
+    "tags": [
+     "standing",
+     "holding another's legs",
+     "leaning forward"
+    ],
+    "natural_en": "Towering taller partner standing close, bracing her against the wall while lifting both thighs."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "sex",
+     "vaginal",
+     "interspecies"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Front full-body view emphasizing significant height difference: the taller standing partner lifts and pins the smaller partner high against a wall.",
+  "prompt_zh": "正面全身：強調顯著體型與身高差，高大方站立將較矮方托腿高舉壓貼於牆面交合。"
  }
 ]

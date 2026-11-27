@@ -189,7 +189,7 @@
   "subcategory": "非人／魔物／動物互動",
   "title_zh": "後背壓制・四肢著地側面",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -296,7 +296,7 @@
   "subcategory": "非人／魔物／動物互動",
   "title_zh": "被包圍・仰躺夾擊側面",
   "pattern": "organ_bound",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -372,7 +372,7 @@
   "subcategory": "非人／魔物／動物互動",
   "title_zh": "俯趴・非人壓背側面",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -434,7 +434,7 @@
   "subcategory": "非人／魔物／動物互動",
   "title_zh": "跨坐・騎乘非人側面",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [

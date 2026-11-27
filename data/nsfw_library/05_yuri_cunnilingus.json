@@ -142,7 +142,7 @@
   "subcategory": "舔陰 cunnilingus",
   "title_zh": "69 互舔・側面全身",
   "pattern": "organ_bound",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -276,7 +276,7 @@
   "subcategory": "雙女磨豆腐 tribadism",
   "title_zh": "側臥剪刀式磨豆腐・下體相貼・側面全身",
   "pattern": "organ_bound",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -341,7 +341,7 @@
   "subcategory": "雙女磨豆腐 tribadism",
   "title_zh": "仰躺疊壓磨豆腐・側面全身",
   "pattern": "organ_bound",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -406,7 +406,7 @@
   "subcategory": "雙女互相愛撫揉胸與深吻",
   "title_zh": "跪姿面對面互揉胸深吻・側面全身",
   "pattern": "organ_bound",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -528,7 +528,7 @@
   "subcategory": "雙女互相愛撫揉胸與深吻",
   "title_zh": "坐姿面對面互揉胸深吻・側面全身",
   "pattern": "organ_bound",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -588,7 +588,7 @@
   "subcategory": "雙女穿戴式／雙頭道具與體位變體",
   "title_zh": "俯趴後入穿戴式・側面全身",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -653,7 +653,7 @@
   "subcategory": "雙女穿戴式／雙頭道具與體位變體",
   "title_zh": "仰躺正向穿戴式・側面全身",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -720,7 +720,7 @@
   "subcategory": "雙女磨豆腐 tribadism",
   "title_zh": "錯身坐地交腿磨豆腐・側面全身",
   "pattern": "organ_bound",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -1742,5 +1742,191 @@
   },
   "natural_en": "Landscape full-body side view of two women sitting face to face on the floor with legs spread toward each other, each leaning back on one arm and reaching the other hand between the partner's legs, fingering each other at the same time while looking at each other.",
   "prompt_zh": "4:3 側面全身雙女相互自慰：兩人面對面坐地、雙腿朝對方張開，各以一手後撐，另一手伸入對方腿間同時指交撫弄，彼此注視。"
+ },
+ {
+  "id": "yuri_mutual_masturbation_lying_overhead",
+  "category": "05_yuri_cunnilingus",
+  "subcategory": "雙女相互自慰",
+  "title_zh": "並躺相互指交愛撫・俯視全身",
+  "pattern": "organ_bound",
+  "default_canvas": "4:3",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from above"
+  ],
+  "shared_pose_tags": [
+   "mutual masturbation",
+   "fingering",
+   "lying"
+  ],
+  "slots": {
+   "partner_left": {
+    "label_zh": "女方左（仰躺微側身伸手愛撫對方）",
+    "requires": "female",
+    "center": {
+     "x": 0.38,
+     "y": 0.5
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs",
+     "fingering",
+     "looking at another"
+    ],
+    "natural_en": "Lying on her back turned slightly toward her partner, legs open while reaching over to finger her partner."
+   },
+   "partner_right": {
+    "label_zh": "女方右（仰躺微側身回應愛撫）",
+    "requires": "female",
+    "center": {
+     "x": 0.62,
+     "y": 0.5
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs",
+     "fingering",
+     "looking at another"
+    ],
+    "natural_en": "Lying beside her with legs parted, reciprocating by caressing her partner between the thighs."
+   }
+  },
+  "pairing_tags": {
+   "female_female": {
+    "base": [
+     "yuri",
+     "mutual masturbation",
+     "fingering"
+    ]
+   }
+  },
+  "natural_en": "Overhead horizontal full-body view of two adult women lying side by side with legs parted, mutually fingering each other while exchanging glances.",
+  "prompt_zh": "橫構圖俯視全身：兩名女性並肩仰躺張腿，彼此側身伸手為對方指交愛撫並互相凝視。"
+ },
+ {
+  "id": "yuri_fingering_from_behind_standing_side",
+  "category": "05_yuri_cunnilingus",
+  "subcategory": "雙女互相愛撫揉胸與深吻",
+  "title_zh": "站姿背後環抱向下指交・側面全身",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "fingering from behind",
+   "hug from behind"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "受方（站立微靠對方肩胸）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.42,
+     "y": 0.5
+    },
+    "tags": [
+     "standing",
+     "leaning back",
+     "head back",
+     "legs apart"
+    ],
+    "natural_en": "Standing leaning back into her partner's chest with thighs slightly parted."
+   },
+   "giver": {
+    "label_zh": "攻方（身後貼背一手摟胸一手探下指交）",
+    "requires": "female",
+    "center": {
+     "x": 0.58,
+     "y": 0.5
+    },
+    "tags": [
+     "standing",
+     "hug from behind",
+     "fingering",
+     "breast grab"
+    ],
+    "natural_en": "Standing pressed behind her, fondling her chest with one arm while sliding the other hand down to finger her."
+   }
+  },
+  "pairing_tags": {
+   "female_female": {
+    "base": [
+     "yuri",
+     "fingering"
+    ]
+   }
+  },
+  "natural_en": "Side full-body view of two standing adult women: the partner behind embraces and fondles her chest with one hand while fingering her from behind with the other.",
+  "prompt_zh": "側面全身：雙女站姿貼背環抱，後方一手揉胸、另一手探下指交，前方微仰後靠。"
+ },
+ {
+  "id": "yuri_cunnilingus_69_overhead_wide",
+  "category": "05_yuri_cunnilingus",
+  "subcategory": "舔陰 cunnilingus",
+  "title_zh": "雙女 69 反向疊臥互舔・寬幅俯視",
+  "pattern": "organ_bound",
+  "default_canvas": "16:9",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from above"
+  ],
+  "shared_pose_tags": [
+   "69",
+   "cunnilingus",
+   "oral"
+  ],
+  "slots": {
+   "bottom": {
+    "label_zh": "下方女方（仰躺頭腳反向承接與舔舐）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.48,
+     "y": 0.58
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs",
+     "cunnilingus"
+    ],
+    "natural_en": "Lying on her back beneath her partner in a head-to-toe 69 position, licking upward."
+   },
+   "top": {
+    "label_zh": "上方女方（反向跪撐俯身舔舐）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.52,
+     "y": 0.42
+    },
+    "tags": [
+     "straddling",
+     "leaning forward",
+     "cunnilingus"
+    ],
+    "natural_en": "Positioned head-to-toe above her partner, leaning down to lick between her thighs."
+   }
+  },
+  "pairing_tags": {
+   "female_female": {
+    "base": [
+     "yuri",
+     "69",
+     "cunnilingus"
+    ]
+   }
+  },
+  "natural_en": "Widescreen overhead full-body view of two adult women performing mutual cunnilingus in a head-to-toe 69 position.",
+  "prompt_zh": "寬幅正上方俯視全身：兩名女性上下反向疊臥呈 69 式互相舔陰。"
  }
 ]

@@ -5,7 +5,7 @@
   "subcategory": "後入四肢與俯趴",
   "title_zh": "四肢著地後庭後入・側面扶腿",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -74,7 +74,7 @@
   "subcategory": "後入四肢與俯趴",
   "title_zh": "床緣趴伏後庭・側面",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -168,7 +168,7 @@
   "subcategory": "後庭指交／道具擴張與雙重插入",
   "title_zh": "後庭指交・仰躺抬腿側面",
   "pattern": "organ_bound",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -335,7 +335,7 @@
   "subcategory": "後入四肢與俯趴",
   "title_zh": "四肢著地拉臂後庭・側面",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -428,7 +428,7 @@
   "subcategory": "站立與側臥",
   "title_zh": "側臥湯匙後庭・側面",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -522,7 +522,7 @@
   "subcategory": "仰躺抬腿與折疊壓制",
   "title_zh": "仰躺單腿高抬後庭・側面",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -615,7 +615,7 @@
   "subcategory": "騎乘與反向騎乘",
   "title_zh": "蹲姿騎乘後庭・側面",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -801,7 +801,7 @@
   "subcategory": "仰躺抬腿與折疊壓制",
   "title_zh": "仰躺抬腿後庭・側面",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -895,7 +895,7 @@
   "subcategory": "騎乘與反向騎乘",
   "title_zh": "反向騎乘後庭・側面",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -988,7 +988,7 @@
   "subcategory": "後庭指交／道具擴張與雙重插入",
   "title_zh": "雙重插入・四肢著地上下夾擊側面",
   "pattern": "organ_bound",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -1073,7 +1073,7 @@
   "subcategory": "後入四肢與俯趴",
   "title_zh": "俯趴後庭後入・側面",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -1166,7 +1166,7 @@
   "subcategory": "仰躺抬腿與折疊壓制",
   "title_zh": "折疊壓制後庭・側面",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [

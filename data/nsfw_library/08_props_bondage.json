@@ -191,7 +191,7 @@
   "subcategory": "進階拘束與受困情境",
   "title_zh": "多點拘束・四肢著地繩縛側面",
   "pattern": "solo_or_pov",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -599,7 +599,7 @@
   "subcategory": "進階拘束與受困情境",
   "title_zh": "受困情境・蝦縛俯趴側面",
   "pattern": "solo_or_pov",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -647,7 +647,7 @@
   "subcategory": "感官與牽引調教",
   "title_zh": "項圈牽引・四肢著地側面",
   "pattern": "organ_bound",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -1489,5 +1489,158 @@
   },
   "natural_en": "Full-body side view of over-the-knee spanking on the floor: one partner sits cross-legged while the other lies face down across their lap with the chest over the crossed legs, head toward the right and legs extending to the left; the seated partner raises one open hand beside the reddened buttocks, and the spanked partner looks back at the camera.",
   "prompt_zh": "側面全身膝上打屁股：施罰方盤腿坐在地上，受罰方橫趴在其盤起的雙腿上、胸口壓在腿上、頭朝右、雙腿向左伸直，回頭看向鏡頭；施罰方舉起一隻張開的手停在泛紅的臀部旁，低頭俯視。"
+ },
+ {
+  "id": "solo_fingering_lying_spread_legs_above",
+  "category": "08_props_bondage",
+  "subcategory": "單人自慰與震動棒／假陽具",
+  "title_zh": "仰躺張腿手指自慰・俯視全身",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from above"
+  ],
+  "shared_pose_tags": [
+   "female masturbation",
+   "fingering"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（仰躺開腿伸手向下自慰）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs",
+     "knees up",
+     "masturbation",
+     "looking at viewer"
+    ],
+    "natural_en": "Lying on her back with knees raised and legs spread, one hand reaching between her thighs to finger herself while looking at the viewer."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   },
+   "pov": {
+    "base": [
+     "pov"
+    ]
+   }
+  },
+  "natural_en": "Overhead full-body view of an adult woman lying on her back with knees bent and legs spread, pleasuring herself with her fingers.",
+  "prompt_zh": "俯視全身：仰躺屈膝雙腿大開，單手伸至腿間純手指自慰，眼神望向鏡頭。"
+ },
+ {
+  "id": "solo_fingering_sitting_leaning_back_front",
+  "category": "08_props_bondage",
+  "subcategory": "單人自慰與震動棒／假陽具",
+  "title_zh": "坐姿後仰開腿手指自慰・正面全身",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "female masturbation",
+   "fingering"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（坐姿後撐開腿手指自慰）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.5,
+     "y": 0.52
+    },
+    "tags": [
+     "sitting",
+     "leaning back",
+     "spread legs",
+     "masturbation",
+     "looking at viewer"
+    ],
+    "natural_en": "Sitting leaning back on one supporting arm with legs spread wide, using her free hand to finger herself."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   },
+   "pov": {
+    "base": [
+     "pov"
+    ]
+   }
+  },
+  "natural_en": "Front full-body view of an adult woman sitting leaned back on one arm with legs spread apart, masturbating with her fingers.",
+  "prompt_zh": "正面全身：坐姿單手後撐身體、雙腿大開，另一手探至腿間純手指自慰。"
+ },
+ {
+  "id": "solo_fingering_standing_against_wall_side",
+  "category": "08_props_bondage",
+  "subcategory": "單人自慰與震動棒／假陽具",
+  "title_zh": "靠牆站立抬腿手指自慰・側面全身",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "female masturbation",
+   "fingering",
+   "against wall"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（背靠牆面微曲一膝自慰）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "standing",
+     "against wall",
+     "leg up",
+     "masturbation",
+     "head back"
+    ],
+    "natural_en": "Leaning her back against a wall with one knee slightly lifted, reaching between her thighs to finger herself."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   },
+   "pov": {
+    "base": [
+     "pov"
+    ]
+   }
+  },
+  "natural_en": "Side full-body view of an adult woman leaning back against a wall with one leg slightly raised, fingering herself.",
+  "prompt_zh": "側面全身：背靠牆面站立微抬單腿，一手撐牆一手探至腿間自慰。"
  }
 ]

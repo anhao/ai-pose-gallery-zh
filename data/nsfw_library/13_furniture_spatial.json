@@ -5,7 +5,7 @@
   "subcategory": "書桌與餐桌",
   "title_zh": "伏案後入・桌面支撐側面",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -185,7 +185,7 @@
   "subcategory": "書桌與餐桌",
   "title_zh": "仰躺桌緣・側面全身",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -281,7 +281,7 @@
   "subcategory": "椅子與沙發",
   "title_zh": "沙發側臥・側面全身",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -564,7 +564,7 @@
   "subcategory": "椅子與沙發",
   "title_zh": "沙發仰躺壓制・側面全身",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -661,7 +661,7 @@
   "subcategory": "書桌與餐桌",
   "title_zh": "坐桌抬腿・側面全身",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -1232,7 +1232,7 @@
   "subcategory": "椅子與沙發",
   "title_zh": "反向跨坐椅子・側面全身",
   "pattern": "geometry_dispatch",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -1515,7 +1515,7 @@
   "subcategory": "椅子與沙發",
   "title_zh": "沙發跪姿侍奉・側面全身",
   "pattern": "organ_bound",
-  "default_canvas": "3:4",
+  "default_canvas": "4:3",
   "default_facing": "left",
   "mirrorable": true,
   "camera_tags": [
@@ -1669,7 +1669,6 @@
    "sex",
    "cowgirl position",
    "bathtub",
-   "bathroom",
    "wet"
   ],
   "slots": {
@@ -1749,7 +1748,10 @@
    }
   },
   "natural_en": "High-angle 4:3 overhead view of bathtub cowgirl: the giver leans back against the tub rim while the receiver straddles astride in the steamy water.",
-  "prompt_zh": "4:3 高角俯視全身浴缸騎乘：水氣氤氳的浴缸內，施與方靠浴缸斜背仰坐扶腰，承受方水中跨坐前傾扶肩。"
+  "prompt_zh": "4:3 高角俯視全身浴缸騎乘：水氣氤氳的浴缸內，施與方靠浴缸斜背仰坐扶腰，承受方水中跨坐前傾扶肩。",
+  "scene_tags": [
+   "bathroom"
+  ]
  },
  {
   "id": "bath_vanity_mirror_lift_3q",
@@ -1765,7 +1767,6 @@
   ],
   "shared_pose_tags": [
    "sex",
-   "bathroom",
    "sink",
    "mirror",
    "reflection"
@@ -1844,7 +1845,10 @@
    }
   },
   "natural_en": "Three-quarter 4:3 view at a bathroom sink with a mirror, framed down to the giver's thighs: the receiver sits on the counter edge with arms around the standing giver's neck and legs loosely wrapped, one over the hip and one past the back, while the giver holds the receiver's hip.",
-  "prompt_zh": "4:3 斜側洗手台交合（畫面裁至施與方大腿）：承受方坐於浴室洗手台檯緣，背後鏡面映出其身影，雙臂摟住對方頸部，雙腿鬆鬆纏繞——一腿搭在對方腰側、一腿越過對方背後；施與方立於台前，一手扶腰貼近。"
+  "prompt_zh": "4:3 斜側洗手台交合（畫面裁至施與方大腿）：承受方坐於浴室洗手台檯緣，背後鏡面映出其身影，雙臂摟住對方頸部，雙腿鬆鬆纏繞——一腿搭在對方腰側、一腿越過對方背後；施與方立於台前，一手扶腰貼近。",
+  "scene_tags": [
+   "bathroom"
+  ]
  },
  {
   "id": "bed_edge_standing_missionary_3q",
@@ -2225,7 +2229,6 @@
   ],
   "shared_pose_tags": [
    "sex",
-   "kitchen",
    "counter",
    "sitting"
   ],
@@ -2305,7 +2308,10 @@
    }
   },
   "natural_en": "Front 4:3 full-body view at a kitchen counter: the receiver sits elevated on the countertop bracing her hands behind her with legs spread wide while the giver stands directly between her thighs.",
-  "prompt_zh": "4:3 正面全身廚房檯面交合：承受方高坐流理台邊雙手後撐挺胸張腿，施與方立於台前腿間扶腿拉近結合。"
+  "prompt_zh": "4:3 正面全身廚房檯面交合：承受方高坐流理台邊雙手後撐挺胸張腿，施與方立於台前腿間扶腿拉近結合。",
+  "scene_tags": [
+   "kitchen"
+  ]
  },
  {
   "id": "kitchen_barstool_rear_3q",
@@ -2420,7 +2426,6 @@
   ],
   "shared_pose_tags": [
    "sex",
-   "kitchen",
    "on table",
    "counter"
   ],
@@ -2501,7 +2506,10 @@
    }
   },
   "natural_en": "Wide 16:9 side-view shot stretching along a long kitchen island: the receiver reclines propped on her elbows at the left while the giver stands at the right edge holding her raised legs.",
-  "prompt_zh": "16:9 寬幅側面全身中島長檯：承受方居左肘撐半躺於長中島檯面並高舉雙腿，施與方居右站立檯邊扶踝前傾。"
+  "prompt_zh": "16:9 寬幅側面全身中島長檯：承受方居左肘撐半躺於長中島檯面並高舉雙腿，施與方居右站立檯邊扶踝前傾。",
+  "scene_tags": [
+   "kitchen"
+  ]
  },
  {
   "id": "car_backseat_cowgirl_front",
@@ -2520,7 +2528,6 @@
   "shared_pose_tags": [
    "sex",
    "cowgirl position",
-   "car interior",
    "sitting"
   ],
   "slots": {
@@ -2599,7 +2606,10 @@
    }
   },
   "natural_en": "Low-angle 4:3 front view inside a car backseat: the giver leans back against the seat while the receiver straddles astride, slightly crouched under the low car roof.",
-  "prompt_zh": "4:3 低角正面全身車內後座騎乘：狹窄車廂內施與方背靠後座扶胯，承受方跨坐於上方微低頭撐住車頂或椅背。"
+  "prompt_zh": "4:3 低角正面全身車內後座騎乘：狹窄車廂內施與方背靠後座扶胯，承受方跨坐於上方微低頭撐住車頂或椅背。",
+  "scene_tags": [
+   "car interior"
+  ]
  },
  {
   "id": "car_backseat_reclined_above",
@@ -2618,7 +2628,6 @@
   "shared_pose_tags": [
    "sex",
    "missionary",
-   "car interior",
    "lying"
   ],
   "slots": {
@@ -2697,7 +2706,10 @@
    }
   },
   "natural_en": "Wide 16:9 high-angle three-quarter view looking through an open car door across the backseat: the receiver lies lengthwise with folded knees while the giver presses in from the opposite side.",
-  "prompt_zh": "16:9 寬幅俯視斜側後座橫躺：透過開啟車門俯看狹窄後排，承受方橫躺長椅屈膝張腿，施與方自另一側跪壓進入。"
+  "prompt_zh": "16:9 寬幅俯視斜側後座橫躺：透過開啟車門俯看狹窄後排，承受方橫躺長椅屈膝張腿，施與方自另一側跪壓進入。",
+  "scene_tags": [
+   "car interior"
+  ]
  },
  {
   "id": "car_driver_seat_lap_3q",
@@ -2715,8 +2727,7 @@
   "shared_pose_tags": [
    "sex",
    "reverse cowgirl position",
-   "sitting on lap",
-   "car interior"
+   "sitting on lap"
   ],
   "slots": {
    "receiver": {
@@ -2794,7 +2805,10 @@
    }
   },
   "natural_en": "Three-quarter full-body view inside the front cabin of a car: the giver sits in the pushed-back driver seat while the receiver straddles facing the windshield with hands braced on the steering wheel.",
-  "prompt_zh": "斜側全身駕駛座背向跨坐：前座向後調開，施與方端坐椅背扶腰，承受方背向跨坐其膝、手扶方向盤拱背回眸。"
+  "prompt_zh": "斜側全身駕駛座背向跨坐：前座向後調開，施與方端坐椅背扶腰，承受方背向跨坐其膝、手扶方向盤拱背回眸。",
+  "scene_tags": [
+   "car interior"
+  ]
  },
  {
   "id": "window_sill_leaning_out_behind",
@@ -2911,7 +2925,6 @@
   "shared_pose_tags": [
    "sex",
    "standing doggystyle",
-   "balcony",
    "railing"
   ],
   "slots": {
@@ -2989,7 +3002,10 @@
    }
   },
   "natural_en": "Wide 16:9 three-quarter view on an open balcony: the receiver rests her forearms on the railing looking back while the giver embraces her from behind against the outdoor vista.",
-  "prompt_zh": "16:9 寬幅斜側全身陽台欄杆：開闊陽台外景下，承受方扶靠欄杆微前傾回眸，施與方自後緊抱腰際站立後入。"
+  "prompt_zh": "16:9 寬幅斜側全身陽台欄杆：開闊陽台外景下，承受方扶靠欄杆微前傾回眸，施與方自後緊抱腰際站立後入。",
+  "scene_tags": [
+   "balcony"
+  ]
  },
  {
   "id": "corridor_corner_hidden_below",
@@ -3009,8 +3025,7 @@
   "shared_pose_tags": [
    "sex",
    "standing sex",
-   "against wall",
-   "hallway"
+   "against wall"
   ],
   "slots": {
    "receiver": {
@@ -3088,7 +3103,10 @@
    }
   },
   "natural_en": "Low-angle Dutch-tilt three-quarter full-body view down a dim corridor: the receiver is pressed into a hallway corner with one leg hooked up while the giver shields her closely.",
-  "prompt_zh": "低角度傾斜斜側全身走廊暗角：幽暗長廊轉角處，承受方貼牆抬腿摟頸，施與方以身軀貼近遮掩並撐牆托腿結合。"
+  "prompt_zh": "低角度傾斜斜側全身走廊暗角：幽暗長廊轉角處，承受方貼牆抬腿摟頸，施與方以身軀貼近遮掩並撐牆托腿結合。",
+  "scene_tags": [
+   "hallway"
+  ]
  },
  {
   "id": "onsen_lap_upright_straddle_side",
@@ -3107,9 +3125,7 @@
   "shared_pose_tags": [
    "sex",
    "upright straddle",
-   "sitting on lap",
-   "onsen",
-   "steam"
+   "sitting on lap"
   ],
   "slots": {
    "receiver": {
@@ -3185,7 +3201,11 @@
    }
   },
   "natural_en": "Side 4:3 view at a hot spring: the giver sits on the stone rim on the right with the lower legs in the water, holding the receiver's waist, while the receiver straddles the lap face to face on the left above the water, arms around the neck; faint steam rises from the water.",
-  "prompt_zh": "4:3 側面溫泉池邊面對面跨坐：施與方居右坐在池邊石緣、小腿浸入水中並扶住對方腰部；承受方居左面對面跨坐其腿上、身體在水面之上僅腳尖觸水，雙臂環頸對視；水面有淡淡熱氣。"
+  "prompt_zh": "4:3 側面溫泉池邊面對面跨坐：施與方居右坐在池邊石緣、小腿浸入水中並扶住對方腰部；承受方居左面對面跨坐其腿上、身體在水面之上僅腳尖觸水，雙臂環頸對視；水面有淡淡熱氣。",
+  "scene_tags": [
+   "onsen",
+   "steam"
+  ]
  },
  {
   "id": "school_desk_bent_over_arm_hold_side",
@@ -3302,8 +3322,7 @@
   "shared_pose_tags": [
    "sex",
    "standing sex",
-   "sex from behind",
-   "train interior"
+   "sex from behind"
   ],
   "slots": {
    "receiver": {
@@ -3380,7 +3399,10 @@
    }
   },
   "natural_en": "Side full-body view inside a train car: the receiver stands upright on the left holding a hanging strap overhead while the giver stands close behind on the right, one hand on the hip and one on a breast.",
-  "prompt_zh": "側面全身電車站立後入：承受方居左直立、單手高舉拉住吊環並閉眼；施與方居右緊貼其背後站立，一手扶胯一手握胸。"
+  "prompt_zh": "側面全身電車站立後入：承受方居左直立、單手高舉拉住吊環並閉眼；施與方居右緊貼其背後站立，一手扶胯一手握胸。",
+  "scene_tags": [
+   "train interior"
+  ]
  },
  {
   "id": "locker_bench_squatting_cowgirl_3q",
@@ -3398,9 +3420,7 @@
   "shared_pose_tags": [
    "sex",
    "squatting cowgirl position",
-   "on bench",
-   "locker room",
-   "locker"
+   "on bench"
   ],
   "slots": {
    "receiver": {
@@ -3477,7 +3497,11 @@
    }
   },
   "natural_en": "Three-quarter 4:3 view on a locker-room bench: the giver lies on the back along the bench while the receiver squats astride with knees spread and hands on the knees.",
-  "prompt_zh": "4:3 斜側更衣室長椅蹲姿騎乘：施與方仰躺於長椅上扶腰仰望；承受方雙腳踩在椅面蹲坐其胯上、張開雙膝、雙手扶膝俯視。"
+  "prompt_zh": "4:3 斜側更衣室長椅蹲姿騎乘：施與方仰躺於長椅上扶腰仰望；承受方雙腳踩在椅面蹲坐其胯上、張開雙膝、雙手扶膝俯視。",
+  "scene_tags": [
+   "locker room",
+   "locker"
+  ]
  },
  {
   "id": "office_desk_edge_leg_lock_side",
@@ -3496,7 +3520,6 @@
   "shared_pose_tags": [
    "sex",
    "on desk",
-   "office",
    "desk"
   ],
   "slots": {
@@ -3572,7 +3595,10 @@
    }
   },
   "natural_en": "Side 4:3 view at an office desk with a monitor: the receiver sits upright on the desk edge on the left with one hand braced behind on the desktop, the near leg raised over the giver's arm and the far leg passing behind the giver's hips, feet hanging loose; the giver stands between the legs on the right holding the raised thigh, and they face each other.",
-  "prompt_zh": "4:3 側面辦公桌緣交合（桌上有螢幕）：承受方居左直坐於桌緣、單手向後撐桌，近側腿抬起掛在對方手臂上、遠側腿繞過對方腰後，雙腳鬆垂於對方身後；施與方居右站在兩腿之間、單手扶住抬起的大腿，兩人相對。"
+  "prompt_zh": "4:3 側面辦公桌緣交合（桌上有螢幕）：承受方居左直坐於桌緣、單手向後撐桌，近側腿抬起掛在對方手臂上、遠側腿繞過對方腰後，雙腳鬆垂於對方身後；施與方居右站在兩腿之間、單手扶住抬起的大腿，兩人相對。",
+  "scene_tags": [
+   "office"
+  ]
  },
  {
   "id": "alley_brick_wall_leg_lift_3q",
@@ -3591,9 +3617,7 @@
    "sex",
    "standing sex",
    "leg lift",
-   "against wall",
-   "brick wall",
-   "alley"
+   "against wall"
   ],
   "slots": {
    "receiver": {
@@ -3669,7 +3693,11 @@
    }
   },
   "natural_en": "Three-quarter full-body view in a narrow alley: the receiver stands on one leg with the back to a brick wall on the left, the other leg lifted, while the giver faces her on the right holding the raised leg.",
-  "prompt_zh": "斜側全身巷弄磚牆立交：承受方居左背貼磚牆單腳站立、另一腿高抬並扶住對方肩膀；施與方居右面對面托起其抬起的腿貼近牆面。"
+  "prompt_zh": "斜側全身巷弄磚牆立交：承受方居左背貼磚牆單腳站立、另一腿高抬並扶住對方肩膀；施與方居右面對面托起其抬起的腿貼近牆面。",
+  "scene_tags": [
+   "brick wall",
+   "alley"
+  ]
  },
  {
   "id": "toilet_stall_reverse_lap_front",
@@ -3688,9 +3716,7 @@
    "sex",
    "reverse cowgirl position",
    "sitting on lap",
-   "toilet stall",
-   "on toilet",
-   "toilet"
+   "on toilet"
   ],
   "slots": {
    "receiver": {
@@ -3766,7 +3792,11 @@
    }
   },
   "natural_en": "Front full-body view inside a toilet stall: the giver sits on the toilet seat while the receiver sits on the lap facing away toward the camera, leaning back with legs held apart by the giver's hands.",
-  "prompt_zh": "正面全身廁所隔間背向坐腿：施與方坐在馬桶上，從後方雙手撐開承受方大腿並俯視；承受方背向對方坐在腿上、後仰靠胸、張開雙腿望向鏡頭。"
+  "prompt_zh": "正面全身廁所隔間背向坐腿：施與方坐在馬桶上，從後方雙手撐開承受方大腿並俯視；承受方背向對方坐在腿上、後仰靠胸、張開雙腿望向鏡頭。",
+  "scene_tags": [
+   "toilet stall",
+   "toilet"
+  ]
  },
  {
   "id": "shower_glass_breasts_press_rear_side",
@@ -3787,9 +3817,7 @@
    "standing sex",
    "sex from behind",
    "against glass",
-   "breasts on glass",
-   "shower (place)",
-   "showering"
+   "breasts on glass"
   ],
   "slots": {
    "receiver": {
@@ -3865,6 +3893,10 @@
    }
   },
   "natural_en": "Side full-body view in a shower: the receiver stands upright on the left with chest and palms pressed flat against the glass, while the giver stands behind on the right hugging the waist and pressing close.",
-  "prompt_zh": "側面全身淋浴間直立後入：承受方居左直立面向淋浴玻璃，胸口與雙掌平貼玻璃並閉眼；施與方居右緊貼其背後直立，從後環抱腰部壓向玻璃。"
+  "prompt_zh": "側面全身淋浴間直立後入：承受方居左直立面向淋浴玻璃，胸口與雙掌平貼玻璃並閉眼；施與方居右緊貼其背後直立，從後環抱腰部壓向玻璃。",
+  "scene_tags": [
+   "shower (place)",
+   "showering"
+  ]
  }
 ]
