@@ -2741,5 +2741,448 @@
   },
   "natural_en": "Intimate side close-up of ear licking: one partner leans in from the right with a hand on the shoulder, tongue extended to lick the blushing partner's ear on the left.",
   "prompt_zh": "4:3 側面近景貼耳舔舐：右側角色輕扶肩部貼近耳畔伸舌舔舐耳廓，左側承受方微偏頭臉紅閉眼。"
+ },
+ {
+  "id": "foreplay_nipple_tweak_pinching_front_3q",
+  "category": "02_foreplay",
+  "subcategory": "背後環抱揉胸",
+  "title_zh": "背後環抱捏拉乳頭・斜側近景",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "three_quarter_left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "three-quarter view"
+  ],
+  "shared_pose_tags": [
+   "nipple tweak",
+   "nipple pull",
+   "hug from behind",
+   "breasts out",
+   "grabbing another's breast"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（前方微仰頭挺胸）",
+    "requires": "breasts",
+    "center": {
+     "x": 0.48,
+     "y": 0.52
+    },
+    "tags": [
+     "standing",
+     "arched back",
+     "head back",
+     "nipple tweak",
+     "breasts out",
+     "arms at sides",
+     "blush",
+     "open mouth"
+    ],
+    "natural_en": "Standing in front arching her back and tilting her head back in flushed sensitivity as her partner pinches and tweaks both nipples from behind."
+   },
+   "giver": {
+    "label_zh": "施與方（後方環抱雙手捏拉乳頭）",
+    "requires": "any",
+    "center": {
+     "x": 0.52,
+     "y": 0.48
+    },
+    "tags": [
+     "standing",
+     "hug from behind",
+     "nipple tweak",
+     "nipple pull",
+     "grabbing another's breast"
+    ],
+    "natural_en": "Standing tightly behind her, reaching both hands around her torso to delicately pinch and tweak both of her nipples."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ]
+   }
+  },
+  "natural_en": "Three-quarter full-body view of nipple stimulation from behind: the partner stands closely behind hugging her and pinching both nipples while she arches back blushing.",
+  "prompt_zh": "3:4 斜側全身背後環抱捏拉乳頭：後方施與方貼背伸出雙手捏拉雙側乳頭，前方承受方挺胸仰頭微喘潮紅。"
+ },
+ {
+  "id": "foreplay_licking_nipple_reclining_side",
+  "category": "02_foreplay",
+  "subcategory": "耳頸親吻與撫摸腰腿",
+  "title_zh": "俯身舔舐乳頭・側面全身",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "4:3",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "licking nipple",
+   "nipple stimulation",
+   "breast fondling",
+   "saliva"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側仰躺挺胸潮紅）",
+    "requires": "breasts",
+    "center": {
+     "x": 0.42,
+     "y": 0.58
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "arched back",
+     "licking nipple",
+     "breasts out",
+     "arms at sides",
+     "blush",
+     "closed eyes",
+     "parted lips"
+    ],
+    "natural_en": "Lying on her back on the left arching her chest up with arms resting at her sides, eyes closed and lips parted in blush as her nipple is licked."
+   },
+   "giver": {
+    "label_zh": "施與方（右側俯身托胸伸舌舔乳頭）",
+    "requires": "any",
+    "center": {
+     "x": 0.62,
+     "y": 0.48
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "licking nipple",
+     "tongue out",
+     "saliva",
+     "grabbing another's breast",
+     "facing another"
+    ],
+    "natural_en": "Kneeling beside her on the right, leaning low to cup one breast while flicking his wet tongue directly against her erect nipple."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ]
+   }
+  },
+  "natural_en": "Side full-body view of nipple licking: the woman lies on her back arching her chest while her kneeling partner leans over cupping her breast and licking her nipple with an extended tongue.",
+  "prompt_zh": "4:3 側面全身俯身舔舐乳頭：承受方仰躺挺胸輕扶對方後腦，施與方跪俯身側單手托胸伸出濕舌舔舐乳頭。"
+ },
+ {
+  "id": "foreplay_after_kiss_saliva_bridge_side",
+  "category": "02_foreplay",
+  "subcategory": "耳頸親吻與撫摸腰腿",
+  "title_zh": "吻後微離唾液拉絲・側面近景",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "upper body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "after kiss",
+   "saliva",
+   "saliva trail",
+   "face-to-face",
+   "hug"
+  ],
+  "slots": {
+   "left_partner": {
+    "label_zh": "左側角色（唇瓣微離拉出銀絲凝望）",
+    "requires": "female",
+    "center": {
+     "x": 0.38,
+     "y": 0.5
+    },
+    "tags": [
+     "after kiss",
+     "parted lips",
+     "open mouth",
+     "saliva",
+     "saliva trail",
+     "blush",
+     "half-closed eyes",
+     "hug",
+     "facing another",
+     "looking at another"
+    ],
+    "natural_en": "Locked in a close embrace on the left, lips parted inches apart right after a deep kiss with a glistening saliva bridge stretching between them, gazing dreamily."
+   },
+   "right_partner": {
+    "label_zh": "右側角色（貼面扶頰拉絲凝視）",
+    "requires": "any",
+    "center": {
+     "x": 0.62,
+     "y": 0.5
+    },
+    "tags": [
+     "after kiss",
+     "parted lips",
+     "saliva",
+     "saliva trail",
+     "hand on another's cheek",
+     "hug",
+     "facing another",
+     "looking at another"
+    ],
+    "natural_en": "Held tightly in front of her on the right cradling her cheek, leaning back just a breath after kissing with a delicate strand of saliva still connecting their lips."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ]
+   }
+  },
+  "natural_en": "Side upper-body view of an intimate after-kiss pause: locked in close embrace with faces inches apart, parted lips joined by a shimmering saliva trail.",
+  "prompt_zh": "3:4 側面近景吻後微離拉絲：雙方相擁貼面剛結束深吻，雙唇微微分開並拉出細長唾液銀絲、迷離對望。"
+ },
+ {
+  "id": "foreplay_surprise_kiss_standing_side",
+  "category": "02_foreplay",
+  "subcategory": "壁咚與壓制親吻",
+  "title_zh": "突襲親吻・驚訝微紅側面半身",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "cowboy shot",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "surprise kiss",
+   "kiss",
+   "face-to-face"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（驚訝睜大眼被突襲吻住）",
+    "requires": "female",
+    "center": {
+     "x": 0.38,
+     "y": 0.52
+    },
+    "tags": [
+     "standing",
+     "surprise kiss",
+     "kiss",
+     "surprised",
+     "wide-eyed",
+     "blush",
+     "hands on another's chest",
+     "facing another"
+    ],
+    "natural_en": "Standing on the left caught completely off guard with wide surprised eyes and flushed cheeks, both hands pressed lightly against her partner's chest during a sudden kiss."
+   },
+   "giver": {
+    "label_zh": "施與方（俯身托下巴突襲親吻）",
+    "requires": "any",
+    "center": {
+     "x": 0.62,
+     "y": 0.5
+    },
+    "tags": [
+     "standing",
+     "leaning forward",
+     "surprise kiss",
+     "kiss",
+     "hand on another's cheek",
+     "hand on another's waist",
+     "facing another"
+    ],
+    "natural_en": "Stepping in close from the right holding her waist and cupping her cheek to lean in and steal a sudden kiss."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ]
+   }
+  },
+  "natural_en": "Side cowboy-shot view of a surprise kiss: the partner on the right steps in holding her cheek to kiss her abruptly while she stands wide-eyed and blushing with hands on his chest.",
+  "prompt_zh": "3:4 側面半身突襲親吻：右側角色扶腰捧頰突然傾身吻上，左側承受方雙手抵胸、驚訝睜眼臉紅。"
+ },
+ {
+  "id": "foreplay_kissing_forehead_embrace_side",
+  "category": "02_foreplay",
+  "subcategory": "耳頸親吻與撫摸腰腿",
+  "title_zh": "擁抱輕吻額頭・溫柔親暱側面半身",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "upper body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "kissing forehead",
+   "height difference",
+   "hug",
+   "face-to-face"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（依偎懷中閉眼承接額吻）",
+    "requires": "female",
+    "center": {
+     "x": 0.38,
+     "y": 0.56
+    },
+    "tags": [
+     "forehead",
+     "hug",
+     "closed eyes",
+     "blush",
+     "smile",
+     "facing another"
+    ],
+    "natural_en": "Tucked gently into her partner's embrace on the left with eyes closed and a soft blushing smile while receiving a tender kiss on her forehead."
+   },
+   "giver": {
+    "label_zh": "施與方（環抱低頭輕吻額頭）",
+    "requires": "any",
+    "center": {
+     "x": 0.62,
+     "y": 0.44
+    },
+    "tags": [
+     "leaning forward",
+     "looking down",
+     "kissing forehead",
+     "hug",
+     "hand on another's head",
+     "facing another"
+    ],
+    "natural_en": "Standing taller on the right wrapping an arm around her and leaning down tenderly to press a gentle kiss against her forehead."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ]
+   }
+  },
+  "natural_en": "Tender side upper-body view of a forehead kiss: locked in a warm embrace as the partner leans down to softly kiss her forehead while she closes her eyes blushing.",
+  "prompt_zh": "3:4 側面半身擁抱輕吻額頭：雙方溫柔相擁，右側角色低頭輕吻額頭，左側依偎閉眼含羞微笑。"
+ },
+ {
+  "id": "foreplay_licking_face_cheek_side",
+  "category": "02_foreplay",
+  "subcategory": "耳頸親吻與撫摸腰腿",
+  "title_zh": "貼身舔臉舔頰・親暱挑逗側面近景",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "upper body",
+   "close-up",
+   "three-quarter view"
+  ],
+  "shared_pose_tags": [
+   "licking another's cheek",
+   "licking another's face",
+   "tongue out",
+   "saliva",
+   "hug"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（被貼臉舔頰羞紅微偏頭）",
+    "requires": "any",
+    "center": {
+     "x": 0.38,
+     "y": 0.52
+    },
+    "tags": [
+     "facing viewer",
+     "blush",
+     "embarrassed",
+     "head tilt",
+     "wet face",
+     "hug"
+    ],
+    "natural_en": "On the left facing three-quarters forward blushing deeply and tilting the head slightly as the partner leans in from the side to lick along the cheek."
+   },
+   "giver": {
+    "label_zh": "施與方（扶頰貼近伸舌舔臉）",
+    "requires": "female",
+    "center": {
+     "x": 0.62,
+     "y": 0.5
+    },
+    "tags": [
+     "leaning forward",
+     "licking another's cheek",
+     "licking another's face",
+     "tongue out",
+     "saliva",
+     "hand on another's cheek",
+     "hug",
+     "facing another"
+    ],
+    "natural_en": "Leaning in playfully from the right holding the partner's chin and cheek, extending a wet tongue to leave a glistening lick up the partner's cheek."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ]
+   }
+  },
+  "natural_en": "Side upper-body close-up of affectionate face licking: the woman leans close cupping her partner's face and running her wet tongue playfully up their flushed cheek.",
+  "prompt_zh": "3:4 側面近景貼身舔臉舔頰：右側女性扶臉貼近伸出濕舌沿臉頰向上舔舐，左側承受方臉紅閉眼微偏頭。"
  }
 ]

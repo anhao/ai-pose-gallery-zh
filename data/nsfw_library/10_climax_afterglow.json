@@ -1895,5 +1895,185 @@
   },
   "natural_en": "Full-body side view of an adult woman alone on a bed at orgasm, lying on her back with back and hips arched high into a bridge, head tipped back with mouth open, knees bent with feet planted on the bed, gripping the sheet.",
   "prompt_zh": "側面全身單人高潮：仰躺床上，頭後仰張口，背部與腰臀高高拱起成橋，屈膝雙腳踩床，手緊抓床單。"
+ },
+ {
+  "id": "climax_after_fellatio_cum_mouth_kneeling_3q",
+  "category": "10_climax_afterglow",
+  "subcategory": "事後溢出特寫與癱軟仰躺／雙人相擁平復",
+  "title_zh": "口交事後餘韻・口角溢精仰望近景",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "three_quarter_left",
+  "mirrorable": true,
+  "camera_tags": [
+   "upper body",
+   "close-up",
+   "three-quarter view",
+   "from above"
+  ],
+  "shared_pose_tags": [
+   "after fellatio",
+   "cum in mouth",
+   "cum on tongue",
+   "cum on face",
+   "cumdrip"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（跪坐事後口角溢精微喘仰望）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.52
+    },
+    "tags": [
+     "kneeling",
+     "after fellatio",
+     "open mouth",
+     "tongue out",
+     "cum in mouth",
+     "cum on tongue",
+     "cum on face",
+     "cumdrip",
+     "blush",
+     "half-closed eyes",
+     "looking up",
+     "looking at viewer"
+    ],
+    "natural_en": "Kneeling in high-angle close-up right after fellatio, mouth parted with tongue slightly out showing glistening cum spilling from her lips and cheeks, flushed and panting."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   },
+   "pov": {
+    "base": [
+     "pov"
+    ]
+   }
+  },
+  "natural_en": "High-angle three-quarter close-up of after-fellatio afterglow: kneeling with flushed cheeks and half-closed eyes, mouth slightly open with cum overflowing onto her chin.",
+  "prompt_zh": "斜側俯視近景口交事後餘韻：跪姿微喘仰望、唇瓣微張吐舌可見口中與嘴角溢出精液，臉頰殘留點滴與紅暈。"
+ },
+ {
+  "id": "climax_after_paizuri_cum_breasts_sitting_3q",
+  "category": "10_climax_afterglow",
+  "subcategory": "事後溢出特寫與癱軟仰躺／雙人相擁平復",
+  "title_zh": "乳交事後餘韻・滿胸精液迷離近景",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "upper body",
+   "front view",
+   "from above"
+  ],
+  "shared_pose_tags": [
+   "after paizuri",
+   "cum on breasts",
+   "cum on chest",
+   "cumdrip"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（跪坐雙胸覆滿精液事後微喘）",
+    "requires": "breasts",
+    "center": {
+     "x": 0.5,
+     "y": 0.52
+    },
+    "tags": [
+     "kneeling",
+     "after paizuri",
+     "cum on breasts",
+     "cum on chest",
+     "cumdrip",
+     "breasts out",
+     "blush",
+     "half-closed eyes",
+     "looking up",
+     "looking at viewer"
+    ],
+    "natural_en": "Kneeling in high-angle front close-up right after paizuri with generous trails of warm cum glistening across her cleavage, breasts, and collarbone, gazing up dreamily."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   },
+   "pov": {
+    "base": [
+     "pov"
+    ]
+   }
+  },
+  "natural_en": "High-angle front upper-body close-up of after-paizuri afterglow: kneeling with cum dripping over her bare breasts and cleavage, cheeks flushed and eyes half-closed.",
+  "prompt_zh": "高角正面近景乳交事後餘韻：跪坐微喘仰望，胸口與乳溝覆滿滑落精液，雙頰潮紅眼神迷離。"
+ },
+ {
+  "id": "climax_after_anal_cum_in_ass_rear_closeup",
+  "category": "10_climax_afterglow",
+  "subcategory": "事後溢出特寫與癱軟仰躺／雙人相擁平復",
+  "title_zh": "後庭事後溢出・俯趴回眸後視全身",
+  "pattern": "solo_or_pov",
+  "default_canvas": "4:3",
+  "default_facing": "back",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from behind",
+   "ass focus"
+  ],
+  "shared_pose_tags": [
+   "after anal",
+   "after sex",
+   "cum in ass",
+   "cum on ass",
+   "cumdrip"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（俯趴癱軟後庭精液溢出）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.52
+    },
+    "tags": [
+     "lying",
+     "on stomach",
+     "after anal",
+     "after sex",
+     "cum in ass",
+     "cum on ass",
+     "cumdrip",
+     "exhausted",
+     "blush",
+     "looking back",
+     "looking at viewer"
+    ],
+    "natural_en": "Collapsed limp on her stomach right after anal sex, panting exhausted with flushed cheeks looking back as thick white cum drips out from her anus down her thighs."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   },
+   "pov": {
+    "base": [
+     "pov"
+    ]
+   }
+  },
+  "natural_en": "Rear 4:3 full-body view of after-anal afterglow: lying exhausted on her stomach with cum overflowing from her anus and dripping down her buttocks.",
+  "prompt_zh": "4:3 後視全身後庭事後溢出：伏床癱軟微喘、臉紅回眸，後庭與臀間清楚可見濃稠精液緩緩溢出滑落。"
  }
 ]

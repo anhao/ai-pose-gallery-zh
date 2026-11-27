@@ -5876,5 +5876,180 @@
   },
   "natural_en": "High-angle three-quarter close-up of imminent fellatio: the kneeling woman opens her mouth wide with her wet tongue sticking out toward the approaching erect penis right in front of her lips while gazing up with flushed cheeks.",
   "prompt_zh": "斜側高角近景臨界口交特寫：跪姿施與方仰望張口吐舌對準逼近唇前的前端，保持即將含入前的張力瞬間。"
+ },
+ {
+  "id": "pos_paizuri_under_clothes_standing_side",
+  "category": "03_service_oral_chest_hand_foot",
+  "subcategory": "乳交 paizuri",
+  "title_zh": "衣內隔衣乳交・側面全身",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "three-quarter view"
+  ],
+  "shared_pose_tags": [
+   "paizuri",
+   "paizuri under clothes",
+   "between breasts",
+   "breasts squeezed together",
+   "face to face"
+  ],
+  "slots": {
+   "giver": {
+    "label_zh": "施與方（跪坐將陰莖夾入衣內雙胸）",
+    "requires": "breasts",
+    "center": {
+     "x": 0.36,
+     "y": 0.58
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "paizuri",
+     "paizuri under clothes",
+     "breasts squeezed together",
+     "grabbing own breast",
+     "looking up",
+     "facing another"
+    ],
+    "natural_en": "Kneeling on the left squeezing her breasts tightly together beneath her top around the partner's penis tucked under her clothes, gazing up."
+   },
+   "receiver": {
+    "label_zh": "承受方（右側站立腰胯前貼）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.66,
+     "y": 0.46
+    },
+    "tags": [
+     "standing",
+     "erection",
+     "paizuri",
+     "paizuri under clothes",
+     "hand on another's head",
+     "looking down",
+     "facing another"
+    ],
+    "natural_en": "Standing on the right resting his hand lightly on her head while thrusting his erect penis upward beneath her lingerie between her pressed breasts."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "paizuri"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "paizuri"
+    ],
+    "receiver": [
+     "futanari",
+     "penis"
+    ]
+   }
+  },
+  "natural_en": "Three-quarter full-body view of under-clothes paizuri: kneeling facing the standing partner, pressing her breasts together around his penis tucked inside her lingerie.",
+  "prompt_zh": "側面全身衣內乳交：左側女性跪坐將陰莖夾入貼身衣物內的雙胸之間擠壓侍奉，右側站立扶頭俯視。"
+ },
+ {
+  "id": "pos_paizuri_straddling_lying_receiver_side",
+  "category": "03_service_oral_chest_hand_foot",
+  "subcategory": "乳交 paizuri",
+  "title_zh": "跨坐壓胸乳交・側面全身",
+  "pattern": "organ_bound",
+  "default_canvas": "4:3",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "paizuri",
+   "straddling paizuri",
+   "between breasts",
+   "straddling",
+   "girl on top",
+   "breasts squeezed together"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（下方仰躺承接跨坐夾乳）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.44,
+     "y": 0.66
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs",
+     "erection",
+     "paizuri",
+     "between breasts",
+     "hands on another's hips",
+     "looking up"
+    ],
+    "natural_en": "Lying flat on his back below with hands resting on her hips as she straddles his torso and presses her heavy breasts down around his erect penis."
+   },
+   "giver": {
+    "label_zh": "施與方（上方跨坐俯身壓胸乳交）",
+    "requires": "breasts",
+    "center": {
+     "x": 0.58,
+     "y": 0.44
+    },
+    "tags": [
+     "straddling",
+     "girl on top",
+     "leaning forward",
+     "paizuri",
+     "between breasts",
+     "breasts squeezed together",
+     "grabbing own breast",
+     "looking down"
+    ],
+    "natural_en": "Straddling over his thighs and leaning forward low over his waist, squeezing her breasts together around his shaft in a straddling paizuri."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "paizuri"
+    ],
+    "receiver": [
+     "penis",
+     "large penis",
+     "glans"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "paizuri"
+    ],
+    "receiver": [
+     "futanari",
+     "penis",
+     "large penis",
+     "glans"
+    ]
+   }
+  },
+  "natural_en": "Side full-body view of straddling paizuri: the man lies on his back while the woman straddles his legs and leans forward, pressing her squeezed breasts down over his erect penis.",
+  "prompt_zh": "4:3 側面全身跨坐壓胸乳交：承受方仰躺扶胯，施與方跨坐於大腿上方俯身將雙胸壓合夾住陰莖上下侍奉。"
  }
 ]

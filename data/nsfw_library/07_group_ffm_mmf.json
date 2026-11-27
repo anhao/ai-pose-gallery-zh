@@ -3043,5 +3043,103 @@
   },
   "natural_en": "High-angle three-quarter full-body wide view of an FFM split service: the man lies on his back in the center while one woman kneels at his head kissing him and the second sits at the right stroking him with both feet.",
   "prompt_zh": "4:3 斜側俯視雙女複合侍奉：承受方居中仰躺，一女跪於頭側俯身深吻，另一女坐於右側後撐以雙足夾持足交。"
+ },
+ {
+  "id": "group_ffm_shimaidon_side_by_side_bed_above",
+  "category": "07_group_ffm_mmf",
+  "subcategory": "2女1男 FFM",
+  "title_zh": "雙女並列同侍（姊妹丼構圖）・俯視全身",
+  "pattern": "organ_bound",
+  "default_canvas": "4:3",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "wide shot",
+   "from above"
+  ],
+  "shared_pose_tags": [
+   "shimaidon (sex)",
+   "ffm threesome",
+   "sex",
+   "vaginal",
+   "missionary",
+   "side by side",
+   "on bed",
+   "lying"
+  ],
+  "slots": {
+   "receiver_left": {
+    "label_zh": "左側女性（仰躺張腿正在交合）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.34,
+     "y": 0.56
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "on bed",
+     "side by side",
+     "spread legs",
+     "missionary",
+     "shimaidon (sex)",
+     "blush",
+     "open mouth"
+    ],
+    "natural_en": "Lying on her back on the left side with legs spread wide, receiving missionary sex from the man while her partner lies right next to her."
+   },
+   "receiver_right": {
+    "label_zh": "右側女性（並躺貼身觀望／緊貼等候）",
+    "requires": "female",
+    "center": {
+     "x": 0.72,
+     "y": 0.56
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "on bed",
+     "side by side",
+     "spread legs",
+     "shimaidon (sex)",
+     "blush",
+     "looking at another"
+    ],
+    "natural_en": "Lying right beside the first woman on the right with legs parted and cheeks flushed, hugging close while watching and waiting her turn."
+   },
+   "giver": {
+    "label_zh": "施與方（跪於左側女性腿間交合）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.44,
+     "y": 0.42
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "missionary",
+     "shimaidon (sex)",
+     "on top",
+     "on bed"
+    ],
+    "natural_en": "Kneeling over the two side-by-side women, penetrating the left woman in missionary position while resting one hand toward the right woman."
+   }
+  },
+  "pairing_tags": {
+   "ffm": {
+    "base": [
+     "ffm threesome",
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   }
+  },
+  "natural_en": "High-angle 4:3 full-body wide view of a shimaidon FFM threesome: two women lie side by side on their backs with legs parted while the man kneels over them penetrating one beside the other.",
+  "prompt_zh": "4:3 俯視全身雙女並列同侍（姊妹丼構圖）：兩名女性並排仰躺張腿，男方跪於其上先與一女正常位交合、另一女緊貼身側羞紅注視。"
  }
 ]

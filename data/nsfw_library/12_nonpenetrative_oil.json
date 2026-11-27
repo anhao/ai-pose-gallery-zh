@@ -2478,5 +2478,92 @@
   },
   "natural_en": "Low-angle three-quarter full-body view: the receiver sits in front with both hands behind the head raising both shoulders while the giver kneels closely behind along the vertical centerline into the armpit.",
   "prompt_zh": "斜正面低角縱疊全身腋下互動：承受方居前景坐姿、雙手抱腦後高抬手肘；施與方居正後方高跪前傾貼近肩腋。"
+ },
+ {
+  "id": "nonpenetrative_grinding_frottage_lap_side",
+  "category": "12_nonpenetrative_oil",
+  "subcategory": "素股與大腿摩擦 thigh sex",
+  "title_zh": "跨坐蹭磨素股（磨胯）・側面全身",
+  "pattern": "organ_bound",
+  "default_canvas": "4:3",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "grinding",
+   "frottage",
+   "thigh sex",
+   "straddling",
+   "face to face"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（下方仰躺扶胯承接摩擦）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.5,
+     "y": 0.68
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "erection",
+     "grinding",
+     "frottage",
+     "thigh sex",
+     "hands on another's hips"
+    ],
+    "natural_en": "Lying on his back gripping her hips as she straddles closely and grinds her thighs and pelvis back and forth along his erect shaft without penetration."
+   },
+   "giver": {
+    "label_zh": "施與方（上方跨坐貼胯前後蹭磨）",
+    "requires": "female",
+    "center": {
+     "x": 0.48,
+     "y": 0.44
+    },
+    "tags": [
+     "straddling",
+     "girl on top",
+     "grinding",
+     "frottage",
+     "thigh sex",
+     "hands on another's chest",
+     "blush",
+     "looking down"
+    ],
+    "natural_en": "Straddling over his hips with hands braced on his chest, pressing her inner thighs and pussy firmly against his erect shaft to grind rhythmically."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "grinding",
+     "frottage"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "grinding",
+     "frottage"
+    ],
+    "receiver": [
+     "futanari",
+     "penis"
+    ]
+   }
+  },
+  "natural_en": "Side full-body view of non-penetrative straddling grinding: the woman sits astride his hips bracing hands on his chest, rubbing smoothly along his erect shaft.",
+  "prompt_zh": "4:3 側面全身跨坐蹭磨素股：承受方仰躺扶胯，施與方跨坐於上雙手撐胸、貼緊胯間前後摩擦（非插入）。"
  }
 ]

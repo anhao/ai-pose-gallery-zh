@@ -5597,5 +5597,644 @@
   },
   "natural_en": "Low-angle front full-body view of a deep mating press: the giver squats forward pinning the lying receiver's legs folded back beside her shoulders.",
   "prompt_zh": "正面低角全身：深折疊壓制（Mating Press），受方仰躺雙腿被折壓至肩旁，攻方上位蹲壓推進。"
+ },
+ {
+  "id": "pos_clothed_sex_doggystyle_skirt_lift_side",
+  "category": "04_main_positions",
+  "subcategory": "後背位",
+  "title_zh": "穿衣掀裙後入・側面全身",
+  "pattern": "organ_bound",
+  "default_canvas": "4:3",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "clothed sex",
+   "sex",
+   "vaginal",
+   "doggystyle",
+   "sex from behind",
+   "panties aside"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側著裝趴伏撥開內褲）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.36,
+     "y": 0.56
+    },
+    "tags": [
+     "all fours",
+     "clothed sex",
+     "doggystyle",
+     "sex from behind",
+     "panties aside",
+     "arched back",
+     "looking back"
+    ],
+    "natural_en": "On all fours on the left still wearing her lingerie with panties pulled aside, arching her back and glancing back during clothed doggystyle sex."
+   },
+   "giver": {
+    "label_zh": "施與方（右側跪於身後扶胯進入）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.68,
+     "y": 0.52
+    },
+    "tags": [
+     "kneeling",
+     "clothed sex",
+     "doggystyle",
+     "sex from behind",
+     "hands on another's hips"
+    ],
+    "natural_en": "Kneeling behind her on the right gripping her hips firmly as he penetrates her from behind with her clothes still on."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal",
+     "clothed sex"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal",
+     "clothed sex"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal",
+     "clothed sex"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   }
+  },
+  "natural_en": "Side full-body view of clothed doggystyle sex: the woman stays dressed on all fours with her panties shifted aside while her partner kneels behind gripping her hips.",
+  "prompt_zh": "4:3 側面全身穿衣掀裙後入：左側女性保持衣著四肢著地並將內褲撥開，右側跪於身後扶胯直接後入。"
+ },
+ {
+  "id": "pos_clothed_sex_missionary_panties_aside_side",
+  "category": "04_main_positions",
+  "subcategory": "正常位",
+  "title_zh": "穿衣撥內褲正常位・側面全身",
+  "pattern": "organ_bound",
+  "default_canvas": "4:3",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "clothed sex",
+   "sex",
+   "vaginal",
+   "missionary",
+   "panties aside",
+   "face to face",
+   "on bed"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（仰躺張腿撥開內褲）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.42,
+     "y": 0.64
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs",
+     "knees up",
+     "clothed sex",
+     "missionary",
+     "panties aside",
+     "looking up",
+     "blush"
+    ],
+    "natural_en": "Lying on her back still dressed with legs spread and panties pulled aside to one hip, blushing up at her partner during clothed missionary sex."
+   },
+   "giver": {
+    "label_zh": "施與方（上方跪俯正常位進入）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.58,
+     "y": 0.46
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "clothed sex",
+     "missionary",
+     "on top",
+     "hands on another's hips",
+     "looking down",
+     "facing another"
+    ],
+    "natural_en": "Kneeling between her spread legs leaning forward over her still-clothed body in missionary position."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal",
+     "clothed sex"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal",
+     "clothed sex"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "sex",
+     "vaginal",
+     "clothed sex"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   }
+  },
+  "natural_en": "Side full-body view of clothed missionary sex: the woman lies on her back keeping her lingerie on with panties pulled aside while her partner leans over her between her legs.",
+  "prompt_zh": "4:3 側面全身穿衣撥內褲正常位：承受方保持貼身著裝仰躺張腿並撥開內褲，施與方俯身正面進入。"
+ },
+ {
+  "id": "pos_deep_penetration_stomach_bulge_missionary_side",
+  "category": "04_main_positions",
+  "subcategory": "高辨識度進階幾何",
+  "title_zh": "深插頂出腹凸正常位・斜側俯視全身",
+  "pattern": "organ_bound",
+  "default_canvas": "4:3",
+  "default_facing": "three_quarter_left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "sex",
+   "vaginal",
+   "missionary",
+   "deep penetration",
+   "stomach bulge",
+   "stomach"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（仰躺壓腿小腹明顯頂凸）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.38,
+     "y": 0.62
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "legs up",
+     "spread legs",
+     "missionary",
+     "deep penetration",
+     "stomach bulge",
+     "stomach",
+     "arched back",
+     "open mouth",
+     "blush"
+    ],
+    "natural_en": "Lying on her back with legs pushed high apart, arching her spine in flushed overwhelm as deep penetration forms a visible stomach bulge across her lower belly."
+   },
+   "giver": {
+    "label_zh": "施與方（高跪扶腿深壓頂入）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.64,
+     "y": 0.5
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "missionary",
+     "deep penetration",
+     "stomach bulge",
+     "holding another's leg"
+    ],
+    "natural_en": "Kneeling deeply between her lifted legs gripping her thighs as he thrusts all the way in to press a distinct bulge onto her lower stomach."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis",
+     "large penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis",
+     "large penis"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "interspecies",
+     "sex",
+     "vaginal"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "High-angle three-quarter full-body view emphasizing deep penetration and stomach bulge: the woman lies back with legs lifted wide and a pronounced bulge visible on her lower abdomen.",
+  "prompt_zh": "4:3 斜側俯視深插腹凸正常位：承受方仰躺抬腿後仰微喘，小腹清晰頂出隆起輪廓，施與方跪姿扶腿深壓。"
+ },
+ {
+  "id": "pos_imminent_vaginal_missionary_hover_side",
+  "category": "04_main_positions",
+  "subcategory": "正常位",
+  "title_zh": "陰道臨界對位懸停・側面全身",
+  "pattern": "organ_bound",
+  "default_canvas": "4:3",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "imminent vaginal",
+   "imminent penetration",
+   "missionary",
+   "spread legs",
+   "face to face"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（仰躺張腿羞紅待入）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.38,
+     "y": 0.64
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs",
+     "knees up",
+     "imminent vaginal",
+     "imminent penetration",
+     "blush",
+     "looking at another"
+    ],
+    "natural_en": "Lying on her back on the left with knees bent and thighs spread wide, blushing expectantly right before penetration."
+   },
+   "giver": {
+    "label_zh": "施與方（跪於腿間扶莖對準臨界）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.64,
+     "y": 0.52
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "erection",
+     "imminent vaginal",
+     "imminent penetration",
+     "penis grab",
+     "facing another"
+    ],
+    "natural_en": "Kneeling between her spread legs on the right, guiding the tip of his erect penis right against her entrance in a tense imminent-penetration hover."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "imminent vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "imminent vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "imminent vaginal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   }
+  },
+  "natural_en": "Side full-body view of imminent vaginal penetration: the woman lies back with legs parted while her kneeling partner aligns the tip right at her entrance before entering.",
+  "prompt_zh": "4:3 側面全身陰道臨界對位：承受方仰躺屈膝張腿羞紅凝望，施與方跪於腿間扶莖對準入口尚未進入的臨界瞬間。"
+ },
+ {
+  "id": "pos_full_nelson_suspended_front_3q",
+  "category": "04_main_positions",
+  "subcategory": "立位與抱起",
+  "title_zh": "完全尼爾森架空鎖肩立位・斜正面全身",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "three_quarter_left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "three-quarter view"
+  ],
+  "shared_pose_tags": [
+   "full nelson",
+   "full nelson (legs held)",
+   "sex",
+   "vaginal",
+   "penetration",
+   "uncensored",
+   "standing sex",
+   "reverse suspended congress"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（背貼對方被架膝鎖頸懸空）",
+    "requires": "pussy",
+    "center": {
+     "x": 0.48,
+     "y": 0.46
+    },
+    "tags": [
+     "full nelson",
+     "full nelson (legs held)",
+     "reverse suspended congress",
+     "legs up",
+     "spread legs",
+     "blush",
+     "open mouth"
+    ],
+    "natural_en": "Held completely airborne in a full nelson hold with her back against her partner's chest, knees hooked high and spread wide while her head is pressed gently forward."
+   },
+   "giver": {
+    "label_zh": "施與方（背後直立穿腋扣頸架空支撐）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.52,
+     "y": 0.48
+    },
+    "tags": [
+     "standing",
+     "full nelson",
+     "full nelson (legs held)",
+     "standing sex",
+     "reverse suspended congress",
+     "carrying"
+    ],
+    "natural_en": "Standing firmly behind her in a full nelson hold, hooking both arms beneath her raised knees and behind her neck to suspend her off the ground while penetrating from behind."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "sex",
+     "vaginal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "interspecies",
+     "sex",
+     "vaginal"
+    ],
+    "giver": []
+   }
+  },
+  "natural_en": "Three-quarter full-body view of a standing full nelson sex pose: the partner stands behind hooking arms under her raised knees and behind her neck to lift her fully off the ground.",
+  "prompt_zh": "斜正面全身完全尼爾森立位：施與方自背後站立穿過膝彎並扣住頸後將承受方完全架空鎖抱，承受方雙腿高舉外張懸空結合。"
+ },
+ {
+  "id": "pos_piggyback_standing_sex_side",
+  "category": "04_main_positions",
+  "subcategory": "立位與抱起",
+  "title_zh": "背負抱起・側面全身",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "piggyback",
+   "carrying",
+   "carrying another"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（伏於背後環頸盤腿）",
+    "requires": "female",
+    "center": {
+     "x": 0.56,
+     "y": 0.44
+    },
+    "tags": [
+     "piggyback",
+     "arms around neck",
+     "hug from behind",
+     "blush",
+     "open mouth"
+    ],
+    "natural_en": "Clinging piggyback onto her partner's back with arms wrapped around his neck and thighs hooked around his waist, blushing warmly."
+   },
+   "giver": {
+    "label_zh": "施與方（站立反手托腿背負）",
+    "requires": "any",
+    "center": {
+     "x": 0.44,
+     "y": 0.54
+    },
+    "tags": [
+     "standing",
+     "piggyback",
+     "carrying",
+     "carrying another",
+     "leaning forward"
+    ],
+    "natural_en": "Standing leaning slightly forward while carrying her piggyback, gripping beneath both of her thighs with hands behind his back."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "interspecies"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ]
+   }
+  },
+  "natural_en": "Side full-body view of a piggyback carry: the woman clings to his back with arms around his neck while he stands holding beneath her thighs.",
+  "prompt_zh": "側面全身背負抱起：承受方雙臂環頸、雙腿盤掛於施與方身後背上，施與方站立反手托穩大腿支撐。"
+ },
+ {
+  "id": "pos_shoulder_carry_lift_side",
+  "category": "04_main_positions",
+  "subcategory": "立位與抱起",
+  "title_zh": "單肩扛起抱舉・側面全身",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "3:4",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "carrying over shoulder",
+   "carrying",
+   "carrying another"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（被單肩倒扛垂懸臉紅）",
+    "requires": "female",
+    "center": {
+     "x": 0.56,
+     "y": 0.36
+    },
+    "tags": [
+     "carried",
+     "lifted",
+     "dangling arms",
+     "struggling",
+     "blush",
+     "surprised"
+    ],
+    "natural_en": "Draped head-down over her partner's shoulder in a fireman's shoulder carry, arms dangling behind his back while blushing in flustered surprise."
+   },
+   "giver": {
+    "label_zh": "施與方（站立單肩扛舉穩扶大腿）",
+    "requires": "any",
+    "center": {
+     "x": 0.44,
+     "y": 0.54
+    },
+    "tags": [
+     "standing",
+     "carrying over shoulder",
+     "carrying",
+     "carrying another",
+     "hand on another's thigh",
+     "profile"
+    ],
+    "natural_en": "Standing tall in side profile carrying her slung effortlessly over one shoulder with an arm wrapped firmly around her thighs."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ]
+   },
+   "female_other": {
+    "base": [
+     "interspecies"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ]
+   }
+  },
+  "natural_en": "Side full-body view of a fireman's shoulder carry: the partner stands tall carrying the blushing woman draped over one shoulder with one arm securing her thighs.",
+  "prompt_zh": "側面全身單肩扛起抱舉：施與方直立單臂扣穩大腿將承受方輕鬆扛上肩頭，承受方半倒掛垂懸並羞紅驚訝。"
  }
 ]

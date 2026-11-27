@@ -2139,5 +2139,200 @@
   },
   "natural_en": "Side full-body view of yuri foot worship: one woman sits leaning back on the left presenting her raised foot while the other kneels on the right holding the foot with both hands and licking the sole.",
   "prompt_zh": "4:3 側面全身女女足部崇拜：左側女性坐姿後撐抬腿伸足，右側女性跪坐雙手捧住足踝前傾舔舐腳底與趾尖。"
+ },
+ {
+  "id": "yuri_fff_threesome_kiss_fondling_bed_above",
+  "category": "05_yuri_cunnilingus",
+  "subcategory": "雙女互相愛撫揉胸與深吻",
+  "title_zh": "三女百合 3P 夾抱親吻揉胸・高角正面",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "4:3",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "cowboy shot",
+   "front view",
+   "from above"
+  ],
+  "shared_pose_tags": [
+   "fff threesome",
+   "yuri",
+   "threesome",
+   "multiple girls",
+   "sitting",
+   "kneeling",
+   "on bed",
+   "hug",
+   "kissing cheek",
+   "grabbing another's breast"
+  ],
+  "slots": {
+   "center_girl": {
+    "label_zh": "中央角色（居中坐姿臉紅受撫）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.56
+    },
+    "tags": [
+     "sitting",
+     "on bed",
+     "facing viewer",
+     "looking at viewer",
+     "blush",
+     "embarrassed",
+     "parted lips",
+     "hands on own thighs"
+    ],
+    "natural_en": "Sitting upright in the center on the bed facing the camera, blushing warmly with parted lips and hands resting on her thighs as the two women on either side lean in to kiss and fondle her."
+   },
+   "left_girl": {
+    "label_zh": "左側角色（左側跪靠親吻臉頰揉胸）",
+    "requires": "female",
+    "center": {
+     "x": 0.22,
+     "y": 0.52
+    },
+    "tags": [
+     "kneeling",
+     "on bed",
+     "leaning forward",
+     "facing another",
+     "kissing cheek",
+     "grabbing another's breast",
+     "arm around waist",
+     "closed eyes"
+    ],
+    "natural_en": "Kneeling on the bed to the left, leaning close to kiss the center woman's cheek while wrapping an arm around her and fondling her breast."
+   },
+   "right_girl": {
+    "label_zh": "右側角色（右側跪靠親吻頸側揉胸）",
+    "requires": "female",
+    "center": {
+     "x": 0.78,
+     "y": 0.52
+    },
+    "tags": [
+     "kneeling",
+     "on bed",
+     "leaning forward",
+     "facing another",
+     "kissing neck",
+     "grabbing another's breast",
+     "arm around waist",
+     "closed eyes"
+    ],
+    "natural_en": "Kneeling on the bed to the right, leaning close to kiss the center woman's neck while wrapping an arm around her and fondling her breast."
+   }
+  },
+  "pairing_tags": {
+   "group": {
+    "base": [
+     "fff threesome",
+     "yuri",
+     "threesome"
+    ]
+   }
+  },
+  "natural_en": "High-angle front 4:3 cowboy shot of an FFF yuri threesome on a bed: one woman sits upright in the center blushing while two women kneel on her left and right leaning in to kiss her cheek and neck while fondling her breasts.",
+  "prompt_zh": "4:3 高角正面床上三女百合 3P 夾抱親吻揉胸：中央女性坐姿面向鏡頭臉紅受撫，左右兩名女性分別跪靠傾身親吻臉頰與頸側並揉撫雙胸。"
+ },
+ {
+  "id": "yuri_fff_threesome_cunnilingus_and_kiss_3q",
+  "category": "05_yuri_cunnilingus",
+  "subcategory": "舔陰 cunnilingus",
+  "title_zh": "三女百合 3P 舔陰＋深吻・斜側俯視全身",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "4:3",
+  "default_facing": "three_quarter_left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "wide shot",
+   "three-quarter view",
+   "from above"
+  ],
+  "shared_pose_tags": [
+   "fff threesome",
+   "yuri",
+   "threesome",
+   "cunnilingus",
+   "kiss",
+   "french kiss",
+   "on bed"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（居中仰躺張腿承接吻舔）",
+    "requires": "female",
+    "center": {
+     "x": 0.46,
+     "y": 0.56
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "on bed",
+     "spread legs",
+     "fff threesome",
+     "cunnilingus",
+     "kiss",
+     "french kiss",
+     "blush",
+     "closed eyes"
+    ],
+    "natural_en": "Lying on her back in the center with legs spread wide, kissing one partner near her head while the other lies between her thighs giving cunnilingus."
+   },
+   "giver_kiss": {
+    "label_zh": "上方角色（頭側側臥俯身深吻揉胸）",
+    "requires": "female",
+    "center": {
+     "x": 0.24,
+     "y": 0.42
+    },
+    "tags": [
+     "lying",
+     "on side",
+     "on bed",
+     "leaning forward",
+     "fff threesome",
+     "kiss",
+     "french kiss",
+     "grabbing another's breast",
+     "facing another",
+     "closed eyes"
+    ],
+    "natural_en": "Lying on her side beside the center woman's head on the left, leaning in to kiss her lips deeply while caressing her breast."
+   },
+   "giver_oral": {
+    "label_zh": "腿間角色（腿間俯趴舔陰）",
+    "requires": "female",
+    "center": {
+     "x": 0.74,
+     "y": 0.58
+    },
+    "tags": [
+     "lying",
+     "on stomach",
+     "on bed",
+     "fff threesome",
+     "cunnilingus",
+     "holding another's leg",
+     "facing another"
+    ],
+    "natural_en": "Positioned between her spread thighs on the right, holding her legs open while performing cunnilingus."
+   }
+  },
+  "pairing_tags": {
+   "group": {
+    "base": [
+     "fff threesome",
+     "yuri",
+     "threesome"
+    ]
+   }
+  },
+  "natural_en": "High-angle three-quarter 4:3 full-body wide view of an FFF yuri threesome: one woman lies back in the middle while a second lies beside her kissing her at the head and a third gives cunnilingus between her spread legs.",
+  "prompt_zh": "4:3 斜側俯視三女百合 3P 舔陰深吻：中央女性仰躺張腿，一女於頭側側臥俯身深吻揉胸、另一女於腿間張腿舔陰。"
  }
 ]

@@ -3381,5 +3381,732 @@
   },
   "natural_en": "Front upper-body close-up of a teasing cunnilingus V-finger gesture: placing two fingers in a V sign on either side of her protruding moist tongue while looking smugly at the camera.",
   "prompt_zh": "正面近景特寫：雙指比出 V 字夾於吐出的濕潤舌尖兩側，臉頰微紅並以挑逗神情直視鏡頭。"
+ },
+ {
+  "id": "solo_ass_visible_through_thighs_front",
+  "category": "01_solo_closeup",
+  "subcategory": "臀部特寫展示",
+  "title_zh": "站姿腿縫露臀・正面全身",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view",
+   "straight-on"
+  ],
+  "shared_pose_tags": [
+   "standing",
+   "leaning forward",
+   "bent over",
+   "ass visible through thighs",
+   "thigh gap",
+   "hands on own knees"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（站姿腿縫露臀）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "standing",
+     "leaning forward",
+     "bent over",
+     "legs apart",
+     "ass visible through thighs",
+     "thigh gap",
+     "hands on own knees",
+     "looking at viewer"
+    ],
+    "natural_en": "Standing straight-on facing the viewer, leaning forward with hands resting on her own knees and legs slightly apart so both cheeks of her buttocks peek cleanly through the thigh gap."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   },
+   "pov": {
+    "base": [
+     "pov"
+    ]
+   }
+  },
+  "natural_en": "Front full-body view emphasizing ass visible through thighs: standing leaning forward with parted thighs revealing the curve of her buttocks behind the thigh gap.",
+  "prompt_zh": "正面全身腿縫露臀展示：站姿微前傾、雙腿微張，自大腿間隙清楚透見後方臀線，直視鏡頭。"
+ },
+ {
+  "id": "solo_wariza_knees_together_feet_apart_front",
+  "category": "01_solo_closeup",
+  "subcategory": "撩人全身／半身展示",
+  "title_zh": "內八鴨子坐展示・正面全身",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view",
+   "from above"
+  ],
+  "shared_pose_tags": [
+   "wariza",
+   "knees together feet apart",
+   "sitting",
+   "on ground"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（內八鴨子坐展示）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "sitting",
+     "wariza",
+     "knees together feet apart",
+     "hands on own thighs",
+     "blush",
+     "looking up",
+     "looking at viewer"
+    ],
+    "natural_en": "Sitting on the floor in a classic W-sit with knees pressed together and shins splayed outward to both sides, hands resting on her thighs while looking up."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   },
+   "pov": {
+    "base": [
+     "pov"
+    ]
+   }
+  },
+  "natural_en": "High-angle front full-body view of a woman sitting on the ground in wariza pose with knees together and feet splayed apart, gazing upward at the camera.",
+  "prompt_zh": "高角正面全身內八鴨子坐：坐於地面雙膝併攏、雙小腿向外展開呈 W 字坐姿，雙手輕扶大腿仰望鏡頭。"
+ },
+ {
+  "id": "solo_jack_o_challenge_side",
+  "category": "01_solo_closeup",
+  "subcategory": "臀部特寫展示",
+  "title_zh": "Jack-O 伏地翹臀姿勢・側面全身",
+  "pattern": "solo_or_pov",
+  "default_canvas": "4:3",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "jack-o' challenge",
+   "profile",
+   "arched back",
+   "ass up",
+   "head down",
+   "legs together",
+   "on floor"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（Jack-O 伏地翹臀姿勢）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "from side",
+     "profile",
+     "jack-o' challenge",
+     "arched back",
+     "ass up",
+     "head down",
+     "arm support",
+     "legs together",
+     "sideboob",
+     "on floor"
+    ],
+    "natural_en": "Performing the Jack-O challenge pose in strict side profile on the floor with head and supporting arms pressed low to the ground, side silhouette showing the deeply arched back and raised hips with legs braced together."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   },
+   "pov": {
+    "base": [
+     "pov"
+    ]
+   }
+  },
+  "natural_en": "Strict side-profile full-body 4:3 view of the classic Jack-O challenge pose: upper body and head pressed low to the floor with arm support, deeply arched back, hips raised high, and legs braced together in side silhouette.",
+  "prompt_zh": "4:3 嚴格側面全身 Jack-O 伏地翹臀姿勢：胸肩與頭部壓低貼近地面、雙臂支撐、腰背大幅反弓並將臀部高高翹起，雙腿併攏呈現完整側面輪廓。"
+ },
+ {
+  "id": "solo_standing_split_high_kick_front",
+  "category": "01_solo_closeup",
+  "subcategory": "撩人全身／半身展示",
+  "title_zh": "站立一字馬高抬腿・正面全身",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "standing split",
+   "standing on one leg",
+   "raised leg",
+   "leg hold"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（站立一字馬高抬腿）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "standing",
+     "standing on one leg",
+     "standing split",
+     "raised leg",
+     "leg hold",
+     "holding own leg",
+     "looking at viewer"
+    ],
+    "natural_en": "Balancing on one standing leg while pulling her other leg straight up vertically beside her head in a dramatic standing split, gazing at the viewer."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   },
+   "pov": {
+    "base": [
+     "pov"
+    ]
+   }
+  },
+  "natural_en": "Front full-body view of an athletic standing split: balancing gracefully on one foot while holding the other leg pulled straight overhead.",
+  "prompt_zh": "正面全身站立一字馬：單腳直立支撐，一手拉住另一條腿筆直高舉過頭展現柔韌一字馬線條。"
+ },
+ {
+  "id": "solo_licking_lips_teasing_closeup",
+  "category": "01_solo_closeup",
+  "subcategory": "口舌特寫",
+  "title_zh": "舔唇挑逗・臉部極近特寫",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "close-up",
+   "portrait",
+   "front view",
+   "face focus"
+  ],
+  "shared_pose_tags": [
+   "licking lips",
+   "tongue out",
+   "smug",
+   "blush"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（舔唇挑逗）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "licking lips",
+     "tongue out",
+     "smug",
+     "half-closed eyes",
+     "blush",
+     "looking at viewer"
+    ],
+    "natural_en": "Tight portrait close-up running her wet tongue across her upper lip with a teasing half-lidded gaze and flushed cheeks."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   },
+   "pov": {
+    "base": [
+     "pov"
+    ]
+   }
+  },
+  "natural_en": "Front portrait close-up focused on a seductive lip-licking expression: tongue grazing her lips with playful half-closed eyes looking straight at the camera.",
+  "prompt_zh": "正面臉部極近舔唇挑逗特寫：伸出濕潤舌尖輕舔嘴唇，眼神迷離帶笑直視鏡頭。"
+ },
+ {
+  "id": "solo_double_v_tongue_out_closeup",
+  "category": "01_solo_closeup",
+  "subcategory": "口舌特寫",
+  "title_zh": "雙手比 V 吐舌挑逗・正面近景",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "upper body",
+   "front view",
+   "face focus"
+  ],
+  "shared_pose_tags": [
+   "double v",
+   "tongue out",
+   "ahegao",
+   "blush"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（雙手比 V 吐舌挑逗）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "double v",
+     "v",
+     "tongue out",
+     "open mouth",
+     "blush",
+     "heart-shaped pupils",
+     "looking at viewer"
+    ],
+    "natural_en": "Upper-body front shot flashing peace signs with both hands beside her flushed cheeks, mouth open with tongue sticking out playfully."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   },
+   "pov": {
+    "base": [
+     "pov"
+    ]
+   }
+  },
+  "natural_en": "Front upper-body close-up showing the iconic double peace-sign pose beside her face with tongue sticking out, heavy blush, and teasing eyes.",
+  "prompt_zh": "正面半身雙 V 吐舌挑逗：雙手於臉側齊比 V 字手勢，張口吐舌、雙頰潮紅直視鏡頭。"
+ },
+ {
+  "id": "solo_grabbing_own_breast_closeup",
+  "category": "01_solo_closeup",
+  "subcategory": "胸部特寫展示",
+  "title_zh": "雙手自揉托胸展示・正面特寫",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "upper body",
+   "close-up",
+   "front view",
+   "breast focus"
+  ],
+  "shared_pose_tags": [
+   "grabbing own breast",
+   "breast squeeze",
+   "breast lift"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（雙手自揉托胸展示）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "grabbing own breast",
+     "breast squeeze",
+     "breast lift",
+     "blush",
+     "parted lips",
+     "looking at viewer"
+    ],
+    "natural_en": "Cupping and squeezing both of her own breasts firmly from underneath with both hands, pushing them together while blushing and looking at the viewer."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   },
+   "pov": {
+    "base": [
+     "pov"
+    ]
+   }
+  },
+  "natural_en": "Front upper-body close-up focused on her chest as she grabs and squeezes her own breasts with both hands while gazing at the lens.",
+  "prompt_zh": "正面胸部特寫自揉展示：雙手托握並向內擠壓自身雙胸，唇微啟潮紅凝視鏡頭。"
+ },
+ {
+  "id": "solo_grabbing_own_ass_rear_closeup",
+  "category": "01_solo_closeup",
+  "subcategory": "臀部特寫展示",
+  "title_zh": "雙手掰臀展示・後視特寫",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "back",
+  "mirrorable": true,
+  "camera_tags": [
+   "close-up",
+   "from behind",
+   "ass focus"
+  ],
+  "shared_pose_tags": [
+   "grabbing own ass",
+   "spread ass",
+   "bent over",
+   "looking back"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（雙手掰臀展示）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "bent over",
+     "grabbing own ass",
+     "spread ass",
+     "ass",
+     "looking back",
+     "blush",
+     "looking at viewer"
+    ],
+    "natural_en": "Bent over with her back to the camera, using both hands to grab and spread her buttocks apart while glancing back over her shoulder."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   },
+   "pov": {
+    "base": [
+     "pov"
+    ]
+   }
+  },
+  "natural_en": "Rear close-up focused on her hips and buttocks: bending forward while grabbing and spreading her own ass with both hands and looking back at the viewer.",
+  "prompt_zh": "後視近景雙手掰臀展示：背對鏡頭俯身，雙手握住臀瓣向兩側拉開展示並回眸望向鏡頭。"
+ },
+ {
+  "id": "solo_spread_anus_bent_over_rear",
+  "category": "01_solo_closeup",
+  "subcategory": "私處展示特寫",
+  "title_zh": "俯身雙手掰開後庭展示・後視特寫",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "back",
+  "mirrorable": true,
+  "camera_tags": [
+   "close-up",
+   "from behind",
+   "ass focus"
+  ],
+  "shared_pose_tags": [
+   "spread anus",
+   "anus",
+   "spread ass",
+   "bent over"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（俯身雙手掰開後庭展示）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "bent over",
+     "spread ass",
+     "spread anus",
+     "anus",
+     "grabbing own ass",
+     "looking back",
+     "blush",
+     "looking at viewer"
+    ],
+    "natural_en": "Bent over from behind with legs apart, reaching back with both hands to pull her buttocks wide and expose her anus directly to the camera while looking back."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   },
+   "pov": {
+    "base": [
+     "pov"
+    ]
+   }
+  },
+  "natural_en": "Rear close-up of a woman bent over spreading her buttocks wide with both hands to clearly present her anus, glancing back over her shoulder.",
+  "prompt_zh": "後視特寫俯身掰開後庭：背對鏡頭微張雙腿前傾，雙手向兩側掰開臀部清楚展示後庭並羞紅回眸。"
+ },
+ {
+  "id": "solo_exhibitionism_flashing_shirt_lift_front",
+  "category": "01_solo_closeup",
+  "subcategory": "撩人全身／半身展示",
+  "title_zh": "掀衣閃露露出展示・正面半身",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "cowboy shot",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "exhibitionism",
+   "flashing",
+   "shirt lift",
+   "clothes lift",
+   "breasts out"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（掀衣閃露露出展示）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "standing",
+     "exhibitionism",
+     "flashing",
+     "shirt lift",
+     "clothes lift",
+     "breasts out",
+     "blush",
+     "smug",
+     "looking at viewer"
+    ],
+    "natural_en": "Standing facing the viewer while lifting the front of her top high up with both hands to brazenly flash her bare breasts with a teasing blush."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   },
+   "pov": {
+    "base": [
+     "pov"
+    ]
+   }
+  },
+  "natural_en": "Front cowboy shot of playful exhibitionism: lifting her top up with both hands to flash her chest boldly at the camera.",
+  "prompt_zh": "正面七分身掀衣閃露展示：站姿雙手將上衣高高掀起大方露出胸口，臉泛潮紅帶挑逗笑意直視鏡頭。"
+ },
+ {
+  "id": "solo_remote_control_vibrator_panties_front",
+  "category": "01_solo_closeup",
+  "subcategory": "私處展示特寫",
+  "title_zh": "衣內遙控跳蛋忍耐・正面七分身",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "cowboy shot",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "remote control vibrator",
+   "vibrator under panties",
+   "egg vibrator",
+   "trembling"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（衣內遙控跳蛋忍耐）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "standing",
+     "knock-kneed",
+     "remote control vibrator",
+     "vibrator under panties",
+     "egg vibrator",
+     "trembling",
+     "sweat",
+     "blush",
+     "biting own lip",
+     "looking at viewer"
+    ],
+    "natural_en": "Standing with knees pressed tightly together and legs trembling, biting her lip and sweating as a hidden egg vibrator buzzes beneath her panties."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   },
+   "pov": {
+    "base": [
+     "pov"
+    ]
+   }
+  },
+  "natural_en": "Front cowboy shot capturing restrained arousal: standing knock-kneed and trembling with sweat and flushed cheeks while enduring a remote-control vibrator tucked under her panties.",
+  "prompt_zh": "正面七分身衣內遙控跳蛋忍耐：雙膝緊夾微顫、額角滲汗並忍耐咬唇，表現內褲下隱藏跳蛋震動的克制神態。"
+ },
+ {
+  "id": "solo_masturbation_through_clothes_sitting",
+  "category": "01_solo_closeup",
+  "subcategory": "私處展示特寫",
+  "title_zh": "隔衣自慰刺激・坐姿正面",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "cowboy shot",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "masturbation through clothes",
+   "female masturbation",
+   "hand between legs",
+   "spread legs"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（隔衣自慰刺激）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "sitting",
+     "spread legs",
+     "masturbation through clothes",
+     "female masturbation",
+     "hand between legs",
+     "blush",
+     "half-closed eyes",
+     "open mouth"
+    ],
+    "natural_en": "Seated with knees spread apart, pressing and rubbing her hand firmly against her crotch over her panties with flushed cheeks and half-closed eyes."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   },
+   "pov": {
+    "base": [
+     "pov"
+    ]
+   }
+  },
+  "natural_en": "Front seated view of clothed masturbation: rubbing herself through her panties with legs parted, breathing heavily with a warm blush.",
+  "prompt_zh": "正面坐姿隔衣自慰：坐姿張腿、單手隔著貼身衣物按揉下體，面色潮紅、眼眸迷離微喘。"
+ },
+ {
+  "id": "solo_spread_pussy_under_clothes_front",
+  "category": "01_solo_closeup",
+  "subcategory": "私處展示特寫",
+  "title_zh": "隔衣撥開內褲私處展示・正面特寫",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "close-up",
+   "front view",
+   "crotch focus"
+  ],
+  "shared_pose_tags": [
+   "spread pussy under clothes",
+   "panties aside",
+   "spread pussy",
+   "pussy juice"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（隔衣撥開內褲私處展示）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "sitting",
+     "spread legs",
+     "panties aside",
+     "spread pussy under clothes",
+     "spread pussy",
+     "pussy juice",
+     "blush",
+     "looking at viewer"
+    ],
+    "natural_en": "Seated with legs parted, pulling the crotch of her panties to one side with her fingers to spread and reveal her glistening pussy underneath."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   },
+   "pov": {
+    "base": [
+     "pov"
+    ]
+   }
+  },
+  "natural_en": "Front crotch-focused close-up: pulling her panties aside with one hand while spreading her pussy beneath her clothes, glistening with wetness.",
+  "prompt_zh": "正面近景隔衣撥開私處展示：坐姿張腿將內褲檔部撥向一側並以指尖輕分私處，清楚展現濕潤細節。"
  }
 ]

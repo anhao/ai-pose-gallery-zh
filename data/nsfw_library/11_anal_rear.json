@@ -1827,5 +1827,96 @@
   },
   "natural_en": "Horizontal rear three-quarter full-body view of anal toy dilation: the receiver stays on all fours at lower left with hips elevated and looks back while the giver kneels behind at right guiding an anal toy.",
   "prompt_zh": "橫構圖後斜側後庭道具擴張：承受方居左下四肢著地高翹臀部並回頭；施與方居右跪於身後前傾，一手扶臀一手持道具緩慢擴張。"
+ },
+ {
+  "id": "anal_imminent_allfours_hover_side",
+  "category": "11_anal_rear",
+  "subcategory": "後入四肢與俯趴",
+  "title_zh": "後庭臨界對位懸停・四肢著地側面全身",
+  "pattern": "organ_bound",
+  "default_canvas": "4:3",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "imminent anal",
+   "imminent penetration",
+   "all fours",
+   "ass up"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側四肢著地翹臀回眸）",
+    "requires": "female",
+    "center": {
+     "x": 0.36,
+     "y": 0.56
+    },
+    "tags": [
+     "all fours",
+     "arched back",
+     "ass up",
+     "imminent anal",
+     "imminent penetration",
+     "blush",
+     "looking back"
+    ],
+    "natural_en": "On all fours on the left arching her lower back and lifting her buttocks, glancing back nervously right before anal entry."
+   },
+   "giver": {
+    "label_zh": "施與方（右側跪姿扶莖對準後庭臨界）",
+    "requires": "penis_or_strapon_or_nonhuman",
+    "center": {
+     "x": 0.68,
+     "y": 0.52
+    },
+    "tags": [
+     "kneeling",
+     "erection",
+     "imminent anal",
+     "imminent penetration",
+     "penis grab",
+     "hand on another's hip"
+    ],
+    "natural_en": "Kneeling behind her on the right holding one hip steady while guiding the tip of his erect penis right up to her anus before entering."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "imminent anal"
+    ],
+    "giver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "imminent anal"
+    ],
+    "giver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "imminent anal"
+    ],
+    "giver": [
+     "strap-on"
+    ]
+   }
+  },
+  "natural_en": "Side full-body view of imminent anal penetration: on all fours glancing back nervously while the partner kneels behind aligning the tip right at her anus.",
+  "prompt_zh": "4:3 側面全身後庭臨界對位：左側四肢著地翹臀羞紅回眸，右側跪於身後扶胯並以手扶莖對準後庭入口尚未進入。"
  }
 ]

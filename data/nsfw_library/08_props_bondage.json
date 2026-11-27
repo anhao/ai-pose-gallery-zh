@@ -1753,5 +1753,319 @@
   },
   "natural_en": "Side full-body view of an adult woman leaning back against a wall with one leg slightly raised, fingering herself.",
   "prompt_zh": "側面全身：背靠牆面站立微抬單腿，一手撐牆一手探至腿間自慰。"
+ },
+ {
+  "id": "bondage_shibari_over_clothes_standing_front",
+  "category": "08_props_bondage",
+  "subcategory": "繩縛",
+  "title_zh": "隔衣龜甲縛束縛・正面全身",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view"
+  ],
+  "shared_pose_tags": [
+   "shibari over clothes",
+   "shibari",
+   "bondage",
+   "rope",
+   "arms behind back"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（隔著衣物緊縛龜甲縛）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "standing",
+     "shibari over clothes",
+     "shibari",
+     "bondage",
+     "rope",
+     "arms behind back",
+     "bound arms",
+     "blush",
+     "looking at viewer"
+    ],
+    "natural_en": "Standing facing the camera tightly bound in an intricate diamond shibari rope harness tied directly over her clothes, arms bound behind her back."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   },
+   "pov": {
+    "base": [
+     "pov"
+    ]
+   }
+  },
+  "natural_en": "Front full-body view of shibari over clothes: standing with arms tied behind her back and symmetrical diamond rope bindings cinching over her outfit.",
+  "prompt_zh": "正面全身隔衣龜甲縛：雙臂反縛身後，整齊對稱的繩結緊勒於貼身衣物之外勾勒出輪廓，羞紅直視鏡頭。"
+ },
+ {
+  "id": "solo_anal_beads_pulling_out_rear_3q",
+  "category": "08_props_bondage",
+  "subcategory": "單人自慰與震動棒／假陽具",
+  "title_zh": "後庭拉珠拉出展示・斜後特寫",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "back",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from behind",
+   "three-quarter view",
+   "ass focus"
+  ],
+  "shared_pose_tags": [
+   "anal beads",
+   "anal beads in ass",
+   "anal bead pull",
+   "pulling",
+   "kneeling",
+   "ass up"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（四肢著地反手輕拉後庭拉珠）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.52
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "arched back",
+     "ass up",
+     "anal beads",
+     "anal beads in ass",
+     "anal bead pull",
+     "pulling",
+     "arm behind back",
+     "hand behind back",
+     "looking back",
+     "blush",
+     "looking at viewer"
+    ],
+    "natural_en": "On all fours arching her back with one hand reaching behind to gently pull a string of anal beads out, glancing back over her shoulder with a blush."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   },
+   "pov": {
+    "base": [
+     "pov"
+    ]
+   }
+  },
+  "natural_en": "Rear three-quarter full-body view of anal beads: on all fours with buttocks lifted, reaching one hand back to tug a string of beads while looking over her shoulder.",
+  "prompt_zh": "斜後視全身後庭拉珠：四肢著地翹臀反弓，單手反伸輕拉後庭拉珠串並臉紅回眸看鏡頭。"
+ },
+ {
+  "id": "solo_butt_plug_display_allfours_rear",
+  "category": "08_props_bondage",
+  "subcategory": "單人自慰與震動棒／假陽具",
+  "title_zh": "四肢著地肛塞展示・後視全身",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "back",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from behind",
+   "ass focus"
+  ],
+  "shared_pose_tags": [
+   "butt plug",
+   "jewel butt plug",
+   "anal",
+   "all fours",
+   "ass up"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（四肢著地翹臀展示肛塞）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.52
+    },
+    "tags": [
+     "all fours",
+     "kneeling",
+     "arched back",
+     "ass up",
+     "butt plug",
+     "jewel butt plug",
+     "anus",
+     "looking back",
+     "blush",
+     "looking at viewer"
+    ],
+    "natural_en": "On all fours seen from behind with hips raised high and knees parted, displaying a jeweled butt plug tucked securely inside while glancing back blushing."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   },
+   "pov": {
+    "base": [
+     "pov"
+    ]
+   }
+  },
+  "natural_en": "Rear full-body view on all fours displaying a butt plug: hips raised and spine arched, looking back over her shoulder with flushed cheeks.",
+  "prompt_zh": "後視全身四肢著地肛塞展示：四肢著地塌腰翹臀、清楚展示後庭肛塞，羞紅回眸望向鏡頭。"
+ },
+ {
+  "id": "bondage_breast_bondage_kneeling_front",
+  "category": "08_props_bondage",
+  "subcategory": "繩縛",
+  "title_zh": "縛胸繩結展示・跪姿正面",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view",
+   "breast focus"
+  ],
+  "shared_pose_tags": [
+   "breast bondage",
+   "shibari",
+   "bondage",
+   "rope",
+   "arms behind back"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（跪姿雙臂後縛＋緊勒縛胸）",
+    "requires": "breasts",
+    "center": {
+     "x": 0.5,
+     "y": 0.52
+    },
+    "tags": [
+     "kneeling",
+     "breast bondage",
+     "shibari",
+     "bondage",
+     "rope",
+     "arms behind back",
+     "bound arms",
+     "blush",
+     "looking at viewer"
+    ],
+    "natural_en": "Kneeling upright facing the camera with arms bound behind her back and tight red rope wrapped squarely above and below her breasts in classic breast bondage."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   },
+   "pov": {
+    "base": [
+     "pov"
+    ]
+   }
+  },
+  "natural_en": "Front full-body view of kneeling breast bondage: arms tied behind her back with tight rope harnessing framing and lifting both breasts.",
+  "prompt_zh": "正面全身跪姿縛胸：跪坐挺身、雙臂反縛身後，繩索緊緊纏繞上下勒出飽滿胸型，潮紅直視鏡頭。"
+ },
+ {
+  "id": "femdom_holding_whip_kneeling_sub_side",
+  "category": "08_props_bondage",
+  "subcategory": "感官與牽引調教",
+  "title_zh": "持皮鞭調教威壓・側面全身",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "4:3",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "whip",
+   "holding whip",
+   "femdom",
+   "bondage",
+   "collar"
+  ],
+  "slots": {
+   "giver": {
+    "label_zh": "施與方（左側站立手持皮鞭俯視）",
+    "requires": "female",
+    "center": {
+     "x": 0.32,
+     "y": 0.48
+    },
+    "tags": [
+     "standing",
+     "whip",
+     "holding whip",
+     "arm up",
+     "raised arm",
+     "hand on hip",
+     "femdom",
+     "smug",
+     "looking down",
+     "facing another"
+    ],
+    "natural_en": "Standing imperiously on the left holding a leather riding crop or whip raised lightly in one hand, looking down with a confident smirk."
+   },
+   "receiver": {
+    "label_zh": "承受方（右側跪姿戴項圈仰望）",
+    "requires": "any",
+    "center": {
+     "x": 0.7,
+     "y": 0.62
+    },
+    "tags": [
+     "kneeling",
+     "collar",
+     "bound wrists",
+     "arms behind back",
+     "looking up",
+     "facing another"
+    ],
+    "natural_en": "Kneeling submissively on the right wearing a collar with wrists bound, looking up at the whip-holding partner."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ]
+   }
+  },
+  "natural_en": "Side full-body view of whip domination: the woman stands on the left holding a whip with a smug gaze down at her collared kneeling partner on the right.",
+  "prompt_zh": "4:3 側面全身持皮鞭調教：左側女性站立手持皮鞭挑逗俯視，右側承受方戴項圈綁腕跪地仰望。"
  }
 ]
