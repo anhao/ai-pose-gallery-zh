@@ -265,7 +265,7 @@
    "bondage",
    "through wall",
    "stuck",
-   "wall"
+   "wall (structure)"
   ],
   "slots": {
    "subject": {
@@ -278,11 +278,11 @@
     "tags": [
      "through wall",
      "stuck",
-     "wall",
+     "wall (structure)",
      "bent over",
      "ass",
      "spread legs",
-     "pussy from behind"
+     "pussy"
     ],
     "natural_en": "Stuck through a hole in a solid wall so her head, arms, and upper torso are hidden on the far side of the wall while only her hips, buttocks, and spread legs protrude on this side, bent over."
    }
@@ -431,12 +431,12 @@
     },
     "tags": [
      "sitting",
-     "sitting on floor",
+     "sitting on ground",
      "straight legs",
      "outstretched legs",
      "legs together",
      "feet together",
-     "feet forward",
+     "feet up",
      "soles",
      "leaning back",
      "arm support",
@@ -494,7 +494,7 @@
      "spread legs",
      "arms up",
      "stationary restraints",
-     "tied to bed",
+     "on bed",
      "bound wrists",
      "bound ankles",
      "looking at viewer"
@@ -1190,7 +1190,6 @@
     },
     "tags": [
      "kneeling",
-     "behind",
      "leaning forward",
      "holding rope",
      "tying",
@@ -1235,10 +1234,9 @@
    "rope",
    "bound wrists",
    "stationary restraints",
-   "tied to bed",
+   "on bed",
    "headboard",
-   "missionary",
-   "on bed"
+   "missionary"
   ],
   "slots": {
    "receiver": {
@@ -1253,7 +1251,8 @@
      "on back",
      "arms up",
      "bound wrists",
-     "tied to bed",
+     "stationary restraints",
+     "on bed",
      "spread legs",
      "knees up",
      "looking up",

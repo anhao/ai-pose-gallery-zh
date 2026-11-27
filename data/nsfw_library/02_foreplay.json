@@ -2192,7 +2192,7 @@
     "tags": [
      "kiss",
      "tongue",
-     "holding another's face",
+     "hand on another's cheek",
      "leaning forward"
     ],
     "natural_en": "Leaning in close, cradling the partner's face in a deep French kiss with a delicate saliva bridge."
@@ -2273,7 +2273,7 @@
      "kneeling",
      "leaning forward",
      "breast sucking",
-     "hands on another's breasts"
+     "grabbing another's breast"
     ],
     "natural_en": "Kneeling in front, cupping the partner's breasts and sucking on a nipple."
    }
@@ -2605,11 +2605,11 @@
    "from side"
   ],
   "shared_pose_tags": [
-   "armpit licking",
+   "armpit lick",
    "licking armpit",
    "armpits",
    "arm up",
-   "hugging",
+   "hug",
    "saliva"
   ],
   "slots": {
@@ -2625,8 +2625,8 @@
      "arm up",
      "hand behind head",
      "armpits",
-     "armpit licking",
-     "hugging",
+     "armpit lick",
+     "hug",
      "hand on another's head",
      "sweat",
      "blush",
@@ -2643,12 +2643,12 @@
     },
     "tags": [
      "kneeling",
-     "armpit licking",
+     "armpit lick",
      "licking armpit",
      "tongue out",
      "saliva",
      "holding another's arm",
-     "hugging",
+     "hug",
      "leaning forward",
      "facing another"
     ],
@@ -2687,7 +2687,7 @@
   ],
   "shared_pose_tags": [
    "licking ear",
-   "ear biting",
+   "biting ear",
    "tongue out",
    "saliva",
    "hug from behind"

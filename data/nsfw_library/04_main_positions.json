@@ -415,7 +415,7 @@
     },
     "tags": [
      "all fours",
-     "on elbows",
+     "elbow rest",
      "head down",
      "ass up",
      "arched back",
@@ -1898,7 +1898,7 @@
    "sex from behind",
    "standing on one leg",
    "knee up",
-   "lifted leg",
+   "raised leg",
    "sex"
   ],
   "slots": {
@@ -1913,10 +1913,9 @@
      "standing",
      "standing on one leg",
      "knee up",
-     "lifted leg",
+     "raised leg",
      "bent knee",
      "facing away",
-     "back to partner",
      "hands on own knee",
      "profile",
      "standing sex",
@@ -1933,10 +1932,7 @@
     },
     "tags": [
      "standing",
-     "behind",
-     "chest to back",
      "leaning forward",
-     "holding another's thigh",
      "holding another's leg",
      "looking down",
      "profile",
@@ -3122,8 +3118,8 @@
     },
     "tags": [
      "all fours",
-     "on elbows",
-     "bent arms",
+     "elbow rest",
+     "bent arm",
      "arched back",
      "looking at viewer",
      "doggystyle"
@@ -3211,7 +3207,7 @@
    "doggystyle",
    "sex from behind",
    "grabbing another's hair",
-   "hair pull"
+   "pulling hair"
   ],
   "slots": {
    "receiver": {
@@ -3226,7 +3222,7 @@
      "arched back",
      "head back",
      "open mouth",
-     "hair pull",
+     "pulling hair",
      "doggystyle"
     ],
     "natural_en": "On all fours at lower left with one hand braced on the floor while head and chest are pulled upward by the hair, back sharply arched."
@@ -3242,7 +3238,7 @@
      "kneeling",
      "leaning forward",
      "grabbing another's hair",
-     "hair pull",
+     "pulling hair",
      "hand on another's hip",
      "looking down",
      "doggystyle",
@@ -4918,8 +4914,7 @@
   "shared_pose_tags": [
    "missionary",
    "legs together",
-   "knees together",
-   "closed legs",
+   "knock-kneed",
    "sex"
   ],
   "slots": {
@@ -4935,8 +4930,7 @@
      "on back",
      "legs up",
      "legs together",
-     "knees together",
-     "closed legs",
+     "knock-kneed",
      "crossed ankles",
      "knees to chest",
      "closed eyes",
@@ -5156,7 +5150,7 @@
     "tags": [
      "kneeling",
      "leaning forward",
-     "hands beside head",
+     "arms up",
      "missionary"
     ],
     "natural_en": "Leaning over her with hands braced beside her shoulders, held tightly by her leg lock."
@@ -5218,8 +5212,7 @@
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "from behind",
-   "back view"
+   "from behind"
   ],
   "shared_pose_tags": [
    "doggystyle",

@@ -609,8 +609,7 @@
   "shared_pose_tags": [
    "curtains",
    "peeking",
-   "voyeurism",
-   "behind curtain"
+   "voyeurism"
   ],
   "slots": {
    "subject": {
@@ -622,9 +621,8 @@
     },
     "tags": [
      "standing",
-     "holding curtain",
+     "curtain grab",
      "peeking",
-     "partially hidden",
      "looking at viewer"
     ],
     "natural_en": "Standing behind a curtain in the center of the frame, half hidden by the curtain, legs spread apart, one hand holding the curtain aside, peeking out and looking at the viewer."
@@ -812,13 +810,12 @@
    "front view",
    "pov",
    "peeking",
-   "framing",
    "black border"
   ],
   "shared_pose_tags": [
    "masturbation",
    "keyhole",
-   "looking through keyhole"
+   "peeking"
   ],
   "slots": {
    "subject": {
@@ -864,7 +861,7 @@
   "shared_pose_tags": [
    "mirror",
    "reflection",
-   "wall mirror"
+   "full-length mirror"
   ],
   "slots": {
    "subject": {
@@ -949,7 +946,6 @@
   "camera_tags": [
    "from below",
    "worm's-eye view",
-   "extreme low angle",
    "foreshortening"
   ],
   "shared_pose_tags": [
@@ -997,9 +993,7 @@
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "dutch angle",
-   "tilted",
-   "dynamic angle"
+   "dutch angle"
   ],
   "shared_pose_tags": [
    "kneeling",
@@ -1021,7 +1015,7 @@
      "arms behind head",
      "spread legs",
      "looking at viewer",
-     "tilted"
+     "dutch angle"
     ],
     "natural_en": "Kneeling upright in the center of the frame with the torso leaning back and the back deeply arched, both arms behind the head, knees apart with legs spread, looking at the viewer while the tilted camera places the body on a diagonal across the frame."
    }
@@ -1263,7 +1257,7 @@
    "sex from behind",
    "mirror",
    "reflection",
-   "wall mirror"
+   "full-length mirror"
   ],
   "slots": {
    "receiver": {
@@ -2159,7 +2153,7 @@
     },
     "tags": [
      "kneeling",
-     "squeezing breasts",
+     "breast squeeze",
      "hands on own breasts",
      "looking up",
      "looking at viewer",
@@ -2210,7 +2204,7 @@
     },
     "tags": [
      "kneeling",
-     "grabbing penis",
+     "penis grab",
      "holding penis",
      "looking up",
      "looking at viewer",
@@ -2249,7 +2243,7 @@
   "shared_pose_tags": [
    "kiss",
    "face focus",
-   "leaning towards viewer",
+   "leaning forward",
    "eye contact"
   ],
   "slots": {
@@ -2263,7 +2257,7 @@
     "tags": [
      "portrait",
      "upper body",
-     "leaning towards viewer",
+     "leaning forward",
      "puckered lips",
      "looking at viewer",
      "eye contact",
@@ -2343,7 +2337,6 @@
    "pov",
    "pov hands",
    "from below",
-   "low angle",
    "front view",
    "close-up",
    "foreshortening"
@@ -2752,8 +2745,7 @@
    "arm up",
    "armpits",
    "armpit crease",
-   "sweat",
-   "presenting armpits"
+   "sweat"
   ],
   "slots": {
    "subject": {
@@ -2942,7 +2934,7 @@
   "shared_pose_tags": [
    "pov hands",
    "finger in mouth",
-   "sucking finger",
+   "finger suck",
    "saliva",
    "looking up"
   ],
@@ -2957,7 +2949,7 @@
     "tags": [
      "pov hands",
      "finger in mouth",
-     "sucking finger",
+     "finger suck",
      "tongue",
      "saliva",
      "saliva trail",

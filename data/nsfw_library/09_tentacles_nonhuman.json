@@ -15,7 +15,7 @@
   "shared_pose_tags": [
    "tentacles",
    "tentacle grab",
-   "tentacle bondage",
+   "restrained by tentacles",
    "spread legs"
   ],
   "slots": {
@@ -35,9 +35,7 @@
      "looking up",
      "tentacles",
      "tentacle grab",
-     "tentacle bondage",
-     "coiled tentacles",
-     "tentacles on body"
+     "restrained by tentacles"
     ],
     "natural_en": "Lying on her back with wrists held overhead and ankles pulled apart by thick writhing tentacles, legs spread wide, back arched and looking up, multiple slimy tentacles coiling tightly around her wrists, waist, thighs and ankles."
    }
@@ -310,8 +308,7 @@
      "tentacle grab",
      "tentacle in mouth",
      "oral",
-     "tentacle bondage",
-     "coiled tentacles"
+     "restrained by tentacles"
     ],
     "natural_en": "Kneeling upright with back arched and looking up, mouth open with tongue out, thick tentacles coiling tightly around her torso and waist, one tentacle tip pressed against her open mouth."
    }
@@ -338,7 +335,6 @@
   "camera_tags": [
    "full body",
    "wide shot",
-   "long shot",
    "side view",
    "from side"
   ],
@@ -445,7 +441,6 @@
   "camera_tags": [
    "full body",
    "wide shot",
-   "long shot",
    "side view",
    "from side"
   ],
@@ -665,7 +660,7 @@
   "shared_pose_tags": [
    "tentacles",
    "tentacle grab",
-   "tentacle bondage",
+   "restrained by tentacles",
    "against wall"
   ],
   "slots": {
@@ -679,15 +674,13 @@
     "tags": [
      "standing",
      "against wall",
-     "back against wall",
      "arms up",
      "legs apart",
      "arched back",
      "looking at viewer",
      "tentacles",
      "tentacle grab",
-     "tentacle bondage",
-     "coiled tentacles"
+     "restrained by tentacles"
     ],
     "natural_en": "Standing upright with her back against a stone wall, facing the camera, as tentacles hold her raised wrists overhead and grip her ankles apart."
    }
@@ -702,7 +695,7 @@
   "natural_en": "Front full-body view of an adult woman standing upright against a wall, held in place by tentacles around her raised wrists and her ankles, legs apart.",
   "prompt_zh": "正面全身觸手壁壓：女子背貼牆面直立，觸手纏住高舉的雙腕並抓住分開的雙踝，拱背直視鏡頭。",
   "scene_tags": [
-   "wall",
+   "wall (structure)",
    "stone wall"
   ]
  },
@@ -842,7 +835,6 @@
   "camera_tags": [
    "full body",
    "wide shot",
-   "long shot",
    "side view",
    "from side"
   ],
@@ -981,7 +973,7 @@
   "natural_en": "Rear full-body view of standing sex against a wall: a towering nonhuman fantasy partner looms directly behind the receiver, pinning her forward against the wall.",
   "prompt_zh": "背面全身非人貼牆後入：承受方雙手撐牆微前傾，高大非人魔物居後整個籠罩身軀並扶胯壓入。",
   "scene_tags": [
-   "wall"
+   "wall (structure)"
   ]
  },
  {

@@ -422,7 +422,7 @@
    "against wall",
    "kabedon",
    "face to face",
-   "wall"
+   "wall (structure)"
   ],
   "slots": {
    "receiver": {
@@ -436,7 +436,6 @@
      "standing",
      "standing sex",
      "against wall",
-     "back against wall",
      "kabedon",
      "facing another",
      "looking at another"
@@ -957,7 +956,7 @@
      "bent over",
      "leaning forward",
      "against glass",
-     "hands on glass",
+     "hand on glass",
      "arched back",
      "doggystyle",
      "sex from behind",
@@ -1084,7 +1083,7 @@
      "sitting on chair",
      "cowgirl position",
      "upright straddle",
-     "back to viewer",
+     "facing away",
      "hands on another's hips",
      "looking up"
     ],
@@ -1262,7 +1261,7 @@
    "leg lift",
    "against wall",
    "face to face",
-   "wall"
+   "wall (structure)"
   ],
   "slots": {
    "receiver": {
@@ -1277,7 +1276,6 @@
      "standing on one leg",
      "standing sex",
      "against wall",
-     "back against wall",
      "leg up",
      "arms around neck",
      "facing another",
@@ -1596,7 +1594,7 @@
      "against glass",
      "breasts on glass",
      "breast press",
-     "hands on glass",
+     "hand on glass",
      "sex from behind",
      "spread legs",
      "looking at viewer"
@@ -1686,7 +1684,7 @@
    "oral",
    "face to face",
    "couch",
-   "sitting on couch"
+   "sitting on sofa"
   ],
   "slots": {
    "receiver": {
@@ -1698,7 +1696,7 @@
     },
     "tags": [
      "sitting",
-     "sitting on couch",
+     "sitting on sofa",
      "leaning back",
      "spread legs",
      "hand on another's head",
@@ -2341,7 +2339,6 @@
   "prompt_zh": "4:3 俯視斜側全身樓梯扶手立交：承受方背靠樓梯欄杆單腳站立、另一腿高抬，施與方面對面站立托住其大腿貼近結合。",
   "scene_tags": [
    "stairs",
-   "staircase",
    "railing"
   ]
  },
@@ -2971,7 +2968,7 @@
      "straddling",
      "reverse cowgirl position",
      "sitting on lap",
-     "holding steering wheel",
+     "steering wheel",
      "leaning forward",
      "arched back",
      "looking back"
@@ -3185,7 +3182,7 @@
      "bent over",
      "leaning forward",
      "against railing",
-     "hands on railing",
+     "railing",
      "arched back",
      "ass up",
      "doggystyle",
@@ -3606,7 +3603,7 @@
    "standing sex",
    "doggystyle",
    "sex from behind",
-   "train sex"
+   "train interior"
   ],
   "slots": {
    "receiver": {
@@ -3691,8 +3688,7 @@
   "natural_en": "Side full-body view inside a train car: the receiver stands upright on the left holding a hanging strap overhead while the giver stands close behind on the right, one hand on the hip and one on a breast.",
   "prompt_zh": "側面全身電車站立後入：承受方居左直立、單手高舉拉住吊環並閉眼；施與方居右緊貼其背後站立，一手扶胯一手握胸。",
   "scene_tags": [
-   "train interior",
-   "hand strap"
+   "train interior"
   ]
  },
  {
@@ -3934,7 +3930,6 @@
      "standing on one leg",
      "standing sex",
      "against wall",
-     "back against wall",
      "leg up",
      "arms around neck",
      "facing another",
@@ -4152,7 +4147,7 @@
      "sex from behind",
      "against glass",
      "breasts on glass",
-     "hands on glass",
+     "hand on glass",
      "breast press",
      "closed eyes"
     ],

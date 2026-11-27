@@ -317,9 +317,8 @@
      "straddling",
      "kneeling",
      "leaning forward",
-     "grabbing another's wrists",
      "wrist grab",
-     "arms forward",
+     "reaching",
      "looking down"
     ],
     "natural_en": "Straddling and kneeling astride the partner on the left side of the frame during cowgirl sex, leaning far forward with arms extended to pin the partner's wrists to the surface, looking down at the partner beneath."
@@ -705,8 +704,8 @@
      "straddling",
      "kneeling",
      "leaning forward",
-     "grabbing another's wrists",
-     "arms forward",
+     "wrist grab",
+     "reaching",
      "looking down"
     ],
     "natural_en": "Straddling and kneeling over the partner on the right side of the frame, leaning forward with both hands gripping and pinning the partner's wrists above their head to the surface, looking down at the submissive partner."
@@ -1097,8 +1096,7 @@
   "mirrorable": true,
   "camera_tags": [
    "full body",
-   "from above",
-   "high angle"
+   "from above"
   ],
   "shared_pose_tags": [
    "facesitting",
@@ -1566,7 +1564,7 @@
    "femdom",
    "dominant female",
    "collar",
-   "grabbing another's collar",
+   "collar grab",
    "face to face"
   ],
   "slots": {
@@ -1581,7 +1579,7 @@
      "standing",
      "leaning forward",
      "hand on another's neck",
-     "grabbing another's collar",
+     "collar grab",
      "hand on hip",
      "looking down"
     ],
@@ -1646,7 +1644,7 @@
    "face to face"
   ],
   "scene_tags": [
-   "wall"
+   "wall (structure)"
   ],
   "slots": {
    "receiver": {
