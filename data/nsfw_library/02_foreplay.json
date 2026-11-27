@@ -2589,5 +2589,157 @@
   },
   "natural_en": "High-angle front view of an adult woman lying on her back while her partner kneels between her legs, holding both thighs wide open before contact.",
   "prompt_zh": "正面俯視全身：受方仰躺屈膝，攻方跪於雙腿之間雙手扶開大腿內側、俯身凝視進入前臨界停頓。"
+ },
+ {
+  "id": "foreplay_armpit_licking_raised_arm_side",
+  "category": "02_foreplay",
+  "subcategory": "耳頸親吻與撫摸腰腿",
+  "title_zh": "雙人側面舔腋下・抬臂貼身舔舐",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "4:3",
+  "default_facing": "three_quarter_left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "armpit licking",
+   "licking armpit",
+   "armpits",
+   "arm up",
+   "hugging",
+   "saliva"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側舉臂露出腋窩微顫）",
+    "requires": "female",
+    "center": {
+     "x": 0.36,
+     "y": 0.5
+    },
+    "tags": [
+     "kneeling",
+     "arm up",
+     "hand behind head",
+     "armpits",
+     "armpit licking",
+     "hugging",
+     "hand on another's head",
+     "sweat",
+     "blush",
+     "closed eyes"
+    ],
+    "natural_en": "Kneeling on the left with one arm lifted behind her head exposing her bare sweaty armpit while resting her other hand on her partner's head, blushing with eyes closed as her partner licks her armpit."
+   },
+   "giver": {
+    "label_zh": "施與方（右側貼近伸舌舔舐腋窩）",
+    "requires": "any",
+    "center": {
+     "x": 0.64,
+     "y": 0.54
+    },
+    "tags": [
+     "kneeling",
+     "armpit licking",
+     "licking armpit",
+     "tongue out",
+     "saliva",
+     "holding another's arm",
+     "hugging",
+     "leaning forward",
+     "facing another"
+    ],
+    "natural_en": "Kneeling close beside her on the right, embracing her and holding her raised arm steady while pressing their face into her exposed armpit to lick it with an outstretched tongue."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ]
+   }
+  },
+  "natural_en": "Three-quarter side upper-body view of armpit licking: the woman on the left lifts her arm behind her head blushing while her partner leans in from the right, holding her waist and licking her sweaty armpit.",
+  "prompt_zh": "4:3 斜側近景雙人舔腋下：左側承受方抬臂抱頭露出腋窩微紅閉眼，右側施與方扶腰貼近伸舌舔舐腋窩。"
+ },
+ {
+  "id": "foreplay_ear_licking_closeup_side",
+  "category": "02_foreplay",
+  "subcategory": "耳頸親吻與撫摸腰腿",
+  "title_zh": "側面貼耳舔舐・耳畔吐舌近景",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "4:3",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "close-up",
+   "upper body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "licking ear",
+   "ear biting",
+   "tongue out",
+   "saliva",
+   "hug from behind"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側微偏頭露耳羞紅）",
+    "requires": "any",
+    "center": {
+     "x": 0.38,
+     "y": 0.52
+    },
+    "tags": [
+     "head tilt",
+     "blush",
+     "closed eyes",
+     "shivering",
+     "sweat"
+    ],
+    "natural_en": "On the left tilting the head slightly to expose the ear, blushing deeply with eyes squeezed shut as the partner licks the earlobe."
+   },
+   "giver": {
+    "label_zh": "施與方（右側貼近耳畔伸舌舔耳）",
+    "requires": "female",
+    "center": {
+     "x": 0.64,
+     "y": 0.48
+    },
+    "tags": [
+     "leaning forward",
+     "licking ear",
+     "tongue out",
+     "saliva",
+     "hand on another's shoulder",
+     "facing another"
+    ],
+    "natural_en": "Leaning intimately close from the right with one hand resting on the partner's shoulder, extending her tongue to gently lick the partner's ear."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri"
+    ]
+   }
+  },
+  "natural_en": "Intimate side close-up of ear licking: one partner leans in from the right with a hand on the shoulder, tongue extended to lick the blushing partner's ear on the left.",
+  "prompt_zh": "4:3 側面近景貼耳舔舐：右側角色輕扶肩部貼近耳畔伸舌舔舐耳廓，左側承受方微偏頭臉紅閉眼。"
  }
 ]

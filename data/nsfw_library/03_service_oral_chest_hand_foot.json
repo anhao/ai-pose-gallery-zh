@@ -5603,5 +5603,278 @@
   },
   "natural_en": "Side full-body view of facesitting anilingus: one partner lies on their back gripping the hips of the partner squatting over their face.",
   "prompt_zh": "側面全身：施與方仰躺雙手托住對方臀部，承受方高蹲跨坐其臉上承接舔肛。"
+ },
+ {
+  "id": "pos_oral_bed_edge_head_hanging_deepthroat_side",
+  "category": "03_service_oral_chest_hand_foot",
+  "subcategory": "口部侍奉 fellatio",
+  "title_zh": "床緣頭垂下倒掛深喉・側面全身",
+  "pattern": "organ_bound",
+  "default_canvas": "4:3",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "fellatio",
+   "deepthroat",
+   "irrumatio",
+   "head back",
+   "on bed"
+  ],
+  "scene_tags": [
+   "bed"
+  ],
+  "slots": {
+   "giver": {
+    "label_zh": "施與方（仰躺床緣頭垂下深喉）",
+    "requires": "female",
+    "center": {
+     "x": 0.36,
+     "y": 0.54
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "on bed",
+     "head back",
+     "fellatio",
+     "deepthroat",
+     "irrumatio",
+     "penis in mouth",
+     "saliva"
+    ],
+    "natural_en": "Lying on her back on the bed on the left with her head hanging upside down off the bed edge, taking the standing partner's penis deep into her throat."
+   },
+   "receiver": {
+    "label_zh": "承受方（床邊站立扶頭深入）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.72,
+     "y": 0.46
+    },
+    "tags": [
+     "standing",
+     "erection",
+     "hands on another's head",
+     "irrumatio",
+     "fellatio",
+     "looking down",
+     "facing another"
+    ],
+    "natural_en": "Standing on the floor beside the bed edge on the right, holding her hanging head gently with both hands as he thrusts forward into her upside-down mouth."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "fellatio"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "fellatio"
+    ],
+    "receiver": [
+     "futanari",
+     "penis"
+    ]
+   },
+   "female_female": {
+    "base": [
+     "yuri",
+     "fellatio"
+    ],
+    "receiver": [
+     "strap-on"
+    ]
+   }
+  },
+  "natural_en": "Side full-body view of bed-edge inverted deepthroat: the woman lies on her back on the bed on the left with her head hanging off the edge while the partner stands on the right gripping her head during deepthroat fellatio.",
+  "prompt_zh": "4:3 側面全身床緣倒掛深喉：左側承受侍奉者仰躺床上將頭垂出床緣後仰，右側站立於床邊雙手扶頭深入喉腔。"
+ },
+ {
+  "id": "pos_oral_cheek_bulge_looking_up_closeup_3q",
+  "category": "03_service_oral_chest_hand_foot",
+  "subcategory": "口部侍奉 fellatio",
+  "title_zh": "口交臉頰鼓起・斜正面仰望近景特寫",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "three_quarter_left",
+  "mirrorable": true,
+  "camera_tags": [
+   "close-up",
+   "three-quarter view",
+   "from above",
+   "face focus"
+  ],
+  "shared_pose_tags": [
+   "fellatio",
+   "cheek bulge",
+   "deepthroat",
+   "penis in mouth",
+   "saliva",
+   "saliva trail"
+  ],
+  "slots": {
+   "giver": {
+    "label_zh": "施與方（跪姿口含臉頰明顯鼓起仰望）",
+    "requires": "female",
+    "center": {
+     "x": 0.44,
+     "y": 0.58
+    },
+    "tags": [
+     "kneeling",
+     "fellatio",
+     "cheek bulge",
+     "deepthroat",
+     "penis in mouth",
+     "saliva",
+     "saliva trail",
+     "blush",
+     "tears",
+     "looking up",
+     "looking at viewer"
+    ],
+    "natural_en": "Kneeling in close high-angle three-quarter view taking the penis deep sideways inside her mouth so one cheek visibly bulges outward, glistening with saliva while gazing up tearfully."
+   },
+   "receiver": {
+    "label_zh": "承受方（站立腰胯入鏡與扶頭手）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.62,
+     "y": 0.36
+    },
+    "tags": [
+     "standing",
+     "head out of frame",
+     "erection",
+     "hand on another's head",
+     "fellatio"
+    ],
+    "natural_en": "Standing close on the right with his head cropped out of frame above, resting one hand on her head as his erect penis presses deep sideways into her cheek."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "fellatio"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "fellatio"
+    ],
+    "receiver": [
+     "futanari",
+     "penis"
+    ]
+   }
+  },
+  "natural_en": "High-angle three-quarter close-up focusing on a distinct cheek bulge during fellatio: the kneeling woman wraps her lips tightly with one cheek visibly bulging outward, saliva glistening, looking up at her standing partner.",
+  "prompt_zh": "斜側高角近景口交臉頰鼓起特寫：跪姿施與方口含側頂使單側臉頰清晰鼓起、雙頰潮紅仰望，承受方立於斜前輕扶頭部。"
+ },
+ {
+  "id": "pos_oral_imminent_fellatio_tongue_out_closeup_3q",
+  "category": "03_service_oral_chest_hand_foot",
+  "subcategory": "口部侍奉 fellatio",
+  "title_zh": "臨界吐舌待含口交・仰望近景特寫",
+  "pattern": "organ_bound",
+  "default_canvas": "3:4",
+  "default_facing": "three_quarter_left",
+  "mirrorable": true,
+  "camera_tags": [
+   "close-up",
+   "three-quarter view",
+   "from above",
+   "face focus"
+  ],
+  "shared_pose_tags": [
+   "imminent fellatio",
+   "erection",
+   "tongue out",
+   "open mouth",
+   "saliva"
+  ],
+  "slots": {
+   "giver": {
+    "label_zh": "施與方（跪姿仰望張口吐舌待含）",
+    "requires": "female",
+    "center": {
+     "x": 0.44,
+     "y": 0.62
+    },
+    "tags": [
+     "kneeling",
+     "imminent fellatio",
+     "leaning forward",
+     "hands on another's thighs",
+     "open mouth",
+     "tongue out",
+     "saliva",
+     "blush",
+     "looking up",
+     "looking at viewer"
+    ],
+    "natural_en": "Kneeling in close three-quarter high-angle view with hands resting on the partner's thighs, mouth opened wide and wet tongue extended directly beneath the approaching erect tip, blushing as she looks up just before taking it in."
+   },
+   "receiver": {
+    "label_zh": "承受方（站立近景逼近唇前）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.6,
+     "y": 0.36
+    },
+    "tags": [
+     "standing",
+     "legs apart",
+     "erection",
+     "imminent fellatio",
+     "hand on another's head",
+     "looking down"
+    ],
+    "natural_en": "Standing close in front of her with legs apart and one hand resting lightly on her head, looking down as his erect penis hovers inches in front of her open mouth and outstretched tongue."
+   }
+  },
+  "pairing_tags": {
+   "female_male": {
+    "base": [
+     "hetero",
+     "imminent fellatio"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   },
+   "female_futa": {
+    "base": [
+     "yuri",
+     "futanari",
+     "imminent fellatio"
+    ],
+    "receiver": [
+     "futanari",
+     "penis"
+    ]
+   }
+  },
+  "natural_en": "High-angle three-quarter close-up of imminent fellatio: the kneeling woman opens her mouth wide with her wet tongue sticking out toward the approaching erect penis right in front of her lips while gazing up with flushed cheeks.",
+  "prompt_zh": "斜側高角近景臨界口交特寫：跪姿施與方仰望張口吐舌對準逼近唇前的前端，保持即將含入前的張力瞬間。"
  }
 ]

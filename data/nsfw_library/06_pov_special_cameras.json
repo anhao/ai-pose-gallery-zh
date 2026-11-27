@@ -2730,5 +2730,313 @@
   },
   "natural_en": "First-person 4:3 view of two women sitting side by side facing the viewer, leaning back on their arms as all four soles converge on the center foreground in a cooperative footjob.",
   "prompt_zh": "4:3 第一人稱雙女四足合夾足交：兩名女性分坐左右兩側後撐伸腿，四隻腳底齊向畫面中央合夾侍奉。"
+ },
+ {
+  "id": "pov_armpit_raised_arm_extreme_closeup",
+  "category": "06_pov_special_cameras",
+  "subcategory": "第一人稱",
+  "title_zh": "POV 第一人稱極近賞腋・舉臂近迫特寫",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "three_quarter_left",
+  "mirrorable": true,
+  "camera_tags": [
+   "pov",
+   "close-up",
+   "three-quarter view",
+   "from below",
+   "armpit focus",
+   "foreshortening"
+  ],
+  "shared_pose_tags": [
+   "arm up",
+   "armpits",
+   "armpit crease",
+   "sweat",
+   "presenting armpits"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（高舉單臂極近貼鏡展示腋窩）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "arm up",
+     "hand behind head",
+     "armpits",
+     "armpit focus",
+     "armpit crease",
+     "sweat",
+     "blush",
+     "looking down",
+     "looking at viewer"
+    ],
+    "natural_en": "Leaning closely over the first-person viewer with one arm raised high behind her head, pressing her smooth glistening sweaty armpit right into the foreground while looking down teasingly."
+   }
+  },
+  "pairing_tags": {
+   "pov": {
+    "base": [
+     "pov"
+    ]
+   },
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "First-person low-angle close-up: the woman lifts her arm high overhead, bringing her glistening sweaty armpit right up close to the lens while looking down at the viewer with a teasing blush.",
+  "prompt_zh": "第一人稱低角極近賞腋特寫：角色高舉手臂抱頭將微汗光滑的腋窩極近貼向鏡頭前景，低頭含羞俯視觀者。"
+ },
+ {
+  "id": "pov_double_armpit_standing_arms_up_wide",
+  "category": "06_pov_special_cameras",
+  "subcategory": "第一人稱",
+  "title_zh": "雙女並立抬臂賞腋・橫幅特寫",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "4:3",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "pov",
+   "upper body",
+   "front view",
+   "armpit focus"
+  ],
+  "shared_pose_tags": [
+   "side by side",
+   "arms behind head",
+   "armpits",
+   "sweat"
+  ],
+  "slots": {
+   "left_partner": {
+    "label_zh": "左側角色（雙手抱頭高抬腋窩）",
+    "requires": "female",
+    "center": {
+     "x": 0.3,
+     "y": 0.5
+    },
+    "tags": [
+     "arms behind head",
+     "arms up",
+     "armpits",
+     "armpit focus",
+     "sweat",
+     "blush",
+     "looking at viewer"
+    ],
+    "natural_en": "Standing on the left side with both hands clasped behind her head, elbows wide to clearly present both glistening armpits while looking at the viewer."
+   },
+   "right_partner": {
+    "label_zh": "右側角色（雙手抱頭高抬腋窩）",
+    "requires": "female",
+    "center": {
+     "x": 0.7,
+     "y": 0.5
+    },
+    "tags": [
+     "arms behind head",
+     "arms up",
+     "armpits",
+     "armpit focus",
+     "sweat",
+     "blush",
+     "looking at viewer"
+    ],
+    "natural_en": "Standing right beside her partner on the right with both hands clasped behind her head, elbows wide to clearly present both glistening armpits while looking at the viewer."
+   }
+  },
+  "pairing_tags": {
+   "female_female": {
+    "base": [
+     "pov"
+    ]
+   }
+  },
+  "natural_en": "First-person 4:3 upper-body view of two women standing side by side, both raising their hands behind their heads with elbows lifted to display all four glistening armpits toward the viewer.",
+  "prompt_zh": "4:3 第一人稱雙女並立賞腋特寫：兩名女性並肩雙手抱於腦後高舉雙肘，清楚展示微汗雙腋並直視鏡頭。"
+ },
+ {
+  "id": "pov_ear_licking_asmr_closeup",
+  "category": "06_pov_special_cameras",
+  "subcategory": "第一人稱",
+  "title_zh": "POV ASMR 耳舐め・極近俯身伸舌探手",
+  "pattern": "solo_or_pov",
+  "default_canvas": "4:3",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "pov",
+   "close-up",
+   "from below",
+   "dutch angle",
+   "face focus",
+   "foreshortening"
+  ],
+  "shared_pose_tags": [
+   "leaning forward",
+   "tongue out",
+   "reaching towards viewer",
+   "saliva",
+   "head tilt"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（極近歪頭俯身吐舌探手貼耳）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "leaning forward",
+     "head tilt",
+     "tongue out",
+     "saliva",
+     "reaching towards viewer",
+     "hand up",
+     "half-closed eyes",
+     "blush",
+     "looking at viewer"
+    ],
+    "natural_en": "Leaning ultra-close over the viewer in a tilted ASMR close-up, head angled sideways with tongue extended and glistening with saliva as if about to lick the viewer's ear, one hand reaching delicately into the foreground."
+   }
+  },
+  "pairing_tags": {
+   "pov": {
+    "base": [
+     "pov"
+    ]
+   },
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   }
+  },
+  "natural_en": "Intimate 4:3 ASMR first-person close-up with tilted Dutch angle: the woman leans right up to the lens with head angled, moist tongue sticking out toward the viewer's ear, one hand reaching into the foreground and seductive half-closed eyes.",
+  "prompt_zh": "4:3 第一人稱 ASMR 耳舐め極近特寫：斜傾鏡頭下角色極近俯身歪頭伸出濕潤舌尖逼近耳側，單手伸向前景輕探、眼神迷離挑逗。"
+ },
+ {
+  "id": "pov_finger_in_mouth_sucking_closeup",
+  "category": "06_pov_special_cameras",
+  "subcategory": "第一人稱",
+  "title_zh": "POV 第一人稱吮指・手指入嘴仰望特寫",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "pov",
+   "close-up",
+   "portrait",
+   "from above",
+   "face focus",
+   "mouth focus"
+  ],
+  "shared_pose_tags": [
+   "pov hands",
+   "finger in mouth",
+   "sucking finger",
+   "saliva",
+   "looking up"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（仰望含住觀者手指吮吸拉絲）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.52
+    },
+    "tags": [
+     "pov hands",
+     "finger in mouth",
+     "sucking finger",
+     "tongue",
+     "saliva",
+     "saliva trail",
+     "blush",
+     "looking up",
+     "looking at viewer"
+    ],
+    "natural_en": "High-angle first-person close-up: looking up at the viewer with flushed cheeks as the viewer's fingers reach into her parted mouth, her wet tongue wrapping around the fingers with glistening saliva."
+   }
+  },
+  "pairing_tags": {
+   "pov": {
+    "base": [
+     "pov",
+     "pov hands"
+    ]
+   }
+  },
+  "natural_en": "First-person high-angle portrait close-up: the viewer's hand reaches into frame to slip fingers between the blushing woman's lips as she sucks them with wet saliva strands and gazes up at the camera.",
+  "prompt_zh": "第一人稱高角吮指特寫：觀者手部伸入畫面將手指送入角色唇間，角色含指吐舌吮吸並帶唾液光澤，潮紅仰望鏡頭。"
+ },
+ {
+  "id": "pov_fellatio_tongue_lick_hand_combo_closeup",
+  "category": "06_pov_special_cameras",
+  "subcategory": "第一人稱",
+  "title_zh": "POV 口交極近舔舐・仰望手口並用特寫",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "pov",
+   "pov crotch",
+   "close-up",
+   "from above",
+   "face focus"
+  ],
+  "shared_pose_tags": [
+   "fellatio",
+   "licking penis",
+   "handjob",
+   "saliva trail",
+   "looking up"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（極近跪姿雙手扶握吐舌側舔仰望）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.54
+    },
+    "tags": [
+     "kneeling",
+     "fellatio",
+     "licking penis",
+     "handjob",
+     "holding penis",
+     "tongue out",
+     "saliva",
+     "saliva trail",
+     "blush",
+     "looking up",
+     "looking at viewer"
+    ],
+    "natural_en": "Tight first-person high-angle close-up: kneeling close below, gripping the erect penis with her hand while extending her wet tongue to lick along the shaft with glistening saliva strands, gazing straight up at the viewer."
+   }
+  },
+  "pairing_tags": {
+   "pov": {
+    "base": [
+     "pov",
+     "pov crotch",
+     "penis",
+     "fellatio"
+    ]
+   }
+  },
+  "natural_en": "Tight first-person high-angle close-up of hand-and-tongue oral service: looking straight down at the blushing woman gripping the viewer's penis while licking it with an extended tongue and saliva trails, staring up into the lens.",
+  "prompt_zh": "第一人稱高角極近手口並用舔舐特寫：角色近距跪仰、手持握莖身同時吐舌沿側舔舐並拉出唾液絲，眼神上挑直視鏡頭。"
  }
 ]

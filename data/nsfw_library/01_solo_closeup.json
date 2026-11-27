@@ -3147,5 +3147,240 @@
   },
   "natural_en": "Symmetrical front extreme foreshortened close-up: seated with knees spread apart, both feet pressed side by side right at the bottom center of the lens with huge soles and spread toes dominating the foreground.",
   "prompt_zh": "正面對稱巨足透視特寫：角色坐姿雙膝外張，雙腳內緣緊貼併攏推至畫面正下方極近前景，五趾齊張直面鏡頭。"
+ },
+ {
+  "id": "solo_armpit_arms_behind_head_closeup",
+  "category": "01_solo_closeup",
+  "subcategory": "腋下展示",
+  "title_zh": "雙手抱頭極近腋窩特寫・流汗近景",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "close-up",
+   "upper body",
+   "front view",
+   "armpit focus"
+  ],
+  "shared_pose_tags": [
+   "arms behind head",
+   "armpits",
+   "armpit crease",
+   "sweat"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（雙手抱腦後展示流汗腋窩）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "arms behind head",
+     "arms up",
+     "armpits",
+     "armpit focus",
+     "armpit crease",
+     "sweat",
+     "blush",
+     "looking at viewer"
+    ],
+    "natural_en": "Upper-body front close-up with both arms raised and hands clasped behind her head, clearly displaying both glistening sweaty armpits and smooth armpit creases while looking shyly at the viewer."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   },
+   "pov": {
+    "base": [
+     "pov"
+    ]
+   }
+  },
+  "natural_en": "Tight upper-body front close-up focused on both raised armpits: the woman clasps her hands behind her head with elbows lifted wide, glistening sweat along her armpit creases while gazing at the camera.",
+  "prompt_zh": "正面極近腋窩特寫：雙手抱於腦後、雙肘高抬，清楚呈現微汗油亮的雙側腋窩與線條，眼神直視鏡頭。"
+ },
+ {
+  "id": "solo_finger_sucking_saliva_closeup",
+  "category": "01_solo_closeup",
+  "subcategory": "口舌特寫",
+  "title_zh": "單人吮指拉絲・口舌極近特寫",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "close-up",
+   "portrait",
+   "front view",
+   "face focus",
+   "mouth focus"
+  ],
+  "shared_pose_tags": [
+   "finger in mouth",
+   "sucking finger",
+   "hand to own mouth",
+   "saliva",
+   "saliva trail"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（吮吸手指吐舌拉絲）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "finger in mouth",
+     "sucking finger",
+     "index finger in mouth",
+     "hand to own mouth",
+     "pursed lips",
+     "saliva",
+     "saliva trail",
+     "blush",
+     "looking at viewer"
+    ],
+    "natural_en": "Tight portrait close-up: her head slightly tilted, wrapping her lips tightly around her inserted index finger deep inside her mouth with glistening saliva strands while gazing seductively at the viewer."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   },
+   "pov": {
+    "base": [
+     "pov"
+    ]
+   }
+  },
+  "natural_en": "Front portrait close-up focused on her mouth: wrapping her lips tightly around her own glistening finger inserted inside her mouth with fine saliva strands while looking straight at the camera.",
+  "prompt_zh": "正面極近口舌特寫：單人微偏頭將手指深入唇間緊密吮吸並拉出細長唾液絲，眼神迷離直視鏡頭。"
+ },
+ {
+  "id": "solo_fellatio_gesture_teasing_closeup",
+  "category": "01_solo_closeup",
+  "subcategory": "口舌特寫",
+  "title_zh": "隔空口交手勢挑逗・張口吐舌特寫",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "close-up",
+   "upper body",
+   "front view",
+   "face focus"
+  ],
+  "shared_pose_tags": [
+   "fellatio gesture",
+   "suggestive gesture",
+   "open mouth",
+   "tongue out",
+   "saliva"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（單手隔空口交手勢張口吐舌挑逗）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "fellatio gesture",
+     "suggestive gesture",
+     "hand up",
+     "open mouth",
+     "tongue out",
+     "saliva",
+     "smug",
+     "blush",
+     "looking at viewer"
+    ],
+    "natural_en": "Front upper-body close-up: making a teasing ring-shaped fellatio gesture with one hand beside her open mouth, sticking out her wet tongue with a smug blushing gaze straight at the viewer."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   },
+   "pov": {
+    "base": [
+     "pov"
+    ]
+   }
+  },
+  "natural_en": "Front upper-body close-up of a teasing fellatio gesture: holding a loose ring-shaped hand gesture next to her open mouth with her wet tongue out, smirking seductively at the camera with no actual penis present.",
+  "prompt_zh": "正面近景特寫：單手舉於唇側比出環狀隔空口交手勢，同時張口伸出濕潤舌尖、帶著挑逗神情直視鏡頭。"
+ },
+ {
+  "id": "solo_cunnilingus_gesture_v_tongue_closeup",
+  "category": "01_solo_closeup",
+  "subcategory": "口舌特寫",
+  "title_zh": "V 字吐舌挑逗手勢・口舌特寫",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "close-up",
+   "upper body",
+   "front view",
+   "face focus"
+  ],
+  "shared_pose_tags": [
+   "cunnilingus gesture",
+   "suggestive gesture",
+   "v",
+   "tongue out",
+   "saliva"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（雙指比V夾於吐舌旁挑逗）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "cunnilingus gesture",
+     "suggestive gesture",
+     "v",
+     "hand to mouth",
+     "tongue out",
+     "saliva",
+     "smug",
+     "blush",
+     "looking at viewer"
+    ],
+    "natural_en": "Front upper-body close-up: framing her outstretched wet tongue between two fingers held in a V gesture right at her mouth, blushing with a teasing smug gaze at the viewer."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   },
+   "pov": {
+    "base": [
+     "pov"
+    ]
+   }
+  },
+  "natural_en": "Front upper-body close-up of a teasing cunnilingus V-finger gesture: placing two fingers in a V sign on either side of her protruding moist tongue while looking smugly at the camera.",
+  "prompt_zh": "正面近景特寫：雙指比出 V 字夾於吐出的濕潤舌尖兩側，臉頰微紅並以挑逗神情直視鏡頭。"
  }
 ]
