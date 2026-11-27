@@ -2845,5 +2845,307 @@
   },
   "natural_en": "Low-angle front view of an adult woman sitting with knees raised and slightly apart, looking down at the viewer from above.",
   "prompt_zh": "正面低角仰視全身：坐姿雙膝立起微張，手臂環抱小腿並垂眼望向鏡頭。"
+ },
+ {
+  "id": "solo_soles_stacked_horizontal_holding_shoe",
+  "category": "01_solo_closeup",
+  "subcategory": "足部與腳底純展示",
+  "title_zh": "橫疊雙足底特寫・持鞋俯視",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "close-up",
+   "front view",
+   "foot focus",
+   "foreshortening"
+  ],
+  "shared_pose_tags": [
+   "presenting foot",
+   "soles",
+   "toes",
+   "crossed ankles",
+   "holding shoe"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（前景橫疊雙足底＋單手持鞋俯視）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "sitting",
+     "legs up",
+     "crossed ankles",
+     "feet up",
+     "presenting foot",
+     "soles",
+     "toes",
+     "spread toes",
+     "holding shoe",
+     "looking down",
+     "looking at viewer"
+    ],
+    "natural_en": "Seated behind with one hand holding up a removed high-heel shoe while both bare soles are stacked horizontally one above the other right in front of the lens in extreme foreshortening, toes spread, smiling down at the viewer."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   },
+   "pov": {
+    "base": [
+     "pov"
+    ]
+   }
+  },
+  "natural_en": "Extreme foreshortened front close-up focused on both soles stacked horizontally across the lower foreground while the seated woman leans behind holding one removed shoe up and smiling at the viewer.",
+  "prompt_zh": "正面極近透視賞足特寫：雙腳底在前景上下橫向交疊撐滿畫面，角色居後俯視微笑並單手拎起高跟鞋展示。"
+ },
+ {
+  "id": "solo_soles_arch_asymmetric_left_face_right",
+  "category": "01_solo_closeup",
+  "subcategory": "足部與腳底純展示",
+  "title_zh": "橫構圖左足右臉・不對稱足弓與腳底特寫",
+  "pattern": "solo_or_pov",
+  "default_canvas": "4:3",
+  "default_facing": "three_quarter_left",
+  "mirrorable": true,
+  "camera_tags": [
+   "close-up",
+   "three-quarter view",
+   "foot focus",
+   "foreshortening"
+  ],
+  "shared_pose_tags": [
+   "presenting foot",
+   "soles",
+   "toes",
+   "spread toes"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（左側雙足不對稱足弓與腳底＋右側露臉）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "lying",
+     "on side",
+     "bent knees",
+     "legs up",
+     "feet up",
+     "presenting foot",
+     "soles",
+     "toes",
+     "spread toes",
+     "looking at viewer"
+    ],
+    "natural_en": "Reclining diagonally across a horizontal frame with her face and upper body on the right while both raised legs fill the left foreground: one foot angled sideways showcasing the high arch and toes, the other sole pressed directly toward the camera."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   },
+   "pov": {
+    "base": [
+     "pov"
+    ]
+   }
+  },
+  "natural_en": "Horizontal 4:3 extreme foreshortened close-up with asymmetric raised feet filling the left foreground—one showing its side arch, the other presenting its full sole—while the woman's upper body and smiling face appear on the right.",
+  "prompt_zh": "4:3 橫構圖左足右臉賞足特寫：左側大前景呈現不對稱高舉雙足（一足側展足弓、一足正對腳底張趾），角色上半身與臉部居右側斜望鏡頭。"
+ },
+ {
+  "id": "solo_soles_high_edge_raised_diagonal",
+  "category": "01_solo_closeup",
+  "subcategory": "足部與腳底純展示",
+  "title_zh": "高緣側坐高翹雙足・左臉右足斜角仰視",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "three_quarter_right",
+  "mirrorable": true,
+  "camera_tags": [
+   "close-up",
+   "from below",
+   "three-quarter view",
+   "foot focus",
+   "foreshortening"
+  ],
+  "shared_pose_tags": [
+   "presenting foot",
+   "soles",
+   "toes",
+   "spread toes",
+   "legs up"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（左側倚坐＋右側雙足錯位高翹貼鏡）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "sitting",
+     "leaning back",
+     "legs up",
+     "feet up",
+     "presenting foot",
+     "soles",
+     "toes",
+     "spread toes",
+     "looking down",
+     "looking at viewer"
+    ],
+    "natural_en": "Seated on the left leaning back on one arm while lifting both legs high toward the upper right foreground, feet staggered one in front of the other with soles and spread toes looming right above the low-angle lens."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   },
+   "pov": {
+    "base": [
+     "pov"
+    ]
+   }
+  },
+  "natural_en": "Low-angle three-quarter foreshortened close-up: the woman sits back on the left looking down shyly while both raised feet loom diagonally across the right foreground with soles and spread toes facing the camera.",
+  "prompt_zh": "斜角仰視左臉右足賞足特寫：角色居左後仰倚坐俯視鏡頭，雙腿朝右上方錯位高翹，雙腳底張趾大透視貼近前景。"
+ },
+ {
+  "id": "solo_soles_leaning_forward_panties_pull",
+  "category": "01_solo_closeup",
+  "subcategory": "足部與腳底純展示",
+  "title_zh": "坐姿前傾勾衣展示・前景極近張趾雙足底",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "close-up",
+   "front view",
+   "foot focus",
+   "foreshortening"
+  ],
+  "shared_pose_tags": [
+   "presenting foot",
+   "soles",
+   "toes",
+   "spread toes",
+   "clothes pull"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（前傾雙手拉衣展示＋前景極大張趾雙足底）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "sitting",
+     "leaning forward",
+     "spread legs",
+     "feet up",
+     "presenting foot",
+     "soles",
+     "toes",
+     "spread toes",
+     "clothes pull",
+     "hands on own chest",
+     "looking at viewer"
+    ],
+    "natural_en": "Sitting and leaning forward toward the camera with both hands pulling the front of her lingerie straps at chest height while thrusting both soles right against the lower foreground with toes splayed wide apart."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   },
+   "pov": {
+    "base": [
+     "pov"
+    ]
+   }
+  },
+  "natural_en": "Extreme foreshortened front close-up: the woman leans forward from a seated pose pulling her top or lingerie straps with both hands while two huge symmetrical soles with widely spread toes fill the lower half of the frame.",
+  "prompt_zh": "正面極近透視賞足特寫：角色坐姿前傾、雙手於胸前勾拉衣物展示，下方前景由兩隻極大對稱張趾腳底撐滿畫面。"
+ },
+ {
+  "id": "solo_soles_together_spread_legs_extreme_closeup",
+  "category": "01_solo_closeup",
+  "subcategory": "足部與腳底純展示",
+  "title_zh": "坐姿開腿併足合掌・正中極近巨足張趾特寫",
+  "pattern": "solo_or_pov",
+  "default_canvas": "3:4",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "close-up",
+   "front view",
+   "foot focus",
+   "foreshortening"
+  ],
+  "shared_pose_tags": [
+   "presenting foot",
+   "soles",
+   "feet together",
+   "toes",
+   "spread toes",
+   "spread legs"
+  ],
+  "slots": {
+   "subject": {
+    "label_zh": "主體（開腿坐姿＋正中雙腳內緣併攏大透視張趾）",
+    "requires": "female",
+    "center": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "tags": [
+     "sitting",
+     "spread legs",
+     "feet together",
+     "feet up",
+     "presenting foot",
+     "soles",
+     "toes",
+     "spread toes",
+     "looking at viewer"
+    ],
+    "natural_en": "Sitting upright with knees spread wide to the sides while pressing the inner edges of both feet together right in the bottom center foreground, toes fanned wide in extreme foreshortening."
+   }
+  },
+  "pairing_tags": {
+   "solo": {
+    "base": [
+     "solo"
+    ]
+   },
+   "pov": {
+    "base": [
+     "pov"
+    ]
+   }
+  },
+  "natural_en": "Symmetrical front extreme foreshortened close-up: seated with knees spread apart, both feet pressed side by side right at the bottom center of the lens with huge soles and spread toes dominating the foreground.",
+  "prompt_zh": "正面對稱巨足透視特寫：角色坐姿雙膝外張，雙腳內緣緊貼併攏推至畫面正下方極近前景，五趾齊張直面鏡頭。"
  }
 ]

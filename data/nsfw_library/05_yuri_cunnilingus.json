@@ -2075,5 +2075,74 @@
   },
   "natural_en": "Widescreen overhead full-body view of two adult women performing mutual cunnilingus in a head-to-toe 69 position.",
   "prompt_zh": "寬幅正上方俯視全身：兩名女性上下反向疊臥呈 69 式互相舔陰。"
+ },
+ {
+  "id": "yuri_foot_worship_licking_soles_side",
+  "category": "05_yuri_cunnilingus",
+  "subcategory": "雙女互相愛撫揉胸與深吻",
+  "title_zh": "女女足部崇拜・坐姿伸足捧腳舔舐",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "4:3",
+  "default_facing": "left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "side view",
+   "from side"
+  ],
+  "shared_pose_tags": [
+   "foot worship",
+   "licking foot",
+   "presenting foot",
+   "soles",
+   "face to face"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（左側坐姿伸足展示）",
+    "requires": "female",
+    "center": {
+     "x": 0.3,
+     "y": 0.5
+    },
+    "tags": [
+     "sitting",
+     "leaning back",
+     "arm support",
+     "leg up",
+     "presenting foot",
+     "soles",
+     "looking at another"
+    ],
+    "natural_en": "Sitting on the left leaning back on her hands, extending one raised leg forward to present her sole toward her kneeling partner's face."
+   },
+   "giver": {
+    "label_zh": "施與方（右側跪姿捧腳舔舐腳底）",
+    "requires": "female",
+    "center": {
+     "x": 0.68,
+     "y": 0.56
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "holding another's foot",
+     "licking foot",
+     "foot worship",
+     "tongue out",
+     "facing another"
+    ],
+    "natural_en": "Kneeling on the right facing her partner, cradling the raised ankle and foot with both hands while leaning in to lick the sole and toes."
+   }
+  },
+  "pairing_tags": {
+   "female_female": {
+    "base": [
+     "yuri"
+    ]
+   }
+  },
+  "natural_en": "Side full-body view of yuri foot worship: one woman sits leaning back on the left presenting her raised foot while the other kneels on the right holding the foot with both hands and licking the sole.",
+  "prompt_zh": "4:3 側面全身女女足部崇拜：左側女性坐姿後撐抬腿伸足，右側女性跪坐雙手捧住足踝前傾舔舐腳底與趾尖。"
  }
 ]

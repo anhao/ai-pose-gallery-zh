@@ -2441,5 +2441,294 @@
   },
   "natural_en": "First-person rear view of standing sex from behind: the viewer's hands grip the waist of an adult woman braced against a wall as she arches her back and looks over her shoulder.",
   "prompt_zh": "第一人稱站立後入：雙手自鏡頭伸出扣住對方腰際，對方扶牆彎腰塌背並回眸直視觀者。"
+ },
+ {
+  "id": "pov_double_soles_sitting_side_by_side_closeup",
+  "category": "06_pov_special_cameras",
+  "subcategory": "第一人稱",
+  "title_zh": "雙女並坐四足齊展・極近賞足特寫",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "4:3",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "pov",
+   "close-up",
+   "front view",
+   "foot focus",
+   "foreshortening"
+  ],
+  "shared_pose_tags": [
+   "side by side",
+   "presenting foot",
+   "soles",
+   "toes",
+   "spread toes"
+  ],
+  "slots": {
+   "left_partner": {
+    "label_zh": "左側角色（坐姿舉雙足貼鏡）",
+    "requires": "female",
+    "center": {
+     "x": 0.3,
+     "y": 0.5
+    },
+    "tags": [
+     "sitting",
+     "legs up",
+     "feet up",
+     "presenting foot",
+     "soles",
+     "toes",
+     "spread toes",
+     "looking at viewer"
+    ],
+    "natural_en": "Seated on the left side, raising both feet directly toward the camera in strong foreshortening with soles and spread toes filling the left foreground, looking at the viewer."
+   },
+   "right_partner": {
+    "label_zh": "右側角色（坐姿舉雙足貼鏡）",
+    "requires": "female",
+    "center": {
+     "x": 0.7,
+     "y": 0.5
+    },
+    "tags": [
+     "sitting",
+     "legs up",
+     "feet up",
+     "presenting foot",
+     "soles",
+     "toes",
+     "spread toes",
+     "looking at viewer"
+    ],
+    "natural_en": "Seated on the right side next to her partner, raising both feet directly toward the camera in strong foreshortening with soles and spread toes filling the right foreground, looking at the viewer."
+   }
+  },
+  "pairing_tags": {
+   "female_female": {
+    "base": [
+     "pov"
+    ]
+   }
+  },
+  "natural_en": "First-person 4:3 foreshortened close-up of two women sitting side by side, all four bare soles thrust toward the lens across the lower foreground with toes spread while both look at the viewer.",
+  "prompt_zh": "4:3 第一人稱雙女純賞足特寫：兩名女性並肩坐姿，四隻腳底齊推向鏡頭前景大透視張趾展示，雙人同望鏡頭。"
+ },
+ {
+  "id": "pov_double_soles_prone_side_by_side_behind",
+  "category": "06_pov_special_cameras",
+  "subcategory": "特殊透視",
+  "title_zh": "雙女俯趴翹腿四足特寫・回眸橫構圖",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "4:3",
+  "default_facing": "back",
+  "mirrorable": true,
+  "camera_tags": [
+   "close-up",
+   "from behind",
+   "foot focus",
+   "foreshortening"
+  ],
+  "shared_pose_tags": [
+   "side by side",
+   "lying",
+   "on stomach",
+   "presenting foot",
+   "soles",
+   "toes"
+  ],
+  "slots": {
+   "left_partner": {
+    "label_zh": "左側角色（俯趴翹雙腳回眸）",
+    "requires": "female",
+    "center": {
+     "x": 0.32,
+     "y": 0.52
+    },
+    "tags": [
+     "lying",
+     "on stomach",
+     "bent knees",
+     "feet up",
+     "presenting foot",
+     "soles",
+     "toes",
+     "looking back",
+     "looking at viewer"
+    ],
+    "natural_en": "Lying on her stomach on the left side with knees bent so both soles face backward toward the camera in the foreground, glancing back over her shoulder."
+   },
+   "right_partner": {
+    "label_zh": "右側角色（俯趴翹雙腳回眸）",
+    "requires": "female",
+    "center": {
+     "x": 0.68,
+     "y": 0.52
+    },
+    "tags": [
+     "lying",
+     "on stomach",
+     "bent knees",
+     "feet up",
+     "presenting foot",
+     "soles",
+     "toes",
+     "looking back",
+     "looking at viewer"
+    ],
+    "natural_en": "Lying on her stomach on the right side beside her partner with knees bent so both soles face backward toward the camera in the foreground, glancing back over her shoulder."
+   }
+  },
+  "pairing_tags": {
+   "female_female": {
+    "base": []
+   }
+  },
+  "natural_en": "Rear 4:3 foreshortened close-up of two women lying side by side on their stomachs, both bending their knees to present all four soles right in the foreground while looking back at the viewer.",
+  "prompt_zh": "4:3 後視雙女俯趴賞足特寫：兩名女性並排俯趴、同時曲膝翹起四隻腳底佔據前景，並回眸看向鏡頭。"
+ },
+ {
+  "id": "pov_double_trampling_standing_from_below",
+  "category": "06_pov_special_cameras",
+  "subcategory": "第一人稱",
+  "title_zh": "POV 雙女仰角四足踩踏壓迫・低角仰視",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "4:3",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "pov",
+   "from below",
+   "front view",
+   "foot focus",
+   "foreshortening"
+  ],
+  "shared_pose_tags": [
+   "trampling",
+   "soles",
+   "side by side",
+   "looking down"
+  ],
+  "slots": {
+   "left_partner": {
+    "label_zh": "左側角色（站立抬腳俯視下踩）",
+    "requires": "female",
+    "center": {
+     "x": 0.32,
+     "y": 0.45
+    },
+    "tags": [
+     "standing",
+     "raised leg",
+     "trampling",
+     "soles",
+     "looking down",
+     "looking at viewer"
+    ],
+    "natural_en": "Standing over the viewer on the left side, pressing one sole straight down toward the low-angle lens while gazing down imperiously."
+   },
+   "right_partner": {
+    "label_zh": "右側角色（站立抬腳俯視下踩）",
+    "requires": "female",
+    "center": {
+     "x": 0.68,
+     "y": 0.45
+    },
+    "tags": [
+     "standing",
+     "raised leg",
+     "trampling",
+     "soles",
+     "looking down",
+     "looking at viewer"
+    ],
+    "natural_en": "Standing over the viewer on the right side, pressing one sole straight down toward the low-angle lens while gazing down imperiously."
+   }
+  },
+  "pairing_tags": {
+   "female_female": {
+    "base": [
+     "pov"
+    ]
+   }
+  },
+  "natural_en": "First-person worm's-eye view from the floor looking straight up as two standing women tower on the left and right, pressing their soles down toward the viewer's face.",
+  "prompt_zh": "第一人稱極低角仰視雙女踩踏：兩名女性立於左右兩側高高俯視，各自抬腳將腳底壓向鏡頭營造強烈雙足壓迫感。"
+ },
+ {
+  "id": "pov_double_footjob_sitting_four_feet_front",
+  "category": "06_pov_special_cameras",
+  "subcategory": "第一人稱",
+  "title_zh": "POV 雙女左右四足合夾足交・正面",
+  "pattern": "geometry_dispatch",
+  "default_canvas": "4:3",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "pov",
+   "pov crotch",
+   "front view",
+   "full body",
+   "foot focus",
+   "foreshortening"
+  ],
+  "shared_pose_tags": [
+   "cooperative footjob",
+   "footjob",
+   "soles",
+   "side by side"
+  ],
+  "slots": {
+   "left_partner": {
+    "label_zh": "左側施與方（坐姿伸雙足合夾中央）",
+    "requires": "female",
+    "center": {
+     "x": 0.28,
+     "y": 0.52
+    },
+    "tags": [
+     "sitting",
+     "leaning back",
+     "arm support",
+     "legs up",
+     "cooperative footjob",
+     "footjob",
+     "soles",
+     "looking at viewer"
+    ],
+    "natural_en": "Seated on the left leaning back on her hands, extending both bare soles inward to grip the viewer's penis at center while looking at the viewer."
+   },
+   "right_partner": {
+    "label_zh": "右側施與方（坐姿伸雙足合夾中央）",
+    "requires": "female",
+    "center": {
+     "x": 0.72,
+     "y": 0.52
+    },
+    "tags": [
+     "sitting",
+     "leaning back",
+     "arm support",
+     "legs up",
+     "cooperative footjob",
+     "footjob",
+     "soles",
+     "looking at viewer"
+    ],
+    "natural_en": "Seated on the right leaning back on her hands, extending both bare soles inward to cooperatively grip the viewer's penis at center with her partner."
+   }
+  },
+  "pairing_tags": {
+   "female_female": {
+    "base": [
+     "pov",
+     "penis",
+     "footjob"
+    ]
+   }
+  },
+  "natural_en": "First-person 4:3 view of two women sitting side by side facing the viewer, leaning back on their arms as all four soles converge on the center foreground in a cooperative footjob.",
+  "prompt_zh": "4:3 第一人稱雙女四足合夾足交：兩名女性分坐左右兩側後撐伸腿，四隻腳底齊向畫面中央合夾侍奉。"
  }
 ]

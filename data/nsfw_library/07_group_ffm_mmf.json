@@ -2773,5 +2773,279 @@
   },
   "natural_en": "High-angle full-body view of cooperative fellatio: the man lies on his back in the upper middle with legs spread and head toward the top edge, while two women lie on their stomachs side by side between his legs, faces at his groin, licking the penis together from both sides.",
   "prompt_zh": "俯視全身雙人合作口交：男性居中偏上仰躺張腿，頭朝畫面上緣；兩名女性於其腿間左右並排俯趴，以手肘撐起上身，臉部貼近胯下，從兩側共同舔舐陽具並仰望。"
+ },
+ {
+  "id": "group_ffm_double_footjob_sitting_side_by_side_3q",
+  "category": "07_group_ffm_mmf",
+  "subcategory": "2女1男 FFM",
+  "title_zh": "坐姿左右夾擊雙女合作足交・正面俯視全身",
+  "pattern": "organ_bound",
+  "default_canvas": "4:3",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "front view",
+   "from above"
+  ],
+  "shared_pose_tags": [
+   "cooperative footjob",
+   "footjob",
+   "soles",
+   "threesome"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（居中坐姿張腿承接）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.5,
+     "y": 0.56
+    },
+    "tags": [
+     "sitting",
+     "leaning back",
+     "arm support",
+     "spread legs",
+     "erection"
+    ],
+    "natural_en": "Seated in the center leaning back on his hands with legs spread apart as two women seated on his left and right surround his erect penis with their soles."
+   },
+   "giver_left": {
+    "label_zh": "施與方左（左側坐姿伸足合夾）",
+    "requires": "female",
+    "center": {
+     "x": 0.22,
+     "y": 0.52
+    },
+    "tags": [
+     "sitting",
+     "leaning back",
+     "arm support",
+     "feet up",
+     "cooperative footjob",
+     "footjob",
+     "soles",
+     "facing another"
+    ],
+    "natural_en": "Seated on the left side leaning back on her hands, extending her feet inward toward the center to stroke the seated man's penis."
+   },
+   "giver_right": {
+    "label_zh": "施與方右（右側坐姿伸足合夾）",
+    "requires": "female",
+    "center": {
+     "x": 0.78,
+     "y": 0.52
+    },
+    "tags": [
+     "sitting",
+     "leaning back",
+     "arm support",
+     "feet up",
+     "cooperative footjob",
+     "footjob",
+     "soles",
+     "facing another"
+    ],
+    "natural_en": "Seated on the right side leaning back on her hands, extending her feet inward to join her partner's soles in cooperatively stroking the seated man's penis."
+   }
+  },
+  "pairing_tags": {
+   "ffm": {
+    "base": [
+     "ffm threesome",
+     "hetero",
+     "footjob"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   }
+  },
+  "natural_en": "High-angle front full-body view of an FFM cooperative footjob: the man sits leaning back in the center while two women sit on his left and right extending their feet inward together to stroke him.",
+  "prompt_zh": "4:3 正面俯視坐姿左右夾擊雙女合作足交：承受方居中後靠坐姿，兩名女性分坐左右兩側後撐伸足，四足由兩側夾持侍奉。"
+ },
+ {
+  "id": "group_ffm_double_footjob_high_seat_low_angle",
+  "category": "07_group_ffm_mmf",
+  "subcategory": "2女1男 FFM",
+  "title_zh": "雙女高坐低角四足合夾足交・仰視全身",
+  "pattern": "organ_bound",
+  "default_canvas": "4:3",
+  "default_facing": "front",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "from below",
+   "three-quarter view"
+  ],
+  "shared_pose_tags": [
+   "cooperative footjob",
+   "footjob",
+   "soles",
+   "threesome"
+  ],
+  "scene_tags": [
+   "couch"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（下方坐地承接雙足）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.5,
+     "y": 0.74
+    },
+    "tags": [
+     "sitting",
+     "on floor",
+     "profile",
+     "leaning back",
+     "arm support",
+     "bent knees",
+     "erection",
+     "looking up"
+    ],
+    "natural_en": "Seated low on the floor in front of the couch with legs spread, looking up as both women press their soles down onto his erect penis."
+   },
+   "giver_left": {
+    "label_zh": "施與方左（沙發高坐伸足下夾）",
+    "requires": "female",
+    "center": {
+     "x": 0.3,
+     "y": 0.38
+    },
+    "tags": [
+     "sitting",
+     "on couch",
+     "leaning back",
+     "feet up",
+     "footjob",
+     "soles",
+     "looking down"
+    ],
+    "natural_en": "Sitting high on the left side of the couch looking down, extending her bare feet downward to press and stroke the seated man below."
+   },
+   "giver_right": {
+    "label_zh": "施與方右（沙發高坐伸足下夾）",
+    "requires": "female",
+    "center": {
+     "x": 0.7,
+     "y": 0.38
+    },
+    "tags": [
+     "sitting",
+     "on couch",
+     "leaning back",
+     "feet up",
+     "footjob",
+     "soles",
+     "looking down"
+    ],
+    "natural_en": "Sitting high on the right side of the couch looking down, extending her bare feet downward alongside her partner's to cooperatively stroke the man below."
+   }
+  },
+  "pairing_tags": {
+   "ffm": {
+    "base": [
+     "ffm threesome",
+     "hetero",
+     "footjob"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   }
+  },
+  "natural_en": "Low-angle three-quarter full-body view: two women sit elevated side by side on a couch looking down as they extend their soles together onto the man sitting on the floor below.",
+  "prompt_zh": "4:3 低角仰視雙女高坐合作足交：兩名女性居上並坐沙發俯視伸腿，四足向下合夾侍奉坐在地面上的承受方。"
+ },
+ {
+  "id": "group_ffm_footjob_and_kiss_lying_side",
+  "category": "07_group_ffm_mmf",
+  "subcategory": "2女1男 FFM",
+  "title_zh": "雙女複合侍奉・一女足交＋一女親吻",
+  "pattern": "organ_bound",
+  "default_canvas": "4:3",
+  "default_facing": "three_quarter_left",
+  "mirrorable": true,
+  "camera_tags": [
+   "full body",
+   "wide shot",
+   "three-quarter view",
+   "from above"
+  ],
+  "shared_pose_tags": [
+   "footjob",
+   "two-footed footjob",
+   "kissing",
+   "threesome"
+  ],
+  "slots": {
+   "receiver": {
+    "label_zh": "承受方（居中仰躺承接親吻與足交）",
+    "requires": "penis_or_dildo",
+    "center": {
+     "x": 0.45,
+     "y": 0.56
+    },
+    "tags": [
+     "lying",
+     "on back",
+     "spread legs",
+     "erection",
+     "kissing"
+    ],
+    "natural_en": "Lying on his back across the center, kissing the partner kneeling by his head while the second woman strokes his penis with both feet from the foot end."
+   },
+   "giver_kiss": {
+    "label_zh": "施與方一（頭側跪俯深吻）",
+    "requires": "female",
+    "center": {
+     "x": 0.22,
+     "y": 0.44
+    },
+    "tags": [
+     "kneeling",
+     "leaning forward",
+     "kissing",
+     "french kiss",
+     "facing another"
+    ],
+    "natural_en": "Kneeling beside the man's head on the left, leaning down to kiss him deeply while resting a hand near his shoulder."
+   },
+   "giver_footjob": {
+    "label_zh": "施與方二（腿側坐姿雙足夾持）",
+    "requires": "female",
+    "center": {
+     "x": 0.78,
+     "y": 0.54
+    },
+    "tags": [
+     "sitting",
+     "leaning back",
+     "arm support",
+     "footjob",
+     "two-footed footjob",
+     "soles",
+     "facing another"
+    ],
+    "natural_en": "Sitting at the right foot end leaning back on her hands, gripping and stroking the man's erect penis between both soles."
+   }
+  },
+  "pairing_tags": {
+   "ffm": {
+    "base": [
+     "ffm threesome",
+     "hetero",
+     "footjob"
+    ],
+    "receiver": [
+     "penis"
+    ]
+   }
+  },
+  "natural_en": "High-angle three-quarter full-body wide view of an FFM split service: the man lies on his back in the center while one woman kneels at his head kissing him and the second sits at the right stroking him with both feet.",
+  "prompt_zh": "4:3 斜側俯視雙女複合侍奉：承受方居中仰躺，一女跪於頭側俯身深吻，另一女坐於右側後撐以雙足夾持足交。"
  }
 ]
