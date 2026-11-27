@@ -327,7 +327,6 @@
     "base": [
      "group sex",
      "hetero",
-     "sex",
      "fellatio"
     ],
     "front_partner": [
@@ -413,8 +412,7 @@
    "ffm": {
     "base": [
      "ffm threesome",
-     "hetero",
-     "sex"
+     "hetero"
     ],
     "receiver": [
      "penis"
@@ -494,8 +492,7 @@
    "ffm": {
     "base": [
      "ffm threesome",
-     "hetero",
-     "sex"
+     "hetero"
     ],
     "center_subject": [
      "penis"
@@ -738,8 +735,7 @@
    "mmf": {
     "base": [
      "mmf threesome",
-     "hetero",
-     "sex"
+     "hetero"
     ],
     "left_partner": [
      "penis"
@@ -1456,7 +1452,8 @@
    "standing",
    "hug",
    "group sex",
-   "threesome"
+   "threesome",
+   "side by side"
   ],
   "slots": {
    "center_subject": {
@@ -2160,7 +2157,8 @@
    "foursome",
    "missionary",
    "holding hands",
-   "on bed"
+   "on bed",
+   "side by side"
   ],
   "slots": {
    "receiver_left": {

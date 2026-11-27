@@ -107,8 +107,7 @@
    "from side"
   ],
   "shared_pose_tags": [
-   "buttjob",
-   "sex"
+   "buttjob"
   ],
   "slots": {
    "receiver": {
@@ -688,8 +687,7 @@
    "from side"
   ],
   "shared_pose_tags": [
-   "thigh sex",
-   "sex"
+   "thigh sex"
   ],
   "slots": {
    "receiver": {
@@ -854,8 +852,7 @@
    "from side"
   ],
   "shared_pose_tags": [
-   "thigh sex",
-   "sex"
+   "thigh sex"
   ],
   "slots": {
    "receiver": {
@@ -1030,8 +1027,7 @@
    "from side"
   ],
   "shared_pose_tags": [
-   "buttjob",
-   "sex"
+   "buttjob"
   ],
   "slots": {
    "receiver": {
@@ -1122,8 +1118,7 @@
    "from side"
   ],
   "shared_pose_tags": [
-   "thigh sex",
-   "sex"
+   "thigh sex"
   ],
   "slots": {
    "receiver": {
@@ -1371,8 +1366,7 @@
    "from above"
   ],
   "shared_pose_tags": [
-   "thigh sex",
-   "sex"
+   "thigh sex"
   ],
   "slots": {
    "receiver": {
@@ -2325,7 +2319,8 @@
   "shared_pose_tags": [
    "armpit sex",
    "presenting armpit",
-   "arms behind head"
+   "arms behind head",
+   "hug from behind"
   ],
   "slots": {
    "receiver": {
@@ -2353,6 +2348,7 @@
     },
     "tags": [
      "kneeling",
+     "hug from behind",
      "leaning forward",
      "looking down"
     ],
